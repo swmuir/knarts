@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Localization: plugin
+Bundle-SymbolicName: org.eclipse.mdht.uml.term.ui;singleton:=true
+Bundle-Version: 2.5.11.qualifier
+Bundle-Activator: org.eclipse.mdht.uml.term.ui.internal.Activator
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.transaction,
+ org.eclipse.emf.workspace,
+ org.eclipse.gmf.runtime.common.core,
+ org.eclipse.gmf.runtime.diagram.ui.properties,
+ org.eclipse.mdht.uml.common,
+ org.eclipse.mdht.uml.common.ui,
+ org.eclipse.mdht.uml.ui.properties,
+ org.eclipse.mdht.uml.term.core;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.mdht.uml.term.ui.actions,
+ org.eclipse.mdht.uml.term.ui.filters,
+ org.eclipse.mdht.uml.term.ui.notation,
+ org.eclipse.mdht.uml.term.ui.properties
+
