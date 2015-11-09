@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+ Copyright (c) 2012 JKM Software
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Sean Muir, JKM Software - initial API and implementation
+
+ $Id$
+-->
+
+<plugin>
+
+<extension point="org.eclipse.ui.commands">
+
+	<command  id="org.eclipse.dita.ui.commands.compare" name="COMPARE" defaultHandler="org.eclipse.mdht.dita.ui.handlers.CompareDitaHandler" >
+		
+    </command>
+    
+    <command  id="org.eclipse.dita.ui.commands.publishaspdf" name="PDF" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishPdfHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+    
+    <command  id="org.eclipse.dita.ui.commands.publishaswordrtf" name="RTF" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+ 
+      <command  id="org.eclipse.dita.ui.commands.publishasxhtml" name="XHTML" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+    
+     <command  id="org.eclipse.dita.ui.commands.publishaseclipsehelp" name="ECLIPSE HELP" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+     <command  id="org.eclipse.dita.ui.commands.publishaseclipsecontent" name="ECLIPSE CONTENT" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+     <command  id="org.eclipse.dita.ui.commands.publishasjavahelp" name="JAVA HELP" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+     <command  id="org.eclipse.dita.ui.commands.publishashtmlhelp" name="HTML HELP" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+  <command  id="org.eclipse.dita.ui.commands.publishaspdf2" name="PDF2" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishPdfHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+
+     <command  id="org.eclipse.dita.ui.commands.publishastroff" name="TROFF" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+     <command  id="org.eclipse.dita.ui.commands.publishasdocbook" name="DOCBOOK" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+
+     <command  id="org.eclipse.dita.ui.commands.publishasodt" name="ODT" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+    
+ 
+     <command  id="org.eclipse.dita.ui.commands.publishasepub" name="EPUB" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+    
+    <command  id="org.eclipse.dita.ui.commands.publishall" name="ALL" defaultHandler="org.eclipse.mdht.dita.ui.handlers.PublishDitaHandler" >
+		<commandParameter id="org.eclipse.dita.ui.parameter.target" name="target" />
+    </command>
+  
+   </extension>
+ 
+ 
+ <extension point="org.eclipse.core.expressions.definitions">
+   <definition id="org.eclipse.example.testExtension">
+      <adapt type="org.eclipse.core.resources.IResource">
+         <or>
+             <test property="org.eclipse.core.resources.extension"
+                   value="emx">
+             </test>
+             <test property="org.eclipse.core.resources.extension"
+                   value="uml">
+             </test>
+         </or>
+      </adapt>
+   </definition>
+</extension>
+
+
+
+
+ 
+     <extension point="org.eclipse.ui.menus">   
+
+
+
+
+         <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+    
+
+      <command commandId="org.eclipse.dita.ui.commands.compare" label="Compare Models (DITA)" id="org.eclipse.dita.ui.menu.compare" mnemonic="C">
+      
+      <visibleWhen>
+      <and>
+   <and>
+      <with variable="selection">
+         <iterate ifEmtpy="false">
+           <reference definitionId="org.eclipse.example.testExtension"/>
+         </iterate>
+      </with>   
+   </and>
+   
+    <and>
+      <with variable="selection">                  <count
+                        value="2">
+                  </count>
+      
+      </with>   
+   </and>
+   </and>
+</visibleWhen>
+      
+      </command>    
+      
+    </menuContribution>  
+    
+
+   <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+    
+
+      <command commandId="org.eclipse.dita.ui.commands.publishaspdf" label="Publish As PDF" id="org.eclipse.dita.ui.menu.publishaspdf" mnemonic="S">
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="pdf" />
+      	<visibleWhen>
+      	<and>
+           <with variable="selection">
+                  <iterate>
+                     <adapt type="org.eclipse.core.resources.IResource">
+                     	<test property="org.eclipse.core.resources.extension" value="ditamap" />
+                     </adapt>
+                  </iterate>
+               </with>
+	      	  <with
+	      	    variable="activeContexts">
+	      	    <test
+	      	      args="true"
+	      	      forcePluginActivation="true"
+	      	      property="org.eclipse.dita.ui.testPDF"
+	      	      value="false">
+	      	    </test>
+	      	  </with>
+	      	  </and>
+            </visibleWhen>         
+      </command>    
+      
+    </menuContribution>  
+      
+      
+    <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=org.eclipse.dita.ui.menu.publishaspdf">
+    
+     <menu label="Publish As...">
+
+            <visibleWhen>
+               <with variable="selection">
+                  <iterate>
+                     <adapt type="org.eclipse.core.resources.IResource">
+                     	<test property="org.eclipse.core.resources.extension" value="ditamap" />
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>         
+
+      <command commandId="org.eclipse.dita.ui.commands.publishaspdf" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="pdf" />
+      	<visibleWhen>
+  	  	  <with
+      	    variable="activeContexts">
+      	    <test
+      	      args="true"
+      	      forcePluginActivation="true"
+      	      property="org.eclipse.dita.ui.testPDF"
+      	      value="false">
+      	    </test>
+      	  </with>
+        </visibleWhen>         
+      </command>    
+ 
+      <command commandId="org.eclipse.dita.ui.commands.publishaswordrtf" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="wordrtf" />
+      </command>    
+
+      <command commandId="org.eclipse.dita.ui.commands.publishasxhtml" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="xhtml" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishaseclipsehelp" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="eclipsehelp" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishaseclipsecontent" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="eclipsecontent" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishasjavahelp" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="javahelp" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishashtmlhelp" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="htmlhelp" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishaspdf2" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="pdf2" />
+      		<visibleWhen>
+  	  	  <with
+      	    variable="activeContexts">
+      	    <test
+      	      args="true"
+      	      forcePluginActivation="true"
+      	      property="org.eclipse.dita.ui.testPDF"
+      	      value="false">
+      	    </test>
+      	  </with>
+        </visibleWhen>        
+      </command>    
+
+<!--
+    <command commandId="org.eclipse.dita.ui.commands.publishastroff" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="troff" />
+      </command>    
+-->
+
+    <command commandId="org.eclipse.dita.ui.commands.publishasdocbook" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="docbook" />
+      </command>    
+
+    <command commandId="org.eclipse.dita.ui.commands.publishasodt" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="odt" />
+      </command>    
+
+<!--
+      <command commandId="org.eclipse.dita.ui.commands.publishasepub" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="epub" />
+      </command>    
+-->
+
+ 
+
+      <command commandId="org.eclipse.dita.ui.commands.publishall" >
+      	<parameter name="org.eclipse.dita.ui.parameter.target" value="xhtml,eclipsehelp,eclipsecontent,javahelp,htmlhelp,pdf,pdf2,docbook,wordrtf,odt" />
+      </command>    
+ 
+     </menu>
+      
+      </menuContribution>
+      
+   </extension>
+  <extension
+    point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+      class="org.eclipse.mdht.dita.ui.handlers.PdfPreferenceTester"
+      id="org.eclipse.dita.ui.pdfTest"
+      namespace="org.eclipse.dita.ui"
+      properties="testPDF"
+      type="java.lang.Object">
+    </propertyTester>
+  </extension>
+   
+</plugin>

@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DITA Publishing Support
+Bundle-SymbolicName: org.eclipse.mdht.dita.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.mdht.dita.ui.internal.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.apache.xml.resolver,
+ org.apache.xml.serializer,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.launching;visibility:=reexport,
+ org.eclipse.debug.ui;visibility:=reexport,
+ org.eclipse.ant.launching;visibility:=reexport,
+ org.eclipse.core.externaltools,
+ org.eclipse.compare,
+ org.eclipse.core.expressions,
+ org.eclipse.core.filesystem,
+ org.apache.commons.lang,
+ org.apache.commons.logging,
+ org.eclipse.mdht.uml.common,
+ org.apache.xerces
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Export-Package: org.eclipse.mdht.dita.ui.util
