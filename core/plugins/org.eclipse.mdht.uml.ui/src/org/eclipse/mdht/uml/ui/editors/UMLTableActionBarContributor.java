@@ -4,12 +4,12 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
  *     Kenn Hussey - adding check box action to show business names (or not)
  *     Christian W. Damus - more flexible contribution/filtering of actions (artf3238)
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.ui.editors;
@@ -45,7 +45,7 @@ import org.eclipse.ui.part.IPage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 
 /**
- * 
+ *
  */
 public class UMLTableActionBarContributor extends EditorActionBarContributor implements IMenuListener {
 
@@ -61,7 +61,7 @@ public class UMLTableActionBarContributor extends EditorActionBarContributor imp
 	private Collection<UMLContextAction> umlContextActions;
 
 	/**
-	 * 
+	 *
 	 */
 	public UMLTableActionBarContributor() {
 		super();
@@ -69,7 +69,7 @@ public class UMLTableActionBarContributor extends EditorActionBarContributor imp
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor#init(org.eclipse.ui.IActionBars)
 	 */
 	@Override
@@ -102,7 +102,8 @@ public class UMLTableActionBarContributor extends EditorActionBarContributor imp
 			if (activeEditor instanceof UMLTableEditor) {
 				AdapterFactory adapterFactory = ((UMLTableEditor) activeEditor).getAdapterFactory();
 				if (adapterFactory instanceof UML2ExtendedAdapterFactory) {
-					showBusinessNamesAction.setChecked(((UML2ExtendedAdapterFactory) adapterFactory).isShowBusinessNames());
+					showBusinessNamesAction.setChecked(
+						((UML2ExtendedAdapterFactory) adapterFactory).isShowBusinessNames());
 				}
 			}
 
@@ -127,7 +128,7 @@ public class UMLTableActionBarContributor extends EditorActionBarContributor imp
 			final IWorkbenchPartSite site = activeEditor.getSite();
 			result = contextManagers.get(site);
 			if (result == null) {
-				result = new UMLContextManager((IContextService) site.getService(IContextService.class));
+				result = new UMLContextManager(site.getService(IContextService.class));
 				contextManagers.put(site, result);
 				result.activateAll();
 
@@ -167,9 +168,13 @@ public class UMLTableActionBarContributor extends EditorActionBarContributor imp
 				if (activeEditor instanceof UMLTableEditor) {
 					UMLTableEditor umlTableEditor = (UMLTableEditor) activeEditor;
 					AdapterFactory adapterFactory = umlTableEditor.getAdapterFactory();
-					if (adapterFactory instanceof UML2ExtendedAdapterFactory) {
-						((UML2ExtendedAdapterFactory) adapterFactory).setShowBusinessNames(checked);
-						umlTableEditor.refresh();
+					if (adapterFactory instanceof TableEditorComposedAdapterFactory) {
+						for (AdapterFactory factory : ((TableEditorComposedAdapterFactory) adapterFactory).getAdapterFactories()) {
+							if (factory instanceof UML2ExtendedAdapterFactory) {
+								((UML2ExtendedAdapterFactory) factory).setShowBusinessNames(checked);
+								umlTableEditor.refresh();
+							}
+						}
 					}
 				}
 			}
