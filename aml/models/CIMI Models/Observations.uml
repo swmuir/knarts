@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:constraint="http://www.omg.org/spec/AML/20150501/ConstraintProfile.xmi" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_fO7eECP_EeW3155CxDza7Q" name="CIMI Archetypes">
+    <packageImport xmi:id="_XgMSxzxVEd6JwqSGecoePg">
+      <importedPackage href="CRM.uml#EAPK_187D8523_BE51_4bf0_9ACF_BE8FBBC56821"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_eaOE4JYUEeWs9rgEqR6bXg" name="Observation">
+      <packagedElement xmi:type="uml:Class" xmi:id="_8MyVwJYUEeWs9rgEqR6bXg" name="Observation">
+        <generalization xmi:id="_9pGiwJYUEeWs9rgEqR6bXg">
+          <general xmi:type="uml:Class" href="CRM.uml#EAID_948B35AD_90C5_431a_80BF_11117AA1C760"/>
+        </generalization>
+        <ownedAttribute xmi:id="_APtYoZYVEeWs9rgEqR6bXg" name="value" aggregation="composite" association="_APt_sJYVEeWs9rgEqR6bXg">
+          <type xmi:type="uml:Class" href="CRM.uml#EAID_97D2C9BD_A6AA_41b7_8804_C093139491FF"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SQgroJYVEeWs9rgEqR6bXg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SQgEkJYVEeWs9rgEqR6bXg" value="1"/>
+          <subsettedProperty href="CRM.uml#EAID_src232728_C328_429c_9470_0B3EEB7C6213"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_APt_sJYVEeWs9rgEqR6bXg" memberEnd="_APtYoZYVEeWs9rgEqR6bXg _APt_sZYVEeWs9rgEqR6bXg">
+        <ownedEnd xmi:id="_APt_sZYVEeWs9rgEqR6bXg" type="_8MyVwJYUEeWs9rgEqR6bXg" association="_APt_sJYVEeWs9rgEqR6bXg"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_fW5IgJYUEeWs9rgEqR6bXg" name="StdObsQty">
+      <packagedElement xmi:type="uml:Class" xmi:id="_IoqnoJYVEeWs9rgEqR6bXg" name="StdObsQty">
+        <generalization xmi:id="_JDErsJYVEeWs9rgEqR6bXg" general="_8MyVwJYUEeWs9rgEqR6bXg"/>
+        <ownedAttribute xmi:id="_K2VZEJYVEeWs9rgEqR6bXg" name="value" aggregation="composite" redefinedProperty="_APtYoZYVEeWs9rgEqR6bXg" association="_K2WAIJYVEeWs9rgEqR6bXg">
+          <type xmi:type="uml:Class" href="CRM.uml#EAID_5434329F_E426_4a2c_8536_5562767FA696"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jzuqwZYVEeWs9rgEqR6bXg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jzuqwJYVEeWs9rgEqR6bXg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_K2WAIJYVEeWs9rgEqR6bXg" memberEnd="_K2VZEJYVEeWs9rgEqR6bXg _K2WAIZYVEeWs9rgEqR6bXg">
+        <ownedEnd xmi:id="_K2WAIZYVEeWs9rgEqR6bXg" type="_IoqnoJYVEeWs9rgEqR6bXg" association="_K2WAIJYVEeWs9rgEqR6bXg"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_Gx1XIJPLEeWn-YsdxHmi3A">
+      <eAnnotations xmi:id="_Gx3MUJPLEeWn-YsdxHmi3A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/spec/AML/20150501/ConstraintProfile.xmi#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_AML/ConstraintProfile.uml#_Data-ConstraintProfile"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Gx62sJPLEeWn-YsdxHmi3A">
+      <eAnnotations xmi:id="_Gx7dwJPLEeWn-YsdxHmi3A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/spec/AML/20150501/TerminologyProfile.xmi#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_AML/TerminologyProfile.uml#_Data-TerminologyProfile"/>
+    </profileApplication>
+  </uml:Package>
+  <constraint:Archetype xmi:id="_kUyl4JYUEeWs9rgEqR6bXg" base_Namespace="_eaOE4JYUEeWs9rgEqR6bXg" base_Package="_eaOE4JYUEeWs9rgEqR6bXg"/>
+  <constraint:Archetype xmi:id="_mXmyMJYUEeWs9rgEqR6bXg" base_Namespace="_fW5IgJYUEeWs9rgEqR6bXg" base_Package="_fW5IgJYUEeWs9rgEqR6bXg"/>
+  <constraint:ArchetypeLibrary xmi:id="_oB_3cJYUEeWs9rgEqR6bXg" base_Package="_fO7eECP_EeW3155CxDza7Q" rm_package="CIMI"/>
+  <constraint:ArchetypeRoot xmi:id="_DrQScJYVEeWs9rgEqR6bXg" base_NamedElement="_8MyVwJYUEeWs9rgEqR6bXg" base_Classifier="_8MyVwJYUEeWs9rgEqR6bXg"/>
+  <constraint:ArchetypeRoot xmi:id="_lfqBEJYVEeWs9rgEqR6bXg" base_NamedElement="_IoqnoJYVEeWs9rgEqR6bXg" base_Classifier="_IoqnoJYVEeWs9rgEqR6bXg"/>
+</xmi:XMI>
