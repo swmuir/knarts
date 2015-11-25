@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/org.eclipse.mdht.uml.aml/src" modelPluginID="org.eclipse.mdht.uml.aml"
+    modelName="ConstraintProfile" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore TerminologyProfile.genmodel#//terminology ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true" pluralizedGetters="true" invariantPrefix="validate">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>ConstraintProfile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Constraint" basePackage="org.eclipse.mdht.uml.aml"
+      disposableProviderFactory="true" ecorePackage="constraint.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="constraint.ecore#//Lifecycle_state">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/unmanaged"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/in_development"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/release_candidate"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/published"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/rejected"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//Lifecycle_state/deprecated"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="constraint.ecore#//VERSION_STATUS">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//VERSION_STATUS/alpha"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//VERSION_STATUS/beta"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//VERSION_STATUS/release_candidate"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//VERSION_STATUS/released"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="constraint.ecore#//VERSION_STATUS/build"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ComplexObjectConstraint">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ComplexObjectConstraint/base_Classifier"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/singleParent">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/singleParent/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/singleParent/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/allAttributeConstraints">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/allAttributeConstraints/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/allAttributeConstraints/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVARCNarchetypeconceptvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVARCNarchetypeconceptvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVARCNarchetypeconceptvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVCARMattributenamereferencemodelvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCARMattributenamereferencemodelvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCARMattributenamereferencemodelvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVCAEXarchetypeattributereferencemodelexistenceconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCAEXarchetypeattributereferencemodelexistenceconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCAEXarchetypeattributereferencemodelexistenceconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVCAMarchetypeattributereferencemodelmultiplicityconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCAMarchetypeattributereferencemodelmultiplicityconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCAMarchetypeattributereferencemodelmultiplicityconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFVarchetypeattributedifferentialpathvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFVarchetypeattributedifferentialpathvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFVarchetypeattributedifferentialpathvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFPspecialisedarchetypeattributedifferentialpathvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFPspecialisedarchetypeattributedifferentialpathvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVDIFPspecialisedarchetypeattributedifferentialpathvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCEspecialisedarchetypeattributenodeexistenceconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCEspecialisedarchetypeattributenodeexistenceconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCEspecialisedarchetypeattributenodeexistenceconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSAMspecialisedarchetypeattributemultiplicityconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSAMspecialisedarchetypeattributemultiplicityconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSAMspecialisedarchetypeattributemultiplicityconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVACSOsinglevaluedattributechildobjectoccurrencesvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACSOsinglevaluedattributechildobjectoccurrencesvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACSOsinglevaluedattributechildobjectoccurrencesvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCUcardinalityoccurrencesupperboundvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCUcardinalityoccurrencesupperboundvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCUcardinalityoccurrencesupperboundvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCOcardinalityoccurrencesorphans">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCOcardinalityoccurrencesorphans/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACMCOcardinalityoccurrencesorphans/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVCACAarchetypeattributereferencemodelcardinalityconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCACAarchetypeattributereferencemodelcardinalityconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCACAarchetypeattributereferencemodelcardinalityconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMWACMCLcardinalityoccurrenceslowerboundvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMWACMCLcardinalityoccurrenceslowerboundvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMWACMCLcardinalityoccurrenceslowerboundvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCCspecialisedarchetypeattributenodecardinalityconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCCspecialisedarchetypeattributenodecardinalityconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSANCCspecialisedarchetypeattributenodecardinalityconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVCATUattributeuniqueness">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCATUattributeuniqueness/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVCATUattributeuniqueness/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVUNTuse_nodereferencemodeltypevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVUNTuse_nodereferencemodeltypevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVUNTuse_nodereferencemodeltypevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVUNPuse_nodepathvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVUNPuse_nodepathvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVUNPuse_nodepathvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSUNTuse_nodespecialisationparentvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSUNTuse_nodespecialisationparentvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSUNTuse_nodespecialisationparentvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVOBAVobjectnodeassumedvaluevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVOBAVobjectnodeassumedvaluevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVOBAVobjectnodeassumedvaluevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVACDFconstraintcodevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACDFconstraintcodevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVACDFconstraintcodevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSONPIspecialisedarchetypeprohibitedobjectnodeAOMnodeidvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSONPIspecialisedarchetypeprohibitedobjectnodeAOMnodeidvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSONPIspecialisedarchetypeprohibitedobjectnodeAOMnodeidvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_OBJECTInvariantRm_type_name_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_OBJECTInvariantRm_type_name_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_OBJECTInvariantRm_type_name_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantProhibited_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantProhibited_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantProhibited_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAny_allowed_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAny_allowed_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAny_allowed_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAttributes_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAttributes_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTInvariantAttributes_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTTuples_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTTuples_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECTTuples_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantRepresentation_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantRepresentation_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantRepresentation_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantAssumed_value_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantAssumed_value_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_PRIMITIVE_OBJECTInvariantAssumed_value_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantBinary_consistency">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantBinary_consistency/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantBinary_consistency/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantPrototype_value_consistency">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantPrototype_value_consistency/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_BOOLEANInvariantPrototype_value_consistency/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_DATEInvariantPattern_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_DATEInvariantPattern_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_DATEInvariantPattern_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_TERMINOLOGY_CODEInvariantTerminology_id_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_TERMINOLOGY_CODEInvariantTerminology_id_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_TERMINOLOGY_CODEInvariantTerminology_id_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantTag_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantTag_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantTag_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantExpression_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantExpression_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMASSERTIONInvariantExpression_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMQUERY_VARIABLEInvariantContext_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMQUERY_VARIABLEInvariantContext_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMQUERY_VARIABLEInvariantContext_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_ITEMInvariantType_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_ITEMInvariantType_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_ITEMInvariantType_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_UNARY_OPERATORInvariantoperand_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_UNARY_OPERATORInvariantoperand_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_UNARY_OPERATORInvariantoperand_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantleft_operand_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantleft_operand_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantleft_operand_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantright_operand_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantright_operand_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMEXPR_BINARY_OPERATORInvariantright_operand_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMOPERATOR_KINDInvariantValidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMOPERATOR_KINDInvariantValidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMOPERATOR_KINDInvariantValidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVATDFvaluecodevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVATDFvaluecodevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVATDFvaluecodevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVATDAvaluesetassumedvaluecodevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVATDAvaluesetassumedvaluecodevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVATDAvaluesetassumedvaluecodevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMVSONIFspecialisedarchetypeobjectnodeidentifiervalidityinflatsiblings">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSONIFspecialisedarchetypeobjectnodeidentifiervalidityinflatsiblings/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMVSONIFspecialisedarchetypeobjectnodeidentifiervalidityinflatsiblings/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYInvariantConsistency">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYInvariantConsistency/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYInvariantConsistency/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_orphans_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_orphans_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_orphans_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_occurrences_lower_sum_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_occurrences_lower_sum_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantChildren_occurrences_lower_sum_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantCardinality_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantCardinality_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantCardinality_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantAlternatives_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantAlternatives_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ComplexObjectConstraint/_AOMC_ATTRIBUTEInvariantAlternatives_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ObjectConstraint">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ObjectConstraint/is_deprecated"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/redefinesGeneralization">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/redefinesGeneralization/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/redefinesGeneralization/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVCORMobjectconstrainttypenameexistence">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCORMobjectconstrainttypenameexistence/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCORMobjectconstrainttypenameexistence/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVCORMTobjectconstrainttypevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCORMTobjectconstrainttypevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCORMTobjectconstrainttypevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVCOCDobjectconstraintdefinitionvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOCDobjectconstraintdefinitionvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOCDobjectconstraintdefinitionvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVCOIDobjectnodeidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOIDobjectnodeidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOIDobjectnodeidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVCOSUobjectnodeidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOSUobjectnodeidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVCOSUobjectnodeidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONTspecialisedarchetypeobjectnodemetatypeconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONTspecialisedarchetypeobjectnodemetatypeconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONTspecialisedarchetypeobjectnodemetatypeconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONCTspecialisedarchetypeobjectnodereferencetypeconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONCTspecialisedarchetypeobjectnodereferencetypeconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONCTspecialisedarchetypeobjectnodereferencetypeconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONINspecialisedarchetypenewobjectnodeidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONINspecialisedarchetypenewobjectnodeidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONINspecialisedarchetypenewobjectnodeidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONCOspecialisedarchetyperedefineobjectnodeoccurrencesvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONCOspecialisedarchetyperedefineobjectnodeoccurrencesvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONCOspecialisedarchetyperedefineobjectnodeoccurrencesvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONPTspecialisedarchetypeprohibitedobjectnodeAOMtypevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONPTspecialisedarchetypeprohibitedobjectnodeAOMtypevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONPTspecialisedarchetypeprohibitedobjectnodeAOMtypevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSONPOspecialisedarchetypeobjectnodeprohibitedoccurrencesvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONPOspecialisedarchetypeobjectnodeprohibitedoccurrencesvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSONPOspecialisedarchetypeobjectnodeprohibitedoccurrencesvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMVSSMspecialisedarchetypesiblingordervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSSMspecialisedarchetypesiblingordervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMVSSMspecialisedarchetypesiblingordervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMARCHETYPE_CONSTRAINInvariantpath_exists">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMARCHETYPE_CONSTRAINInvariantpath_exists/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMARCHETYPE_CONSTRAINInvariantpath_exists/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantRm_attribute_name_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantRm_attribute_name_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantRm_attribute_name_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantExistence_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantExistence_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantExistence_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantDifferential_path_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantDifferential_path_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantDifferential_path_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantChild_occurrences_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantChild_occurrences_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_ATTRIBUTEInvariantChild_occurrences_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMCARDINALITYInvariantValidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMCARDINALITYInvariantValidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMCARDINALITYInvariantValidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantNode_id_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantNode_id_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantNode_id_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantOccurrences_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantOccurrences_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantOccurrences_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantSibling_order_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantSibling_order_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_OBJECTInvariantSibling_order_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMSIBLING_ORDERInvariantsibling_node_id_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMSIBLING_ORDERInvariantsibling_node_id_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMSIBLING_ORDERInvariantsibling_node_id_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_DEFINED_OBJECTInvariantDefault_value_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_DEFINED_OBJECTInvariantDefault_value_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_DEFINED_OBJECTInvariantDefault_value_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYTarget_path_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYTarget_path_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ObjectConstraint/_AOMC_COMPLEX_OBJECT_PROXYTarget_path_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//Constrains">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//Constrains/base_Generalization"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Constrains/specificObjectConstraint">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Constrains/specificObjectConstraint/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Constrains/specificObjectConstraint/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Constrains/constrainsRMElement">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Constrains/constrainsRMElement/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Constrains/constrainsRMElement/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ArchetypeLibrary">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ArchetypeLibrary/base_Package"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ArchetypeLibrary/has_aom_ids"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ArchetypeLibrary/rm_package"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeLibrary/oneReferenceModel">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/oneReferenceModel/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/oneReferenceModel/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeLibrary/onlyArchetypes">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/onlyArchetypes/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/onlyArchetypes/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeLibrary/_AOMARCHETYPE_HRIDInvariantRm_closure_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/_AOMARCHETYPE_HRIDInvariantRm_closure_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeLibrary/_AOMARCHETYPE_HRIDInvariantRm_closure_validity/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//Archetype">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//Archetype/base_Package"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/archetypeType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/amlVersion"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/is_controlled"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/is_generated"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/release_version"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/version_status"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/build_count"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/other_metadata"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//Archetype/other_metadata_id"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/mustBeOwned">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/mustBeOwned/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/mustBeOwned/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/ownsObjectConstraints">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/ownsObjectConstraints/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/ownsObjectConstraints/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/specializesArchetype">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/specializesArchetype/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/specializesArchetype/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVOKUobjectkeyunique">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVOKUobjectkeyunique/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVOKUobjectkeyunique/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVARDTarchetypedefinitiontypenamevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARDTarchetypedefinitiontypenamevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARDTarchetypedefinitiontypenamevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVARIDarchetypeidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARIDarchetypeidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARIDarchetypeidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVDEOLoriginallanguagespecified">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVDEOLoriginallanguagespecified/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVDEOLoriginallanguagespecified/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVARDdescriptionspecified">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARDdescriptionspecified/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARDdescriptionspecified/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVASIDarchetypespecialisationparentidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVASIDarchetypespecialisationparentidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVASIDarchetypespecialisationparentidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVALCarchetypelanguageconformance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVALCarchetypelanguageconformance/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVALCarchetypelanguageconformance/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVACSDarchetypeconceptspecialisationdepth">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVACSDarchetypeconceptspecialisationdepth/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVACSDarchetypeconceptspecialisationdepth/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVATCDarchetypecodespecialisationlevelvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVATCDarchetypecodespecialisationlevelvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVATCDarchetypecodespecialisationlevelvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantOriginal_language_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantOriginal_language_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantOriginal_language_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantConcept_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantConcept_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantConcept_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantDefinition_exists">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantDefinition_exists/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantDefinition_exists/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantTerminology_exists">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantTerminology_exists/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantTerminology_exists/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantSpecialisation_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantSpecialisation_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantSpecialisation_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantRules_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantRules_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPEInvariantRules_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantConcept_id_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantConcept_id_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantConcept_id_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantBase_version_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantBase_version_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_HRIDInvariantBase_version_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantIs_specialised">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantIs_specialised/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantIs_specialised/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantComponent_terminologies_existence">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantComponent_terminologies_existence/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMOPERATIONAL_TEMPLATEInvariantComponent_terminologies_existence/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantoriginal_language_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantoriginal_language_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantoriginal_language_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantconcept_code_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantconcept_code_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantconcept_code_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantterm_definitions_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantterm_definitions_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantterm_definitions_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantParent_archetype_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantParent_archetype_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMARCHETYPE_TERMINOLOGYInvariantParent_archetype_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//Archetype/_AOMVARIABLE_DECLARATIONInvariantName_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARIABLE_DECLARATIONInvariantName_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//Archetype/_AOMVARIABLE_DECLARATIONInvariantName_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="constraint.ecore#//AuthoredResource">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/copyright"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/current_revision"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/custodian_namespace"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/custodian_organisation"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/licence"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/lifecycle_state"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_author_date"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_author_email"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_author_name"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_author_organization"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_namespace"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/original_publisher"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/other_contributors"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/otherDetails"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/otherDetails_id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/references"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/references_id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/resourceDocumentLanguage"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/resourceDocumentSyntax"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/resourceSource"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/resourceSourceURI"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//AuthoredResource/base_Namespace"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/resource_package_uri"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/uid"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/ip_acknowledgements"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//AuthoredResource/ip_acknowledgements_id"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ResourceTranslation">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ResourceTranslation/base_Enumeration"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/accreditation"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/other_translation_details"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/other_translation_details_id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/purpose"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/keywords"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/use"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/misuse"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/copyright"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/original_resource_uri"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/original_resource_uriId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/other_details"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/other_detailsId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/author_name"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/author_organization"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/author_email"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/author_date"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute constraint.ecore#//ResourceTranslation/version_last_translated"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ResourceTranslation/_AOMVOTMterminologytranslationsvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/_AOMVOTMterminologytranslationsvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/_AOMVOTMterminologytranslationsvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ResourceTranslation/translationEntries">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/translationEntries/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/translationEntries/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ResourceTranslation/uniqueEntries">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/uniqueEntries/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceTranslation/uniqueEntries/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ArchetypeDefinition">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ArchetypeDefinition/base_Usage"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeDefinition/_AOMARCHETYPE_HRIDInvariantRm_class_name_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeDefinition/_AOMARCHETYPE_HRIDInvariantRm_class_name_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeDefinition/_AOMARCHETYPE_HRIDInvariantRm_class_name_validity/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ArchetypeSlot">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ArchetypeSlot/base_Classifier"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSSPspecialisedarchetypeslotdefinitionparentvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSPspecialisedarchetypeslotdefinitionparentvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSPspecialisedarchetypeslotdefinitionparentvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSEVarchetypeslotexcludeconstraintvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSEVarchetypeslotexcludeconstraintvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSEVarchetypeslotexcludeconstraintvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSSMspecialisedarchetypeslotdefinitionmatchvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSMspecialisedarchetypeslotdefinitionmatchvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSMspecialisedarchetypeslotdefinitionmatchvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSSIDslotredefinitionchildnodeid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSIDslotredefinitionchildnodeid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSIDslotredefinitionchildnodeid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSSCspecialisedarchetypeslotdefinitionclosedvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSCspecialisedarchetypeslotdefinitionclosedvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSSCspecialisedarchetypeslotdefinitionclosedvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMVDSIVarchetypeslotincludeconstraintvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSIVarchetypeslotincludeconstraintvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMVDSIVarchetypeslotincludeconstraintvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantincludes_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantincludes_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantincludes_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantexcludes_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantexcludes_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeSlot/_AOMARCHETYPE_SLOTInvariantexcludes_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ArchetypeRoot">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXNCexternalreferencenodeidentifiervalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXNCexternalreferencenodeidentifiervalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXNCexternalreferencenodeidentifiervalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXTVexternalreferencetypevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXTVexternalreferencetypevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXTVexternalreferencetypevalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXSexternalreferenceconformstoslot">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXSexternalreferenceconformstoslot/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXSexternalreferenceconformstoslot/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXRexternalreferencereferstoresolvableartefact">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXRexternalreferencereferstoresolvableartefact/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXRexternalreferencereferstoresolvableartefact/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXIDexternalreferenceslotfillingidvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXIDexternalreferenceslotfillingidvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXIDexternalreferenceslotfillingidvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMC_ARCHETYPE_ROOTInvariantArchetype_ref_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMC_ARCHETYPE_ROOTInvariantArchetype_ref_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMC_ARCHETYPE_ROOTInvariantArchetype_ref_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ArchetypeRoot/_AOMVARXAVexternalreferencenodearchetypereferencevalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXAVexternalreferencenodearchetypereferencevalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ArchetypeRoot/_AOMVARXAVexternalreferencenodearchetypereferencevalidity/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="constraint.ecore#//ResourceAnnotationNodeItem">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference constraint.ecore#//ResourceAnnotationNodeItem/base_Comment"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="constraint.ecore#//ResourceAnnotationNodeItem/_AOMVRANPannotationpathvalid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceAnnotationNodeItem/_AOMVRANPannotationpathvalid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="constraint.ecore#//ResourceAnnotationNodeItem/_AOMVRANPannotationpathvalid/context"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

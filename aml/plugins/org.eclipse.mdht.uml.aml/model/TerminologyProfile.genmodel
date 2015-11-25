@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/org.eclipse.mdht.uml.aml/src" modelPluginID="org.eclipse.mdht.uml.aml"
+    modelName="TerminologyProfile" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true" pluralizedGetters="true" invariantPrefix="validate">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="PROCESS"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>TerminologyProfile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Terminology" basePackage="org.eclipse.mdht.uml.aml"
+      disposableProviderFactory="true" ecorePackage="terminology.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="terminology.ecore#//ArchetypeType">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="terminology.ecore#//ArchetypeType/archetype"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="terminology.ecore#//ArchetypeType/template"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="terminology.ecore#//ArchetypeType/template_overlay"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//IdentifiedItem">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//IdentifiedItem/base_NamedElement"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//IdentifiedItem/id"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//IdentifiedItem/uniqueScopes">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//IdentifiedItem/uniqueScopes/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//IdentifiedItem/uniqueScopes/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//PermissibleValue">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//PermissibleValue/base_EnumerationLiteral"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//PermissibleValue/meaning"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//PermissibleValue/mustBeConceptReference">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//PermissibleValue/mustBeConceptReference/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//PermissibleValue/mustBeConceptReference/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//ScopedIdentifier">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute terminology.ecore#//ScopedIdentifier/uri"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute terminology.ecore#//ScopedIdentifier/identifierURIPattern"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ScopedIdentifier/base_Enumeration"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//EnumeratedValueDomain">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//EnumeratedValueDomain/base_Enumeration"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//EnumeratedValueDomain/valueSetBinding"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//EnumeratedValueDomain/permissibleValues">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//EnumeratedValueDomain/permissibleValues/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//EnumeratedValueDomain/permissibleValues/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//EnumeratedValueDomain/bindingIsValueSetOrDefinition">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//EnumeratedValueDomain/bindingIsValueSetOrDefinition/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//EnumeratedValueDomain/bindingIsValueSetOrDefinition/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="terminology.ecore#//ResourceReference">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute terminology.ecore#//ResourceReference/uri"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ResourceReference/base_EnumerationLiteral"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//CodeSystemReference"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//CodeSystemVersionReference">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//CodeSystemVersionReference/codeSystem"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//ConceptReference">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute terminology.ecore#//ConceptReference/designation"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ConceptReference/mustBeScopedIdentifier">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ConceptReference/mustBeScopedIdentifier/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ConceptReference/mustBeScopedIdentifier/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//ValueSetDefinitionReference">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ValueSetDefinitionReference/valueSet"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//ValueSetReference">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ValueSetReference/valueSetDefinition"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ValueSetReference/definition">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ValueSetReference/definition/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ValueSetReference/definition/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//ArchetypeTerm">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ArchetypeTerm/value_set_members"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//ArchetypeTerm/term_bindings"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTLClanguageconsistency">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTLClanguageconsistency/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTLClanguageconsistency/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTVSIDvaluesetiddefined">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSIDvaluesetiddefined/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSIDvaluesetiddefined/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTVSUQvaluesetmembersunique">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSUQvaluesetmembersunique/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSUQvaluesetmembersunique/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTVSMDvaluesetmembersdefined">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSMDvaluesetmembersdefined/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTVSMDvaluesetmembersdefined/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMInvariantcode_valid_code">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMInvariantcode_valid_code/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMInvariantcode_valid_code/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantId_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantId_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantId_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantMembers_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantMembers_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVALUE_SETInvariantMembers_valid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMINOLOGYInvariantterm_bindings_validity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMINOLOGYInvariantterm_bindings_validity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMARCHETYPE_TERMINOLOGYInvariantterm_bindings_validity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVETDFexternaltermvalidity">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVETDFexternaltermvalidity/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVETDFexternaltermvalidity/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTCBKterminologyconstraintbindingkeyvalid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTCBKterminologyconstraintbindingkeyvalid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTCBKterminologyconstraintbindingkeyvalid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTSDspecialisationlevelofcodes">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTSDspecialisationlevelofcodes/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTSDspecialisationlevelofcodes/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//ArchetypeTerm/_AOMVTTBKterminologytermbindingkeyvalid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTTBKterminologytermbindingkeyvalid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//ArchetypeTerm/_AOMVTTBKterminologytermbindingkeyvalid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//TermResourceTranslation">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//TermResourceTranslation/base_Enumeration"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//TermResourceTranslation/language"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//TermResourceTranslation/translationEntries">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//TermResourceTranslation/translationEntries/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//TermResourceTranslation/translationEntries/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//IdEntry">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//IdEntry/ref"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//IdEntry/base_EnumerationLiteral"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//IdEntry/_AOMARCHETYPE_TERMInvariantdescription_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//IdEntry/_AOMARCHETYPE_TERMInvariantdescription_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//IdEntry/_AOMARCHETYPE_TERMInvariantdescription_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//Entry">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute terminology.ecore#//Entry/text"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//Entry/base_NamedElement"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//Entry/_AOMARCHETYPE_TERMInvarianttext_valid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//Entry/_AOMARCHETYPE_TERMInvarianttext_valid/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//Entry/_AOMARCHETYPE_TERMInvarianttext_valid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//DescribedIdentifier">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//DescribedIdentifier/definingCodeSystem.1"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//DescribedIdentifier/membersMustBeConceptReference">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//DescribedIdentifier/membersMustBeConceptReference/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//DescribedIdentifier/membersMustBeConceptReference/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//DescribedIdentifier/definingCodeSystem">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//DescribedIdentifier/definingCodeSystem/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//DescribedIdentifier/definingCodeSystem/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="terminology.ecore#//about">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference terminology.ecore#//about/base_Abstraction"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="terminology.ecore#//about/isConceptReference">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//about/isConceptReference/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="terminology.ecore#//about/isConceptReference/context"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

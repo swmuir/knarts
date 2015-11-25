@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    Copyright (c) 2015 David Carlson and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ -->
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TerminologyProfile -->
+      <package
+            uri="http://www.omg.org/spec/AML/20150501/TerminologyProfile.xmi"
+            class="org.eclipse.mdht.uml.aml.terminology.TerminologyPackage"
+            genModel="model/TerminologyProfile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ReferenceModelProfile -->
+      <package
+            uri="http://www.omg.org/spec/AML/20150501/ReferenceModelProfile.xmi"
+            class="org.eclipse.mdht.uml.aml.refmodel.RefModelPackage"
+            genModel="model/ReferenceModelProfile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ConstraintProfile -->
+      <package
+            uri="http://www.omg.org/spec/AML/20150501/ConstraintProfile.xmi"
+            class="org.eclipse.mdht.uml.aml.constraint.ConstraintPackage"
+            genModel="model/ConstraintProfile.genmodel"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.uml2.uml.generated_package">
+      <profile
+            uri="http://www.omg.org/spec/AML/20150501/TerminologyProfile.xmi"
+            location="pathmap://MDHT_AML/TerminologyProfile.uml#_Data-TerminologyProfile"/>
+      <profile
+            uri="http://www.omg.org/spec/AML/20150501/ReferenceModelProfile.xmi"
+            location="pathmap://MDHT_AML/ReferenceModelProfile.uml#_Data-ReferenceModelProfile"/>
+      <profile
+            uri="http://www.omg.org/spec/AML/20150501/ConstraintProfile.xmi"
+            location="pathmap://MDHT_AML/ConstraintProfile.uml#_Data-ConstraintProfile"/>
+   </extension>
+   
+   <extension
+         id="AmlProfile"
+         name="AML Profile"
+         point="org.eclipse.gmf.runtime.emf.core.Pathmaps">
+      <pathmap
+            name="MDHT_AML"
+            path="model"
+            plugin="org.eclipse.mdht.uml.aml"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://MDHT_AML/"
+            target="model/">
+      </mapping>
+   </extension>
+   
+</plugin>
