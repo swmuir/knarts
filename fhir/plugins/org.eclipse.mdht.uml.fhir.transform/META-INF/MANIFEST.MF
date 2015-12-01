@@ -15,6 +15,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.mdht.uml.fhir.common,
  org.eclipse.mdht.uml.validation,
  org.eclipse.mdht.uml.common
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.mdht.uml.fhir.transform

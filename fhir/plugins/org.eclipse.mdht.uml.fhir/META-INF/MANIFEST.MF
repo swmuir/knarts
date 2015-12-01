@@ -6,7 +6,7 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.mdht.uml.fhir,
  org.eclipse.mdht.uml.fhir.impl,
  org.eclipse.mdht.uml.fhir.util
