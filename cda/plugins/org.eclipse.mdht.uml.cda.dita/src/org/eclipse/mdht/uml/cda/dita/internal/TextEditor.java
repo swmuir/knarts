@@ -163,6 +163,7 @@ public class TextEditor implements ConstraintEditor {
 		if (constraint.getContext() instanceof Class) {
 			transformer.writeClassToFile((Class) constraint.getContext(), tmpFileInWorkspaceDir);
 		}
+
 		return tmpFileInWorkspaceDir;
 	}
 
