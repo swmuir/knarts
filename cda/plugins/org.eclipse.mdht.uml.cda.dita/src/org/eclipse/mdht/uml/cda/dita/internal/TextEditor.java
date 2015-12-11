@@ -160,7 +160,9 @@ public class TextEditor implements ConstraintEditor {
 		if (!tmpFileInWorkspaceDir.toFile().getParentFile().exists())
 			tmpFileInWorkspaceDir.toFile().getParentFile().mkdirs();
 
-		transformer.writeClassToFile((Class) constraint.getContext(), tmpFileInWorkspaceDir);
+		if (constraint.getContext() instanceof Class) {
+			transformer.writeClassToFile((Class) constraint.getContext(), tmpFileInWorkspaceDir);
+		}
 		return tmpFileInWorkspaceDir;
 	}
 
