@@ -49,11 +49,13 @@ public interface ModelConstants {
 	public static final String PACKAGE_NAME_VALUESETS = "ValueSets";
 	public static final String PACKAGE_NAME_EXTENSIONS = "Extensions";
 	public static final String PACKAGE_NAME_PROFILES = "Profiles";
+	public static final String PACKAGE_NAME_DATA_ELEMENTS = "DataElements";
 
 	/*
 	 * Extension URIs
 	 */
 	public static final String EXTENSION_EXPLICIT_TYPE_NAME = FHIR_STRUCTURE_URI_BASE + "structuredefinition-explicit-type-name";
 	public static final String EXTENSION_FMM = FHIR_STRUCTURE_URI_BASE + "structuredefinition-fmm";
+	public static final String EXTENSION_FHIR_PATH = "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression";
 	
 }

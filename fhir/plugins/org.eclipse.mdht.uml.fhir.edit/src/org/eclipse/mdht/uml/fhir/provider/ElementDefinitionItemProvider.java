@@ -51,6 +51,12 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 			addMustSupportPropertyDescriptor(object);
 			addIsModifierPropertyDescriptor(object);
 			addIsSummaryPropertyDescriptor(object);
+			addRepresentationPropertyDescriptor(object);
+			addDefaultPropertyDescriptor(object);
+			addMeaningWhenMissingPropertyDescriptor(object);
+			addFixedPropertyDescriptor(object);
+			addPatternPropertyDescriptor(object);
+			addExamplePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -188,6 +194,138 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Representation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepresentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_representation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_representation_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__REPRESENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Default feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefaultPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_default_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_default_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__DEFAULT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Meaning When Missing feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMeaningWhenMissingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_meaningWhenMissing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_meaningWhenMissing_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__MEANING_WHEN_MISSING,
+				 true,
+				 false,
+				 true,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fixed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFixedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_fixed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_fixed_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__FIXED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_pattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_pattern_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__PATTERN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Example feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExamplePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_example_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_example_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__EXAMPLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ElementDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,6 +383,7 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 			case FHIRPackage.ELEMENT_DEFINITION__MUST_SUPPORT:
 			case FHIRPackage.ELEMENT_DEFINITION__IS_MODIFIER:
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
+			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

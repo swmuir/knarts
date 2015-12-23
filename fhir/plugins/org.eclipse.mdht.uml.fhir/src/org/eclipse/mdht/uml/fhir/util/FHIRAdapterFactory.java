@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.eclipse.mdht.uml.fhir.util;
@@ -86,12 +76,12 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 				return createStructureDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseElement(Element object) {
-				return createElementAdapter();
+			public Adapter caseConformaceResource(ConformaceResource object) {
+				return createConformaceResourceAdapter();
 			}
 			@Override
-			public Adapter caseExtension(Extension object) {
-				return createExtensionAdapter();
+			public Adapter caseElement(Element object) {
+				return createElementAdapter();
 			}
 			@Override
 			public Adapter caseElementDefinition(ElementDefinition object) {
@@ -124,6 +114,10 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseValueSet(ValueSet object) {
 				return createValueSetAdapter();
+			}
+			@Override
+			public Adapter caseDataElement(DataElement object) {
+				return createDataElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -174,6 +168,20 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.ConformaceResource <em>Conformace Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource
+	 * @generated
+	 */
+	public Adapter createConformaceResourceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -184,20 +192,6 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.Extension <em>Extension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.Extension
-	 * @generated
-	 */
-	public Adapter createExtensionAdapter() {
 		return null;
 	}
 
@@ -310,6 +304,20 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.DataElement <em>Data Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.DataElement
+	 * @generated
+	 */
+	public Adapter createDataElementAdapter() {
 		return null;
 	}
 

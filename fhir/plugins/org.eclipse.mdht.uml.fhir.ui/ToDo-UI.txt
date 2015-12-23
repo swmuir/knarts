@@ -26,6 +26,7 @@ FHIR UI Tooling
 - Commands
   -- Deploy to Server
      -- context menu on profile class, generate and deploy
+     -- or, context menu on resources: StructureDefinition, ValueSet, DataElement
      
 - UML Table Editor
   -- Name column, assign/show stereotype icon
@@ -49,7 +50,7 @@ FHIR UI Tooling
      --- use to collapse Resource associations
   -- Add to default preferences
 
-- UI Add Extension
+- UI Add FHIR Extension
   -- auto add 'uri' and 'value[x]', do not prompt
   -- prompt for fixed extension URI (default to HL7 base + name.toLowerCase()
   -- prompt for context type(s)

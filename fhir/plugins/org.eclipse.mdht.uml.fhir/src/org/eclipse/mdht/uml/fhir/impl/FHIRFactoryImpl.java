@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
@@ -69,7 +69,6 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 		switch (eClass.getClassifierID()) {
 			case FHIRPackage.TYPE_CHOICE: return createTypeChoice();
 			case FHIRPackage.STRUCTURE_DEFINITION: return createStructureDefinition();
-			case FHIRPackage.EXTENSION: return createExtension();
 			case FHIRPackage.ELEMENT_DEFINITION: return createElementDefinition();
 			case FHIRPackage.SHORT_DESCRIPTION: return createShortDescription();
 			case FHIRPackage.DESCRIPTION: return createDescription();
@@ -78,6 +77,7 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 			case FHIRPackage.COMMENTS: return createComments();
 			case FHIRPackage.VALUE_SET_BINDING: return createValueSetBinding();
 			case FHIRPackage.VALUE_SET: return createValueSet();
+			case FHIRPackage.DATA_ELEMENT: return createDataElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -91,6 +91,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case FHIRPackage.PROPERTY_REPRESENTATION_KIND:
+				return createPropertyRepresentationKindFromString(eDataType, initialValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
 				return createBindingStrengthKindFromString(eDataType, initialValue);
 			default:
@@ -106,6 +108,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case FHIRPackage.PROPERTY_REPRESENTATION_KIND:
+				return convertPropertyRepresentationKindToString(eDataType, instanceValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
 				return convertBindingStrengthKindToString(eDataType, instanceValue);
 			default:
@@ -131,16 +135,6 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	public StructureDefinition createStructureDefinition() {
 		StructureDefinitionImpl structureDefinition = new StructureDefinitionImpl();
 		return structureDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Extension createExtension() {
-		ExtensionImpl extension = new ExtensionImpl();
-		return extension;
 	}
 
 	/**
@@ -221,6 +215,36 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	public ValueSet createValueSet() {
 		ValueSetImpl valueSet = new ValueSetImpl();
 		return valueSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataElement createDataElement() {
+		DataElementImpl dataElement = new DataElementImpl();
+		return dataElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertyRepresentationKind createPropertyRepresentationKindFromString(EDataType eDataType, String initialValue) {
+		PropertyRepresentationKind result = PropertyRepresentationKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPropertyRepresentationKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

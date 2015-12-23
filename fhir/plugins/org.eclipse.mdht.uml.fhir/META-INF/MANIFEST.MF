@@ -9,9 +9,13 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.mdht.uml.fhir,
  org.eclipse.mdht.uml.fhir.impl,
+ org.eclipse.mdht.uml.fhir.types,
+ org.eclipse.mdht.uml.fhir.types.impl,
+ org.eclipse.mdht.uml.fhir.types.util,
  org.eclipse.mdht.uml.fhir.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.uml2.types;visibility:=reexport,
- org.eclipse.uml2.uml;visibility:=reexport
+ org.eclipse.uml2.uml;visibility:=reexport,
+ org.eclipse.mdht.uml.fhir.core
 Bundle-ActivationPolicy: lazy

@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
@@ -33,15 +33,11 @@ import org.eclipse.uml2.uml.Enumeration;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl#getBase_Enumeration <em>Base Enumeration</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl#getUri <em>Uri</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ValueSetImpl extends ElementImpl implements ValueSet {
+public class ValueSetImpl extends ConformaceResourceImpl implements ValueSet {
 	/**
 	 * The cached value of the '{@link #getBase_Enumeration() <em>Base Enumeration</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -51,86 +47,6 @@ public class ValueSetImpl extends ElementImpl implements ValueSet {
 	 * @ordered
 	 */
 	protected Enumeration base_Enumeration;
-
-	/**
-	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uri = URI_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPublisher() <em>Publisher</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PUBLISHER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected String publisher = PUBLISHER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VERSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected String version = VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,104 +110,12 @@ public class ValueSetImpl extends ElementImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUri() {
-		return uri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUri(String newUri) {
-		String oldUri = uri;
-		uri = newUri;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.VALUE_SET__URI, oldUri, uri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.VALUE_SET__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(String newPublisher) {
-		String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.VALUE_SET__PUBLISHER, oldPublisher, publisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getVersion() {
-		return version;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(String newVersion) {
-		String oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.VALUE_SET__VERSION, oldVersion, version));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FHIRPackage.VALUE_SET__BASE_ENUMERATION:
 				if (resolve) return getBase_Enumeration();
 				return basicGetBase_Enumeration();
-			case FHIRPackage.VALUE_SET__URI:
-				return getUri();
-			case FHIRPackage.VALUE_SET__NAME:
-				return getName();
-			case FHIRPackage.VALUE_SET__PUBLISHER:
-				return getPublisher();
-			case FHIRPackage.VALUE_SET__VERSION:
-				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,18 +130,6 @@ public class ValueSetImpl extends ElementImpl implements ValueSet {
 		switch (featureID) {
 			case FHIRPackage.VALUE_SET__BASE_ENUMERATION:
 				setBase_Enumeration((Enumeration)newValue);
-				return;
-			case FHIRPackage.VALUE_SET__URI:
-				setUri((String)newValue);
-				return;
-			case FHIRPackage.VALUE_SET__NAME:
-				setName((String)newValue);
-				return;
-			case FHIRPackage.VALUE_SET__PUBLISHER:
-				setPublisher((String)newValue);
-				return;
-			case FHIRPackage.VALUE_SET__VERSION:
-				setVersion((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,18 +146,6 @@ public class ValueSetImpl extends ElementImpl implements ValueSet {
 			case FHIRPackage.VALUE_SET__BASE_ENUMERATION:
 				setBase_Enumeration((Enumeration)null);
 				return;
-			case FHIRPackage.VALUE_SET__URI:
-				setUri(URI_EDEFAULT);
-				return;
-			case FHIRPackage.VALUE_SET__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case FHIRPackage.VALUE_SET__PUBLISHER:
-				setPublisher(PUBLISHER_EDEFAULT);
-				return;
-			case FHIRPackage.VALUE_SET__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -360,38 +160,8 @@ public class ValueSetImpl extends ElementImpl implements ValueSet {
 		switch (featureID) {
 			case FHIRPackage.VALUE_SET__BASE_ENUMERATION:
 				return base_Enumeration != null;
-			case FHIRPackage.VALUE_SET__URI:
-				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
-			case FHIRPackage.VALUE_SET__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FHIRPackage.VALUE_SET__PUBLISHER:
-				return PUBLISHER_EDEFAULT == null ? publisher != null : !PUBLISHER_EDEFAULT.equals(publisher);
-			case FHIRPackage.VALUE_SET__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uri: ");
-		result.append(uri);
-		result.append(", name: ");
-		result.append(name);
-		result.append(", publisher: ");
-		result.append(publisher);
-		result.append(", version: ");
-		result.append(version);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ValueSetImpl

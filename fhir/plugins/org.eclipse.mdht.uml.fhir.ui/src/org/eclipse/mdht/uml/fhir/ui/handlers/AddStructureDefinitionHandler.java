@@ -66,7 +66,8 @@ public class AddStructureDefinitionHandler extends AddUMLClassHandler {
 				
 				if (hasStereotype && hasBaseTypeNames != null) {
 					hasBaseType = false;
-					String[] names = hasBaseTypeNames.split(",| ");
+					// delimiters: ",", "|", " "
+					String[] names = hasBaseTypeNames.split("\\s*,\\s*|\\s*\\|\\s*|\\s+");
 					for (int i = 0; i < names.length; i++) {
 						boolean isKindOf = FhirModelUtil.isKindOf((Class)element, names[i]);
 						if (isKindOf) {
@@ -76,7 +77,8 @@ public class AddStructureDefinitionHandler extends AddUMLClassHandler {
 					}
 				}
 				if (hasStereotype && hasBaseType && notBaseTypeNames != null) {
-					String[] names = notBaseTypeNames.split(",| ");
+					// delimiters: ",", "|", " "
+					String[] names = notBaseTypeNames.split("\\s*,\\s*|\\s*\\|\\s*|\\s+");
 					for (int i = 0; i < names.length; i++) {
 						boolean isKindOf = FhirModelUtil.isKindOf((Class)element, names[i]);
 						if (isKindOf) {

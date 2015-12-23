@@ -1,19 +1,22 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
 package org.eclipse.mdht.uml.fhir;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.mdht.uml.fhir.types.Extension;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,7 +64,7 @@ public interface Element extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Extension</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.Extension}.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.types.Extension}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Extension</em>' reference list isn't clear,

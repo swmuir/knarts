@@ -10,10 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.ValueSet;
 
@@ -23,7 +20,7 @@ import org.eclipse.mdht.uml.fhir.ValueSet;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueSetItemProvider extends ElementItemProvider {
+public class ValueSetItemProvider extends ConformaceResourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -46,10 +43,6 @@ public class ValueSetItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addBase_EnumerationPropertyDescriptor(object);
-			addUriPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addPublisherPropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,94 +65,6 @@ public class ValueSetItemProvider extends ElementItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Uri feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUriPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValueSet_uri_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_uri_feature", "_UI_ValueSet_type"),
-				 FHIRPackage.Literals.VALUE_SET__URI,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValueSet_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_name_feature", "_UI_ValueSet_type"),
-				 FHIRPackage.Literals.VALUE_SET__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Publisher feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPublisherPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValueSet_publisher_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_publisher_feature", "_UI_ValueSet_type"),
-				 FHIRPackage.Literals.VALUE_SET__PUBLISHER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValueSet_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_version_feature", "_UI_ValueSet_type"),
-				 FHIRPackage.Literals.VALUE_SET__VERSION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -215,15 +120,6 @@ public class ValueSetItemProvider extends ElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ValueSet.class)) {
-			case FHIRPackage.VALUE_SET__URI:
-			case FHIRPackage.VALUE_SET__NAME:
-			case FHIRPackage.VALUE_SET__PUBLISHER:
-			case FHIRPackage.VALUE_SET__VERSION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

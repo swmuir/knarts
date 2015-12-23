@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.Element;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructureDefinitionItemProvider extends ElementItemProvider {
+public class StructureDefinitionItemProvider extends ConformaceResourceItemProvider {
 	
 	private ModelIndexer modelIndexer = null;
 	
@@ -61,13 +61,9 @@ public class StructureDefinitionItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addBase_ClassPropertyDescriptor(object);
-			addUriPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 			addDisplayPropertyDescriptor(object);
-			addFhirVersionPropertyDescriptor(object);
 			addContextTypePropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
-			addPublisherPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,50 +91,6 @@ public class StructureDefinitionItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Uri feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUriPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StructureDefinition_uri_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_uri_feature", "_UI_StructureDefinition_type"),
-				 FHIRPackage.Literals.STRUCTURE_DEFINITION__URI,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StructureDefinition_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_name_feature", "_UI_StructureDefinition_type"),
-				 FHIRPackage.Literals.STRUCTURE_DEFINITION__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Display feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,28 +104,6 @@ public class StructureDefinitionItemProvider extends ElementItemProvider {
 				 getString("_UI_StructureDefinition_display_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_display_feature", "_UI_StructureDefinition_type"),
 				 FHIRPackage.Literals.STRUCTURE_DEFINITION__DISPLAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Fhir Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFhirVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StructureDefinition_fhirVersion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_fhirVersion_feature", "_UI_StructureDefinition_type"),
-				 FHIRPackage.Literals.STRUCTURE_DEFINITION__FHIR_VERSION,
 				 true,
 				 false,
 				 false,
@@ -227,32 +157,10 @@ public class StructureDefinitionItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Publisher feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPublisherPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StructureDefinition_publisher_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_publisher_feature", "_UI_StructureDefinition_type"),
-				 FHIRPackage.Literals.STRUCTURE_DEFINITION__PUBLISHER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns StructureDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
@@ -367,13 +275,9 @@ public class StructureDefinitionItemProvider extends ElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StructureDefinition.class)) {
-			case FHIRPackage.STRUCTURE_DEFINITION__URI:
-			case FHIRPackage.STRUCTURE_DEFINITION__NAME:
 			case FHIRPackage.STRUCTURE_DEFINITION__DISPLAY:
-			case FHIRPackage.STRUCTURE_DEFINITION__FHIR_VERSION:
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT_TYPE:
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT:
-			case FHIRPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

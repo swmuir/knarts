@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
@@ -65,6 +65,7 @@ public interface ValueSetBinding extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Strength</b></em>' attribute.
+	 * The default value is <code>"example"</code>.
 	 * The literals are from the enumeration {@link org.eclipse.mdht.uml.fhir.BindingStrengthKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -76,7 +77,7 @@ public interface ValueSetBinding extends EObject {
 	 * @see org.eclipse.mdht.uml.fhir.BindingStrengthKind
 	 * @see #setStrength(BindingStrengthKind)
 	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getValueSetBinding_Strength()
-	 * @model required="true" ordered="false"
+	 * @model default="example" required="true" ordered="false"
 	 * @generated
 	 */
 	BindingStrengthKind getStrength();

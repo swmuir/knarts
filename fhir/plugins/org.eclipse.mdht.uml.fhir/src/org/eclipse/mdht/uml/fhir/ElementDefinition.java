@@ -1,16 +1,20 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
 package org.eclipse.mdht.uml.fhir;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.mdht.uml.fhir.types.DataType;
 
 import org.eclipse.uml2.uml.Property;
 
@@ -29,6 +33,12 @@ import org.eclipse.uml2.uml.Property;
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getMustSupport <em>Must Support</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getIsModifier <em>Is Modifier</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getIsSummary <em>Is Summary</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getRepresentations <em>Representation</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getDefault <em>Default</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getMeaningWhenMissing <em>Meaning When Missing</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getFixed <em>Fixed</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition()
@@ -191,5 +201,176 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setIsSummary(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Representation</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind}.
+	 * The literals are from the enumeration {@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Representation</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Representation</em>' attribute list.
+	 * @see org.eclipse.mdht.uml.fhir.PropertyRepresentationKind
+	 * @see #isSetRepresentations()
+	 * @see #unsetRepresentations()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Representation()
+	 * @model unsettable="true" ordered="false"
+	 * @generated
+	 */
+	EList<PropertyRepresentationKind> getRepresentations();
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getRepresentations <em>Representation</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetRepresentations()
+	 * @see #getRepresentations()
+	 * @generated
+	 */
+	void unsetRepresentations();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getRepresentations <em>Representation</em>}' attribute list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Representation</em>' attribute list is set.
+	 * @see #unsetRepresentations()
+	 * @see #getRepresentations()
+	 * @generated
+	 */
+	boolean isSetRepresentations();
+
+	/**
+	 * Returns the value of the '<em><b>Default</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default</em>' containment reference.
+	 * @see #setDefault(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Default()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	DataType getDefault();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getDefault <em>Default</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default</em>' containment reference.
+	 * @see #getDefault()
+	 * @generated
+	 */
+	void setDefault(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Meaning When Missing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Meaning When Missing</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Meaning When Missing</em>' attribute.
+	 * @see #setMeaningWhenMissing(String)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_MeaningWhenMissing()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getMeaningWhenMissing();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getMeaningWhenMissing <em>Meaning When Missing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Meaning When Missing</em>' attribute.
+	 * @see #getMeaningWhenMissing()
+	 * @generated
+	 */
+	void setMeaningWhenMissing(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed</em>' containment reference.
+	 * @see #setFixed(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Fixed()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	DataType getFixed();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getFixed <em>Fixed</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed</em>' containment reference.
+	 * @see #getFixed()
+	 * @generated
+	 */
+	void setFixed(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern</em>' containment reference.
+	 * @see #setPattern(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Pattern()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	DataType getPattern();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getPattern <em>Pattern</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern</em>' containment reference.
+	 * @see #getPattern()
+	 * @generated
+	 */
+	void setPattern(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Example</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Example</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Example</em>' containment reference.
+	 * @see #setExample(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Example()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	DataType getExample();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getExample <em>Example</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Example</em>' containment reference.
+	 * @see #getExample()
+	 * @generated
+	 */
+	void setExample(DataType value);
 
 } // ElementDefinition

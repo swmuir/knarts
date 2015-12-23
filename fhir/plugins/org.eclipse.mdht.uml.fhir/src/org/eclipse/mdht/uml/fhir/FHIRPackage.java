@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
@@ -114,7 +114,6 @@ public interface FHIRPackage extends EPackage {
 	 */
 	int TYPE_CHOICE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -123,7 +122,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 2;
+	int ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -162,6 +161,133 @@ public interface FHIRPackage extends EPackage {
 	int ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl <em>Conformace Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getConformaceResource()
+	 * @generated
+	 */
+	int CONFORMACE_RESOURCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__ID = ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__EXTENSION = ELEMENT__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__URI = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__VERSION = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__NAME = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__STATUS = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Experimental</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__EXPERIMENTAL = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__PUBLISHER = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__CONTACT = ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__DATE = ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Use Context</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE__USE_CONTEXT = ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Conformace Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The number of operations of the '<em>Conformace Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMACE_RESOURCE_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl <em>Structure Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +304,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__ID = ELEMENT__ID;
+	int STRUCTURE_DEFINITION__ID = CONFORMACE_RESOURCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -187,16 +313,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__EXTENSION = ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURE_DEFINITION__BASE_CLASS = ELEMENT_FEATURE_COUNT + 0;
+	int STRUCTURE_DEFINITION__EXTENSION = CONFORMACE_RESOURCE__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -205,7 +322,16 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__URI = ELEMENT_FEATURE_COUNT + 1;
+	int STRUCTURE_DEFINITION__URI = CONFORMACE_RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__VERSION = CONFORMACE_RESOURCE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -214,43 +340,25 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__NAME = ELEMENT_FEATURE_COUNT + 2;
+	int STRUCTURE_DEFINITION__NAME = CONFORMACE_RESOURCE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Display</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__DISPLAY = ELEMENT_FEATURE_COUNT + 3;
+	int STRUCTURE_DEFINITION__STATUS = CONFORMACE_RESOURCE__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Fhir Version</b></em>' attribute.
+	 * The feature id for the '<em><b>Experimental</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__FHIR_VERSION = ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Context Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURE_DEFINITION__CONTEXT_TYPE = ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURE_DEFINITION__CONTEXT = ELEMENT_FEATURE_COUNT + 6;
+	int STRUCTURE_DEFINITION__EXPERIMENTAL = CONFORMACE_RESOURCE__EXPERIMENTAL;
 
 	/**
 	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
@@ -259,7 +367,70 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION__PUBLISHER = ELEMENT_FEATURE_COUNT + 7;
+	int STRUCTURE_DEFINITION__PUBLISHER = CONFORMACE_RESOURCE__PUBLISHER;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__CONTACT = CONFORMACE_RESOURCE__CONTACT;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__DATE = CONFORMACE_RESOURCE__DATE;
+
+	/**
+	 * The feature id for the '<em><b>Use Context</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__USE_CONTEXT = CONFORMACE_RESOURCE__USE_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__BASE_CLASS = CONFORMACE_RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__DISPLAY = CONFORMACE_RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Context Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__CONTEXT_TYPE = CONFORMACE_RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__CONTEXT = CONFORMACE_RESOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Structure Definition</em>' class.
@@ -268,7 +439,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 8;
+	int STRUCTURE_DEFINITION_FEATURE_COUNT = CONFORMACE_RESOURCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Structure Definition</em>' class.
@@ -277,62 +448,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.ExtensionImpl <em>Extension</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.impl.ExtensionImpl
-	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getExtension()
-	 * @generated
-	 */
-	int EXTENSION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION__URL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION__VALUE_STRING = 1;
-
-	/**
-	 * The feature id for the '<em><b>Value Integer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION__VALUE_INTEGER = 2;
-
-	/**
-	 * The number of structural features of the '<em>Extension</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Extension</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_OPERATION_COUNT = 0;
+	int STRUCTURE_DEFINITION_OPERATION_COUNT = CONFORMACE_RESOURCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl <em>Element Definition</em>}' class.
@@ -417,13 +533,67 @@ public interface FHIRPackage extends EPackage {
 	int ELEMENT_DEFINITION__IS_SUMMARY = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Representation</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__REPRESENTATION = ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__DEFAULT = ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Meaning When Missing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__MEANING_WHEN_MISSING = ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Fixed</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__FIXED = ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__PATTERN = ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Example</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__EXAMPLE = ELEMENT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Element Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+	int ELEMENT_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Element Definition</em>' class.
@@ -709,7 +879,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__ID = ELEMENT__ID;
+	int VALUE_SET__ID = CONFORMACE_RESOURCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -718,16 +888,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__EXTENSION = ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Base Enumeration</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__BASE_ENUMERATION = ELEMENT_FEATURE_COUNT + 0;
+	int VALUE_SET__EXTENSION = CONFORMACE_RESOURCE__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -736,25 +897,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__URI = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__NAME = ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__PUBLISHER = ELEMENT_FEATURE_COUNT + 3;
+	int VALUE_SET__URI = CONFORMACE_RESOURCE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -763,7 +906,79 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__VERSION = ELEMENT_FEATURE_COUNT + 4;
+	int VALUE_SET__VERSION = CONFORMACE_RESOURCE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__NAME = CONFORMACE_RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__STATUS = CONFORMACE_RESOURCE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Experimental</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__EXPERIMENTAL = CONFORMACE_RESOURCE__EXPERIMENTAL;
+
+	/**
+	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__PUBLISHER = CONFORMACE_RESOURCE__PUBLISHER;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__CONTACT = CONFORMACE_RESOURCE__CONTACT;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__DATE = CONFORMACE_RESOURCE__DATE;
+
+	/**
+	 * The feature id for the '<em><b>Use Context</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__USE_CONTEXT = CONFORMACE_RESOURCE__USE_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Base Enumeration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__BASE_ENUMERATION = CONFORMACE_RESOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Value Set</em>' class.
@@ -772,7 +987,7 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int VALUE_SET_FEATURE_COUNT = CONFORMACE_RESOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Value Set</em>' class.
@@ -781,7 +996,153 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int VALUE_SET_OPERATION_COUNT = CONFORMACE_RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.DataElementImpl <em>Data Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.impl.DataElementImpl
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getDataElement()
+	 * @generated
+	 */
+	int DATA_ELEMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ID = CONFORMACE_RESOURCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__EXTENSION = CONFORMACE_RESOURCE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__URI = CONFORMACE_RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__VERSION = CONFORMACE_RESOURCE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__NAME = CONFORMACE_RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__STATUS = CONFORMACE_RESOURCE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Experimental</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__EXPERIMENTAL = CONFORMACE_RESOURCE__EXPERIMENTAL;
+
+	/**
+	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__PUBLISHER = CONFORMACE_RESOURCE__PUBLISHER;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__CONTACT = CONFORMACE_RESOURCE__CONTACT;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__DATE = CONFORMACE_RESOURCE__DATE;
+
+	/**
+	 * The feature id for the '<em><b>Use Context</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__USE_CONTEXT = CONFORMACE_RESOURCE__USE_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__BASE_CLASS = CONFORMACE_RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT_FEATURE_COUNT = CONFORMACE_RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Data Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT_OPERATION_COUNT = CONFORMACE_RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.PropertyRepresentationKind
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getPropertyRepresentationKind()
+	 * @generated
+	 */
+	int PROPERTY_REPRESENTATION_KIND = 13;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}' enum.
@@ -791,7 +1152,8 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getBindingStrengthKind()
 	 * @generated
 	 */
-	int BINDING_STRENGTH_KIND = 12;
+	int BINDING_STRENGTH_KIND = 14;
+
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.TypeChoice <em>Type Choice</em>}'.
@@ -847,28 +1209,6 @@ public interface FHIRPackage extends EPackage {
 	EReference getStructureDefinition_Base_Class();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getUri <em>Uri</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uri</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getUri()
-	 * @see #getStructureDefinition()
-	 * @generated
-	 */
-	EAttribute getStructureDefinition_Uri();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getName()
-	 * @see #getStructureDefinition()
-	 * @generated
-	 */
-	EAttribute getStructureDefinition_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDisplay <em>Display</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -878,17 +1218,6 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStructureDefinition_Display();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getFhirVersion <em>Fhir Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fhir Version</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getFhirVersion()
-	 * @see #getStructureDefinition()
-	 * @generated
-	 */
-	EAttribute getStructureDefinition_FhirVersion();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getContextType <em>Context Type</em>}'.
@@ -913,15 +1242,113 @@ public interface FHIRPackage extends EPackage {
 	EAttribute getStructureDefinition_Context();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getPublisher <em>Publisher</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ConformaceResource <em>Conformace Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conformace Resource</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource
+	 * @generated
+	 */
+	EClass getConformaceResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getUri <em>Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getUri()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Uri();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getVersion()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Version();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getName()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getStatus()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Status();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#isExperimental <em>Experimental</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Experimental</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#isExperimental()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Experimental();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getPublisher <em>Publisher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Publisher</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getPublisher()
-	 * @see #getStructureDefinition()
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getPublisher()
+	 * @see #getConformaceResource()
 	 * @generated
 	 */
-	EAttribute getStructureDefinition_Publisher();
+	EAttribute getConformaceResource_Publisher();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getContacts <em>Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contact</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getContacts()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EReference getConformaceResource_Contact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getDate <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getDate()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EAttribute getConformaceResource_Date();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getUseContexts <em>Use Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Use Context</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource#getUseContexts()
+	 * @see #getConformaceResource()
+	 * @generated
+	 */
+	EReference getConformaceResource_UseContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.Element <em>Element</em>}'.
@@ -954,49 +1381,6 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElement_Extension();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.Extension <em>Extension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extension</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.Extension
-	 * @generated
-	 */
-	EClass getExtension();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.Extension#getUrl <em>Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.Extension#getUrl()
-	 * @see #getExtension()
-	 * @generated
-	 */
-	EAttribute getExtension_Url();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.Extension#getValueString <em>Value String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value String</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.Extension#getValueString()
-	 * @see #getExtension()
-	 * @generated
-	 */
-	EAttribute getExtension_ValueString();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.Extension#getValueInteger <em>Value Integer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value Integer</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.Extension#getValueInteger()
-	 * @see #getExtension()
-	 * @generated
-	 */
-	EAttribute getExtension_ValueInteger();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ElementDefinition <em>Element Definition</em>}'.
@@ -1073,6 +1457,72 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElementDefinition_IsSummary();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getRepresentations <em>Representation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Representation</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getRepresentations()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EAttribute getElementDefinition_Representation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getDefault()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EReference getElementDefinition_Default();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getMeaningWhenMissing <em>Meaning When Missing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Meaning When Missing</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getMeaningWhenMissing()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EAttribute getElementDefinition_MeaningWhenMissing();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getFixed <em>Fixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Fixed</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getFixed()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EReference getElementDefinition_Fixed();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pattern</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getPattern()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EReference getElementDefinition_Pattern();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getExample <em>Example</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Example</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getExample()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EReference getElementDefinition_Example();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ShortDescription <em>Short Description</em>}'.
@@ -1266,48 +1716,35 @@ public interface FHIRPackage extends EPackage {
 	EReference getValueSet_Base_Enumeration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ValueSet#getUri <em>Uri</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.DataElement <em>Data Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uri</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.ValueSet#getUri()
-	 * @see #getValueSet()
+	 * @return the meta object for class '<em>Data Element</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.DataElement
 	 * @generated
 	 */
-	EAttribute getValueSet_Uri();
+	EClass getDataElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ValueSet#getName <em>Name</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.DataElement#getBase_Class <em>Base Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.ValueSet#getName()
-	 * @see #getValueSet()
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.DataElement#getBase_Class()
+	 * @see #getDataElement()
 	 * @generated
 	 */
-	EAttribute getValueSet_Name();
+	EReference getDataElement_Base_Class();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ValueSet#getPublisher <em>Publisher</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Publisher</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.ValueSet#getPublisher()
-	 * @see #getValueSet()
+	 * @return the meta object for enum '<em>Property Representation Kind</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.PropertyRepresentationKind
 	 * @generated
 	 */
-	EAttribute getValueSet_Publisher();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ValueSet#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.ValueSet#getVersion()
-	 * @see #getValueSet()
-	 * @generated
-	 */
-	EAttribute getValueSet_Version();
+	EEnum getPropertyRepresentationKind();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}'.
@@ -1387,36 +1824,12 @@ public interface FHIRPackage extends EPackage {
 		EReference STRUCTURE_DEFINITION__BASE_CLASS = eINSTANCE.getStructureDefinition_Base_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRUCTURE_DEFINITION__URI = eINSTANCE.getStructureDefinition_Uri();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRUCTURE_DEFINITION__NAME = eINSTANCE.getStructureDefinition_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Display</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STRUCTURE_DEFINITION__DISPLAY = eINSTANCE.getStructureDefinition_Display();
-
-		/**
-		 * The meta object literal for the '<em><b>Fhir Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRUCTURE_DEFINITION__FHIR_VERSION = eINSTANCE.getStructureDefinition_FhirVersion();
 
 		/**
 		 * The meta object literal for the '<em><b>Context Type</b></em>' attribute feature.
@@ -1435,12 +1848,86 @@ public interface FHIRPackage extends EPackage {
 		EAttribute STRUCTURE_DEFINITION__CONTEXT = eINSTANCE.getStructureDefinition_Context();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl <em>Conformace Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getConformaceResource()
+		 * @generated
+		 */
+		EClass CONFORMACE_RESOURCE = eINSTANCE.getConformaceResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__URI = eINSTANCE.getConformaceResource_Uri();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__VERSION = eINSTANCE.getConformaceResource_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__NAME = eINSTANCE.getConformaceResource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__STATUS = eINSTANCE.getConformaceResource_Status();
+
+		/**
+		 * The meta object literal for the '<em><b>Experimental</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__EXPERIMENTAL = eINSTANCE.getConformaceResource_Experimental();
+
+		/**
 		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRUCTURE_DEFINITION__PUBLISHER = eINSTANCE.getStructureDefinition_Publisher();
+		EAttribute CONFORMACE_RESOURCE__PUBLISHER = eINSTANCE.getConformaceResource_Publisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Contact</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFORMACE_RESOURCE__CONTACT = eINSTANCE.getConformaceResource_Contact();
+
+		/**
+		 * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMACE_RESOURCE__DATE = eINSTANCE.getConformaceResource_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Context</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFORMACE_RESOURCE__USE_CONTEXT = eINSTANCE.getConformaceResource_UseContext();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementImpl <em>Element</em>}' class.
@@ -1467,40 +1954,6 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__EXTENSION = eINSTANCE.getElement_Extension();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ExtensionImpl <em>Extension</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.impl.ExtensionImpl
-		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getExtension()
-		 * @generated
-		 */
-		EClass EXTENSION = eINSTANCE.getExtension();
-
-		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTENSION__URL = eINSTANCE.getExtension_Url();
-
-		/**
-		 * The meta object literal for the '<em><b>Value String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTENSION__VALUE_STRING = eINSTANCE.getExtension_ValueString();
-
-		/**
-		 * The meta object literal for the '<em><b>Value Integer</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTENSION__VALUE_INTEGER = eINSTANCE.getExtension_ValueInteger();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl <em>Element Definition</em>}' class.
@@ -1559,6 +2012,54 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_DEFINITION__IS_SUMMARY = eINSTANCE.getElementDefinition_IsSummary();
+
+		/**
+		 * The meta object literal for the '<em><b>Representation</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_DEFINITION__REPRESENTATION = eINSTANCE.getElementDefinition_Representation();
+
+		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_DEFINITION__DEFAULT = eINSTANCE.getElementDefinition_Default();
+
+		/**
+		 * The meta object literal for the '<em><b>Meaning When Missing</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_DEFINITION__MEANING_WHEN_MISSING = eINSTANCE.getElementDefinition_MeaningWhenMissing();
+
+		/**
+		 * The meta object literal for the '<em><b>Fixed</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_DEFINITION__FIXED = eINSTANCE.getElementDefinition_Fixed();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_DEFINITION__PATTERN = eINSTANCE.getElementDefinition_Pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Example</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_DEFINITION__EXAMPLE = eINSTANCE.getElementDefinition_Example();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ShortDescriptionImpl <em>Short Description</em>}' class.
@@ -1719,36 +2220,32 @@ public interface FHIRPackage extends EPackage {
 		EReference VALUE_SET__BASE_ENUMERATION = eINSTANCE.getValueSet_Base_Enumeration();
 
 		/**
-		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.DataElementImpl <em>Data Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.impl.DataElementImpl
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getDataElement()
 		 * @generated
 		 */
-		EAttribute VALUE_SET__URI = eINSTANCE.getValueSet_Uri();
+		EClass DATA_ELEMENT = eINSTANCE.getDataElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VALUE_SET__NAME = eINSTANCE.getValueSet_Name();
+		EReference DATA_ELEMENT__BASE_CLASS = eINSTANCE.getDataElement_Base_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.PropertyRepresentationKind
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getPropertyRepresentationKind()
 		 * @generated
 		 */
-		EAttribute VALUE_SET__PUBLISHER = eINSTANCE.getValueSet_Publisher();
-
-		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE_SET__VERSION = eINSTANCE.getValueSet_Version();
+		EEnum PROPERTY_REPRESENTATION_KIND = eINSTANCE.getPropertyRepresentationKind();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}' enum.

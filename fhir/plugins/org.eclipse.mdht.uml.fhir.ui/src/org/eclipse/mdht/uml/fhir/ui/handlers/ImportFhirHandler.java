@@ -34,6 +34,7 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.emf.workspace.IWorkspaceCommandStack;
 import org.eclipse.mdht.uml.common.ui.util.UMLHandlerUtil;
+import org.eclipse.mdht.uml.fhir.common.util.ModelFilter;
 import org.eclipse.mdht.uml.fhir.transform.ModelImporter;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.IWorkbenchPart;
@@ -41,11 +42,12 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.uml2.uml.Package;
 
 public class ImportFhirHandler extends AbstractHandler {
-
+	private static final String IMPORT_FILTERS_PARAMETER = "org.eclipse.mdht.uml.fhir.ui.commandParameter.importFilters";
+	
 	public ImportFhirHandler() {
 		super();
 	}
-
+	
 	private IContainer getProfileFolder(IWorkbenchPart activePart) {
 		IContainer profileFolder = null;
 		IContainer[] containers = WorkspaceResourceDialog.openFolderSelection(activePart.getSite().getShell(), 
@@ -61,6 +63,27 @@ public class ImportFhirHandler extends AbstractHandler {
 		ResourceDialog dialog = new ResourceDialog(activePart.getSite().getShell(), "Select FHIR Profiles", SWT.OPEN|SWT.MULTI);
 		dialog.open();
 		return dialog.getURIs();
+	}
+	
+	protected ModelFilter createFilter(ExecutionEvent event) {
+		ModelFilter filter = new ModelFilter();
+		String importFiltersParam = event.getParameter(IMPORT_FILTERS_PARAMETER);
+		
+		if (importFiltersParam != null) {
+			// delimiters: ",", "|", " "
+			String[] params = importFiltersParam.split("\\s*,\\s*|\\s*\\|\\s*|\\s+");
+			for (int i = 0; i < params.length; i++) {
+				try {
+					ModelFilter.DefinitionType type = ModelFilter.DefinitionType.valueOf(params[i]);
+					filter.getFilterTypes().add(type);
+				}
+				catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return filter;
 	}
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -83,6 +106,8 @@ public class ImportFhirHandler extends AbstractHandler {
 //						umlImporter.importProfile(profileURI);
 //					}
 					
+					ModelFilter modelFilter = createFilter(event);
+					umlImporter.setModelFilter(modelFilter);
 					indexAllFiles(umlImporter, profileFolder);
 					umlImporter.importIndexedResources();
 					

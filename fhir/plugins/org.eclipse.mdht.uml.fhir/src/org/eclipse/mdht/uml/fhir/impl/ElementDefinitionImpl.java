@@ -1,24 +1,37 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
 package org.eclipse.mdht.uml.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
+import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
+
+import org.eclipse.mdht.uml.fhir.types.DataType;
 
 import org.eclipse.uml2.uml.Property;
 
@@ -36,6 +49,12 @@ import org.eclipse.uml2.uml.Property;
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getMustSupport <em>Must Support</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getIsModifier <em>Is Modifier</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getIsSummary <em>Is Summary</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getRepresentations <em>Representation</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getMeaningWhenMissing <em>Meaning When Missing</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getFixed <em>Fixed</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,6 +169,76 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @ordered
 	 */
 	protected Boolean isSummary = IS_SUMMARY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRepresentations() <em>Representation</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PropertyRepresentationKind> representations;
+
+	/**
+	 * The cached value of the '{@link #getDefault() <em>Default</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType default_;
+
+	/**
+	 * The default value of the '{@link #getMeaningWhenMissing() <em>Meaning When Missing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMeaningWhenMissing()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MEANING_WHEN_MISSING_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMeaningWhenMissing() <em>Meaning When Missing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMeaningWhenMissing()
+	 * @generated
+	 * @ordered
+	 */
+	protected String meaningWhenMissing = MEANING_WHEN_MISSING_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFixed() <em>Fixed</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixed()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType fixed;
+
+	/**
+	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType pattern;
+
+	/**
+	 * The cached value of the '{@link #getExample() <em>Example</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType example;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,6 +407,249 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<PropertyRepresentationKind> getRepresentations() {
+		if (representations == null) {
+			representations = new EDataTypeUniqueEList.Unsettable<PropertyRepresentationKind>(PropertyRepresentationKind.class, this, FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION);
+		}
+		return representations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetRepresentations() {
+		if (representations != null) ((InternalEList.Unsettable<?>)representations).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetRepresentations() {
+		return representations != null && ((InternalEList.Unsettable<?>)representations).isSet();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType getDefault() {
+		return default_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefault(DataType newDefault, NotificationChain msgs) {
+		DataType oldDefault = default_;
+		default_ = newDefault;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__DEFAULT, oldDefault, newDefault);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefault(DataType newDefault) {
+		if (newDefault != default_) {
+			NotificationChain msgs = null;
+			if (default_ != null)
+				msgs = ((InternalEObject)default_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__DEFAULT, null, msgs);
+			if (newDefault != null)
+				msgs = ((InternalEObject)newDefault).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__DEFAULT, null, msgs);
+			msgs = basicSetDefault(newDefault, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__DEFAULT, newDefault, newDefault));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMeaningWhenMissing() {
+		return meaningWhenMissing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeaningWhenMissing(String newMeaningWhenMissing) {
+		String oldMeaningWhenMissing = meaningWhenMissing;
+		meaningWhenMissing = newMeaningWhenMissing;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING, oldMeaningWhenMissing, meaningWhenMissing));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType getFixed() {
+		return fixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFixed(DataType newFixed, NotificationChain msgs) {
+		DataType oldFixed = fixed;
+		fixed = newFixed;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__FIXED, oldFixed, newFixed);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFixed(DataType newFixed) {
+		if (newFixed != fixed) {
+			NotificationChain msgs = null;
+			if (fixed != null)
+				msgs = ((InternalEObject)fixed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__FIXED, null, msgs);
+			if (newFixed != null)
+				msgs = ((InternalEObject)newFixed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__FIXED, null, msgs);
+			msgs = basicSetFixed(newFixed, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__FIXED, newFixed, newFixed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType getPattern() {
+		return pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPattern(DataType newPattern, NotificationChain msgs) {
+		DataType oldPattern = pattern;
+		pattern = newPattern;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__PATTERN, oldPattern, newPattern);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPattern(DataType newPattern) {
+		if (newPattern != pattern) {
+			NotificationChain msgs = null;
+			if (pattern != null)
+				msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__PATTERN, null, msgs);
+			if (newPattern != null)
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__PATTERN, null, msgs);
+			msgs = basicSetPattern(newPattern, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__PATTERN, newPattern, newPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType getExample() {
+		return example;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExample(DataType newExample, NotificationChain msgs) {
+		DataType oldExample = example;
+		example = newExample;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__EXAMPLE, oldExample, newExample);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExample(DataType newExample) {
+		if (newExample != example) {
+			NotificationChain msgs = null;
+			if (example != null)
+				msgs = ((InternalEObject)example).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__EXAMPLE, null, msgs);
+			if (newExample != null)
+				msgs = ((InternalEObject)newExample).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.ELEMENT_DEFINITION__EXAMPLE, null, msgs);
+			msgs = basicSetExample(newExample, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__EXAMPLE, newExample, newExample));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FHIRPackage.ELEMENT_DEFINITION__DEFAULT:
+				return basicSetDefault(null, msgs);
+			case FHIRPackage.ELEMENT_DEFINITION__FIXED:
+				return basicSetFixed(null, msgs);
+			case FHIRPackage.ELEMENT_DEFINITION__PATTERN:
+				return basicSetPattern(null, msgs);
+			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
+				return basicSetExample(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -334,6 +666,18 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return getIsModifier();
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
 				return getIsSummary();
+			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
+				return getRepresentations();
+			case FHIRPackage.ELEMENT_DEFINITION__DEFAULT:
+				return getDefault();
+			case FHIRPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
+				return getMeaningWhenMissing();
+			case FHIRPackage.ELEMENT_DEFINITION__FIXED:
+				return getFixed();
+			case FHIRPackage.ELEMENT_DEFINITION__PATTERN:
+				return getPattern();
+			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
+				return getExample();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,6 +709,25 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
 				setIsSummary((Boolean)newValue);
 				return;
+			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
+				getRepresentations().clear();
+				getRepresentations().addAll((Collection<? extends PropertyRepresentationKind>)newValue);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__DEFAULT:
+				setDefault((DataType)newValue);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
+				setMeaningWhenMissing((String)newValue);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__FIXED:
+				setFixed((DataType)newValue);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__PATTERN:
+				setPattern((DataType)newValue);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
+				setExample((DataType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -395,6 +758,24 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
 				setIsSummary(IS_SUMMARY_EDEFAULT);
 				return;
+			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
+				unsetRepresentations();
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__DEFAULT:
+				setDefault((DataType)null);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
+				setMeaningWhenMissing(MEANING_WHEN_MISSING_EDEFAULT);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__FIXED:
+				setFixed((DataType)null);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__PATTERN:
+				setPattern((DataType)null);
+				return;
+			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
+				setExample((DataType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -419,6 +800,18 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return IS_MODIFIER_EDEFAULT == null ? isModifier != null : !IS_MODIFIER_EDEFAULT.equals(isModifier);
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
 				return IS_SUMMARY_EDEFAULT == null ? isSummary != null : !IS_SUMMARY_EDEFAULT.equals(isSummary);
+			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
+				return isSetRepresentations();
+			case FHIRPackage.ELEMENT_DEFINITION__DEFAULT:
+				return default_ != null;
+			case FHIRPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
+				return MEANING_WHEN_MISSING_EDEFAULT == null ? meaningWhenMissing != null : !MEANING_WHEN_MISSING_EDEFAULT.equals(meaningWhenMissing);
+			case FHIRPackage.ELEMENT_DEFINITION__FIXED:
+				return fixed != null;
+			case FHIRPackage.ELEMENT_DEFINITION__PATTERN:
+				return pattern != null;
+			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
+				return example != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -443,6 +836,10 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 		result.append(isModifier);
 		result.append(", isSummary: ");
 		result.append(isSummary);
+		result.append(", representation: ");
+		result.append(representations);
+		result.append(", meaningWhenMissing: ");
+		result.append(meaningWhenMissing);
 		result.append(')');
 		return result.toString();
 	}

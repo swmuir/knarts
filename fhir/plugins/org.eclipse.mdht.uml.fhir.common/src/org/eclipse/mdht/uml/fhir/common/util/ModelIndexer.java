@@ -16,11 +16,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.mdht.uml.fhir.DataElement;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.NamedElement;
@@ -33,12 +35,13 @@ public class ModelIndexer implements ModelConstants {
 	private Set<String> resourceTypes = new HashSet<String>();
 	private Set<String> dataTypes = new HashSet<String>();
 //	private Set<String> definedTypes = new HashSet<String>();
-	
+
+	private Map<String,Class> structureDefinitionUriMap = new HashMap<String,Class>();
+
 	// key = FHIR ValueSet URI, value = UML Enumeration
 	private Map<String,Enumeration> valueSetMap = new HashMap<String,Enumeration>();
 
-//	private Map<String,Class> structureDefinitionNameMap = new HashMap<String,Class>();
-	private Map<String,Class> structureDefinitionUriMap = new HashMap<String,Class>();
+	private Map<String,Class> dataElementUriMap = new HashMap<String,Class>();
 
 	// key = Constraint qualified name, value = UML Constraint
 	private Map<String,Constraint> constraintMap = new HashMap<String,Constraint>();
@@ -57,6 +60,10 @@ public class ModelIndexer implements ModelConstants {
 
 	public Enumeration getValueSetForURI(String uri) {
 		return valueSetMap.get(uri);
+	}
+
+	public Class getDataElementForURI(String uri) {
+		return dataElementUriMap.get(uri);
 	}
 	
 	public boolean isDefinedType(Classifier classifier) {
@@ -152,11 +159,18 @@ public class ModelIndexer implements ModelConstants {
 	}
 	
 	public void indexMembers(Package umlPackage) {
-		for (NamedElement member : umlPackage.getMembers()) {
+		for (Element member : umlPackage.getOwnedElements()) {
 			if (member instanceof Class) {
 				StructureDefinition structureDefinition = FhirModelUtil.getStructureDefinition((Class)member);
 				if (structureDefinition != null) {
 					addElement(structureDefinition);
+				}
+				else {
+					DataElement dataElement = FhirModelUtil.getDataElement((Class)member);
+					if (dataElement != null) {
+						addElement(dataElement);
+					}
+					
 				}
 			}
 			else if (member instanceof Enumeration) {
@@ -180,9 +194,20 @@ public class ModelIndexer implements ModelConstants {
 	public void addElement(StructureDefinition structureDefinition) {
 		Class baseClass = structureDefinition.getBase_Class();
 		if (baseClass != null) {
-//			structureDefinitionNameMap.put(baseClass.getName(), baseClass);
 			if (structureDefinition.getUri() != null) {
 				structureDefinitionUriMap.put(structureDefinition.getUri(), baseClass);
+			}
+		}
+	}
+
+	public void addElement(DataElement dataElement) {
+		Class baseClass = dataElement.getBase_Class();
+		if (baseClass != null) {
+			if (dataElement.getUri() != null) {
+				dataElementUriMap.put(dataElement.getUri(), baseClass);
+			}
+			else if (dataElement.getId() != null) {
+				dataElementUriMap.put(dataElement.getId(), baseClass);
 			}
 		}
 	}

@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
+ * Copyright (c) 2015 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
  *******************************************************************************/
 /**
  */
@@ -22,21 +22,28 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.Comments;
+import org.eclipse.mdht.uml.fhir.ConformaceResource;
+import org.eclipse.mdht.uml.fhir.DataElement;
 import org.eclipse.mdht.uml.fhir.Definition;
 import org.eclipse.mdht.uml.fhir.Description;
 import org.eclipse.mdht.uml.fhir.Element;
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.Extension;
 import org.eclipse.mdht.uml.fhir.FHIRFactory;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
+import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.Requirements;
 import org.eclipse.mdht.uml.fhir.ShortDescription;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
-
 import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
+
+import org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage;
+
+import org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl;
+
 import org.eclipse.uml2.types.TypesPackage;
+
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
@@ -65,14 +72,14 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass elementEClass = null;
+	private EClass conformaceResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass extensionEClass = null;
+	private EClass elementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +142,20 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dataElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum propertyRepresentationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum bindingStrengthKindEEnum = null;
 
 	/**
@@ -186,11 +207,16 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		// Initialize simple dependencies
 		UMLPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		FHIRTypesPackageImpl theFHIRTypesPackage = (FHIRTypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FHIRTypesPackage.eNS_URI) instanceof FHIRTypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FHIRTypesPackage.eNS_URI) : FHIRTypesPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theFHIRPackage.createPackageContents();
+		theFHIRTypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theFHIRPackage.initializePackageContents();
+		theFHIRTypesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theFHIRPackage.freeze();
@@ -251,7 +277,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_Uri() {
+	public EAttribute getStructureDefinition_Display() {
 		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -260,7 +286,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_Name() {
+	public EAttribute getStructureDefinition_ContextType() {
 		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -269,7 +295,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_Display() {
+	public EAttribute getStructureDefinition_Context() {
 		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -278,8 +304,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_FhirVersion() {
-		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(4);
+	public EClass getConformaceResource() {
+		return conformaceResourceEClass;
 	}
 
 	/**
@@ -287,8 +313,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_ContextType() {
-		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(5);
+	public EAttribute getConformaceResource_Uri() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -296,8 +322,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_Context() {
-		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(6);
+	public EAttribute getConformaceResource_Version() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -305,8 +331,62 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStructureDefinition_Publisher() {
-		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(7);
+	public EAttribute getConformaceResource_Name() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConformaceResource_Status() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConformaceResource_Experimental() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConformaceResource_Publisher() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConformaceResource_Contact() {
+		return (EReference)conformaceResourceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConformaceResource_Date() {
+		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConformaceResource_UseContext() {
+		return (EReference)conformaceResourceEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -334,42 +414,6 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 */
 	public EReference getElement_Extension() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getExtension() {
-		return extensionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExtension_Url() {
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExtension_ValueString() {
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExtension_ValueInteger() {
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -433,6 +477,60 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 */
 	public EAttribute getElementDefinition_IsSummary() {
 		return (EAttribute)elementDefinitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementDefinition_Representation() {
+		return (EAttribute)elementDefinitionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementDefinition_Default() {
+		return (EReference)elementDefinitionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementDefinition_MeaningWhenMissing() {
+		return (EAttribute)elementDefinitionEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementDefinition_Fixed() {
+		return (EReference)elementDefinitionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementDefinition_Pattern() {
+		return (EReference)elementDefinitionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementDefinition_Example() {
+		return (EReference)elementDefinitionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -602,8 +700,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getValueSet_Uri() {
-		return (EAttribute)valueSetEClass.getEStructuralFeatures().get(1);
+	public EClass getDataElement() {
+		return dataElementEClass;
 	}
 
 	/**
@@ -611,8 +709,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getValueSet_Name() {
-		return (EAttribute)valueSetEClass.getEStructuralFeatures().get(2);
+	public EReference getDataElement_Base_Class() {
+		return (EReference)dataElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -620,17 +718,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getValueSet_Publisher() {
-		return (EAttribute)valueSetEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getValueSet_Version() {
-		return (EAttribute)valueSetEClass.getEStructuralFeatures().get(4);
+	public EEnum getPropertyRepresentationKind() {
+		return propertyRepresentationKindEEnum;
 	}
 
 	/**
@@ -676,22 +765,24 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 
 		structureDefinitionEClass = createEClass(STRUCTURE_DEFINITION);
 		createEReference(structureDefinitionEClass, STRUCTURE_DEFINITION__BASE_CLASS);
-		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__URI);
-		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__NAME);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__DISPLAY);
-		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__FHIR_VERSION);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT_TYPE);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT);
-		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__PUBLISHER);
+
+		conformaceResourceEClass = createEClass(CONFORMACE_RESOURCE);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__URI);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__VERSION);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__NAME);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__STATUS);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__EXPERIMENTAL);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__PUBLISHER);
+		createEReference(conformaceResourceEClass, CONFORMACE_RESOURCE__CONTACT);
+		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__DATE);
+		createEReference(conformaceResourceEClass, CONFORMACE_RESOURCE__USE_CONTEXT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__ID);
 		createEReference(elementEClass, ELEMENT__EXTENSION);
-
-		extensionEClass = createEClass(EXTENSION);
-		createEAttribute(extensionEClass, EXTENSION__URL);
-		createEAttribute(extensionEClass, EXTENSION__VALUE_STRING);
-		createEAttribute(extensionEClass, EXTENSION__VALUE_INTEGER);
 
 		elementDefinitionEClass = createEClass(ELEMENT_DEFINITION);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__BASE_PROPERTY);
@@ -700,6 +791,12 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__MUST_SUPPORT);
 		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__IS_MODIFIER);
 		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__IS_SUMMARY);
+		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__REPRESENTATION);
+		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__DEFAULT);
+		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__MEANING_WHEN_MISSING);
+		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__FIXED);
+		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__PATTERN);
+		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__EXAMPLE);
 
 		shortDescriptionEClass = createEClass(SHORT_DESCRIPTION);
 		createEReference(shortDescriptionEClass, SHORT_DESCRIPTION__BASE_COMMENT);
@@ -725,12 +822,12 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 
 		valueSetEClass = createEClass(VALUE_SET);
 		createEReference(valueSetEClass, VALUE_SET__BASE_ENUMERATION);
-		createEAttribute(valueSetEClass, VALUE_SET__URI);
-		createEAttribute(valueSetEClass, VALUE_SET__NAME);
-		createEAttribute(valueSetEClass, VALUE_SET__PUBLISHER);
-		createEAttribute(valueSetEClass, VALUE_SET__VERSION);
+
+		dataElementEClass = createEClass(DATA_ELEMENT);
+		createEReference(dataElementEClass, DATA_ELEMENT__BASE_CLASS);
 
 		// Create enums
+		propertyRepresentationKindEEnum = createEEnum(PROPERTY_REPRESENTATION_KIND);
 		bindingStrengthKindEEnum = createEEnum(BINDING_STRENGTH_KIND);
 	}
 
@@ -758,17 +855,23 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		FHIRTypesPackage theFHIRTypesPackage = (FHIRTypesPackage)EPackage.Registry.INSTANCE.getEPackage(FHIRTypesPackage.eNS_URI);
 		UMLPackage theUMLPackage = (UMLPackage)EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
 		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theFHIRTypesPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		structureDefinitionEClass.getESuperTypes().add(this.getElement());
+		structureDefinitionEClass.getESuperTypes().add(this.getConformaceResource());
+		conformaceResourceEClass.getESuperTypes().add(this.getElement());
 		elementDefinitionEClass.getESuperTypes().add(this.getElement());
-		valueSetEClass.getESuperTypes().add(this.getElement());
+		valueSetEClass.getESuperTypes().add(this.getConformaceResource());
+		dataElementEClass.getESuperTypes().add(this.getConformaceResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeChoiceEClass, TypeChoice.class, "TypeChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -777,22 +880,24 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 
 		initEClass(structureDefinitionEClass, StructureDefinition.class, "StructureDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStructureDefinition_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStructureDefinition_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStructureDefinition_Name(), theTypesPackage.getString(), "name", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_Display(), theTypesPackage.getString(), "display", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStructureDefinition_FhirVersion(), theTypesPackage.getString(), "fhirVersion", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_ContextType(), theTypesPackage.getString(), "contextType", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_Context(), theTypesPackage.getString(), "context", null, 0, -1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStructureDefinition_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(conformaceResourceEClass, ConformaceResource.class, "ConformaceResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConformaceResource_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Version(), theTypesPackage.getString(), "version", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Name(), theTypesPackage.getString(), "name", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Status(), theTypesPackage.getString(), "status", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Experimental(), theTypesPackage.getBoolean(), "experimental", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformaceResource_Contact(), theFHIRTypesPackage.getContact(), null, "contact", null, 0, -1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformaceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformaceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Id(), theTypesPackage.getString(), "id", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getElement_Extension(), this.getExtension(), null, "extension", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(extensionEClass, Extension.class, "Extension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtension_Url(), theTypesPackage.getString(), "url", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getExtension_ValueString(), theTypesPackage.getString(), "valueString", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getExtension_ValueInteger(), ecorePackage.getEIntegerObject(), "valueInteger", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElement_Extension(), theFHIRTypesPackage.getExtension(), null, "extension", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(elementDefinitionEClass, ElementDefinition.class, "ElementDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementDefinition_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -801,6 +906,12 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getElementDefinition_MustSupport(), ecorePackage.getEBooleanObject(), "mustSupport", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getElementDefinition_IsModifier(), ecorePackage.getEBooleanObject(), "isModifier", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getElementDefinition_IsSummary(), ecorePackage.getEBooleanObject(), "isSummary", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementDefinition_Representation(), this.getPropertyRepresentationKind(), "representation", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementDefinition_Default(), theFHIRTypesPackage.getDataType(), null, "default", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementDefinition_MeaningWhenMissing(), theTypesPackage.getString(), "meaningWhenMissing", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementDefinition_Fixed(), theFHIRTypesPackage.getDataType(), null, "fixed", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementDefinition_Pattern(), theFHIRTypesPackage.getDataType(), null, "pattern", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementDefinition_Example(), theFHIRTypesPackage.getDataType(), null, "example", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(shortDescriptionEClass, ShortDescription.class, "ShortDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShortDescription_Base_Comment(), theUMLPackage.getComment(), null, "base_Comment", null, 1, 1, ShortDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -819,19 +930,21 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 
 		initEClass(valueSetBindingEClass, ValueSetBinding.class, "ValueSetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSetBinding_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSetBinding_Strength(), this.getBindingStrengthKind(), "strength", null, 1, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetBinding_Strength(), this.getBindingStrengthKind(), "strength", "example", 1, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetBinding_Description(), theTypesPackage.getString(), "description", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetBinding_ValueSetUri(), theTypesPackage.getString(), "valueSetUri", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetBinding_ValueSetReference(), theTypesPackage.getString(), "valueSetReference", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_Base_Enumeration(), theUMLPackage.getEnumeration(), null, "base_Enumeration", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSet_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSet_Name(), theTypesPackage.getString(), "name", null, 0, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSet_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSet_Version(), theTypesPackage.getString(), "version", null, 0, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(dataElementEClass, DataElement.class, "DataElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataElement_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, DataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(propertyRepresentationKindEEnum, PropertyRepresentationKind.class, "PropertyRepresentationKind");
+		addEEnumLiteral(propertyRepresentationKindEEnum, PropertyRepresentationKind.XML_ATTR);
+
 		initEEnum(bindingStrengthKindEEnum, BindingStrengthKind.class, "BindingStrengthKind");
 		addEEnumLiteral(bindingStrengthKindEEnum, BindingStrengthKind.REQUIRED);
 		addEEnumLiteral(bindingStrengthKindEEnum, BindingStrengthKind.EXTENSIBLE);

@@ -31,6 +31,12 @@ PROJECT MANAGEMENT
 - Configure Maven build
 
 --------------------
+API
+
+- FHIRModelException, replace all use of System.err.println()
+- FHIRModelRuntimeException
+
+--------------------
 Model Mapping
 
 - Include support for FHIR mapping, as subset of more general mapping metamodel

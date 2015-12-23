@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.eclipse.mdht.uml.fhir.util;
@@ -85,19 +75,21 @@ public class FHIRSwitch<T> extends Switch<T> {
 			case FHIRPackage.STRUCTURE_DEFINITION: {
 				StructureDefinition structureDefinition = (StructureDefinition)theEObject;
 				T result = caseStructureDefinition(structureDefinition);
+				if (result == null) result = caseConformaceResource(structureDefinition);
 				if (result == null) result = caseElement(structureDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FHIRPackage.CONFORMACE_RESOURCE: {
+				ConformaceResource conformaceResource = (ConformaceResource)theEObject;
+				T result = caseConformaceResource(conformaceResource);
+				if (result == null) result = caseElement(conformaceResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FHIRPackage.ELEMENT: {
 				Element element = (Element)theEObject;
 				T result = caseElement(element);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FHIRPackage.EXTENSION: {
-				Extension extension = (Extension)theEObject;
-				T result = caseExtension(extension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,7 +139,16 @@ public class FHIRSwitch<T> extends Switch<T> {
 			case FHIRPackage.VALUE_SET: {
 				ValueSet valueSet = (ValueSet)theEObject;
 				T result = caseValueSet(valueSet);
+				if (result == null) result = caseConformaceResource(valueSet);
 				if (result == null) result = caseElement(valueSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FHIRPackage.DATA_ELEMENT: {
+				DataElement dataElement = (DataElement)theEObject;
+				T result = caseDataElement(dataElement);
+				if (result == null) result = caseConformaceResource(dataElement);
+				if (result == null) result = caseElement(dataElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,6 +187,21 @@ public class FHIRSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conformace Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conformace Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConformaceResource(ConformaceResource object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -197,21 +213,6 @@ public class FHIRSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseElement(Element object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Extension</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Extension</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExtension(Extension object) {
 		return null;
 	}
 
@@ -332,6 +333,21 @@ public class FHIRSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseValueSet(ValueSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataElement(DataElement object) {
 		return null;
 	}
 

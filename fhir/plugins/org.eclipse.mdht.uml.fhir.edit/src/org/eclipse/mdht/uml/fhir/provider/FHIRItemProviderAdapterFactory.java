@@ -8,7 +8,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -24,7 +23,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemFontProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.mdht.uml.fhir.util.FHIRAdapterFactory;
 
 /**
@@ -123,29 +121,6 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 		}
 
 		return structureDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.Extension} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtensionItemProvider extensionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.Extension}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtensionAdapter() {
-		if (extensionItemProvider == null) {
-			extensionItemProvider = new ExtensionItemProvider(this);
-		}
-
-		return extensionItemProvider;
 	}
 
 	/**
@@ -333,6 +308,29 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.DataElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataElementItemProvider dataElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.DataElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataElementAdapter() {
+		if (dataElementItemProvider == null) {
+			dataElementItemProvider = new DataElementItemProvider(this);
+		}
+
+		return dataElementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,7 +431,6 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 	public void dispose() {
 		if (typeChoiceItemProvider != null) typeChoiceItemProvider.dispose();
 		if (structureDefinitionItemProvider != null) structureDefinitionItemProvider.dispose();
-		if (extensionItemProvider != null) extensionItemProvider.dispose();
 		if (elementDefinitionItemProvider != null) elementDefinitionItemProvider.dispose();
 		if (shortDescriptionItemProvider != null) shortDescriptionItemProvider.dispose();
 		if (descriptionItemProvider != null) descriptionItemProvider.dispose();
@@ -442,6 +439,7 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 		if (commentsItemProvider != null) commentsItemProvider.dispose();
 		if (valueSetBindingItemProvider != null) valueSetBindingItemProvider.dispose();
 		if (valueSetItemProvider != null) valueSetItemProvider.dispose();
+		if (dataElementItemProvider != null) dataElementItemProvider.dispose();
 	}
 
 }

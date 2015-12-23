@@ -26,12 +26,18 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.uml.common.util.NamedElementUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
+import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 import org.eclipse.mdht.uml.fhir.common.util.FhirModelUtil;
 import org.eclipse.mdht.uml.fhir.common.util.ModelConstants;
+import org.eclipse.mdht.uml.fhir.common.util.ModelFilter;
 import org.eclipse.mdht.uml.fhir.common.util.ModelIndexer;
+import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
+import org.eclipse.mdht.uml.fhir.types.Coding;
+import org.eclipse.mdht.uml.fhir.types.FHIRTypesFactory;
 import org.eclipse.mdht.uml.validation.Diagnostic;
 import org.eclipse.mdht.uml.validation.SeverityKind;
 import org.eclipse.mdht.uml.validation.ValidationPackage;
@@ -56,6 +62,7 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
 import org.hl7.fhir.ConstraintSeverityList;
+import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
@@ -63,6 +70,8 @@ import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.Extension;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
+import org.hl7.fhir.PropertyRepresentation;
+import org.hl7.fhir.PropertyRepresentationList;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionKindList;
 import org.hl7.fhir.Uri;
@@ -72,15 +81,21 @@ import org.hl7.fhir.ValueSetContains;
 import org.hl7.fhir.util.FhirResourceFactoryImpl;
 
 public class ModelImporter implements ModelConstants {
+	
 	private String[] constraintLanguages = { "Analysis", "XPath", "OCL" };
 	
 	private ModelIndexer modelIndexer = new ModelIndexer();
+	
+	private ModelFilter modelFilter = new ModelFilter();
 	
 	// key = id, value = StructureDefinition
 	private Map<String,StructureDefinition> structureDefinitionMap = new HashMap<String,StructureDefinition>();
 
 	// key = id, value = ValueSet
 	private Map<String,ValueSet> valueSetMap = new HashMap<String,ValueSet>();
+
+	// key = id, value = DataElement
+	private Map<String,DataElement> dataElementMap = new HashMap<String,DataElement>();
 
 	// key = id, value = ImplementationGuide
 	private Map<String,ImplementationGuide> implementationGuideMap = new HashMap<String,ImplementationGuide>();
@@ -160,22 +175,22 @@ public class ModelImporter implements ModelConstants {
 		if (modelIndexer.getValueSetForURI(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES) == null) {
 			ValueSet valueSet = valueSetMap.get(VALUESET_ID_DATA_TYPES);
 			if (valueSet != null) {
-				importValueSet((ValueSet)valueSet);
+				importValueSet(valueSet);
 			}
 			valueSet = valueSetMap.get(VALUESET_ID_RESOURCE_TYPES);
 			if (valueSet != null) {
-				importValueSet((ValueSet)valueSet);
+				importValueSet(valueSet);
 			}
-			valueSetMap.get(VALUESET_ID_DEFINED_TYPES);
-			if (valueSet != null) {
-				importValueSet((ValueSet)valueSet);
-			}
+//			valueSetMap.get(VALUESET_ID_DEFINED_TYPES);
+//			if (valueSet != null) {
+//				importValueSet(valueSet);
+//			}
 		}
 		
 		if (modelIndexer.getValueSetForURI(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES) == null) {
 			importValueSetFromServer(VALUESET_ID_DATA_TYPES, false);
 			importValueSetFromServer(VALUESET_ID_RESOURCE_TYPES, false);
-			importValueSetFromServer(VALUESET_ID_DEFINED_TYPES, true);
+//			importValueSetFromServer(VALUESET_ID_DEFINED_TYPES, true);
 		}
 	}
 	
@@ -193,6 +208,11 @@ public class ModelImporter implements ModelConstants {
 			uriString += "?_format=xml";
 		}
 		return importResource(URI.createURI(uriString));
+	}
+	
+	public void setModelFilter(ModelFilter modelFilter) {
+		this.modelFilter = modelFilter;
+		
 	}
 	
 	public Classifier importResource(URI resourceURI) {
@@ -235,17 +255,36 @@ public class ModelImporter implements ModelConstants {
 		}
 
 		TreeIterator<?> iterator = EcoreUtil.getAllContents(Collections.singletonList(resource));
-
+		
 		while (iterator != null && iterator.hasNext()) {
 			Object child = iterator.next();
 			if (child instanceof StructureDefinition) {
 				StructureDefinition structureDef = (StructureDefinition) child;
-				structureDefinitionMap.put(structureDef.getId().getValue(), structureDef);
+				String profileURI = structureDef.getUrl().getValue();
+				String profileId = profileURI.substring(profileURI.lastIndexOf("/") + 1);
+				structureDefinitionMap.put(profileId, structureDef);
 				iterator.prune();
 			}
 			else if (child instanceof ValueSet) {
 				ValueSet valueSet = (ValueSet) child;
-				valueSetMap.put(valueSet.getId().getValue(), valueSet);
+				String profileURI = valueSet.getUrl().getValue();
+				String profileId = profileURI.substring(profileURI.lastIndexOf("/") + 1);
+				valueSetMap.put(profileId, valueSet);
+				iterator.prune();
+			}
+			else if (child instanceof DataElement) {
+				DataElement dataElement = (DataElement) child;
+				String dataElementURI = null;
+				if (dataElement.getUrl() != null) {
+					dataElementURI = dataElement.getUrl().getValue();
+				}
+				else if (dataElement.getId() != null) {
+					dataElementURI = dataElement.getId().getValue();
+				}
+				
+				if (dataElementURI != null) {
+					dataElementMap.put(dataElementURI, dataElement);
+				}
 				iterator.prune();
 			}
 			else if (child instanceof ImplementationGuide) {
@@ -262,18 +301,42 @@ public class ModelImporter implements ModelConstants {
 		importStructureDefinition(RESOURCE_CLASS_NAME);
 		
 		// import each FHIR resource that was previously indexed
-		for (ValueSet valueSet : valueSetMap.values()) {
-			importValueSet(valueSet);
+		if (modelFilter.select(ModelFilter.DefinitionType.ValueSet)) {
+			for (ValueSet valueSet : valueSetMap.values()) {
+				importValueSet(valueSet);
+			}
 		}
+
 		for (StructureDefinition structureDef : structureDefinitionMap.values()) {
-			importStructureDefinition(structureDef);
+			boolean isDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
+			
+			if (isDefinedType && modelFilter.select(ModelFilter.DefinitionType.DefinedType)) {
+				importStructureDefinition(structureDef);
+			}
+			if (!isDefinedType) {
+				if (modelFilter.select(ModelFilter.DefinitionType.StructureDefinition) 
+						|| modelFilter.select(ModelFilter.DefinitionType.ConstraintProfile) 
+						|| modelFilter.select(ModelFilter.DefinitionType.Extension)) {
+					importStructureDefinition(structureDef);
+				}
+			}
 		}
-		for (ImplementationGuide guide : implementationGuideMap.values()) {
-			importImplementationGuide(guide);
+
+		if (modelFilter.select(ModelFilter.DefinitionType.DataElement)) {
+			for (DataElement dataElement : dataElementMap.values()) {
+				importDataElement(dataElement);
+			}
+		}
+		
+		if (modelFilter.select(ModelFilter.DefinitionType.ImplementationGuide)) {
+			for (ImplementationGuide guide : implementationGuideMap.values()) {
+				importImplementationGuide(guide);
+			}
 		}
 		
 		valueSetMap.clear();
 		structureDefinitionMap.clear();
+		dataElementMap.clear();
 		implementationGuideMap.clear();
 	}
 	
@@ -339,6 +402,64 @@ public class ModelImporter implements ModelConstants {
 		return valueSetEnum;
 	}
 
+	public Class importDataElement(DataElement dataElement) {
+		// URL should not be null, but it is currently null in HSPC definitions
+		String dataElementUrl = null;
+		if (dataElement.getUrl() != null) {
+			dataElementUrl = dataElement.getUrl().getValue();
+		}
+		else if (dataElement.getId() != null) {
+			dataElementUrl = dataElement.getId().getValue();
+		}
+		
+		if (dataElementUrl == null) {
+			return null;
+		}
+		
+		Class dataElementClass = modelIndexer.getDataElementForURI(dataElementUrl);
+		if (dataElementClass != null) {
+			return dataElementClass;
+		}
+
+		String packageName = PACKAGE_NAME_DATA_ELEMENTS;
+		Package dataElementPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
+		
+		String dataElementName = dataElement.getId().getValue();
+		if (dataElement.getName() != null) {
+			dataElementName = dataElement.getName().getValue();
+		}
+		dataElementClass = dataElementPkg.createOwnedClass(dataElementName, false);
+
+		Profile fhirUmlProfile = UMLUtil.getProfile(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getEPackage(), dataElementClass);
+		org.eclipse.mdht.uml.fhir.DataElement dataElementStereotype = null;
+		if (fhirUmlProfile != null) {
+			dataElementStereotype = (org.eclipse.mdht.uml.fhir.DataElement) UMLUtil.safeApplyStereotype(dataElementClass, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getName()));
+			if (dataElement.getUrl() != null) {
+				dataElementStereotype.setUri(dataElement.getUrl().getValue());
+			}
+			if (dataElement.getId() != null) {
+				dataElementStereotype.setId(dataElement.getId().getValue());
+			}
+			if (dataElement.getName() != null) {
+				dataElementStereotype.setName(dataElement.getName().getValue());
+			}
+			if (dataElement.getVersion() != null) {
+				dataElementStereotype.setVersion(dataElement.getVersion().getValue());
+			}
+			if (dataElement.getPublisher() != null) {
+				dataElementStereotype.setPublisher(dataElement.getPublisher().getValue());
+			}
+		}
+
+		//TODO addElementDefinition()
+		
+		if (dataElementStereotype != null) {
+			modelIndexer.addElement(dataElementStereotype);
+		}
+		
+		return dataElementClass;
+	}
+
 	public Class importProfileForURI(String profileURI) {
 		Class umlClass = modelIndexer.getStructureDefinitionForURI(profileURI);
 		if (umlClass == null) {
@@ -384,30 +505,42 @@ public class ModelImporter implements ModelConstants {
 			return profileClass;
 		}
 
-		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getName().getValue());
+		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
 		PrimitiveType primitiveType = null;
+		
+		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
+		
 		StructureDefinitionKindList structureKind = structureDef.getKind().getValue();
 		if (structureDef.getContextType() != null) {
 			packageName = PACKAGE_NAME_EXTENSIONS;
 		}
 		else if (StructureDefinitionKindList.DATATYPE == structureKind) {
-			if (modelIndexer.isCoreDataType(structureDef.getName().getValue())) {
+			if (modelIndexer.isCoreDataType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_DATATYPES;
 				primitiveType = getPrimitiveType(structureDef.getName().getValue());
 			}
 		}
 		else if (StructureDefinitionKindList.RESOURCE == structureKind) {
-			if (modelIndexer.isCoreResourceType(structureDef.getName().getValue())) {
+			if (modelIndexer.isCoreResourceType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_RESOURCES;
 			}
 		}
 
 		Package kindPackage = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
 		
-		String profileClassName = structureDef.getId().getValue();
+		/*
+		 * What is best option for name of UML class?  In HSPC profiles, cannot use id (e.g. spark1380),
+		 * and 'name' is not unique in HSPC (e.g. "HSPC StdQtyObs Bicarbonate").
+		 * For now, using last segment of profile URI.
+		 */
+		String profileURI = structureDef.getUrl().getValue();
+		String profileClassName = profileURI.substring(profileURI.lastIndexOf("/") + 1);
+		String profileHumanName = structureDef.getName().getValue();
+		
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);
+		NamedElementUtil.setBusinessName(profileClass, profileHumanName);
 
 		Map<String,Constraint> constraintMap = new HashMap<String,Constraint>();
 		createConstraints(profileClass, structureDef, constraintMap);
@@ -426,7 +559,7 @@ public class ModelImporter implements ModelConstants {
 				structureDefStereotype.setDisplay(structureDef.getDisplay().getValue());
 			}
 			if (structureDef.getVersion() != null) {
-				structureDefStereotype.setFhirVersion(structureDef.getVersion().getValue());
+				structureDefStereotype.setVersion(structureDef.getVersion().getValue());
 			}
 			if (structureDef.getPublisher() != null) {
 				structureDefStereotype.setPublisher(structureDef.getPublisher().getValue());
@@ -462,8 +595,12 @@ public class ModelImporter implements ModelConstants {
 		else if (ELEMENT_CLASS_NAME.equals(profileClassName)) {
 			profileClass.createGeneralization(baseClass);
 			dataTypeClass.createGeneralization(profileClass);
-			// move DataType class to types package
+			
+			// move DataType class to DataTypes package
 			dataTypeClass.setPackage(profileClass.getNearestPackage());
+			
+			// move Base class to DataTypes package
+			baseClass.setPackage(profileClass.getNearestPackage());
 		}
 		else if (RESOURCE_CLASS_NAME.equals(profileClassName)) {
 			profileClass.createGeneralization(baseClass);
@@ -504,9 +641,14 @@ public class ModelImporter implements ModelConstants {
 		
 		// Set of element paths that are sliced
 		Set<String> slicedElements = new HashSet<String>();
-
-		// the first element definition is always the "profile element" defining the main profile class.
-		boolean isProfileElement = true;
+		
+		Classifier constrainedType = modelIndexer.getConstrainedType(profileClass);
+		if (constrainedType != null) {
+			elementPathMap.put(constrainedType.getName(), profileClass);
+		} 
+		else {
+			System.err.println("Cannot find constrained type for: " + structureDef.getUrl().getValue());
+		}
 		
 		for (ElementDefinition elementDef : structureDef.getDifferential().getElement()) {
 			if (elementDef.getSlicing() != null) {
@@ -526,10 +668,17 @@ public class ModelImporter implements ModelConstants {
 			// Get the list of element types, then create a property, and maybe a nested class
 			List<Classifier> typeList = getTypeList(elementDef);
 			
-			if (isProfileElement) {
-				// the first ElementDefinition
-				isProfileElement = false;
-				elementPathMap.put(path, profileClass);
+			// The first profile element, or "main" element, is constrained type
+			// This element is not always included in a constraint profile
+			if (path.indexOf(".") == -1) {
+				// A special case for types like "id" that is a core type, but its base type is "string"
+				if (constrainedType != null && !path.equals(constrainedType.getName())) {
+					Class pathType = modelIndexer.getStructureDefinitionForId(path);
+					if (pathType != null) {
+						constrainedType = pathType;
+						elementPathMap.put(path, profileClass);
+					}
+				}
 				
 				if (elementDef.getName() != null && elementDef.getName().getValue() != null) {
 					profileClass.setName(elementDef.getName().getValue());
@@ -577,7 +726,7 @@ public class ModelImporter implements ModelConstants {
 			else if (ownerElement instanceof Property && ((Property)ownerElement).getType() != null) {
 				// Test for null type required for a mis-formed profile, sub-path elements on a prohibited parent, multiplicity 0..0
 				// this may be called recursively for multi-segment paths in a constraint profile
-				ownerClass = getOwnerClass(elementDef, elementPathMap, path);
+				ownerClass = getOwnerClass(elementPathMap, path);
 
 				// use element type(s) as superclass(es)
 				//TODO if multi-segment path, will this be the correct superclass type?
@@ -587,9 +736,12 @@ public class ModelImporter implements ModelConstants {
 					}
 				}
 			}
-			
+
+			if (ownerClass == null && (constrainedType instanceof Class) && ownerPath.equals(constrainedType.getName())) {
+				ownerClass = profileClass;
+			}
 			if (ownerClass == null) {
-				System.err.println("Cannot find owner class, structDef: " + structureDef.getId().getValue() + " path: " + elementDef.getPath().getValue());
+				System.err.println("Cannot find owner class, structDef: " + profileClassName + " path: " + elementDef.getPath().getValue());
 				continue;
 			}
 
@@ -634,8 +786,8 @@ public class ModelImporter implements ModelConstants {
 					}
 				}
 			}
-			
-			if (inheritedProperty == null && !isFhirDefinedType) {
+
+			if (inheritedProperty == null) {
 				inheritedProperty = org.eclipse.mdht.uml.common.util.UMLUtil.getInheritedProperty(ownerClass, propertyName);
 			}
 
@@ -667,6 +819,8 @@ public class ModelImporter implements ModelConstants {
 				if (backboneElement != null) {
 					propertyType.createGeneralization(backboneElement);
 				}
+				
+				addEcoreClassName(propertyType);
 			}
 			else if (typeList.size() == 1) {
 				propertyType = typeList.get(0);
@@ -719,11 +873,50 @@ public class ModelImporter implements ModelConstants {
 				if (elementDef.getIsSummary() != null) {
 					elementDefStereotype.setIsSummary(elementDef.getIsSummary().isValue());
 				}
+				if (!elementDef.getRepresentation().isEmpty()) {
+					for (PropertyRepresentation rep : elementDef.getRepresentation()) {
+						PropertyRepresentationKind umlRep = PropertyRepresentationKind.get(rep.getValue().getName());
+						if (umlRep != null) {
+							elementDefStereotype.getRepresentations().add(umlRep);
+						}
+						
+						// Set Ecore::EAttribute to XML attribute
+						if (PropertyRepresentationList.XML_ATTR == rep.getValue()) {
+							Stereotype stereotype = property.getApplicableStereotype("Ecore::EAttribute");
+							if (stereotype != null) {
+								UMLUtil.safeApplyStereotype(property, stereotype);
+								property.setValue(stereotype, "xmlFeatureKind", "Attribute");
+							}
+						}
+					}
+				}
 				
 				// TODO generalize for any feature fixed*
 				if (elementDef.getFixedUri() != null) {
-					property.setDefault(elementDef.getFixedUri().getValue());
+					property.setStringDefaultValue(elementDef.getFixedUri().getValue());
 					property.setIsReadOnly(true);
+					property.setLower(1);
+					property.setUpper(1);
+				}
+				if (elementDef.getFixedCodeableConcept() != null) {
+					CodeableConcept ccType = FHIRTypesFactory.eINSTANCE.createCodeableConcept();
+					elementDefStereotype.setFixed(ccType);
+					for (org.hl7.fhir.Coding coding : elementDef.getFixedCodeableConcept().getCoding()) {
+						Coding ccCoding = FHIRTypesFactory.eINSTANCE.createCoding();
+						ccType.getCodings().add(ccCoding);
+						if (coding.getSystem() != null) {
+							ccCoding.setSystem(coding.getSystem().getValue());
+						}
+						if (coding.getVersion() != null) {
+							ccCoding.setVersion(coding.getVersion().getValue());
+						}
+						if (coding.getCode() != null) {
+							ccCoding.setCode(coding.getCode().getValue());
+						}
+						if (coding.getDisplay() != null) {
+							ccCoding.setDisplay(coding.getDisplay().getValue());
+						}
+					}
 				}
 				
 				if (elementDef.getBinding() != null) {
@@ -954,7 +1147,7 @@ public class ModelImporter implements ModelConstants {
 		return typeList;
 	}
 	
-	private Class getOwnerClass(ElementDefinition elementDef, Map<String,Element> elementPathMap, String path) {
+	private Class getOwnerClass(Map<String,Element> elementPathMap, String path) {
 		Class ownerClass = null;
 		String ownerPath = path.substring(0, path.lastIndexOf("."));
 		Element ownerElement = elementPathMap.get(ownerPath);
@@ -984,6 +1177,8 @@ public class ModelImporter implements ModelConstants {
 				ownerClass.createGeneralization(propertySupertype);
 				ownerProperty.setType(ownerClass);
 				
+				addEcoreClassName(ownerClass);
+				
 //				elementPathMap.put(path, (Class) ownerClass);
 			}
 		}
@@ -991,7 +1186,7 @@ public class ModelImporter implements ModelConstants {
 			//TODO test this
 			// may be recursive for multi-segment paths that jump levels of nesting
 			String ownerOwnerClassPath = ownerPath.substring(0, path.lastIndexOf("."));
-			ownerClass =  getOwnerClass(elementDef, elementPathMap, ownerOwnerClassPath);
+			ownerClass =  getOwnerClass(elementPathMap, ownerOwnerClassPath);
 		}
 		
 		return ownerClass;
@@ -1083,6 +1278,8 @@ public class ModelImporter implements ModelConstants {
 				iterator.prune();
 			}
 		}
+		
+		suppressEcoreDocumentation(profileClass);
 	}
 	
 	private Constraint addConstraint(Namespace owner, ElementDefinitionConstraint fhirConstraint) {
@@ -1142,4 +1339,28 @@ public class ModelImporter implements ModelConstants {
 		return umlConstraint;
 	}
 	
+	private void addEcoreClassName(Classifier umlClass) {
+		StringBuffer ecoreName = new StringBuffer();
+		ecoreName.append(umlClass.getName());
+		Classifier classifier = umlClass;
+		while (classifier.getOwner() instanceof Classifier) {
+			classifier = (Classifier) classifier.getOwner();
+			ecoreName.insert(0, classifier.getName());
+		}
+		
+		Stereotype stereotype = umlClass.getApplicableStereotype("Ecore::EClass");
+		if (stereotype != null) {
+			UMLUtil.safeApplyStereotype(umlClass, stereotype);
+			umlClass.setValue(stereotype, "className", ecoreName.toString());
+		}
+	}
+	
+	private void suppressEcoreDocumentation(Class umlClass) {
+		Stereotype stereotype = umlClass.getApplicableStereotype("Ecore::EClass");
+		if (stereotype != null) {
+			UMLUtil.safeApplyStereotype(umlClass, stereotype);
+			String annotation = "http://www.eclipse.org/emf/2002/GenModel documentation=''";
+			umlClass.setValue(stereotype, "annotations", Collections.singletonList(annotation));
+		}
+	}
 }

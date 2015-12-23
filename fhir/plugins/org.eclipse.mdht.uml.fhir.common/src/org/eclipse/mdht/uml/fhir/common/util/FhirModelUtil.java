@@ -14,6 +14,7 @@ package org.eclipse.mdht.uml.fhir.common.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.uml.fhir.DataElement;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
@@ -28,6 +29,11 @@ public class FhirModelUtil {
 	public static StructureDefinition getStructureDefinition(Classifier umlClass) {
 		return (StructureDefinition) EcoreUtil.getObjectByType(
 				umlClass.getStereotypeApplications(), FHIRPackage.eINSTANCE.getStructureDefinition());
+	}
+
+	public static DataElement getDataElement(Classifier umlClass) {
+		return (DataElement) EcoreUtil.getObjectByType(
+				umlClass.getStereotypeApplications(), FHIRPackage.eINSTANCE.getDataElement());
 	}
 
 	/*
