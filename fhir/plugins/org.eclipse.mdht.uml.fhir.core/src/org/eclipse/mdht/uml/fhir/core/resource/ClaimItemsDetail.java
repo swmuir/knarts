@@ -1,0 +1,300 @@
+/*******************************************************************************
+ * Copyright (c) 2015 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
+/**
+ */
+package org.eclipse.mdht.uml.fhir.core.resource;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.mdht.uml.fhir.core.datatype.BackboneElement;
+import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
+import org.eclipse.mdht.uml.fhir.core.datatype.Decimal;
+import org.eclipse.mdht.uml.fhir.core.datatype.Money;
+import org.eclipse.mdht.uml.fhir.core.datatype.PositiveInt;
+import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Claim Items Detail</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getService <em>Service</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getUnitPrice <em>Unit Price</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getFactor <em>Factor</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getPoints <em>Points</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getNet <em>Net</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getUdi <em>Udi</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getSubDetails <em>Sub Detail</em>}</li>
+ * </ul>
+ *
+ * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail()
+ * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='Items_Detail'"
+ * @generated
+ */
+public interface ClaimItemsDetail extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence</em>' reference.
+	 * @see #setSequence(PositiveInt)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Sequence()
+	 * @model required="true"
+	 * @generated
+	 */
+	PositiveInt getSequence();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getSequence <em>Sequence</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence</em>' reference.
+	 * @see #getSequence()
+	 * @generated
+	 */
+	void setSequence(PositiveInt value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(Coding)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	Coding getType();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Service</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service</em>' reference.
+	 * @see #setService(Coding)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Service()
+	 * @model required="true"
+	 * @generated
+	 */
+	Coding getService();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getService <em>Service</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service</em>' reference.
+	 * @see #getService()
+	 * @generated
+	 */
+	void setService(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantity</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantity</em>' reference.
+	 * @see #setQuantity(SimpleQuantity)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Quantity()
+	 * @model
+	 * @generated
+	 */
+	SimpleQuantity getQuantity();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getQuantity <em>Quantity</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantity</em>' reference.
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	void setQuantity(SimpleQuantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit Price</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unit Price</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit Price</em>' reference.
+	 * @see #setUnitPrice(Money)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_UnitPrice()
+	 * @model
+	 * @generated
+	 */
+	Money getUnitPrice();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getUnitPrice <em>Unit Price</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit Price</em>' reference.
+	 * @see #getUnitPrice()
+	 * @generated
+	 */
+	void setUnitPrice(Money value);
+
+	/**
+	 * Returns the value of the '<em><b>Factor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Factor</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Factor</em>' reference.
+	 * @see #setFactor(Decimal)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Factor()
+	 * @model
+	 * @generated
+	 */
+	Decimal getFactor();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getFactor <em>Factor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Factor</em>' reference.
+	 * @see #getFactor()
+	 * @generated
+	 */
+	void setFactor(Decimal value);
+
+	/**
+	 * Returns the value of the '<em><b>Points</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Points</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Points</em>' reference.
+	 * @see #setPoints(Decimal)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Points()
+	 * @model
+	 * @generated
+	 */
+	Decimal getPoints();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getPoints <em>Points</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Points</em>' reference.
+	 * @see #getPoints()
+	 * @generated
+	 */
+	void setPoints(Decimal value);
+
+	/**
+	 * Returns the value of the '<em><b>Net</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Net</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Net</em>' reference.
+	 * @see #setNet(Money)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Net()
+	 * @model
+	 * @generated
+	 */
+	Money getNet();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getNet <em>Net</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Net</em>' reference.
+	 * @see #getNet()
+	 * @generated
+	 */
+	void setNet(Money value);
+
+	/**
+	 * Returns the value of the '<em><b>Udi</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Udi</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Udi</em>' reference.
+	 * @see #setUdi(Coding)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_Udi()
+	 * @model
+	 * @generated
+	 */
+	Coding getUdi();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail#getUdi <em>Udi</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Udi</em>' reference.
+	 * @see #getUdi()
+	 * @generated
+	 */
+	void setUdi(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Sub Detail</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetailSubDetail}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sub Detail</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Detail</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItemsDetail_SubDetail()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ClaimItemsDetailSubDetail> getSubDetails();
+
+} // ClaimItemsDetail

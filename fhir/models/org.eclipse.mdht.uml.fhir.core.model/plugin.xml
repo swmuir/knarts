@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 
-<plugin id="org.eclipse.mdht.uml.fhir.core.model">
+<plugin>
     
      <extension point="org.eclipse.emf.ecore.uri_mapping">
 		<mapping source="pathmap://FHIR_CORE_MODEL/" target="model/">
