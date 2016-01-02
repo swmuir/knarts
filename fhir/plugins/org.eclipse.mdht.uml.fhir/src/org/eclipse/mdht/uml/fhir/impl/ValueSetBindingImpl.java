@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
+import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 
 import org.eclipse.uml2.uml.Property;
@@ -115,24 +116,14 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 	protected String valueSetUri = VALUE_SET_URI_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' attribute.
+	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValueSetReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_SET_REFERENCE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueSetReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected String valueSetReference = VALUE_SET_REFERENCE_EDEFAULT;
+	protected ValueSet valueSetReference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,7 +250,15 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValueSetReference() {
+	public ValueSet getValueSetReference() {
+		if (valueSetReference != null && valueSetReference.eIsProxy()) {
+			InternalEObject oldValueSetReference = (InternalEObject)valueSetReference;
+			valueSetReference = (ValueSet)eResolveProxy(oldValueSetReference);
+			if (valueSetReference != oldValueSetReference) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE, oldValueSetReference, valueSetReference));
+			}
+		}
 		return valueSetReference;
 	}
 
@@ -268,8 +267,17 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetReference(String newValueSetReference) {
-		String oldValueSetReference = valueSetReference;
+	public ValueSet basicGetValueSetReference() {
+		return valueSetReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueSetReference(ValueSet newValueSetReference) {
+		ValueSet oldValueSetReference = valueSetReference;
 		valueSetReference = newValueSetReference;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE, oldValueSetReference, valueSetReference));
@@ -293,7 +301,8 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_URI:
 				return getValueSetUri();
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE:
-				return getValueSetReference();
+				if (resolve) return getValueSetReference();
+				return basicGetValueSetReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,7 +328,7 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 				setValueSetUri((String)newValue);
 				return;
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference((String)newValue);
+				setValueSetReference((ValueSet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,7 +355,7 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 				setValueSetUri(VALUE_SET_URI_EDEFAULT);
 				return;
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference(VALUE_SET_REFERENCE_EDEFAULT);
+				setValueSetReference((ValueSet)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -369,7 +378,7 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_URI:
 				return VALUE_SET_URI_EDEFAULT == null ? valueSetUri != null : !VALUE_SET_URI_EDEFAULT.equals(valueSetUri);
 			case FHIRPackage.VALUE_SET_BINDING__VALUE_SET_REFERENCE:
-				return VALUE_SET_REFERENCE_EDEFAULT == null ? valueSetReference != null : !VALUE_SET_REFERENCE_EDEFAULT.equals(valueSetReference);
+				return valueSetReference != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -390,8 +399,6 @@ public class ValueSetBindingImpl extends MinimalEObjectImpl.Container implements
 		result.append(description);
 		result.append(", valueSetUri: ");
 		result.append(valueSetUri);
-		result.append(", valueSetReference: ");
-		result.append(valueSetReference);
 		result.append(')');
 		return result.toString();
 	}

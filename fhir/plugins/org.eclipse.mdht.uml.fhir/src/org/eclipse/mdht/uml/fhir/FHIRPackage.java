@@ -836,7 +836,7 @@ public interface FHIRPackage extends EPackage {
 	int VALUE_SET_BINDING__VALUE_SET_URI = 3;
 
 	/**
-	 * The feature id for the '<em><b>Value Set Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Value Set Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1684,15 +1684,15 @@ public interface FHIRPackage extends EPackage {
 	EAttribute getValueSetBinding_ValueSetUri();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ValueSetBinding#getValueSetReference <em>Value Set Reference</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.ValueSetBinding#getValueSetReference <em>Value Set Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value Set Reference</em>'.
+	 * @return the meta object for the reference '<em>Value Set Reference</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.ValueSetBinding#getValueSetReference()
 	 * @see #getValueSetBinding()
 	 * @generated
 	 */
-	EAttribute getValueSetBinding_ValueSetReference();
+	EReference getValueSetBinding_ValueSetReference();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ValueSet <em>Value Set</em>}'.
@@ -2194,12 +2194,12 @@ public interface FHIRPackage extends EPackage {
 		EAttribute VALUE_SET_BINDING__VALUE_SET_URI = eINSTANCE.getValueSetBinding_ValueSetUri();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Set Reference</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value Set Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VALUE_SET_BINDING__VALUE_SET_REFERENCE = eINSTANCE.getValueSetBinding_ValueSetReference();
+		EReference VALUE_SET_BINDING__VALUE_SET_REFERENCE = eINSTANCE.getValueSetBinding_ValueSetReference();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ValueSetImpl <em>Value Set</em>}' class.

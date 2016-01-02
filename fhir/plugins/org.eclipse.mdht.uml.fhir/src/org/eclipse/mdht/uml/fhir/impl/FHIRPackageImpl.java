@@ -673,8 +673,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getValueSetBinding_ValueSetReference() {
-		return (EAttribute)valueSetBindingEClass.getEStructuralFeatures().get(4);
+	public EReference getValueSetBinding_ValueSetReference() {
+		return (EReference)valueSetBindingEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -818,7 +818,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(valueSetBindingEClass, VALUE_SET_BINDING__STRENGTH);
 		createEAttribute(valueSetBindingEClass, VALUE_SET_BINDING__DESCRIPTION);
 		createEAttribute(valueSetBindingEClass, VALUE_SET_BINDING__VALUE_SET_URI);
-		createEAttribute(valueSetBindingEClass, VALUE_SET_BINDING__VALUE_SET_REFERENCE);
+		createEReference(valueSetBindingEClass, VALUE_SET_BINDING__VALUE_SET_REFERENCE);
 
 		valueSetEClass = createEClass(VALUE_SET);
 		createEReference(valueSetEClass, VALUE_SET__BASE_ENUMERATION);
@@ -933,7 +933,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getValueSetBinding_Strength(), this.getBindingStrengthKind(), "strength", "example", 1, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetBinding_Description(), theTypesPackage.getString(), "description", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetBinding_ValueSetUri(), theTypesPackage.getString(), "valueSetUri", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getValueSetBinding_ValueSetReference(), theTypesPackage.getString(), "valueSetReference", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getValueSetBinding_ValueSetReference(), this.getValueSet(), null, "valueSetReference", null, 0, 1, ValueSetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_Base_Enumeration(), theUMLPackage.getEnumeration(), null, "base_Enumeration", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

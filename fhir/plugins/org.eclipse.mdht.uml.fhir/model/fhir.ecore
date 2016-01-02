@@ -101,8 +101,8 @@
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueSetUri" ordered="false"
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueSetReference" ordered="false"
-        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueSetReference" ordered="false"
+        eType="#//ValueSet"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingStrengthKind">
     <eLiterals name="required"/>

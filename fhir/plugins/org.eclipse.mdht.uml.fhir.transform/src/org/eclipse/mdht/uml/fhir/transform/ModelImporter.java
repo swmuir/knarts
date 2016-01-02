@@ -38,6 +38,7 @@ import org.eclipse.mdht.uml.fhir.common.util.ModelIndexer;
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
 import org.eclipse.mdht.uml.fhir.types.Coding;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesFactory;
+import org.eclipse.mdht.uml.fhir.util.ProfileUtil;
 import org.eclipse.mdht.uml.validation.Diagnostic;
 import org.eclipse.mdht.uml.validation.SeverityKind;
 import org.eclipse.mdht.uml.validation.ValidationPackage;
@@ -173,11 +174,11 @@ public class ModelImporter implements ModelConstants {
 
 	private void initValueSets() {
 		if (modelIndexer.getValueSetForURI(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES) == null) {
-			ValueSet valueSet = valueSetMap.get(VALUESET_ID_DATA_TYPES);
+			ValueSet valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_DATA_TYPES);
 			if (valueSet != null) {
 				importValueSet(valueSet);
 			}
-			valueSet = valueSetMap.get(VALUESET_ID_RESOURCE_TYPES);
+			valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES);
 			if (valueSet != null) {
 				importValueSet(valueSet);
 			}
@@ -200,14 +201,23 @@ public class ModelImporter implements ModelConstants {
 	}
 	
 	public Classifier importValueSetFromServer(String resourceId, boolean expand) {
-		String uriString = TERMINOLOGY_SERVER + "ValueSet/" + resourceId;
-		if (expand) {
-			uriString += "/$expand" + "?_format=xml";
+		String uriString = null;
+		if (resourceId.startsWith("http")) {
+			uriString = resourceId;
 		}
-		else {
-			uriString += "?_format=xml";
+		else if (resourceId != null) {
+			uriString = FHIR_VALUESET_URI_BASE + resourceId;
 		}
-		return importResource(URI.createURI(uriString));
+		
+//		if (expand) {
+//			uriString += "/$expand" + "?_format=xml";
+//		}
+//		else {
+//			uriString += "?_format=xml";
+//		}
+		
+		String resoruceURL = TERMINOLOGY_SERVER + "ValueSet" + "?url=" + uriString;
+		return importResource(URI.createURI(resoruceURL));
 	}
 	
 	public void setModelFilter(ModelFilter modelFilter) {
@@ -261,15 +271,13 @@ public class ModelImporter implements ModelConstants {
 			if (child instanceof StructureDefinition) {
 				StructureDefinition structureDef = (StructureDefinition) child;
 				String profileURI = structureDef.getUrl().getValue();
-				String profileId = profileURI.substring(profileURI.lastIndexOf("/") + 1);
-				structureDefinitionMap.put(profileId, structureDef);
+				structureDefinitionMap.put(profileURI, structureDef);
 				iterator.prune();
 			}
 			else if (child instanceof ValueSet) {
 				ValueSet valueSet = (ValueSet) child;
 				String profileURI = valueSet.getUrl().getValue();
-				String profileId = profileURI.substring(profileURI.lastIndexOf("/") + 1);
-				valueSetMap.put(profileId, valueSet);
+				valueSetMap.put(profileURI, valueSet);
 				iterator.prune();
 			}
 			else if (child instanceof DataElement) {
@@ -279,6 +287,7 @@ public class ModelImporter implements ModelConstants {
 					dataElementURI = dataElement.getUrl().getValue();
 				}
 				else if (dataElement.getId() != null) {
+					// Added to support HSPC profiles that omit URL
 					dataElementURI = dataElement.getId().getValue();
 				}
 				
@@ -289,7 +298,7 @@ public class ModelImporter implements ModelConstants {
 			}
 			else if (child instanceof ImplementationGuide) {
 				ImplementationGuide implGuide = (ImplementationGuide) child;
-				implementationGuideMap.put(implGuide.getId().getValue(), implGuide);
+				implementationGuideMap.put(implGuide.getUrl().getValue(), implGuide);
 				iterator.prune();
 			}
 		}
@@ -297,8 +306,8 @@ public class ModelImporter implements ModelConstants {
 
 	public void importIndexedResources() {
 		initModel(model);
-		importStructureDefinition(ELEMENT_CLASS_NAME);
-		importStructureDefinition(RESOURCE_CLASS_NAME);
+		importStructureDefinitionForId(ELEMENT_CLASS_NAME);
+		importStructureDefinitionForId(RESOURCE_CLASS_NAME);
 		
 		// import each FHIR resource that was previously indexed
 		if (modelFilter.select(ModelFilter.DefinitionType.ValueSet)) {
@@ -344,6 +353,21 @@ public class ModelImporter implements ModelConstants {
 		Package umlGuide = null;
 		System.out.println("Implementation Guide: " + guide.getId().getValue() + ", " + guide.getName().getValue());
 		return umlGuide;
+	}
+	
+	public Enumeration importValueSet(String valueSetURI) {
+		Enumeration umlValueSet = null;
+		
+		ValueSet valueSet = valueSetMap.get(valueSetURI);
+		if (valueSet != null) {
+			umlValueSet = importValueSet(valueSet);
+		}
+		
+		if (umlValueSet == null) {
+			umlValueSet = (Enumeration) importValueSetFromServer(valueSetURI, false);
+		}
+		
+		return umlValueSet;
 	}
 	
 	public Enumeration importValueSet(ValueSet valueSet) {
@@ -463,14 +487,28 @@ public class ModelImporter implements ModelConstants {
 	public Class importProfileForURI(String profileURI) {
 		Class umlClass = modelIndexer.getStructureDefinitionForURI(profileURI);
 		if (umlClass == null) {
-			String profileId = profileURI.substring(profileURI.lastIndexOf("/") + 1);
-			umlClass = importStructureDefinition(profileId);
+			// look in the indexed bundle(s)
+			StructureDefinition structureDef = structureDefinitionMap.get(profileURI);
+			if (structureDef != null) {
+				umlClass = importStructureDefinition(structureDef);
+			}
+		}
+
+		/*
+		if (umlClass == null) {
+			// Try reading from Registry Server
+			umlClass = (Class) importStructureDefinitionFromServer(profileURI);
+		}
+		*/
+
+		if (umlClass == null) {
+			System.err.println("Cannot find Profile URI: " + profileURI);
 		}
 		
 		return umlClass;
 	}
 	
-	public Class importStructureDefinition(String profileId) {
+	public Class importStructureDefinitionForId(String profileId) {
 		Class umlClass = modelIndexer.getStructureDefinitionForId(profileId);
 		if (umlClass == null) {
 			// this is for a few profiles that have error, using String instead of string.
@@ -479,7 +517,7 @@ public class ModelImporter implements ModelConstants {
 
 		if (umlClass == null) {
 			// look in the indexed bundle(s)
-			StructureDefinition structureDef = structureDefinitionMap.get(profileId);
+			StructureDefinition structureDef = structureDefinitionMap.get(FHIR_STRUCTURE_URI_BASE + profileId);
 			if (structureDef != null) {
 				umlClass = importStructureDefinition(structureDef);
 			}
@@ -493,7 +531,7 @@ public class ModelImporter implements ModelConstants {
 		*/
 		
 		if (umlClass == null) {
-			System.err.println("Cannot find Profile: " + profileId);
+			System.err.println("Cannot find Profile Id: " + profileId);
 		}
 		
 		return umlClass;
@@ -612,7 +650,7 @@ public class ModelImporter implements ModelConstants {
 				baseProfileClass = importProfileForURI(base);
 			}
 			else {
-				baseProfileClass = importStructureDefinition(base);
+				baseProfileClass = importStructureDefinitionForId(base);
 			}
 			
 			if (baseProfileClass != null) {
@@ -774,7 +812,7 @@ public class ModelImporter implements ModelConstants {
 						// if no explicit type, find data type from wildcard suffix
 						if (typeList.isEmpty()) {
 							String typeName = propertyName.substring(wildcardName.length());
-							Class wildcardType = importStructureDefinition(typeName);
+							Class wildcardType = importStructureDefinitionForId(typeName);
 							if (wildcardType != null) {
 								typeList.add(wildcardType);
 							}
@@ -815,7 +853,7 @@ public class ModelImporter implements ModelConstants {
 				propertyType = (Class) ownerClass.createNestedClassifier(nestedClassName, UMLPackage.eINSTANCE.getClass_());
 				elementPathMap.put(path, (Class) propertyType);
 				
-				Class backboneElement = importStructureDefinition(BACKBONE_ELEMENT_CLASS_NAME);
+				Class backboneElement = importStructureDefinitionForId(BACKBONE_ELEMENT_CLASS_NAME);
 				if (backboneElement != null) {
 					propertyType.createGeneralization(backboneElement);
 				}
@@ -827,7 +865,7 @@ public class ModelImporter implements ModelConstants {
 			}
 			else if (typeList.size() > 1) {
 				// All types must be same kind, some elements mix Resource and CodeableConcept
-				Class resourceType = importStructureDefinition(RESOURCE_CLASS_NAME);
+				Class resourceType = importStructureDefinitionForId(RESOURCE_CLASS_NAME);
 				if (FhirModelUtil.allSubclassOf(typeList, RESOURCE_CLASS_NAME)) {
 					propertyType = resourceType;
 				}
@@ -930,7 +968,17 @@ public class ModelImporter implements ModelConstants {
 						valueSetBinding.setValueSetUri(binding.getValueSetUri().getValue());
 					}
 					if (binding.getValueSetReference() != null) {
-						valueSetBinding.setValueSetReference(binding.getValueSetReference().getReference().getValue());
+						org.eclipse.mdht.uml.fhir.ValueSet umlValueSet = null;
+						String vsLocation = binding.getValueSetReference().getReference().getValue();
+						if (vsLocation.startsWith("http")) {
+							umlValueSet = ProfileUtil.getValueSet(importValueSet(vsLocation));
+							if (umlValueSet != null) {
+								valueSetBinding.setValueSetReference(umlValueSet);
+							}
+						}
+						else {
+							System.err.println("TODO resolve non-http ValueSet reference: " + vsLocation);
+						}
 					}
 				}
 			}
@@ -1136,7 +1184,7 @@ public class ModelImporter implements ModelConstants {
 					typeClass = dataTypeClass;
 				}
 				else {
-					typeClass = importStructureDefinition(typeName);
+					typeClass = importStructureDefinitionForId(typeName);
 				}
 			}
 			

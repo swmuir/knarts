@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
-  <uml:Profile xmi:id="_dtdbUDDkEeWn6bT0Ftydnw" name="FHIR" metamodelReference="_kqSDgDDkEeWn6bT0Ftydnw">
+  <uml:Profile xmi:id="_dtdbUDDkEeWn6bT0Ftydnw" name="FHIR" URI="http://www.eclipse.org/mdht/schema/profile/fhir/1.0.0" metamodelReference="_kqSDgDDkEeWn6bT0Ftydnw">
     <packageImport xmi:id="_kqSDgDDkEeWn6bT0Ftydnw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
     </packageImport>
@@ -214,8 +214,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XlSkID3SEeW8ybi2TiqE7g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_f649ID3SEeW8ybi2TiqE7g" name="valueSetReference">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <ownedAttribute xmi:id="_f649ID3SEeW8ybi2TiqE7g" name="valueSetReference" type="_XnZagE0IEeWmu5xZhyCitA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hPDTsD3SEeW8ybi2TiqE7g"/>
       </ownedAttribute>
     </packagedElement>

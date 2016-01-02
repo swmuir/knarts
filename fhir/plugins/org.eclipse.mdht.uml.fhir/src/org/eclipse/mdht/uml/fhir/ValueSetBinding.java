@@ -146,29 +146,29 @@ public interface ValueSetBinding extends EObject {
 	void setValueSetUri(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set Reference</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value Set Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Set Reference</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Set Reference</em>' attribute.
-	 * @see #setValueSetReference(String)
+	 * @return the value of the '<em>Value Set Reference</em>' reference.
+	 * @see #setValueSetReference(ValueSet)
 	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getValueSetBinding_ValueSetReference()
-	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	String getValueSetReference();
+	ValueSet getValueSetReference();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ValueSetBinding#getValueSetReference <em>Value Set Reference</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ValueSetBinding#getValueSetReference <em>Value Set Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Set Reference</em>' attribute.
+	 * @param value the new value of the '<em>Value Set Reference</em>' reference.
 	 * @see #getValueSetReference()
 	 * @generated
 	 */
-	void setValueSetReference(String value);
+	void setValueSetReference(ValueSet value);
 
 } // ValueSetBinding

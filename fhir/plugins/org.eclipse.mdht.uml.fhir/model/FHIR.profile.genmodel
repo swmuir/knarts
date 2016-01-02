@@ -120,7 +120,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetBinding/strength"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetBinding/description"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetBinding/valueSetUri"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetBinding/valueSetReference"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EReference fhir.ecore#//ValueSetBinding/valueSetReference"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//ValueSet">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

@@ -12,12 +12,28 @@ package org.eclipse.mdht.uml.fhir.util;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.uml.fhir.FHIRPackage;
+import org.eclipse.mdht.uml.fhir.ValueSet;
+import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.Profile;
+import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.UMLPackage;
 
-/*
- * TODO move this to org.eclipse.mdht.uml.common
- */
 public class ProfileUtil {
+	
+	public static ValueSet getValueSet(Enumeration umlEnumeration) {
+		return (ValueSet) getStereotypeApplication(umlEnumeration, FHIRPackage.eINSTANCE.getValueSet());
+	}
+
+	public static ValueSetBinding getValueSetBinding(Property property) {
+		return (ValueSetBinding) getStereotypeApplication(property, FHIRPackage.eINSTANCE.getValueSetBinding());
+	}
 
 	/**
 	 * Returns stereotype application, if applied, or first sub-stereotype applied that is a
@@ -27,65 +43,40 @@ public class ProfileUtil {
 	 */
 	public static EObject getStereotypeApplication(Element element, EClass stereotypeEClass) {
 		EObject stereotypeApplication = null;
-		for (EObject stereoApp : element.getStereotypeApplications()) {
-			if (stereotypeEClass.isInstance(stereoApp)) {
-				stereotypeApplication = stereoApp;
-				break;
+		if (element != null) {
+			for (EObject stereoApp : element.getStereotypeApplications()) {
+				if (stereotypeEClass.isInstance(stereoApp)) {
+					stereotypeApplication = stereoApp;
+					break;
+				}
 			}
 		}
 		
 		return stereotypeApplication;
 	}
 	
-	/**
-	 * Load root profile into provided resource set and return Profile.
-	 */
-//	public static Profile getProfile(ResourceSet resourceSet) {
-//		return getProfile(resourceSet, null);
-//	}
-	
-	/**
-	 * Load profile into provided resource set and return Profile.
-	 */
-	/*
-	public static Profile getProfile(ResourceSet resourceSet, String profileName) {
+	public static Stereotype getStereotype(EObject stereotypeApplication) {
+		Stereotype stereotype = null;
 		Profile profile = null;
-		Resource profileResource = resourceSet.getResource(URI.createURI(MDRProfileConstants.PROFILE_URI), true);
-
-		if (profileResource != null) {
-			profile = (Profile) EcoreUtil.getObjectByType(
-				profileResource.getContents(), UMLPackage.eINSTANCE.getProfile());
-		}
-		
-		// find nested profile package
-		if (profile != null && profileName != null) {
-			profile = (Profile) profile.getMember(profileName, false, UMLPackage.eINSTANCE.getProfile());
-		}
-
-		return profile;
-	}
-
-	public static boolean isProfileApplied(String profileName, Element element) {
-		Profile profile = getProfile(element.eResource().getResourceSet(), profileName);
-		if (profile == null) {
-			return false;
-		}
-
-		try {
-			Package pkg = element.getNearestPackage();
-			while (pkg != null) {
-				if (pkg.isProfileApplied(profile)) {
-					return true;
-				} else {
-					pkg = pkg.getNestingPackage();
+		String profileURI = stereotypeApplication.eClass().getEPackage().getNsURI();
+		for (Resource resource : stereotypeApplication.eResource().getResourceSet().getResources()) {
+			Profile aProfile = (Profile) EcoreUtil.getObjectByType(resource.getContents(), UMLPackage.eINSTANCE.getProfile());
+			if (aProfile != null) {
+				Stereotype ePackage = aProfile.getAppliedStereotype("Ecore::EPackage");
+				if (ePackage != null && profileURI.equals(aProfile.getValue(ePackage, "nsURI"))) {
+					profile = aProfile;
+					break;
 				}
 			}
-		} catch (IllegalArgumentException e) {
-			// false
 		}
-
-		return false;
+		if (profile != null) {
+			NamedElement element = profile.getMember(stereotypeApplication.eClass().getName());
+			if (element instanceof Stereotype) {
+				stereotype = (Stereotype) element;
+			}
+		}
+		
+		return stereotype;
 	}
-	*/
-
+	
 }

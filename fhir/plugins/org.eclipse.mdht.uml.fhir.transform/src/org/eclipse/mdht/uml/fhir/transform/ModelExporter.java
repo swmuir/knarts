@@ -452,7 +452,7 @@ public class ModelExporter implements ModelConstants {
 			
 			if (bindingStereotype.getValueSetReference() != null) {
 				Reference reference = FhirFactory.eINSTANCE.createReference();
-				reference.setReference(createFhirString(bindingStereotype.getValueSetReference()));
+				reference.setReference(createFhirString(bindingStereotype.getValueSetReference().getUri()));
 				binding.setValueSetReference(reference);
 			}
 			
