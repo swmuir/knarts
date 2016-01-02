@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:constraint="http://www.omg.org/spec/AML/20150501/ConstraintProfile.xmi" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Package xmi:id="_fO7eECP_EeW3155CxDza7Q" name="CIMI Archetypes">
     <packageImport xmi:id="_XgMSxzxVEd6JwqSGecoePg">
-      <importedPackage href="CRM.uml#EAPK_187D8523_BE51_4bf0_9ACF_BE8FBBC56821"/>
+      <importedPackage href="CIMI_RM.uml#EAPK_187D8523_BE51_4bf0_9ACF_BE8FBBC56821"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_eaOE4JYUEeWs9rgEqR6bXg" name="Observation">
       <packagedElement xmi:type="uml:Class" xmi:id="_8MyVwJYUEeWs9rgEqR6bXg" name="Observation">
