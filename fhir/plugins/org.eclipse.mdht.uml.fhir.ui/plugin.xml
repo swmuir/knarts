@@ -550,6 +550,13 @@
 	           afterTab="property.tab.FHIRPropertySection"
 	           indented="true">
 	         </propertyTab> 
+	         <propertyTab
+	           label="%tab.fhir.binding.label"
+	           category="domain"
+	           id="property.tab.FHIRBindingSection"
+	           afterTab="property.tab.FHIRPropertySection"
+	           indented="true">
+	         </propertyTab> 
 		</propertyTabs>
 	</extension>
 	
@@ -558,15 +565,15 @@
           <propertySection tab="property.tab.FHIRPropertySection" 
 	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ElementDefinitionSection" 
              filter="org.eclipse.mdht.uml.fhir.ui.filter.ElementDefinitionItemFilter"
-	 	     id="property.section.ElementDefinitionSection">
-	      </propertySection>
-	  </propertySections>
-       <propertySections contributorId="org.eclipse.mdht.uml.ui.properties">
+	 	     id="property.section.ElementDefinitionSection"/>
           <propertySection tab="property.tab.FHIRTypesSection" 
 	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.TypeChoiceSection" 
              filter="org.eclipse.mdht.uml.fhir.ui.filter.ElementDefinitionItemFilter"
-	 	     id="property.section.TypeChoiceSection">
-	      </propertySection>
+	 	     id="property.section.TypeChoiceSection"/>
+          <propertySection tab="property.tab.FHIRBindingSection" 
+	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ValueSetBindingSection" 
+             filter="org.eclipse.mdht.uml.fhir.ui.filter.ValueSetBindingFilter"
+	 	     id="property.section.ValueSetBindingSection"/>
 	  </propertySections>
    </extension> 
  

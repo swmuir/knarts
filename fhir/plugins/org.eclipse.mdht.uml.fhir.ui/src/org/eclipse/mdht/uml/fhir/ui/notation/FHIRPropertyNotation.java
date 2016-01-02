@@ -21,6 +21,7 @@ import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
+import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 import org.eclipse.mdht.uml.fhir.common.util.FhirModelUtil;
 import org.eclipse.mdht.uml.fhir.util.ProfileUtil;
@@ -319,22 +320,25 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 		StringBuffer annotation = new StringBuffer();
 		ValueSetBinding binding = (ValueSetBinding) ProfileUtil.getStereotypeApplication(property, FHIRPackage.eINSTANCE.getValueSetBinding());
 		if (binding != null) {
-//			if (binding.getDescription() != null) {
-//				annotation.append(" " + binding.getDescription());
-//			}
 			String valueSetName = null;
 			if (binding.getValueSetReference() != null) {
-				valueSetName = binding.getValueSetReference();
+				ValueSet valueSet = binding.getValueSetReference();
+				if (valueSet.getName() != null) {
+					valueSetName = valueSet.getName();
+				}
+				else if (valueSet.getUri() != null) {
+					valueSetName = valueSet.getUri();
+					valueSetName = valueSetName.substring(valueSetName.lastIndexOf("/") + 1);
+				}
 			}
 			else if (binding.getValueSetUri() != null) {
 				valueSetName = binding.getValueSetUri();
 			}
 
 			if (valueSetName != null) {
-			valueSetName = valueSetName.substring(valueSetName.lastIndexOf("/") + 1);
-			annotation.append("[");
-			annotation.append(valueSetName);
-			annotation.append("]");
+				annotation.append("[");
+				annotation.append(valueSetName);
+				annotation.append("]");
 			}
 
 			if (binding.getStrength() != null) {
