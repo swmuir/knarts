@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,7 +24,6 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Address;
 import org.eclipse.mdht.uml.fhir.core.datatype.Age;
 import org.eclipse.mdht.uml.fhir.core.datatype.Annotation;
 import org.eclipse.mdht.uml.fhir.core.datatype.Attachment;
-import org.eclipse.mdht.uml.fhir.core.datatype.BackboneElement;
 import org.eclipse.mdht.uml.fhir.core.datatype.Base64Binary;
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
 import org.eclipse.mdht.uml.fhir.core.datatype.CodeableConcept;
@@ -37,12 +36,12 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Decimal;
 import org.eclipse.mdht.uml.fhir.core.datatype.Distance;
 import org.eclipse.mdht.uml.fhir.core.datatype.Duration;
 import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6;
 import org.eclipse.mdht.uml.fhir.core.datatype.Extension;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypeFactory;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
@@ -67,7 +66,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Signature;
 import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
 import org.eclipse.mdht.uml.fhir.core.datatype.Time;
 import org.eclipse.mdht.uml.fhir.core.datatype.Timing;
-import org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat;
+import org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1;
 import org.eclipse.mdht.uml.fhir.core.datatype.UnsignedInt;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uuid;
@@ -138,7 +137,6 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 			case FhirDatatypePackage.CODING: return createCoding();
 			case FhirDatatypePackage.NARRATIVE: return createNarrative();
 			case FhirDatatypePackage.NARRATIVE_DIV: return createNarrativeDiv();
-			case FhirDatatypePackage.BACKBONE_ELEMENT: return createBackboneElement();
 			case FhirDatatypePackage.IDENTIFIER: return createIdentifier();
 			case FhirDatatypePackage.CODEABLE_CONCEPT: return createCodeableConcept();
 			case FhirDatatypePackage.PERIOD: return createPeriod();
@@ -146,21 +144,21 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 			case FhirDatatypePackage.CONTACT_POINT: return createContactPoint();
 			case FhirDatatypePackage.ADDRESS: return createAddress();
 			case FhirDatatypePackage.ATTACHMENT: return createAttachment();
-			case FhirDatatypePackage.MONEY: return createMoney();
-			case FhirDatatypePackage.QUANTITY: return createQuantity();
+			case FhirDatatypePackage.ELEMENT_DEFINITION: return createElementDefinition();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT1: return createElementDefinitionElement1();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT2: return createElementDefinitionElement2();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT3: return createElementDefinitionElement3();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT4: return createElementDefinitionElement4();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT5: return createElementDefinitionElement5();
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT6: return createElementDefinitionElement6();
 			case FhirDatatypePackage.DURATION: return createDuration();
-			case FhirDatatypePackage.SIMPLE_QUANTITY: return createSimpleQuantity();
+			case FhirDatatypePackage.QUANTITY: return createQuantity();
 			case FhirDatatypePackage.RATIO: return createRatio();
+			case FhirDatatypePackage.SIMPLE_QUANTITY: return createSimpleQuantity();
 			case FhirDatatypePackage.RANGE: return createRange();
 			case FhirDatatypePackage.TIMING: return createTiming();
-			case FhirDatatypePackage.TIMING_REPEAT: return createTimingRepeat();
-			case FhirDatatypePackage.ELEMENT_DEFINITION: return createElementDefinition();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_SLICING: return createElementDefinitionSlicing();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_BASE: return createElementDefinitionBase();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_TYPE_REF: return createElementDefinitionTypeRef();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_CONSTRAINT: return createElementDefinitionConstraint();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_BINDING: return createElementDefinitionBinding();
-			case FhirDatatypePackage.ELEMENT_DEFINITION_MAPPING: return createElementDefinitionMapping();
+			case FhirDatatypePackage.TIMING_ELEMENT1: return createTimingElement1();
+			case FhirDatatypePackage.MONEY: return createMoney();
 			case FhirDatatypePackage.SIGNATURE: return createSignature();
 			case FhirDatatypePackage.SAMPLED_DATA: return createSampledData();
 			case FhirDatatypePackage.REFERENCE: return createReference();
@@ -398,16 +396,6 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BackboneElement createBackboneElement() {
-		BackboneElementImpl backboneElement = new BackboneElementImpl();
-		return backboneElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Identifier createIdentifier() {
 		IdentifierImpl identifier = new IdentifierImpl();
 		return identifier;
@@ -478,9 +466,9 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money createMoney() {
-		MoneyImpl money = new MoneyImpl();
-		return money;
+	public ElementDefinition createElementDefinition() {
+		ElementDefinitionImpl elementDefinition = new ElementDefinitionImpl();
+		return elementDefinition;
 	}
 
 	/**
@@ -488,9 +476,59 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity createQuantity() {
-		QuantityImpl quantity = new QuantityImpl();
-		return quantity;
+	public ElementDefinitionElement1 createElementDefinitionElement1() {
+		ElementDefinitionElement1Impl elementDefinitionElement1 = new ElementDefinitionElement1Impl();
+		return elementDefinitionElement1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementDefinitionElement2 createElementDefinitionElement2() {
+		ElementDefinitionElement2Impl elementDefinitionElement2 = new ElementDefinitionElement2Impl();
+		return elementDefinitionElement2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementDefinitionElement3 createElementDefinitionElement3() {
+		ElementDefinitionElement3Impl elementDefinitionElement3 = new ElementDefinitionElement3Impl();
+		return elementDefinitionElement3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementDefinitionElement4 createElementDefinitionElement4() {
+		ElementDefinitionElement4Impl elementDefinitionElement4 = new ElementDefinitionElement4Impl();
+		return elementDefinitionElement4;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementDefinitionElement5 createElementDefinitionElement5() {
+		ElementDefinitionElement5Impl elementDefinitionElement5 = new ElementDefinitionElement5Impl();
+		return elementDefinitionElement5;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementDefinitionElement6 createElementDefinitionElement6() {
+		ElementDefinitionElement6Impl elementDefinitionElement6 = new ElementDefinitionElement6Impl();
+		return elementDefinitionElement6;
 	}
 
 	/**
@@ -508,9 +546,9 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity createSimpleQuantity() {
-		SimpleQuantityImpl simpleQuantity = new SimpleQuantityImpl();
-		return simpleQuantity;
+	public Quantity createQuantity() {
+		QuantityImpl quantity = new QuantityImpl();
+		return quantity;
 	}
 
 	/**
@@ -521,6 +559,16 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	public Ratio createRatio() {
 		RatioImpl ratio = new RatioImpl();
 		return ratio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimpleQuantity createSimpleQuantity() {
+		SimpleQuantityImpl simpleQuantity = new SimpleQuantityImpl();
+		return simpleQuantity;
 	}
 
 	/**
@@ -548,9 +596,9 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimingRepeat createTimingRepeat() {
-		TimingRepeatImpl timingRepeat = new TimingRepeatImpl();
-		return timingRepeat;
+	public TimingElement1 createTimingElement1() {
+		TimingElement1Impl timingElement1 = new TimingElement1Impl();
+		return timingElement1;
 	}
 
 	/**
@@ -558,69 +606,9 @@ public class FhirDatatypeFactoryImpl extends EFactoryImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementDefinition createElementDefinition() {
-		ElementDefinitionImpl elementDefinition = new ElementDefinitionImpl();
-		return elementDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionSlicing createElementDefinitionSlicing() {
-		ElementDefinitionSlicingImpl elementDefinitionSlicing = new ElementDefinitionSlicingImpl();
-		return elementDefinitionSlicing;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionBase createElementDefinitionBase() {
-		ElementDefinitionBaseImpl elementDefinitionBase = new ElementDefinitionBaseImpl();
-		return elementDefinitionBase;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionTypeRef createElementDefinitionTypeRef() {
-		ElementDefinitionTypeRefImpl elementDefinitionTypeRef = new ElementDefinitionTypeRefImpl();
-		return elementDefinitionTypeRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionConstraint createElementDefinitionConstraint() {
-		ElementDefinitionConstraintImpl elementDefinitionConstraint = new ElementDefinitionConstraintImpl();
-		return elementDefinitionConstraint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionBinding createElementDefinitionBinding() {
-		ElementDefinitionBindingImpl elementDefinitionBinding = new ElementDefinitionBindingImpl();
-		return elementDefinitionBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementDefinitionMapping createElementDefinitionMapping() {
-		ElementDefinitionMappingImpl elementDefinitionMapping = new ElementDefinitionMappingImpl();
-		return elementDefinitionMapping;
+	public Money createMoney() {
+		MoneyImpl money = new MoneyImpl();
+		return money;
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,7 +28,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.impl.BackboneElementImpl;
 
 import org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown;
-import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownAction;
+import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownTeardownAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class TestScriptTeardownImpl extends BackboneElementImpl implements TestS
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TestScriptTeardownAction> actions;
+	protected EList<TestScriptTeardownTeardownAction> actions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,9 +78,9 @@ public class TestScriptTeardownImpl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TestScriptTeardownAction> getActions() {
+	public EList<TestScriptTeardownTeardownAction> getActions() {
 		if (actions == null) {
-			actions = new EObjectContainmentEList<TestScriptTeardownAction>(TestScriptTeardownAction.class, this, FhirResourcePackage.TEST_SCRIPT_TEARDOWN__ACTION);
+			actions = new EObjectContainmentEList<TestScriptTeardownTeardownAction>(TestScriptTeardownTeardownAction.class, this, FhirResourcePackage.TEST_SCRIPT_TEARDOWN__ACTION);
 		}
 		return actions;
 	}
@@ -124,7 +124,7 @@ public class TestScriptTeardownImpl extends BackboneElementImpl implements TestS
 		switch (featureID) {
 			case FhirResourcePackage.TEST_SCRIPT_TEARDOWN__ACTION:
 				getActions().clear();
-				getActions().addAll((Collection<? extends TestScriptTeardownAction>)newValue);
+				getActions().addAll((Collection<? extends TestScriptTeardownTeardownAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

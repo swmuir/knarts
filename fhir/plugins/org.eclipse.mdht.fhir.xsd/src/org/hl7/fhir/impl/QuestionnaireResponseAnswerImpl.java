@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -36,7 +26,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuestionnaireResponseAnswer;
-import org.hl7.fhir.QuestionnaireResponseGroup;
+import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Uri;
@@ -62,7 +52,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseAnswerImpl#getValueCoding <em>Value Coding</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseAnswerImpl#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseAnswerImpl#getValueReference <em>Value Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseAnswerImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseAnswerImpl#getItem <em>Item</em>}</li>
  * </ul>
  *
  * @generated
@@ -199,14 +189,14 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	protected Reference valueReference;
 
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
+	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getItem()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QuestionnaireResponseGroup> group;
+	protected EList<QuestionnaireResponseItem> item;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -791,11 +781,11 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<QuestionnaireResponseGroup> getGroup() {
-		if (group == null) {
-			group = new EObjectContainmentEList<QuestionnaireResponseGroup>(QuestionnaireResponseGroup.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP);
+	public EList<QuestionnaireResponseItem> getItem() {
+		if (item == null) {
+			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM);
 		}
-		return group;
+		return item;
 	}
 
 	/**
@@ -832,8 +822,8 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 				return basicSetValueQuantity(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__VALUE_REFERENCE:
 				return basicSetValueReference(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM:
+				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -872,8 +862,8 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 				return getValueQuantity();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__VALUE_REFERENCE:
 				return getValueReference();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP:
-				return getGroup();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM:
+				return getItem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -926,9 +916,9 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__VALUE_REFERENCE:
 				setValueReference((Reference)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP:
-				getGroup().clear();
-				getGroup().addAll((Collection<? extends QuestionnaireResponseGroup>)newValue);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM:
+				getItem().clear();
+				getItem().addAll((Collection<? extends QuestionnaireResponseItem>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -981,8 +971,8 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__VALUE_REFERENCE:
 				setValueReference((Reference)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP:
-				getGroup().clear();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM:
+				getItem().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1022,8 +1012,8 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 				return valueQuantity != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__VALUE_REFERENCE:
 				return valueReference != null;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__GROUP:
-				return group != null && !group.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM:
+				return item != null && !item.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,0 +1,109 @@
+/**
+ */
+package org.hl7.fhir;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Decision Support Service Module Date Filter</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
+ * <!-- end-model-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getValueDateTime <em>Value Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getValuePeriod <em>Value Period</em>}</li>
+ * </ul>
+ *
+ * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModuleDateFilter()
+ * @model extendedMetaData="name='DecisionSupportServiceModule.DateFilter' kind='elementOnly'"
+ * @generated
+ */
+public interface DecisionSupportServiceModuleDateFilter extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Path</em>' containment reference.
+	 * @see #setPath(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModuleDateFilter_Path()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPath();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getPath <em>Path</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' containment reference.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #setValueDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModuleDateFilter_ValueDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getValueDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getValueDateTime <em>Value Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #getValueDateTime()
+	 * @generated
+	 */
+	void setValueDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Period</em>' containment reference.
+	 * @see #setValuePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModuleDateFilter_ValuePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valuePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getValuePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DecisionSupportServiceModuleDateFilter#getValuePeriod <em>Value Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Period</em>' containment reference.
+	 * @see #getValuePeriod()
+	 * @generated
+	 */
+	void setValuePeriod(Period value);
+
+} // DecisionSupportServiceModuleDateFilter

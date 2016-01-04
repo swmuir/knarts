@@ -37,6 +37,8 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getMetadata <em>Metadata</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getOrigins <em>Origin</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getDestinations <em>Destination</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getMultiserver <em>Multiserver</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getFixtures <em>Fixture</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript#getProfiles <em>Profile</em>}</li>
@@ -394,6 +396,38 @@ public interface TestScript extends DomainResource {
 	 * @generated
 	 */
 	void setMetadata(TestScriptMetadata value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptOrigin}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Origin</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Origin</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getTestScript_Origin()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TestScriptOrigin> getOrigins();
+
+	/**
+	 * Returns the value of the '<em><b>Destination</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptDestination}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Destination</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Destination</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getTestScript_Destination()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TestScriptDestination> getDestinations();
 
 	/**
 	 * Returns the value of the '<em><b>Multiserver</b></em>' reference.

@@ -1,17 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +26,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getItem <em>Item</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse()
@@ -252,29 +243,19 @@ public interface QuestionnaireResponse extends DomainResource {
 	void setEncounter(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.QuestionnaireResponseItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A group of questions to a possibly similarly grouped set of questions in the questionnaire response.
+	 * Corresponds to a group or question item from the original questionnaire.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(QuestionnaireResponseGroup)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Group()
+	 * @return the value of the '<em>Item</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Item()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='item' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	QuestionnaireResponseGroup getGroup();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getGroup <em>Group</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' containment reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	void setGroup(QuestionnaireResponseGroup value);
+	EList<QuestionnaireResponseItem> getItem();
 
 } // QuestionnaireResponse

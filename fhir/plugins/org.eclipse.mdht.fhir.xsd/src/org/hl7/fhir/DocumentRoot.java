@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -54,6 +44,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getDataElement <em>Data Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getDecisionSupportRule <em>Decision Support Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getDecisionSupportServiceModule <em>Decision Support Service Module</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getDetectedIssue <em>Detected Issue</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getDeviceComponent <em>Device Component</em>}</li>
@@ -70,19 +62,23 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getEnrollmentRequest <em>Enrollment Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getEnrollmentResponse <em>Enrollment Response</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getEpisodeOfCare <em>Episode Of Care</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getExpansionProfile <em>Expansion Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getExplanationOfBenefit <em>Explanation Of Benefit</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getFamilyMemberHistory <em>Family Member History</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getFlag <em>Flag</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getHealthcareService <em>Healthcare Service</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImagingObjectSelection <em>Imaging Object Selection</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImmunization <em>Immunization</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImplementationGuide <em>Implementation Guide</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getList <em>List</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getMeasure <em>Measure</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedication <em>Medication</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedicationAdministration <em>Medication Administration</em>}</li>
@@ -90,6 +86,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedicationOrder <em>Medication Order</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedicationStatement <em>Medication Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMessageHeader <em>Message Header</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getModuleDefinition <em>Module Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getModuleMetadata <em>Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getNamingSystem <em>Naming System</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getNutritionOrder <em>Nutrition Order</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getObservation <em>Observation</em>}</li>
@@ -97,6 +95,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getOperationOutcome <em>Operation Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getOrder <em>Order</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getOrderResponse <em>Order Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getOrderSet <em>Order Set</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getPatient <em>Patient</em>}</li>
@@ -116,6 +115,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getRiskAssessment <em>Risk Assessment</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getSchedule <em>Schedule</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getSearchParameter <em>Search Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getStructureDefinition <em>Structure Definition</em>}</li>
@@ -759,6 +759,58 @@ public interface DocumentRoot extends EObject {
 	void setDataElement(DataElement value);
 
 	/**
+	 * Returns the value of the '<em><b>Decision Support Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This resource defines a decision support rule of the form [on Event] if Condition then Action.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decision Support Rule</em>' containment reference.
+	 * @see #setDecisionSupportRule(DecisionSupportRule)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_DecisionSupportRule()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='DecisionSupportRule' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DecisionSupportRule getDecisionSupportRule();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getDecisionSupportRule <em>Decision Support Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decision Support Rule</em>' containment reference.
+	 * @see #getDecisionSupportRule()
+	 * @generated
+	 */
+	void setDecisionSupportRule(DecisionSupportRule value);
+
+	/**
+	 * Returns the value of the '<em><b>Decision Support Service Module</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decision Support Service Module</em>' containment reference.
+	 * @see #setDecisionSupportServiceModule(DecisionSupportServiceModule)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_DecisionSupportServiceModule()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='DecisionSupportServiceModule' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DecisionSupportServiceModule getDecisionSupportServiceModule();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getDecisionSupportServiceModule <em>Decision Support Service Module</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decision Support Service Module</em>' containment reference.
+	 * @see #getDecisionSupportServiceModule()
+	 * @generated
+	 */
+	void setDecisionSupportServiceModule(DecisionSupportServiceModule value);
+
+	/**
 	 * Returns the value of the '<em><b>Detected Issue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1175,6 +1227,32 @@ public interface DocumentRoot extends EObject {
 	void setEpisodeOfCare(EpisodeOfCare value);
 
 	/**
+	 * Returns the value of the '<em><b>Expansion Profile</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Resource to define constraints on the Expansion of a FHIR ValueSet.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expansion Profile</em>' containment reference.
+	 * @see #setExpansionProfile(ExpansionProfile)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_ExpansionProfile()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='ExpansionProfile' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ExpansionProfile getExpansionProfile();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getExpansionProfile <em>Expansion Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expansion Profile</em>' containment reference.
+	 * @see #getExpansionProfile()
+	 * @generated
+	 */
+	void setExpansionProfile(ExpansionProfile value);
+
+	/**
 	 * Returns the value of the '<em><b>Explanation Of Benefit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1303,6 +1381,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setGroup(Group value);
+
+	/**
+	 * Returns the value of the '<em><b>Guidance Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Guidance Response</em>' containment reference.
+	 * @see #setGuidanceResponse(GuidanceResponse)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_GuidanceResponse()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='GuidanceResponse' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	GuidanceResponse getGuidanceResponse();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getGuidanceResponse <em>Guidance Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Guidance Response</em>' containment reference.
+	 * @see #getGuidanceResponse()
+	 * @generated
+	 */
+	void setGuidanceResponse(GuidanceResponse value);
 
 	/**
 	 * Returns the value of the '<em><b>Healthcare Service</b></em>' containment reference.
@@ -1461,6 +1565,32 @@ public interface DocumentRoot extends EObject {
 	void setImplementationGuide(ImplementationGuide value);
 
 	/**
+	 * Returns the value of the '<em><b>Library</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Library</em>' containment reference.
+	 * @see #setLibrary(Library)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Library()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Library' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Library getLibrary();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getLibrary <em>Library</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Library</em>' containment reference.
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	void setLibrary(Library value);
+
+	/**
 	 * Returns the value of the '<em><b>List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1511,6 +1641,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setLocation(Location value);
+
+	/**
+	 * Returns the value of the '<em><b>Measure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Measure resource provides the definition of a quality measure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Measure</em>' containment reference.
+	 * @see #setMeasure(Measure)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Measure()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Measure' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Measure getMeasure();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getMeasure <em>Measure</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Measure</em>' containment reference.
+	 * @see #getMeasure()
+	 * @generated
+	 */
+	void setMeasure(Measure value);
 
 	/**
 	 * Returns the value of the '<em><b>Media</b></em>' containment reference.
@@ -1697,6 +1853,58 @@ public interface DocumentRoot extends EObject {
 	void setMessageHeader(MessageHeader value);
 
 	/**
+	 * Returns the value of the '<em><b>Module Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The ModuleDefinition resource defines the data requirements for a quality artifact.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Module Definition</em>' containment reference.
+	 * @see #setModuleDefinition(ModuleDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_ModuleDefinition()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='ModuleDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ModuleDefinition getModuleDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getModuleDefinition <em>Module Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Module Definition</em>' containment reference.
+	 * @see #getModuleDefinition()
+	 * @generated
+	 */
+	void setModuleDefinition(ModuleDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Module Metadata</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Module Metadata</em>' containment reference.
+	 * @see #setModuleMetadata(ModuleMetadata)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_ModuleMetadata()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='ModuleMetadata' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ModuleMetadata getModuleMetadata();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getModuleMetadata <em>Module Metadata</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Module Metadata</em>' containment reference.
+	 * @see #getModuleMetadata()
+	 * @generated
+	 */
+	void setModuleMetadata(ModuleMetadata value);
+
+	/**
 	 * Returns the value of the '<em><b>Naming System</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1877,6 +2085,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setOrderResponse(OrderResponse value);
+
+	/**
+	 * Returns the value of the '<em><b>Order Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Order Set</em>' containment reference.
+	 * @see #setOrderSet(OrderSet)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_OrderSet()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='OrderSet' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	OrderSet getOrderSet();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getOrderSet <em>Order Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Order Set</em>' containment reference.
+	 * @see #getOrderSet()
+	 * @generated
+	 */
+	void setOrderSet(OrderSet value);
 
 	/**
 	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
@@ -2371,6 +2605,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setSearchParameter(SearchParameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Variation and Sequence data.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sequence</em>' containment reference.
+	 * @see #setSequence(Sequence)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Sequence()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Sequence' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Sequence getSequence();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getSequence <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence</em>' containment reference.
+	 * @see #getSequence()
+	 * @generated
+	 */
+	void setSequence(Sequence value);
 
 	/**
 	 * Returns the value of the '<em><b>Slot</b></em>' containment reference.

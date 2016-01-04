@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,16 +24,19 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
+import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
 import org.eclipse.mdht.uml.fhir.core.datatype.ContactPoint;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
 
 import org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage;
 import org.eclipse.mdht.uml.fhir.core.resource.Questionnaire;
-import org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroup;
+import org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,8 +52,10 @@ import org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroup;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getTelecoms <em>Telecom</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getConcepts <em>Concept</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getSubjectTypes <em>Subject Type</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.QuestionnaireImpl#getItems <em>Item</em>}</li>
  * </ul>
  *
  * @generated
@@ -117,6 +122,26 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected EList<ContactPoint> telecoms;
 
 	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.eclipse.mdht.uml.fhir.core.datatype.String title;
+
+	/**
+	 * The cached value of the '{@link #getConcepts() <em>Concept</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcepts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> concepts;
+
+	/**
 	 * The cached value of the '{@link #getSubjectTypes() <em>Subject Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,14 +152,14 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected EList<Code> subjectTypes;
 
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
+	 * The cached value of the '{@link #getItems() <em>Item</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected QuestionnaireGroup group;
+	protected EList<QuestionnaireItem> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -336,6 +361,56 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.eclipse.mdht.uml.fhir.core.datatype.String getTitle() {
+		if (title != null && title.eIsProxy()) {
+			InternalEObject oldTitle = (InternalEObject)title;
+			title = (org.eclipse.mdht.uml.fhir.core.datatype.String)eResolveProxy(oldTitle);
+			if (title != oldTitle) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.QUESTIONNAIRE__TITLE, oldTitle, title));
+			}
+		}
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.mdht.uml.fhir.core.datatype.String basicGetTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.eclipse.mdht.uml.fhir.core.datatype.String newTitle) {
+		org.eclipse.mdht.uml.fhir.core.datatype.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.QUESTIONNAIRE__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getConcepts() {
+		if (concepts == null) {
+			concepts = new EObjectResolvingEList<Coding>(Coding.class, this, FhirResourcePackage.QUESTIONNAIRE__CONCEPT);
+		}
+		return concepts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Code> getSubjectTypes() {
 		if (subjectTypes == null) {
 			subjectTypes = new EObjectResolvingEList<Code>(Code.class, this, FhirResourcePackage.QUESTIONNAIRE__SUBJECT_TYPE);
@@ -348,42 +423,11 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireGroup getGroup() {
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGroup(QuestionnaireGroup newGroup, NotificationChain msgs) {
-		QuestionnaireGroup oldGroup = group;
-		group = newGroup;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirResourcePackage.QUESTIONNAIRE__GROUP, oldGroup, newGroup);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<QuestionnaireItem> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<QuestionnaireItem>(QuestionnaireItem.class, this, FhirResourcePackage.QUESTIONNAIRE__ITEM);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGroup(QuestionnaireGroup newGroup) {
-		if (newGroup != group) {
-			NotificationChain msgs = null;
-			if (group != null)
-				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirResourcePackage.QUESTIONNAIRE__GROUP, null, msgs);
-			if (newGroup != null)
-				msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirResourcePackage.QUESTIONNAIRE__GROUP, null, msgs);
-			msgs = basicSetGroup(newGroup, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.QUESTIONNAIRE__GROUP, newGroup, newGroup));
+		return items;
 	}
 
 	/**
@@ -394,8 +438,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirResourcePackage.QUESTIONNAIRE__GROUP:
-				return basicSetGroup(null, msgs);
+			case FhirResourcePackage.QUESTIONNAIRE__ITEM:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -424,10 +468,15 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return basicGetPublisher();
 			case FhirResourcePackage.QUESTIONNAIRE__TELECOM:
 				return getTelecoms();
+			case FhirResourcePackage.QUESTIONNAIRE__TITLE:
+				if (resolve) return getTitle();
+				return basicGetTitle();
+			case FhirResourcePackage.QUESTIONNAIRE__CONCEPT:
+				return getConcepts();
 			case FhirResourcePackage.QUESTIONNAIRE__SUBJECT_TYPE:
 				return getSubjectTypes();
-			case FhirResourcePackage.QUESTIONNAIRE__GROUP:
-				return getGroup();
+			case FhirResourcePackage.QUESTIONNAIRE__ITEM:
+				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -461,12 +510,20 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				getTelecoms().clear();
 				getTelecoms().addAll((Collection<? extends ContactPoint>)newValue);
 				return;
+			case FhirResourcePackage.QUESTIONNAIRE__TITLE:
+				setTitle((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
+				return;
+			case FhirResourcePackage.QUESTIONNAIRE__CONCEPT:
+				getConcepts().clear();
+				getConcepts().addAll((Collection<? extends Coding>)newValue);
+				return;
 			case FhirResourcePackage.QUESTIONNAIRE__SUBJECT_TYPE:
 				getSubjectTypes().clear();
 				getSubjectTypes().addAll((Collection<? extends Code>)newValue);
 				return;
-			case FhirResourcePackage.QUESTIONNAIRE__GROUP:
-				setGroup((QuestionnaireGroup)newValue);
+			case FhirResourcePackage.QUESTIONNAIRE__ITEM:
+				getItems().clear();
+				getItems().addAll((Collection<? extends QuestionnaireItem>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -498,11 +555,17 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirResourcePackage.QUESTIONNAIRE__TELECOM:
 				getTelecoms().clear();
 				return;
+			case FhirResourcePackage.QUESTIONNAIRE__TITLE:
+				setTitle((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
+				return;
+			case FhirResourcePackage.QUESTIONNAIRE__CONCEPT:
+				getConcepts().clear();
+				return;
 			case FhirResourcePackage.QUESTIONNAIRE__SUBJECT_TYPE:
 				getSubjectTypes().clear();
 				return;
-			case FhirResourcePackage.QUESTIONNAIRE__GROUP:
-				setGroup((QuestionnaireGroup)null);
+			case FhirResourcePackage.QUESTIONNAIRE__ITEM:
+				getItems().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -528,10 +591,14 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return publisher != null;
 			case FhirResourcePackage.QUESTIONNAIRE__TELECOM:
 				return telecoms != null && !telecoms.isEmpty();
+			case FhirResourcePackage.QUESTIONNAIRE__TITLE:
+				return title != null;
+			case FhirResourcePackage.QUESTIONNAIRE__CONCEPT:
+				return concepts != null && !concepts.isEmpty();
 			case FhirResourcePackage.QUESTIONNAIRE__SUBJECT_TYPE:
 				return subjectTypes != null && !subjectTypes.isEmpty();
-			case FhirResourcePackage.QUESTIONNAIRE__GROUP:
-				return group != null;
+			case FhirResourcePackage.QUESTIONNAIRE__ITEM:
+				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.BackboneElement;
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
-import org.eclipse.mdht.uml.fhir.core.datatype.Date;
+import org.eclipse.mdht.uml.fhir.core.datatype.DataType;
 import org.eclipse.mdht.uml.fhir.core.datatype.Decimal;
 import org.eclipse.mdht.uml.fhir.core.datatype.Money;
 import org.eclipse.mdht.uml.fhir.core.datatype.PositiveInt;
@@ -36,7 +36,8 @@ import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getDiagnosisLinkIds <em>Diagnosis Link Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getService <em>Service</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getServiceDate <em>Service Date</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getServicedx <em>Servicedx</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getPlace <em>Place</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getFactor <em>Factor</em>}</li>
@@ -176,30 +177,56 @@ public interface ClaimItems extends BackboneElement {
 	void setService(Coding value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Date</b></em>' reference.
+	 * Returns the value of the '<em><b>Servicedx</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Date</em>' reference isn't clear,
+	 * If the meaning of the '<em>Servicedx</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Date</em>' reference.
-	 * @see #setServiceDate(Date)
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItems_ServiceDate()
+	 * @return the value of the '<em>Servicedx</em>' reference.
+	 * @see #setServicedx(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItems_Servicedx()
+	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='serviced[x]'"
+	 * @generated
+	 */
+	DataType getServicedx();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getServicedx <em>Servicedx</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Servicedx</em>' reference.
+	 * @see #getServicedx()
+	 * @generated
+	 */
+	void setServicedx(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Place</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Place</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Place</em>' reference.
+	 * @see #setPlace(Coding)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaimItems_Place()
 	 * @model
 	 * @generated
 	 */
-	Date getServiceDate();
+	Coding getPlace();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getServiceDate <em>Service Date</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems#getPlace <em>Place</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Date</em>' reference.
-	 * @see #getServiceDate()
+	 * @param value the new value of the '<em>Place</em>' reference.
+	 * @see #getPlace()
 	 * @generated
 	 */
-	void setServiceDate(Date value);
+	void setPlace(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' reference.

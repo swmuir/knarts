@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -35,6 +25,7 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
+import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SimpleQuantity;
@@ -52,7 +43,9 @@ import org.hl7.fhir.SimpleQuantity;
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getService <em>Service</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServiceDate <em>Service Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServicedDate <em>Serviced Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServicedPeriod <em>Serviced Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getPlace <em>Place</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getFactor <em>Factor</em>}</li>
@@ -120,14 +113,34 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	protected Coding service;
 
 	/**
-	 * The cached value of the '{@link #getServiceDate() <em>Service Date</em>}' containment reference.
+	 * The cached value of the '{@link #getServicedDate() <em>Serviced Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceDate()
+	 * @see #getServicedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date serviceDate;
+	protected Date servicedDate;
+
+	/**
+	 * The cached value of the '{@link #getServicedPeriod() <em>Serviced Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServicedPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period servicedPeriod;
+
+	/**
+	 * The cached value of the '{@link #getPlace() <em>Place</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlace()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding place;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -447,8 +460,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getServiceDate() {
-		return serviceDate;
+	public Date getServicedDate() {
+		return servicedDate;
 	}
 
 	/**
@@ -456,11 +469,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetServiceDate(Date newServiceDate, NotificationChain msgs) {
-		Date oldServiceDate = serviceDate;
-		serviceDate = newServiceDate;
+	public NotificationChain basicSetServicedDate(Date newServicedDate, NotificationChain msgs) {
+		Date oldServicedDate = servicedDate;
+		servicedDate = newServicedDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICE_DATE, oldServiceDate, newServiceDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICED_DATE, oldServicedDate, newServicedDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -471,18 +484,104 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceDate(Date newServiceDate) {
-		if (newServiceDate != serviceDate) {
+	public void setServicedDate(Date newServicedDate) {
+		if (newServicedDate != servicedDate) {
 			NotificationChain msgs = null;
-			if (serviceDate != null)
-				msgs = ((InternalEObject)serviceDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICE_DATE, null, msgs);
-			if (newServiceDate != null)
-				msgs = ((InternalEObject)newServiceDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICE_DATE, null, msgs);
-			msgs = basicSetServiceDate(newServiceDate, msgs);
+			if (servicedDate != null)
+				msgs = ((InternalEObject)servicedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICED_DATE, null, msgs);
+			if (newServicedDate != null)
+				msgs = ((InternalEObject)newServicedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICED_DATE, null, msgs);
+			msgs = basicSetServicedDate(newServicedDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICE_DATE, newServiceDate, newServiceDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICED_DATE, newServicedDate, newServicedDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getServicedPeriod() {
+		return servicedPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetServicedPeriod(Period newServicedPeriod, NotificationChain msgs) {
+		Period oldServicedPeriod = servicedPeriod;
+		servicedPeriod = newServicedPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICED_PERIOD, oldServicedPeriod, newServicedPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setServicedPeriod(Period newServicedPeriod) {
+		if (newServicedPeriod != servicedPeriod) {
+			NotificationChain msgs = null;
+			if (servicedPeriod != null)
+				msgs = ((InternalEObject)servicedPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICED_PERIOD, null, msgs);
+			if (newServicedPeriod != null)
+				msgs = ((InternalEObject)newServicedPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICED_PERIOD, null, msgs);
+			msgs = basicSetServicedPeriod(newServicedPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICED_PERIOD, newServicedPeriod, newServicedPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getPlace() {
+		return place;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPlace(Coding newPlace, NotificationChain msgs) {
+		Coding oldPlace = place;
+		place = newPlace;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PLACE, oldPlace, newPlace);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlace(Coding newPlace) {
+		if (newPlace != place) {
+			NotificationChain msgs = null;
+			if (place != null)
+				msgs = ((InternalEObject)place).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PLACE, null, msgs);
+			if (newPlace != null)
+				msgs = ((InternalEObject)newPlace).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PLACE, null, msgs);
+			msgs = basicSetPlace(newPlace, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PLACE, newPlace, newPlace));
 	}
 
 	/**
@@ -883,8 +982,12 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return ((InternalEList<?>)getDiagnosisLinkId()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return basicSetService(null, msgs);
-			case FhirPackage.CLAIM_ITEM__SERVICE_DATE:
-				return basicSetServiceDate(null, msgs);
+			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
+				return basicSetServicedDate(null, msgs);
+			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
+				return basicSetServicedPeriod(null, msgs);
+			case FhirPackage.CLAIM_ITEM__PLACE:
+				return basicSetPlace(null, msgs);
 			case FhirPackage.CLAIM_ITEM__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.CLAIM_ITEM__UNIT_PRICE:
@@ -929,8 +1032,12 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getDiagnosisLinkId();
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return getService();
-			case FhirPackage.CLAIM_ITEM__SERVICE_DATE:
-				return getServiceDate();
+			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
+				return getServicedDate();
+			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
+				return getServicedPeriod();
+			case FhirPackage.CLAIM_ITEM__PLACE:
+				return getPlace();
 			case FhirPackage.CLAIM_ITEM__QUANTITY:
 				return getQuantity();
 			case FhirPackage.CLAIM_ITEM__UNIT_PRICE:
@@ -982,8 +1089,14 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				setService((Coding)newValue);
 				return;
-			case FhirPackage.CLAIM_ITEM__SERVICE_DATE:
-				setServiceDate((Date)newValue);
+			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
+				setServicedDate((Date)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
+				setServicedPeriod((Period)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__PLACE:
+				setPlace((Coding)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__QUANTITY:
 				setQuantity((SimpleQuantity)newValue);
@@ -1048,8 +1161,14 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				setService((Coding)null);
 				return;
-			case FhirPackage.CLAIM_ITEM__SERVICE_DATE:
-				setServiceDate((Date)null);
+			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
+				setServicedDate((Date)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
+				setServicedPeriod((Period)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__PLACE:
+				setPlace((Coding)null);
 				return;
 			case FhirPackage.CLAIM_ITEM__QUANTITY:
 				setQuantity((SimpleQuantity)null);
@@ -1106,8 +1225,12 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return diagnosisLinkId != null && !diagnosisLinkId.isEmpty();
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return service != null;
-			case FhirPackage.CLAIM_ITEM__SERVICE_DATE:
-				return serviceDate != null;
+			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
+				return servicedDate != null;
+			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
+				return servicedPeriod != null;
+			case FhirPackage.CLAIM_ITEM__PLACE:
+				return place != null;
 			case FhirPackage.CLAIM_ITEM__QUANTITY:
 				return quantity != null;
 			case FhirPackage.CLAIM_ITEM__UNIT_PRICE:

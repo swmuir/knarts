@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,11 +14,15 @@ package org.eclipse.mdht.uml.fhir.core.resource;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.mdht.uml.fhir.core.datatype.Base;
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
+import org.eclipse.mdht.uml.fhir.core.datatype.DataType;
 import org.eclipse.mdht.uml.fhir.core.datatype.Date;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
+import org.eclipse.mdht.uml.fhir.core.datatype.Money;
+import org.eclipse.mdht.uml.fhir.core.datatype.Period;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +42,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getBillablePeriod <em>Billable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getOrganization <em>Organization</em>}</li>
@@ -46,20 +51,26 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getFundsReserve <em>Funds Reserve</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getRelatedClaims <em>Related Claim</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getPrescription <em>Prescription</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getOriginalPrescription <em>Original Prescription</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getPayee <em>Payee</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getReferral <em>Referral</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getDiagnosis <em>Diagnosis</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getConditions <em>Condition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getSpecialConditions <em>Special Condition</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getCoverages <em>Coverage</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getExceptions <em>Exception</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getSchool <em>School</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccident <em>Accident</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccidentDate <em>Accident Date</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccidentType <em>Accident Type</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccidentLocationx <em>Accident Locationx</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getInterventionExceptions <em>Intervention Exception</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getOnsetx <em>Onsetx</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getEmploymentImpacted <em>Employment Impacted</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getItems <em>Item</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getTotal <em>Total</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAdditionalMaterials <em>Additional Materials</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getMissingTeeths <em>Missing Teeth</em>}</li>
  * </ul>
@@ -188,6 +199,32 @@ public interface Claim extends DomainResource {
 	 * @generated
 	 */
 	void setCreated(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Billable Period</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Billable Period</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Billable Period</em>' reference.
+	 * @see #setBillablePeriod(Period)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_BillablePeriod()
+	 * @model
+	 * @generated
+	 */
+	Period getBillablePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getBillablePeriod <em>Billable Period</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Billable Period</em>' reference.
+	 * @see #getBillablePeriod()
+	 * @generated
+	 */
+	void setBillablePeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
@@ -398,6 +435,22 @@ public interface Claim extends DomainResource {
 	void setFacility(Location value);
 
 	/**
+	 * Returns the value of the '<em><b>Related Claim</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.Claim}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Related Claim</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Related Claim</em>' reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_RelatedClaim()
+	 * @model
+	 * @generated
+	 */
+	EList<Claim> getRelatedClaims();
+
+	/**
 	 * Returns the value of the '<em><b>Prescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -518,20 +571,20 @@ public interface Claim extends DomainResource {
 	EList<ClaimDiagnosis> getDiagnosis();
 
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' reference list.
+	 * Returns the value of the '<em><b>Special Condition</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.Coding}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Condition</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Special Condition</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition</em>' reference list.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_Condition()
+	 * @return the value of the '<em>Special Condition</em>' reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_SpecialCondition()
 	 * @model
 	 * @generated
 	 */
-	EList<Coding> getConditions();
+	EList<Coding> getSpecialConditions();
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' reference.
@@ -618,30 +671,30 @@ public interface Claim extends DomainResource {
 	void setSchool(org.eclipse.mdht.uml.fhir.core.datatype.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Accident</b></em>' reference.
+	 * Returns the value of the '<em><b>Accident Date</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Accident</em>' reference isn't clear,
+	 * If the meaning of the '<em>Accident Date</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accident</em>' reference.
-	 * @see #setAccident(Date)
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_Accident()
+	 * @return the value of the '<em>Accident Date</em>' reference.
+	 * @see #setAccidentDate(Date)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_AccidentDate()
 	 * @model
 	 * @generated
 	 */
-	Date getAccident();
+	Date getAccidentDate();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccident <em>Accident</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccidentDate <em>Accident Date</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident</em>' reference.
-	 * @see #getAccident()
+	 * @param value the new value of the '<em>Accident Date</em>' reference.
+	 * @see #getAccidentDate()
 	 * @generated
 	 */
-	void setAccident(Date value);
+	void setAccidentDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Accident Type</b></em>' reference.
@@ -670,6 +723,32 @@ public interface Claim extends DomainResource {
 	void setAccidentType(Coding value);
 
 	/**
+	 * Returns the value of the '<em><b>Accident Locationx</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Accident Locationx</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Accident Locationx</em>' reference.
+	 * @see #setAccidentLocationx(Base)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_AccidentLocationx()
+	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='accidentLocation[x]'"
+	 * @generated
+	 */
+	Base getAccidentLocationx();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getAccidentLocationx <em>Accident Locationx</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Accident Locationx</em>' reference.
+	 * @see #getAccidentLocationx()
+	 * @generated
+	 */
+	void setAccidentLocationx(Base value);
+
+	/**
 	 * Returns the value of the '<em><b>Intervention Exception</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.Coding}.
 	 * <!-- begin-user-doc -->
@@ -686,6 +765,84 @@ public interface Claim extends DomainResource {
 	EList<Coding> getInterventionExceptions();
 
 	/**
+	 * Returns the value of the '<em><b>Onsetx</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Onsetx</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Onsetx</em>' reference.
+	 * @see #setOnsetx(DataType)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_Onsetx()
+	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='onset[x]'"
+	 * @generated
+	 */
+	DataType getOnsetx();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getOnsetx <em>Onsetx</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Onsetx</em>' reference.
+	 * @see #getOnsetx()
+	 * @generated
+	 */
+	void setOnsetx(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Employment Impacted</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Employment Impacted</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Employment Impacted</em>' reference.
+	 * @see #setEmploymentImpacted(Period)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_EmploymentImpacted()
+	 * @model
+	 * @generated
+	 */
+	Period getEmploymentImpacted();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getEmploymentImpacted <em>Employment Impacted</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Employment Impacted</em>' reference.
+	 * @see #getEmploymentImpacted()
+	 * @generated
+	 */
+	void setEmploymentImpacted(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Hospitalization</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hospitalization</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hospitalization</em>' reference.
+	 * @see #setHospitalization(Period)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_Hospitalization()
+	 * @model
+	 * @generated
+	 */
+	Period getHospitalization();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getHospitalization <em>Hospitalization</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hospitalization</em>' reference.
+	 * @see #getHospitalization()
+	 * @generated
+	 */
+	void setHospitalization(Period value);
+
+	/**
 	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems}.
 	 * <!-- begin-user-doc -->
@@ -700,6 +857,32 @@ public interface Claim extends DomainResource {
 	 * @generated
 	 */
 	EList<ClaimItems> getItems();
+
+	/**
+	 * Returns the value of the '<em><b>Total</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Total</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Total</em>' reference.
+	 * @see #setTotal(Money)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getClaim_Total()
+	 * @model
+	 * @generated
+	 */
+	Money getTotal();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Claim#getTotal <em>Total</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Total</em>' reference.
+	 * @see #getTotal()
+	 * @generated
+	 */
+	void setTotal(Money value);
 
 	/**
 	 * Returns the value of the '<em><b>Additional Materials</b></em>' reference list.

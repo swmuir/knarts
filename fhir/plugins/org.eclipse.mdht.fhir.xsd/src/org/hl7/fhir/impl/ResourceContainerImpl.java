@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -43,6 +33,8 @@ import org.hl7.fhir.Conformance;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.DataElement;
+import org.hl7.fhir.DecisionSupportRule;
+import org.hl7.fhir.DecisionSupportServiceModule;
 import org.hl7.fhir.DetectedIssue;
 import org.hl7.fhir.Device;
 import org.hl7.fhir.DeviceComponent;
@@ -59,20 +51,24 @@ import org.hl7.fhir.Encounter;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.EnrollmentResponse;
 import org.hl7.fhir.EpisodeOfCare;
+import org.hl7.fhir.ExpansionProfile;
 import org.hl7.fhir.ExplanationOfBenefit;
 import org.hl7.fhir.FamilyMemberHistory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Flag;
 import org.hl7.fhir.Goal;
 import org.hl7.fhir.Group;
+import org.hl7.fhir.GuidanceResponse;
 import org.hl7.fhir.HealthcareService;
 import org.hl7.fhir.ImagingObjectSelection;
 import org.hl7.fhir.ImagingStudy;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationRecommendation;
 import org.hl7.fhir.ImplementationGuide;
+import org.hl7.fhir.Library;
 import org.hl7.fhir.List;
 import org.hl7.fhir.Location;
+import org.hl7.fhir.Measure;
 import org.hl7.fhir.Media;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationAdministration;
@@ -80,6 +76,8 @@ import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationOrder;
 import org.hl7.fhir.MedicationStatement;
 import org.hl7.fhir.MessageHeader;
+import org.hl7.fhir.ModuleDefinition;
+import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.NamingSystem;
 import org.hl7.fhir.NutritionOrder;
 import org.hl7.fhir.Observation;
@@ -87,6 +85,7 @@ import org.hl7.fhir.OperationDefinition;
 import org.hl7.fhir.OperationOutcome;
 import org.hl7.fhir.Order;
 import org.hl7.fhir.OrderResponse;
+import org.hl7.fhir.OrderSet;
 import org.hl7.fhir.Organization;
 import org.hl7.fhir.Parameters;
 import org.hl7.fhir.Patient;
@@ -107,6 +106,7 @@ import org.hl7.fhir.ResourceContainer;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.Schedule;
 import org.hl7.fhir.SearchParameter;
+import org.hl7.fhir.Sequence;
 import org.hl7.fhir.Slot;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.StructureDefinition;
@@ -148,6 +148,8 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDataElement <em>Data Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDecisionSupportRule <em>Decision Support Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDecisionSupportServiceModule <em>Decision Support Service Module</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDetectedIssue <em>Detected Issue</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDeviceComponent <em>Device Component</em>}</li>
@@ -164,19 +166,23 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getEnrollmentRequest <em>Enrollment Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getEnrollmentResponse <em>Enrollment Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getEpisodeOfCare <em>Episode Of Care</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getExpansionProfile <em>Expansion Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getExplanationOfBenefit <em>Explanation Of Benefit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getFamilyMemberHistory <em>Family Member History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getFlag <em>Flag</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getHealthcareService <em>Healthcare Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getImagingObjectSelection <em>Imaging Object Selection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getImmunization <em>Immunization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getImplementationGuide <em>Implementation Guide</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getList <em>List</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMeasure <em>Measure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMedication <em>Medication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMedicationAdministration <em>Medication Administration</em>}</li>
@@ -184,6 +190,8 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMedicationOrder <em>Medication Order</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMedicationStatement <em>Medication Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getMessageHeader <em>Message Header</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getModuleDefinition <em>Module Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getModuleMetadata <em>Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getNamingSystem <em>Naming System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getNutritionOrder <em>Nutrition Order</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getObservation <em>Observation</em>}</li>
@@ -191,6 +199,7 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getOperationOutcome <em>Operation Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getOrderResponse <em>Order Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getOrderSet <em>Order Set</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getPaymentNotice <em>Payment Notice</em>}</li>
@@ -209,6 +218,7 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getRiskAssessment <em>Risk Assessment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getSchedule <em>Schedule</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getSearchParameter <em>Search Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getStructureDefinition <em>Structure Definition</em>}</li>
@@ -446,6 +456,26 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	protected DataElement dataElement;
 
 	/**
+	 * The cached value of the '{@link #getDecisionSupportRule() <em>Decision Support Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecisionSupportRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected DecisionSupportRule decisionSupportRule;
+
+	/**
+	 * The cached value of the '{@link #getDecisionSupportServiceModule() <em>Decision Support Service Module</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecisionSupportServiceModule()
+	 * @generated
+	 * @ordered
+	 */
+	protected DecisionSupportServiceModule decisionSupportServiceModule;
+
+	/**
 	 * The cached value of the '{@link #getDetectedIssue() <em>Detected Issue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,6 +636,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	protected EpisodeOfCare episodeOfCare;
 
 	/**
+	 * The cached value of the '{@link #getExpansionProfile() <em>Expansion Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpansionProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExpansionProfile expansionProfile;
+
+	/**
 	 * The cached value of the '{@link #getExplanationOfBenefit() <em>Explanation Of Benefit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,6 +694,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected Group group;
+
+	/**
+	 * The cached value of the '{@link #getGuidanceResponse() <em>Guidance Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGuidanceResponse()
+	 * @generated
+	 * @ordered
+	 */
+	protected GuidanceResponse guidanceResponse;
 
 	/**
 	 * The cached value of the '{@link #getHealthcareService() <em>Healthcare Service</em>}' containment reference.
@@ -716,6 +766,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	protected ImplementationGuide implementationGuide;
 
 	/**
+	 * The cached value of the '{@link #getLibrary() <em>Library</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected Library library;
+
+	/**
 	 * The cached value of the '{@link #getList() <em>List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -734,6 +794,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected Location location;
+
+	/**
+	 * The cached value of the '{@link #getMeasure() <em>Measure</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMeasure()
+	 * @generated
+	 * @ordered
+	 */
+	protected Measure measure;
 
 	/**
 	 * The cached value of the '{@link #getMedia() <em>Media</em>}' containment reference.
@@ -806,6 +876,26 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	protected MessageHeader messageHeader;
 
 	/**
+	 * The cached value of the '{@link #getModuleDefinition() <em>Module Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModuleDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModuleDefinition moduleDefinition;
+
+	/**
+	 * The cached value of the '{@link #getModuleMetadata() <em>Module Metadata</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModuleMetadata()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModuleMetadata moduleMetadata;
+
+	/**
 	 * The cached value of the '{@link #getNamingSystem() <em>Naming System</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -874,6 +964,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected OrderResponse orderResponse;
+
+	/**
+	 * The cached value of the '{@link #getOrderSet() <em>Order Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrderSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected OrderSet orderSet;
 
 	/**
 	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
@@ -1054,6 +1154,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected SearchParameter searchParameter;
+
+	/**
+	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sequence sequence;
 
 	/**
 	 * The cached value of the '{@link #getSlot() <em>Slot</em>}' containment reference.
@@ -2135,6 +2245,92 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DecisionSupportRule getDecisionSupportRule() {
+		return decisionSupportRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDecisionSupportRule(DecisionSupportRule newDecisionSupportRule, NotificationChain msgs) {
+		DecisionSupportRule oldDecisionSupportRule = decisionSupportRule;
+		decisionSupportRule = newDecisionSupportRule;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE, oldDecisionSupportRule, newDecisionSupportRule);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDecisionSupportRule(DecisionSupportRule newDecisionSupportRule) {
+		if (newDecisionSupportRule != decisionSupportRule) {
+			NotificationChain msgs = null;
+			if (decisionSupportRule != null)
+				msgs = ((InternalEObject)decisionSupportRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE, null, msgs);
+			if (newDecisionSupportRule != null)
+				msgs = ((InternalEObject)newDecisionSupportRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE, null, msgs);
+			msgs = basicSetDecisionSupportRule(newDecisionSupportRule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE, newDecisionSupportRule, newDecisionSupportRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportServiceModule getDecisionSupportServiceModule() {
+		return decisionSupportServiceModule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDecisionSupportServiceModule(DecisionSupportServiceModule newDecisionSupportServiceModule, NotificationChain msgs) {
+		DecisionSupportServiceModule oldDecisionSupportServiceModule = decisionSupportServiceModule;
+		decisionSupportServiceModule = newDecisionSupportServiceModule;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE, oldDecisionSupportServiceModule, newDecisionSupportServiceModule);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDecisionSupportServiceModule(DecisionSupportServiceModule newDecisionSupportServiceModule) {
+		if (newDecisionSupportServiceModule != decisionSupportServiceModule) {
+			NotificationChain msgs = null;
+			if (decisionSupportServiceModule != null)
+				msgs = ((InternalEObject)decisionSupportServiceModule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE, null, msgs);
+			if (newDecisionSupportServiceModule != null)
+				msgs = ((InternalEObject)newDecisionSupportServiceModule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE, null, msgs);
+			msgs = basicSetDecisionSupportServiceModule(newDecisionSupportServiceModule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE, newDecisionSupportServiceModule, newDecisionSupportServiceModule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DetectedIssue getDetectedIssue() {
 		return detectedIssue;
 	}
@@ -2823,6 +3019,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExpansionProfile getExpansionProfile() {
+		return expansionProfile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpansionProfile(ExpansionProfile newExpansionProfile, NotificationChain msgs) {
+		ExpansionProfile oldExpansionProfile = expansionProfile;
+		expansionProfile = newExpansionProfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE, oldExpansionProfile, newExpansionProfile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpansionProfile(ExpansionProfile newExpansionProfile) {
+		if (newExpansionProfile != expansionProfile) {
+			NotificationChain msgs = null;
+			if (expansionProfile != null)
+				msgs = ((InternalEObject)expansionProfile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE, null, msgs);
+			if (newExpansionProfile != null)
+				msgs = ((InternalEObject)newExpansionProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE, null, msgs);
+			msgs = basicSetExpansionProfile(newExpansionProfile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE, newExpansionProfile, newExpansionProfile));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExplanationOfBenefit getExplanationOfBenefit() {
 		return explanationOfBenefit;
 	}
@@ -3031,6 +3270,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__GROUP, newGroup, newGroup));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GuidanceResponse getGuidanceResponse() {
+		return guidanceResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGuidanceResponse(GuidanceResponse newGuidanceResponse, NotificationChain msgs) {
+		GuidanceResponse oldGuidanceResponse = guidanceResponse;
+		guidanceResponse = newGuidanceResponse;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE, oldGuidanceResponse, newGuidanceResponse);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGuidanceResponse(GuidanceResponse newGuidanceResponse) {
+		if (newGuidanceResponse != guidanceResponse) {
+			NotificationChain msgs = null;
+			if (guidanceResponse != null)
+				msgs = ((InternalEObject)guidanceResponse).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE, null, msgs);
+			if (newGuidanceResponse != null)
+				msgs = ((InternalEObject)newGuidanceResponse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE, null, msgs);
+			msgs = basicSetGuidanceResponse(newGuidanceResponse, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE, newGuidanceResponse, newGuidanceResponse));
 	}
 
 	/**
@@ -3296,6 +3578,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Library getLibrary() {
+		return library;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLibrary(Library newLibrary, NotificationChain msgs) {
+		Library oldLibrary = library;
+		library = newLibrary;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__LIBRARY, oldLibrary, newLibrary);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLibrary(Library newLibrary) {
+		if (newLibrary != library) {
+			NotificationChain msgs = null;
+			if (library != null)
+				msgs = ((InternalEObject)library).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__LIBRARY, null, msgs);
+			if (newLibrary != null)
+				msgs = ((InternalEObject)newLibrary).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__LIBRARY, null, msgs);
+			msgs = basicSetLibrary(newLibrary, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__LIBRARY, newLibrary, newLibrary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public List getList() {
 		return list;
 	}
@@ -3375,6 +3700,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__LOCATION, newLocation, newLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Measure getMeasure() {
+		return measure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMeasure(Measure newMeasure, NotificationChain msgs) {
+		Measure oldMeasure = measure;
+		measure = newMeasure;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MEASURE, oldMeasure, newMeasure);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeasure(Measure newMeasure) {
+		if (newMeasure != measure) {
+			NotificationChain msgs = null;
+			if (measure != null)
+				msgs = ((InternalEObject)measure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MEASURE, null, msgs);
+			if (newMeasure != null)
+				msgs = ((InternalEObject)newMeasure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MEASURE, null, msgs);
+			msgs = basicSetMeasure(newMeasure, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MEASURE, newMeasure, newMeasure));
 	}
 
 	/**
@@ -3683,6 +4051,92 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModuleDefinition getModuleDefinition() {
+		return moduleDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModuleDefinition(ModuleDefinition newModuleDefinition, NotificationChain msgs) {
+		ModuleDefinition oldModuleDefinition = moduleDefinition;
+		moduleDefinition = newModuleDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION, oldModuleDefinition, newModuleDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModuleDefinition(ModuleDefinition newModuleDefinition) {
+		if (newModuleDefinition != moduleDefinition) {
+			NotificationChain msgs = null;
+			if (moduleDefinition != null)
+				msgs = ((InternalEObject)moduleDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION, null, msgs);
+			if (newModuleDefinition != null)
+				msgs = ((InternalEObject)newModuleDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION, null, msgs);
+			msgs = basicSetModuleDefinition(newModuleDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION, newModuleDefinition, newModuleDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModuleMetadata getModuleMetadata() {
+		return moduleMetadata;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModuleMetadata(ModuleMetadata newModuleMetadata, NotificationChain msgs) {
+		ModuleMetadata oldModuleMetadata = moduleMetadata;
+		moduleMetadata = newModuleMetadata;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA, oldModuleMetadata, newModuleMetadata);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModuleMetadata(ModuleMetadata newModuleMetadata) {
+		if (newModuleMetadata != moduleMetadata) {
+			NotificationChain msgs = null;
+			if (moduleMetadata != null)
+				msgs = ((InternalEObject)moduleMetadata).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA, null, msgs);
+			if (newModuleMetadata != null)
+				msgs = ((InternalEObject)newModuleMetadata).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA, null, msgs);
+			msgs = basicSetModuleMetadata(newModuleMetadata, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA, newModuleMetadata, newModuleMetadata));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamingSystem getNamingSystem() {
 		return namingSystem;
 	}
@@ -3977,6 +4431,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE, newOrderResponse, newOrderResponse));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrderSet getOrderSet() {
+		return orderSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrderSet(OrderSet newOrderSet, NotificationChain msgs) {
+		OrderSet oldOrderSet = orderSet;
+		orderSet = newOrderSet;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__ORDER_SET, oldOrderSet, newOrderSet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrderSet(OrderSet newOrderSet) {
+		if (newOrderSet != orderSet) {
+			NotificationChain msgs = null;
+			if (orderSet != null)
+				msgs = ((InternalEObject)orderSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__ORDER_SET, null, msgs);
+			if (newOrderSet != null)
+				msgs = ((InternalEObject)newOrderSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__ORDER_SET, null, msgs);
+			msgs = basicSetOrderSet(newOrderSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__ORDER_SET, newOrderSet, newOrderSet));
 	}
 
 	/**
@@ -4758,6 +5255,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Sequence getSequence() {
+		return sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSequence(Sequence newSequence, NotificationChain msgs) {
+		Sequence oldSequence = sequence;
+		sequence = newSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__SEQUENCE, oldSequence, newSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequence(Sequence newSequence) {
+		if (newSequence != sequence) {
+			NotificationChain msgs = null;
+			if (sequence != null)
+				msgs = ((InternalEObject)sequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__SEQUENCE, null, msgs);
+			if (newSequence != null)
+				msgs = ((InternalEObject)newSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__SEQUENCE, null, msgs);
+			msgs = basicSetSequence(newSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__SEQUENCE, newSequence, newSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Slot getSlot() {
 		return slot;
 	}
@@ -5278,6 +5818,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetCoverage(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__DATA_ELEMENT:
 				return basicSetDataElement(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE:
+				return basicSetDecisionSupportRule(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE:
+				return basicSetDecisionSupportServiceModule(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__DETECTED_ISSUE:
 				return basicSetDetectedIssue(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__DEVICE:
@@ -5310,6 +5854,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetEnrollmentResponse(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__EPISODE_OF_CARE:
 				return basicSetEpisodeOfCare(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE:
+				return basicSetExpansionProfile(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__EXPLANATION_OF_BENEFIT:
 				return basicSetExplanationOfBenefit(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__FAMILY_MEMBER_HISTORY:
@@ -5320,6 +5866,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetGoal(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__GROUP:
 				return basicSetGroup(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE:
+				return basicSetGuidanceResponse(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__HEALTHCARE_SERVICE:
 				return basicSetHealthcareService(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__IMAGING_OBJECT_SELECTION:
@@ -5332,10 +5880,14 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetImmunizationRecommendation(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__IMPLEMENTATION_GUIDE:
 				return basicSetImplementationGuide(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__LIBRARY:
+				return basicSetLibrary(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__LIST:
 				return basicSetList(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__LOCATION:
 				return basicSetLocation(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__MEASURE:
+				return basicSetMeasure(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__MEDIA:
 				return basicSetMedia(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__MEDICATION:
@@ -5350,6 +5902,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetMedicationStatement(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__MESSAGE_HEADER:
 				return basicSetMessageHeader(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION:
+				return basicSetModuleDefinition(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA:
+				return basicSetModuleMetadata(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__NAMING_SYSTEM:
 				return basicSetNamingSystem(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__NUTRITION_ORDER:
@@ -5364,6 +5920,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetOrder(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE:
 				return basicSetOrderResponse(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__ORDER_SET:
+				return basicSetOrderSet(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__ORGANIZATION:
 				return basicSetOrganization(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__PATIENT:
@@ -5400,6 +5958,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetSchedule(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__SEARCH_PARAMETER:
 				return basicSetSearchParameter(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__SEQUENCE:
+				return basicSetSequence(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__SLOT:
 				return basicSetSlot(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__SPECIMEN:
@@ -5478,6 +6038,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getCoverage();
 			case FhirPackage.RESOURCE_CONTAINER__DATA_ELEMENT:
 				return getDataElement();
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE:
+				return getDecisionSupportRule();
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE:
+				return getDecisionSupportServiceModule();
 			case FhirPackage.RESOURCE_CONTAINER__DETECTED_ISSUE:
 				return getDetectedIssue();
 			case FhirPackage.RESOURCE_CONTAINER__DEVICE:
@@ -5510,6 +6074,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getEnrollmentResponse();
 			case FhirPackage.RESOURCE_CONTAINER__EPISODE_OF_CARE:
 				return getEpisodeOfCare();
+			case FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE:
+				return getExpansionProfile();
 			case FhirPackage.RESOURCE_CONTAINER__EXPLANATION_OF_BENEFIT:
 				return getExplanationOfBenefit();
 			case FhirPackage.RESOURCE_CONTAINER__FAMILY_MEMBER_HISTORY:
@@ -5520,6 +6086,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getGoal();
 			case FhirPackage.RESOURCE_CONTAINER__GROUP:
 				return getGroup();
+			case FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE:
+				return getGuidanceResponse();
 			case FhirPackage.RESOURCE_CONTAINER__HEALTHCARE_SERVICE:
 				return getHealthcareService();
 			case FhirPackage.RESOURCE_CONTAINER__IMAGING_OBJECT_SELECTION:
@@ -5532,10 +6100,14 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getImmunizationRecommendation();
 			case FhirPackage.RESOURCE_CONTAINER__IMPLEMENTATION_GUIDE:
 				return getImplementationGuide();
+			case FhirPackage.RESOURCE_CONTAINER__LIBRARY:
+				return getLibrary();
 			case FhirPackage.RESOURCE_CONTAINER__LIST:
 				return getList();
 			case FhirPackage.RESOURCE_CONTAINER__LOCATION:
 				return getLocation();
+			case FhirPackage.RESOURCE_CONTAINER__MEASURE:
+				return getMeasure();
 			case FhirPackage.RESOURCE_CONTAINER__MEDIA:
 				return getMedia();
 			case FhirPackage.RESOURCE_CONTAINER__MEDICATION:
@@ -5550,6 +6122,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getMedicationStatement();
 			case FhirPackage.RESOURCE_CONTAINER__MESSAGE_HEADER:
 				return getMessageHeader();
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION:
+				return getModuleDefinition();
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA:
+				return getModuleMetadata();
 			case FhirPackage.RESOURCE_CONTAINER__NAMING_SYSTEM:
 				return getNamingSystem();
 			case FhirPackage.RESOURCE_CONTAINER__NUTRITION_ORDER:
@@ -5564,6 +6140,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getOrder();
 			case FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE:
 				return getOrderResponse();
+			case FhirPackage.RESOURCE_CONTAINER__ORDER_SET:
+				return getOrderSet();
 			case FhirPackage.RESOURCE_CONTAINER__ORGANIZATION:
 				return getOrganization();
 			case FhirPackage.RESOURCE_CONTAINER__PATIENT:
@@ -5600,6 +6178,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getSchedule();
 			case FhirPackage.RESOURCE_CONTAINER__SEARCH_PARAMETER:
 				return getSearchParameter();
+			case FhirPackage.RESOURCE_CONTAINER__SEQUENCE:
+				return getSequence();
 			case FhirPackage.RESOURCE_CONTAINER__SLOT:
 				return getSlot();
 			case FhirPackage.RESOURCE_CONTAINER__SPECIMEN:
@@ -5700,6 +6280,12 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__DATA_ELEMENT:
 				setDataElement((DataElement)newValue);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE:
+				setDecisionSupportRule((DecisionSupportRule)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE:
+				setDecisionSupportServiceModule((DecisionSupportServiceModule)newValue);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__DETECTED_ISSUE:
 				setDetectedIssue((DetectedIssue)newValue);
 				return;
@@ -5748,6 +6334,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__EPISODE_OF_CARE:
 				setEpisodeOfCare((EpisodeOfCare)newValue);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE:
+				setExpansionProfile((ExpansionProfile)newValue);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__EXPLANATION_OF_BENEFIT:
 				setExplanationOfBenefit((ExplanationOfBenefit)newValue);
 				return;
@@ -5762,6 +6351,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__GROUP:
 				setGroup((Group)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE:
+				setGuidanceResponse((GuidanceResponse)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__HEALTHCARE_SERVICE:
 				setHealthcareService((HealthcareService)newValue);
@@ -5781,11 +6373,17 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__IMPLEMENTATION_GUIDE:
 				setImplementationGuide((ImplementationGuide)newValue);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__LIBRARY:
+				setLibrary((Library)newValue);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__LIST:
 				setList((List)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__LOCATION:
 				setLocation((Location)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__MEASURE:
+				setMeasure((Measure)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__MEDIA:
 				setMedia((Media)newValue);
@@ -5808,6 +6406,12 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__MESSAGE_HEADER:
 				setMessageHeader((MessageHeader)newValue);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION:
+				setModuleDefinition((ModuleDefinition)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA:
+				setModuleMetadata((ModuleMetadata)newValue);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__NAMING_SYSTEM:
 				setNamingSystem((NamingSystem)newValue);
 				return;
@@ -5828,6 +6432,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE:
 				setOrderResponse((OrderResponse)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__ORDER_SET:
+				setOrderSet((OrderSet)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__ORGANIZATION:
 				setOrganization((Organization)newValue);
@@ -5882,6 +6489,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__SEARCH_PARAMETER:
 				setSearchParameter((SearchParameter)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__SEQUENCE:
+				setSequence((Sequence)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__SLOT:
 				setSlot((Slot)newValue);
@@ -5994,6 +6604,12 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__DATA_ELEMENT:
 				setDataElement((DataElement)null);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE:
+				setDecisionSupportRule((DecisionSupportRule)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE:
+				setDecisionSupportServiceModule((DecisionSupportServiceModule)null);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__DETECTED_ISSUE:
 				setDetectedIssue((DetectedIssue)null);
 				return;
@@ -6042,6 +6658,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__EPISODE_OF_CARE:
 				setEpisodeOfCare((EpisodeOfCare)null);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE:
+				setExpansionProfile((ExpansionProfile)null);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__EXPLANATION_OF_BENEFIT:
 				setExplanationOfBenefit((ExplanationOfBenefit)null);
 				return;
@@ -6056,6 +6675,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__GROUP:
 				setGroup((Group)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE:
+				setGuidanceResponse((GuidanceResponse)null);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__HEALTHCARE_SERVICE:
 				setHealthcareService((HealthcareService)null);
@@ -6075,11 +6697,17 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__IMPLEMENTATION_GUIDE:
 				setImplementationGuide((ImplementationGuide)null);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__LIBRARY:
+				setLibrary((Library)null);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__LIST:
 				setList((List)null);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__LOCATION:
 				setLocation((Location)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__MEASURE:
+				setMeasure((Measure)null);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__MEDIA:
 				setMedia((Media)null);
@@ -6102,6 +6730,12 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__MESSAGE_HEADER:
 				setMessageHeader((MessageHeader)null);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION:
+				setModuleDefinition((ModuleDefinition)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA:
+				setModuleMetadata((ModuleMetadata)null);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__NAMING_SYSTEM:
 				setNamingSystem((NamingSystem)null);
 				return;
@@ -6122,6 +6756,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE:
 				setOrderResponse((OrderResponse)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__ORDER_SET:
+				setOrderSet((OrderSet)null);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__ORGANIZATION:
 				setOrganization((Organization)null);
@@ -6176,6 +6813,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__SEARCH_PARAMETER:
 				setSearchParameter((SearchParameter)null);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__SEQUENCE:
+				setSequence((Sequence)null);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__SLOT:
 				setSlot((Slot)null);
@@ -6266,6 +6906,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return coverage != null;
 			case FhirPackage.RESOURCE_CONTAINER__DATA_ELEMENT:
 				return dataElement != null;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_RULE:
+				return decisionSupportRule != null;
+			case FhirPackage.RESOURCE_CONTAINER__DECISION_SUPPORT_SERVICE_MODULE:
+				return decisionSupportServiceModule != null;
 			case FhirPackage.RESOURCE_CONTAINER__DETECTED_ISSUE:
 				return detectedIssue != null;
 			case FhirPackage.RESOURCE_CONTAINER__DEVICE:
@@ -6298,6 +6942,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return enrollmentResponse != null;
 			case FhirPackage.RESOURCE_CONTAINER__EPISODE_OF_CARE:
 				return episodeOfCare != null;
+			case FhirPackage.RESOURCE_CONTAINER__EXPANSION_PROFILE:
+				return expansionProfile != null;
 			case FhirPackage.RESOURCE_CONTAINER__EXPLANATION_OF_BENEFIT:
 				return explanationOfBenefit != null;
 			case FhirPackage.RESOURCE_CONTAINER__FAMILY_MEMBER_HISTORY:
@@ -6308,6 +6954,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return goal != null;
 			case FhirPackage.RESOURCE_CONTAINER__GROUP:
 				return group != null;
+			case FhirPackage.RESOURCE_CONTAINER__GUIDANCE_RESPONSE:
+				return guidanceResponse != null;
 			case FhirPackage.RESOURCE_CONTAINER__HEALTHCARE_SERVICE:
 				return healthcareService != null;
 			case FhirPackage.RESOURCE_CONTAINER__IMAGING_OBJECT_SELECTION:
@@ -6320,10 +6968,14 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return immunizationRecommendation != null;
 			case FhirPackage.RESOURCE_CONTAINER__IMPLEMENTATION_GUIDE:
 				return implementationGuide != null;
+			case FhirPackage.RESOURCE_CONTAINER__LIBRARY:
+				return library != null;
 			case FhirPackage.RESOURCE_CONTAINER__LIST:
 				return list != null;
 			case FhirPackage.RESOURCE_CONTAINER__LOCATION:
 				return location != null;
+			case FhirPackage.RESOURCE_CONTAINER__MEASURE:
+				return measure != null;
 			case FhirPackage.RESOURCE_CONTAINER__MEDIA:
 				return media != null;
 			case FhirPackage.RESOURCE_CONTAINER__MEDICATION:
@@ -6338,6 +6990,10 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return medicationStatement != null;
 			case FhirPackage.RESOURCE_CONTAINER__MESSAGE_HEADER:
 				return messageHeader != null;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_DEFINITION:
+				return moduleDefinition != null;
+			case FhirPackage.RESOURCE_CONTAINER__MODULE_METADATA:
+				return moduleMetadata != null;
 			case FhirPackage.RESOURCE_CONTAINER__NAMING_SYSTEM:
 				return namingSystem != null;
 			case FhirPackage.RESOURCE_CONTAINER__NUTRITION_ORDER:
@@ -6352,6 +7008,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return order != null;
 			case FhirPackage.RESOURCE_CONTAINER__ORDER_RESPONSE:
 				return orderResponse != null;
+			case FhirPackage.RESOURCE_CONTAINER__ORDER_SET:
+				return orderSet != null;
 			case FhirPackage.RESOURCE_CONTAINER__ORGANIZATION:
 				return organization != null;
 			case FhirPackage.RESOURCE_CONTAINER__PATIENT:
@@ -6388,6 +7046,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return schedule != null;
 			case FhirPackage.RESOURCE_CONTAINER__SEARCH_PARAMETER:
 				return searchParameter != null;
+			case FhirPackage.RESOURCE_CONTAINER__SEQUENCE:
+				return sequence != null;
 			case FhirPackage.RESOURCE_CONTAINER__SLOT:
 				return slot != null;
 			case FhirPackage.RESOURCE_CONTAINER__SPECIMEN:

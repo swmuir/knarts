@@ -1,30 +1,27 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.QuestionnaireResponse;
-import org.hl7.fhir.QuestionnaireResponseGroup;
+import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.QuestionnaireResponseStatus;
 import org.hl7.fhir.Reference;
 
@@ -44,7 +41,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getItem <em>Item</em>}</li>
  * </ul>
  *
  * @generated
@@ -131,14 +128,14 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	protected Reference encounter;
 
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
+	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getItem()
 	 * @generated
 	 * @ordered
 	 */
-	protected QuestionnaireResponseGroup group;
+	protected EList<QuestionnaireResponseItem> item;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -508,42 +505,11 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireResponseGroup getGroup() {
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGroup(QuestionnaireResponseGroup newGroup, NotificationChain msgs) {
-		QuestionnaireResponseGroup oldGroup = group;
-		group = newGroup;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP, oldGroup, newGroup);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<QuestionnaireResponseItem> getItem() {
+		if (item == null) {
+			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGroup(QuestionnaireResponseGroup newGroup) {
-		if (newGroup != group) {
-			NotificationChain msgs = null;
-			if (group != null)
-				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP, null, msgs);
-			if (newGroup != null)
-				msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP, null, msgs);
-			msgs = basicSetGroup(newGroup, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP, newGroup, newGroup));
+		return item;
 	}
 
 	/**
@@ -570,8 +536,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return basicSetSource(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP:
-				return basicSetGroup(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
+				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -600,8 +566,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return getSource();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
 				return getEncounter();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP:
-				return getGroup();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
+				return getItem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -611,6 +577,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -638,8 +605,9 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
 				setEncounter((Reference)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP:
-				setGroup((QuestionnaireResponseGroup)newValue);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
+				getItem().clear();
+				getItem().addAll((Collection<? extends QuestionnaireResponseItem>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -677,8 +645,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
 				setEncounter((Reference)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP:
-				setGroup((QuestionnaireResponseGroup)null);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
+				getItem().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -708,8 +676,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return source != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
 				return encounter != null;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__GROUP:
-				return group != null;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
+				return item != null && !item.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

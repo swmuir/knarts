@@ -1,0 +1,3 @@
+
+SCT Clinical findings, text "blood pressure"
+http://fhir2.healthintersections.com.au/open/ValueSet/$expand?identifier=http://snomed.info/sct?fhir_vs=isa/404684003&filter=blood pressure

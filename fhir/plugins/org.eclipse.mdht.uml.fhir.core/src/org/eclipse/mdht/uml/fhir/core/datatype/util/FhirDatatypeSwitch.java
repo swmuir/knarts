@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,12 +37,12 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Distance;
 import org.eclipse.mdht.uml.fhir.core.datatype.Duration;
 import org.eclipse.mdht.uml.fhir.core.datatype.Element;
 import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6;
 import org.eclipse.mdht.uml.fhir.core.datatype.Extension;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
 import org.eclipse.mdht.uml.fhir.core.datatype.HumanName;
@@ -66,7 +66,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Signature;
 import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
 import org.eclipse.mdht.uml.fhir.core.datatype.Time;
 import org.eclipse.mdht.uml.fhir.core.datatype.Timing;
-import org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat;
+import org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1;
 import org.eclipse.mdht.uml.fhir.core.datatype.UnsignedInt;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uuid;
@@ -426,22 +426,60 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirDatatypePackage.MONEY: {
-				Money money = (Money)theEObject;
-				T result = caseMoney(money);
-				if (result == null) result = caseQuantity(money);
-				if (result == null) result = caseDataType(money);
-				if (result == null) result = caseElement(money);
-				if (result == null) result = caseBase(money);
+			case FhirDatatypePackage.ELEMENT_DEFINITION: {
+				ElementDefinition elementDefinition = (ElementDefinition)theEObject;
+				T result = caseElementDefinition(elementDefinition);
+				if (result == null) result = caseDataType(elementDefinition);
+				if (result == null) result = caseElement(elementDefinition);
+				if (result == null) result = caseBase(elementDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirDatatypePackage.QUANTITY: {
-				Quantity quantity = (Quantity)theEObject;
-				T result = caseQuantity(quantity);
-				if (result == null) result = caseDataType(quantity);
-				if (result == null) result = caseElement(quantity);
-				if (result == null) result = caseBase(quantity);
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT1: {
+				ElementDefinitionElement1 elementDefinitionElement1 = (ElementDefinitionElement1)theEObject;
+				T result = caseElementDefinitionElement1(elementDefinitionElement1);
+				if (result == null) result = caseElement(elementDefinitionElement1);
+				if (result == null) result = caseBase(elementDefinitionElement1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT2: {
+				ElementDefinitionElement2 elementDefinitionElement2 = (ElementDefinitionElement2)theEObject;
+				T result = caseElementDefinitionElement2(elementDefinitionElement2);
+				if (result == null) result = caseElement(elementDefinitionElement2);
+				if (result == null) result = caseBase(elementDefinitionElement2);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT3: {
+				ElementDefinitionElement3 elementDefinitionElement3 = (ElementDefinitionElement3)theEObject;
+				T result = caseElementDefinitionElement3(elementDefinitionElement3);
+				if (result == null) result = caseElement(elementDefinitionElement3);
+				if (result == null) result = caseBase(elementDefinitionElement3);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT4: {
+				ElementDefinitionElement4 elementDefinitionElement4 = (ElementDefinitionElement4)theEObject;
+				T result = caseElementDefinitionElement4(elementDefinitionElement4);
+				if (result == null) result = caseElement(elementDefinitionElement4);
+				if (result == null) result = caseBase(elementDefinitionElement4);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT5: {
+				ElementDefinitionElement5 elementDefinitionElement5 = (ElementDefinitionElement5)theEObject;
+				T result = caseElementDefinitionElement5(elementDefinitionElement5);
+				if (result == null) result = caseElement(elementDefinitionElement5);
+				if (result == null) result = caseBase(elementDefinitionElement5);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.ELEMENT_DEFINITION_ELEMENT6: {
+				ElementDefinitionElement6 elementDefinitionElement6 = (ElementDefinitionElement6)theEObject;
+				T result = caseElementDefinitionElement6(elementDefinitionElement6);
+				if (result == null) result = caseElement(elementDefinitionElement6);
+				if (result == null) result = caseBase(elementDefinitionElement6);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -455,13 +493,12 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirDatatypePackage.SIMPLE_QUANTITY: {
-				SimpleQuantity simpleQuantity = (SimpleQuantity)theEObject;
-				T result = caseSimpleQuantity(simpleQuantity);
-				if (result == null) result = caseQuantity(simpleQuantity);
-				if (result == null) result = caseDataType(simpleQuantity);
-				if (result == null) result = caseElement(simpleQuantity);
-				if (result == null) result = caseBase(simpleQuantity);
+			case FhirDatatypePackage.QUANTITY: {
+				Quantity quantity = (Quantity)theEObject;
+				T result = caseQuantity(quantity);
+				if (result == null) result = caseDataType(quantity);
+				if (result == null) result = caseElement(quantity);
+				if (result == null) result = caseBase(quantity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -471,6 +508,16 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDataType(ratio);
 				if (result == null) result = caseElement(ratio);
 				if (result == null) result = caseBase(ratio);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirDatatypePackage.SIMPLE_QUANTITY: {
+				SimpleQuantity simpleQuantity = (SimpleQuantity)theEObject;
+				T result = caseSimpleQuantity(simpleQuantity);
+				if (result == null) result = caseQuantity(simpleQuantity);
+				if (result == null) result = caseDataType(simpleQuantity);
+				if (result == null) result = caseElement(simpleQuantity);
+				if (result == null) result = caseBase(simpleQuantity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -492,82 +539,21 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirDatatypePackage.TIMING_REPEAT: {
-				TimingRepeat timingRepeat = (TimingRepeat)theEObject;
-				T result = caseTimingRepeat(timingRepeat);
-				if (result == null) result = caseBackboneElement(timingRepeat);
-				if (result == null) result = caseDataType(timingRepeat);
-				if (result == null) result = caseElement(timingRepeat);
-				if (result == null) result = caseBase(timingRepeat);
+			case FhirDatatypePackage.TIMING_ELEMENT1: {
+				TimingElement1 timingElement1 = (TimingElement1)theEObject;
+				T result = caseTimingElement1(timingElement1);
+				if (result == null) result = caseElement(timingElement1);
+				if (result == null) result = caseBase(timingElement1);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION: {
-				ElementDefinition elementDefinition = (ElementDefinition)theEObject;
-				T result = caseElementDefinition(elementDefinition);
-				if (result == null) result = caseDataType(elementDefinition);
-				if (result == null) result = caseElement(elementDefinition);
-				if (result == null) result = caseBase(elementDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_SLICING: {
-				ElementDefinitionSlicing elementDefinitionSlicing = (ElementDefinitionSlicing)theEObject;
-				T result = caseElementDefinitionSlicing(elementDefinitionSlicing);
-				if (result == null) result = caseBackboneElement(elementDefinitionSlicing);
-				if (result == null) result = caseDataType(elementDefinitionSlicing);
-				if (result == null) result = caseElement(elementDefinitionSlicing);
-				if (result == null) result = caseBase(elementDefinitionSlicing);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_BASE: {
-				ElementDefinitionBase elementDefinitionBase = (ElementDefinitionBase)theEObject;
-				T result = caseElementDefinitionBase(elementDefinitionBase);
-				if (result == null) result = caseBackboneElement(elementDefinitionBase);
-				if (result == null) result = caseDataType(elementDefinitionBase);
-				if (result == null) result = caseElement(elementDefinitionBase);
-				if (result == null) result = caseBase(elementDefinitionBase);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_TYPE_REF: {
-				ElementDefinitionTypeRef elementDefinitionTypeRef = (ElementDefinitionTypeRef)theEObject;
-				T result = caseElementDefinitionTypeRef(elementDefinitionTypeRef);
-				if (result == null) result = caseBackboneElement(elementDefinitionTypeRef);
-				if (result == null) result = caseDataType(elementDefinitionTypeRef);
-				if (result == null) result = caseElement(elementDefinitionTypeRef);
-				if (result == null) result = caseBase(elementDefinitionTypeRef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_CONSTRAINT: {
-				ElementDefinitionConstraint elementDefinitionConstraint = (ElementDefinitionConstraint)theEObject;
-				T result = caseElementDefinitionConstraint(elementDefinitionConstraint);
-				if (result == null) result = caseBackboneElement(elementDefinitionConstraint);
-				if (result == null) result = caseDataType(elementDefinitionConstraint);
-				if (result == null) result = caseElement(elementDefinitionConstraint);
-				if (result == null) result = caseBase(elementDefinitionConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_BINDING: {
-				ElementDefinitionBinding elementDefinitionBinding = (ElementDefinitionBinding)theEObject;
-				T result = caseElementDefinitionBinding(elementDefinitionBinding);
-				if (result == null) result = caseBackboneElement(elementDefinitionBinding);
-				if (result == null) result = caseDataType(elementDefinitionBinding);
-				if (result == null) result = caseElement(elementDefinitionBinding);
-				if (result == null) result = caseBase(elementDefinitionBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirDatatypePackage.ELEMENT_DEFINITION_MAPPING: {
-				ElementDefinitionMapping elementDefinitionMapping = (ElementDefinitionMapping)theEObject;
-				T result = caseElementDefinitionMapping(elementDefinitionMapping);
-				if (result == null) result = caseBackboneElement(elementDefinitionMapping);
-				if (result == null) result = caseDataType(elementDefinitionMapping);
-				if (result == null) result = caseElement(elementDefinitionMapping);
-				if (result == null) result = caseBase(elementDefinitionMapping);
+			case FhirDatatypePackage.MONEY: {
+				Money money = (Money)theEObject;
+				T result = caseMoney(money);
+				if (result == null) result = caseQuantity(money);
+				if (result == null) result = caseDataType(money);
+				if (result == null) result = caseElement(money);
+				if (result == null) result = caseBase(money);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1138,32 +1124,107 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Money</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Money</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMoney(Money object) {
+	public T caseElementDefinition(ElementDefinition object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Quantity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element1</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Quantity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element1</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseQuantity(Quantity object) {
+	public T caseElementDefinitionElement1(ElementDefinitionElement1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element2</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element2</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementDefinitionElement2(ElementDefinitionElement2 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element3</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element3</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementDefinitionElement3(ElementDefinitionElement3 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element4</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element4</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementDefinitionElement4(ElementDefinitionElement4 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element5</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element5</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementDefinitionElement5(ElementDefinitionElement5 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Element6</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Definition Element6</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementDefinitionElement6(ElementDefinitionElement6 object) {
 		return null;
 	}
 
@@ -1183,17 +1244,17 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simple Quantity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simple Quantity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSimpleQuantity(SimpleQuantity object) {
+	public T caseQuantity(Quantity object) {
 		return null;
 	}
 
@@ -1209,6 +1270,21 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRatio(Ratio object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Quantity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Quantity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleQuantity(SimpleQuantity object) {
 		return null;
 	}
 
@@ -1243,122 +1319,32 @@ public class FhirDatatypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Timing Repeat</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timing Element1</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Timing Repeat</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timing Element1</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTimingRepeat(TimingRepeat object) {
+	public T caseTimingElement1(TimingElement1 object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Money</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Money</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElementDefinition(ElementDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Slicing</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Slicing</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionSlicing(ElementDefinitionSlicing object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Base</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Base</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionBase(ElementDefinitionBase object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Type Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Type Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionTypeRef(ElementDefinitionTypeRef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionConstraint(ElementDefinitionConstraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionBinding(ElementDefinitionBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Definition Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Definition Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementDefinitionMapping(ElementDefinitionMapping object) {
+	public T caseMoney(Money object) {
 		return null;
 	}
 

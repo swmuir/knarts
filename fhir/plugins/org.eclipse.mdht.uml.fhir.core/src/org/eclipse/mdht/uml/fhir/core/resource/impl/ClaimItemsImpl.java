@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
-import org.eclipse.mdht.uml.fhir.core.datatype.Date;
+import org.eclipse.mdht.uml.fhir.core.datatype.DataType;
 import org.eclipse.mdht.uml.fhir.core.datatype.Decimal;
 import org.eclipse.mdht.uml.fhir.core.datatype.Money;
 import org.eclipse.mdht.uml.fhir.core.datatype.PositiveInt;
@@ -56,7 +56,8 @@ import org.eclipse.mdht.uml.fhir.core.resource.Practitioner;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getDiagnosisLinkIds <em>Diagnosis Link Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getService <em>Service</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getServiceDate <em>Service Date</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getServicedx <em>Servicedx</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getPlace <em>Place</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.ClaimItemsImpl#getFactor <em>Factor</em>}</li>
@@ -124,14 +125,24 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 	protected Coding service;
 
 	/**
-	 * The cached value of the '{@link #getServiceDate() <em>Service Date</em>}' reference.
+	 * The cached value of the '{@link #getServicedx() <em>Servicedx</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceDate()
+	 * @see #getServicedx()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date serviceDate;
+	protected DataType servicedx;
+
+	/**
+	 * The cached value of the '{@link #getPlace() <em>Place</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlace()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding place;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' reference.
@@ -431,16 +442,16 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getServiceDate() {
-		if (serviceDate != null && serviceDate.eIsProxy()) {
-			InternalEObject oldServiceDate = (InternalEObject)serviceDate;
-			serviceDate = (Date)eResolveProxy(oldServiceDate);
-			if (serviceDate != oldServiceDate) {
+	public DataType getServicedx() {
+		if (servicedx != null && servicedx.eIsProxy()) {
+			InternalEObject oldServicedx = (InternalEObject)servicedx;
+			servicedx = (DataType)eResolveProxy(oldServicedx);
+			if (servicedx != oldServicedx) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE, oldServiceDate, serviceDate));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.CLAIM_ITEMS__SERVICEDX, oldServicedx, servicedx));
 			}
 		}
-		return serviceDate;
+		return servicedx;
 	}
 
 	/**
@@ -448,8 +459,8 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date basicGetServiceDate() {
-		return serviceDate;
+	public DataType basicGetServicedx() {
+		return servicedx;
 	}
 
 	/**
@@ -457,11 +468,49 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceDate(Date newServiceDate) {
-		Date oldServiceDate = serviceDate;
-		serviceDate = newServiceDate;
+	public void setServicedx(DataType newServicedx) {
+		DataType oldServicedx = servicedx;
+		servicedx = newServicedx;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE, oldServiceDate, serviceDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.CLAIM_ITEMS__SERVICEDX, oldServicedx, servicedx));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getPlace() {
+		if (place != null && place.eIsProxy()) {
+			InternalEObject oldPlace = (InternalEObject)place;
+			place = (Coding)eResolveProxy(oldPlace);
+			if (place != oldPlace) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.CLAIM_ITEMS__PLACE, oldPlace, place));
+			}
+		}
+		return place;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding basicGetPlace() {
+		return place;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlace(Coding newPlace) {
+		Coding oldPlace = place;
+		place = newPlace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.CLAIM_ITEMS__PLACE, oldPlace, place));
 	}
 
 	/**
@@ -847,9 +896,12 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 			case FhirResourcePackage.CLAIM_ITEMS__SERVICE:
 				if (resolve) return getService();
 				return basicGetService();
-			case FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE:
-				if (resolve) return getServiceDate();
-				return basicGetServiceDate();
+			case FhirResourcePackage.CLAIM_ITEMS__SERVICEDX:
+				if (resolve) return getServicedx();
+				return basicGetServicedx();
+			case FhirResourcePackage.CLAIM_ITEMS__PLACE:
+				if (resolve) return getPlace();
+				return basicGetPlace();
 			case FhirResourcePackage.CLAIM_ITEMS__QUANTITY:
 				if (resolve) return getQuantity();
 				return basicGetQuantity();
@@ -908,8 +960,11 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 			case FhirResourcePackage.CLAIM_ITEMS__SERVICE:
 				setService((Coding)newValue);
 				return;
-			case FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE:
-				setServiceDate((Date)newValue);
+			case FhirResourcePackage.CLAIM_ITEMS__SERVICEDX:
+				setServicedx((DataType)newValue);
+				return;
+			case FhirResourcePackage.CLAIM_ITEMS__PLACE:
+				setPlace((Coding)newValue);
 				return;
 			case FhirResourcePackage.CLAIM_ITEMS__QUANTITY:
 				setQuantity((SimpleQuantity)newValue);
@@ -974,8 +1029,11 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 			case FhirResourcePackage.CLAIM_ITEMS__SERVICE:
 				setService((Coding)null);
 				return;
-			case FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE:
-				setServiceDate((Date)null);
+			case FhirResourcePackage.CLAIM_ITEMS__SERVICEDX:
+				setServicedx((DataType)null);
+				return;
+			case FhirResourcePackage.CLAIM_ITEMS__PLACE:
+				setPlace((Coding)null);
 				return;
 			case FhirResourcePackage.CLAIM_ITEMS__QUANTITY:
 				setQuantity((SimpleQuantity)null);
@@ -1032,8 +1090,10 @@ public class ClaimItemsImpl extends BackboneElementImpl implements ClaimItems {
 				return diagnosisLinkIds != null && !diagnosisLinkIds.isEmpty();
 			case FhirResourcePackage.CLAIM_ITEMS__SERVICE:
 				return service != null;
-			case FhirResourcePackage.CLAIM_ITEMS__SERVICE_DATE:
-				return serviceDate != null;
+			case FhirResourcePackage.CLAIM_ITEMS__SERVICEDX:
+				return servicedx != null;
+			case FhirResourcePackage.CLAIM_ITEMS__PLACE:
+				return place != null;
 			case FhirResourcePackage.CLAIM_ITEMS__QUANTITY:
 				return quantity != null;
 			case FhirResourcePackage.CLAIM_ITEMS__UNIT_PRICE:

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -62,7 +62,7 @@ public interface TestScriptSetup extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupAction}.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupAction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
@@ -74,6 +74,6 @@ public interface TestScriptSetup extends BackboneElement {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<TestScriptSetupAction> getActions();
+	EList<TestScriptSetupSetupAction> getActions();
 
 } // TestScriptSetup

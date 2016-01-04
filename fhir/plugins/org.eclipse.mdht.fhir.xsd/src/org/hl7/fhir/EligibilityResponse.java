@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -38,6 +28,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getRequestProvider <em>Request Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getInforce <em>Inforce</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getContract <em>Contract</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getBenefitBalance <em>Benefit Balance</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getError <em>Error</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEligibilityResponse()
@@ -294,5 +289,115 @@ public interface EligibilityResponse extends DomainResource {
 	 * @generated
 	 */
 	void setRequestOrganization(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Inforce</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Inforce</em>' containment reference.
+	 * @see #setInforce(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Inforce()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='inforce' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getInforce();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponse#getInforce <em>Inforce</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inforce</em>' containment reference.
+	 * @see #getInforce()
+	 * @generated
+	 */
+	void setInforce(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Contract</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The contract resource which may provide more detailed information.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Contract</em>' containment reference.
+	 * @see #setContract(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Contract()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contract' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContract();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponse#getContract <em>Contract</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contract</em>' containment reference.
+	 * @see #getContract()
+	 * @generated
+	 */
+	void setContract(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The form to be used for printing the content.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Form</em>' containment reference.
+	 * @see #setForm(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Form()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Coding getForm();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponse#getForm <em>Form</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Form</em>' containment reference.
+	 * @see #getForm()
+	 * @generated
+	 */
+	void setForm(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Benefit Balance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EligibilityResponseBenefitBalance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Benefits and optionally current balances by Category.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Benefit Balance</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_BenefitBalance()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='benefitBalance' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EligibilityResponseBenefitBalance> getBenefitBalance();
+
+	/**
+	 * Returns the value of the '<em><b>Error</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EligibilityResponseError}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Mutually exclusive with Services Provided (Item).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Error</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Error()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='error' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EligibilityResponseError> getError();
 
 } // EligibilityResponse

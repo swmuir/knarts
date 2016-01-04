@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -155,208 +155,88 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createDeviceAdapter();
 			}
 			@Override
-			public Adapter caseAppointment(Appointment object) {
-				return createAppointmentAdapter();
+			public Adapter caseLibrary(Library object) {
+				return createLibraryAdapter();
 			}
 			@Override
-			public Adapter caseSlot(Slot object) {
-				return createSlotAdapter();
+			public Adapter caseModuleMetadata(ModuleMetadata object) {
+				return createModuleMetadataAdapter();
 			}
 			@Override
-			public Adapter caseSchedule(Schedule object) {
-				return createScheduleAdapter();
+			public Adapter caseModuleMetadataCoverage(ModuleMetadataCoverage object) {
+				return createModuleMetadataCoverageAdapter();
 			}
 			@Override
-			public Adapter caseAppointmentParticipant(AppointmentParticipant object) {
-				return createAppointmentParticipantAdapter();
+			public Adapter caseModuleMetadataContributor(ModuleMetadataContributor object) {
+				return createModuleMetadataContributorAdapter();
 			}
 			@Override
-			public Adapter caseAccount(Account object) {
-				return createAccountAdapter();
+			public Adapter caseModuleMetadataRelatedResource(ModuleMetadataRelatedResource object) {
+				return createModuleMetadataRelatedResourceAdapter();
 			}
 			@Override
-			public Adapter caseReferralRequest(ReferralRequest object) {
-				return createReferralRequestAdapter();
+			public Adapter caseModuleDefinition(ModuleDefinition object) {
+				return createModuleDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseEncounter(Encounter object) {
-				return createEncounterAdapter();
+			public Adapter caseModuleDefinitionModel(ModuleDefinitionModel object) {
+				return createModuleDefinitionModelAdapter();
 			}
 			@Override
-			public Adapter caseEncounterStatusHistory(EncounterStatusHistory object) {
-				return createEncounterStatusHistoryAdapter();
+			public Adapter caseModuleDefinitionLibrary(ModuleDefinitionLibrary object) {
+				return createModuleDefinitionLibraryAdapter();
 			}
 			@Override
-			public Adapter caseEpisodeOfCare(EpisodeOfCare object) {
-				return createEpisodeOfCareAdapter();
+			public Adapter caseModuleDefinitionCodeSystem(ModuleDefinitionCodeSystem object) {
+				return createModuleDefinitionCodeSystemAdapter();
 			}
 			@Override
-			public Adapter caseEpisodeOfCareStatusHistory(EpisodeOfCareStatusHistory object) {
-				return createEpisodeOfCareStatusHistoryAdapter();
+			public Adapter caseModuleDefinitionValueSet(ModuleDefinitionValueSet object) {
+				return createModuleDefinitionValueSetAdapter();
 			}
 			@Override
-			public Adapter caseCondition(Condition object) {
-				return createConditionAdapter();
+			public Adapter caseModuleDefinitionParameter(ModuleDefinitionParameter object) {
+				return createModuleDefinitionParameterAdapter();
 			}
 			@Override
-			public Adapter caseConditionStage(ConditionStage object) {
-				return createConditionStageAdapter();
+			public Adapter caseStructureDefinition(StructureDefinition object) {
+				return createStructureDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseConditionEvidence(ConditionEvidence object) {
-				return createConditionEvidenceAdapter();
+			public Adapter caseStructureDefinitionContact(StructureDefinitionContact object) {
+				return createStructureDefinitionContactAdapter();
 			}
 			@Override
-			public Adapter caseEpisodeOfCareCareTeam(EpisodeOfCareCareTeam object) {
-				return createEpisodeOfCareCareTeamAdapter();
+			public Adapter caseStructureDefinitionMapping(StructureDefinitionMapping object) {
+				return createStructureDefinitionMappingAdapter();
 			}
 			@Override
-			public Adapter caseEncounterParticipant(EncounterParticipant object) {
-				return createEncounterParticipantAdapter();
+			public Adapter caseStructureDefinitionSnapshot(StructureDefinitionSnapshot object) {
+				return createStructureDefinitionSnapshotAdapter();
 			}
 			@Override
-			public Adapter caseEncounterHospitalization(EncounterHospitalization object) {
-				return createEncounterHospitalizationAdapter();
+			public Adapter caseStructureDefinitionDifferential(StructureDefinitionDifferential object) {
+				return createStructureDefinitionDifferentialAdapter();
 			}
 			@Override
-			public Adapter caseEncounterLocation(EncounterLocation object) {
-				return createEncounterLocationAdapter();
+			public Adapter caseModuleDefinitionData(ModuleDefinitionData object) {
+				return createModuleDefinitionDataAdapter();
 			}
 			@Override
-			public Adapter caseClinicalImpression(ClinicalImpression object) {
-				return createClinicalImpressionAdapter();
+			public Adapter caseModuleDefinitionDataCodeFilter(ModuleDefinitionDataCodeFilter object) {
+				return createModuleDefinitionDataCodeFilterAdapter();
 			}
 			@Override
-			public Adapter caseClinicalImpressionInvestigations(ClinicalImpressionInvestigations object) {
-				return createClinicalImpressionInvestigationsAdapter();
+			public Adapter caseModuleDefinitionDataDateFilter(ModuleDefinitionDataDateFilter object) {
+				return createModuleDefinitionDataDateFilterAdapter();
 			}
 			@Override
-			public Adapter caseClinicalImpressionFinding(ClinicalImpressionFinding object) {
-				return createClinicalImpressionFindingAdapter();
+			public Adapter casePerson(Person object) {
+				return createPersonAdapter();
 			}
 			@Override
-			public Adapter caseClinicalImpressionRuledOut(ClinicalImpressionRuledOut object) {
-				return createClinicalImpressionRuledOutAdapter();
-			}
-			@Override
-			public Adapter caseAllergyIntolerance(AllergyIntolerance object) {
-				return createAllergyIntoleranceAdapter();
-			}
-			@Override
-			public Adapter caseAllergyIntoleranceReaction(AllergyIntoleranceReaction object) {
-				return createAllergyIntoleranceReactionAdapter();
-			}
-			@Override
-			public Adapter caseObservation(Observation object) {
-				return createObservationAdapter();
-			}
-			@Override
-			public Adapter caseSpecimen(Specimen object) {
-				return createSpecimenAdapter();
-			}
-			@Override
-			public Adapter caseSpecimenCollection(SpecimenCollection object) {
-				return createSpecimenCollectionAdapter();
-			}
-			@Override
-			public Adapter caseSpecimenTreatment(SpecimenTreatment object) {
-				return createSpecimenTreatmentAdapter();
-			}
-			@Override
-			public Adapter caseSubstance(Substance object) {
-				return createSubstanceAdapter();
-			}
-			@Override
-			public Adapter caseSubstanceInstance(SubstanceInstance object) {
-				return createSubstanceInstanceAdapter();
-			}
-			@Override
-			public Adapter caseSubstanceIngredient(SubstanceIngredient object) {
-				return createSubstanceIngredientAdapter();
-			}
-			@Override
-			public Adapter caseSpecimenContainer(SpecimenContainer object) {
-				return createSpecimenContainerAdapter();
-			}
-			@Override
-			public Adapter caseObservationReferenceRange(ObservationReferenceRange object) {
-				return createObservationReferenceRangeAdapter();
-			}
-			@Override
-			public Adapter caseObservationRelated(ObservationRelated object) {
-				return createObservationRelatedAdapter();
-			}
-			@Override
-			public Adapter caseObservationComponent(ObservationComponent object) {
-				return createObservationComponentAdapter();
-			}
-			@Override
-			public Adapter caseGroup(Group object) {
-				return createGroupAdapter();
-			}
-			@Override
-			public Adapter caseGroupCharacteristic(GroupCharacteristic object) {
-				return createGroupCharacteristicAdapter();
-			}
-			@Override
-			public Adapter caseGroupMember(GroupMember object) {
-				return createGroupMemberAdapter();
-			}
-			@Override
-			public Adapter caseMedication(Medication object) {
-				return createMedicationAdapter();
-			}
-			@Override
-			public Adapter caseMedicationProduct(MedicationProduct object) {
-				return createMedicationProductAdapter();
-			}
-			@Override
-			public Adapter caseMedicationProductIngredient(MedicationProductIngredient object) {
-				return createMedicationProductIngredientAdapter();
-			}
-			@Override
-			public Adapter caseMedicationProductBatch(MedicationProductBatch object) {
-				return createMedicationProductBatchAdapter();
-			}
-			@Override
-			public Adapter caseMedicationPackage(MedicationPackage object) {
-				return createMedicationPackageAdapter();
-			}
-			@Override
-			public Adapter caseMedicationPackageContent(MedicationPackageContent object) {
-				return createMedicationPackageContentAdapter();
-			}
-			@Override
-			public Adapter caseDeviceMetric(DeviceMetric object) {
-				return createDeviceMetricAdapter();
-			}
-			@Override
-			public Adapter caseDeviceComponent(DeviceComponent object) {
-				return createDeviceComponentAdapter();
-			}
-			@Override
-			public Adapter caseDeviceComponentProductionSpecification(DeviceComponentProductionSpecification object) {
-				return createDeviceComponentProductionSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseDeviceMetricCalibration(DeviceMetricCalibration object) {
-				return createDeviceMetricCalibrationAdapter();
-			}
-			@Override
-			public Adapter caseQuestionnaireResponse(QuestionnaireResponse object) {
-				return createQuestionnaireResponseAdapter();
-			}
-			@Override
-			public Adapter caseQuestionnaire(Questionnaire object) {
-				return createQuestionnaireAdapter();
-			}
-			@Override
-			public Adapter caseQuestionnaireGroup(QuestionnaireGroup object) {
-				return createQuestionnaireGroupAdapter();
-			}
-			@Override
-			public Adapter caseQuestionnaireGroupQuestion(QuestionnaireGroupQuestion object) {
-				return createQuestionnaireGroupQuestionAdapter();
+			public Adapter casePersonLink(PersonLink object) {
+				return createPersonLinkAdapter();
 			}
 			@Override
 			public Adapter caseValueSet(ValueSet object) {
@@ -407,16 +287,224 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createValueSetExpansionContainsAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaireResponseGroup(QuestionnaireResponseGroup object) {
-				return createQuestionnaireResponseGroupAdapter();
+			public Adapter caseCommunication(Communication object) {
+				return createCommunicationAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaireResponseGroupQuestion(QuestionnaireResponseGroupQuestion object) {
-				return createQuestionnaireResponseGroupQuestionAdapter();
+			public Adapter caseCommunicationPayload(CommunicationPayload object) {
+				return createCommunicationPayloadAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaireResponseGroupQuestionAnswer(QuestionnaireResponseGroupQuestionAnswer object) {
-				return createQuestionnaireResponseGroupQuestionAnswerAdapter();
+			public Adapter caseEncounter(Encounter object) {
+				return createEncounterAdapter();
+			}
+			@Override
+			public Adapter caseEncounterStatusHistory(EncounterStatusHistory object) {
+				return createEncounterStatusHistoryAdapter();
+			}
+			@Override
+			public Adapter caseEpisodeOfCare(EpisodeOfCare object) {
+				return createEpisodeOfCareAdapter();
+			}
+			@Override
+			public Adapter caseEpisodeOfCareStatusHistory(EpisodeOfCareStatusHistory object) {
+				return createEpisodeOfCareStatusHistoryAdapter();
+			}
+			@Override
+			public Adapter caseCondition(Condition object) {
+				return createConditionAdapter();
+			}
+			@Override
+			public Adapter caseConditionStage(ConditionStage object) {
+				return createConditionStageAdapter();
+			}
+			@Override
+			public Adapter caseConditionEvidence(ConditionEvidence object) {
+				return createConditionEvidenceAdapter();
+			}
+			@Override
+			public Adapter caseReferralRequest(ReferralRequest object) {
+				return createReferralRequestAdapter();
+			}
+			@Override
+			public Adapter caseEpisodeOfCareCareTeam(EpisodeOfCareCareTeam object) {
+				return createEpisodeOfCareCareTeamAdapter();
+			}
+			@Override
+			public Adapter caseEncounterParticipant(EncounterParticipant object) {
+				return createEncounterParticipantAdapter();
+			}
+			@Override
+			public Adapter caseAppointment(Appointment object) {
+				return createAppointmentAdapter();
+			}
+			@Override
+			public Adapter caseSlot(Slot object) {
+				return createSlotAdapter();
+			}
+			@Override
+			public Adapter caseSchedule(Schedule object) {
+				return createScheduleAdapter();
+			}
+			@Override
+			public Adapter caseAppointmentParticipant(AppointmentParticipant object) {
+				return createAppointmentParticipantAdapter();
+			}
+			@Override
+			public Adapter caseEncounterHospitalization(EncounterHospitalization object) {
+				return createEncounterHospitalizationAdapter();
+			}
+			@Override
+			public Adapter caseEncounterLocation(EncounterLocation object) {
+				return createEncounterLocationAdapter();
+			}
+			@Override
+			public Adapter caseCommunicationRequest(CommunicationRequest object) {
+				return createCommunicationRequestAdapter();
+			}
+			@Override
+			public Adapter caseCommunicationRequestPayload(CommunicationRequestPayload object) {
+				return createCommunicationRequestPayloadAdapter();
+			}
+			@Override
+			public Adapter caseGroup(Group object) {
+				return createGroupAdapter();
+			}
+			@Override
+			public Adapter caseGroupCharacteristic(GroupCharacteristic object) {
+				return createGroupCharacteristicAdapter();
+			}
+			@Override
+			public Adapter caseGroupMember(GroupMember object) {
+				return createGroupMemberAdapter();
+			}
+			@Override
+			public Adapter caseMedication(Medication object) {
+				return createMedicationAdapter();
+			}
+			@Override
+			public Adapter caseMedicationProduct(MedicationProduct object) {
+				return createMedicationProductAdapter();
+			}
+			@Override
+			public Adapter caseMedicationProductIngredient(MedicationProductIngredient object) {
+				return createMedicationProductIngredientAdapter();
+			}
+			@Override
+			public Adapter caseMedicationProductBatch(MedicationProductBatch object) {
+				return createMedicationProductBatchAdapter();
+			}
+			@Override
+			public Adapter caseMedicationPackage(MedicationPackage object) {
+				return createMedicationPackageAdapter();
+			}
+			@Override
+			public Adapter caseMedicationPackageContent(MedicationPackageContent object) {
+				return createMedicationPackageContentAdapter();
+			}
+			@Override
+			public Adapter caseSubstance(Substance object) {
+				return createSubstanceAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceInstance(SubstanceInstance object) {
+				return createSubstanceInstanceAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceIngredient(SubstanceIngredient object) {
+				return createSubstanceIngredientAdapter();
+			}
+			@Override
+			public Adapter caseClinicalImpression(ClinicalImpression object) {
+				return createClinicalImpressionAdapter();
+			}
+			@Override
+			public Adapter caseClinicalImpressionInvestigations(ClinicalImpressionInvestigations object) {
+				return createClinicalImpressionInvestigationsAdapter();
+			}
+			@Override
+			public Adapter caseClinicalImpressionFinding(ClinicalImpressionFinding object) {
+				return createClinicalImpressionFindingAdapter();
+			}
+			@Override
+			public Adapter caseClinicalImpressionRuledOut(ClinicalImpressionRuledOut object) {
+				return createClinicalImpressionRuledOutAdapter();
+			}
+			@Override
+			public Adapter caseAllergyIntolerance(AllergyIntolerance object) {
+				return createAllergyIntoleranceAdapter();
+			}
+			@Override
+			public Adapter caseAllergyIntoleranceReaction(AllergyIntoleranceReaction object) {
+				return createAllergyIntoleranceReactionAdapter();
+			}
+			@Override
+			public Adapter caseObservation(Observation object) {
+				return createObservationAdapter();
+			}
+			@Override
+			public Adapter caseSpecimen(Specimen object) {
+				return createSpecimenAdapter();
+			}
+			@Override
+			public Adapter caseSpecimenCollection(SpecimenCollection object) {
+				return createSpecimenCollectionAdapter();
+			}
+			@Override
+			public Adapter caseSpecimenTreatment(SpecimenTreatment object) {
+				return createSpecimenTreatmentAdapter();
+			}
+			@Override
+			public Adapter caseSpecimenContainer(SpecimenContainer object) {
+				return createSpecimenContainerAdapter();
+			}
+			@Override
+			public Adapter caseObservationReferenceRange(ObservationReferenceRange object) {
+				return createObservationReferenceRangeAdapter();
+			}
+			@Override
+			public Adapter caseObservationRelated(ObservationRelated object) {
+				return createObservationRelatedAdapter();
+			}
+			@Override
+			public Adapter caseObservationComponent(ObservationComponent object) {
+				return createObservationComponentAdapter();
+			}
+			@Override
+			public Adapter caseDeviceMetric(DeviceMetric object) {
+				return createDeviceMetricAdapter();
+			}
+			@Override
+			public Adapter caseDeviceComponent(DeviceComponent object) {
+				return createDeviceComponentAdapter();
+			}
+			@Override
+			public Adapter caseDeviceComponentProductionSpecification(DeviceComponentProductionSpecification object) {
+				return createDeviceComponentProductionSpecificationAdapter();
+			}
+			@Override
+			public Adapter caseDeviceMetricCalibration(DeviceMetricCalibration object) {
+				return createDeviceMetricCalibrationAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaireResponse(QuestionnaireResponse object) {
+				return createQuestionnaireResponseAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaire(Questionnaire object) {
+				return createQuestionnaireAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaireItem(QuestionnaireItem object) {
+				return createQuestionnaireItemAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaireResponseItem(QuestionnaireResponseItem object) {
+				return createQuestionnaireResponseItemAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaireResponseItemAnswer(QuestionnaireResponseItemAnswer object) {
+				return createQuestionnaireResponseItemAnswerAdapter();
 			}
 			@Override
 			public Adapter caseFamilyMemberHistory(FamilyMemberHistory object) {
@@ -575,14 +663,6 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createRiskAssessmentPredictionAdapter();
 			}
 			@Override
-			public Adapter caseCommunicationRequest(CommunicationRequest object) {
-				return createCommunicationRequestAdapter();
-			}
-			@Override
-			public Adapter caseCommunicationRequestPayload(CommunicationRequestPayload object) {
-				return createCommunicationRequestPayloadAdapter();
-			}
-			@Override
 			public Adapter caseDeviceUseRequest(DeviceUseRequest object) {
 				return createDeviceUseRequestAdapter();
 			}
@@ -655,24 +735,76 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createImagingObjectSelectionStudySeriesInstanceFramesAdapter();
 			}
 			@Override
-			public Adapter caseDocumentManifest(DocumentManifest object) {
-				return createDocumentManifestAdapter();
+			public Adapter caseNamingSystem(NamingSystem object) {
+				return createNamingSystemAdapter();
 			}
 			@Override
-			public Adapter caseDocumentManifestContent(DocumentManifestContent object) {
-				return createDocumentManifestContentAdapter();
+			public Adapter caseNamingSystemContact(NamingSystemContact object) {
+				return createNamingSystemContactAdapter();
 			}
 			@Override
-			public Adapter caseDocumentManifestRelated(DocumentManifestRelated object) {
-				return createDocumentManifestRelatedAdapter();
+			public Adapter caseNamingSystemUniqueId(NamingSystemUniqueId object) {
+				return createNamingSystemUniqueIdAdapter();
 			}
 			@Override
-			public Adapter caseEnrollmentRequest(EnrollmentRequest object) {
-				return createEnrollmentRequestAdapter();
+			public Adapter caseDecisionSupportServiceModule(DecisionSupportServiceModule object) {
+				return createDecisionSupportServiceModuleAdapter();
 			}
 			@Override
-			public Adapter caseCoverage(Coverage object) {
-				return createCoverageAdapter();
+			public Adapter caseDecisionSupportServiceModuleParameter(DecisionSupportServiceModuleParameter object) {
+				return createDecisionSupportServiceModuleParameterAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportServiceModuleParameterCodeFilter(DecisionSupportServiceModuleParameterCodeFilter object) {
+				return createDecisionSupportServiceModuleParameterCodeFilterAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportServiceModuleParameterDateFilter(DecisionSupportServiceModuleParameterDateFilter object) {
+				return createDecisionSupportServiceModuleParameterDateFilterAdapter();
+			}
+			@Override
+			public Adapter caseConceptMap(ConceptMap object) {
+				return createConceptMapAdapter();
+			}
+			@Override
+			public Adapter caseConceptMapContact(ConceptMapContact object) {
+				return createConceptMapContactAdapter();
+			}
+			@Override
+			public Adapter caseConceptMapSourceElement(ConceptMapSourceElement object) {
+				return createConceptMapSourceElementAdapter();
+			}
+			@Override
+			public Adapter caseConceptMapSourceElementTargetElement(ConceptMapSourceElementTargetElement object) {
+				return createConceptMapSourceElementTargetElementAdapter();
+			}
+			@Override
+			public Adapter caseConceptMapSourceElementTargetElementOtherElement(ConceptMapSourceElementTargetElementOtherElement object) {
+				return createConceptMapSourceElementTargetElementOtherElementAdapter();
+			}
+			@Override
+			public Adapter caseFlag(Flag object) {
+				return createFlagAdapter();
+			}
+			@Override
+			public Adapter caseSequence(Sequence object) {
+				return createSequenceAdapter();
+			}
+			@Override
+			public Adapter caseSequenceCoordinate(SequenceCoordinate object) {
+				return createSequenceCoordinateAdapter();
+			}
+			@Override
+			public Adapter caseSequenceQuality(SequenceQuality object) {
+				return createSequenceQualityAdapter();
+			}
+			@Override
+			public Adapter caseSequenceChip(SequenceChip object) {
+				return createSequenceChipAdapter();
+			}
+			@Override
+			public Adapter caseSequenceRepository(SequenceRepository object) {
+				return createSequenceRepositoryAdapter();
 			}
 			@Override
 			public Adapter caseContract(Contract object) {
@@ -731,20 +863,56 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createCompositionSectionAdapter();
 			}
 			@Override
-			public Adapter caseSubscription(Subscription object) {
-				return createSubscriptionAdapter();
+			public Adapter caseBinary(Binary object) {
+				return createBinaryAdapter();
 			}
 			@Override
-			public Adapter caseSubscriptionChannel(SubscriptionChannel object) {
-				return createSubscriptionChannelAdapter();
+			public Adapter caseDocumentManifest(DocumentManifest object) {
+				return createDocumentManifestAdapter();
 			}
 			@Override
-			public Adapter caseParameters(Parameters object) {
-				return createParametersAdapter();
+			public Adapter caseDocumentManifestContent(DocumentManifestContent object) {
+				return createDocumentManifestContentAdapter();
 			}
 			@Override
-			public Adapter caseParametersParameter(ParametersParameter object) {
-				return createParametersParameterAdapter();
+			public Adapter caseDocumentManifestRelated(DocumentManifestRelated object) {
+				return createDocumentManifestRelatedAdapter();
+			}
+			@Override
+			public Adapter casePaymentReconciliation(PaymentReconciliation object) {
+				return createPaymentReconciliationAdapter();
+			}
+			@Override
+			public Adapter casePaymentReconciliationDetails(PaymentReconciliationDetails object) {
+				return createPaymentReconciliationDetailsAdapter();
+			}
+			@Override
+			public Adapter casePaymentReconciliationNotes(PaymentReconciliationNotes object) {
+				return createPaymentReconciliationNotesAdapter();
+			}
+			@Override
+			public Adapter caseDeviceUseStatement(DeviceUseStatement object) {
+				return createDeviceUseStatementAdapter();
+			}
+			@Override
+			public Adapter caseTestScript(TestScript object) {
+				return createTestScriptAdapter();
+			}
+			@Override
+			public Adapter caseTestScriptContact(TestScriptContact object) {
+				return createTestScriptContactAdapter();
+			}
+			@Override
+			public Adapter caseTestScriptMetadata(TestScriptMetadata object) {
+				return createTestScriptMetadataAdapter();
+			}
+			@Override
+			public Adapter caseTestScriptMetadataLink(TestScriptMetadataLink object) {
+				return createTestScriptMetadataLinkAdapter();
+			}
+			@Override
+			public Adapter caseTestScriptMetadataCapability(TestScriptMetadataCapability object) {
+				return createTestScriptMetadataCapabilityAdapter();
 			}
 			@Override
 			public Adapter caseConformance(Conformance object) {
@@ -761,26 +929,6 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseConformanceImplementation(ConformanceImplementation object) {
 				return createConformanceImplementationAdapter();
-			}
-			@Override
-			public Adapter caseStructureDefinition(StructureDefinition object) {
-				return createStructureDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseStructureDefinitionContact(StructureDefinitionContact object) {
-				return createStructureDefinitionContactAdapter();
-			}
-			@Override
-			public Adapter caseStructureDefinitionMapping(StructureDefinitionMapping object) {
-				return createStructureDefinitionMappingAdapter();
-			}
-			@Override
-			public Adapter caseStructureDefinitionSnapshot(StructureDefinitionSnapshot object) {
-				return createStructureDefinitionSnapshotAdapter();
-			}
-			@Override
-			public Adapter caseStructureDefinitionDifferential(StructureDefinitionDifferential object) {
-				return createStructureDefinitionDifferentialAdapter();
 			}
 			@Override
 			public Adapter caseConformanceRest(ConformanceRest object) {
@@ -847,68 +995,84 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createConformanceDocumentAdapter();
 			}
 			@Override
-			public Adapter casePerson(Person object) {
-				return createPersonAdapter();
+			public Adapter caseTestScriptOrigin(TestScriptOrigin object) {
+				return createTestScriptOriginAdapter();
 			}
 			@Override
-			public Adapter casePersonLink(PersonLink object) {
-				return createPersonLinkAdapter();
+			public Adapter caseTestScriptDestination(TestScriptDestination object) {
+				return createTestScriptDestinationAdapter();
 			}
 			@Override
-			public Adapter casePaymentNotice(PaymentNotice object) {
-				return createPaymentNoticeAdapter();
+			public Adapter caseTestScriptFixture(TestScriptFixture object) {
+				return createTestScriptFixtureAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuide(ImplementationGuide object) {
-				return createImplementationGuideAdapter();
+			public Adapter caseTestScriptVariable(TestScriptVariable object) {
+				return createTestScriptVariableAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideContact(ImplementationGuideContact object) {
-				return createImplementationGuideContactAdapter();
+			public Adapter caseTestScriptSetup(TestScriptSetup object) {
+				return createTestScriptSetupAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideDependency(ImplementationGuideDependency object) {
-				return createImplementationGuideDependencyAdapter();
+			public Adapter caseTestScriptSetupSetupAction(TestScriptSetupSetupAction object) {
+				return createTestScriptSetupSetupActionAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuidePackage(ImplementationGuidePackage object) {
-				return createImplementationGuidePackageAdapter();
+			public Adapter caseTestScriptSetupSetupActionOperation(TestScriptSetupSetupActionOperation object) {
+				return createTestScriptSetupSetupActionOperationAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuidePackageResource(ImplementationGuidePackageResource object) {
-				return createImplementationGuidePackageResourceAdapter();
+			public Adapter caseTestScriptSetupSetupActionOperationRequestHeader(TestScriptSetupSetupActionOperationRequestHeader object) {
+				return createTestScriptSetupSetupActionOperationRequestHeaderAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideGlobal(ImplementationGuideGlobal object) {
-				return createImplementationGuideGlobalAdapter();
+			public Adapter caseTestScriptSetupSetupActionAssert(TestScriptSetupSetupActionAssert object) {
+				return createTestScriptSetupSetupActionAssertAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuidePage(ImplementationGuidePage object) {
-				return createImplementationGuidePageAdapter();
+			public Adapter caseTestScriptTest(TestScriptTest object) {
+				return createTestScriptTestAdapter();
 			}
 			@Override
-			public Adapter caseSearchParameter(SearchParameter object) {
-				return createSearchParameterAdapter();
+			public Adapter caseTestScriptTestTestAction(TestScriptTestTestAction object) {
+				return createTestScriptTestTestActionAdapter();
 			}
 			@Override
-			public Adapter caseSearchParameterContact(SearchParameterContact object) {
-				return createSearchParameterContactAdapter();
+			public Adapter caseTestScriptTeardown(TestScriptTeardown object) {
+				return createTestScriptTeardownAdapter();
 			}
 			@Override
-			public Adapter caseCommunication(Communication object) {
-				return createCommunicationAdapter();
+			public Adapter caseTestScriptTeardownTeardownAction(TestScriptTeardownTeardownAction object) {
+				return createTestScriptTeardownTeardownActionAdapter();
 			}
 			@Override
-			public Adapter caseCommunicationPayload(CommunicationPayload object) {
-				return createCommunicationPayloadAdapter();
+			public Adapter caseDataElement(DataElement object) {
+				return createDataElementAdapter();
 			}
 			@Override
-			public Adapter caseOrderResponse(OrderResponse object) {
-				return createOrderResponseAdapter();
+			public Adapter caseDataElementContact(DataElementContact object) {
+				return createDataElementContactAdapter();
 			}
 			@Override
-			public Adapter caseDeviceUseStatement(DeviceUseStatement object) {
-				return createDeviceUseStatementAdapter();
+			public Adapter caseDataElementMapping(DataElementMapping object) {
+				return createDataElementMappingAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportRule(DecisionSupportRule object) {
+				return createDecisionSupportRuleAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportRuleTrigger(DecisionSupportRuleTrigger object) {
+				return createDecisionSupportRuleTriggerAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportRuleAction(DecisionSupportRuleAction object) {
+				return createDecisionSupportRuleActionAdapter();
+			}
+			@Override
+			public Adapter caseDecisionSupportRuleActionCustomization(DecisionSupportRuleActionCustomization object) {
+				return createDecisionSupportRuleActionCustomizationAdapter();
 			}
 			@Override
 			public Adapter caseMessageHeader(MessageHeader object) {
@@ -933,6 +1097,26 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMessageHeaderMessageDestination(MessageHeaderMessageDestination object) {
 				return createMessageHeaderMessageDestinationAdapter();
+			}
+			@Override
+			public Adapter caseSubscription(Subscription object) {
+				return createSubscriptionAdapter();
+			}
+			@Override
+			public Adapter caseSubscriptionChannel(SubscriptionChannel object) {
+				return createSubscriptionChannelAdapter();
+			}
+			@Override
+			public Adapter caseEnrollmentResponse(EnrollmentResponse object) {
+				return createEnrollmentResponseAdapter();
+			}
+			@Override
+			public Adapter caseEnrollmentRequest(EnrollmentRequest object) {
+				return createEnrollmentRequestAdapter();
+			}
+			@Override
+			public Adapter caseCoverage(Coverage object) {
+				return createCoverageAdapter();
 			}
 			@Override
 			public Adapter caseImmunizationRecommendation(ImmunizationRecommendation object) {
@@ -967,24 +1151,72 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createImmunizationVaccinationProtocolAdapter();
 			}
 			@Override
-			public Adapter caseProvenance(Provenance object) {
-				return createProvenanceAdapter();
+			public Adapter caseBundle(Bundle object) {
+				return createBundleAdapter();
 			}
 			@Override
-			public Adapter caseProvenanceAgent(ProvenanceAgent object) {
-				return createProvenanceAgentAdapter();
+			public Adapter caseBundleLink(BundleLink object) {
+				return createBundleLinkAdapter();
 			}
 			@Override
-			public Adapter caseProvenanceAgentRelatedAgent(ProvenanceAgentRelatedAgent object) {
-				return createProvenanceAgentRelatedAgentAdapter();
+			public Adapter caseBundleEntry(BundleEntry object) {
+				return createBundleEntryAdapter();
 			}
 			@Override
-			public Adapter caseProvenanceEntity(ProvenanceEntity object) {
-				return createProvenanceEntityAdapter();
+			public Adapter caseBundleEntrySearch(BundleEntrySearch object) {
+				return createBundleEntrySearchAdapter();
 			}
 			@Override
-			public Adapter caseExplanationOfBenefit(ExplanationOfBenefit object) {
-				return createExplanationOfBenefitAdapter();
+			public Adapter caseBundleEntryRequest(BundleEntryRequest object) {
+				return createBundleEntryRequestAdapter();
+			}
+			@Override
+			public Adapter caseBundleEntryResponse(BundleEntryResponse object) {
+				return createBundleEntryResponseAdapter();
+			}
+			@Override
+			public Adapter caseEligibilityResponse(EligibilityResponse object) {
+				return createEligibilityResponseAdapter();
+			}
+			@Override
+			public Adapter caseEligibilityRequest(EligibilityRequest object) {
+				return createEligibilityRequestAdapter();
+			}
+			@Override
+			public Adapter caseEligibilityResponseBenefits(EligibilityResponseBenefits object) {
+				return createEligibilityResponseBenefitsAdapter();
+			}
+			@Override
+			public Adapter caseEligibilityResponseBenefitsBenefit(EligibilityResponseBenefitsBenefit object) {
+				return createEligibilityResponseBenefitsBenefitAdapter();
+			}
+			@Override
+			public Adapter caseEligibilityResponseErrors(EligibilityResponseErrors object) {
+				return createEligibilityResponseErrorsAdapter();
+			}
+			@Override
+			public Adapter caseParameters(Parameters object) {
+				return createParametersAdapter();
+			}
+			@Override
+			public Adapter caseParametersParameter(ParametersParameter object) {
+				return createParametersParameterAdapter();
+			}
+			@Override
+			public Adapter caseMedicationDispense(MedicationDispense object) {
+				return createMedicationDispenseAdapter();
+			}
+			@Override
+			public Adapter caseMedicationDispenseDosageInstruction(MedicationDispenseDosageInstruction object) {
+				return createMedicationDispenseDosageInstructionAdapter();
+			}
+			@Override
+			public Adapter caseMedicationDispenseSubstitution(MedicationDispenseSubstitution object) {
+				return createMedicationDispenseSubstitutionAdapter();
+			}
+			@Override
+			public Adapter caseClaimResponse(ClaimResponse object) {
+				return createClaimResponseAdapter();
 			}
 			@Override
 			public Adapter caseClaim(Claim object) {
@@ -1003,8 +1235,24 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createClaimCoverageAdapter();
 			}
 			@Override
-			public Adapter caseClaimResponse(ClaimResponse object) {
-				return createClaimResponseAdapter();
+			public Adapter caseClaimItems(ClaimItems object) {
+				return createClaimItemsAdapter();
+			}
+			@Override
+			public Adapter caseClaimItemsDetail(ClaimItemsDetail object) {
+				return createClaimItemsDetailAdapter();
+			}
+			@Override
+			public Adapter caseClaimItemsDetailSubDetail(ClaimItemsDetailSubDetail object) {
+				return createClaimItemsDetailSubDetailAdapter();
+			}
+			@Override
+			public Adapter caseClaimItemsProsthesis(ClaimItemsProsthesis object) {
+				return createClaimItemsProsthesisAdapter();
+			}
+			@Override
+			public Adapter caseClaimMissingTeeth(ClaimMissingTeeth object) {
+				return createClaimMissingTeethAdapter();
 			}
 			@Override
 			public Adapter caseClaimResponseItems(ClaimResponseItems object) {
@@ -1059,24 +1307,212 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createClaimResponseCoverageAdapter();
 			}
 			@Override
-			public Adapter caseClaimItems(ClaimItems object) {
-				return createClaimItemsAdapter();
+			public Adapter caseExplanationOfBenefit(ExplanationOfBenefit object) {
+				return createExplanationOfBenefitAdapter();
 			}
 			@Override
-			public Adapter caseClaimItemsDetail(ClaimItemsDetail object) {
-				return createClaimItemsDetailAdapter();
+			public Adapter caseExplanationOfBenefitPayee(ExplanationOfBenefitPayee object) {
+				return createExplanationOfBenefitPayeeAdapter();
 			}
 			@Override
-			public Adapter caseClaimItemsDetailSubDetail(ClaimItemsDetailSubDetail object) {
-				return createClaimItemsDetailSubDetailAdapter();
+			public Adapter caseExplanationOfBenefitDiagnosis(ExplanationOfBenefitDiagnosis object) {
+				return createExplanationOfBenefitDiagnosisAdapter();
 			}
 			@Override
-			public Adapter caseClaimItemsProsthesis(ClaimItemsProsthesis object) {
-				return createClaimItemsProsthesisAdapter();
+			public Adapter caseExplanationOfBenefitCoverage(ExplanationOfBenefitCoverage object) {
+				return createExplanationOfBenefitCoverageAdapter();
 			}
 			@Override
-			public Adapter caseClaimMissingTeeth(ClaimMissingTeeth object) {
-				return createClaimMissingTeethAdapter();
+			public Adapter caseExplanationOfBenefitItems(ExplanationOfBenefitItems object) {
+				return createExplanationOfBenefitItemsAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsItemAdjudication(ExplanationOfBenefitItemsItemAdjudication object) {
+				return createExplanationOfBenefitItemsItemAdjudicationAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsDetail(ExplanationOfBenefitItemsDetail object) {
+				return createExplanationOfBenefitItemsDetailAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsDetailDetailAdjudication(ExplanationOfBenefitItemsDetailDetailAdjudication object) {
+				return createExplanationOfBenefitItemsDetailDetailAdjudicationAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsDetailSubDetail(ExplanationOfBenefitItemsDetailSubDetail object) {
+				return createExplanationOfBenefitItemsDetailSubDetailAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication(ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication object) {
+				return createExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudicationAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitItemsProsthesis(ExplanationOfBenefitItemsProsthesis object) {
+				return createExplanationOfBenefitItemsProsthesisAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitAddedItem(ExplanationOfBenefitAddedItem object) {
+				return createExplanationOfBenefitAddedItemAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitAddedItemAddedItemAdjudication(ExplanationOfBenefitAddedItemAddedItemAdjudication object) {
+				return createExplanationOfBenefitAddedItemAddedItemAdjudicationAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitAddedItemAddedItemsDetail(ExplanationOfBenefitAddedItemAddedItemsDetail object) {
+				return createExplanationOfBenefitAddedItemAddedItemsDetailAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication(ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication object) {
+				return createExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudicationAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitMissingTeeth(ExplanationOfBenefitMissingTeeth object) {
+				return createExplanationOfBenefitMissingTeethAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitNotes(ExplanationOfBenefitNotes object) {
+				return createExplanationOfBenefitNotesAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitBenefitBalance(ExplanationOfBenefitBenefitBalance object) {
+				return createExplanationOfBenefitBenefitBalanceAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitBenefitBalanceBenefit(ExplanationOfBenefitBenefitBalanceBenefit object) {
+				return createExplanationOfBenefitBenefitBalanceBenefitAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuide(ImplementationGuide object) {
+				return createImplementationGuideAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideContact(ImplementationGuideContact object) {
+				return createImplementationGuideContactAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideDependency(ImplementationGuideDependency object) {
+				return createImplementationGuideDependencyAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuidePackage(ImplementationGuidePackage object) {
+				return createImplementationGuidePackageAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuidePackageResource(ImplementationGuidePackageResource object) {
+				return createImplementationGuidePackageResourceAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideGlobal(ImplementationGuideGlobal object) {
+				return createImplementationGuideGlobalAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuidePage(ImplementationGuidePage object) {
+				return createImplementationGuidePageAdapter();
+			}
+			@Override
+			public Adapter caseSearchParameter(SearchParameter object) {
+				return createSearchParameterAdapter();
+			}
+			@Override
+			public Adapter caseSearchParameterContact(SearchParameterContact object) {
+				return createSearchParameterContactAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfile(ExpansionProfile object) {
+				return createExpansionProfileAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileContact(ExpansionProfileContact object) {
+				return createExpansionProfileContactAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileCodeSystem(ExpansionProfileCodeSystem object) {
+				return createExpansionProfileCodeSystemAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileCodeSystemCodeSystemInclude(ExpansionProfileCodeSystemCodeSystemInclude object) {
+				return createExpansionProfileCodeSystemCodeSystemIncludeAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem(ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem object) {
+				return createExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystemAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileCodeSystemCodeSystemExclude(ExpansionProfileCodeSystemCodeSystemExclude object) {
+				return createExpansionProfileCodeSystemCodeSystemExcludeAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem(ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem object) {
+				return createExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystemAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileDesignation(ExpansionProfileDesignation object) {
+				return createExpansionProfileDesignationAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileDesignationDesignationInclude(ExpansionProfileDesignationDesignationInclude object) {
+				return createExpansionProfileDesignationDesignationIncludeAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation(ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation object) {
+				return createExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignationAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileDesignationDesignationExclude(ExpansionProfileDesignationDesignationExclude object) {
+				return createExpansionProfileDesignationDesignationExcludeAdapter();
+			}
+			@Override
+			public Adapter caseExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation(ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation object) {
+				return createExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignationAdapter();
+			}
+			@Override
+			public Adapter caseOrderSet(OrderSet object) {
+				return createOrderSetAdapter();
+			}
+			@Override
+			public Adapter caseOrderSetItem(OrderSetItem object) {
+				return createOrderSetItemAdapter();
+			}
+			@Override
+			public Adapter caseOrderSetItemCustomization(OrderSetItemCustomization object) {
+				return createOrderSetItemCustomizationAdapter();
+			}
+			@Override
+			public Adapter caseProvenance(Provenance object) {
+				return createProvenanceAdapter();
+			}
+			@Override
+			public Adapter caseProvenanceAgent(ProvenanceAgent object) {
+				return createProvenanceAgentAdapter();
+			}
+			@Override
+			public Adapter caseProvenanceAgentRelatedAgent(ProvenanceAgentRelatedAgent object) {
+				return createProvenanceAgentRelatedAgentAdapter();
+			}
+			@Override
+			public Adapter caseProvenanceEntity(ProvenanceEntity object) {
+				return createProvenanceEntityAdapter();
+			}
+			@Override
+			public Adapter caseProcessResponse(ProcessResponse object) {
+				return createProcessResponseAdapter();
+			}
+			@Override
+			public Adapter caseProcessResponseNotes(ProcessResponseNotes object) {
+				return createProcessResponseNotesAdapter();
+			}
+			@Override
+			public Adapter caseMeasure(Measure object) {
+				return createMeasureAdapter();
+			}
+			@Override
+			public Adapter caseMeasurePopulation(MeasurePopulation object) {
+				return createMeasurePopulationAdapter();
+			}
+			@Override
+			public Adapter casePaymentNotice(PaymentNotice object) {
+				return createPaymentNoticeAdapter();
 			}
 			@Override
 			public Adapter caseList(List object) {
@@ -1087,40 +1523,24 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createListEntryAdapter();
 			}
 			@Override
-			public Adapter caseConceptMap(ConceptMap object) {
-				return createConceptMapAdapter();
+			public Adapter caseGuidanceResponse(GuidanceResponse object) {
+				return createGuidanceResponseAdapter();
 			}
 			@Override
-			public Adapter caseConceptMapContact(ConceptMapContact object) {
-				return createConceptMapContactAdapter();
+			public Adapter caseGuidanceResponseAction(GuidanceResponseAction object) {
+				return createGuidanceResponseActionAdapter();
 			}
 			@Override
-			public Adapter caseConceptMapSourceElement(ConceptMapSourceElement object) {
-				return createConceptMapSourceElementAdapter();
+			public Adapter caseDetectedIssue(DetectedIssue object) {
+				return createDetectedIssueAdapter();
 			}
 			@Override
-			public Adapter caseConceptMapSourceElementTargetElement(ConceptMapSourceElementTargetElement object) {
-				return createConceptMapSourceElementTargetElementAdapter();
+			public Adapter caseDetectedIssueMitigation(DetectedIssueMitigation object) {
+				return createDetectedIssueMitigationAdapter();
 			}
 			@Override
-			public Adapter caseConceptMapSourceElementTargetElementOtherElement(ConceptMapSourceElementTargetElementOtherElement object) {
-				return createConceptMapSourceElementTargetElementOtherElementAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponse(EligibilityResponse object) {
-				return createEligibilityResponseAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityRequest(EligibilityRequest object) {
-				return createEligibilityRequestAdapter();
-			}
-			@Override
-			public Adapter caseFlag(Flag object) {
-				return createFlagAdapter();
-			}
-			@Override
-			public Adapter caseAppointmentResponse(AppointmentResponse object) {
-				return createAppointmentResponseAdapter();
+			public Adapter caseAccount(Account object) {
+				return createAccountAdapter();
 			}
 			@Override
 			public Adapter caseMedicationAdministration(MedicationAdministration object) {
@@ -1131,104 +1551,8 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createMedicationAdministrationDosageAdapter();
 			}
 			@Override
-			public Adapter caseEnrollmentResponse(EnrollmentResponse object) {
-				return createEnrollmentResponseAdapter();
-			}
-			@Override
-			public Adapter caseBinary(Binary object) {
-				return createBinaryAdapter();
-			}
-			@Override
-			public Adapter caseTestScript(TestScript object) {
-				return createTestScriptAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptContact(TestScriptContact object) {
-				return createTestScriptContactAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptMetadata(TestScriptMetadata object) {
-				return createTestScriptMetadataAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptMetadataLink(TestScriptMetadataLink object) {
-				return createTestScriptMetadataLinkAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptMetadataCapability(TestScriptMetadataCapability object) {
-				return createTestScriptMetadataCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptFixture(TestScriptFixture object) {
-				return createTestScriptFixtureAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptVariable(TestScriptVariable object) {
-				return createTestScriptVariableAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptSetup(TestScriptSetup object) {
-				return createTestScriptSetupAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptSetupAction(TestScriptSetupAction object) {
-				return createTestScriptSetupActionAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptSetupActionOperation(TestScriptSetupActionOperation object) {
-				return createTestScriptSetupActionOperationAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptSetupActionOperationRequestHeader(TestScriptSetupActionOperationRequestHeader object) {
-				return createTestScriptSetupActionOperationRequestHeaderAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptSetupActionAssert(TestScriptSetupActionAssert object) {
-				return createTestScriptSetupActionAssertAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptTest(TestScriptTest object) {
-				return createTestScriptTestAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptTestAction(TestScriptTestAction object) {
-				return createTestScriptTestActionAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptTeardown(TestScriptTeardown object) {
-				return createTestScriptTeardownAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptTeardownAction(TestScriptTeardownAction object) {
-				return createTestScriptTeardownActionAdapter();
-			}
-			@Override
-			public Adapter caseBasic(Basic object) {
-				return createBasicAdapter();
-			}
-			@Override
-			public Adapter caseMedicationDispense(MedicationDispense object) {
-				return createMedicationDispenseAdapter();
-			}
-			@Override
-			public Adapter caseMedicationDispenseDosageInstruction(MedicationDispenseDosageInstruction object) {
-				return createMedicationDispenseDosageInstructionAdapter();
-			}
-			@Override
-			public Adapter caseMedicationDispenseSubstitution(MedicationDispenseSubstitution object) {
-				return createMedicationDispenseSubstitutionAdapter();
-			}
-			@Override
-			public Adapter caseDataElement(DataElement object) {
-				return createDataElementAdapter();
-			}
-			@Override
-			public Adapter caseDataElementContact(DataElementContact object) {
-				return createDataElementContactAdapter();
-			}
-			@Override
-			public Adapter caseDataElementMapping(DataElementMapping object) {
-				return createDataElementMappingAdapter();
+			public Adapter caseAppointmentResponse(AppointmentResponse object) {
+				return createAppointmentResponseAdapter();
 			}
 			@Override
 			public Adapter caseAuditEvent(AuditEvent object) {
@@ -1259,68 +1583,12 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 				return createAuditEventObjectDetailAdapter();
 			}
 			@Override
-			public Adapter casePaymentReconciliation(PaymentReconciliation object) {
-				return createPaymentReconciliationAdapter();
+			public Adapter caseBasic(Basic object) {
+				return createBasicAdapter();
 			}
 			@Override
-			public Adapter casePaymentReconciliationDetails(PaymentReconciliationDetails object) {
-				return createPaymentReconciliationDetailsAdapter();
-			}
-			@Override
-			public Adapter casePaymentReconciliationNotes(PaymentReconciliationNotes object) {
-				return createPaymentReconciliationNotesAdapter();
-			}
-			@Override
-			public Adapter caseDetectedIssue(DetectedIssue object) {
-				return createDetectedIssueAdapter();
-			}
-			@Override
-			public Adapter caseDetectedIssueMitigation(DetectedIssueMitigation object) {
-				return createDetectedIssueMitigationAdapter();
-			}
-			@Override
-			public Adapter caseBundle(Bundle object) {
-				return createBundleAdapter();
-			}
-			@Override
-			public Adapter caseBundleLink(BundleLink object) {
-				return createBundleLinkAdapter();
-			}
-			@Override
-			public Adapter caseBundleEntry(BundleEntry object) {
-				return createBundleEntryAdapter();
-			}
-			@Override
-			public Adapter caseBundleEntrySearch(BundleEntrySearch object) {
-				return createBundleEntrySearchAdapter();
-			}
-			@Override
-			public Adapter caseBundleEntryRequest(BundleEntryRequest object) {
-				return createBundleEntryRequestAdapter();
-			}
-			@Override
-			public Adapter caseBundleEntryResponse(BundleEntryResponse object) {
-				return createBundleEntryResponseAdapter();
-			}
-			@Override
-			public Adapter caseProcessResponse(ProcessResponse object) {
-				return createProcessResponseAdapter();
-			}
-			@Override
-			public Adapter caseProcessResponseNotes(ProcessResponseNotes object) {
-				return createProcessResponseNotesAdapter();
-			}
-			@Override
-			public Adapter caseNamingSystem(NamingSystem object) {
-				return createNamingSystemAdapter();
-			}
-			@Override
-			public Adapter caseNamingSystemContact(NamingSystemContact object) {
-				return createNamingSystemContactAdapter();
-			}
-			@Override
-			public Adapter caseNamingSystemUniqueId(NamingSystemUniqueId object) {
-				return createNamingSystemUniqueIdAdapter();
+			public Adapter caseOrderResponse(OrderResponse object) {
+				return createOrderResponseAdapter();
 			}
 			@Override
 			public Adapter caseSupplyDelivery(SupplyDelivery object) {
@@ -1623,716 +1891,296 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Appointment <em>Appointment</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Library <em>Library</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Appointment
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Library
 	 * @generated
 	 */
-	public Adapter createAppointmentAdapter() {
+	public Adapter createLibraryAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Slot <em>Slot</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadata <em>Module Metadata</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Slot
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadata
 	 * @generated
 	 */
-	public Adapter createSlotAdapter() {
+	public Adapter createModuleMetadataAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Schedule <em>Schedule</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataCoverage <em>Module Metadata Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Schedule
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataCoverage
 	 * @generated
 	 */
-	public Adapter createScheduleAdapter() {
+	public Adapter createModuleMetadataCoverageAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AppointmentParticipant <em>Appointment Participant</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataContributor <em>Module Metadata Contributor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.AppointmentParticipant
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataContributor
 	 * @generated
 	 */
-	public Adapter createAppointmentParticipantAdapter() {
+	public Adapter createModuleMetadataContributorAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Account <em>Account</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataRelatedResource <em>Module Metadata Related Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Account
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleMetadataRelatedResource
 	 * @generated
 	 */
-	public Adapter createAccountAdapter() {
+	public Adapter createModuleMetadataRelatedResourceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ReferralRequest <em>Referral Request</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinition <em>Module Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ReferralRequest
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinition
 	 * @generated
 	 */
-	public Adapter createReferralRequestAdapter() {
+	public Adapter createModuleDefinitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Encounter <em>Encounter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionModel <em>Module Definition Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Encounter
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionModel
 	 * @generated
 	 */
-	public Adapter createEncounterAdapter() {
+	public Adapter createModuleDefinitionModelAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterStatusHistory <em>Encounter Status History</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionLibrary <em>Module Definition Library</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterStatusHistory
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionLibrary
 	 * @generated
 	 */
-	public Adapter createEncounterStatusHistoryAdapter() {
+	public Adapter createModuleDefinitionLibraryAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCare <em>Episode Of Care</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionCodeSystem <em>Module Definition Code System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCare
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionCodeSystem
 	 * @generated
 	 */
-	public Adapter createEpisodeOfCareAdapter() {
+	public Adapter createModuleDefinitionCodeSystemAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareStatusHistory <em>Episode Of Care Status History</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionValueSet <em>Module Definition Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareStatusHistory
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionValueSet
 	 * @generated
 	 */
-	public Adapter createEpisodeOfCareStatusHistoryAdapter() {
+	public Adapter createModuleDefinitionValueSetAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Condition <em>Condition</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionParameter <em>Module Definition Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Condition
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionParameter
 	 * @generated
 	 */
-	public Adapter createConditionAdapter() {
+	public Adapter createModuleDefinitionParameterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConditionStage <em>Condition Stage</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinition <em>Structure Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConditionStage
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinition
 	 * @generated
 	 */
-	public Adapter createConditionStageAdapter() {
+	public Adapter createStructureDefinitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConditionEvidence <em>Condition Evidence</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionContact <em>Structure Definition Contact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConditionEvidence
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionContact
 	 * @generated
 	 */
-	public Adapter createConditionEvidenceAdapter() {
+	public Adapter createStructureDefinitionContactAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareCareTeam <em>Episode Of Care Care Team</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionMapping <em>Structure Definition Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareCareTeam
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionMapping
 	 * @generated
 	 */
-	public Adapter createEpisodeOfCareCareTeamAdapter() {
+	public Adapter createStructureDefinitionMappingAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterParticipant <em>Encounter Participant</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionSnapshot <em>Structure Definition Snapshot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterParticipant
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionSnapshot
 	 * @generated
 	 */
-	public Adapter createEncounterParticipantAdapter() {
+	public Adapter createStructureDefinitionSnapshotAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterHospitalization <em>Encounter Hospitalization</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionDifferential <em>Structure Definition Differential</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterHospitalization
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionDifferential
 	 * @generated
 	 */
-	public Adapter createEncounterHospitalizationAdapter() {
+	public Adapter createStructureDefinitionDifferentialAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterLocation <em>Encounter Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionData <em>Module Definition Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterLocation
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionData
 	 * @generated
 	 */
-	public Adapter createEncounterLocationAdapter() {
+	public Adapter createModuleDefinitionDataAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpression <em>Clinical Impression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionDataCodeFilter <em>Module Definition Data Code Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpression
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionDataCodeFilter
 	 * @generated
 	 */
-	public Adapter createClinicalImpressionAdapter() {
+	public Adapter createModuleDefinitionDataCodeFilterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionInvestigations <em>Clinical Impression Investigations</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionDataDateFilter <em>Module Definition Data Date Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionInvestigations
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ModuleDefinitionDataDateFilter
 	 * @generated
 	 */
-	public Adapter createClinicalImpressionInvestigationsAdapter() {
+	public Adapter createModuleDefinitionDataDateFilterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionFinding <em>Clinical Impression Finding</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Person <em>Person</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionFinding
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Person
 	 * @generated
 	 */
-	public Adapter createClinicalImpressionFindingAdapter() {
+	public Adapter createPersonAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionRuledOut <em>Clinical Impression Ruled Out</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PersonLink <em>Person Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionRuledOut
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.PersonLink
 	 * @generated
 	 */
-	public Adapter createClinicalImpressionRuledOutAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AllergyIntolerance <em>Allergy Intolerance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.AllergyIntolerance
-	 * @generated
-	 */
-	public Adapter createAllergyIntoleranceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AllergyIntoleranceReaction <em>Allergy Intolerance Reaction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.AllergyIntoleranceReaction
-	 * @generated
-	 */
-	public Adapter createAllergyIntoleranceReactionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Observation <em>Observation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Observation
-	 * @generated
-	 */
-	public Adapter createObservationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Specimen <em>Specimen</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Specimen
-	 * @generated
-	 */
-	public Adapter createSpecimenAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenCollection <em>Specimen Collection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenCollection
-	 * @generated
-	 */
-	public Adapter createSpecimenCollectionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenTreatment <em>Specimen Treatment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenTreatment
-	 * @generated
-	 */
-	public Adapter createSpecimenTreatmentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Substance <em>Substance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Substance
-	 * @generated
-	 */
-	public Adapter createSubstanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubstanceInstance <em>Substance Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubstanceInstance
-	 * @generated
-	 */
-	public Adapter createSubstanceInstanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubstanceIngredient <em>Substance Ingredient</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubstanceIngredient
-	 * @generated
-	 */
-	public Adapter createSubstanceIngredientAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenContainer <em>Specimen Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenContainer
-	 * @generated
-	 */
-	public Adapter createSpecimenContainerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationReferenceRange <em>Observation Reference Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationReferenceRange
-	 * @generated
-	 */
-	public Adapter createObservationReferenceRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationRelated <em>Observation Related</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationRelated
-	 * @generated
-	 */
-	public Adapter createObservationRelatedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationComponent <em>Observation Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationComponent
-	 * @generated
-	 */
-	public Adapter createObservationComponentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Group <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Group
-	 * @generated
-	 */
-	public Adapter createGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GroupCharacteristic <em>Group Characteristic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.GroupCharacteristic
-	 * @generated
-	 */
-	public Adapter createGroupCharacteristicAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GroupMember <em>Group Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.GroupMember
-	 * @generated
-	 */
-	public Adapter createGroupMemberAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Medication <em>Medication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Medication
-	 * @generated
-	 */
-	public Adapter createMedicationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProduct <em>Medication Product</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProduct
-	 * @generated
-	 */
-	public Adapter createMedicationProductAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProductIngredient <em>Medication Product Ingredient</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProductIngredient
-	 * @generated
-	 */
-	public Adapter createMedicationProductIngredientAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProductBatch <em>Medication Product Batch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProductBatch
-	 * @generated
-	 */
-	public Adapter createMedicationProductBatchAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationPackage <em>Medication Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationPackage
-	 * @generated
-	 */
-	public Adapter createMedicationPackageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationPackageContent <em>Medication Package Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationPackageContent
-	 * @generated
-	 */
-	public Adapter createMedicationPackageContentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceMetric <em>Device Metric</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceMetric
-	 * @generated
-	 */
-	public Adapter createDeviceMetricAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceComponent <em>Device Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceComponent
-	 * @generated
-	 */
-	public Adapter createDeviceComponentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceComponentProductionSpecification <em>Device Component Production Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceComponentProductionSpecification
-	 * @generated
-	 */
-	public Adapter createDeviceComponentProductionSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceMetricCalibration <em>Device Metric Calibration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceMetricCalibration
-	 * @generated
-	 */
-	public Adapter createDeviceMetricCalibrationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse <em>Questionnaire Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse
-	 * @generated
-	 */
-	public Adapter createQuestionnaireResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire <em>Questionnaire</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Questionnaire
-	 * @generated
-	 */
-	public Adapter createQuestionnaireAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroup <em>Questionnaire Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroup
-	 * @generated
-	 */
-	public Adapter createQuestionnaireGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroupQuestion <em>Questionnaire Group Question</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireGroupQuestion
-	 * @generated
-	 */
-	public Adapter createQuestionnaireGroupQuestionAdapter() {
+	public Adapter createPersonLinkAdapter() {
 		return null;
 	}
 
@@ -2505,44 +2353,772 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroup <em>Questionnaire Response Group</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Communication <em>Communication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroup
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Communication
 	 * @generated
 	 */
-	public Adapter createQuestionnaireResponseGroupAdapter() {
+	public Adapter createCommunicationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroupQuestion <em>Questionnaire Response Group Question</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationPayload <em>Communication Payload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroupQuestion
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationPayload
 	 * @generated
 	 */
-	public Adapter createQuestionnaireResponseGroupQuestionAdapter() {
+	public Adapter createCommunicationPayloadAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroupQuestionAnswer <em>Questionnaire Response Group Question Answer</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Encounter <em>Encounter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseGroupQuestionAnswer
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Encounter
 	 * @generated
 	 */
-	public Adapter createQuestionnaireResponseGroupQuestionAnswerAdapter() {
+	public Adapter createEncounterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterStatusHistory <em>Encounter Status History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterStatusHistory
+	 * @generated
+	 */
+	public Adapter createEncounterStatusHistoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCare <em>Episode Of Care</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCare
+	 * @generated
+	 */
+	public Adapter createEpisodeOfCareAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareStatusHistory <em>Episode Of Care Status History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareStatusHistory
+	 * @generated
+	 */
+	public Adapter createEpisodeOfCareStatusHistoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Condition
+	 * @generated
+	 */
+	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConditionStage <em>Condition Stage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConditionStage
+	 * @generated
+	 */
+	public Adapter createConditionStageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConditionEvidence <em>Condition Evidence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConditionEvidence
+	 * @generated
+	 */
+	public Adapter createConditionEvidenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ReferralRequest <em>Referral Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ReferralRequest
+	 * @generated
+	 */
+	public Adapter createReferralRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareCareTeam <em>Episode Of Care Care Team</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EpisodeOfCareCareTeam
+	 * @generated
+	 */
+	public Adapter createEpisodeOfCareCareTeamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterParticipant <em>Encounter Participant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterParticipant
+	 * @generated
+	 */
+	public Adapter createEncounterParticipantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Appointment <em>Appointment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Appointment
+	 * @generated
+	 */
+	public Adapter createAppointmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Slot <em>Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Slot
+	 * @generated
+	 */
+	public Adapter createSlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Schedule <em>Schedule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Schedule
+	 * @generated
+	 */
+	public Adapter createScheduleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AppointmentParticipant <em>Appointment Participant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.AppointmentParticipant
+	 * @generated
+	 */
+	public Adapter createAppointmentParticipantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterHospitalization <em>Encounter Hospitalization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterHospitalization
+	 * @generated
+	 */
+	public Adapter createEncounterHospitalizationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EncounterLocation <em>Encounter Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EncounterLocation
+	 * @generated
+	 */
+	public Adapter createEncounterLocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequest <em>Communication Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequest
+	 * @generated
+	 */
+	public Adapter createCommunicationRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequestPayload <em>Communication Request Payload</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequestPayload
+	 * @generated
+	 */
+	public Adapter createCommunicationRequestPayloadAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Group
+	 * @generated
+	 */
+	public Adapter createGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GroupCharacteristic <em>Group Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.GroupCharacteristic
+	 * @generated
+	 */
+	public Adapter createGroupCharacteristicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GroupMember <em>Group Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.GroupMember
+	 * @generated
+	 */
+	public Adapter createGroupMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Medication <em>Medication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Medication
+	 * @generated
+	 */
+	public Adapter createMedicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProduct <em>Medication Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProduct
+	 * @generated
+	 */
+	public Adapter createMedicationProductAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProductIngredient <em>Medication Product Ingredient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProductIngredient
+	 * @generated
+	 */
+	public Adapter createMedicationProductIngredientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationProductBatch <em>Medication Product Batch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationProductBatch
+	 * @generated
+	 */
+	public Adapter createMedicationProductBatchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationPackage <em>Medication Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationPackage
+	 * @generated
+	 */
+	public Adapter createMedicationPackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationPackageContent <em>Medication Package Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationPackageContent
+	 * @generated
+	 */
+	public Adapter createMedicationPackageContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Substance <em>Substance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Substance
+	 * @generated
+	 */
+	public Adapter createSubstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubstanceInstance <em>Substance Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubstanceInstance
+	 * @generated
+	 */
+	public Adapter createSubstanceInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubstanceIngredient <em>Substance Ingredient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubstanceIngredient
+	 * @generated
+	 */
+	public Adapter createSubstanceIngredientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpression <em>Clinical Impression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpression
+	 * @generated
+	 */
+	public Adapter createClinicalImpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionInvestigations <em>Clinical Impression Investigations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionInvestigations
+	 * @generated
+	 */
+	public Adapter createClinicalImpressionInvestigationsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionFinding <em>Clinical Impression Finding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionFinding
+	 * @generated
+	 */
+	public Adapter createClinicalImpressionFindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionRuledOut <em>Clinical Impression Ruled Out</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClinicalImpressionRuledOut
+	 * @generated
+	 */
+	public Adapter createClinicalImpressionRuledOutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AllergyIntolerance <em>Allergy Intolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.AllergyIntolerance
+	 * @generated
+	 */
+	public Adapter createAllergyIntoleranceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AllergyIntoleranceReaction <em>Allergy Intolerance Reaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.AllergyIntoleranceReaction
+	 * @generated
+	 */
+	public Adapter createAllergyIntoleranceReactionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Observation <em>Observation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Observation
+	 * @generated
+	 */
+	public Adapter createObservationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Specimen <em>Specimen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Specimen
+	 * @generated
+	 */
+	public Adapter createSpecimenAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenCollection <em>Specimen Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenCollection
+	 * @generated
+	 */
+	public Adapter createSpecimenCollectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenTreatment <em>Specimen Treatment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenTreatment
+	 * @generated
+	 */
+	public Adapter createSpecimenTreatmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SpecimenContainer <em>Specimen Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SpecimenContainer
+	 * @generated
+	 */
+	public Adapter createSpecimenContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationReferenceRange <em>Observation Reference Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationReferenceRange
+	 * @generated
+	 */
+	public Adapter createObservationReferenceRangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationRelated <em>Observation Related</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationRelated
+	 * @generated
+	 */
+	public Adapter createObservationRelatedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ObservationComponent <em>Observation Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ObservationComponent
+	 * @generated
+	 */
+	public Adapter createObservationComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceMetric <em>Device Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceMetric
+	 * @generated
+	 */
+	public Adapter createDeviceMetricAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceComponent <em>Device Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceComponent
+	 * @generated
+	 */
+	public Adapter createDeviceComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceComponentProductionSpecification <em>Device Component Production Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceComponentProductionSpecification
+	 * @generated
+	 */
+	public Adapter createDeviceComponentProductionSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceMetricCalibration <em>Device Metric Calibration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceMetricCalibration
+	 * @generated
+	 */
+	public Adapter createDeviceMetricCalibrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse <em>Questionnaire Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse
+	 * @generated
+	 */
+	public Adapter createQuestionnaireResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire <em>Questionnaire</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Questionnaire
+	 * @generated
+	 */
+	public Adapter createQuestionnaireAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireItem <em>Questionnaire Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireItem
+	 * @generated
+	 */
+	public Adapter createQuestionnaireItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseItem <em>Questionnaire Response Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseItem
+	 * @generated
+	 */
+	public Adapter createQuestionnaireResponseItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseItemAnswer <em>Questionnaire Response Item Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseItemAnswer
+	 * @generated
+	 */
+	public Adapter createQuestionnaireResponseItemAnswerAdapter() {
 		return null;
 	}
 
@@ -3093,34 +3669,6 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequest <em>Communication Request</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequest
-	 * @generated
-	 */
-	public Adapter createCommunicationRequestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequestPayload <em>Communication Request Payload</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationRequestPayload
-	 * @generated
-	 */
-	public Adapter createCommunicationRequestPayloadAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceUseRequest <em>Device Use Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3373,72 +3921,254 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifest <em>Document Manifest</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystem <em>Naming System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifest
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystem
 	 * @generated
 	 */
-	public Adapter createDocumentManifestAdapter() {
+	public Adapter createNamingSystemAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestContent <em>Document Manifest Content</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystemContact <em>Naming System Contact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestContent
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystemContact
 	 * @generated
 	 */
-	public Adapter createDocumentManifestContentAdapter() {
+	public Adapter createNamingSystemContactAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestRelated <em>Document Manifest Related</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystemUniqueId <em>Naming System Unique Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestRelated
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystemUniqueId
 	 * @generated
 	 */
-	public Adapter createDocumentManifestRelatedAdapter() {
+	public Adapter createNamingSystemUniqueIdAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EnrollmentRequest <em>Enrollment Request</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModule <em>Decision Support Service Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EnrollmentRequest
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModule
 	 * @generated
 	 */
-	public Adapter createEnrollmentRequestAdapter() {
+	public Adapter createDecisionSupportServiceModuleAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Coverage <em>Coverage</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameter <em>Decision Support Service Module Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Coverage
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameter
 	 * @generated
 	 */
-	public Adapter createCoverageAdapter() {
+	public Adapter createDecisionSupportServiceModuleParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameterCodeFilter <em>Decision Support Service Module Parameter Code Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameterCodeFilter
+	 * @generated
+	 */
+	public Adapter createDecisionSupportServiceModuleParameterCodeFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameterDateFilter <em>Decision Support Service Module Parameter Date Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportServiceModuleParameterDateFilter
+	 * @generated
+	 */
+	public Adapter createDecisionSupportServiceModuleParameterDateFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMap <em>Concept Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMap
+	 * @generated
+	 */
+	public Adapter createConceptMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapContact <em>Concept Map Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapContact
+	 * @generated
+	 */
+	public Adapter createConceptMapContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElement <em>Concept Map Source Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElement
+	 * @generated
+	 */
+	public Adapter createConceptMapSourceElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElement <em>Concept Map Source Element Target Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElement
+	 * @generated
+	 */
+	public Adapter createConceptMapSourceElementTargetElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElementOtherElement <em>Concept Map Source Element Target Element Other Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElementOtherElement
+	 * @generated
+	 */
+	public Adapter createConceptMapSourceElementTargetElementOtherElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Flag <em>Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Flag
+	 * @generated
+	 */
+	public Adapter createFlagAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Sequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Sequence
+	 * @generated
+	 */
+	public Adapter createSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SequenceCoordinate <em>Sequence Coordinate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SequenceCoordinate
+	 * @generated
+	 */
+	public Adapter createSequenceCoordinateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SequenceQuality <em>Sequence Quality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SequenceQuality
+	 * @generated
+	 */
+	public Adapter createSequenceQualityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SequenceChip <em>Sequence Chip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SequenceChip
+	 * @generated
+	 */
+	public Adapter createSequenceChipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SequenceRepository <em>Sequence Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SequenceRepository
+	 * @generated
+	 */
+	public Adapter createSequenceRepositoryAdapter() {
 		return null;
 	}
 
@@ -3639,58 +4369,184 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Subscription <em>Subscription</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Binary <em>Binary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Subscription
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Binary
 	 * @generated
 	 */
-	public Adapter createSubscriptionAdapter() {
+	public Adapter createBinaryAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubscriptionChannel <em>Subscription Channel</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifest <em>Document Manifest</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubscriptionChannel
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifest
 	 * @generated
 	 */
-	public Adapter createSubscriptionChannelAdapter() {
+	public Adapter createDocumentManifestAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Parameters <em>Parameters</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestContent <em>Document Manifest Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Parameters
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestContent
 	 * @generated
 	 */
-	public Adapter createParametersAdapter() {
+	public Adapter createDocumentManifestContentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ParametersParameter <em>Parameters Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestRelated <em>Document Manifest Related</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ParametersParameter
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DocumentManifestRelated
 	 * @generated
 	 */
-	public Adapter createParametersParameterAdapter() {
+	public Adapter createDocumentManifestRelatedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliation <em>Payment Reconciliation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliation
+	 * @generated
+	 */
+	public Adapter createPaymentReconciliationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationDetails <em>Payment Reconciliation Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationDetails
+	 * @generated
+	 */
+	public Adapter createPaymentReconciliationDetailsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationNotes <em>Payment Reconciliation Notes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationNotes
+	 * @generated
+	 */
+	public Adapter createPaymentReconciliationNotesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceUseStatement <em>Device Use Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceUseStatement
+	 * @generated
+	 */
+	public Adapter createDeviceUseStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript <em>Test Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScript
+	 * @generated
+	 */
+	public Adapter createTestScriptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptContact <em>Test Script Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptContact
+	 * @generated
+	 */
+	public Adapter createTestScriptContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata <em>Test Script Metadata</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata
+	 * @generated
+	 */
+	public Adapter createTestScriptMetadataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataLink <em>Test Script Metadata Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataLink
+	 * @generated
+	 */
+	public Adapter createTestScriptMetadataLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability <em>Test Script Metadata Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability
+	 * @generated
+	 */
+	public Adapter createTestScriptMetadataCapabilityAdapter() {
 		return null;
 	}
 
@@ -3747,76 +4603,6 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConformanceImplementationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinition <em>Structure Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinition
-	 * @generated
-	 */
-	public Adapter createStructureDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionContact <em>Structure Definition Contact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionContact
-	 * @generated
-	 */
-	public Adapter createStructureDefinitionContactAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionMapping <em>Structure Definition Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionMapping
-	 * @generated
-	 */
-	public Adapter createStructureDefinitionMappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionSnapshot <em>Structure Definition Snapshot</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionSnapshot
-	 * @generated
-	 */
-	public Adapter createStructureDefinitionSnapshotAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionDifferential <em>Structure Definition Differential</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.StructureDefinitionDifferential
-	 * @generated
-	 */
-	public Adapter createStructureDefinitionDifferentialAdapter() {
 		return null;
 	}
 
@@ -4045,226 +4831,282 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Person <em>Person</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptOrigin <em>Test Script Origin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Person
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptOrigin
 	 * @generated
 	 */
-	public Adapter createPersonAdapter() {
+	public Adapter createTestScriptOriginAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PersonLink <em>Person Link</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptDestination <em>Test Script Destination</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.PersonLink
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptDestination
 	 * @generated
 	 */
-	public Adapter createPersonLinkAdapter() {
+	public Adapter createTestScriptDestinationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice <em>Payment Notice</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptFixture <em>Test Script Fixture</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptFixture
 	 * @generated
 	 */
-	public Adapter createPaymentNoticeAdapter() {
+	public Adapter createTestScriptFixtureAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuide <em>Implementation Guide</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable <em>Test Script Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuide
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable
 	 * @generated
 	 */
-	public Adapter createImplementationGuideAdapter() {
+	public Adapter createTestScriptVariableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideContact <em>Implementation Guide Contact</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetup <em>Test Script Setup</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideContact
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetup
 	 * @generated
 	 */
-	public Adapter createImplementationGuideContactAdapter() {
+	public Adapter createTestScriptSetupAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideDependency <em>Implementation Guide Dependency</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupAction <em>Test Script Setup Setup Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideDependency
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupAction
 	 * @generated
 	 */
-	public Adapter createImplementationGuideDependencyAdapter() {
+	public Adapter createTestScriptSetupSetupActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackage <em>Implementation Guide Package</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionOperation <em>Test Script Setup Setup Action Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackage
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionOperation
 	 * @generated
 	 */
-	public Adapter createImplementationGuidePackageAdapter() {
+	public Adapter createTestScriptSetupSetupActionOperationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackageResource <em>Implementation Guide Package Resource</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionOperationRequestHeader <em>Test Script Setup Setup Action Operation Request Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackageResource
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionOperationRequestHeader
 	 * @generated
 	 */
-	public Adapter createImplementationGuidePackageResourceAdapter() {
+	public Adapter createTestScriptSetupSetupActionOperationRequestHeaderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideGlobal <em>Implementation Guide Global</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionAssert <em>Test Script Setup Setup Action Assert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideGlobal
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupSetupActionAssert
 	 * @generated
 	 */
-	public Adapter createImplementationGuideGlobalAdapter() {
+	public Adapter createTestScriptSetupSetupActionAssertAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePage <em>Implementation Guide Page</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest <em>Test Script Test</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePage
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest
 	 * @generated
 	 */
-	public Adapter createImplementationGuidePageAdapter() {
+	public Adapter createTestScriptTestAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SearchParameter <em>Search Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestTestAction <em>Test Script Test Test Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SearchParameter
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestTestAction
 	 * @generated
 	 */
-	public Adapter createSearchParameterAdapter() {
+	public Adapter createTestScriptTestTestActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SearchParameterContact <em>Search Parameter Contact</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown <em>Test Script Teardown</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.SearchParameterContact
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown
 	 * @generated
 	 */
-	public Adapter createSearchParameterContactAdapter() {
+	public Adapter createTestScriptTeardownAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Communication <em>Communication</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownTeardownAction <em>Test Script Teardown Teardown Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Communication
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownTeardownAction
 	 * @generated
 	 */
-	public Adapter createCommunicationAdapter() {
+	public Adapter createTestScriptTeardownTeardownActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.CommunicationPayload <em>Communication Payload</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElement <em>Data Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.CommunicationPayload
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElement
 	 * @generated
 	 */
-	public Adapter createCommunicationPayloadAdapter() {
+	public Adapter createDataElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.OrderResponse <em>Order Response</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElementContact <em>Data Element Contact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.OrderResponse
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElementContact
 	 * @generated
 	 */
-	public Adapter createOrderResponseAdapter() {
+	public Adapter createDataElementContactAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DeviceUseStatement <em>Device Use Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElementMapping <em>Data Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DeviceUseStatement
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElementMapping
 	 * @generated
 	 */
-	public Adapter createDeviceUseStatementAdapter() {
+	public Adapter createDataElementMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRule <em>Decision Support Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRule
+	 * @generated
+	 */
+	public Adapter createDecisionSupportRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleTrigger <em>Decision Support Rule Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleTrigger
+	 * @generated
+	 */
+	public Adapter createDecisionSupportRuleTriggerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleAction <em>Decision Support Rule Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleAction
+	 * @generated
+	 */
+	public Adapter createDecisionSupportRuleActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleActionCustomization <em>Decision Support Rule Action Customization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DecisionSupportRuleActionCustomization
+	 * @generated
+	 */
+	public Adapter createDecisionSupportRuleActionCustomizationAdapter() {
 		return null;
 	}
 
@@ -4349,6 +5191,76 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMessageHeaderMessageDestinationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Subscription <em>Subscription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Subscription
+	 * @generated
+	 */
+	public Adapter createSubscriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SubscriptionChannel <em>Subscription Channel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SubscriptionChannel
+	 * @generated
+	 */
+	public Adapter createSubscriptionChannelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EnrollmentResponse <em>Enrollment Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EnrollmentResponse
+	 * @generated
+	 */
+	public Adapter createEnrollmentResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EnrollmentRequest <em>Enrollment Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EnrollmentRequest
+	 * @generated
+	 */
+	public Adapter createEnrollmentRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Coverage <em>Coverage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Coverage
+	 * @generated
+	 */
+	public Adapter createCoverageAdapter() {
 		return null;
 	}
 
@@ -4465,72 +5377,240 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Provenance <em>Provenance</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Bundle <em>Bundle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Provenance
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Bundle
 	 * @generated
 	 */
-	public Adapter createProvenanceAdapter() {
+	public Adapter createBundleAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgent <em>Provenance Agent</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleLink <em>Bundle Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgent
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleLink
 	 * @generated
 	 */
-	public Adapter createProvenanceAgentAdapter() {
+	public Adapter createBundleLinkAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgentRelatedAgent <em>Provenance Agent Related Agent</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntry <em>Bundle Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgentRelatedAgent
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntry
 	 * @generated
 	 */
-	public Adapter createProvenanceAgentRelatedAgentAdapter() {
+	public Adapter createBundleEntryAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceEntity <em>Provenance Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntrySearch <em>Bundle Entry Search</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceEntity
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntrySearch
 	 * @generated
 	 */
-	public Adapter createProvenanceEntityAdapter() {
+	public Adapter createBundleEntrySearchAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefit <em>Explanation Of Benefit</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntryRequest <em>Bundle Entry Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefit
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntryRequest
 	 * @generated
 	 */
-	public Adapter createExplanationOfBenefitAdapter() {
+	public Adapter createBundleEntryRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntryResponse <em>Bundle Entry Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntryResponse
+	 * @generated
+	 */
+	public Adapter createBundleEntryResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse <em>Eligibility Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse
+	 * @generated
+	 */
+	public Adapter createEligibilityResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityRequest <em>Eligibility Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityRequest
+	 * @generated
+	 */
+	public Adapter createEligibilityRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseBenefits <em>Eligibility Response Benefits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseBenefits
+	 * @generated
+	 */
+	public Adapter createEligibilityResponseBenefitsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseBenefitsBenefit <em>Eligibility Response Benefits Benefit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseBenefitsBenefit
+	 * @generated
+	 */
+	public Adapter createEligibilityResponseBenefitsBenefitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseErrors <em>Eligibility Response Errors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseErrors
+	 * @generated
+	 */
+	public Adapter createEligibilityResponseErrorsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Parameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Parameters
+	 * @generated
+	 */
+	public Adapter createParametersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ParametersParameter <em>Parameters Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ParametersParameter
+	 * @generated
+	 */
+	public Adapter createParametersParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispense <em>Medication Dispense</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispense
+	 * @generated
+	 */
+	public Adapter createMedicationDispenseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseDosageInstruction <em>Medication Dispense Dosage Instruction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseDosageInstruction
+	 * @generated
+	 */
+	public Adapter createMedicationDispenseDosageInstructionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseSubstitution <em>Medication Dispense Substitution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseSubstitution
+	 * @generated
+	 */
+	public Adapter createMedicationDispenseSubstitutionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimResponse <em>Claim Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimResponse
+	 * @generated
+	 */
+	public Adapter createClaimResponseAdapter() {
 		return null;
 	}
 
@@ -4591,16 +5671,72 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimResponse <em>Claim Response</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems <em>Claim Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimResponse
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItems
 	 * @generated
 	 */
-	public Adapter createClaimResponseAdapter() {
+	public Adapter createClaimItemsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail <em>Claim Items Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail
+	 * @generated
+	 */
+	public Adapter createClaimItemsDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetailSubDetail <em>Claim Items Detail Sub Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetailSubDetail
+	 * @generated
+	 */
+	public Adapter createClaimItemsDetailSubDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsProsthesis <em>Claim Items Prosthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsProsthesis
+	 * @generated
+	 */
+	public Adapter createClaimItemsProsthesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimMissingTeeth <em>Claim Missing Teeth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimMissingTeeth
+	 * @generated
+	 */
+	public Adapter createClaimMissingTeethAdapter() {
 		return null;
 	}
 
@@ -4787,72 +5923,730 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItems <em>Claim Items</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefit <em>Explanation Of Benefit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItems
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefit
 	 * @generated
 	 */
-	public Adapter createClaimItemsAdapter() {
+	public Adapter createExplanationOfBenefitAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail <em>Claim Items Detail</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitPayee <em>Explanation Of Benefit Payee</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetail
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitPayee
 	 * @generated
 	 */
-	public Adapter createClaimItemsDetailAdapter() {
+	public Adapter createExplanationOfBenefitPayeeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetailSubDetail <em>Claim Items Detail Sub Detail</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitDiagnosis <em>Explanation Of Benefit Diagnosis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsDetailSubDetail
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitDiagnosis
 	 * @generated
 	 */
-	public Adapter createClaimItemsDetailSubDetailAdapter() {
+	public Adapter createExplanationOfBenefitDiagnosisAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsProsthesis <em>Claim Items Prosthesis</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitCoverage <em>Explanation Of Benefit Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimItemsProsthesis
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitCoverage
 	 * @generated
 	 */
-	public Adapter createClaimItemsProsthesisAdapter() {
+	public Adapter createExplanationOfBenefitCoverageAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ClaimMissingTeeth <em>Claim Missing Teeth</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItems <em>Explanation Of Benefit Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ClaimMissingTeeth
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItems
 	 * @generated
 	 */
-	public Adapter createClaimMissingTeethAdapter() {
+	public Adapter createExplanationOfBenefitItemsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsItemAdjudication <em>Explanation Of Benefit Items Item Adjudication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsItemAdjudication
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsItemAdjudicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetail <em>Explanation Of Benefit Items Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetail
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailDetailAdjudication <em>Explanation Of Benefit Items Detail Detail Adjudication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailDetailAdjudication
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsDetailDetailAdjudicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailSubDetail <em>Explanation Of Benefit Items Detail Sub Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailSubDetail
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsDetailSubDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication <em>Explanation Of Benefit Items Detail Sub Detail Sub Detail Adjudication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsProsthesis <em>Explanation Of Benefit Items Prosthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitItemsProsthesis
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitItemsProsthesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItem <em>Explanation Of Benefit Added Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItem
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitAddedItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemAdjudication <em>Explanation Of Benefit Added Item Added Item Adjudication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemAdjudication
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitAddedItemAddedItemAdjudicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemsDetail <em>Explanation Of Benefit Added Item Added Items Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemsDetail
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitAddedItemAddedItemsDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication <em>Explanation Of Benefit Added Item Added Items Detail Added Item Detail Adjudication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitMissingTeeth <em>Explanation Of Benefit Missing Teeth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitMissingTeeth
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitMissingTeethAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitNotes <em>Explanation Of Benefit Notes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitNotes
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitNotesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitBenefitBalance <em>Explanation Of Benefit Benefit Balance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitBenefitBalance
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitBenefitBalanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitBenefitBalanceBenefit <em>Explanation Of Benefit Benefit Balance Benefit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExplanationOfBenefitBenefitBalanceBenefit
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitBenefitBalanceBenefitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuide <em>Implementation Guide</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuide
+	 * @generated
+	 */
+	public Adapter createImplementationGuideAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideContact <em>Implementation Guide Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideContact
+	 * @generated
+	 */
+	public Adapter createImplementationGuideContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideDependency <em>Implementation Guide Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideDependency
+	 * @generated
+	 */
+	public Adapter createImplementationGuideDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackage <em>Implementation Guide Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackage
+	 * @generated
+	 */
+	public Adapter createImplementationGuidePackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackageResource <em>Implementation Guide Package Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePackageResource
+	 * @generated
+	 */
+	public Adapter createImplementationGuidePackageResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideGlobal <em>Implementation Guide Global</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuideGlobal
+	 * @generated
+	 */
+	public Adapter createImplementationGuideGlobalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePage <em>Implementation Guide Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ImplementationGuidePage
+	 * @generated
+	 */
+	public Adapter createImplementationGuidePageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SearchParameter <em>Search Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SearchParameter
+	 * @generated
+	 */
+	public Adapter createSearchParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.SearchParameterContact <em>Search Parameter Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.SearchParameterContact
+	 * @generated
+	 */
+	public Adapter createSearchParameterContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfile <em>Expansion Profile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfile
+	 * @generated
+	 */
+	public Adapter createExpansionProfileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileContact <em>Expansion Profile Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileContact
+	 * @generated
+	 */
+	public Adapter createExpansionProfileContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystem <em>Expansion Profile Code System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystem
+	 * @generated
+	 */
+	public Adapter createExpansionProfileCodeSystemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemInclude <em>Expansion Profile Code System Code System Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemInclude
+	 * @generated
+	 */
+	public Adapter createExpansionProfileCodeSystemCodeSystemIncludeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem <em>Expansion Profile Code System Code System Include Code System Include Code System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem
+	 * @generated
+	 */
+	public Adapter createExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemExclude <em>Expansion Profile Code System Code System Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemExclude
+	 * @generated
+	 */
+	public Adapter createExpansionProfileCodeSystemCodeSystemExcludeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem <em>Expansion Profile Code System Code System Exclude Code System Exclude Code System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem
+	 * @generated
+	 */
+	public Adapter createExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignation <em>Expansion Profile Designation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignation
+	 * @generated
+	 */
+	public Adapter createExpansionProfileDesignationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationInclude <em>Expansion Profile Designation Designation Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationInclude
+	 * @generated
+	 */
+	public Adapter createExpansionProfileDesignationDesignationIncludeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation <em>Expansion Profile Designation Designation Include Designation Include Designation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation
+	 * @generated
+	 */
+	public Adapter createExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationExclude <em>Expansion Profile Designation Designation Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationExclude
+	 * @generated
+	 */
+	public Adapter createExpansionProfileDesignationDesignationExcludeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation <em>Expansion Profile Designation Designation Exclude Designation Exclude Designation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation
+	 * @generated
+	 */
+	public Adapter createExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.OrderSet <em>Order Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.OrderSet
+	 * @generated
+	 */
+	public Adapter createOrderSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.OrderSetItem <em>Order Set Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.OrderSetItem
+	 * @generated
+	 */
+	public Adapter createOrderSetItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.OrderSetItemCustomization <em>Order Set Item Customization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.OrderSetItemCustomization
+	 * @generated
+	 */
+	public Adapter createOrderSetItemCustomizationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Provenance <em>Provenance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Provenance
+	 * @generated
+	 */
+	public Adapter createProvenanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgent <em>Provenance Agent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgent
+	 * @generated
+	 */
+	public Adapter createProvenanceAgentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgentRelatedAgent <em>Provenance Agent Related Agent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceAgentRelatedAgent
+	 * @generated
+	 */
+	public Adapter createProvenanceAgentRelatedAgentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProvenanceEntity <em>Provenance Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProvenanceEntity
+	 * @generated
+	 */
+	public Adapter createProvenanceEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProcessResponse <em>Process Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProcessResponse
+	 * @generated
+	 */
+	public Adapter createProcessResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProcessResponseNotes <em>Process Response Notes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProcessResponseNotes
+	 * @generated
+	 */
+	public Adapter createProcessResponseNotesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Measure <em>Measure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Measure
+	 * @generated
+	 */
+	public Adapter createMeasureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MeasurePopulation <em>Measure Population</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.MeasurePopulation
+	 * @generated
+	 */
+	public Adapter createMeasurePopulationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice <em>Payment Notice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice
+	 * @generated
+	 */
+	public Adapter createPaymentNoticeAdapter() {
 		return null;
 	}
 
@@ -4885,128 +6679,72 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMap <em>Concept Map</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GuidanceResponse <em>Guidance Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMap
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.GuidanceResponse
 	 * @generated
 	 */
-	public Adapter createConceptMapAdapter() {
+	public Adapter createGuidanceResponseAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapContact <em>Concept Map Contact</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.GuidanceResponseAction <em>Guidance Response Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapContact
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.GuidanceResponseAction
 	 * @generated
 	 */
-	public Adapter createConceptMapContactAdapter() {
+	public Adapter createGuidanceResponseActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElement <em>Concept Map Source Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DetectedIssue <em>Detected Issue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElement
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DetectedIssue
 	 * @generated
 	 */
-	public Adapter createConceptMapSourceElementAdapter() {
+	public Adapter createDetectedIssueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElement <em>Concept Map Source Element Target Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DetectedIssueMitigation <em>Detected Issue Mitigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElement
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.DetectedIssueMitigation
 	 * @generated
 	 */
-	public Adapter createConceptMapSourceElementTargetElementAdapter() {
+	public Adapter createDetectedIssueMitigationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElementOtherElement <em>Concept Map Source Element Target Element Other Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Account <em>Account</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ConceptMapSourceElementTargetElementOtherElement
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Account
 	 * @generated
 	 */
-	public Adapter createConceptMapSourceElementTargetElementOtherElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse <em>Eligibility Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityRequest <em>Eligibility Request</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EligibilityRequest
-	 * @generated
-	 */
-	public Adapter createEligibilityRequestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Flag <em>Flag</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Flag
-	 * @generated
-	 */
-	public Adapter createFlagAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AppointmentResponse <em>Appointment Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.AppointmentResponse
-	 * @generated
-	 */
-	public Adapter createAppointmentResponseAdapter() {
+	public Adapter createAccountAdapter() {
 		return null;
 	}
 
@@ -5039,352 +6777,16 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.EnrollmentResponse <em>Enrollment Response</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.AppointmentResponse <em>Appointment Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.EnrollmentResponse
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.AppointmentResponse
 	 * @generated
 	 */
-	public Adapter createEnrollmentResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Binary <em>Binary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Binary
-	 * @generated
-	 */
-	public Adapter createBinaryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScript <em>Test Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScript
-	 * @generated
-	 */
-	public Adapter createTestScriptAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptContact <em>Test Script Contact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptContact
-	 * @generated
-	 */
-	public Adapter createTestScriptContactAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata <em>Test Script Metadata</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata
-	 * @generated
-	 */
-	public Adapter createTestScriptMetadataAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataLink <em>Test Script Metadata Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataLink
-	 * @generated
-	 */
-	public Adapter createTestScriptMetadataLinkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability <em>Test Script Metadata Capability</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability
-	 * @generated
-	 */
-	public Adapter createTestScriptMetadataCapabilityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptFixture <em>Test Script Fixture</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptFixture
-	 * @generated
-	 */
-	public Adapter createTestScriptFixtureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable <em>Test Script Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable
-	 * @generated
-	 */
-	public Adapter createTestScriptVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetup <em>Test Script Setup</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetup
-	 * @generated
-	 */
-	public Adapter createTestScriptSetupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupAction <em>Test Script Setup Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupAction
-	 * @generated
-	 */
-	public Adapter createTestScriptSetupActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionOperation <em>Test Script Setup Action Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionOperation
-	 * @generated
-	 */
-	public Adapter createTestScriptSetupActionOperationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionOperationRequestHeader <em>Test Script Setup Action Operation Request Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionOperationRequestHeader
-	 * @generated
-	 */
-	public Adapter createTestScriptSetupActionOperationRequestHeaderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionAssert <em>Test Script Setup Action Assert</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetupActionAssert
-	 * @generated
-	 */
-	public Adapter createTestScriptSetupActionAssertAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest <em>Test Script Test</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest
-	 * @generated
-	 */
-	public Adapter createTestScriptTestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestAction <em>Test Script Test Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestAction
-	 * @generated
-	 */
-	public Adapter createTestScriptTestActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown <em>Test Script Teardown</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown
-	 * @generated
-	 */
-	public Adapter createTestScriptTeardownAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownAction <em>Test Script Teardown Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownAction
-	 * @generated
-	 */
-	public Adapter createTestScriptTeardownActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Basic <em>Basic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Basic
-	 * @generated
-	 */
-	public Adapter createBasicAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispense <em>Medication Dispense</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispense
-	 * @generated
-	 */
-	public Adapter createMedicationDispenseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseDosageInstruction <em>Medication Dispense Dosage Instruction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseDosageInstruction
-	 * @generated
-	 */
-	public Adapter createMedicationDispenseDosageInstructionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseSubstitution <em>Medication Dispense Substitution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.MedicationDispenseSubstitution
-	 * @generated
-	 */
-	public Adapter createMedicationDispenseSubstitutionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElement <em>Data Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElement
-	 * @generated
-	 */
-	public Adapter createDataElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElementContact <em>Data Element Contact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElementContact
-	 * @generated
-	 */
-	public Adapter createDataElementContactAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DataElementMapping <em>Data Element Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DataElementMapping
-	 * @generated
-	 */
-	public Adapter createDataElementMappingAdapter() {
+	public Adapter createAppointmentResponseAdapter() {
 		return null;
 	}
 
@@ -5487,226 +6889,30 @@ public class FhirResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliation <em>Payment Reconciliation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Basic <em>Basic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliation
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.Basic
 	 * @generated
 	 */
-	public Adapter createPaymentReconciliationAdapter() {
+	public Adapter createBasicAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationDetails <em>Payment Reconciliation Details</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.OrderResponse <em>Order Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationDetails
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.OrderResponse
 	 * @generated
 	 */
-	public Adapter createPaymentReconciliationDetailsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationNotes <em>Payment Reconciliation Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.PaymentReconciliationNotes
-	 * @generated
-	 */
-	public Adapter createPaymentReconciliationNotesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DetectedIssue <em>Detected Issue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DetectedIssue
-	 * @generated
-	 */
-	public Adapter createDetectedIssueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.DetectedIssueMitigation <em>Detected Issue Mitigation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.DetectedIssueMitigation
-	 * @generated
-	 */
-	public Adapter createDetectedIssueMitigationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.Bundle <em>Bundle</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.Bundle
-	 * @generated
-	 */
-	public Adapter createBundleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleLink <em>Bundle Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleLink
-	 * @generated
-	 */
-	public Adapter createBundleLinkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntry <em>Bundle Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntry
-	 * @generated
-	 */
-	public Adapter createBundleEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntrySearch <em>Bundle Entry Search</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntrySearch
-	 * @generated
-	 */
-	public Adapter createBundleEntrySearchAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntryRequest <em>Bundle Entry Request</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntryRequest
-	 * @generated
-	 */
-	public Adapter createBundleEntryRequestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.BundleEntryResponse <em>Bundle Entry Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.BundleEntryResponse
-	 * @generated
-	 */
-	public Adapter createBundleEntryResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProcessResponse <em>Process Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProcessResponse
-	 * @generated
-	 */
-	public Adapter createProcessResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.ProcessResponseNotes <em>Process Response Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.ProcessResponseNotes
-	 * @generated
-	 */
-	public Adapter createProcessResponseNotesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystem <em>Naming System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystem
-	 * @generated
-	 */
-	public Adapter createNamingSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystemContact <em>Naming System Contact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystemContact
-	 * @generated
-	 */
-	public Adapter createNamingSystemContactAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.resource.NamingSystemUniqueId <em>Naming System Unique Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.NamingSystemUniqueId
-	 * @generated
-	 */
-	public Adapter createNamingSystemUniqueIdAdapter() {
+	public Adapter createOrderResponseAdapter() {
 		return null;
 	}
 

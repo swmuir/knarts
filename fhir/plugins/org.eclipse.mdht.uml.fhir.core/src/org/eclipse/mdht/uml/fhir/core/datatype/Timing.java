@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -54,30 +54,30 @@ public interface Timing extends DataType {
 	EList<DateTime> getEvents();
 
 	/**
-	 * Returns the value of the '<em><b>Repeat</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Repeat</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repeat</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Repeat</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repeat</em>' containment reference.
-	 * @see #setRepeat(TimingRepeat)
+	 * @return the value of the '<em>Repeat</em>' reference.
+	 * @see #setRepeat(TimingElement1)
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getTiming_Repeat()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	TimingRepeat getRepeat();
+	TimingElement1 getRepeat();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat <em>Repeat</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat <em>Repeat</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repeat</em>' containment reference.
+	 * @param value the new value of the '<em>Repeat</em>' reference.
 	 * @see #getRepeat()
 	 * @generated
 	 */
-	void setRepeat(TimingRepeat value);
+	void setRepeat(TimingElement1 value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' reference.

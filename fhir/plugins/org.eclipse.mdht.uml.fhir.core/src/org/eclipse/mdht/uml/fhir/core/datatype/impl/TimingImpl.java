@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,7 +15,6 @@ package org.eclipse.mdht.uml.fhir.core.datatype.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -30,7 +29,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.CodeableConcept;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
 import org.eclipse.mdht.uml.fhir.core.datatype.Timing;
-import org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat;
+import org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,14 +58,14 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 	protected EList<DateTime> events;
 
 	/**
-	 * The cached value of the '{@link #getRepeat() <em>Repeat</em>}' containment reference.
+	 * The cached value of the '{@link #getRepeat() <em>Repeat</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRepeat()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimingRepeat repeat;
+	protected TimingElement1 repeat;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' reference.
@@ -114,7 +113,15 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimingRepeat getRepeat() {
+	public TimingElement1 getRepeat() {
+		if (repeat != null && repeat.eIsProxy()) {
+			InternalEObject oldRepeat = (InternalEObject)repeat;
+			repeat = (TimingElement1)eResolveProxy(oldRepeat);
+			if (repeat != oldRepeat) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirDatatypePackage.TIMING__REPEAT, oldRepeat, repeat));
+			}
+		}
 		return repeat;
 	}
 
@@ -123,14 +130,8 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRepeat(TimingRepeat newRepeat, NotificationChain msgs) {
-		TimingRepeat oldRepeat = repeat;
-		repeat = newRepeat;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.TIMING__REPEAT, oldRepeat, newRepeat);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public TimingElement1 basicGetRepeat() {
+		return repeat;
 	}
 
 	/**
@@ -138,18 +139,11 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepeat(TimingRepeat newRepeat) {
-		if (newRepeat != repeat) {
-			NotificationChain msgs = null;
-			if (repeat != null)
-				msgs = ((InternalEObject)repeat).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.TIMING__REPEAT, null, msgs);
-			if (newRepeat != null)
-				msgs = ((InternalEObject)newRepeat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.TIMING__REPEAT, null, msgs);
-			msgs = basicSetRepeat(newRepeat, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.TIMING__REPEAT, newRepeat, newRepeat));
+	public void setRepeat(TimingElement1 newRepeat) {
+		TimingElement1 oldRepeat = repeat;
+		repeat = newRepeat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.TIMING__REPEAT, oldRepeat, repeat));
 	}
 
 	/**
@@ -196,26 +190,13 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FhirDatatypePackage.TIMING__REPEAT:
-				return basicSetRepeat(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FhirDatatypePackage.TIMING__EVENT:
 				return getEvents();
 			case FhirDatatypePackage.TIMING__REPEAT:
-				return getRepeat();
+				if (resolve) return getRepeat();
+				return basicGetRepeat();
 			case FhirDatatypePackage.TIMING__CODE:
 				if (resolve) return getCode();
 				return basicGetCode();
@@ -237,7 +218,7 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 				getEvents().addAll((Collection<? extends DateTime>)newValue);
 				return;
 			case FhirDatatypePackage.TIMING__REPEAT:
-				setRepeat((TimingRepeat)newValue);
+				setRepeat((TimingElement1)newValue);
 				return;
 			case FhirDatatypePackage.TIMING__CODE:
 				setCode((CodeableConcept)newValue);
@@ -258,7 +239,7 @@ public class TimingImpl extends DataTypeImpl implements Timing {
 				getEvents().clear();
 				return;
 			case FhirDatatypePackage.TIMING__REPEAT:
-				setRepeat((TimingRepeat)null);
+				setRepeat((TimingElement1)null);
 				return;
 			case FhirDatatypePackage.TIMING__CODE:
 				setCode((CodeableConcept)null);

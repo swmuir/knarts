@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,6 +15,7 @@ package org.eclipse.mdht.uml.fhir.core.resource;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
+import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
 import org.eclipse.mdht.uml.fhir.core.datatype.ContactPoint;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
@@ -38,8 +39,10 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getTelecoms <em>Telecom</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getConcepts <em>Concept</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getSubjectTypes <em>Subject Type</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getItems <em>Item</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaire()
@@ -184,6 +187,48 @@ public interface Questionnaire extends DomainResource {
 	EList<ContactPoint> getTelecoms();
 
 	/**
+	 * Returns the value of the '<em><b>Title</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Title</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' reference.
+	 * @see #setTitle(org.eclipse.mdht.uml.fhir.core.datatype.String)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaire_Title()
+	 * @model
+	 * @generated
+	 */
+	org.eclipse.mdht.uml.fhir.core.datatype.String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getTitle <em>Title</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' reference.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(org.eclipse.mdht.uml.fhir.core.datatype.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Concept</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.Coding}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Concept</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Concept</em>' reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaire_Concept()
+	 * @model
+	 * @generated
+	 */
+	EList<Coding> getConcepts();
+
+	/**
 	 * Returns the value of the '<em><b>Subject Type</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.Code}.
 	 * <!-- begin-user-doc -->
@@ -200,29 +245,19 @@ public interface Questionnaire extends DomainResource {
 	EList<Code> getSubjectTypes();
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireItem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Item</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(QuestionnaireGroup)
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaire_Group()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Item</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaire_Item()
+	 * @model containment="true"
 	 * @generated
 	 */
-	QuestionnaireGroup getGroup();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.Questionnaire#getGroup <em>Group</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' containment reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	void setGroup(QuestionnaireGroup value);
+	EList<QuestionnaireItem> getItems();
 
 } // Questionnaire

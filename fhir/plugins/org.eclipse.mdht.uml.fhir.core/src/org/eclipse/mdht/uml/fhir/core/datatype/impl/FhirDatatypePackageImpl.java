@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,12 +41,12 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Distance;
 import org.eclipse.mdht.uml.fhir.core.datatype.Duration;
 import org.eclipse.mdht.uml.fhir.core.datatype.Element;
 import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6;
 import org.eclipse.mdht.uml.fhir.core.datatype.Extension;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypeFactory;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
@@ -71,7 +71,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Signature;
 import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
 import org.eclipse.mdht.uml.fhir.core.datatype.Time;
 import org.eclipse.mdht.uml.fhir.core.datatype.Timing;
-import org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat;
+import org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1;
 import org.eclipse.mdht.uml.fhir.core.datatype.UnsignedInt;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uuid;
@@ -327,14 +327,49 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moneyEClass = null;
+	private EClass elementDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass quantityEClass = null;
+	private EClass elementDefinitionElement1EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementDefinitionElement2EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementDefinitionElement3EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementDefinitionElement4EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementDefinitionElement5EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementDefinitionElement6EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -348,7 +383,7 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass simpleQuantityEClass = null;
+	private EClass quantityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -356,6 +391,13 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * @generated
 	 */
 	private EClass ratioEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simpleQuantityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -376,56 +418,14 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timingRepeatEClass = null;
+	private EClass timingElement1EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass elementDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionSlicingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionBaseEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionTypeRefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionConstraintEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionBindingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementDefinitionMappingEClass = null;
+	private EClass moneyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1484,285 +1484,6 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMoney() {
-		return moneyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getQuantity() {
-		return quantityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuantity_Value() {
-		return (EReference)quantityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuantity_Comparator() {
-		return (EReference)quantityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuantity_Unit() {
-		return (EReference)quantityEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuantity_System() {
-		return (EReference)quantityEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuantity_Code() {
-		return (EReference)quantityEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDuration() {
-		return durationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSimpleQuantity() {
-		return simpleQuantityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRatio() {
-		return ratioEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRatio_Numerator() {
-		return (EReference)ratioEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRatio_Denominator() {
-		return (EReference)ratioEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRange() {
-		return rangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRange_Low() {
-		return (EReference)rangeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRange_High() {
-		return (EReference)rangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTiming() {
-		return timingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTiming_Event() {
-		return (EReference)timingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTiming_Repeat() {
-		return (EReference)timingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTiming_Code() {
-		return (EReference)timingEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTimingRepeat() {
-		return timingRepeatEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_Boundsx() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_Count() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_Duration() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_DurationMax() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_DurationUnits() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_Frequency() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_FrequencyMax() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_Period() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_PeriodMax() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_PeriodUnits() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimingRepeat_When() {
-		return (EReference)timingRepeatEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getElementDefinition() {
 		return elementDefinitionEClass;
 	}
@@ -2051,8 +1772,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionSlicing() {
-		return elementDefinitionSlicingEClass;
+	public EClass getElementDefinitionElement1() {
+		return elementDefinitionElement1EClass;
 	}
 
 	/**
@@ -2060,8 +1781,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionSlicing_Discriminator() {
-		return (EReference)elementDefinitionSlicingEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement1_Discriminator() {
+		return (EReference)elementDefinitionElement1EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2069,8 +1790,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionSlicing_Description() {
-		return (EReference)elementDefinitionSlicingEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement1_Description() {
+		return (EReference)elementDefinitionElement1EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2078,8 +1799,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionSlicing_Ordered() {
-		return (EReference)elementDefinitionSlicingEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement1_Ordered() {
+		return (EReference)elementDefinitionElement1EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2087,8 +1808,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionSlicing_Rules() {
-		return (EReference)elementDefinitionSlicingEClass.getEStructuralFeatures().get(3);
+	public EReference getElementDefinitionElement1_Rules() {
+		return (EReference)elementDefinitionElement1EClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2096,8 +1817,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionBase() {
-		return elementDefinitionBaseEClass;
+	public EClass getElementDefinitionElement2() {
+		return elementDefinitionElement2EClass;
 	}
 
 	/**
@@ -2105,8 +1826,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBase_Path() {
-		return (EReference)elementDefinitionBaseEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement2_Path() {
+		return (EReference)elementDefinitionElement2EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2114,8 +1835,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBase_Min() {
-		return (EReference)elementDefinitionBaseEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement2_Min() {
+		return (EReference)elementDefinitionElement2EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2123,8 +1844,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBase_Max() {
-		return (EReference)elementDefinitionBaseEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement2_Max() {
+		return (EReference)elementDefinitionElement2EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2132,8 +1853,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionTypeRef() {
-		return elementDefinitionTypeRefEClass;
+	public EClass getElementDefinitionElement3() {
+		return elementDefinitionElement3EClass;
 	}
 
 	/**
@@ -2141,8 +1862,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionTypeRef_Code() {
-		return (EReference)elementDefinitionTypeRefEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement3_Code() {
+		return (EReference)elementDefinitionElement3EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2150,8 +1871,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionTypeRef_Profile() {
-		return (EReference)elementDefinitionTypeRefEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement3_Profile() {
+		return (EReference)elementDefinitionElement3EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2159,8 +1880,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionTypeRef_Aggregation() {
-		return (EReference)elementDefinitionTypeRefEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement3_Aggregation() {
+		return (EReference)elementDefinitionElement3EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2168,8 +1889,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionConstraint() {
-		return elementDefinitionConstraintEClass;
+	public EClass getElementDefinitionElement4() {
+		return elementDefinitionElement4EClass;
 	}
 
 	/**
@@ -2177,8 +1898,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionConstraint_Key() {
-		return (EReference)elementDefinitionConstraintEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement4_Key() {
+		return (EReference)elementDefinitionElement4EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2186,8 +1907,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionConstraint_Requirements() {
-		return (EReference)elementDefinitionConstraintEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement4_Requirements() {
+		return (EReference)elementDefinitionElement4EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2195,8 +1916,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionConstraint_Severity() {
-		return (EReference)elementDefinitionConstraintEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement4_Severity() {
+		return (EReference)elementDefinitionElement4EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2204,8 +1925,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionConstraint_Human() {
-		return (EReference)elementDefinitionConstraintEClass.getEStructuralFeatures().get(3);
+	public EReference getElementDefinitionElement4_Human() {
+		return (EReference)elementDefinitionElement4EClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2213,8 +1934,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionConstraint_Xpath() {
-		return (EReference)elementDefinitionConstraintEClass.getEStructuralFeatures().get(4);
+	public EReference getElementDefinitionElement4_Xpath() {
+		return (EReference)elementDefinitionElement4EClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2222,8 +1943,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionBinding() {
-		return elementDefinitionBindingEClass;
+	public EClass getElementDefinitionElement5() {
+		return elementDefinitionElement5EClass;
 	}
 
 	/**
@@ -2231,8 +1952,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBinding_Strength() {
-		return (EReference)elementDefinitionBindingEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement5_Strength() {
+		return (EReference)elementDefinitionElement5EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2240,8 +1961,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBinding_Description() {
-		return (EReference)elementDefinitionBindingEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement5_Description() {
+		return (EReference)elementDefinitionElement5EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2249,8 +1970,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionBinding_ValueSetx() {
-		return (EReference)elementDefinitionBindingEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement5_ValueSetx() {
+		return (EReference)elementDefinitionElement5EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2258,8 +1979,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementDefinitionMapping() {
-		return elementDefinitionMappingEClass;
+	public EClass getElementDefinitionElement6() {
+		return elementDefinitionElement6EClass;
 	}
 
 	/**
@@ -2267,8 +1988,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionMapping_Identity() {
-		return (EReference)elementDefinitionMappingEClass.getEStructuralFeatures().get(0);
+	public EReference getElementDefinitionElement6_Identity() {
+		return (EReference)elementDefinitionElement6EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2276,8 +1997,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionMapping_Language() {
-		return (EReference)elementDefinitionMappingEClass.getEStructuralFeatures().get(1);
+	public EReference getElementDefinitionElement6_Language() {
+		return (EReference)elementDefinitionElement6EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2285,8 +2006,287 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementDefinitionMapping_Map() {
-		return (EReference)elementDefinitionMappingEClass.getEStructuralFeatures().get(2);
+	public EReference getElementDefinitionElement6_Map() {
+		return (EReference)elementDefinitionElement6EClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDuration() {
+		return durationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQuantity() {
+		return quantityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuantity_Value() {
+		return (EReference)quantityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuantity_Comparator() {
+		return (EReference)quantityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuantity_Unit() {
+		return (EReference)quantityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuantity_System() {
+		return (EReference)quantityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuantity_Code() {
+		return (EReference)quantityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRatio() {
+		return ratioEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRatio_Numerator() {
+		return (EReference)ratioEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRatio_Denominator() {
+		return (EReference)ratioEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSimpleQuantity() {
+		return simpleQuantityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRange() {
+		return rangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRange_Low() {
+		return (EReference)rangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRange_High() {
+		return (EReference)rangeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTiming() {
+		return timingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTiming_Event() {
+		return (EReference)timingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTiming_Repeat() {
+		return (EReference)timingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTiming_Code() {
+		return (EReference)timingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimingElement1() {
+		return timingElement1EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_Boundsx() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_Count() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_Duration() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_DurationMax() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_DurationUnits() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_Frequency() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_FrequencyMax() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_Period() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_PeriodMax() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_PeriodUnits() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingElement1_When() {
+		return (EReference)timingElement1EClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMoney() {
+		return moneyEClass;
 	}
 
 	/**
@@ -2642,45 +2642,6 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		createEReference(attachmentEClass, ATTACHMENT__TITLE);
 		createEReference(attachmentEClass, ATTACHMENT__CREATION);
 
-		moneyEClass = createEClass(MONEY);
-
-		quantityEClass = createEClass(QUANTITY);
-		createEReference(quantityEClass, QUANTITY__VALUE);
-		createEReference(quantityEClass, QUANTITY__COMPARATOR);
-		createEReference(quantityEClass, QUANTITY__UNIT);
-		createEReference(quantityEClass, QUANTITY__SYSTEM);
-		createEReference(quantityEClass, QUANTITY__CODE);
-
-		durationEClass = createEClass(DURATION);
-
-		simpleQuantityEClass = createEClass(SIMPLE_QUANTITY);
-
-		ratioEClass = createEClass(RATIO);
-		createEReference(ratioEClass, RATIO__NUMERATOR);
-		createEReference(ratioEClass, RATIO__DENOMINATOR);
-
-		rangeEClass = createEClass(RANGE);
-		createEReference(rangeEClass, RANGE__LOW);
-		createEReference(rangeEClass, RANGE__HIGH);
-
-		timingEClass = createEClass(TIMING);
-		createEReference(timingEClass, TIMING__EVENT);
-		createEReference(timingEClass, TIMING__REPEAT);
-		createEReference(timingEClass, TIMING__CODE);
-
-		timingRepeatEClass = createEClass(TIMING_REPEAT);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__BOUNDSX);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__COUNT);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__DURATION);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__DURATION_MAX);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__DURATION_UNITS);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__FREQUENCY);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__FREQUENCY_MAX);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__PERIOD);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__PERIOD_MAX);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__PERIOD_UNITS);
-		createEReference(timingRepeatEClass, TIMING_REPEAT__WHEN);
-
 		elementDefinitionEClass = createEClass(ELEMENT_DEFINITION);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__PATH);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__REPRESENTATION);
@@ -2714,38 +2675,77 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__BINDING);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__MAPPING);
 
-		elementDefinitionSlicingEClass = createEClass(ELEMENT_DEFINITION_SLICING);
-		createEReference(elementDefinitionSlicingEClass, ELEMENT_DEFINITION_SLICING__DISCRIMINATOR);
-		createEReference(elementDefinitionSlicingEClass, ELEMENT_DEFINITION_SLICING__DESCRIPTION);
-		createEReference(elementDefinitionSlicingEClass, ELEMENT_DEFINITION_SLICING__ORDERED);
-		createEReference(elementDefinitionSlicingEClass, ELEMENT_DEFINITION_SLICING__RULES);
+		elementDefinitionElement1EClass = createEClass(ELEMENT_DEFINITION_ELEMENT1);
+		createEReference(elementDefinitionElement1EClass, ELEMENT_DEFINITION_ELEMENT1__DISCRIMINATOR);
+		createEReference(elementDefinitionElement1EClass, ELEMENT_DEFINITION_ELEMENT1__DESCRIPTION);
+		createEReference(elementDefinitionElement1EClass, ELEMENT_DEFINITION_ELEMENT1__ORDERED);
+		createEReference(elementDefinitionElement1EClass, ELEMENT_DEFINITION_ELEMENT1__RULES);
 
-		elementDefinitionBaseEClass = createEClass(ELEMENT_DEFINITION_BASE);
-		createEReference(elementDefinitionBaseEClass, ELEMENT_DEFINITION_BASE__PATH);
-		createEReference(elementDefinitionBaseEClass, ELEMENT_DEFINITION_BASE__MIN);
-		createEReference(elementDefinitionBaseEClass, ELEMENT_DEFINITION_BASE__MAX);
+		elementDefinitionElement2EClass = createEClass(ELEMENT_DEFINITION_ELEMENT2);
+		createEReference(elementDefinitionElement2EClass, ELEMENT_DEFINITION_ELEMENT2__PATH);
+		createEReference(elementDefinitionElement2EClass, ELEMENT_DEFINITION_ELEMENT2__MIN);
+		createEReference(elementDefinitionElement2EClass, ELEMENT_DEFINITION_ELEMENT2__MAX);
 
-		elementDefinitionTypeRefEClass = createEClass(ELEMENT_DEFINITION_TYPE_REF);
-		createEReference(elementDefinitionTypeRefEClass, ELEMENT_DEFINITION_TYPE_REF__CODE);
-		createEReference(elementDefinitionTypeRefEClass, ELEMENT_DEFINITION_TYPE_REF__PROFILE);
-		createEReference(elementDefinitionTypeRefEClass, ELEMENT_DEFINITION_TYPE_REF__AGGREGATION);
+		elementDefinitionElement3EClass = createEClass(ELEMENT_DEFINITION_ELEMENT3);
+		createEReference(elementDefinitionElement3EClass, ELEMENT_DEFINITION_ELEMENT3__CODE);
+		createEReference(elementDefinitionElement3EClass, ELEMENT_DEFINITION_ELEMENT3__PROFILE);
+		createEReference(elementDefinitionElement3EClass, ELEMENT_DEFINITION_ELEMENT3__AGGREGATION);
 
-		elementDefinitionConstraintEClass = createEClass(ELEMENT_DEFINITION_CONSTRAINT);
-		createEReference(elementDefinitionConstraintEClass, ELEMENT_DEFINITION_CONSTRAINT__KEY);
-		createEReference(elementDefinitionConstraintEClass, ELEMENT_DEFINITION_CONSTRAINT__REQUIREMENTS);
-		createEReference(elementDefinitionConstraintEClass, ELEMENT_DEFINITION_CONSTRAINT__SEVERITY);
-		createEReference(elementDefinitionConstraintEClass, ELEMENT_DEFINITION_CONSTRAINT__HUMAN);
-		createEReference(elementDefinitionConstraintEClass, ELEMENT_DEFINITION_CONSTRAINT__XPATH);
+		elementDefinitionElement4EClass = createEClass(ELEMENT_DEFINITION_ELEMENT4);
+		createEReference(elementDefinitionElement4EClass, ELEMENT_DEFINITION_ELEMENT4__KEY);
+		createEReference(elementDefinitionElement4EClass, ELEMENT_DEFINITION_ELEMENT4__REQUIREMENTS);
+		createEReference(elementDefinitionElement4EClass, ELEMENT_DEFINITION_ELEMENT4__SEVERITY);
+		createEReference(elementDefinitionElement4EClass, ELEMENT_DEFINITION_ELEMENT4__HUMAN);
+		createEReference(elementDefinitionElement4EClass, ELEMENT_DEFINITION_ELEMENT4__XPATH);
 
-		elementDefinitionBindingEClass = createEClass(ELEMENT_DEFINITION_BINDING);
-		createEReference(elementDefinitionBindingEClass, ELEMENT_DEFINITION_BINDING__STRENGTH);
-		createEReference(elementDefinitionBindingEClass, ELEMENT_DEFINITION_BINDING__DESCRIPTION);
-		createEReference(elementDefinitionBindingEClass, ELEMENT_DEFINITION_BINDING__VALUE_SETX);
+		elementDefinitionElement5EClass = createEClass(ELEMENT_DEFINITION_ELEMENT5);
+		createEReference(elementDefinitionElement5EClass, ELEMENT_DEFINITION_ELEMENT5__STRENGTH);
+		createEReference(elementDefinitionElement5EClass, ELEMENT_DEFINITION_ELEMENT5__DESCRIPTION);
+		createEReference(elementDefinitionElement5EClass, ELEMENT_DEFINITION_ELEMENT5__VALUE_SETX);
 
-		elementDefinitionMappingEClass = createEClass(ELEMENT_DEFINITION_MAPPING);
-		createEReference(elementDefinitionMappingEClass, ELEMENT_DEFINITION_MAPPING__IDENTITY);
-		createEReference(elementDefinitionMappingEClass, ELEMENT_DEFINITION_MAPPING__LANGUAGE);
-		createEReference(elementDefinitionMappingEClass, ELEMENT_DEFINITION_MAPPING__MAP);
+		elementDefinitionElement6EClass = createEClass(ELEMENT_DEFINITION_ELEMENT6);
+		createEReference(elementDefinitionElement6EClass, ELEMENT_DEFINITION_ELEMENT6__IDENTITY);
+		createEReference(elementDefinitionElement6EClass, ELEMENT_DEFINITION_ELEMENT6__LANGUAGE);
+		createEReference(elementDefinitionElement6EClass, ELEMENT_DEFINITION_ELEMENT6__MAP);
+
+		durationEClass = createEClass(DURATION);
+
+		quantityEClass = createEClass(QUANTITY);
+		createEReference(quantityEClass, QUANTITY__VALUE);
+		createEReference(quantityEClass, QUANTITY__COMPARATOR);
+		createEReference(quantityEClass, QUANTITY__UNIT);
+		createEReference(quantityEClass, QUANTITY__SYSTEM);
+		createEReference(quantityEClass, QUANTITY__CODE);
+
+		ratioEClass = createEClass(RATIO);
+		createEReference(ratioEClass, RATIO__NUMERATOR);
+		createEReference(ratioEClass, RATIO__DENOMINATOR);
+
+		simpleQuantityEClass = createEClass(SIMPLE_QUANTITY);
+
+		rangeEClass = createEClass(RANGE);
+		createEReference(rangeEClass, RANGE__LOW);
+		createEReference(rangeEClass, RANGE__HIGH);
+
+		timingEClass = createEClass(TIMING);
+		createEReference(timingEClass, TIMING__EVENT);
+		createEReference(timingEClass, TIMING__REPEAT);
+		createEReference(timingEClass, TIMING__CODE);
+
+		timingElement1EClass = createEClass(TIMING_ELEMENT1);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__BOUNDSX);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__COUNT);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__DURATION);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__DURATION_MAX);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__DURATION_UNITS);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__FREQUENCY);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__FREQUENCY_MAX);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__PERIOD);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__PERIOD_MAX);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__PERIOD_UNITS);
+		createEReference(timingElement1EClass, TIMING_ELEMENT1__WHEN);
+
+		moneyEClass = createEClass(MONEY);
 
 		signatureEClass = createEClass(SIGNATURE);
 		createEReference(signatureEClass, SIGNATURE__TYPE);
@@ -2840,21 +2840,21 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		contactPointEClass.getESuperTypes().add(this.getDataType());
 		addressEClass.getESuperTypes().add(this.getDataType());
 		attachmentEClass.getESuperTypes().add(this.getDataType());
-		moneyEClass.getESuperTypes().add(this.getQuantity());
-		quantityEClass.getESuperTypes().add(this.getDataType());
+		elementDefinitionEClass.getESuperTypes().add(this.getDataType());
+		elementDefinitionElement1EClass.getESuperTypes().add(this.getElement());
+		elementDefinitionElement2EClass.getESuperTypes().add(this.getElement());
+		elementDefinitionElement3EClass.getESuperTypes().add(this.getElement());
+		elementDefinitionElement4EClass.getESuperTypes().add(this.getElement());
+		elementDefinitionElement5EClass.getESuperTypes().add(this.getElement());
+		elementDefinitionElement6EClass.getESuperTypes().add(this.getElement());
 		durationEClass.getESuperTypes().add(this.getQuantity());
-		simpleQuantityEClass.getESuperTypes().add(this.getQuantity());
+		quantityEClass.getESuperTypes().add(this.getDataType());
 		ratioEClass.getESuperTypes().add(this.getDataType());
+		simpleQuantityEClass.getESuperTypes().add(this.getQuantity());
 		rangeEClass.getESuperTypes().add(this.getDataType());
 		timingEClass.getESuperTypes().add(this.getDataType());
-		timingRepeatEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionEClass.getESuperTypes().add(this.getDataType());
-		elementDefinitionSlicingEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionBaseEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionTypeRefEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionConstraintEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionBindingEClass.getESuperTypes().add(this.getBackboneElement());
-		elementDefinitionMappingEClass.getESuperTypes().add(this.getBackboneElement());
+		timingElement1EClass.getESuperTypes().add(this.getElement());
+		moneyEClass.getESuperTypes().add(this.getQuantity());
 		signatureEClass.getESuperTypes().add(this.getDataType());
 		sampledDataEClass.getESuperTypes().add(this.getDataType());
 		referenceEClass.getESuperTypes().add(this.getDataType());
@@ -2943,7 +2943,7 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 
 		initEClass(narrativeDivEClass, NarrativeDiv.class, "NarrativeDiv", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(backboneElementEClass, BackboneElement.class, "BackboneElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(backboneElementEClass, BackboneElement.class, "BackboneElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBackboneElement_ModifierExtension(), this.getExtension(), null, "modifierExtension", null, 0, -1, BackboneElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identifierEClass, Identifier.class, "Identifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3000,52 +3000,13 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		initEReference(getAttachment_Title(), this.getString(), null, "title", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttachment_Creation(), this.getDateTime(), null, "creation", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(moneyEClass, Money.class, "Money", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(quantityEClass, Quantity.class, "Quantity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQuantity_Value(), this.getDecimal(), null, "value", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantity_Comparator(), this.getCode(), null, "comparator", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantity_Unit(), this.getString(), null, "unit", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantity_System(), this.getUri(), null, "system", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantity_Code(), this.getCode(), null, "code", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(simpleQuantityEClass, SimpleQuantity.class, "SimpleQuantity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(ratioEClass, Ratio.class, "Ratio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRatio_Numerator(), this.getQuantity(), null, "numerator", null, 0, 1, Ratio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRatio_Denominator(), this.getQuantity(), null, "denominator", null, 0, 1, Ratio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRange_Low(), this.getSimpleQuantity(), null, "low", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRange_High(), this.getSimpleQuantity(), null, "high", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(timingEClass, Timing.class, "Timing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTiming_Event(), this.getDateTime(), null, "event", null, 0, -1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTiming_Repeat(), this.getTimingRepeat(), null, "repeat", null, 0, 1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTiming_Code(), this.getCodeableConcept(), null, "code", null, 0, 1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(timingRepeatEClass, TimingRepeat.class, "TimingRepeat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTimingRepeat_Boundsx(), this.getDataType(), null, "boundsx", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_Count(), this.getInteger(), null, "count", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_Duration(), this.getDecimal(), null, "duration", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_DurationMax(), this.getDecimal(), null, "durationMax", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_DurationUnits(), this.getCode(), null, "durationUnits", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_Frequency(), this.getInteger(), null, "frequency", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_FrequencyMax(), this.getInteger(), null, "frequencyMax", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_Period(), this.getDecimal(), null, "period", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_PeriodMax(), this.getDecimal(), null, "periodMax", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_PeriodUnits(), this.getCode(), null, "periodUnits", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingRepeat_When(), this.getCode(), null, "when", null, 0, 1, TimingRepeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(elementDefinitionEClass, ElementDefinition.class, "ElementDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementDefinition_Path(), this.getString(), null, "path", null, 1, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Representation(), this.getCode(), null, "representation", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Name(), this.getString(), null, "name", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Label(), this.getString(), null, "label", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Code(), this.getCoding(), null, "code", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Slicing(), this.getElementDefinitionSlicing(), null, "slicing", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Slicing(), this.getElementDefinitionElement1(), null, "slicing", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Short(), this.getString(), null, "short", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Definition(), this.getMarkdown(), null, "definition", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Comments(), this.getMarkdown(), null, "comments", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3053,8 +3014,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		initEReference(getElementDefinition_Alias(), this.getString(), null, "alias", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Min(), this.getInteger(), null, "min", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Max(), this.getString(), null, "max", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Base(), this.getElementDefinitionBase(), null, "base", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Type(), this.getElementDefinitionTypeRef(), null, "type", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Base(), this.getElementDefinitionElement2(), null, "base", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Type(), this.getElementDefinitionElement3(), null, "type", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_NameReference(), this.getString(), null, "nameReference", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_DefaultValuex(), this.getDataType(), null, "defaultValuex", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_MeaningWhenMissing(), this.getMarkdown(), null, "meaningWhenMissing", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3065,45 +3026,84 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		initEReference(getElementDefinition_MaxValuex(), this.getDataType(), null, "maxValuex", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_MaxLength(), this.getInteger(), null, "maxLength", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_Condition(), this.getId(), null, "condition", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Constraint(), this.getElementDefinitionConstraint(), null, "constraint", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Constraint(), this.getElementDefinitionElement4(), null, "constraint", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_MustSupport(), this.getBoolean(), null, "mustSupport", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_IsModifier(), this.getBoolean(), null, "isModifier", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefinition_IsSummary(), this.getBoolean(), null, "isSummary", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Binding(), this.getElementDefinitionBinding(), null, "binding", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinition_Mapping(), this.getElementDefinitionMapping(), null, "mapping", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Binding(), this.getElementDefinitionElement5(), null, "binding", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinition_Mapping(), this.getElementDefinitionElement6(), null, "mapping", null, 0, -1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionSlicingEClass, ElementDefinitionSlicing.class, "ElementDefinitionSlicing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionSlicing_Discriminator(), this.getString(), null, "discriminator", null, 0, -1, ElementDefinitionSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionSlicing_Description(), this.getString(), null, "description", null, 0, 1, ElementDefinitionSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionSlicing_Ordered(), this.getBoolean(), null, "ordered", null, 0, 1, ElementDefinitionSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionSlicing_Rules(), this.getCode(), null, "rules", null, 1, 1, ElementDefinitionSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement1EClass, ElementDefinitionElement1.class, "ElementDefinitionElement1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement1_Discriminator(), this.getString(), null, "discriminator", null, 0, -1, ElementDefinitionElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement1_Description(), this.getString(), null, "description", null, 0, 1, ElementDefinitionElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement1_Ordered(), this.getBoolean(), null, "ordered", null, 0, 1, ElementDefinitionElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement1_Rules(), this.getCode(), null, "rules", null, 1, 1, ElementDefinitionElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionBaseEClass, ElementDefinitionBase.class, "ElementDefinitionBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionBase_Path(), this.getString(), null, "path", null, 1, 1, ElementDefinitionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionBase_Min(), this.getInteger(), null, "min", null, 1, 1, ElementDefinitionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionBase_Max(), this.getString(), null, "max", null, 1, 1, ElementDefinitionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement2EClass, ElementDefinitionElement2.class, "ElementDefinitionElement2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement2_Path(), this.getString(), null, "path", null, 1, 1, ElementDefinitionElement2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement2_Min(), this.getInteger(), null, "min", null, 1, 1, ElementDefinitionElement2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement2_Max(), this.getString(), null, "max", null, 1, 1, ElementDefinitionElement2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionTypeRefEClass, ElementDefinitionTypeRef.class, "ElementDefinitionTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionTypeRef_Code(), this.getCode(), null, "code", null, 1, 1, ElementDefinitionTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionTypeRef_Profile(), this.getUri(), null, "profile", null, 0, -1, ElementDefinitionTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionTypeRef_Aggregation(), this.getCode(), null, "aggregation", null, 0, -1, ElementDefinitionTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement3EClass, ElementDefinitionElement3.class, "ElementDefinitionElement3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement3_Code(), this.getCode(), null, "code", null, 1, 1, ElementDefinitionElement3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement3_Profile(), this.getUri(), null, "profile", null, 0, -1, ElementDefinitionElement3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement3_Aggregation(), this.getCode(), null, "aggregation", null, 0, -1, ElementDefinitionElement3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionConstraintEClass, ElementDefinitionConstraint.class, "ElementDefinitionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionConstraint_Key(), this.getId(), null, "key", null, 1, 1, ElementDefinitionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionConstraint_Requirements(), this.getString(), null, "requirements", null, 0, 1, ElementDefinitionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionConstraint_Severity(), this.getCode(), null, "severity", null, 1, 1, ElementDefinitionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionConstraint_Human(), this.getString(), null, "human", null, 1, 1, ElementDefinitionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionConstraint_Xpath(), this.getString(), null, "xpath", null, 1, 1, ElementDefinitionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement4EClass, ElementDefinitionElement4.class, "ElementDefinitionElement4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement4_Key(), this.getId(), null, "key", null, 1, 1, ElementDefinitionElement4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement4_Requirements(), this.getString(), null, "requirements", null, 0, 1, ElementDefinitionElement4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement4_Severity(), this.getCode(), null, "severity", null, 1, 1, ElementDefinitionElement4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement4_Human(), this.getString(), null, "human", null, 1, 1, ElementDefinitionElement4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement4_Xpath(), this.getString(), null, "xpath", null, 1, 1, ElementDefinitionElement4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionBindingEClass, ElementDefinitionBinding.class, "ElementDefinitionBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionBinding_Strength(), this.getCode(), null, "strength", null, 1, 1, ElementDefinitionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionBinding_Description(), this.getString(), null, "description", null, 0, 1, ElementDefinitionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionBinding_ValueSetx(), this.getBase(), null, "valueSetx", null, 0, 1, ElementDefinitionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement5EClass, ElementDefinitionElement5.class, "ElementDefinitionElement5", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement5_Strength(), this.getCode(), null, "strength", null, 1, 1, ElementDefinitionElement5.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement5_Description(), this.getString(), null, "description", null, 0, 1, ElementDefinitionElement5.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement5_ValueSetx(), this.getBase(), null, "valueSetx", null, 0, 1, ElementDefinitionElement5.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementDefinitionMappingEClass, ElementDefinitionMapping.class, "ElementDefinitionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementDefinitionMapping_Identity(), this.getId(), null, "identity", null, 1, 1, ElementDefinitionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionMapping_Language(), this.getCode(), null, "language", null, 0, 1, ElementDefinitionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementDefinitionMapping_Map(), this.getString(), null, "map", null, 1, 1, ElementDefinitionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementDefinitionElement6EClass, ElementDefinitionElement6.class, "ElementDefinitionElement6", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementDefinitionElement6_Identity(), this.getId(), null, "identity", null, 1, 1, ElementDefinitionElement6.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement6_Language(), this.getCode(), null, "language", null, 0, 1, ElementDefinitionElement6.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementDefinitionElement6_Map(), this.getString(), null, "map", null, 1, 1, ElementDefinitionElement6.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(quantityEClass, Quantity.class, "Quantity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQuantity_Value(), this.getDecimal(), null, "value", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantity_Comparator(), this.getCode(), null, "comparator", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantity_Unit(), this.getString(), null, "unit", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantity_System(), this.getUri(), null, "system", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantity_Code(), this.getCode(), null, "code", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ratioEClass, Ratio.class, "Ratio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRatio_Numerator(), this.getQuantity(), null, "numerator", null, 0, 1, Ratio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRatio_Denominator(), this.getQuantity(), null, "denominator", null, 0, 1, Ratio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(simpleQuantityEClass, SimpleQuantity.class, "SimpleQuantity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRange_Low(), this.getSimpleQuantity(), null, "low", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRange_High(), this.getSimpleQuantity(), null, "high", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timingEClass, Timing.class, "Timing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTiming_Event(), this.getDateTime(), null, "event", null, 0, -1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTiming_Repeat(), this.getTimingElement1(), null, "repeat", null, 0, 1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTiming_Code(), this.getCodeableConcept(), null, "code", null, 0, 1, Timing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timingElement1EClass, TimingElement1.class, "TimingElement1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTimingElement1_Boundsx(), this.getDataType(), null, "boundsx", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_Count(), this.getInteger(), null, "count", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_Duration(), this.getDecimal(), null, "duration", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_DurationMax(), this.getDecimal(), null, "durationMax", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_DurationUnits(), this.getCode(), null, "durationUnits", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_Frequency(), this.getInteger(), null, "frequency", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_FrequencyMax(), this.getInteger(), null, "frequencyMax", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_Period(), this.getDecimal(), null, "period", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_PeriodMax(), this.getDecimal(), null, "periodMax", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_PeriodUnits(), this.getCode(), null, "periodUnits", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingElement1_When(), this.getCode(), null, "when", null, 0, 1, TimingElement1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(moneyEClass, Money.class, "Money", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSignature_Type(), this.getCoding(), null, "type", null, 1, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3139,6 +3139,8 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		// Create annotations
 		// http://www.eclipse.org/uml2/2.0.0/UML
 		createUMLAnnotations();
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -3270,18 +3272,6 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 			 "originalName", "Narrative_Div"
 		   });	
 		addAnnotation
-		  (timingRepeatEClass, 
-		   source, 
-		   new String[] {
-			 "originalName", "Timing_Repeat"
-		   });	
-		addAnnotation
-		  (getTimingRepeat_Boundsx(), 
-		   source, 
-		   new String[] {
-			 "originalName", "bounds[x]"
-		   });	
-		addAnnotation
 		  (getElementDefinition_DefaultValuex(), 
 		   source, 
 		   new String[] {
@@ -3318,46 +3308,58 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 			 "originalName", "maxValue[x]"
 		   });	
 		addAnnotation
-		  (elementDefinitionSlicingEClass, 
+		  (elementDefinitionElement1EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_Slicing"
+			 "originalName", "ElementDefinitionElement-1"
 		   });	
 		addAnnotation
-		  (elementDefinitionBaseEClass, 
+		  (elementDefinitionElement2EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_Base"
+			 "originalName", "ElementDefinitionElement-2"
 		   });	
 		addAnnotation
-		  (elementDefinitionTypeRefEClass, 
+		  (elementDefinitionElement3EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_TypeRef"
+			 "originalName", "ElementDefinitionElement-3"
 		   });	
 		addAnnotation
-		  (elementDefinitionConstraintEClass, 
+		  (elementDefinitionElement4EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_Constraint"
+			 "originalName", "ElementDefinitionElement-4"
 		   });	
 		addAnnotation
-		  (elementDefinitionBindingEClass, 
+		  (elementDefinitionElement5EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_Binding"
+			 "originalName", "ElementDefinitionElement-5"
 		   });	
 		addAnnotation
-		  (getElementDefinitionBinding_ValueSetx(), 
+		  (getElementDefinitionElement5_ValueSetx(), 
 		   source, 
 		   new String[] {
 			 "originalName", "valueSet[x]"
 		   });	
 		addAnnotation
-		  (elementDefinitionMappingEClass, 
+		  (elementDefinitionElement6EClass, 
 		   source, 
 		   new String[] {
-			 "originalName", "ElementDefinition_Mapping"
+			 "originalName", "ElementDefinitionElement-6"
+		   });	
+		addAnnotation
+		  (timingElement1EClass, 
+		   source, 
+		   new String[] {
+			 "originalName", "TimingElement-1"
+		   });	
+		addAnnotation
+		  (getTimingElement1_Boundsx(), 
+		   source, 
+		   new String[] {
+			 "originalName", "bounds[x]"
 		   });	
 		addAnnotation
 		  (getSignature_Whox(), 
@@ -3370,6 +3372,76 @@ public class FhirDatatypePackageImpl extends EPackageImpl implements FhirDatatyp
 		   source, 
 		   new String[] {
 			 "originalName", "uuid"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		addAnnotation
+		  (getString_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getUri_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getBoolean_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getInteger_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getDecimal_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getBase64Binary_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getInstant_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getDate_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getDateTime_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });	
+		addAnnotation
+		  (getTime_Value(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
 		   });
 	}
 

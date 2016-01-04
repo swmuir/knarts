@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -35,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getEncodeRequestUrl <em>Encode Request Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptOperation#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getRequestHeader <em>Request Header</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getResponseId <em>Response Id</em>}</li>
@@ -209,7 +200,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Which server to perform the operation on.
+	 * The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Destination</em>' containment reference.
 	 * @see #setDestination(org.hl7.fhir.Integer)
@@ -255,6 +246,32 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @generated
 	 */
 	void setEncodeRequestUrl(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Origin</em>' containment reference.
+	 * @see #setOrigin(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_Origin()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getOrigin();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getOrigin <em>Origin</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Origin</em>' containment reference.
+	 * @see #getOrigin()
+	 * @generated
+	 */
+	void setOrigin(org.hl7.fhir.Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Params</b></em>' containment reference.

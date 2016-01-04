@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,7 +37,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
  *
  * @generated
  */
-public class BackboneElementImpl extends DataTypeImpl implements BackboneElement {
+public abstract class BackboneElementImpl extends DataTypeImpl implements BackboneElement {
 	/**
 	 * The cached value of the '{@link #getModifierExtensions() <em>Modifier Extension</em>}' reference list.
 	 * <!-- begin-user-doc -->

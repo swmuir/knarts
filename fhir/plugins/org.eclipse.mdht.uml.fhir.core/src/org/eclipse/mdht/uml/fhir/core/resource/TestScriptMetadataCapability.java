@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,6 +29,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getRequired <em>Required</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getValidated <em>Validated</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getOrigins <em>Origin</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getLinks <em>Link</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability#getConformance <em>Conformance</em>}</li>
@@ -116,6 +117,22 @@ public interface TestScriptMetadataCapability extends BackboneElement {
 	 * @generated
 	 */
 	void setDescription(org.eclipse.mdht.uml.fhir.core.datatype.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.Integer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Origin</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Origin</em>' reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getTestScriptMetadataCapability_Origin()
+	 * @model
+	 * @generated
+	 */
+	EList<org.eclipse.mdht.uml.fhir.core.datatype.Integer> getOrigins();
 
 	/**
 	 * Returns the value of the '<em><b>Destination</b></em>' reference.

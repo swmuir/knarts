@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
+import org.eclipse.mdht.uml.fhir.core.datatype.Date;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
 
@@ -53,6 +54,7 @@ import org.eclipse.mdht.uml.fhir.core.resource.Resource;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.PaymentNoticeImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.PaymentNoticeImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.PaymentNoticeImpl#getPaymentStatus <em>Payment Status</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.PaymentNoticeImpl#getStatusDate <em>Status Date</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +159,16 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * @ordered
 	 */
 	protected Coding paymentStatus;
+
+	/**
+	 * The cached value of the '{@link #getStatusDate() <em>Status Date</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date statusDate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -536,6 +548,44 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Date getStatusDate() {
+		if (statusDate != null && statusDate.eIsProxy()) {
+			InternalEObject oldStatusDate = (InternalEObject)statusDate;
+			statusDate = (Date)eResolveProxy(oldStatusDate);
+			if (statusDate != oldStatusDate) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE, oldStatusDate, statusDate));
+			}
+		}
+		return statusDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date basicGetStatusDate() {
+		return statusDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusDate(Date newStatusDate) {
+		Date oldStatusDate = statusDate;
+		statusDate = newStatusDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE, oldStatusDate, statusDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -568,6 +618,9 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 			case FhirResourcePackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				if (resolve) return getPaymentStatus();
 				return basicGetPaymentStatus();
+			case FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE:
+				if (resolve) return getStatusDate();
+				return basicGetStatusDate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -612,6 +665,9 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 			case FhirResourcePackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				setPaymentStatus((Coding)newValue);
 				return;
+			case FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE:
+				setStatusDate((Date)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -654,6 +710,9 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 			case FhirResourcePackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				setPaymentStatus((Coding)null);
 				return;
+			case FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE:
+				setStatusDate((Date)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -686,6 +745,8 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 				return response != null;
 			case FhirResourcePackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				return paymentStatus != null;
+			case FhirResourcePackage.PAYMENT_NOTICE__STATUS_DATE:
+				return statusDate != null;
 		}
 		return super.eIsSet(featureID);
 	}

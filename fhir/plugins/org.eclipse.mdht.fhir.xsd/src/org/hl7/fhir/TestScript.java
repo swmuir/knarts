@@ -32,6 +32,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScript#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getMetadata <em>Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScript#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScript#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getMultiserver <em>Multiserver</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getProfile <em>Profile</em>}</li>
@@ -389,6 +391,38 @@ public interface TestScript extends DomainResource {
 	 * @generated
 	 */
 	void setMetadata(TestScriptMetadata value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TestScriptOrigin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An abstract server used in operations within this test script in the origin element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Origin</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTestScript_Origin()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<TestScriptOrigin> getOrigin();
+
+	/**
+	 * Returns the value of the '<em><b>Destination</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TestScriptDestination}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An abstract server used in operations within this test script in the destination element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Destination</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTestScript_Destination()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='destination' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<TestScriptDestination> getDestination();
 
 	/**
 	 * Returns the value of the '<em><b>Multiserver</b></em>' containment reference.

@@ -761,6 +761,9 @@ public class ModelImporter implements ModelConstants {
 			if (ownerElement instanceof Class) {
 				ownerClass = (Class) ownerElement;
 			}
+			else if (ownerElement instanceof Property && ((Property)ownerElement).getUpper() == 0) {
+				continue;
+			}
 			else if (ownerElement instanceof Property && ((Property)ownerElement).getType() != null) {
 				// Test for null type required for a mis-formed profile, sub-path elements on a prohibited parent, multiplicity 0..0
 				// this may be called recursively for multi-segment paths in a constraint profile
@@ -828,15 +831,28 @@ public class ModelImporter implements ModelConstants {
 			if (inheritedProperty == null) {
 				inheritedProperty = org.eclipse.mdht.uml.common.util.UMLUtil.getInheritedProperty(ownerClass, propertyName);
 			}
+			
+			// Some profiles (including ConsentDirective) have BackboneElement type for inherited property
+			if (inheritedProperty != null) {
+				List<Classifier> typeListCopy = new ArrayList<Classifier>(typeList);
+				for (Classifier classifier : typeListCopy) {
+					if (BACKBONE_ELEMENT_CLASS_NAME.equals(classifier.getName())) {
+						typeList.remove(classifier);
+					}
+				}
+			}
 
-			 // Get inherited property.  If typeList is empty, and inherited not null, add inherited property type to typeList.
+			 // If typeList is empty, and inherited property not null, add inherited property type to typeList.
 			if (!isProhibitedElement && typeList.isEmpty() && inheritedProperty != null 
 					&& inheritedProperty.getType() instanceof Classifier) {
 				typeList.add((Classifier)inheritedProperty.getType());
 			}
 			
 			Classifier propertyType = null;
-			if (primitiveType != null) {
+			if (isProhibitedElement) {
+				propertyType = null;
+			}
+			else if (primitiveType != null) {
 				propertyType = primitiveType;
 			}
 			else if (elementDef.getNameReference() != null) {
@@ -847,7 +863,7 @@ public class ModelImporter implements ModelConstants {
 							+ownerClass.getName() + " at path: "+ path);
 				}
 			}
-			else if (!isProhibitedElement && typeList.isEmpty()) {
+			else if (typeList.isEmpty() || BACKBONE_ELEMENT_CLASS_NAME.equals(typeList.get(0).getName())) {
 				// create a new nested class
 				String nestedClassName = getClassName(elementDef);
 				propertyType = (Class) ownerClass.createNestedClassifier(nestedClassName, UMLPackage.eINSTANCE.getClass_());

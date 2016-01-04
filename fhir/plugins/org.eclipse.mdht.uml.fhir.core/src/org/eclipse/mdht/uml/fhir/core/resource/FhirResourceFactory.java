@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -176,463 +176,193 @@ public interface FhirResourceFactory extends EFactory {
 	Device createDevice();
 
 	/**
-	 * Returns a new object of class '<em>Appointment</em>'.
+	 * Returns a new object of class '<em>Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Appointment</em>'.
+	 * @return a new object of class '<em>Library</em>'.
 	 * @generated
 	 */
-	Appointment createAppointment();
+	Library createLibrary();
 
 	/**
-	 * Returns a new object of class '<em>Slot</em>'.
+	 * Returns a new object of class '<em>Module Metadata</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Slot</em>'.
+	 * @return a new object of class '<em>Module Metadata</em>'.
 	 * @generated
 	 */
-	Slot createSlot();
+	ModuleMetadata createModuleMetadata();
 
 	/**
-	 * Returns a new object of class '<em>Schedule</em>'.
+	 * Returns a new object of class '<em>Module Metadata Coverage</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schedule</em>'.
+	 * @return a new object of class '<em>Module Metadata Coverage</em>'.
 	 * @generated
 	 */
-	Schedule createSchedule();
+	ModuleMetadataCoverage createModuleMetadataCoverage();
 
 	/**
-	 * Returns a new object of class '<em>Appointment Participant</em>'.
+	 * Returns a new object of class '<em>Module Metadata Contributor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Appointment Participant</em>'.
+	 * @return a new object of class '<em>Module Metadata Contributor</em>'.
 	 * @generated
 	 */
-	AppointmentParticipant createAppointmentParticipant();
+	ModuleMetadataContributor createModuleMetadataContributor();
 
 	/**
-	 * Returns a new object of class '<em>Account</em>'.
+	 * Returns a new object of class '<em>Module Metadata Related Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Account</em>'.
+	 * @return a new object of class '<em>Module Metadata Related Resource</em>'.
 	 * @generated
 	 */
-	Account createAccount();
+	ModuleMetadataRelatedResource createModuleMetadataRelatedResource();
 
 	/**
-	 * Returns a new object of class '<em>Referral Request</em>'.
+	 * Returns a new object of class '<em>Module Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Referral Request</em>'.
+	 * @return a new object of class '<em>Module Definition</em>'.
 	 * @generated
 	 */
-	ReferralRequest createReferralRequest();
+	ModuleDefinition createModuleDefinition();
 
 	/**
-	 * Returns a new object of class '<em>Encounter</em>'.
+	 * Returns a new object of class '<em>Module Definition Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Encounter</em>'.
+	 * @return a new object of class '<em>Module Definition Model</em>'.
 	 * @generated
 	 */
-	Encounter createEncounter();
+	ModuleDefinitionModel createModuleDefinitionModel();
 
 	/**
-	 * Returns a new object of class '<em>Encounter Status History</em>'.
+	 * Returns a new object of class '<em>Module Definition Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Encounter Status History</em>'.
+	 * @return a new object of class '<em>Module Definition Library</em>'.
 	 * @generated
 	 */
-	EncounterStatusHistory createEncounterStatusHistory();
+	ModuleDefinitionLibrary createModuleDefinitionLibrary();
 
 	/**
-	 * Returns a new object of class '<em>Episode Of Care</em>'.
+	 * Returns a new object of class '<em>Module Definition Code System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Episode Of Care</em>'.
+	 * @return a new object of class '<em>Module Definition Code System</em>'.
 	 * @generated
 	 */
-	EpisodeOfCare createEpisodeOfCare();
+	ModuleDefinitionCodeSystem createModuleDefinitionCodeSystem();
 
 	/**
-	 * Returns a new object of class '<em>Episode Of Care Status History</em>'.
+	 * Returns a new object of class '<em>Module Definition Value Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Episode Of Care Status History</em>'.
+	 * @return a new object of class '<em>Module Definition Value Set</em>'.
 	 * @generated
 	 */
-	EpisodeOfCareStatusHistory createEpisodeOfCareStatusHistory();
+	ModuleDefinitionValueSet createModuleDefinitionValueSet();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
+	 * Returns a new object of class '<em>Module Definition Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
+	 * @return a new object of class '<em>Module Definition Parameter</em>'.
 	 * @generated
 	 */
-	Condition createCondition();
+	ModuleDefinitionParameter createModuleDefinitionParameter();
 
 	/**
-	 * Returns a new object of class '<em>Condition Stage</em>'.
+	 * Returns a new object of class '<em>Structure Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition Stage</em>'.
+	 * @return a new object of class '<em>Structure Definition</em>'.
 	 * @generated
 	 */
-	ConditionStage createConditionStage();
+	StructureDefinition createStructureDefinition();
 
 	/**
-	 * Returns a new object of class '<em>Condition Evidence</em>'.
+	 * Returns a new object of class '<em>Structure Definition Contact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition Evidence</em>'.
+	 * @return a new object of class '<em>Structure Definition Contact</em>'.
 	 * @generated
 	 */
-	ConditionEvidence createConditionEvidence();
+	StructureDefinitionContact createStructureDefinitionContact();
 
 	/**
-	 * Returns a new object of class '<em>Episode Of Care Care Team</em>'.
+	 * Returns a new object of class '<em>Structure Definition Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Episode Of Care Care Team</em>'.
+	 * @return a new object of class '<em>Structure Definition Mapping</em>'.
 	 * @generated
 	 */
-	EpisodeOfCareCareTeam createEpisodeOfCareCareTeam();
+	StructureDefinitionMapping createStructureDefinitionMapping();
 
 	/**
-	 * Returns a new object of class '<em>Encounter Participant</em>'.
+	 * Returns a new object of class '<em>Structure Definition Snapshot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Encounter Participant</em>'.
+	 * @return a new object of class '<em>Structure Definition Snapshot</em>'.
 	 * @generated
 	 */
-	EncounterParticipant createEncounterParticipant();
+	StructureDefinitionSnapshot createStructureDefinitionSnapshot();
 
 	/**
-	 * Returns a new object of class '<em>Encounter Hospitalization</em>'.
+	 * Returns a new object of class '<em>Structure Definition Differential</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Encounter Hospitalization</em>'.
+	 * @return a new object of class '<em>Structure Definition Differential</em>'.
 	 * @generated
 	 */
-	EncounterHospitalization createEncounterHospitalization();
+	StructureDefinitionDifferential createStructureDefinitionDifferential();
 
 	/**
-	 * Returns a new object of class '<em>Encounter Location</em>'.
+	 * Returns a new object of class '<em>Module Definition Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Encounter Location</em>'.
+	 * @return a new object of class '<em>Module Definition Data</em>'.
 	 * @generated
 	 */
-	EncounterLocation createEncounterLocation();
+	ModuleDefinitionData createModuleDefinitionData();
 
 	/**
-	 * Returns a new object of class '<em>Clinical Impression</em>'.
+	 * Returns a new object of class '<em>Module Definition Data Code Filter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clinical Impression</em>'.
+	 * @return a new object of class '<em>Module Definition Data Code Filter</em>'.
 	 * @generated
 	 */
-	ClinicalImpression createClinicalImpression();
+	ModuleDefinitionDataCodeFilter createModuleDefinitionDataCodeFilter();
 
 	/**
-	 * Returns a new object of class '<em>Clinical Impression Investigations</em>'.
+	 * Returns a new object of class '<em>Module Definition Data Date Filter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clinical Impression Investigations</em>'.
+	 * @return a new object of class '<em>Module Definition Data Date Filter</em>'.
 	 * @generated
 	 */
-	ClinicalImpressionInvestigations createClinicalImpressionInvestigations();
+	ModuleDefinitionDataDateFilter createModuleDefinitionDataDateFilter();
 
 	/**
-	 * Returns a new object of class '<em>Clinical Impression Finding</em>'.
+	 * Returns a new object of class '<em>Person</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clinical Impression Finding</em>'.
+	 * @return a new object of class '<em>Person</em>'.
 	 * @generated
 	 */
-	ClinicalImpressionFinding createClinicalImpressionFinding();
+	Person createPerson();
 
 	/**
-	 * Returns a new object of class '<em>Clinical Impression Ruled Out</em>'.
+	 * Returns a new object of class '<em>Person Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clinical Impression Ruled Out</em>'.
+	 * @return a new object of class '<em>Person Link</em>'.
 	 * @generated
 	 */
-	ClinicalImpressionRuledOut createClinicalImpressionRuledOut();
-
-	/**
-	 * Returns a new object of class '<em>Allergy Intolerance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Allergy Intolerance</em>'.
-	 * @generated
-	 */
-	AllergyIntolerance createAllergyIntolerance();
-
-	/**
-	 * Returns a new object of class '<em>Allergy Intolerance Reaction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Allergy Intolerance Reaction</em>'.
-	 * @generated
-	 */
-	AllergyIntoleranceReaction createAllergyIntoleranceReaction();
-
-	/**
-	 * Returns a new object of class '<em>Observation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observation</em>'.
-	 * @generated
-	 */
-	Observation createObservation();
-
-	/**
-	 * Returns a new object of class '<em>Specimen</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specimen</em>'.
-	 * @generated
-	 */
-	Specimen createSpecimen();
-
-	/**
-	 * Returns a new object of class '<em>Specimen Collection</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specimen Collection</em>'.
-	 * @generated
-	 */
-	SpecimenCollection createSpecimenCollection();
-
-	/**
-	 * Returns a new object of class '<em>Specimen Treatment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specimen Treatment</em>'.
-	 * @generated
-	 */
-	SpecimenTreatment createSpecimenTreatment();
-
-	/**
-	 * Returns a new object of class '<em>Substance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Substance</em>'.
-	 * @generated
-	 */
-	Substance createSubstance();
-
-	/**
-	 * Returns a new object of class '<em>Substance Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Substance Instance</em>'.
-	 * @generated
-	 */
-	SubstanceInstance createSubstanceInstance();
-
-	/**
-	 * Returns a new object of class '<em>Substance Ingredient</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Substance Ingredient</em>'.
-	 * @generated
-	 */
-	SubstanceIngredient createSubstanceIngredient();
-
-	/**
-	 * Returns a new object of class '<em>Specimen Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specimen Container</em>'.
-	 * @generated
-	 */
-	SpecimenContainer createSpecimenContainer();
-
-	/**
-	 * Returns a new object of class '<em>Observation Reference Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observation Reference Range</em>'.
-	 * @generated
-	 */
-	ObservationReferenceRange createObservationReferenceRange();
-
-	/**
-	 * Returns a new object of class '<em>Observation Related</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observation Related</em>'.
-	 * @generated
-	 */
-	ObservationRelated createObservationRelated();
-
-	/**
-	 * Returns a new object of class '<em>Observation Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observation Component</em>'.
-	 * @generated
-	 */
-	ObservationComponent createObservationComponent();
-
-	/**
-	 * Returns a new object of class '<em>Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Group</em>'.
-	 * @generated
-	 */
-	Group createGroup();
-
-	/**
-	 * Returns a new object of class '<em>Group Characteristic</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Group Characteristic</em>'.
-	 * @generated
-	 */
-	GroupCharacteristic createGroupCharacteristic();
-
-	/**
-	 * Returns a new object of class '<em>Group Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Group Member</em>'.
-	 * @generated
-	 */
-	GroupMember createGroupMember();
-
-	/**
-	 * Returns a new object of class '<em>Medication</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication</em>'.
-	 * @generated
-	 */
-	Medication createMedication();
-
-	/**
-	 * Returns a new object of class '<em>Medication Product</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Product</em>'.
-	 * @generated
-	 */
-	MedicationProduct createMedicationProduct();
-
-	/**
-	 * Returns a new object of class '<em>Medication Product Ingredient</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Product Ingredient</em>'.
-	 * @generated
-	 */
-	MedicationProductIngredient createMedicationProductIngredient();
-
-	/**
-	 * Returns a new object of class '<em>Medication Product Batch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Product Batch</em>'.
-	 * @generated
-	 */
-	MedicationProductBatch createMedicationProductBatch();
-
-	/**
-	 * Returns a new object of class '<em>Medication Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Package</em>'.
-	 * @generated
-	 */
-	MedicationPackage createMedicationPackage();
-
-	/**
-	 * Returns a new object of class '<em>Medication Package Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Package Content</em>'.
-	 * @generated
-	 */
-	MedicationPackageContent createMedicationPackageContent();
-
-	/**
-	 * Returns a new object of class '<em>Device Metric</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Device Metric</em>'.
-	 * @generated
-	 */
-	DeviceMetric createDeviceMetric();
-
-	/**
-	 * Returns a new object of class '<em>Device Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Device Component</em>'.
-	 * @generated
-	 */
-	DeviceComponent createDeviceComponent();
-
-	/**
-	 * Returns a new object of class '<em>Device Component Production Specification</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Device Component Production Specification</em>'.
-	 * @generated
-	 */
-	DeviceComponentProductionSpecification createDeviceComponentProductionSpecification();
-
-	/**
-	 * Returns a new object of class '<em>Device Metric Calibration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Device Metric Calibration</em>'.
-	 * @generated
-	 */
-	DeviceMetricCalibration createDeviceMetricCalibration();
-
-	/**
-	 * Returns a new object of class '<em>Questionnaire Response</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Response</em>'.
-	 * @generated
-	 */
-	QuestionnaireResponse createQuestionnaireResponse();
-
-	/**
-	 * Returns a new object of class '<em>Questionnaire</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire</em>'.
-	 * @generated
-	 */
-	Questionnaire createQuestionnaire();
-
-	/**
-	 * Returns a new object of class '<em>Questionnaire Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Group</em>'.
-	 * @generated
-	 */
-	QuestionnaireGroup createQuestionnaireGroup();
-
-	/**
-	 * Returns a new object of class '<em>Questionnaire Group Question</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Group Question</em>'.
-	 * @generated
-	 */
-	QuestionnaireGroupQuestion createQuestionnaireGroupQuestion();
+	PersonLink createPersonLink();
 
 	/**
 	 * Returns a new object of class '<em>Value Set</em>'.
@@ -743,31 +473,499 @@ public interface FhirResourceFactory extends EFactory {
 	ValueSetExpansionContains createValueSetExpansionContains();
 
 	/**
-	 * Returns a new object of class '<em>Questionnaire Response Group</em>'.
+	 * Returns a new object of class '<em>Communication</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Response Group</em>'.
+	 * @return a new object of class '<em>Communication</em>'.
 	 * @generated
 	 */
-	QuestionnaireResponseGroup createQuestionnaireResponseGroup();
+	Communication createCommunication();
 
 	/**
-	 * Returns a new object of class '<em>Questionnaire Response Group Question</em>'.
+	 * Returns a new object of class '<em>Communication Payload</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Response Group Question</em>'.
+	 * @return a new object of class '<em>Communication Payload</em>'.
 	 * @generated
 	 */
-	QuestionnaireResponseGroupQuestion createQuestionnaireResponseGroupQuestion();
+	CommunicationPayload createCommunicationPayload();
 
 	/**
-	 * Returns a new object of class '<em>Questionnaire Response Group Question Answer</em>'.
+	 * Returns a new object of class '<em>Encounter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire Response Group Question Answer</em>'.
+	 * @return a new object of class '<em>Encounter</em>'.
 	 * @generated
 	 */
-	QuestionnaireResponseGroupQuestionAnswer createQuestionnaireResponseGroupQuestionAnswer();
+	Encounter createEncounter();
+
+	/**
+	 * Returns a new object of class '<em>Encounter Status History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Encounter Status History</em>'.
+	 * @generated
+	 */
+	EncounterStatusHistory createEncounterStatusHistory();
+
+	/**
+	 * Returns a new object of class '<em>Episode Of Care</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Episode Of Care</em>'.
+	 * @generated
+	 */
+	EpisodeOfCare createEpisodeOfCare();
+
+	/**
+	 * Returns a new object of class '<em>Episode Of Care Status History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Episode Of Care Status History</em>'.
+	 * @generated
+	 */
+	EpisodeOfCareStatusHistory createEpisodeOfCareStatusHistory();
+
+	/**
+	 * Returns a new object of class '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition</em>'.
+	 * @generated
+	 */
+	Condition createCondition();
+
+	/**
+	 * Returns a new object of class '<em>Condition Stage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition Stage</em>'.
+	 * @generated
+	 */
+	ConditionStage createConditionStage();
+
+	/**
+	 * Returns a new object of class '<em>Condition Evidence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition Evidence</em>'.
+	 * @generated
+	 */
+	ConditionEvidence createConditionEvidence();
+
+	/**
+	 * Returns a new object of class '<em>Referral Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Referral Request</em>'.
+	 * @generated
+	 */
+	ReferralRequest createReferralRequest();
+
+	/**
+	 * Returns a new object of class '<em>Episode Of Care Care Team</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Episode Of Care Care Team</em>'.
+	 * @generated
+	 */
+	EpisodeOfCareCareTeam createEpisodeOfCareCareTeam();
+
+	/**
+	 * Returns a new object of class '<em>Encounter Participant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Encounter Participant</em>'.
+	 * @generated
+	 */
+	EncounterParticipant createEncounterParticipant();
+
+	/**
+	 * Returns a new object of class '<em>Appointment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Appointment</em>'.
+	 * @generated
+	 */
+	Appointment createAppointment();
+
+	/**
+	 * Returns a new object of class '<em>Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slot</em>'.
+	 * @generated
+	 */
+	Slot createSlot();
+
+	/**
+	 * Returns a new object of class '<em>Schedule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schedule</em>'.
+	 * @generated
+	 */
+	Schedule createSchedule();
+
+	/**
+	 * Returns a new object of class '<em>Appointment Participant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Appointment Participant</em>'.
+	 * @generated
+	 */
+	AppointmentParticipant createAppointmentParticipant();
+
+	/**
+	 * Returns a new object of class '<em>Encounter Hospitalization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Encounter Hospitalization</em>'.
+	 * @generated
+	 */
+	EncounterHospitalization createEncounterHospitalization();
+
+	/**
+	 * Returns a new object of class '<em>Encounter Location</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Encounter Location</em>'.
+	 * @generated
+	 */
+	EncounterLocation createEncounterLocation();
+
+	/**
+	 * Returns a new object of class '<em>Communication Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Communication Request</em>'.
+	 * @generated
+	 */
+	CommunicationRequest createCommunicationRequest();
+
+	/**
+	 * Returns a new object of class '<em>Communication Request Payload</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Communication Request Payload</em>'.
+	 * @generated
+	 */
+	CommunicationRequestPayload createCommunicationRequestPayload();
+
+	/**
+	 * Returns a new object of class '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group</em>'.
+	 * @generated
+	 */
+	Group createGroup();
+
+	/**
+	 * Returns a new object of class '<em>Group Characteristic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group Characteristic</em>'.
+	 * @generated
+	 */
+	GroupCharacteristic createGroupCharacteristic();
+
+	/**
+	 * Returns a new object of class '<em>Group Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group Member</em>'.
+	 * @generated
+	 */
+	GroupMember createGroupMember();
+
+	/**
+	 * Returns a new object of class '<em>Medication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication</em>'.
+	 * @generated
+	 */
+	Medication createMedication();
+
+	/**
+	 * Returns a new object of class '<em>Medication Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Product</em>'.
+	 * @generated
+	 */
+	MedicationProduct createMedicationProduct();
+
+	/**
+	 * Returns a new object of class '<em>Medication Product Ingredient</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Product Ingredient</em>'.
+	 * @generated
+	 */
+	MedicationProductIngredient createMedicationProductIngredient();
+
+	/**
+	 * Returns a new object of class '<em>Medication Product Batch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Product Batch</em>'.
+	 * @generated
+	 */
+	MedicationProductBatch createMedicationProductBatch();
+
+	/**
+	 * Returns a new object of class '<em>Medication Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Package</em>'.
+	 * @generated
+	 */
+	MedicationPackage createMedicationPackage();
+
+	/**
+	 * Returns a new object of class '<em>Medication Package Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Package Content</em>'.
+	 * @generated
+	 */
+	MedicationPackageContent createMedicationPackageContent();
+
+	/**
+	 * Returns a new object of class '<em>Substance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Substance</em>'.
+	 * @generated
+	 */
+	Substance createSubstance();
+
+	/**
+	 * Returns a new object of class '<em>Substance Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Substance Instance</em>'.
+	 * @generated
+	 */
+	SubstanceInstance createSubstanceInstance();
+
+	/**
+	 * Returns a new object of class '<em>Substance Ingredient</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Substance Ingredient</em>'.
+	 * @generated
+	 */
+	SubstanceIngredient createSubstanceIngredient();
+
+	/**
+	 * Returns a new object of class '<em>Clinical Impression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clinical Impression</em>'.
+	 * @generated
+	 */
+	ClinicalImpression createClinicalImpression();
+
+	/**
+	 * Returns a new object of class '<em>Clinical Impression Investigations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clinical Impression Investigations</em>'.
+	 * @generated
+	 */
+	ClinicalImpressionInvestigations createClinicalImpressionInvestigations();
+
+	/**
+	 * Returns a new object of class '<em>Clinical Impression Finding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clinical Impression Finding</em>'.
+	 * @generated
+	 */
+	ClinicalImpressionFinding createClinicalImpressionFinding();
+
+	/**
+	 * Returns a new object of class '<em>Clinical Impression Ruled Out</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clinical Impression Ruled Out</em>'.
+	 * @generated
+	 */
+	ClinicalImpressionRuledOut createClinicalImpressionRuledOut();
+
+	/**
+	 * Returns a new object of class '<em>Allergy Intolerance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Allergy Intolerance</em>'.
+	 * @generated
+	 */
+	AllergyIntolerance createAllergyIntolerance();
+
+	/**
+	 * Returns a new object of class '<em>Allergy Intolerance Reaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Allergy Intolerance Reaction</em>'.
+	 * @generated
+	 */
+	AllergyIntoleranceReaction createAllergyIntoleranceReaction();
+
+	/**
+	 * Returns a new object of class '<em>Observation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Observation</em>'.
+	 * @generated
+	 */
+	Observation createObservation();
+
+	/**
+	 * Returns a new object of class '<em>Specimen</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specimen</em>'.
+	 * @generated
+	 */
+	Specimen createSpecimen();
+
+	/**
+	 * Returns a new object of class '<em>Specimen Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specimen Collection</em>'.
+	 * @generated
+	 */
+	SpecimenCollection createSpecimenCollection();
+
+	/**
+	 * Returns a new object of class '<em>Specimen Treatment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specimen Treatment</em>'.
+	 * @generated
+	 */
+	SpecimenTreatment createSpecimenTreatment();
+
+	/**
+	 * Returns a new object of class '<em>Specimen Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specimen Container</em>'.
+	 * @generated
+	 */
+	SpecimenContainer createSpecimenContainer();
+
+	/**
+	 * Returns a new object of class '<em>Observation Reference Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Observation Reference Range</em>'.
+	 * @generated
+	 */
+	ObservationReferenceRange createObservationReferenceRange();
+
+	/**
+	 * Returns a new object of class '<em>Observation Related</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Observation Related</em>'.
+	 * @generated
+	 */
+	ObservationRelated createObservationRelated();
+
+	/**
+	 * Returns a new object of class '<em>Observation Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Observation Component</em>'.
+	 * @generated
+	 */
+	ObservationComponent createObservationComponent();
+
+	/**
+	 * Returns a new object of class '<em>Device Metric</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device Metric</em>'.
+	 * @generated
+	 */
+	DeviceMetric createDeviceMetric();
+
+	/**
+	 * Returns a new object of class '<em>Device Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device Component</em>'.
+	 * @generated
+	 */
+	DeviceComponent createDeviceComponent();
+
+	/**
+	 * Returns a new object of class '<em>Device Component Production Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device Component Production Specification</em>'.
+	 * @generated
+	 */
+	DeviceComponentProductionSpecification createDeviceComponentProductionSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Device Metric Calibration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device Metric Calibration</em>'.
+	 * @generated
+	 */
+	DeviceMetricCalibration createDeviceMetricCalibration();
+
+	/**
+	 * Returns a new object of class '<em>Questionnaire Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Questionnaire Response</em>'.
+	 * @generated
+	 */
+	QuestionnaireResponse createQuestionnaireResponse();
+
+	/**
+	 * Returns a new object of class '<em>Questionnaire</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Questionnaire</em>'.
+	 * @generated
+	 */
+	Questionnaire createQuestionnaire();
+
+	/**
+	 * Returns a new object of class '<em>Questionnaire Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Questionnaire Item</em>'.
+	 * @generated
+	 */
+	QuestionnaireItem createQuestionnaireItem();
+
+	/**
+	 * Returns a new object of class '<em>Questionnaire Response Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Questionnaire Response Item</em>'.
+	 * @generated
+	 */
+	QuestionnaireResponseItem createQuestionnaireResponseItem();
+
+	/**
+	 * Returns a new object of class '<em>Questionnaire Response Item Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Questionnaire Response Item Answer</em>'.
+	 * @generated
+	 */
+	QuestionnaireResponseItemAnswer createQuestionnaireResponseItemAnswer();
 
 	/**
 	 * Returns a new object of class '<em>Family Member History</em>'.
@@ -1121,24 +1319,6 @@ public interface FhirResourceFactory extends EFactory {
 	RiskAssessmentPrediction createRiskAssessmentPrediction();
 
 	/**
-	 * Returns a new object of class '<em>Communication Request</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Request</em>'.
-	 * @generated
-	 */
-	CommunicationRequest createCommunicationRequest();
-
-	/**
-	 * Returns a new object of class '<em>Communication Request Payload</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Request Payload</em>'.
-	 * @generated
-	 */
-	CommunicationRequestPayload createCommunicationRequestPayload();
-
-	/**
 	 * Returns a new object of class '<em>Device Use Request</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1301,49 +1481,166 @@ public interface FhirResourceFactory extends EFactory {
 	ImagingObjectSelectionStudySeriesInstanceFrames createImagingObjectSelectionStudySeriesInstanceFrames();
 
 	/**
-	 * Returns a new object of class '<em>Document Manifest</em>'.
+	 * Returns a new object of class '<em>Naming System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Document Manifest</em>'.
+	 * @return a new object of class '<em>Naming System</em>'.
 	 * @generated
 	 */
-	DocumentManifest createDocumentManifest();
+	NamingSystem createNamingSystem();
 
 	/**
-	 * Returns a new object of class '<em>Document Manifest Content</em>'.
+	 * Returns a new object of class '<em>Naming System Contact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Document Manifest Content</em>'.
+	 * @return a new object of class '<em>Naming System Contact</em>'.
 	 * @generated
 	 */
-	DocumentManifestContent createDocumentManifestContent();
+	NamingSystemContact createNamingSystemContact();
 
 	/**
-	 * Returns a new object of class '<em>Document Manifest Related</em>'.
+	 * Returns a new object of class '<em>Naming System Unique Id</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Document Manifest Related</em>'.
+	 * @return a new object of class '<em>Naming System Unique Id</em>'.
 	 * @generated
 	 */
-	DocumentManifestRelated createDocumentManifestRelated();
+	NamingSystemUniqueId createNamingSystemUniqueId();
 
 	/**
-	 * Returns a new object of class '<em>Enrollment Request</em>'.
+	 * Returns a new object of class '<em>Decision Support Service Module</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enrollment Request</em>'.
+	 * @return a new object of class '<em>Decision Support Service Module</em>'.
 	 * @generated
 	 */
-	EnrollmentRequest createEnrollmentRequest();
+	DecisionSupportServiceModule createDecisionSupportServiceModule();
 
 	/**
-	 * Returns a new object of class '<em>Coverage</em>'.
+	 * Returns a new object of class '<em>Decision Support Service Module Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Coverage</em>'.
+	 * @return a new object of class '<em>Decision Support Service Module Parameter</em>'.
 	 * @generated
 	 */
-	Coverage createCoverage();
+	DecisionSupportServiceModuleParameter createDecisionSupportServiceModuleParameter();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Service Module Parameter Code Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Service Module Parameter Code Filter</em>'.
+	 * @generated
+	 */
+	DecisionSupportServiceModuleParameterCodeFilter createDecisionSupportServiceModuleParameterCodeFilter();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Service Module Parameter Date Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Service Module Parameter Date Filter</em>'.
+	 * @generated
+	 */
+	DecisionSupportServiceModuleParameterDateFilter createDecisionSupportServiceModuleParameterDateFilter();
+
+	/**
+	 * Returns a new object of class '<em>Concept Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Map</em>'.
+	 * @generated
+	 */
+	ConceptMap createConceptMap();
+
+	/**
+	 * Returns a new object of class '<em>Concept Map Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Map Contact</em>'.
+	 * @generated
+	 */
+	ConceptMapContact createConceptMapContact();
+
+	/**
+	 * Returns a new object of class '<em>Concept Map Source Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Map Source Element</em>'.
+	 * @generated
+	 */
+	ConceptMapSourceElement createConceptMapSourceElement();
+
+	/**
+	 * Returns a new object of class '<em>Concept Map Source Element Target Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Map Source Element Target Element</em>'.
+	 * @generated
+	 */
+	ConceptMapSourceElementTargetElement createConceptMapSourceElementTargetElement();
+
+	/**
+	 * Returns a new object of class '<em>Concept Map Source Element Target Element Other Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Map Source Element Target Element Other Element</em>'.
+	 * @generated
+	 */
+	ConceptMapSourceElementTargetElementOtherElement createConceptMapSourceElementTargetElementOtherElement();
+
+	/**
+	 * Returns a new object of class '<em>Flag</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flag</em>'.
+	 * @generated
+	 */
+	Flag createFlag();
+
+	/**
+	 * Returns a new object of class '<em>Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence</em>'.
+	 * @generated
+	 */
+	Sequence createSequence();
+
+	/**
+	 * Returns a new object of class '<em>Sequence Coordinate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence Coordinate</em>'.
+	 * @generated
+	 */
+	SequenceCoordinate createSequenceCoordinate();
+
+	/**
+	 * Returns a new object of class '<em>Sequence Quality</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence Quality</em>'.
+	 * @generated
+	 */
+	SequenceQuality createSequenceQuality();
+
+	/**
+	 * Returns a new object of class '<em>Sequence Chip</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence Chip</em>'.
+	 * @generated
+	 */
+	SequenceChip createSequenceChip();
+
+	/**
+	 * Returns a new object of class '<em>Sequence Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence Repository</em>'.
+	 * @generated
+	 */
+	SequenceRepository createSequenceRepository();
 
 	/**
 	 * Returns a new object of class '<em>Contract</em>'.
@@ -1472,40 +1769,121 @@ public interface FhirResourceFactory extends EFactory {
 	CompositionSection createCompositionSection();
 
 	/**
-	 * Returns a new object of class '<em>Subscription</em>'.
+	 * Returns a new object of class '<em>Binary</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subscription</em>'.
+	 * @return a new object of class '<em>Binary</em>'.
 	 * @generated
 	 */
-	Subscription createSubscription();
+	Binary createBinary();
 
 	/**
-	 * Returns a new object of class '<em>Subscription Channel</em>'.
+	 * Returns a new object of class '<em>Document Manifest</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subscription Channel</em>'.
+	 * @return a new object of class '<em>Document Manifest</em>'.
 	 * @generated
 	 */
-	SubscriptionChannel createSubscriptionChannel();
+	DocumentManifest createDocumentManifest();
 
 	/**
-	 * Returns a new object of class '<em>Parameters</em>'.
+	 * Returns a new object of class '<em>Document Manifest Content</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameters</em>'.
+	 * @return a new object of class '<em>Document Manifest Content</em>'.
 	 * @generated
 	 */
-	Parameters createParameters();
+	DocumentManifestContent createDocumentManifestContent();
 
 	/**
-	 * Returns a new object of class '<em>Parameters Parameter</em>'.
+	 * Returns a new object of class '<em>Document Manifest Related</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameters Parameter</em>'.
+	 * @return a new object of class '<em>Document Manifest Related</em>'.
 	 * @generated
 	 */
-	ParametersParameter createParametersParameter();
+	DocumentManifestRelated createDocumentManifestRelated();
+
+	/**
+	 * Returns a new object of class '<em>Payment Reconciliation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payment Reconciliation</em>'.
+	 * @generated
+	 */
+	PaymentReconciliation createPaymentReconciliation();
+
+	/**
+	 * Returns a new object of class '<em>Payment Reconciliation Details</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payment Reconciliation Details</em>'.
+	 * @generated
+	 */
+	PaymentReconciliationDetails createPaymentReconciliationDetails();
+
+	/**
+	 * Returns a new object of class '<em>Payment Reconciliation Notes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payment Reconciliation Notes</em>'.
+	 * @generated
+	 */
+	PaymentReconciliationNotes createPaymentReconciliationNotes();
+
+	/**
+	 * Returns a new object of class '<em>Device Use Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device Use Statement</em>'.
+	 * @generated
+	 */
+	DeviceUseStatement createDeviceUseStatement();
+
+	/**
+	 * Returns a new object of class '<em>Test Script</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Script</em>'.
+	 * @generated
+	 */
+	TestScript createTestScript();
+
+	/**
+	 * Returns a new object of class '<em>Test Script Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Script Contact</em>'.
+	 * @generated
+	 */
+	TestScriptContact createTestScriptContact();
+
+	/**
+	 * Returns a new object of class '<em>Test Script Metadata</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Script Metadata</em>'.
+	 * @generated
+	 */
+	TestScriptMetadata createTestScriptMetadata();
+
+	/**
+	 * Returns a new object of class '<em>Test Script Metadata Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Script Metadata Link</em>'.
+	 * @generated
+	 */
+	TestScriptMetadataLink createTestScriptMetadataLink();
+
+	/**
+	 * Returns a new object of class '<em>Test Script Metadata Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Script Metadata Capability</em>'.
+	 * @generated
+	 */
+	TestScriptMetadataCapability createTestScriptMetadataCapability();
 
 	/**
 	 * Returns a new object of class '<em>Conformance</em>'.
@@ -1542,51 +1920,6 @@ public interface FhirResourceFactory extends EFactory {
 	 * @generated
 	 */
 	ConformanceImplementation createConformanceImplementation();
-
-	/**
-	 * Returns a new object of class '<em>Structure Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structure Definition</em>'.
-	 * @generated
-	 */
-	StructureDefinition createStructureDefinition();
-
-	/**
-	 * Returns a new object of class '<em>Structure Definition Contact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structure Definition Contact</em>'.
-	 * @generated
-	 */
-	StructureDefinitionContact createStructureDefinitionContact();
-
-	/**
-	 * Returns a new object of class '<em>Structure Definition Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structure Definition Mapping</em>'.
-	 * @generated
-	 */
-	StructureDefinitionMapping createStructureDefinitionMapping();
-
-	/**
-	 * Returns a new object of class '<em>Structure Definition Snapshot</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structure Definition Snapshot</em>'.
-	 * @generated
-	 */
-	StructureDefinitionSnapshot createStructureDefinitionSnapshot();
-
-	/**
-	 * Returns a new object of class '<em>Structure Definition Differential</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structure Definition Differential</em>'.
-	 * @generated
-	 */
-	StructureDefinitionDifferential createStructureDefinitionDifferential();
 
 	/**
 	 * Returns a new object of class '<em>Conformance Rest</em>'.
@@ -1733,148 +2066,184 @@ public interface FhirResourceFactory extends EFactory {
 	ConformanceDocument createConformanceDocument();
 
 	/**
-	 * Returns a new object of class '<em>Person</em>'.
+	 * Returns a new object of class '<em>Test Script Origin</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Person</em>'.
+	 * @return a new object of class '<em>Test Script Origin</em>'.
 	 * @generated
 	 */
-	Person createPerson();
+	TestScriptOrigin createTestScriptOrigin();
 
 	/**
-	 * Returns a new object of class '<em>Person Link</em>'.
+	 * Returns a new object of class '<em>Test Script Destination</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Person Link</em>'.
+	 * @return a new object of class '<em>Test Script Destination</em>'.
 	 * @generated
 	 */
-	PersonLink createPersonLink();
+	TestScriptDestination createTestScriptDestination();
 
 	/**
-	 * Returns a new object of class '<em>Payment Notice</em>'.
+	 * Returns a new object of class '<em>Test Script Fixture</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Payment Notice</em>'.
+	 * @return a new object of class '<em>Test Script Fixture</em>'.
 	 * @generated
 	 */
-	PaymentNotice createPaymentNotice();
+	TestScriptFixture createTestScriptFixture();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide</em>'.
+	 * Returns a new object of class '<em>Test Script Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide</em>'.
+	 * @return a new object of class '<em>Test Script Variable</em>'.
 	 * @generated
 	 */
-	ImplementationGuide createImplementationGuide();
+	TestScriptVariable createTestScriptVariable();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Contact</em>'.
+	 * Returns a new object of class '<em>Test Script Setup</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Contact</em>'.
+	 * @return a new object of class '<em>Test Script Setup</em>'.
 	 * @generated
 	 */
-	ImplementationGuideContact createImplementationGuideContact();
+	TestScriptSetup createTestScriptSetup();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Dependency</em>'.
+	 * Returns a new object of class '<em>Test Script Setup Setup Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Dependency</em>'.
+	 * @return a new object of class '<em>Test Script Setup Setup Action</em>'.
 	 * @generated
 	 */
-	ImplementationGuideDependency createImplementationGuideDependency();
+	TestScriptSetupSetupAction createTestScriptSetupSetupAction();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Package</em>'.
+	 * Returns a new object of class '<em>Test Script Setup Setup Action Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Package</em>'.
+	 * @return a new object of class '<em>Test Script Setup Setup Action Operation</em>'.
 	 * @generated
 	 */
-	ImplementationGuidePackage createImplementationGuidePackage();
+	TestScriptSetupSetupActionOperation createTestScriptSetupSetupActionOperation();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Package Resource</em>'.
+	 * Returns a new object of class '<em>Test Script Setup Setup Action Operation Request Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Package Resource</em>'.
+	 * @return a new object of class '<em>Test Script Setup Setup Action Operation Request Header</em>'.
 	 * @generated
 	 */
-	ImplementationGuidePackageResource createImplementationGuidePackageResource();
+	TestScriptSetupSetupActionOperationRequestHeader createTestScriptSetupSetupActionOperationRequestHeader();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Global</em>'.
+	 * Returns a new object of class '<em>Test Script Setup Setup Action Assert</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Global</em>'.
+	 * @return a new object of class '<em>Test Script Setup Setup Action Assert</em>'.
 	 * @generated
 	 */
-	ImplementationGuideGlobal createImplementationGuideGlobal();
+	TestScriptSetupSetupActionAssert createTestScriptSetupSetupActionAssert();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Guide Page</em>'.
+	 * Returns a new object of class '<em>Test Script Test</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Guide Page</em>'.
+	 * @return a new object of class '<em>Test Script Test</em>'.
 	 * @generated
 	 */
-	ImplementationGuidePage createImplementationGuidePage();
+	TestScriptTest createTestScriptTest();
 
 	/**
-	 * Returns a new object of class '<em>Search Parameter</em>'.
+	 * Returns a new object of class '<em>Test Script Test Test Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Search Parameter</em>'.
+	 * @return a new object of class '<em>Test Script Test Test Action</em>'.
 	 * @generated
 	 */
-	SearchParameter createSearchParameter();
+	TestScriptTestTestAction createTestScriptTestTestAction();
 
 	/**
-	 * Returns a new object of class '<em>Search Parameter Contact</em>'.
+	 * Returns a new object of class '<em>Test Script Teardown</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Search Parameter Contact</em>'.
+	 * @return a new object of class '<em>Test Script Teardown</em>'.
 	 * @generated
 	 */
-	SearchParameterContact createSearchParameterContact();
+	TestScriptTeardown createTestScriptTeardown();
 
 	/**
-	 * Returns a new object of class '<em>Communication</em>'.
+	 * Returns a new object of class '<em>Test Script Teardown Teardown Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication</em>'.
+	 * @return a new object of class '<em>Test Script Teardown Teardown Action</em>'.
 	 * @generated
 	 */
-	Communication createCommunication();
+	TestScriptTeardownTeardownAction createTestScriptTeardownTeardownAction();
 
 	/**
-	 * Returns a new object of class '<em>Communication Payload</em>'.
+	 * Returns a new object of class '<em>Data Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Payload</em>'.
+	 * @return a new object of class '<em>Data Element</em>'.
 	 * @generated
 	 */
-	CommunicationPayload createCommunicationPayload();
+	DataElement createDataElement();
 
 	/**
-	 * Returns a new object of class '<em>Order Response</em>'.
+	 * Returns a new object of class '<em>Data Element Contact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Order Response</em>'.
+	 * @return a new object of class '<em>Data Element Contact</em>'.
 	 * @generated
 	 */
-	OrderResponse createOrderResponse();
+	DataElementContact createDataElementContact();
 
 	/**
-	 * Returns a new object of class '<em>Device Use Statement</em>'.
+	 * Returns a new object of class '<em>Data Element Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Device Use Statement</em>'.
+	 * @return a new object of class '<em>Data Element Mapping</em>'.
 	 * @generated
 	 */
-	DeviceUseStatement createDeviceUseStatement();
+	DataElementMapping createDataElementMapping();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Rule</em>'.
+	 * @generated
+	 */
+	DecisionSupportRule createDecisionSupportRule();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Rule Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Rule Trigger</em>'.
+	 * @generated
+	 */
+	DecisionSupportRuleTrigger createDecisionSupportRuleTrigger();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Rule Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Rule Action</em>'.
+	 * @generated
+	 */
+	DecisionSupportRuleAction createDecisionSupportRuleAction();
+
+	/**
+	 * Returns a new object of class '<em>Decision Support Rule Action Customization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Support Rule Action Customization</em>'.
+	 * @generated
+	 */
+	DecisionSupportRuleActionCustomization createDecisionSupportRuleActionCustomization();
 
 	/**
 	 * Returns a new object of class '<em>Message Header</em>'.
@@ -1929,6 +2298,51 @@ public interface FhirResourceFactory extends EFactory {
 	 * @generated
 	 */
 	MessageHeaderMessageDestination createMessageHeaderMessageDestination();
+
+	/**
+	 * Returns a new object of class '<em>Subscription</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subscription</em>'.
+	 * @generated
+	 */
+	Subscription createSubscription();
+
+	/**
+	 * Returns a new object of class '<em>Subscription Channel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subscription Channel</em>'.
+	 * @generated
+	 */
+	SubscriptionChannel createSubscriptionChannel();
+
+	/**
+	 * Returns a new object of class '<em>Enrollment Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enrollment Response</em>'.
+	 * @generated
+	 */
+	EnrollmentResponse createEnrollmentResponse();
+
+	/**
+	 * Returns a new object of class '<em>Enrollment Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enrollment Request</em>'.
+	 * @generated
+	 */
+	EnrollmentRequest createEnrollmentRequest();
+
+	/**
+	 * Returns a new object of class '<em>Coverage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Coverage</em>'.
+	 * @generated
+	 */
+	Coverage createCoverage();
 
 	/**
 	 * Returns a new object of class '<em>Immunization Recommendation</em>'.
@@ -2003,49 +2417,157 @@ public interface FhirResourceFactory extends EFactory {
 	ImmunizationVaccinationProtocol createImmunizationVaccinationProtocol();
 
 	/**
-	 * Returns a new object of class '<em>Provenance</em>'.
+	 * Returns a new object of class '<em>Bundle</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provenance</em>'.
+	 * @return a new object of class '<em>Bundle</em>'.
 	 * @generated
 	 */
-	Provenance createProvenance();
+	Bundle createBundle();
 
 	/**
-	 * Returns a new object of class '<em>Provenance Agent</em>'.
+	 * Returns a new object of class '<em>Bundle Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provenance Agent</em>'.
+	 * @return a new object of class '<em>Bundle Link</em>'.
 	 * @generated
 	 */
-	ProvenanceAgent createProvenanceAgent();
+	BundleLink createBundleLink();
 
 	/**
-	 * Returns a new object of class '<em>Provenance Agent Related Agent</em>'.
+	 * Returns a new object of class '<em>Bundle Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provenance Agent Related Agent</em>'.
+	 * @return a new object of class '<em>Bundle Entry</em>'.
 	 * @generated
 	 */
-	ProvenanceAgentRelatedAgent createProvenanceAgentRelatedAgent();
+	BundleEntry createBundleEntry();
 
 	/**
-	 * Returns a new object of class '<em>Provenance Entity</em>'.
+	 * Returns a new object of class '<em>Bundle Entry Search</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provenance Entity</em>'.
+	 * @return a new object of class '<em>Bundle Entry Search</em>'.
 	 * @generated
 	 */
-	ProvenanceEntity createProvenanceEntity();
+	BundleEntrySearch createBundleEntrySearch();
 
 	/**
-	 * Returns a new object of class '<em>Explanation Of Benefit</em>'.
+	 * Returns a new object of class '<em>Bundle Entry Request</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Explanation Of Benefit</em>'.
+	 * @return a new object of class '<em>Bundle Entry Request</em>'.
 	 * @generated
 	 */
-	ExplanationOfBenefit createExplanationOfBenefit();
+	BundleEntryRequest createBundleEntryRequest();
+
+	/**
+	 * Returns a new object of class '<em>Bundle Entry Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bundle Entry Response</em>'.
+	 * @generated
+	 */
+	BundleEntryResponse createBundleEntryResponse();
+
+	/**
+	 * Returns a new object of class '<em>Eligibility Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eligibility Response</em>'.
+	 * @generated
+	 */
+	EligibilityResponse createEligibilityResponse();
+
+	/**
+	 * Returns a new object of class '<em>Eligibility Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eligibility Request</em>'.
+	 * @generated
+	 */
+	EligibilityRequest createEligibilityRequest();
+
+	/**
+	 * Returns a new object of class '<em>Eligibility Response Benefits</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eligibility Response Benefits</em>'.
+	 * @generated
+	 */
+	EligibilityResponseBenefits createEligibilityResponseBenefits();
+
+	/**
+	 * Returns a new object of class '<em>Eligibility Response Benefits Benefit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eligibility Response Benefits Benefit</em>'.
+	 * @generated
+	 */
+	EligibilityResponseBenefitsBenefit createEligibilityResponseBenefitsBenefit();
+
+	/**
+	 * Returns a new object of class '<em>Eligibility Response Errors</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eligibility Response Errors</em>'.
+	 * @generated
+	 */
+	EligibilityResponseErrors createEligibilityResponseErrors();
+
+	/**
+	 * Returns a new object of class '<em>Parameters</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameters</em>'.
+	 * @generated
+	 */
+	Parameters createParameters();
+
+	/**
+	 * Returns a new object of class '<em>Parameters Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameters Parameter</em>'.
+	 * @generated
+	 */
+	ParametersParameter createParametersParameter();
+
+	/**
+	 * Returns a new object of class '<em>Medication Dispense</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Dispense</em>'.
+	 * @generated
+	 */
+	MedicationDispense createMedicationDispense();
+
+	/**
+	 * Returns a new object of class '<em>Medication Dispense Dosage Instruction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Dispense Dosage Instruction</em>'.
+	 * @generated
+	 */
+	MedicationDispenseDosageInstruction createMedicationDispenseDosageInstruction();
+
+	/**
+	 * Returns a new object of class '<em>Medication Dispense Substitution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Dispense Substitution</em>'.
+	 * @generated
+	 */
+	MedicationDispenseSubstitution createMedicationDispenseSubstitution();
+
+	/**
+	 * Returns a new object of class '<em>Claim Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Response</em>'.
+	 * @generated
+	 */
+	ClaimResponse createClaimResponse();
 
 	/**
 	 * Returns a new object of class '<em>Claim</em>'.
@@ -2084,13 +2606,49 @@ public interface FhirResourceFactory extends EFactory {
 	ClaimCoverage createClaimCoverage();
 
 	/**
-	 * Returns a new object of class '<em>Claim Response</em>'.
+	 * Returns a new object of class '<em>Claim Items</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Response</em>'.
+	 * @return a new object of class '<em>Claim Items</em>'.
 	 * @generated
 	 */
-	ClaimResponse createClaimResponse();
+	ClaimItems createClaimItems();
+
+	/**
+	 * Returns a new object of class '<em>Claim Items Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Items Detail</em>'.
+	 * @generated
+	 */
+	ClaimItemsDetail createClaimItemsDetail();
+
+	/**
+	 * Returns a new object of class '<em>Claim Items Detail Sub Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Items Detail Sub Detail</em>'.
+	 * @generated
+	 */
+	ClaimItemsDetailSubDetail createClaimItemsDetailSubDetail();
+
+	/**
+	 * Returns a new object of class '<em>Claim Items Prosthesis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Items Prosthesis</em>'.
+	 * @generated
+	 */
+	ClaimItemsProsthesis createClaimItemsProsthesis();
+
+	/**
+	 * Returns a new object of class '<em>Claim Missing Teeth</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Missing Teeth</em>'.
+	 * @generated
+	 */
+	ClaimMissingTeeth createClaimMissingTeeth();
 
 	/**
 	 * Returns a new object of class '<em>Claim Response Items</em>'.
@@ -2210,49 +2768,472 @@ public interface FhirResourceFactory extends EFactory {
 	ClaimResponseCoverage createClaimResponseCoverage();
 
 	/**
-	 * Returns a new object of class '<em>Claim Items</em>'.
+	 * Returns a new object of class '<em>Explanation Of Benefit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Items</em>'.
+	 * @return a new object of class '<em>Explanation Of Benefit</em>'.
 	 * @generated
 	 */
-	ClaimItems createClaimItems();
+	ExplanationOfBenefit createExplanationOfBenefit();
 
 	/**
-	 * Returns a new object of class '<em>Claim Items Detail</em>'.
+	 * Returns a new object of class '<em>Explanation Of Benefit Payee</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Items Detail</em>'.
+	 * @return a new object of class '<em>Explanation Of Benefit Payee</em>'.
 	 * @generated
 	 */
-	ClaimItemsDetail createClaimItemsDetail();
+	ExplanationOfBenefitPayee createExplanationOfBenefitPayee();
 
 	/**
-	 * Returns a new object of class '<em>Claim Items Detail Sub Detail</em>'.
+	 * Returns a new object of class '<em>Explanation Of Benefit Diagnosis</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Items Detail Sub Detail</em>'.
+	 * @return a new object of class '<em>Explanation Of Benefit Diagnosis</em>'.
 	 * @generated
 	 */
-	ClaimItemsDetailSubDetail createClaimItemsDetailSubDetail();
+	ExplanationOfBenefitDiagnosis createExplanationOfBenefitDiagnosis();
 
 	/**
-	 * Returns a new object of class '<em>Claim Items Prosthesis</em>'.
+	 * Returns a new object of class '<em>Explanation Of Benefit Coverage</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Items Prosthesis</em>'.
+	 * @return a new object of class '<em>Explanation Of Benefit Coverage</em>'.
 	 * @generated
 	 */
-	ClaimItemsProsthesis createClaimItemsProsthesis();
+	ExplanationOfBenefitCoverage createExplanationOfBenefitCoverage();
 
 	/**
-	 * Returns a new object of class '<em>Claim Missing Teeth</em>'.
+	 * Returns a new object of class '<em>Explanation Of Benefit Items</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Claim Missing Teeth</em>'.
+	 * @return a new object of class '<em>Explanation Of Benefit Items</em>'.
 	 * @generated
 	 */
-	ClaimMissingTeeth createClaimMissingTeeth();
+	ExplanationOfBenefitItems createExplanationOfBenefitItems();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Item Adjudication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Item Adjudication</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsItemAdjudication createExplanationOfBenefitItemsItemAdjudication();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Detail</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsDetail createExplanationOfBenefitItemsDetail();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Detail Detail Adjudication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Detail Detail Adjudication</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsDetailDetailAdjudication createExplanationOfBenefitItemsDetailDetailAdjudication();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Detail Sub Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Detail Sub Detail</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsDetailSubDetail createExplanationOfBenefitItemsDetailSubDetail();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Detail Sub Detail Sub Detail Adjudication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Detail Sub Detail Sub Detail Adjudication</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication createExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Items Prosthesis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Items Prosthesis</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitItemsProsthesis createExplanationOfBenefitItemsProsthesis();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Added Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Added Item</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitAddedItem createExplanationOfBenefitAddedItem();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Added Item Added Item Adjudication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Added Item Added Item Adjudication</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitAddedItemAddedItemAdjudication createExplanationOfBenefitAddedItemAddedItemAdjudication();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Added Item Added Items Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Added Item Added Items Detail</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitAddedItemAddedItemsDetail createExplanationOfBenefitAddedItemAddedItemsDetail();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Added Item Added Items Detail Added Item Detail Adjudication</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Added Item Added Items Detail Added Item Detail Adjudication</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication createExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Missing Teeth</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Missing Teeth</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitMissingTeeth createExplanationOfBenefitMissingTeeth();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Notes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Notes</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitNotes createExplanationOfBenefitNotes();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Benefit Balance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Benefit Balance</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitBenefitBalance createExplanationOfBenefitBenefitBalance();
+
+	/**
+	 * Returns a new object of class '<em>Explanation Of Benefit Benefit Balance Benefit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Explanation Of Benefit Benefit Balance Benefit</em>'.
+	 * @generated
+	 */
+	ExplanationOfBenefitBenefitBalanceBenefit createExplanationOfBenefitBenefitBalanceBenefit();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide</em>'.
+	 * @generated
+	 */
+	ImplementationGuide createImplementationGuide();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Contact</em>'.
+	 * @generated
+	 */
+	ImplementationGuideContact createImplementationGuideContact();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Dependency</em>'.
+	 * @generated
+	 */
+	ImplementationGuideDependency createImplementationGuideDependency();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Package</em>'.
+	 * @generated
+	 */
+	ImplementationGuidePackage createImplementationGuidePackage();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Package Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Package Resource</em>'.
+	 * @generated
+	 */
+	ImplementationGuidePackageResource createImplementationGuidePackageResource();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Global</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Global</em>'.
+	 * @generated
+	 */
+	ImplementationGuideGlobal createImplementationGuideGlobal();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Guide Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Guide Page</em>'.
+	 * @generated
+	 */
+	ImplementationGuidePage createImplementationGuidePage();
+
+	/**
+	 * Returns a new object of class '<em>Search Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Search Parameter</em>'.
+	 * @generated
+	 */
+	SearchParameter createSearchParameter();
+
+	/**
+	 * Returns a new object of class '<em>Search Parameter Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Search Parameter Contact</em>'.
+	 * @generated
+	 */
+	SearchParameterContact createSearchParameterContact();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile</em>'.
+	 * @generated
+	 */
+	ExpansionProfile createExpansionProfile();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Contact</em>'.
+	 * @generated
+	 */
+	ExpansionProfileContact createExpansionProfileContact();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Code System</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Code System</em>'.
+	 * @generated
+	 */
+	ExpansionProfileCodeSystem createExpansionProfileCodeSystem();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Code System Code System Include</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Code System Code System Include</em>'.
+	 * @generated
+	 */
+	ExpansionProfileCodeSystemCodeSystemInclude createExpansionProfileCodeSystemCodeSystemInclude();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Code System Code System Include Code System Include Code System</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Code System Code System Include Code System Include Code System</em>'.
+	 * @generated
+	 */
+	ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem createExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Code System Code System Exclude</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Code System Code System Exclude</em>'.
+	 * @generated
+	 */
+	ExpansionProfileCodeSystemCodeSystemExclude createExpansionProfileCodeSystemCodeSystemExclude();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Code System Code System Exclude Code System Exclude Code System</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Code System Code System Exclude Code System Exclude Code System</em>'.
+	 * @generated
+	 */
+	ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem createExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Designation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Designation</em>'.
+	 * @generated
+	 */
+	ExpansionProfileDesignation createExpansionProfileDesignation();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Designation Designation Include</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Designation Designation Include</em>'.
+	 * @generated
+	 */
+	ExpansionProfileDesignationDesignationInclude createExpansionProfileDesignationDesignationInclude();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Designation Designation Include Designation Include Designation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Designation Designation Include Designation Include Designation</em>'.
+	 * @generated
+	 */
+	ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation createExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Designation Designation Exclude</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Designation Designation Exclude</em>'.
+	 * @generated
+	 */
+	ExpansionProfileDesignationDesignationExclude createExpansionProfileDesignationDesignationExclude();
+
+	/**
+	 * Returns a new object of class '<em>Expansion Profile Designation Designation Exclude Designation Exclude Designation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expansion Profile Designation Designation Exclude Designation Exclude Designation</em>'.
+	 * @generated
+	 */
+	ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation createExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation();
+
+	/**
+	 * Returns a new object of class '<em>Order Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Order Set</em>'.
+	 * @generated
+	 */
+	OrderSet createOrderSet();
+
+	/**
+	 * Returns a new object of class '<em>Order Set Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Order Set Item</em>'.
+	 * @generated
+	 */
+	OrderSetItem createOrderSetItem();
+
+	/**
+	 * Returns a new object of class '<em>Order Set Item Customization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Order Set Item Customization</em>'.
+	 * @generated
+	 */
+	OrderSetItemCustomization createOrderSetItemCustomization();
+
+	/**
+	 * Returns a new object of class '<em>Provenance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provenance</em>'.
+	 * @generated
+	 */
+	Provenance createProvenance();
+
+	/**
+	 * Returns a new object of class '<em>Provenance Agent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provenance Agent</em>'.
+	 * @generated
+	 */
+	ProvenanceAgent createProvenanceAgent();
+
+	/**
+	 * Returns a new object of class '<em>Provenance Agent Related Agent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provenance Agent Related Agent</em>'.
+	 * @generated
+	 */
+	ProvenanceAgentRelatedAgent createProvenanceAgentRelatedAgent();
+
+	/**
+	 * Returns a new object of class '<em>Provenance Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provenance Entity</em>'.
+	 * @generated
+	 */
+	ProvenanceEntity createProvenanceEntity();
+
+	/**
+	 * Returns a new object of class '<em>Process Response</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process Response</em>'.
+	 * @generated
+	 */
+	ProcessResponse createProcessResponse();
+
+	/**
+	 * Returns a new object of class '<em>Process Response Notes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process Response Notes</em>'.
+	 * @generated
+	 */
+	ProcessResponseNotes createProcessResponseNotes();
+
+	/**
+	 * Returns a new object of class '<em>Measure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Measure</em>'.
+	 * @generated
+	 */
+	Measure createMeasure();
+
+	/**
+	 * Returns a new object of class '<em>Measure Population</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Measure Population</em>'.
+	 * @generated
+	 */
+	MeasurePopulation createMeasurePopulation();
+
+	/**
+	 * Returns a new object of class '<em>Payment Notice</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payment Notice</em>'.
+	 * @generated
+	 */
+	PaymentNotice createPaymentNotice();
 
 	/**
 	 * Returns a new object of class '<em>List</em>'.
@@ -2273,85 +3254,49 @@ public interface FhirResourceFactory extends EFactory {
 	ListEntry createListEntry();
 
 	/**
-	 * Returns a new object of class '<em>Concept Map</em>'.
+	 * Returns a new object of class '<em>Guidance Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Concept Map</em>'.
+	 * @return a new object of class '<em>Guidance Response</em>'.
 	 * @generated
 	 */
-	ConceptMap createConceptMap();
+	GuidanceResponse createGuidanceResponse();
 
 	/**
-	 * Returns a new object of class '<em>Concept Map Contact</em>'.
+	 * Returns a new object of class '<em>Guidance Response Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Concept Map Contact</em>'.
+	 * @return a new object of class '<em>Guidance Response Action</em>'.
 	 * @generated
 	 */
-	ConceptMapContact createConceptMapContact();
+	GuidanceResponseAction createGuidanceResponseAction();
 
 	/**
-	 * Returns a new object of class '<em>Concept Map Source Element</em>'.
+	 * Returns a new object of class '<em>Detected Issue</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Concept Map Source Element</em>'.
+	 * @return a new object of class '<em>Detected Issue</em>'.
 	 * @generated
 	 */
-	ConceptMapSourceElement createConceptMapSourceElement();
+	DetectedIssue createDetectedIssue();
 
 	/**
-	 * Returns a new object of class '<em>Concept Map Source Element Target Element</em>'.
+	 * Returns a new object of class '<em>Detected Issue Mitigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Concept Map Source Element Target Element</em>'.
+	 * @return a new object of class '<em>Detected Issue Mitigation</em>'.
 	 * @generated
 	 */
-	ConceptMapSourceElementTargetElement createConceptMapSourceElementTargetElement();
+	DetectedIssueMitigation createDetectedIssueMitigation();
 
 	/**
-	 * Returns a new object of class '<em>Concept Map Source Element Target Element Other Element</em>'.
+	 * Returns a new object of class '<em>Account</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Concept Map Source Element Target Element Other Element</em>'.
+	 * @return a new object of class '<em>Account</em>'.
 	 * @generated
 	 */
-	ConceptMapSourceElementTargetElementOtherElement createConceptMapSourceElementTargetElementOtherElement();
-
-	/**
-	 * Returns a new object of class '<em>Eligibility Response</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Eligibility Response</em>'.
-	 * @generated
-	 */
-	EligibilityResponse createEligibilityResponse();
-
-	/**
-	 * Returns a new object of class '<em>Eligibility Request</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Eligibility Request</em>'.
-	 * @generated
-	 */
-	EligibilityRequest createEligibilityRequest();
-
-	/**
-	 * Returns a new object of class '<em>Flag</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flag</em>'.
-	 * @generated
-	 */
-	Flag createFlag();
-
-	/**
-	 * Returns a new object of class '<em>Appointment Response</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Appointment Response</em>'.
-	 * @generated
-	 */
-	AppointmentResponse createAppointmentResponse();
+	Account createAccount();
 
 	/**
 	 * Returns a new object of class '<em>Medication Administration</em>'.
@@ -2372,229 +3317,13 @@ public interface FhirResourceFactory extends EFactory {
 	MedicationAdministrationDosage createMedicationAdministrationDosage();
 
 	/**
-	 * Returns a new object of class '<em>Enrollment Response</em>'.
+	 * Returns a new object of class '<em>Appointment Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enrollment Response</em>'.
+	 * @return a new object of class '<em>Appointment Response</em>'.
 	 * @generated
 	 */
-	EnrollmentResponse createEnrollmentResponse();
-
-	/**
-	 * Returns a new object of class '<em>Binary</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary</em>'.
-	 * @generated
-	 */
-	Binary createBinary();
-
-	/**
-	 * Returns a new object of class '<em>Test Script</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script</em>'.
-	 * @generated
-	 */
-	TestScript createTestScript();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Contact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Contact</em>'.
-	 * @generated
-	 */
-	TestScriptContact createTestScriptContact();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Metadata</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Metadata</em>'.
-	 * @generated
-	 */
-	TestScriptMetadata createTestScriptMetadata();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Metadata Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Metadata Link</em>'.
-	 * @generated
-	 */
-	TestScriptMetadataLink createTestScriptMetadataLink();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Metadata Capability</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Metadata Capability</em>'.
-	 * @generated
-	 */
-	TestScriptMetadataCapability createTestScriptMetadataCapability();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Fixture</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Fixture</em>'.
-	 * @generated
-	 */
-	TestScriptFixture createTestScriptFixture();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Variable</em>'.
-	 * @generated
-	 */
-	TestScriptVariable createTestScriptVariable();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Setup</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Setup</em>'.
-	 * @generated
-	 */
-	TestScriptSetup createTestScriptSetup();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Setup Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Setup Action</em>'.
-	 * @generated
-	 */
-	TestScriptSetupAction createTestScriptSetupAction();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Setup Action Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Setup Action Operation</em>'.
-	 * @generated
-	 */
-	TestScriptSetupActionOperation createTestScriptSetupActionOperation();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Setup Action Operation Request Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Setup Action Operation Request Header</em>'.
-	 * @generated
-	 */
-	TestScriptSetupActionOperationRequestHeader createTestScriptSetupActionOperationRequestHeader();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Setup Action Assert</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Setup Action Assert</em>'.
-	 * @generated
-	 */
-	TestScriptSetupActionAssert createTestScriptSetupActionAssert();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Test</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Test</em>'.
-	 * @generated
-	 */
-	TestScriptTest createTestScriptTest();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Test Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Test Action</em>'.
-	 * @generated
-	 */
-	TestScriptTestAction createTestScriptTestAction();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Teardown</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Teardown</em>'.
-	 * @generated
-	 */
-	TestScriptTeardown createTestScriptTeardown();
-
-	/**
-	 * Returns a new object of class '<em>Test Script Teardown Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test Script Teardown Action</em>'.
-	 * @generated
-	 */
-	TestScriptTeardownAction createTestScriptTeardownAction();
-
-	/**
-	 * Returns a new object of class '<em>Basic</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Basic</em>'.
-	 * @generated
-	 */
-	Basic createBasic();
-
-	/**
-	 * Returns a new object of class '<em>Medication Dispense</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Dispense</em>'.
-	 * @generated
-	 */
-	MedicationDispense createMedicationDispense();
-
-	/**
-	 * Returns a new object of class '<em>Medication Dispense Dosage Instruction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Dispense Dosage Instruction</em>'.
-	 * @generated
-	 */
-	MedicationDispenseDosageInstruction createMedicationDispenseDosageInstruction();
-
-	/**
-	 * Returns a new object of class '<em>Medication Dispense Substitution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Medication Dispense Substitution</em>'.
-	 * @generated
-	 */
-	MedicationDispenseSubstitution createMedicationDispenseSubstitution();
-
-	/**
-	 * Returns a new object of class '<em>Data Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Element</em>'.
-	 * @generated
-	 */
-	DataElement createDataElement();
-
-	/**
-	 * Returns a new object of class '<em>Data Element Contact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Element Contact</em>'.
-	 * @generated
-	 */
-	DataElementContact createDataElementContact();
-
-	/**
-	 * Returns a new object of class '<em>Data Element Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Element Mapping</em>'.
-	 * @generated
-	 */
-	DataElementMapping createDataElementMapping();
+	AppointmentResponse createAppointmentResponse();
 
 	/**
 	 * Returns a new object of class '<em>Audit Event</em>'.
@@ -2660,148 +3389,22 @@ public interface FhirResourceFactory extends EFactory {
 	AuditEventObjectDetail createAuditEventObjectDetail();
 
 	/**
-	 * Returns a new object of class '<em>Payment Reconciliation</em>'.
+	 * Returns a new object of class '<em>Basic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Payment Reconciliation</em>'.
+	 * @return a new object of class '<em>Basic</em>'.
 	 * @generated
 	 */
-	PaymentReconciliation createPaymentReconciliation();
+	Basic createBasic();
 
 	/**
-	 * Returns a new object of class '<em>Payment Reconciliation Details</em>'.
+	 * Returns a new object of class '<em>Order Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Payment Reconciliation Details</em>'.
+	 * @return a new object of class '<em>Order Response</em>'.
 	 * @generated
 	 */
-	PaymentReconciliationDetails createPaymentReconciliationDetails();
-
-	/**
-	 * Returns a new object of class '<em>Payment Reconciliation Notes</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Payment Reconciliation Notes</em>'.
-	 * @generated
-	 */
-	PaymentReconciliationNotes createPaymentReconciliationNotes();
-
-	/**
-	 * Returns a new object of class '<em>Detected Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Detected Issue</em>'.
-	 * @generated
-	 */
-	DetectedIssue createDetectedIssue();
-
-	/**
-	 * Returns a new object of class '<em>Detected Issue Mitigation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Detected Issue Mitigation</em>'.
-	 * @generated
-	 */
-	DetectedIssueMitigation createDetectedIssueMitigation();
-
-	/**
-	 * Returns a new object of class '<em>Bundle</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle</em>'.
-	 * @generated
-	 */
-	Bundle createBundle();
-
-	/**
-	 * Returns a new object of class '<em>Bundle Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Link</em>'.
-	 * @generated
-	 */
-	BundleLink createBundleLink();
-
-	/**
-	 * Returns a new object of class '<em>Bundle Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Entry</em>'.
-	 * @generated
-	 */
-	BundleEntry createBundleEntry();
-
-	/**
-	 * Returns a new object of class '<em>Bundle Entry Search</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Entry Search</em>'.
-	 * @generated
-	 */
-	BundleEntrySearch createBundleEntrySearch();
-
-	/**
-	 * Returns a new object of class '<em>Bundle Entry Request</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Entry Request</em>'.
-	 * @generated
-	 */
-	BundleEntryRequest createBundleEntryRequest();
-
-	/**
-	 * Returns a new object of class '<em>Bundle Entry Response</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Entry Response</em>'.
-	 * @generated
-	 */
-	BundleEntryResponse createBundleEntryResponse();
-
-	/**
-	 * Returns a new object of class '<em>Process Response</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process Response</em>'.
-	 * @generated
-	 */
-	ProcessResponse createProcessResponse();
-
-	/**
-	 * Returns a new object of class '<em>Process Response Notes</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process Response Notes</em>'.
-	 * @generated
-	 */
-	ProcessResponseNotes createProcessResponseNotes();
-
-	/**
-	 * Returns a new object of class '<em>Naming System</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Naming System</em>'.
-	 * @generated
-	 */
-	NamingSystem createNamingSystem();
-
-	/**
-	 * Returns a new object of class '<em>Naming System Contact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Naming System Contact</em>'.
-	 * @generated
-	 */
-	NamingSystemContact createNamingSystemContact();
-
-	/**
-	 * Returns a new object of class '<em>Naming System Unique Id</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Naming System Unique Id</em>'.
-	 * @generated
-	 */
-	NamingSystemUniqueId createNamingSystemUniqueId();
+	OrderResponse createOrderResponse();
 
 	/**
 	 * Returns a new object of class '<em>Supply Delivery</em>'.

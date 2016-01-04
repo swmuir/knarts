@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -19,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The type or discipline-style of the claim.
+ * The type or discipline-style of the claim
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

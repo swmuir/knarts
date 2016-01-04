@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,6 +25,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Id;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getHeaderField <em>Header Field</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getPath <em>Path</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getSourceId <em>Source Id</em>}</li>
@@ -60,6 +61,32 @@ public interface TestScriptVariable extends BackboneElement {
 	 * @generated
 	 */
 	void setName(org.eclipse.mdht.uml.fhir.core.datatype.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value</em>' reference.
+	 * @see #setDefaultValue(org.eclipse.mdht.uml.fhir.core.datatype.String)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getTestScriptVariable_DefaultValue()
+	 * @model
+	 * @generated
+	 */
+	org.eclipse.mdht.uml.fhir.core.datatype.String getDefaultValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable#getDefaultValue <em>Default Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value</em>' reference.
+	 * @see #getDefaultValue()
+	 * @generated
+	 */
+	void setDefaultValue(org.eclipse.mdht.uml.fhir.core.datatype.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Header Field</b></em>' reference.

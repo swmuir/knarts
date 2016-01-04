@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -120,7 +110,7 @@ public interface ClaimResponseError extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An error code,froma specified code system, which details why the claim could not be adjudicated.
+	 * An error code,from a specified code system, which details why the claim could not be adjudicated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(Coding)

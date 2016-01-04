@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -38,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PaymentNotice#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getPaymentStatus <em>Payment Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getStatusDate <em>Status Date</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getPaymentNotice()
@@ -294,5 +285,31 @@ public interface PaymentNotice extends DomainResource {
 	 * @generated
 	 */
 	void setPaymentStatus(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date when the above payment action occurrred.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Date</em>' containment reference.
+	 * @see #setStatusDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_StatusDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Date getStatusDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getStatusDate <em>Status Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Date</em>' containment reference.
+	 * @see #getStatusDate()
+	 * @generated
+	 */
+	void setStatusDate(Date value);
 
 } // PaymentNotice

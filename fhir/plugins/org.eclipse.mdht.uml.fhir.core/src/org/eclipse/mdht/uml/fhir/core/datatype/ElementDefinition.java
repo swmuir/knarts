@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -176,30 +176,30 @@ public interface ElementDefinition extends DataType {
 	EList<Coding> getCodes();
 
 	/**
-	 * Returns the value of the '<em><b>Slicing</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Slicing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Slicing</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Slicing</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Slicing</em>' containment reference.
-	 * @see #setSlicing(ElementDefinitionSlicing)
+	 * @return the value of the '<em>Slicing</em>' reference.
+	 * @see #setSlicing(ElementDefinitionElement1)
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Slicing()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	ElementDefinitionSlicing getSlicing();
+	ElementDefinitionElement1 getSlicing();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getSlicing <em>Slicing</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getSlicing <em>Slicing</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Slicing</em>' containment reference.
+	 * @param value the new value of the '<em>Slicing</em>' reference.
 	 * @see #getSlicing()
 	 * @generated
 	 */
-	void setSlicing(ElementDefinitionSlicing value);
+	void setSlicing(ElementDefinitionElement1 value);
 
 	/**
 	 * Returns the value of the '<em><b>Short</b></em>' reference.
@@ -374,46 +374,46 @@ public interface ElementDefinition extends DataType {
 	void setMax(org.eclipse.mdht.uml.fhir.core.datatype.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Base</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(ElementDefinitionBase)
+	 * @return the value of the '<em>Base</em>' reference.
+	 * @see #setBase(ElementDefinitionElement2)
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Base()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	ElementDefinitionBase getBase();
+	ElementDefinitionElement2 getBase();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBase <em>Base</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBase <em>Base</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base</em>' containment reference.
+	 * @param value the new value of the '<em>Base</em>' reference.
 	 * @see #getBase()
 	 * @generated
 	 */
-	void setBase(ElementDefinitionBase value);
+	void setBase(ElementDefinitionElement2 value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef}.
+	 * Returns the value of the '<em><b>Type</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Type</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @return the value of the '<em>Type</em>' reference list.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Type()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<ElementDefinitionTypeRef> getTypes();
+	EList<ElementDefinitionElement3> getTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Name Reference</b></em>' reference.
@@ -666,20 +666,20 @@ public interface ElementDefinition extends DataType {
 	EList<Id> getConditions();
 
 	/**
-	 * Returns the value of the '<em><b>Constraint</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint}.
+	 * Returns the value of the '<em><b>Constraint</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Constraint</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Constraint</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraint</em>' containment reference list.
+	 * @return the value of the '<em>Constraint</em>' reference list.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Constraint()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<ElementDefinitionConstraint> getConstraints();
+	EList<ElementDefinitionElement4> getConstraints();
 
 	/**
 	 * Returns the value of the '<em><b>Must Support</b></em>' reference.
@@ -760,45 +760,45 @@ public interface ElementDefinition extends DataType {
 	void setIsSummary(org.eclipse.mdht.uml.fhir.core.datatype.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Binding</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Binding</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Binding</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding</em>' containment reference.
-	 * @see #setBinding(ElementDefinitionBinding)
+	 * @return the value of the '<em>Binding</em>' reference.
+	 * @see #setBinding(ElementDefinitionElement5)
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Binding()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	ElementDefinitionBinding getBinding();
+	ElementDefinitionElement5 getBinding();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBinding <em>Binding</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBinding <em>Binding</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding</em>' containment reference.
+	 * @param value the new value of the '<em>Binding</em>' reference.
 	 * @see #getBinding()
 	 * @generated
 	 */
-	void setBinding(ElementDefinitionBinding value);
+	void setBinding(ElementDefinitionElement5 value);
 
 	/**
-	 * Returns the value of the '<em><b>Mapping</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping}.
+	 * Returns the value of the '<em><b>Mapping</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mapping</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Mapping</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping</em>' containment reference list.
+	 * @return the value of the '<em>Mapping</em>' reference list.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getElementDefinition_Mapping()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<ElementDefinitionMapping> getMappings();
+	EList<ElementDefinitionElement6> getMappings();
 
 } // ElementDefinition

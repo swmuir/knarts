@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -31,6 +21,8 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityResponse;
+import org.hl7.fhir.EligibilityResponseBenefitBalance;
+import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
@@ -53,6 +45,11 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getInforce <em>Inforce</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getContract <em>Contract</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getBenefitBalance <em>Benefit Balance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getError <em>Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +154,56 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * @ordered
 	 */
 	protected Reference requestOrganization;
+
+	/**
+	 * The cached value of the '{@link #getInforce() <em>Inforce</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInforce()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean inforce;
+
+	/**
+	 * The cached value of the '{@link #getContract() <em>Contract</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContract()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference contract;
+
+	/**
+	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForm()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding form;
+
+	/**
+	 * The cached value of the '{@link #getBenefitBalance() <em>Benefit Balance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBenefitBalance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EligibilityResponseBenefitBalance> benefitBalance;
+
+	/**
+	 * The cached value of the '{@link #getError() <em>Error</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getError()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EligibilityResponseError> error;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -581,6 +628,159 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getInforce() {
+		return inforce;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInforce(org.hl7.fhir.Boolean newInforce, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldInforce = inforce;
+		inforce = newInforce;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__INFORCE, oldInforce, newInforce);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInforce(org.hl7.fhir.Boolean newInforce) {
+		if (newInforce != inforce) {
+			NotificationChain msgs = null;
+			if (inforce != null)
+				msgs = ((InternalEObject)inforce).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__INFORCE, null, msgs);
+			if (newInforce != null)
+				msgs = ((InternalEObject)newInforce).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__INFORCE, null, msgs);
+			msgs = basicSetInforce(newInforce, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__INFORCE, newInforce, newInforce));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getContract() {
+		return contract;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContract(Reference newContract, NotificationChain msgs) {
+		Reference oldContract = contract;
+		contract = newContract;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT, oldContract, newContract);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContract(Reference newContract) {
+		if (newContract != contract) {
+			NotificationChain msgs = null;
+			if (contract != null)
+				msgs = ((InternalEObject)contract).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT, null, msgs);
+			if (newContract != null)
+				msgs = ((InternalEObject)newContract).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT, null, msgs);
+			msgs = basicSetContract(newContract, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT, newContract, newContract));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getForm() {
+		return form;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetForm(Coding newForm, NotificationChain msgs) {
+		Coding oldForm = form;
+		form = newForm;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__FORM, oldForm, newForm);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setForm(Coding newForm) {
+		if (newForm != form) {
+			NotificationChain msgs = null;
+			if (form != null)
+				msgs = ((InternalEObject)form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__FORM, null, msgs);
+			if (newForm != null)
+				msgs = ((InternalEObject)newForm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__FORM, null, msgs);
+			msgs = basicSetForm(newForm, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__FORM, newForm, newForm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EligibilityResponseBenefitBalance> getBenefitBalance() {
+		if (benefitBalance == null) {
+			benefitBalance = new EObjectContainmentEList<EligibilityResponseBenefitBalance>(EligibilityResponseBenefitBalance.class, this, FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE);
+		}
+		return benefitBalance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EligibilityResponseError> getError() {
+		if (error == null) {
+			error = new EObjectContainmentEList<EligibilityResponseError>(EligibilityResponseError.class, this, FhirPackage.ELIGIBILITY_RESPONSE__ERROR);
+		}
+		return error;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -604,6 +804,16 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return basicSetRequestProvider(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
 				return basicSetRequestOrganization(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
+				return basicSetInforce(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
+				return basicSetContract(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
+				return basicSetForm(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE:
+				return ((InternalEList<?>)getBenefitBalance()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
+				return ((InternalEList<?>)getError()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -636,6 +846,16 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return getRequestProvider();
 			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
 				return getRequestOrganization();
+			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
+				return getInforce();
+			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
+				return getContract();
+			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
+				return getForm();
+			case FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE:
+				return getBenefitBalance();
+			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
+				return getError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -680,6 +900,23 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
 				setRequestOrganization((Reference)newValue);
 				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
+				setInforce((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
+				setContract((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
+				setForm((Coding)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE:
+				getBenefitBalance().clear();
+				getBenefitBalance().addAll((Collection<? extends EligibilityResponseBenefitBalance>)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
+				getError().clear();
+				getError().addAll((Collection<? extends EligibilityResponseError>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -722,6 +959,21 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
 				setRequestOrganization((Reference)null);
 				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
+				setInforce((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
+				setContract((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
+				setForm((Coding)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE:
+				getBenefitBalance().clear();
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
+				getError().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -754,6 +1006,16 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return requestProvider != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
 				return requestOrganization != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
+				return inforce != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
+				return contract != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
+				return form != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__BENEFIT_BALANCE:
+				return benefitBalance != null && !benefitBalance.isEmpty();
+			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
+				return error != null && !error.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

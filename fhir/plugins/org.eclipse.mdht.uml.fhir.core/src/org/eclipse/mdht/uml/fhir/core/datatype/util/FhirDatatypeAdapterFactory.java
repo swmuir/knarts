@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,12 +39,12 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Distance;
 import org.eclipse.mdht.uml.fhir.core.datatype.Duration;
 import org.eclipse.mdht.uml.fhir.core.datatype.Element;
 import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6;
 import org.eclipse.mdht.uml.fhir.core.datatype.Extension;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
 import org.eclipse.mdht.uml.fhir.core.datatype.HumanName;
@@ -68,7 +68,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Signature;
 import org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity;
 import org.eclipse.mdht.uml.fhir.core.datatype.Time;
 import org.eclipse.mdht.uml.fhir.core.datatype.Timing;
-import org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat;
+import org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1;
 import org.eclipse.mdht.uml.fhir.core.datatype.UnsignedInt;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uri;
 import org.eclipse.mdht.uml.fhir.core.datatype.Uuid;
@@ -262,24 +262,48 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 				return createAttachmentAdapter();
 			}
 			@Override
-			public Adapter caseMoney(Money object) {
-				return createMoneyAdapter();
+			public Adapter caseElementDefinition(ElementDefinition object) {
+				return createElementDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseQuantity(Quantity object) {
-				return createQuantityAdapter();
+			public Adapter caseElementDefinitionElement1(ElementDefinitionElement1 object) {
+				return createElementDefinitionElement1Adapter();
+			}
+			@Override
+			public Adapter caseElementDefinitionElement2(ElementDefinitionElement2 object) {
+				return createElementDefinitionElement2Adapter();
+			}
+			@Override
+			public Adapter caseElementDefinitionElement3(ElementDefinitionElement3 object) {
+				return createElementDefinitionElement3Adapter();
+			}
+			@Override
+			public Adapter caseElementDefinitionElement4(ElementDefinitionElement4 object) {
+				return createElementDefinitionElement4Adapter();
+			}
+			@Override
+			public Adapter caseElementDefinitionElement5(ElementDefinitionElement5 object) {
+				return createElementDefinitionElement5Adapter();
+			}
+			@Override
+			public Adapter caseElementDefinitionElement6(ElementDefinitionElement6 object) {
+				return createElementDefinitionElement6Adapter();
 			}
 			@Override
 			public Adapter caseDuration(Duration object) {
 				return createDurationAdapter();
 			}
 			@Override
-			public Adapter caseSimpleQuantity(SimpleQuantity object) {
-				return createSimpleQuantityAdapter();
+			public Adapter caseQuantity(Quantity object) {
+				return createQuantityAdapter();
 			}
 			@Override
 			public Adapter caseRatio(Ratio object) {
 				return createRatioAdapter();
+			}
+			@Override
+			public Adapter caseSimpleQuantity(SimpleQuantity object) {
+				return createSimpleQuantityAdapter();
 			}
 			@Override
 			public Adapter caseRange(Range object) {
@@ -290,36 +314,12 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 				return createTimingAdapter();
 			}
 			@Override
-			public Adapter caseTimingRepeat(TimingRepeat object) {
-				return createTimingRepeatAdapter();
+			public Adapter caseTimingElement1(TimingElement1 object) {
+				return createTimingElement1Adapter();
 			}
 			@Override
-			public Adapter caseElementDefinition(ElementDefinition object) {
-				return createElementDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionSlicing(ElementDefinitionSlicing object) {
-				return createElementDefinitionSlicingAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionBase(ElementDefinitionBase object) {
-				return createElementDefinitionBaseAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionTypeRef(ElementDefinitionTypeRef object) {
-				return createElementDefinitionTypeRefAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionConstraint(ElementDefinitionConstraint object) {
-				return createElementDefinitionConstraintAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionBinding(ElementDefinitionBinding object) {
-				return createElementDefinitionBindingAdapter();
-			}
-			@Override
-			public Adapter caseElementDefinitionMapping(ElementDefinitionMapping object) {
-				return createElementDefinitionMappingAdapter();
+			public Adapter caseMoney(Money object) {
+				return createMoneyAdapter();
 			}
 			@Override
 			public Adapter caseSignature(Signature object) {
@@ -832,30 +832,100 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Money <em>Money</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition <em>Element Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Money
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition
 	 * @generated
 	 */
-	public Adapter createMoneyAdapter() {
+	public Adapter createElementDefinitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity <em>Quantity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1 <em>Element Definition Element1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1
 	 * @generated
 	 */
-	public Adapter createQuantityAdapter() {
+	public Adapter createElementDefinitionElement1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2 <em>Element Definition Element2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2
+	 * @generated
+	 */
+	public Adapter createElementDefinitionElement2Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3 <em>Element Definition Element3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3
+	 * @generated
+	 */
+	public Adapter createElementDefinitionElement3Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4 <em>Element Definition Element4</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4
+	 * @generated
+	 */
+	public Adapter createElementDefinitionElement4Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5 <em>Element Definition Element5</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5
+	 * @generated
+	 */
+	public Adapter createElementDefinitionElement5Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6 <em>Element Definition Element6</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6
+	 * @generated
+	 */
+	public Adapter createElementDefinitionElement6Adapter() {
 		return null;
 	}
 
@@ -874,16 +944,16 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity <em>Simple Quantity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity <em>Quantity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity
 	 * @generated
 	 */
-	public Adapter createSimpleQuantityAdapter() {
+	public Adapter createQuantityAdapter() {
 		return null;
 	}
 
@@ -898,6 +968,20 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRatioAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity <em>Simple Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity
+	 * @generated
+	 */
+	public Adapter createSimpleQuantityAdapter() {
 		return null;
 	}
 
@@ -930,114 +1014,30 @@ public class FhirDatatypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat <em>Timing Repeat</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1 <em>Timing Element1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1
 	 * @generated
 	 */
-	public Adapter createTimingRepeatAdapter() {
+	public Adapter createTimingElement1Adapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition <em>Element Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Money <em>Money</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Money
 	 * @generated
 	 */
-	public Adapter createElementDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing <em>Element Definition Slicing</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing
-	 * @generated
-	 */
-	public Adapter createElementDefinitionSlicingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase <em>Element Definition Base</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase
-	 * @generated
-	 */
-	public Adapter createElementDefinitionBaseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef <em>Element Definition Type Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef
-	 * @generated
-	 */
-	public Adapter createElementDefinitionTypeRefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint <em>Element Definition Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint
-	 * @generated
-	 */
-	public Adapter createElementDefinitionConstraintAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding <em>Element Definition Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding
-	 * @generated
-	 */
-	public Adapter createElementDefinitionBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping <em>Element Definition Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping
-	 * @generated
-	 */
-	public Adapter createElementDefinitionMappingAdapter() {
+	public Adapter createMoneyAdapter() {
 		return null;
 	}
 

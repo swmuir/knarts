@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -42,6 +42,11 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getRequestProvider <em>Request Provider</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getInforce <em>Inforce</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getContract <em>Contract</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getForm <em>Form</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getBenefitBalances <em>Benefit Balance</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getErrors <em>Error</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse()
@@ -298,5 +303,115 @@ public interface EligibilityResponse extends DomainResource {
 	 * @generated
 	 */
 	void setRequestOrganization(Organization value);
+
+	/**
+	 * Returns the value of the '<em><b>Inforce</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inforce</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inforce</em>' reference.
+	 * @see #setInforce(org.eclipse.mdht.uml.fhir.core.datatype.Boolean)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse_Inforce()
+	 * @model
+	 * @generated
+	 */
+	org.eclipse.mdht.uml.fhir.core.datatype.Boolean getInforce();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getInforce <em>Inforce</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inforce</em>' reference.
+	 * @see #getInforce()
+	 * @generated
+	 */
+	void setInforce(org.eclipse.mdht.uml.fhir.core.datatype.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contract</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contract</em>' reference.
+	 * @see #setContract(Contract)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse_Contract()
+	 * @model
+	 * @generated
+	 */
+	Contract getContract();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getContract <em>Contract</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contract</em>' reference.
+	 * @see #getContract()
+	 * @generated
+	 */
+	void setContract(Contract value);
+
+	/**
+	 * Returns the value of the '<em><b>Form</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Form</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Form</em>' reference.
+	 * @see #setForm(Coding)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse_Form()
+	 * @model
+	 * @generated
+	 */
+	Coding getForm();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponse#getForm <em>Form</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Form</em>' reference.
+	 * @see #getForm()
+	 * @generated
+	 */
+	void setForm(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Benefit Balance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseBenefits}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Benefit Balance</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Benefit Balance</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse_BenefitBalance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<EligibilityResponseBenefits> getBenefitBalances();
+
+	/**
+	 * Returns the value of the '<em><b>Error</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.EligibilityResponseErrors}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getEligibilityResponse_Error()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<EligibilityResponseErrors> getErrors();
 
 } // EligibilityResponse

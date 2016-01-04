@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,8 @@
 /**
  */
 package org.eclipse.mdht.uml.fhir.core.resource;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
@@ -37,7 +39,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getSource <em>Source</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getItems <em>Item</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaireResponse()
@@ -254,29 +256,19 @@ public interface QuestionnaireResponse extends DomainResource {
 	void setEncounter(Encounter value);
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponseItem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Item</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(QuestionnaireResponseGroup)
-	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaireResponse_Group()
+	 * @return the value of the '<em>Item</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getQuestionnaireResponse_Item()
 	 * @model containment="true"
 	 * @generated
 	 */
-	QuestionnaireResponseGroup getGroup();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.QuestionnaireResponse#getGroup <em>Group</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' containment reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	void setGroup(QuestionnaireResponseGroup value);
+	EList<QuestionnaireResponseItem> getItems();
 
 } // QuestionnaireResponse

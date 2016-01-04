@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,6 +15,7 @@ package org.eclipse.mdht.uml.fhir.core.resource;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
+import org.eclipse.mdht.uml.fhir.core.datatype.Date;
 import org.eclipse.mdht.uml.fhir.core.datatype.DateTime;
 import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
 
@@ -41,6 +42,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.Identifier;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice#getRequest <em>Request</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice#getResponse <em>Response</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice#getPaymentStatus <em>Payment Status</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice#getStatusDate <em>Status Date</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getPaymentNotice()
@@ -297,5 +299,31 @@ public interface PaymentNotice extends DomainResource {
 	 * @generated
 	 */
 	void setPaymentStatus(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Date</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Date</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status Date</em>' reference.
+	 * @see #setStatusDate(Date)
+	 * @see org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage#getPaymentNotice_StatusDate()
+	 * @model
+	 * @generated
+	 */
+	Date getStatusDate();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.core.resource.PaymentNotice#getStatusDate <em>Status Date</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Date</em>' reference.
+	 * @see #getStatusDate()
+	 * @generated
+	 */
+	void setStatusDate(Date value);
 
 } // PaymentNotice

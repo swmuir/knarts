@@ -25,8 +25,10 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.TestScript;
 import org.hl7.fhir.TestScriptContact;
+import org.hl7.fhir.TestScriptDestination;
 import org.hl7.fhir.TestScriptFixture;
 import org.hl7.fhir.TestScriptMetadata;
+import org.hl7.fhir.TestScriptOrigin;
 import org.hl7.fhir.TestScriptSetup;
 import org.hl7.fhir.TestScriptTeardown;
 import org.hl7.fhir.TestScriptTest;
@@ -55,6 +57,8 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getMetadata <em>Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getMultiserver <em>Multiserver</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getProfile <em>Profile</em>}</li>
@@ -206,6 +210,26 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @ordered
 	 */
 	protected TestScriptMetadata metadata;
+
+	/**
+	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigin()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptOrigin> origin;
+
+	/**
+	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestination()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptDestination> destination;
 
 	/**
 	 * The cached value of the '{@link #getMultiserver() <em>Multiserver</em>}' containment reference.
@@ -841,6 +865,30 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TestScriptOrigin> getOrigin() {
+		if (origin == null) {
+			origin = new EObjectContainmentEList<TestScriptOrigin>(TestScriptOrigin.class, this, FhirPackage.TEST_SCRIPT__ORIGIN);
+		}
+		return origin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TestScriptDestination> getDestination() {
+		if (destination == null) {
+			destination = new EObjectContainmentEList<TestScriptDestination>(TestScriptDestination.class, this, FhirPackage.TEST_SCRIPT__DESTINATION);
+		}
+		return destination;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Boolean getMultiserver() {
 		return multiserver;
 	}
@@ -1049,6 +1097,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.TEST_SCRIPT__METADATA:
 				return basicSetMetadata(null, msgs);
+			case FhirPackage.TEST_SCRIPT__ORIGIN:
+				return ((InternalEList<?>)getOrigin()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TEST_SCRIPT__DESTINATION:
+				return ((InternalEList<?>)getDestination()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__MULTISERVER:
 				return basicSetMultiserver(null, msgs);
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
@@ -1103,6 +1155,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return getCopyright();
 			case FhirPackage.TEST_SCRIPT__METADATA:
 				return getMetadata();
+			case FhirPackage.TEST_SCRIPT__ORIGIN:
+				return getOrigin();
+			case FhirPackage.TEST_SCRIPT__DESTINATION:
+				return getDestination();
 			case FhirPackage.TEST_SCRIPT__MULTISERVER:
 				return getMultiserver();
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
@@ -1173,6 +1229,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return;
 			case FhirPackage.TEST_SCRIPT__METADATA:
 				setMetadata((TestScriptMetadata)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT__ORIGIN:
+				getOrigin().clear();
+				getOrigin().addAll((Collection<? extends TestScriptOrigin>)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT__DESTINATION:
+				getDestination().clear();
+				getDestination().addAll((Collection<? extends TestScriptDestination>)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__MULTISERVER:
 				setMultiserver((org.hl7.fhir.Boolean)newValue);
@@ -1253,6 +1317,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__METADATA:
 				setMetadata((TestScriptMetadata)null);
 				return;
+			case FhirPackage.TEST_SCRIPT__ORIGIN:
+				getOrigin().clear();
+				return;
+			case FhirPackage.TEST_SCRIPT__DESTINATION:
+				getDestination().clear();
+				return;
 			case FhirPackage.TEST_SCRIPT__MULTISERVER:
 				setMultiserver((org.hl7.fhir.Boolean)null);
 				return;
@@ -1314,6 +1384,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return copyright != null;
 			case FhirPackage.TEST_SCRIPT__METADATA:
 				return metadata != null;
+			case FhirPackage.TEST_SCRIPT__ORIGIN:
+				return origin != null && !origin.isEmpty();
+			case FhirPackage.TEST_SCRIPT__DESTINATION:
+				return destination != null && !destination.isEmpty();
 			case FhirPackage.TEST_SCRIPT__MULTISERVER:
 				return multiserver != null;
 			case FhirPackage.TEST_SCRIPT__FIXTURE:

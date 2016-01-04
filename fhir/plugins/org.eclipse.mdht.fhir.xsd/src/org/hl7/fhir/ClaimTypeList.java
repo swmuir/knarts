@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -141,7 +131,7 @@ public enum ClaimTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A claim for Vision (Ophthamologist, Optometrist and Optician) goods and services.
+	 * A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.
 	 * <!-- end-model-doc -->
 	 * @see #VISION
 	 * @model name="vision"

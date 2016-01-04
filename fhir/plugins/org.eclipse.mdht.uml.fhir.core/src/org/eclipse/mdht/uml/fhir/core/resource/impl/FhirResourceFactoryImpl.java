@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -82,57 +82,27 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.PATIENT_LINK: return createPatientLink();
 			case FhirResourcePackage.RELATED_PERSON: return createRelatedPerson();
 			case FhirResourcePackage.DEVICE: return createDevice();
-			case FhirResourcePackage.APPOINTMENT: return createAppointment();
-			case FhirResourcePackage.SLOT: return createSlot();
-			case FhirResourcePackage.SCHEDULE: return createSchedule();
-			case FhirResourcePackage.APPOINTMENT_PARTICIPANT: return createAppointmentParticipant();
-			case FhirResourcePackage.ACCOUNT: return createAccount();
-			case FhirResourcePackage.REFERRAL_REQUEST: return createReferralRequest();
-			case FhirResourcePackage.ENCOUNTER: return createEncounter();
-			case FhirResourcePackage.ENCOUNTER_STATUS_HISTORY: return createEncounterStatusHistory();
-			case FhirResourcePackage.EPISODE_OF_CARE: return createEpisodeOfCare();
-			case FhirResourcePackage.EPISODE_OF_CARE_STATUS_HISTORY: return createEpisodeOfCareStatusHistory();
-			case FhirResourcePackage.CONDITION: return createCondition();
-			case FhirResourcePackage.CONDITION_STAGE: return createConditionStage();
-			case FhirResourcePackage.CONDITION_EVIDENCE: return createConditionEvidence();
-			case FhirResourcePackage.EPISODE_OF_CARE_CARE_TEAM: return createEpisodeOfCareCareTeam();
-			case FhirResourcePackage.ENCOUNTER_PARTICIPANT: return createEncounterParticipant();
-			case FhirResourcePackage.ENCOUNTER_HOSPITALIZATION: return createEncounterHospitalization();
-			case FhirResourcePackage.ENCOUNTER_LOCATION: return createEncounterLocation();
-			case FhirResourcePackage.CLINICAL_IMPRESSION: return createClinicalImpression();
-			case FhirResourcePackage.CLINICAL_IMPRESSION_INVESTIGATIONS: return createClinicalImpressionInvestigations();
-			case FhirResourcePackage.CLINICAL_IMPRESSION_FINDING: return createClinicalImpressionFinding();
-			case FhirResourcePackage.CLINICAL_IMPRESSION_RULED_OUT: return createClinicalImpressionRuledOut();
-			case FhirResourcePackage.ALLERGY_INTOLERANCE: return createAllergyIntolerance();
-			case FhirResourcePackage.ALLERGY_INTOLERANCE_REACTION: return createAllergyIntoleranceReaction();
-			case FhirResourcePackage.OBSERVATION: return createObservation();
-			case FhirResourcePackage.SPECIMEN: return createSpecimen();
-			case FhirResourcePackage.SPECIMEN_COLLECTION: return createSpecimenCollection();
-			case FhirResourcePackage.SPECIMEN_TREATMENT: return createSpecimenTreatment();
-			case FhirResourcePackage.SUBSTANCE: return createSubstance();
-			case FhirResourcePackage.SUBSTANCE_INSTANCE: return createSubstanceInstance();
-			case FhirResourcePackage.SUBSTANCE_INGREDIENT: return createSubstanceIngredient();
-			case FhirResourcePackage.SPECIMEN_CONTAINER: return createSpecimenContainer();
-			case FhirResourcePackage.OBSERVATION_REFERENCE_RANGE: return createObservationReferenceRange();
-			case FhirResourcePackage.OBSERVATION_RELATED: return createObservationRelated();
-			case FhirResourcePackage.OBSERVATION_COMPONENT: return createObservationComponent();
-			case FhirResourcePackage.GROUP: return createGroup();
-			case FhirResourcePackage.GROUP_CHARACTERISTIC: return createGroupCharacteristic();
-			case FhirResourcePackage.GROUP_MEMBER: return createGroupMember();
-			case FhirResourcePackage.MEDICATION: return createMedication();
-			case FhirResourcePackage.MEDICATION_PRODUCT: return createMedicationProduct();
-			case FhirResourcePackage.MEDICATION_PRODUCT_INGREDIENT: return createMedicationProductIngredient();
-			case FhirResourcePackage.MEDICATION_PRODUCT_BATCH: return createMedicationProductBatch();
-			case FhirResourcePackage.MEDICATION_PACKAGE: return createMedicationPackage();
-			case FhirResourcePackage.MEDICATION_PACKAGE_CONTENT: return createMedicationPackageContent();
-			case FhirResourcePackage.DEVICE_METRIC: return createDeviceMetric();
-			case FhirResourcePackage.DEVICE_COMPONENT: return createDeviceComponent();
-			case FhirResourcePackage.DEVICE_COMPONENT_PRODUCTION_SPECIFICATION: return createDeviceComponentProductionSpecification();
-			case FhirResourcePackage.DEVICE_METRIC_CALIBRATION: return createDeviceMetricCalibration();
-			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE: return createQuestionnaireResponse();
-			case FhirResourcePackage.QUESTIONNAIRE: return createQuestionnaire();
-			case FhirResourcePackage.QUESTIONNAIRE_GROUP: return createQuestionnaireGroup();
-			case FhirResourcePackage.QUESTIONNAIRE_GROUP_QUESTION: return createQuestionnaireGroupQuestion();
+			case FhirResourcePackage.LIBRARY: return createLibrary();
+			case FhirResourcePackage.MODULE_METADATA: return createModuleMetadata();
+			case FhirResourcePackage.MODULE_METADATA_COVERAGE: return createModuleMetadataCoverage();
+			case FhirResourcePackage.MODULE_METADATA_CONTRIBUTOR: return createModuleMetadataContributor();
+			case FhirResourcePackage.MODULE_METADATA_RELATED_RESOURCE: return createModuleMetadataRelatedResource();
+			case FhirResourcePackage.MODULE_DEFINITION: return createModuleDefinition();
+			case FhirResourcePackage.MODULE_DEFINITION_MODEL: return createModuleDefinitionModel();
+			case FhirResourcePackage.MODULE_DEFINITION_LIBRARY: return createModuleDefinitionLibrary();
+			case FhirResourcePackage.MODULE_DEFINITION_CODE_SYSTEM: return createModuleDefinitionCodeSystem();
+			case FhirResourcePackage.MODULE_DEFINITION_VALUE_SET: return createModuleDefinitionValueSet();
+			case FhirResourcePackage.MODULE_DEFINITION_PARAMETER: return createModuleDefinitionParameter();
+			case FhirResourcePackage.STRUCTURE_DEFINITION: return createStructureDefinition();
+			case FhirResourcePackage.STRUCTURE_DEFINITION_CONTACT: return createStructureDefinitionContact();
+			case FhirResourcePackage.STRUCTURE_DEFINITION_MAPPING: return createStructureDefinitionMapping();
+			case FhirResourcePackage.STRUCTURE_DEFINITION_SNAPSHOT: return createStructureDefinitionSnapshot();
+			case FhirResourcePackage.STRUCTURE_DEFINITION_DIFFERENTIAL: return createStructureDefinitionDifferential();
+			case FhirResourcePackage.MODULE_DEFINITION_DATA: return createModuleDefinitionData();
+			case FhirResourcePackage.MODULE_DEFINITION_DATA_CODE_FILTER: return createModuleDefinitionDataCodeFilter();
+			case FhirResourcePackage.MODULE_DEFINITION_DATA_DATE_FILTER: return createModuleDefinitionDataDateFilter();
+			case FhirResourcePackage.PERSON: return createPerson();
+			case FhirResourcePackage.PERSON_LINK: return createPersonLink();
 			case FhirResourcePackage.VALUE_SET: return createValueSet();
 			case FhirResourcePackage.VALUE_SET_CONTACT: return createValueSetContact();
 			case FhirResourcePackage.VALUE_SET_CODE_SYSTEM: return createValueSetCodeSystem();
@@ -145,9 +115,61 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.VALUE_SET_EXPANSION: return createValueSetExpansion();
 			case FhirResourcePackage.VALUE_SET_EXPANSION_PARAMETER: return createValueSetExpansionParameter();
 			case FhirResourcePackage.VALUE_SET_EXPANSION_CONTAINS: return createValueSetExpansionContains();
-			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE_GROUP: return createQuestionnaireResponseGroup();
-			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE_GROUP_QUESTION: return createQuestionnaireResponseGroupQuestion();
-			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE_GROUP_QUESTION_ANSWER: return createQuestionnaireResponseGroupQuestionAnswer();
+			case FhirResourcePackage.COMMUNICATION: return createCommunication();
+			case FhirResourcePackage.COMMUNICATION_PAYLOAD: return createCommunicationPayload();
+			case FhirResourcePackage.ENCOUNTER: return createEncounter();
+			case FhirResourcePackage.ENCOUNTER_STATUS_HISTORY: return createEncounterStatusHistory();
+			case FhirResourcePackage.EPISODE_OF_CARE: return createEpisodeOfCare();
+			case FhirResourcePackage.EPISODE_OF_CARE_STATUS_HISTORY: return createEpisodeOfCareStatusHistory();
+			case FhirResourcePackage.CONDITION: return createCondition();
+			case FhirResourcePackage.CONDITION_STAGE: return createConditionStage();
+			case FhirResourcePackage.CONDITION_EVIDENCE: return createConditionEvidence();
+			case FhirResourcePackage.REFERRAL_REQUEST: return createReferralRequest();
+			case FhirResourcePackage.EPISODE_OF_CARE_CARE_TEAM: return createEpisodeOfCareCareTeam();
+			case FhirResourcePackage.ENCOUNTER_PARTICIPANT: return createEncounterParticipant();
+			case FhirResourcePackage.APPOINTMENT: return createAppointment();
+			case FhirResourcePackage.SLOT: return createSlot();
+			case FhirResourcePackage.SCHEDULE: return createSchedule();
+			case FhirResourcePackage.APPOINTMENT_PARTICIPANT: return createAppointmentParticipant();
+			case FhirResourcePackage.ENCOUNTER_HOSPITALIZATION: return createEncounterHospitalization();
+			case FhirResourcePackage.ENCOUNTER_LOCATION: return createEncounterLocation();
+			case FhirResourcePackage.COMMUNICATION_REQUEST: return createCommunicationRequest();
+			case FhirResourcePackage.COMMUNICATION_REQUEST_PAYLOAD: return createCommunicationRequestPayload();
+			case FhirResourcePackage.GROUP: return createGroup();
+			case FhirResourcePackage.GROUP_CHARACTERISTIC: return createGroupCharacteristic();
+			case FhirResourcePackage.GROUP_MEMBER: return createGroupMember();
+			case FhirResourcePackage.MEDICATION: return createMedication();
+			case FhirResourcePackage.MEDICATION_PRODUCT: return createMedicationProduct();
+			case FhirResourcePackage.MEDICATION_PRODUCT_INGREDIENT: return createMedicationProductIngredient();
+			case FhirResourcePackage.MEDICATION_PRODUCT_BATCH: return createMedicationProductBatch();
+			case FhirResourcePackage.MEDICATION_PACKAGE: return createMedicationPackage();
+			case FhirResourcePackage.MEDICATION_PACKAGE_CONTENT: return createMedicationPackageContent();
+			case FhirResourcePackage.SUBSTANCE: return createSubstance();
+			case FhirResourcePackage.SUBSTANCE_INSTANCE: return createSubstanceInstance();
+			case FhirResourcePackage.SUBSTANCE_INGREDIENT: return createSubstanceIngredient();
+			case FhirResourcePackage.CLINICAL_IMPRESSION: return createClinicalImpression();
+			case FhirResourcePackage.CLINICAL_IMPRESSION_INVESTIGATIONS: return createClinicalImpressionInvestigations();
+			case FhirResourcePackage.CLINICAL_IMPRESSION_FINDING: return createClinicalImpressionFinding();
+			case FhirResourcePackage.CLINICAL_IMPRESSION_RULED_OUT: return createClinicalImpressionRuledOut();
+			case FhirResourcePackage.ALLERGY_INTOLERANCE: return createAllergyIntolerance();
+			case FhirResourcePackage.ALLERGY_INTOLERANCE_REACTION: return createAllergyIntoleranceReaction();
+			case FhirResourcePackage.OBSERVATION: return createObservation();
+			case FhirResourcePackage.SPECIMEN: return createSpecimen();
+			case FhirResourcePackage.SPECIMEN_COLLECTION: return createSpecimenCollection();
+			case FhirResourcePackage.SPECIMEN_TREATMENT: return createSpecimenTreatment();
+			case FhirResourcePackage.SPECIMEN_CONTAINER: return createSpecimenContainer();
+			case FhirResourcePackage.OBSERVATION_REFERENCE_RANGE: return createObservationReferenceRange();
+			case FhirResourcePackage.OBSERVATION_RELATED: return createObservationRelated();
+			case FhirResourcePackage.OBSERVATION_COMPONENT: return createObservationComponent();
+			case FhirResourcePackage.DEVICE_METRIC: return createDeviceMetric();
+			case FhirResourcePackage.DEVICE_COMPONENT: return createDeviceComponent();
+			case FhirResourcePackage.DEVICE_COMPONENT_PRODUCTION_SPECIFICATION: return createDeviceComponentProductionSpecification();
+			case FhirResourcePackage.DEVICE_METRIC_CALIBRATION: return createDeviceMetricCalibration();
+			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE: return createQuestionnaireResponse();
+			case FhirResourcePackage.QUESTIONNAIRE: return createQuestionnaire();
+			case FhirResourcePackage.QUESTIONNAIRE_ITEM: return createQuestionnaireItem();
+			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE_ITEM: return createQuestionnaireResponseItem();
+			case FhirResourcePackage.QUESTIONNAIRE_RESPONSE_ITEM_ANSWER: return createQuestionnaireResponseItemAnswer();
 			case FhirResourcePackage.FAMILY_MEMBER_HISTORY: return createFamilyMemberHistory();
 			case FhirResourcePackage.FAMILY_MEMBER_HISTORY_CONDITION: return createFamilyMemberHistoryCondition();
 			case FhirResourcePackage.DIAGNOSTIC_REPORT: return createDiagnosticReport();
@@ -187,8 +209,6 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.NUTRITION_ORDER_ENTERAL_FORMULA_ADMINISTRATION: return createNutritionOrderEnteralFormulaAdministration();
 			case FhirResourcePackage.RISK_ASSESSMENT: return createRiskAssessment();
 			case FhirResourcePackage.RISK_ASSESSMENT_PREDICTION: return createRiskAssessmentPrediction();
-			case FhirResourcePackage.COMMUNICATION_REQUEST: return createCommunicationRequest();
-			case FhirResourcePackage.COMMUNICATION_REQUEST_PAYLOAD: return createCommunicationRequestPayload();
 			case FhirResourcePackage.DEVICE_USE_REQUEST: return createDeviceUseRequest();
 			case FhirResourcePackage.MEDICATION_ORDER: return createMedicationOrder();
 			case FhirResourcePackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION: return createMedicationOrderDosageInstruction();
@@ -207,11 +227,24 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.IMAGING_OBJECT_SELECTION_STUDY_SERIES: return createImagingObjectSelectionStudySeries();
 			case FhirResourcePackage.IMAGING_OBJECT_SELECTION_STUDY_SERIES_INSTANCE: return createImagingObjectSelectionStudySeriesInstance();
 			case FhirResourcePackage.IMAGING_OBJECT_SELECTION_STUDY_SERIES_INSTANCE_FRAMES: return createImagingObjectSelectionStudySeriesInstanceFrames();
-			case FhirResourcePackage.DOCUMENT_MANIFEST: return createDocumentManifest();
-			case FhirResourcePackage.DOCUMENT_MANIFEST_CONTENT: return createDocumentManifestContent();
-			case FhirResourcePackage.DOCUMENT_MANIFEST_RELATED: return createDocumentManifestRelated();
-			case FhirResourcePackage.ENROLLMENT_REQUEST: return createEnrollmentRequest();
-			case FhirResourcePackage.COVERAGE: return createCoverage();
+			case FhirResourcePackage.NAMING_SYSTEM: return createNamingSystem();
+			case FhirResourcePackage.NAMING_SYSTEM_CONTACT: return createNamingSystemContact();
+			case FhirResourcePackage.NAMING_SYSTEM_UNIQUE_ID: return createNamingSystemUniqueId();
+			case FhirResourcePackage.DECISION_SUPPORT_SERVICE_MODULE: return createDecisionSupportServiceModule();
+			case FhirResourcePackage.DECISION_SUPPORT_SERVICE_MODULE_PARAMETER: return createDecisionSupportServiceModuleParameter();
+			case FhirResourcePackage.DECISION_SUPPORT_SERVICE_MODULE_PARAMETER_CODE_FILTER: return createDecisionSupportServiceModuleParameterCodeFilter();
+			case FhirResourcePackage.DECISION_SUPPORT_SERVICE_MODULE_PARAMETER_DATE_FILTER: return createDecisionSupportServiceModuleParameterDateFilter();
+			case FhirResourcePackage.CONCEPT_MAP: return createConceptMap();
+			case FhirResourcePackage.CONCEPT_MAP_CONTACT: return createConceptMapContact();
+			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT: return createConceptMapSourceElement();
+			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT_TARGET_ELEMENT: return createConceptMapSourceElementTargetElement();
+			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT_TARGET_ELEMENT_OTHER_ELEMENT: return createConceptMapSourceElementTargetElementOtherElement();
+			case FhirResourcePackage.FLAG: return createFlag();
+			case FhirResourcePackage.SEQUENCE: return createSequence();
+			case FhirResourcePackage.SEQUENCE_COORDINATE: return createSequenceCoordinate();
+			case FhirResourcePackage.SEQUENCE_QUALITY: return createSequenceQuality();
+			case FhirResourcePackage.SEQUENCE_CHIP: return createSequenceChip();
+			case FhirResourcePackage.SEQUENCE_REPOSITORY: return createSequenceRepository();
 			case FhirResourcePackage.CONTRACT: return createContract();
 			case FhirResourcePackage.CONTRACT_ACTOR: return createContractActor();
 			case FhirResourcePackage.CONTRACT_VALUED_ITEM: return createContractValuedItem();
@@ -226,19 +259,23 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.COMPOSITION_ATTESTER: return createCompositionAttester();
 			case FhirResourcePackage.COMPOSITION_EVENT: return createCompositionEvent();
 			case FhirResourcePackage.COMPOSITION_SECTION: return createCompositionSection();
-			case FhirResourcePackage.SUBSCRIPTION: return createSubscription();
-			case FhirResourcePackage.SUBSCRIPTION_CHANNEL: return createSubscriptionChannel();
-			case FhirResourcePackage.PARAMETERS: return createParameters();
-			case FhirResourcePackage.PARAMETERS_PARAMETER: return createParametersParameter();
+			case FhirResourcePackage.BINARY: return createBinary();
+			case FhirResourcePackage.DOCUMENT_MANIFEST: return createDocumentManifest();
+			case FhirResourcePackage.DOCUMENT_MANIFEST_CONTENT: return createDocumentManifestContent();
+			case FhirResourcePackage.DOCUMENT_MANIFEST_RELATED: return createDocumentManifestRelated();
+			case FhirResourcePackage.PAYMENT_RECONCILIATION: return createPaymentReconciliation();
+			case FhirResourcePackage.PAYMENT_RECONCILIATION_DETAILS: return createPaymentReconciliationDetails();
+			case FhirResourcePackage.PAYMENT_RECONCILIATION_NOTES: return createPaymentReconciliationNotes();
+			case FhirResourcePackage.DEVICE_USE_STATEMENT: return createDeviceUseStatement();
+			case FhirResourcePackage.TEST_SCRIPT: return createTestScript();
+			case FhirResourcePackage.TEST_SCRIPT_CONTACT: return createTestScriptContact();
+			case FhirResourcePackage.TEST_SCRIPT_METADATA: return createTestScriptMetadata();
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_LINK: return createTestScriptMetadataLink();
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY: return createTestScriptMetadataCapability();
 			case FhirResourcePackage.CONFORMANCE: return createConformance();
 			case FhirResourcePackage.CONFORMANCE_CONTACT: return createConformanceContact();
 			case FhirResourcePackage.CONFORMANCE_SOFTWARE: return createConformanceSoftware();
 			case FhirResourcePackage.CONFORMANCE_IMPLEMENTATION: return createConformanceImplementation();
-			case FhirResourcePackage.STRUCTURE_DEFINITION: return createStructureDefinition();
-			case FhirResourcePackage.STRUCTURE_DEFINITION_CONTACT: return createStructureDefinitionContact();
-			case FhirResourcePackage.STRUCTURE_DEFINITION_MAPPING: return createStructureDefinitionMapping();
-			case FhirResourcePackage.STRUCTURE_DEFINITION_SNAPSHOT: return createStructureDefinitionSnapshot();
-			case FhirResourcePackage.STRUCTURE_DEFINITION_DIFFERENTIAL: return createStructureDefinitionDifferential();
 			case FhirResourcePackage.CONFORMANCE_REST: return createConformanceRest();
 			case FhirResourcePackage.CONFORMANCE_REST_SECURITY: return createConformanceRestSecurity();
 			case FhirResourcePackage.CONFORMANCE_REST_SECURITY_CERTIFICATE: return createConformanceRestSecurityCertificate();
@@ -255,28 +292,37 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.CONFORMANCE_MESSAGING_ENDPOINT: return createConformanceMessagingEndpoint();
 			case FhirResourcePackage.CONFORMANCE_MESSAGING_EVENT: return createConformanceMessagingEvent();
 			case FhirResourcePackage.CONFORMANCE_DOCUMENT: return createConformanceDocument();
-			case FhirResourcePackage.PERSON: return createPerson();
-			case FhirResourcePackage.PERSON_LINK: return createPersonLink();
-			case FhirResourcePackage.PAYMENT_NOTICE: return createPaymentNotice();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE: return createImplementationGuide();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_CONTACT: return createImplementationGuideContact();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_DEPENDENCY: return createImplementationGuideDependency();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PACKAGE: return createImplementationGuidePackage();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PACKAGE_RESOURCE: return createImplementationGuidePackageResource();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_GLOBAL: return createImplementationGuideGlobal();
-			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PAGE: return createImplementationGuidePage();
-			case FhirResourcePackage.SEARCH_PARAMETER: return createSearchParameter();
-			case FhirResourcePackage.SEARCH_PARAMETER_CONTACT: return createSearchParameterContact();
-			case FhirResourcePackage.COMMUNICATION: return createCommunication();
-			case FhirResourcePackage.COMMUNICATION_PAYLOAD: return createCommunicationPayload();
-			case FhirResourcePackage.ORDER_RESPONSE: return createOrderResponse();
-			case FhirResourcePackage.DEVICE_USE_STATEMENT: return createDeviceUseStatement();
+			case FhirResourcePackage.TEST_SCRIPT_ORIGIN: return createTestScriptOrigin();
+			case FhirResourcePackage.TEST_SCRIPT_DESTINATION: return createTestScriptDestination();
+			case FhirResourcePackage.TEST_SCRIPT_FIXTURE: return createTestScriptFixture();
+			case FhirResourcePackage.TEST_SCRIPT_VARIABLE: return createTestScriptVariable();
+			case FhirResourcePackage.TEST_SCRIPT_SETUP: return createTestScriptSetup();
+			case FhirResourcePackage.TEST_SCRIPT_SETUP_SETUP_ACTION: return createTestScriptSetupSetupAction();
+			case FhirResourcePackage.TEST_SCRIPT_SETUP_SETUP_ACTION_OPERATION: return createTestScriptSetupSetupActionOperation();
+			case FhirResourcePackage.TEST_SCRIPT_SETUP_SETUP_ACTION_OPERATION_REQUEST_HEADER: return createTestScriptSetupSetupActionOperationRequestHeader();
+			case FhirResourcePackage.TEST_SCRIPT_SETUP_SETUP_ACTION_ASSERT: return createTestScriptSetupSetupActionAssert();
+			case FhirResourcePackage.TEST_SCRIPT_TEST: return createTestScriptTest();
+			case FhirResourcePackage.TEST_SCRIPT_TEST_TEST_ACTION: return createTestScriptTestTestAction();
+			case FhirResourcePackage.TEST_SCRIPT_TEARDOWN: return createTestScriptTeardown();
+			case FhirResourcePackage.TEST_SCRIPT_TEARDOWN_TEARDOWN_ACTION: return createTestScriptTeardownTeardownAction();
+			case FhirResourcePackage.DATA_ELEMENT: return createDataElement();
+			case FhirResourcePackage.DATA_ELEMENT_CONTACT: return createDataElementContact();
+			case FhirResourcePackage.DATA_ELEMENT_MAPPING: return createDataElementMapping();
+			case FhirResourcePackage.DECISION_SUPPORT_RULE: return createDecisionSupportRule();
+			case FhirResourcePackage.DECISION_SUPPORT_RULE_TRIGGER: return createDecisionSupportRuleTrigger();
+			case FhirResourcePackage.DECISION_SUPPORT_RULE_ACTION: return createDecisionSupportRuleAction();
+			case FhirResourcePackage.DECISION_SUPPORT_RULE_ACTION_CUSTOMIZATION: return createDecisionSupportRuleActionCustomization();
 			case FhirResourcePackage.MESSAGE_HEADER: return createMessageHeader();
 			case FhirResourcePackage.MESSAGE_HEADER_RESPONSE: return createMessageHeaderResponse();
 			case FhirResourcePackage.OPERATION_OUTCOME: return createOperationOutcome();
 			case FhirResourcePackage.OPERATION_OUTCOME_ISSUE: return createOperationOutcomeIssue();
 			case FhirResourcePackage.MESSAGE_HEADER_MESSAGE_SOURCE: return createMessageHeaderMessageSource();
 			case FhirResourcePackage.MESSAGE_HEADER_MESSAGE_DESTINATION: return createMessageHeaderMessageDestination();
+			case FhirResourcePackage.SUBSCRIPTION: return createSubscription();
+			case FhirResourcePackage.SUBSCRIPTION_CHANNEL: return createSubscriptionChannel();
+			case FhirResourcePackage.ENROLLMENT_RESPONSE: return createEnrollmentResponse();
+			case FhirResourcePackage.ENROLLMENT_REQUEST: return createEnrollmentRequest();
+			case FhirResourcePackage.COVERAGE: return createCoverage();
 			case FhirResourcePackage.IMMUNIZATION_RECOMMENDATION: return createImmunizationRecommendation();
 			case FhirResourcePackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION: return createImmunizationRecommendationRecommendation();
 			case FhirResourcePackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION_DATE_CRITERION: return createImmunizationRecommendationRecommendationDateCriterion();
@@ -285,16 +331,32 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.IMMUNIZATION_EXPLANATION: return createImmunizationExplanation();
 			case FhirResourcePackage.IMMUNIZATION_REACTION: return createImmunizationReaction();
 			case FhirResourcePackage.IMMUNIZATION_VACCINATION_PROTOCOL: return createImmunizationVaccinationProtocol();
-			case FhirResourcePackage.PROVENANCE: return createProvenance();
-			case FhirResourcePackage.PROVENANCE_AGENT: return createProvenanceAgent();
-			case FhirResourcePackage.PROVENANCE_AGENT_RELATED_AGENT: return createProvenanceAgentRelatedAgent();
-			case FhirResourcePackage.PROVENANCE_ENTITY: return createProvenanceEntity();
-			case FhirResourcePackage.EXPLANATION_OF_BENEFIT: return createExplanationOfBenefit();
+			case FhirResourcePackage.BUNDLE: return createBundle();
+			case FhirResourcePackage.BUNDLE_LINK: return createBundleLink();
+			case FhirResourcePackage.BUNDLE_ENTRY: return createBundleEntry();
+			case FhirResourcePackage.BUNDLE_ENTRY_SEARCH: return createBundleEntrySearch();
+			case FhirResourcePackage.BUNDLE_ENTRY_REQUEST: return createBundleEntryRequest();
+			case FhirResourcePackage.BUNDLE_ENTRY_RESPONSE: return createBundleEntryResponse();
+			case FhirResourcePackage.ELIGIBILITY_RESPONSE: return createEligibilityResponse();
+			case FhirResourcePackage.ELIGIBILITY_REQUEST: return createEligibilityRequest();
+			case FhirResourcePackage.ELIGIBILITY_RESPONSE_BENEFITS: return createEligibilityResponseBenefits();
+			case FhirResourcePackage.ELIGIBILITY_RESPONSE_BENEFITS_BENEFIT: return createEligibilityResponseBenefitsBenefit();
+			case FhirResourcePackage.ELIGIBILITY_RESPONSE_ERRORS: return createEligibilityResponseErrors();
+			case FhirResourcePackage.PARAMETERS: return createParameters();
+			case FhirResourcePackage.PARAMETERS_PARAMETER: return createParametersParameter();
+			case FhirResourcePackage.MEDICATION_DISPENSE: return createMedicationDispense();
+			case FhirResourcePackage.MEDICATION_DISPENSE_DOSAGE_INSTRUCTION: return createMedicationDispenseDosageInstruction();
+			case FhirResourcePackage.MEDICATION_DISPENSE_SUBSTITUTION: return createMedicationDispenseSubstitution();
+			case FhirResourcePackage.CLAIM_RESPONSE: return createClaimResponse();
 			case FhirResourcePackage.CLAIM: return createClaim();
 			case FhirResourcePackage.CLAIM_PAYEE: return createClaimPayee();
 			case FhirResourcePackage.CLAIM_DIAGNOSIS: return createClaimDiagnosis();
 			case FhirResourcePackage.CLAIM_COVERAGE: return createClaimCoverage();
-			case FhirResourcePackage.CLAIM_RESPONSE: return createClaimResponse();
+			case FhirResourcePackage.CLAIM_ITEMS: return createClaimItems();
+			case FhirResourcePackage.CLAIM_ITEMS_DETAIL: return createClaimItemsDetail();
+			case FhirResourcePackage.CLAIM_ITEMS_DETAIL_SUB_DETAIL: return createClaimItemsDetailSubDetail();
+			case FhirResourcePackage.CLAIM_ITEMS_PROSTHESIS: return createClaimItemsProsthesis();
+			case FhirResourcePackage.CLAIM_MISSING_TEETH: return createClaimMissingTeeth();
 			case FhirResourcePackage.CLAIM_RESPONSE_ITEMS: return createClaimResponseItems();
 			case FhirResourcePackage.CLAIM_RESPONSE_ITEMS_ITEM_ADJUDICATION: return createClaimResponseItemsItemAdjudication();
 			case FhirResourcePackage.CLAIM_RESPONSE_ITEMS_ITEM_DETAIL: return createClaimResponseItemsItemDetail();
@@ -308,49 +370,68 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.CLAIM_RESPONSE_ERRORS: return createClaimResponseErrors();
 			case FhirResourcePackage.CLAIM_RESPONSE_NOTES: return createClaimResponseNotes();
 			case FhirResourcePackage.CLAIM_RESPONSE_COVERAGE: return createClaimResponseCoverage();
-			case FhirResourcePackage.CLAIM_ITEMS: return createClaimItems();
-			case FhirResourcePackage.CLAIM_ITEMS_DETAIL: return createClaimItemsDetail();
-			case FhirResourcePackage.CLAIM_ITEMS_DETAIL_SUB_DETAIL: return createClaimItemsDetailSubDetail();
-			case FhirResourcePackage.CLAIM_ITEMS_PROSTHESIS: return createClaimItemsProsthesis();
-			case FhirResourcePackage.CLAIM_MISSING_TEETH: return createClaimMissingTeeth();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT: return createExplanationOfBenefit();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_PAYEE: return createExplanationOfBenefitPayee();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS: return createExplanationOfBenefitDiagnosis();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_COVERAGE: return createExplanationOfBenefitCoverage();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS: return createExplanationOfBenefitItems();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_ITEM_ADJUDICATION: return createExplanationOfBenefitItemsItemAdjudication();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_DETAIL: return createExplanationOfBenefitItemsDetail();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_DETAIL_DETAIL_ADJUDICATION: return createExplanationOfBenefitItemsDetailDetailAdjudication();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_DETAIL_SUB_DETAIL: return createExplanationOfBenefitItemsDetailSubDetail();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_DETAIL_SUB_DETAIL_SUB_DETAIL_ADJUDICATION: return createExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ITEMS_PROSTHESIS: return createExplanationOfBenefitItemsProsthesis();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ADDED_ITEM: return createExplanationOfBenefitAddedItem();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ADDED_ITEM_ADDED_ITEM_ADJUDICATION: return createExplanationOfBenefitAddedItemAddedItemAdjudication();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ADDED_ITEM_ADDED_ITEMS_DETAIL: return createExplanationOfBenefitAddedItemAddedItemsDetail();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_ADDED_ITEM_ADDED_ITEMS_DETAIL_ADDED_ITEM_DETAIL_ADJUDICATION: return createExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_MISSING_TEETH: return createExplanationOfBenefitMissingTeeth();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_NOTES: return createExplanationOfBenefitNotes();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE: return createExplanationOfBenefitBenefitBalance();
+			case FhirResourcePackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE_BENEFIT: return createExplanationOfBenefitBenefitBalanceBenefit();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE: return createImplementationGuide();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_CONTACT: return createImplementationGuideContact();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_DEPENDENCY: return createImplementationGuideDependency();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PACKAGE: return createImplementationGuidePackage();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PACKAGE_RESOURCE: return createImplementationGuidePackageResource();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_GLOBAL: return createImplementationGuideGlobal();
+			case FhirResourcePackage.IMPLEMENTATION_GUIDE_PAGE: return createImplementationGuidePage();
+			case FhirResourcePackage.SEARCH_PARAMETER: return createSearchParameter();
+			case FhirResourcePackage.SEARCH_PARAMETER_CONTACT: return createSearchParameterContact();
+			case FhirResourcePackage.EXPANSION_PROFILE: return createExpansionProfile();
+			case FhirResourcePackage.EXPANSION_PROFILE_CONTACT: return createExpansionProfileContact();
+			case FhirResourcePackage.EXPANSION_PROFILE_CODE_SYSTEM: return createExpansionProfileCodeSystem();
+			case FhirResourcePackage.EXPANSION_PROFILE_CODE_SYSTEM_CODE_SYSTEM_INCLUDE: return createExpansionProfileCodeSystemCodeSystemInclude();
+			case FhirResourcePackage.EXPANSION_PROFILE_CODE_SYSTEM_CODE_SYSTEM_INCLUDE_CODE_SYSTEM_INCLUDE_CODE_SYSTEM: return createExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem();
+			case FhirResourcePackage.EXPANSION_PROFILE_CODE_SYSTEM_CODE_SYSTEM_EXCLUDE: return createExpansionProfileCodeSystemCodeSystemExclude();
+			case FhirResourcePackage.EXPANSION_PROFILE_CODE_SYSTEM_CODE_SYSTEM_EXCLUDE_CODE_SYSTEM_EXCLUDE_CODE_SYSTEM: return createExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem();
+			case FhirResourcePackage.EXPANSION_PROFILE_DESIGNATION: return createExpansionProfileDesignation();
+			case FhirResourcePackage.EXPANSION_PROFILE_DESIGNATION_DESIGNATION_INCLUDE: return createExpansionProfileDesignationDesignationInclude();
+			case FhirResourcePackage.EXPANSION_PROFILE_DESIGNATION_DESIGNATION_INCLUDE_DESIGNATION_INCLUDE_DESIGNATION: return createExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation();
+			case FhirResourcePackage.EXPANSION_PROFILE_DESIGNATION_DESIGNATION_EXCLUDE: return createExpansionProfileDesignationDesignationExclude();
+			case FhirResourcePackage.EXPANSION_PROFILE_DESIGNATION_DESIGNATION_EXCLUDE_DESIGNATION_EXCLUDE_DESIGNATION: return createExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation();
+			case FhirResourcePackage.ORDER_SET: return createOrderSet();
+			case FhirResourcePackage.ORDER_SET_ITEM: return createOrderSetItem();
+			case FhirResourcePackage.ORDER_SET_ITEM_CUSTOMIZATION: return createOrderSetItemCustomization();
+			case FhirResourcePackage.PROVENANCE: return createProvenance();
+			case FhirResourcePackage.PROVENANCE_AGENT: return createProvenanceAgent();
+			case FhirResourcePackage.PROVENANCE_AGENT_RELATED_AGENT: return createProvenanceAgentRelatedAgent();
+			case FhirResourcePackage.PROVENANCE_ENTITY: return createProvenanceEntity();
+			case FhirResourcePackage.PROCESS_RESPONSE: return createProcessResponse();
+			case FhirResourcePackage.PROCESS_RESPONSE_NOTES: return createProcessResponseNotes();
+			case FhirResourcePackage.MEASURE: return createMeasure();
+			case FhirResourcePackage.MEASURE_POPULATION: return createMeasurePopulation();
+			case FhirResourcePackage.PAYMENT_NOTICE: return createPaymentNotice();
 			case FhirResourcePackage.LIST: return createList();
 			case FhirResourcePackage.LIST_ENTRY: return createListEntry();
-			case FhirResourcePackage.CONCEPT_MAP: return createConceptMap();
-			case FhirResourcePackage.CONCEPT_MAP_CONTACT: return createConceptMapContact();
-			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT: return createConceptMapSourceElement();
-			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT_TARGET_ELEMENT: return createConceptMapSourceElementTargetElement();
-			case FhirResourcePackage.CONCEPT_MAP_SOURCE_ELEMENT_TARGET_ELEMENT_OTHER_ELEMENT: return createConceptMapSourceElementTargetElementOtherElement();
-			case FhirResourcePackage.ELIGIBILITY_RESPONSE: return createEligibilityResponse();
-			case FhirResourcePackage.ELIGIBILITY_REQUEST: return createEligibilityRequest();
-			case FhirResourcePackage.FLAG: return createFlag();
-			case FhirResourcePackage.APPOINTMENT_RESPONSE: return createAppointmentResponse();
+			case FhirResourcePackage.GUIDANCE_RESPONSE: return createGuidanceResponse();
+			case FhirResourcePackage.GUIDANCE_RESPONSE_ACTION: return createGuidanceResponseAction();
+			case FhirResourcePackage.DETECTED_ISSUE: return createDetectedIssue();
+			case FhirResourcePackage.DETECTED_ISSUE_MITIGATION: return createDetectedIssueMitigation();
+			case FhirResourcePackage.ACCOUNT: return createAccount();
 			case FhirResourcePackage.MEDICATION_ADMINISTRATION: return createMedicationAdministration();
 			case FhirResourcePackage.MEDICATION_ADMINISTRATION_DOSAGE: return createMedicationAdministrationDosage();
-			case FhirResourcePackage.ENROLLMENT_RESPONSE: return createEnrollmentResponse();
-			case FhirResourcePackage.BINARY: return createBinary();
-			case FhirResourcePackage.TEST_SCRIPT: return createTestScript();
-			case FhirResourcePackage.TEST_SCRIPT_CONTACT: return createTestScriptContact();
-			case FhirResourcePackage.TEST_SCRIPT_METADATA: return createTestScriptMetadata();
-			case FhirResourcePackage.TEST_SCRIPT_METADATA_LINK: return createTestScriptMetadataLink();
-			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY: return createTestScriptMetadataCapability();
-			case FhirResourcePackage.TEST_SCRIPT_FIXTURE: return createTestScriptFixture();
-			case FhirResourcePackage.TEST_SCRIPT_VARIABLE: return createTestScriptVariable();
-			case FhirResourcePackage.TEST_SCRIPT_SETUP: return createTestScriptSetup();
-			case FhirResourcePackage.TEST_SCRIPT_SETUP_ACTION: return createTestScriptSetupAction();
-			case FhirResourcePackage.TEST_SCRIPT_SETUP_ACTION_OPERATION: return createTestScriptSetupActionOperation();
-			case FhirResourcePackage.TEST_SCRIPT_SETUP_ACTION_OPERATION_REQUEST_HEADER: return createTestScriptSetupActionOperationRequestHeader();
-			case FhirResourcePackage.TEST_SCRIPT_SETUP_ACTION_ASSERT: return createTestScriptSetupActionAssert();
-			case FhirResourcePackage.TEST_SCRIPT_TEST: return createTestScriptTest();
-			case FhirResourcePackage.TEST_SCRIPT_TEST_ACTION: return createTestScriptTestAction();
-			case FhirResourcePackage.TEST_SCRIPT_TEARDOWN: return createTestScriptTeardown();
-			case FhirResourcePackage.TEST_SCRIPT_TEARDOWN_ACTION: return createTestScriptTeardownAction();
-			case FhirResourcePackage.BASIC: return createBasic();
-			case FhirResourcePackage.MEDICATION_DISPENSE: return createMedicationDispense();
-			case FhirResourcePackage.MEDICATION_DISPENSE_DOSAGE_INSTRUCTION: return createMedicationDispenseDosageInstruction();
-			case FhirResourcePackage.MEDICATION_DISPENSE_SUBSTITUTION: return createMedicationDispenseSubstitution();
-			case FhirResourcePackage.DATA_ELEMENT: return createDataElement();
-			case FhirResourcePackage.DATA_ELEMENT_CONTACT: return createDataElementContact();
-			case FhirResourcePackage.DATA_ELEMENT_MAPPING: return createDataElementMapping();
+			case FhirResourcePackage.APPOINTMENT_RESPONSE: return createAppointmentResponse();
 			case FhirResourcePackage.AUDIT_EVENT: return createAuditEvent();
 			case FhirResourcePackage.AUDIT_EVENT_EVENT: return createAuditEventEvent();
 			case FhirResourcePackage.AUDIT_EVENT_PARTICIPANT: return createAuditEventParticipant();
@@ -358,22 +439,8 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 			case FhirResourcePackage.AUDIT_EVENT_SOURCE: return createAuditEventSource();
 			case FhirResourcePackage.AUDIT_EVENT_OBJECT: return createAuditEventObject();
 			case FhirResourcePackage.AUDIT_EVENT_OBJECT_DETAIL: return createAuditEventObjectDetail();
-			case FhirResourcePackage.PAYMENT_RECONCILIATION: return createPaymentReconciliation();
-			case FhirResourcePackage.PAYMENT_RECONCILIATION_DETAILS: return createPaymentReconciliationDetails();
-			case FhirResourcePackage.PAYMENT_RECONCILIATION_NOTES: return createPaymentReconciliationNotes();
-			case FhirResourcePackage.DETECTED_ISSUE: return createDetectedIssue();
-			case FhirResourcePackage.DETECTED_ISSUE_MITIGATION: return createDetectedIssueMitigation();
-			case FhirResourcePackage.BUNDLE: return createBundle();
-			case FhirResourcePackage.BUNDLE_LINK: return createBundleLink();
-			case FhirResourcePackage.BUNDLE_ENTRY: return createBundleEntry();
-			case FhirResourcePackage.BUNDLE_ENTRY_SEARCH: return createBundleEntrySearch();
-			case FhirResourcePackage.BUNDLE_ENTRY_REQUEST: return createBundleEntryRequest();
-			case FhirResourcePackage.BUNDLE_ENTRY_RESPONSE: return createBundleEntryResponse();
-			case FhirResourcePackage.PROCESS_RESPONSE: return createProcessResponse();
-			case FhirResourcePackage.PROCESS_RESPONSE_NOTES: return createProcessResponseNotes();
-			case FhirResourcePackage.NAMING_SYSTEM: return createNamingSystem();
-			case FhirResourcePackage.NAMING_SYSTEM_CONTACT: return createNamingSystemContact();
-			case FhirResourcePackage.NAMING_SYSTEM_UNIQUE_ID: return createNamingSystemUniqueId();
+			case FhirResourcePackage.BASIC: return createBasic();
+			case FhirResourcePackage.ORDER_RESPONSE: return createOrderResponse();
 			case FhirResourcePackage.SUPPLY_DELIVERY: return createSupplyDelivery();
 			case FhirResourcePackage.ORGANIZATION: return createOrganization();
 			case FhirResourcePackage.ORGANIZATION_CONTACT: return createOrganizationContact();
@@ -547,9 +614,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Appointment createAppointment() {
-		AppointmentImpl appointment = new AppointmentImpl();
-		return appointment;
+	public Library createLibrary() {
+		LibraryImpl library = new LibraryImpl();
+		return library;
 	}
 
 	/**
@@ -557,9 +624,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Slot createSlot() {
-		SlotImpl slot = new SlotImpl();
-		return slot;
+	public ModuleMetadata createModuleMetadata() {
+		ModuleMetadataImpl moduleMetadata = new ModuleMetadataImpl();
+		return moduleMetadata;
 	}
 
 	/**
@@ -567,9 +634,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Schedule createSchedule() {
-		ScheduleImpl schedule = new ScheduleImpl();
-		return schedule;
+	public ModuleMetadataCoverage createModuleMetadataCoverage() {
+		ModuleMetadataCoverageImpl moduleMetadataCoverage = new ModuleMetadataCoverageImpl();
+		return moduleMetadataCoverage;
 	}
 
 	/**
@@ -577,9 +644,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AppointmentParticipant createAppointmentParticipant() {
-		AppointmentParticipantImpl appointmentParticipant = new AppointmentParticipantImpl();
-		return appointmentParticipant;
+	public ModuleMetadataContributor createModuleMetadataContributor() {
+		ModuleMetadataContributorImpl moduleMetadataContributor = new ModuleMetadataContributorImpl();
+		return moduleMetadataContributor;
 	}
 
 	/**
@@ -587,9 +654,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Account createAccount() {
-		AccountImpl account = new AccountImpl();
-		return account;
+	public ModuleMetadataRelatedResource createModuleMetadataRelatedResource() {
+		ModuleMetadataRelatedResourceImpl moduleMetadataRelatedResource = new ModuleMetadataRelatedResourceImpl();
+		return moduleMetadataRelatedResource;
 	}
 
 	/**
@@ -597,9 +664,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReferralRequest createReferralRequest() {
-		ReferralRequestImpl referralRequest = new ReferralRequestImpl();
-		return referralRequest;
+	public ModuleDefinition createModuleDefinition() {
+		ModuleDefinitionImpl moduleDefinition = new ModuleDefinitionImpl();
+		return moduleDefinition;
 	}
 
 	/**
@@ -607,9 +674,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Encounter createEncounter() {
-		EncounterImpl encounter = new EncounterImpl();
-		return encounter;
+	public ModuleDefinitionModel createModuleDefinitionModel() {
+		ModuleDefinitionModelImpl moduleDefinitionModel = new ModuleDefinitionModelImpl();
+		return moduleDefinitionModel;
 	}
 
 	/**
@@ -617,9 +684,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EncounterStatusHistory createEncounterStatusHistory() {
-		EncounterStatusHistoryImpl encounterStatusHistory = new EncounterStatusHistoryImpl();
-		return encounterStatusHistory;
+	public ModuleDefinitionLibrary createModuleDefinitionLibrary() {
+		ModuleDefinitionLibraryImpl moduleDefinitionLibrary = new ModuleDefinitionLibraryImpl();
+		return moduleDefinitionLibrary;
 	}
 
 	/**
@@ -627,9 +694,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EpisodeOfCare createEpisodeOfCare() {
-		EpisodeOfCareImpl episodeOfCare = new EpisodeOfCareImpl();
-		return episodeOfCare;
+	public ModuleDefinitionCodeSystem createModuleDefinitionCodeSystem() {
+		ModuleDefinitionCodeSystemImpl moduleDefinitionCodeSystem = new ModuleDefinitionCodeSystemImpl();
+		return moduleDefinitionCodeSystem;
 	}
 
 	/**
@@ -637,9 +704,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EpisodeOfCareStatusHistory createEpisodeOfCareStatusHistory() {
-		EpisodeOfCareStatusHistoryImpl episodeOfCareStatusHistory = new EpisodeOfCareStatusHistoryImpl();
-		return episodeOfCareStatusHistory;
+	public ModuleDefinitionValueSet createModuleDefinitionValueSet() {
+		ModuleDefinitionValueSetImpl moduleDefinitionValueSet = new ModuleDefinitionValueSetImpl();
+		return moduleDefinitionValueSet;
 	}
 
 	/**
@@ -647,9 +714,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
+	public ModuleDefinitionParameter createModuleDefinitionParameter() {
+		ModuleDefinitionParameterImpl moduleDefinitionParameter = new ModuleDefinitionParameterImpl();
+		return moduleDefinitionParameter;
 	}
 
 	/**
@@ -657,9 +724,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionStage createConditionStage() {
-		ConditionStageImpl conditionStage = new ConditionStageImpl();
-		return conditionStage;
+	public StructureDefinition createStructureDefinition() {
+		StructureDefinitionImpl structureDefinition = new StructureDefinitionImpl();
+		return structureDefinition;
 	}
 
 	/**
@@ -667,9 +734,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionEvidence createConditionEvidence() {
-		ConditionEvidenceImpl conditionEvidence = new ConditionEvidenceImpl();
-		return conditionEvidence;
+	public StructureDefinitionContact createStructureDefinitionContact() {
+		StructureDefinitionContactImpl structureDefinitionContact = new StructureDefinitionContactImpl();
+		return structureDefinitionContact;
 	}
 
 	/**
@@ -677,9 +744,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EpisodeOfCareCareTeam createEpisodeOfCareCareTeam() {
-		EpisodeOfCareCareTeamImpl episodeOfCareCareTeam = new EpisodeOfCareCareTeamImpl();
-		return episodeOfCareCareTeam;
+	public StructureDefinitionMapping createStructureDefinitionMapping() {
+		StructureDefinitionMappingImpl structureDefinitionMapping = new StructureDefinitionMappingImpl();
+		return structureDefinitionMapping;
 	}
 
 	/**
@@ -687,9 +754,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EncounterParticipant createEncounterParticipant() {
-		EncounterParticipantImpl encounterParticipant = new EncounterParticipantImpl();
-		return encounterParticipant;
+	public StructureDefinitionSnapshot createStructureDefinitionSnapshot() {
+		StructureDefinitionSnapshotImpl structureDefinitionSnapshot = new StructureDefinitionSnapshotImpl();
+		return structureDefinitionSnapshot;
 	}
 
 	/**
@@ -697,9 +764,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EncounterHospitalization createEncounterHospitalization() {
-		EncounterHospitalizationImpl encounterHospitalization = new EncounterHospitalizationImpl();
-		return encounterHospitalization;
+	public StructureDefinitionDifferential createStructureDefinitionDifferential() {
+		StructureDefinitionDifferentialImpl structureDefinitionDifferential = new StructureDefinitionDifferentialImpl();
+		return structureDefinitionDifferential;
 	}
 
 	/**
@@ -707,9 +774,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EncounterLocation createEncounterLocation() {
-		EncounterLocationImpl encounterLocation = new EncounterLocationImpl();
-		return encounterLocation;
+	public ModuleDefinitionData createModuleDefinitionData() {
+		ModuleDefinitionDataImpl moduleDefinitionData = new ModuleDefinitionDataImpl();
+		return moduleDefinitionData;
 	}
 
 	/**
@@ -717,9 +784,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClinicalImpression createClinicalImpression() {
-		ClinicalImpressionImpl clinicalImpression = new ClinicalImpressionImpl();
-		return clinicalImpression;
+	public ModuleDefinitionDataCodeFilter createModuleDefinitionDataCodeFilter() {
+		ModuleDefinitionDataCodeFilterImpl moduleDefinitionDataCodeFilter = new ModuleDefinitionDataCodeFilterImpl();
+		return moduleDefinitionDataCodeFilter;
 	}
 
 	/**
@@ -727,9 +794,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClinicalImpressionInvestigations createClinicalImpressionInvestigations() {
-		ClinicalImpressionInvestigationsImpl clinicalImpressionInvestigations = new ClinicalImpressionInvestigationsImpl();
-		return clinicalImpressionInvestigations;
+	public ModuleDefinitionDataDateFilter createModuleDefinitionDataDateFilter() {
+		ModuleDefinitionDataDateFilterImpl moduleDefinitionDataDateFilter = new ModuleDefinitionDataDateFilterImpl();
+		return moduleDefinitionDataDateFilter;
 	}
 
 	/**
@@ -737,9 +804,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClinicalImpressionFinding createClinicalImpressionFinding() {
-		ClinicalImpressionFindingImpl clinicalImpressionFinding = new ClinicalImpressionFindingImpl();
-		return clinicalImpressionFinding;
+	public Person createPerson() {
+		PersonImpl person = new PersonImpl();
+		return person;
 	}
 
 	/**
@@ -747,309 +814,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClinicalImpressionRuledOut createClinicalImpressionRuledOut() {
-		ClinicalImpressionRuledOutImpl clinicalImpressionRuledOut = new ClinicalImpressionRuledOutImpl();
-		return clinicalImpressionRuledOut;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntolerance createAllergyIntolerance() {
-		AllergyIntoleranceImpl allergyIntolerance = new AllergyIntoleranceImpl();
-		return allergyIntolerance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceReaction createAllergyIntoleranceReaction() {
-		AllergyIntoleranceReactionImpl allergyIntoleranceReaction = new AllergyIntoleranceReactionImpl();
-		return allergyIntoleranceReaction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Observation createObservation() {
-		ObservationImpl observation = new ObservationImpl();
-		return observation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Specimen createSpecimen() {
-		SpecimenImpl specimen = new SpecimenImpl();
-		return specimen;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpecimenCollection createSpecimenCollection() {
-		SpecimenCollectionImpl specimenCollection = new SpecimenCollectionImpl();
-		return specimenCollection;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpecimenTreatment createSpecimenTreatment() {
-		SpecimenTreatmentImpl specimenTreatment = new SpecimenTreatmentImpl();
-		return specimenTreatment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Substance createSubstance() {
-		SubstanceImpl substance = new SubstanceImpl();
-		return substance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SubstanceInstance createSubstanceInstance() {
-		SubstanceInstanceImpl substanceInstance = new SubstanceInstanceImpl();
-		return substanceInstance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SubstanceIngredient createSubstanceIngredient() {
-		SubstanceIngredientImpl substanceIngredient = new SubstanceIngredientImpl();
-		return substanceIngredient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpecimenContainer createSpecimenContainer() {
-		SpecimenContainerImpl specimenContainer = new SpecimenContainerImpl();
-		return specimenContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObservationReferenceRange createObservationReferenceRange() {
-		ObservationReferenceRangeImpl observationReferenceRange = new ObservationReferenceRangeImpl();
-		return observationReferenceRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObservationRelated createObservationRelated() {
-		ObservationRelatedImpl observationRelated = new ObservationRelatedImpl();
-		return observationRelated;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObservationComponent createObservationComponent() {
-		ObservationComponentImpl observationComponent = new ObservationComponentImpl();
-		return observationComponent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Group createGroup() {
-		GroupImpl group = new GroupImpl();
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GroupCharacteristic createGroupCharacteristic() {
-		GroupCharacteristicImpl groupCharacteristic = new GroupCharacteristicImpl();
-		return groupCharacteristic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GroupMember createGroupMember() {
-		GroupMemberImpl groupMember = new GroupMemberImpl();
-		return groupMember;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Medication createMedication() {
-		MedicationImpl medication = new MedicationImpl();
-		return medication;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationProduct createMedicationProduct() {
-		MedicationProductImpl medicationProduct = new MedicationProductImpl();
-		return medicationProduct;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationProductIngredient createMedicationProductIngredient() {
-		MedicationProductIngredientImpl medicationProductIngredient = new MedicationProductIngredientImpl();
-		return medicationProductIngredient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationProductBatch createMedicationProductBatch() {
-		MedicationProductBatchImpl medicationProductBatch = new MedicationProductBatchImpl();
-		return medicationProductBatch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationPackage createMedicationPackage() {
-		MedicationPackageImpl medicationPackage = new MedicationPackageImpl();
-		return medicationPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationPackageContent createMedicationPackageContent() {
-		MedicationPackageContentImpl medicationPackageContent = new MedicationPackageContentImpl();
-		return medicationPackageContent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeviceMetric createDeviceMetric() {
-		DeviceMetricImpl deviceMetric = new DeviceMetricImpl();
-		return deviceMetric;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeviceComponent createDeviceComponent() {
-		DeviceComponentImpl deviceComponent = new DeviceComponentImpl();
-		return deviceComponent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeviceComponentProductionSpecification createDeviceComponentProductionSpecification() {
-		DeviceComponentProductionSpecificationImpl deviceComponentProductionSpecification = new DeviceComponentProductionSpecificationImpl();
-		return deviceComponentProductionSpecification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeviceMetricCalibration createDeviceMetricCalibration() {
-		DeviceMetricCalibrationImpl deviceMetricCalibration = new DeviceMetricCalibrationImpl();
-		return deviceMetricCalibration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QuestionnaireResponse createQuestionnaireResponse() {
-		QuestionnaireResponseImpl questionnaireResponse = new QuestionnaireResponseImpl();
-		return questionnaireResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Questionnaire createQuestionnaire() {
-		QuestionnaireImpl questionnaire = new QuestionnaireImpl();
-		return questionnaire;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QuestionnaireGroup createQuestionnaireGroup() {
-		QuestionnaireGroupImpl questionnaireGroup = new QuestionnaireGroupImpl();
-		return questionnaireGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QuestionnaireGroupQuestion createQuestionnaireGroupQuestion() {
-		QuestionnaireGroupQuestionImpl questionnaireGroupQuestion = new QuestionnaireGroupQuestionImpl();
-		return questionnaireGroupQuestion;
+	public PersonLink createPersonLink() {
+		PersonLinkImpl personLink = new PersonLinkImpl();
+		return personLink;
 	}
 
 	/**
@@ -1177,9 +944,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireResponseGroup createQuestionnaireResponseGroup() {
-		QuestionnaireResponseGroupImpl questionnaireResponseGroup = new QuestionnaireResponseGroupImpl();
-		return questionnaireResponseGroup;
+	public Communication createCommunication() {
+		CommunicationImpl communication = new CommunicationImpl();
+		return communication;
 	}
 
 	/**
@@ -1187,9 +954,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireResponseGroupQuestion createQuestionnaireResponseGroupQuestion() {
-		QuestionnaireResponseGroupQuestionImpl questionnaireResponseGroupQuestion = new QuestionnaireResponseGroupQuestionImpl();
-		return questionnaireResponseGroupQuestion;
+	public CommunicationPayload createCommunicationPayload() {
+		CommunicationPayloadImpl communicationPayload = new CommunicationPayloadImpl();
+		return communicationPayload;
 	}
 
 	/**
@@ -1197,9 +964,529 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireResponseGroupQuestionAnswer createQuestionnaireResponseGroupQuestionAnswer() {
-		QuestionnaireResponseGroupQuestionAnswerImpl questionnaireResponseGroupQuestionAnswer = new QuestionnaireResponseGroupQuestionAnswerImpl();
-		return questionnaireResponseGroupQuestionAnswer;
+	public Encounter createEncounter() {
+		EncounterImpl encounter = new EncounterImpl();
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EncounterStatusHistory createEncounterStatusHistory() {
+		EncounterStatusHistoryImpl encounterStatusHistory = new EncounterStatusHistoryImpl();
+		return encounterStatusHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EpisodeOfCare createEpisodeOfCare() {
+		EpisodeOfCareImpl episodeOfCare = new EpisodeOfCareImpl();
+		return episodeOfCare;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EpisodeOfCareStatusHistory createEpisodeOfCareStatusHistory() {
+		EpisodeOfCareStatusHistoryImpl episodeOfCareStatusHistory = new EpisodeOfCareStatusHistoryImpl();
+		return episodeOfCareStatusHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionStage createConditionStage() {
+		ConditionStageImpl conditionStage = new ConditionStageImpl();
+		return conditionStage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionEvidence createConditionEvidence() {
+		ConditionEvidenceImpl conditionEvidence = new ConditionEvidenceImpl();
+		return conditionEvidence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReferralRequest createReferralRequest() {
+		ReferralRequestImpl referralRequest = new ReferralRequestImpl();
+		return referralRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EpisodeOfCareCareTeam createEpisodeOfCareCareTeam() {
+		EpisodeOfCareCareTeamImpl episodeOfCareCareTeam = new EpisodeOfCareCareTeamImpl();
+		return episodeOfCareCareTeam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EncounterParticipant createEncounterParticipant() {
+		EncounterParticipantImpl encounterParticipant = new EncounterParticipantImpl();
+		return encounterParticipant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Appointment createAppointment() {
+		AppointmentImpl appointment = new AppointmentImpl();
+		return appointment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Slot createSlot() {
+		SlotImpl slot = new SlotImpl();
+		return slot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schedule createSchedule() {
+		ScheduleImpl schedule = new ScheduleImpl();
+		return schedule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AppointmentParticipant createAppointmentParticipant() {
+		AppointmentParticipantImpl appointmentParticipant = new AppointmentParticipantImpl();
+		return appointmentParticipant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EncounterHospitalization createEncounterHospitalization() {
+		EncounterHospitalizationImpl encounterHospitalization = new EncounterHospitalizationImpl();
+		return encounterHospitalization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EncounterLocation createEncounterLocation() {
+		EncounterLocationImpl encounterLocation = new EncounterLocationImpl();
+		return encounterLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommunicationRequest createCommunicationRequest() {
+		CommunicationRequestImpl communicationRequest = new CommunicationRequestImpl();
+		return communicationRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommunicationRequestPayload createCommunicationRequestPayload() {
+		CommunicationRequestPayloadImpl communicationRequestPayload = new CommunicationRequestPayloadImpl();
+		return communicationRequestPayload;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group createGroup() {
+		GroupImpl group = new GroupImpl();
+		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GroupCharacteristic createGroupCharacteristic() {
+		GroupCharacteristicImpl groupCharacteristic = new GroupCharacteristicImpl();
+		return groupCharacteristic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GroupMember createGroupMember() {
+		GroupMemberImpl groupMember = new GroupMemberImpl();
+		return groupMember;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Medication createMedication() {
+		MedicationImpl medication = new MedicationImpl();
+		return medication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationProduct createMedicationProduct() {
+		MedicationProductImpl medicationProduct = new MedicationProductImpl();
+		return medicationProduct;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationProductIngredient createMedicationProductIngredient() {
+		MedicationProductIngredientImpl medicationProductIngredient = new MedicationProductIngredientImpl();
+		return medicationProductIngredient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationProductBatch createMedicationProductBatch() {
+		MedicationProductBatchImpl medicationProductBatch = new MedicationProductBatchImpl();
+		return medicationProductBatch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationPackage createMedicationPackage() {
+		MedicationPackageImpl medicationPackage = new MedicationPackageImpl();
+		return medicationPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationPackageContent createMedicationPackageContent() {
+		MedicationPackageContentImpl medicationPackageContent = new MedicationPackageContentImpl();
+		return medicationPackageContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Substance createSubstance() {
+		SubstanceImpl substance = new SubstanceImpl();
+		return substance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceInstance createSubstanceInstance() {
+		SubstanceInstanceImpl substanceInstance = new SubstanceInstanceImpl();
+		return substanceInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceIngredient createSubstanceIngredient() {
+		SubstanceIngredientImpl substanceIngredient = new SubstanceIngredientImpl();
+		return substanceIngredient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClinicalImpression createClinicalImpression() {
+		ClinicalImpressionImpl clinicalImpression = new ClinicalImpressionImpl();
+		return clinicalImpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClinicalImpressionInvestigations createClinicalImpressionInvestigations() {
+		ClinicalImpressionInvestigationsImpl clinicalImpressionInvestigations = new ClinicalImpressionInvestigationsImpl();
+		return clinicalImpressionInvestigations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClinicalImpressionFinding createClinicalImpressionFinding() {
+		ClinicalImpressionFindingImpl clinicalImpressionFinding = new ClinicalImpressionFindingImpl();
+		return clinicalImpressionFinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClinicalImpressionRuledOut createClinicalImpressionRuledOut() {
+		ClinicalImpressionRuledOutImpl clinicalImpressionRuledOut = new ClinicalImpressionRuledOutImpl();
+		return clinicalImpressionRuledOut;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllergyIntolerance createAllergyIntolerance() {
+		AllergyIntoleranceImpl allergyIntolerance = new AllergyIntoleranceImpl();
+		return allergyIntolerance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllergyIntoleranceReaction createAllergyIntoleranceReaction() {
+		AllergyIntoleranceReactionImpl allergyIntoleranceReaction = new AllergyIntoleranceReactionImpl();
+		return allergyIntoleranceReaction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Observation createObservation() {
+		ObservationImpl observation = new ObservationImpl();
+		return observation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Specimen createSpecimen() {
+		SpecimenImpl specimen = new SpecimenImpl();
+		return specimen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecimenCollection createSpecimenCollection() {
+		SpecimenCollectionImpl specimenCollection = new SpecimenCollectionImpl();
+		return specimenCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecimenTreatment createSpecimenTreatment() {
+		SpecimenTreatmentImpl specimenTreatment = new SpecimenTreatmentImpl();
+		return specimenTreatment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecimenContainer createSpecimenContainer() {
+		SpecimenContainerImpl specimenContainer = new SpecimenContainerImpl();
+		return specimenContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObservationReferenceRange createObservationReferenceRange() {
+		ObservationReferenceRangeImpl observationReferenceRange = new ObservationReferenceRangeImpl();
+		return observationReferenceRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObservationRelated createObservationRelated() {
+		ObservationRelatedImpl observationRelated = new ObservationRelatedImpl();
+		return observationRelated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObservationComponent createObservationComponent() {
+		ObservationComponentImpl observationComponent = new ObservationComponentImpl();
+		return observationComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceMetric createDeviceMetric() {
+		DeviceMetricImpl deviceMetric = new DeviceMetricImpl();
+		return deviceMetric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceComponent createDeviceComponent() {
+		DeviceComponentImpl deviceComponent = new DeviceComponentImpl();
+		return deviceComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceComponentProductionSpecification createDeviceComponentProductionSpecification() {
+		DeviceComponentProductionSpecificationImpl deviceComponentProductionSpecification = new DeviceComponentProductionSpecificationImpl();
+		return deviceComponentProductionSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceMetricCalibration createDeviceMetricCalibration() {
+		DeviceMetricCalibrationImpl deviceMetricCalibration = new DeviceMetricCalibrationImpl();
+		return deviceMetricCalibration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireResponse createQuestionnaireResponse() {
+		QuestionnaireResponseImpl questionnaireResponse = new QuestionnaireResponseImpl();
+		return questionnaireResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Questionnaire createQuestionnaire() {
+		QuestionnaireImpl questionnaire = new QuestionnaireImpl();
+		return questionnaire;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireItem createQuestionnaireItem() {
+		QuestionnaireItemImpl questionnaireItem = new QuestionnaireItemImpl();
+		return questionnaireItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireResponseItem createQuestionnaireResponseItem() {
+		QuestionnaireResponseItemImpl questionnaireResponseItem = new QuestionnaireResponseItemImpl();
+		return questionnaireResponseItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireResponseItemAnswer createQuestionnaireResponseItemAnswer() {
+		QuestionnaireResponseItemAnswerImpl questionnaireResponseItemAnswer = new QuestionnaireResponseItemAnswerImpl();
+		return questionnaireResponseItemAnswer;
 	}
 
 	/**
@@ -1597,26 +1884,6 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommunicationRequest createCommunicationRequest() {
-		CommunicationRequestImpl communicationRequest = new CommunicationRequestImpl();
-		return communicationRequest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CommunicationRequestPayload createCommunicationRequestPayload() {
-		CommunicationRequestPayloadImpl communicationRequestPayload = new CommunicationRequestPayloadImpl();
-		return communicationRequestPayload;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DeviceUseRequest createDeviceUseRequest() {
 		DeviceUseRequestImpl deviceUseRequest = new DeviceUseRequestImpl();
 		return deviceUseRequest;
@@ -1797,9 +2064,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentManifest createDocumentManifest() {
-		DocumentManifestImpl documentManifest = new DocumentManifestImpl();
-		return documentManifest;
+	public NamingSystem createNamingSystem() {
+		NamingSystemImpl namingSystem = new NamingSystemImpl();
+		return namingSystem;
 	}
 
 	/**
@@ -1807,9 +2074,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentManifestContent createDocumentManifestContent() {
-		DocumentManifestContentImpl documentManifestContent = new DocumentManifestContentImpl();
-		return documentManifestContent;
+	public NamingSystemContact createNamingSystemContact() {
+		NamingSystemContactImpl namingSystemContact = new NamingSystemContactImpl();
+		return namingSystemContact;
 	}
 
 	/**
@@ -1817,9 +2084,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentManifestRelated createDocumentManifestRelated() {
-		DocumentManifestRelatedImpl documentManifestRelated = new DocumentManifestRelatedImpl();
-		return documentManifestRelated;
+	public NamingSystemUniqueId createNamingSystemUniqueId() {
+		NamingSystemUniqueIdImpl namingSystemUniqueId = new NamingSystemUniqueIdImpl();
+		return namingSystemUniqueId;
 	}
 
 	/**
@@ -1827,9 +2094,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnrollmentRequest createEnrollmentRequest() {
-		EnrollmentRequestImpl enrollmentRequest = new EnrollmentRequestImpl();
-		return enrollmentRequest;
+	public DecisionSupportServiceModule createDecisionSupportServiceModule() {
+		DecisionSupportServiceModuleImpl decisionSupportServiceModule = new DecisionSupportServiceModuleImpl();
+		return decisionSupportServiceModule;
 	}
 
 	/**
@@ -1837,9 +2104,139 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coverage createCoverage() {
-		CoverageImpl coverage = new CoverageImpl();
-		return coverage;
+	public DecisionSupportServiceModuleParameter createDecisionSupportServiceModuleParameter() {
+		DecisionSupportServiceModuleParameterImpl decisionSupportServiceModuleParameter = new DecisionSupportServiceModuleParameterImpl();
+		return decisionSupportServiceModuleParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportServiceModuleParameterCodeFilter createDecisionSupportServiceModuleParameterCodeFilter() {
+		DecisionSupportServiceModuleParameterCodeFilterImpl decisionSupportServiceModuleParameterCodeFilter = new DecisionSupportServiceModuleParameterCodeFilterImpl();
+		return decisionSupportServiceModuleParameterCodeFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportServiceModuleParameterDateFilter createDecisionSupportServiceModuleParameterDateFilter() {
+		DecisionSupportServiceModuleParameterDateFilterImpl decisionSupportServiceModuleParameterDateFilter = new DecisionSupportServiceModuleParameterDateFilterImpl();
+		return decisionSupportServiceModuleParameterDateFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptMap createConceptMap() {
+		ConceptMapImpl conceptMap = new ConceptMapImpl();
+		return conceptMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptMapContact createConceptMapContact() {
+		ConceptMapContactImpl conceptMapContact = new ConceptMapContactImpl();
+		return conceptMapContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptMapSourceElement createConceptMapSourceElement() {
+		ConceptMapSourceElementImpl conceptMapSourceElement = new ConceptMapSourceElementImpl();
+		return conceptMapSourceElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptMapSourceElementTargetElement createConceptMapSourceElementTargetElement() {
+		ConceptMapSourceElementTargetElementImpl conceptMapSourceElementTargetElement = new ConceptMapSourceElementTargetElementImpl();
+		return conceptMapSourceElementTargetElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptMapSourceElementTargetElementOtherElement createConceptMapSourceElementTargetElementOtherElement() {
+		ConceptMapSourceElementTargetElementOtherElementImpl conceptMapSourceElementTargetElementOtherElement = new ConceptMapSourceElementTargetElementOtherElementImpl();
+		return conceptMapSourceElementTargetElementOtherElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Flag createFlag() {
+		FlagImpl flag = new FlagImpl();
+		return flag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sequence createSequence() {
+		SequenceImpl sequence = new SequenceImpl();
+		return sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceCoordinate createSequenceCoordinate() {
+		SequenceCoordinateImpl sequenceCoordinate = new SequenceCoordinateImpl();
+		return sequenceCoordinate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceQuality createSequenceQuality() {
+		SequenceQualityImpl sequenceQuality = new SequenceQualityImpl();
+		return sequenceQuality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceChip createSequenceChip() {
+		SequenceChipImpl sequenceChip = new SequenceChipImpl();
+		return sequenceChip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceRepository createSequenceRepository() {
+		SequenceRepositoryImpl sequenceRepository = new SequenceRepositoryImpl();
+		return sequenceRepository;
 	}
 
 	/**
@@ -1987,9 +2384,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Subscription createSubscription() {
-		SubscriptionImpl subscription = new SubscriptionImpl();
-		return subscription;
+	public Binary createBinary() {
+		BinaryImpl binary = new BinaryImpl();
+		return binary;
 	}
 
 	/**
@@ -1997,9 +2394,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubscriptionChannel createSubscriptionChannel() {
-		SubscriptionChannelImpl subscriptionChannel = new SubscriptionChannelImpl();
-		return subscriptionChannel;
+	public DocumentManifest createDocumentManifest() {
+		DocumentManifestImpl documentManifest = new DocumentManifestImpl();
+		return documentManifest;
 	}
 
 	/**
@@ -2007,9 +2404,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameters createParameters() {
-		ParametersImpl parameters = new ParametersImpl();
-		return parameters;
+	public DocumentManifestContent createDocumentManifestContent() {
+		DocumentManifestContentImpl documentManifestContent = new DocumentManifestContentImpl();
+		return documentManifestContent;
 	}
 
 	/**
@@ -2017,9 +2414,99 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParametersParameter createParametersParameter() {
-		ParametersParameterImpl parametersParameter = new ParametersParameterImpl();
-		return parametersParameter;
+	public DocumentManifestRelated createDocumentManifestRelated() {
+		DocumentManifestRelatedImpl documentManifestRelated = new DocumentManifestRelatedImpl();
+		return documentManifestRelated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PaymentReconciliation createPaymentReconciliation() {
+		PaymentReconciliationImpl paymentReconciliation = new PaymentReconciliationImpl();
+		return paymentReconciliation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PaymentReconciliationDetails createPaymentReconciliationDetails() {
+		PaymentReconciliationDetailsImpl paymentReconciliationDetails = new PaymentReconciliationDetailsImpl();
+		return paymentReconciliationDetails;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PaymentReconciliationNotes createPaymentReconciliationNotes() {
+		PaymentReconciliationNotesImpl paymentReconciliationNotes = new PaymentReconciliationNotesImpl();
+		return paymentReconciliationNotes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceUseStatement createDeviceUseStatement() {
+		DeviceUseStatementImpl deviceUseStatement = new DeviceUseStatementImpl();
+		return deviceUseStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScript createTestScript() {
+		TestScriptImpl testScript = new TestScriptImpl();
+		return testScript;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScriptContact createTestScriptContact() {
+		TestScriptContactImpl testScriptContact = new TestScriptContactImpl();
+		return testScriptContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScriptMetadata createTestScriptMetadata() {
+		TestScriptMetadataImpl testScriptMetadata = new TestScriptMetadataImpl();
+		return testScriptMetadata;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScriptMetadataLink createTestScriptMetadataLink() {
+		TestScriptMetadataLinkImpl testScriptMetadataLink = new TestScriptMetadataLinkImpl();
+		return testScriptMetadataLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScriptMetadataCapability createTestScriptMetadataCapability() {
+		TestScriptMetadataCapabilityImpl testScriptMetadataCapability = new TestScriptMetadataCapabilityImpl();
+		return testScriptMetadataCapability;
 	}
 
 	/**
@@ -2060,56 +2547,6 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	public ConformanceImplementation createConformanceImplementation() {
 		ConformanceImplementationImpl conformanceImplementation = new ConformanceImplementationImpl();
 		return conformanceImplementation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructureDefinition createStructureDefinition() {
-		StructureDefinitionImpl structureDefinition = new StructureDefinitionImpl();
-		return structureDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructureDefinitionContact createStructureDefinitionContact() {
-		StructureDefinitionContactImpl structureDefinitionContact = new StructureDefinitionContactImpl();
-		return structureDefinitionContact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructureDefinitionMapping createStructureDefinitionMapping() {
-		StructureDefinitionMappingImpl structureDefinitionMapping = new StructureDefinitionMappingImpl();
-		return structureDefinitionMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructureDefinitionSnapshot createStructureDefinitionSnapshot() {
-		StructureDefinitionSnapshotImpl structureDefinitionSnapshot = new StructureDefinitionSnapshotImpl();
-		return structureDefinitionSnapshot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructureDefinitionDifferential createStructureDefinitionDifferential() {
-		StructureDefinitionDifferentialImpl structureDefinitionDifferential = new StructureDefinitionDifferentialImpl();
-		return structureDefinitionDifferential;
 	}
 
 	/**
@@ -2277,9 +2714,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Person createPerson() {
-		PersonImpl person = new PersonImpl();
-		return person;
+	public TestScriptOrigin createTestScriptOrigin() {
+		TestScriptOriginImpl testScriptOrigin = new TestScriptOriginImpl();
+		return testScriptOrigin;
 	}
 
 	/**
@@ -2287,9 +2724,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PersonLink createPersonLink() {
-		PersonLinkImpl personLink = new PersonLinkImpl();
-		return personLink;
+	public TestScriptDestination createTestScriptDestination() {
+		TestScriptDestinationImpl testScriptDestination = new TestScriptDestinationImpl();
+		return testScriptDestination;
 	}
 
 	/**
@@ -2297,9 +2734,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PaymentNotice createPaymentNotice() {
-		PaymentNoticeImpl paymentNotice = new PaymentNoticeImpl();
-		return paymentNotice;
+	public TestScriptFixture createTestScriptFixture() {
+		TestScriptFixtureImpl testScriptFixture = new TestScriptFixtureImpl();
+		return testScriptFixture;
 	}
 
 	/**
@@ -2307,9 +2744,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuide createImplementationGuide() {
-		ImplementationGuideImpl implementationGuide = new ImplementationGuideImpl();
-		return implementationGuide;
+	public TestScriptVariable createTestScriptVariable() {
+		TestScriptVariableImpl testScriptVariable = new TestScriptVariableImpl();
+		return testScriptVariable;
 	}
 
 	/**
@@ -2317,9 +2754,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideContact createImplementationGuideContact() {
-		ImplementationGuideContactImpl implementationGuideContact = new ImplementationGuideContactImpl();
-		return implementationGuideContact;
+	public TestScriptSetup createTestScriptSetup() {
+		TestScriptSetupImpl testScriptSetup = new TestScriptSetupImpl();
+		return testScriptSetup;
 	}
 
 	/**
@@ -2327,9 +2764,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideDependency createImplementationGuideDependency() {
-		ImplementationGuideDependencyImpl implementationGuideDependency = new ImplementationGuideDependencyImpl();
-		return implementationGuideDependency;
+	public TestScriptSetupSetupAction createTestScriptSetupSetupAction() {
+		TestScriptSetupSetupActionImpl testScriptSetupSetupAction = new TestScriptSetupSetupActionImpl();
+		return testScriptSetupSetupAction;
 	}
 
 	/**
@@ -2337,9 +2774,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuidePackage createImplementationGuidePackage() {
-		ImplementationGuidePackageImpl implementationGuidePackage = new ImplementationGuidePackageImpl();
-		return implementationGuidePackage;
+	public TestScriptSetupSetupActionOperation createTestScriptSetupSetupActionOperation() {
+		TestScriptSetupSetupActionOperationImpl testScriptSetupSetupActionOperation = new TestScriptSetupSetupActionOperationImpl();
+		return testScriptSetupSetupActionOperation;
 	}
 
 	/**
@@ -2347,9 +2784,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuidePackageResource createImplementationGuidePackageResource() {
-		ImplementationGuidePackageResourceImpl implementationGuidePackageResource = new ImplementationGuidePackageResourceImpl();
-		return implementationGuidePackageResource;
+	public TestScriptSetupSetupActionOperationRequestHeader createTestScriptSetupSetupActionOperationRequestHeader() {
+		TestScriptSetupSetupActionOperationRequestHeaderImpl testScriptSetupSetupActionOperationRequestHeader = new TestScriptSetupSetupActionOperationRequestHeaderImpl();
+		return testScriptSetupSetupActionOperationRequestHeader;
 	}
 
 	/**
@@ -2357,9 +2794,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideGlobal createImplementationGuideGlobal() {
-		ImplementationGuideGlobalImpl implementationGuideGlobal = new ImplementationGuideGlobalImpl();
-		return implementationGuideGlobal;
+	public TestScriptSetupSetupActionAssert createTestScriptSetupSetupActionAssert() {
+		TestScriptSetupSetupActionAssertImpl testScriptSetupSetupActionAssert = new TestScriptSetupSetupActionAssertImpl();
+		return testScriptSetupSetupActionAssert;
 	}
 
 	/**
@@ -2367,9 +2804,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuidePage createImplementationGuidePage() {
-		ImplementationGuidePageImpl implementationGuidePage = new ImplementationGuidePageImpl();
-		return implementationGuidePage;
+	public TestScriptTest createTestScriptTest() {
+		TestScriptTestImpl testScriptTest = new TestScriptTestImpl();
+		return testScriptTest;
 	}
 
 	/**
@@ -2377,9 +2814,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SearchParameter createSearchParameter() {
-		SearchParameterImpl searchParameter = new SearchParameterImpl();
-		return searchParameter;
+	public TestScriptTestTestAction createTestScriptTestTestAction() {
+		TestScriptTestTestActionImpl testScriptTestTestAction = new TestScriptTestTestActionImpl();
+		return testScriptTestTestAction;
 	}
 
 	/**
@@ -2387,9 +2824,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SearchParameterContact createSearchParameterContact() {
-		SearchParameterContactImpl searchParameterContact = new SearchParameterContactImpl();
-		return searchParameterContact;
+	public TestScriptTeardown createTestScriptTeardown() {
+		TestScriptTeardownImpl testScriptTeardown = new TestScriptTeardownImpl();
+		return testScriptTeardown;
 	}
 
 	/**
@@ -2397,9 +2834,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Communication createCommunication() {
-		CommunicationImpl communication = new CommunicationImpl();
-		return communication;
+	public TestScriptTeardownTeardownAction createTestScriptTeardownTeardownAction() {
+		TestScriptTeardownTeardownActionImpl testScriptTeardownTeardownAction = new TestScriptTeardownTeardownActionImpl();
+		return testScriptTeardownTeardownAction;
 	}
 
 	/**
@@ -2407,9 +2844,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommunicationPayload createCommunicationPayload() {
-		CommunicationPayloadImpl communicationPayload = new CommunicationPayloadImpl();
-		return communicationPayload;
+	public DataElement createDataElement() {
+		DataElementImpl dataElement = new DataElementImpl();
+		return dataElement;
 	}
 
 	/**
@@ -2417,9 +2854,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrderResponse createOrderResponse() {
-		OrderResponseImpl orderResponse = new OrderResponseImpl();
-		return orderResponse;
+	public DataElementContact createDataElementContact() {
+		DataElementContactImpl dataElementContact = new DataElementContactImpl();
+		return dataElementContact;
 	}
 
 	/**
@@ -2427,9 +2864,49 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceUseStatement createDeviceUseStatement() {
-		DeviceUseStatementImpl deviceUseStatement = new DeviceUseStatementImpl();
-		return deviceUseStatement;
+	public DataElementMapping createDataElementMapping() {
+		DataElementMappingImpl dataElementMapping = new DataElementMappingImpl();
+		return dataElementMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportRule createDecisionSupportRule() {
+		DecisionSupportRuleImpl decisionSupportRule = new DecisionSupportRuleImpl();
+		return decisionSupportRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportRuleTrigger createDecisionSupportRuleTrigger() {
+		DecisionSupportRuleTriggerImpl decisionSupportRuleTrigger = new DecisionSupportRuleTriggerImpl();
+		return decisionSupportRuleTrigger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportRuleAction createDecisionSupportRuleAction() {
+		DecisionSupportRuleActionImpl decisionSupportRuleAction = new DecisionSupportRuleActionImpl();
+		return decisionSupportRuleAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionSupportRuleActionCustomization createDecisionSupportRuleActionCustomization() {
+		DecisionSupportRuleActionCustomizationImpl decisionSupportRuleActionCustomization = new DecisionSupportRuleActionCustomizationImpl();
+		return decisionSupportRuleActionCustomization;
 	}
 
 	/**
@@ -2490,6 +2967,56 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	public MessageHeaderMessageDestination createMessageHeaderMessageDestination() {
 		MessageHeaderMessageDestinationImpl messageHeaderMessageDestination = new MessageHeaderMessageDestinationImpl();
 		return messageHeaderMessageDestination;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Subscription createSubscription() {
+		SubscriptionImpl subscription = new SubscriptionImpl();
+		return subscription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubscriptionChannel createSubscriptionChannel() {
+		SubscriptionChannelImpl subscriptionChannel = new SubscriptionChannelImpl();
+		return subscriptionChannel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnrollmentResponse createEnrollmentResponse() {
+		EnrollmentResponseImpl enrollmentResponse = new EnrollmentResponseImpl();
+		return enrollmentResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnrollmentRequest createEnrollmentRequest() {
+		EnrollmentRequestImpl enrollmentRequest = new EnrollmentRequestImpl();
+		return enrollmentRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coverage createCoverage() {
+		CoverageImpl coverage = new CoverageImpl();
+		return coverage;
 	}
 
 	/**
@@ -2577,9 +3104,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Provenance createProvenance() {
-		ProvenanceImpl provenance = new ProvenanceImpl();
-		return provenance;
+	public Bundle createBundle() {
+		BundleImpl bundle = new BundleImpl();
+		return bundle;
 	}
 
 	/**
@@ -2587,9 +3114,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvenanceAgent createProvenanceAgent() {
-		ProvenanceAgentImpl provenanceAgent = new ProvenanceAgentImpl();
-		return provenanceAgent;
+	public BundleLink createBundleLink() {
+		BundleLinkImpl bundleLink = new BundleLinkImpl();
+		return bundleLink;
 	}
 
 	/**
@@ -2597,9 +3124,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvenanceAgentRelatedAgent createProvenanceAgentRelatedAgent() {
-		ProvenanceAgentRelatedAgentImpl provenanceAgentRelatedAgent = new ProvenanceAgentRelatedAgentImpl();
-		return provenanceAgentRelatedAgent;
+	public BundleEntry createBundleEntry() {
+		BundleEntryImpl bundleEntry = new BundleEntryImpl();
+		return bundleEntry;
 	}
 
 	/**
@@ -2607,9 +3134,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvenanceEntity createProvenanceEntity() {
-		ProvenanceEntityImpl provenanceEntity = new ProvenanceEntityImpl();
-		return provenanceEntity;
+	public BundleEntrySearch createBundleEntrySearch() {
+		BundleEntrySearchImpl bundleEntrySearch = new BundleEntrySearchImpl();
+		return bundleEntrySearch;
 	}
 
 	/**
@@ -2617,9 +3144,129 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExplanationOfBenefit createExplanationOfBenefit() {
-		ExplanationOfBenefitImpl explanationOfBenefit = new ExplanationOfBenefitImpl();
-		return explanationOfBenefit;
+	public BundleEntryRequest createBundleEntryRequest() {
+		BundleEntryRequestImpl bundleEntryRequest = new BundleEntryRequestImpl();
+		return bundleEntryRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BundleEntryResponse createBundleEntryResponse() {
+		BundleEntryResponseImpl bundleEntryResponse = new BundleEntryResponseImpl();
+		return bundleEntryResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponse createEligibilityResponse() {
+		EligibilityResponseImpl eligibilityResponse = new EligibilityResponseImpl();
+		return eligibilityResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityRequest createEligibilityRequest() {
+		EligibilityRequestImpl eligibilityRequest = new EligibilityRequestImpl();
+		return eligibilityRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponseBenefits createEligibilityResponseBenefits() {
+		EligibilityResponseBenefitsImpl eligibilityResponseBenefits = new EligibilityResponseBenefitsImpl();
+		return eligibilityResponseBenefits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponseBenefitsBenefit createEligibilityResponseBenefitsBenefit() {
+		EligibilityResponseBenefitsBenefitImpl eligibilityResponseBenefitsBenefit = new EligibilityResponseBenefitsBenefitImpl();
+		return eligibilityResponseBenefitsBenefit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponseErrors createEligibilityResponseErrors() {
+		EligibilityResponseErrorsImpl eligibilityResponseErrors = new EligibilityResponseErrorsImpl();
+		return eligibilityResponseErrors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameters createParameters() {
+		ParametersImpl parameters = new ParametersImpl();
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParametersParameter createParametersParameter() {
+		ParametersParameterImpl parametersParameter = new ParametersParameterImpl();
+		return parametersParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationDispense createMedicationDispense() {
+		MedicationDispenseImpl medicationDispense = new MedicationDispenseImpl();
+		return medicationDispense;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationDispenseDosageInstruction createMedicationDispenseDosageInstruction() {
+		MedicationDispenseDosageInstructionImpl medicationDispenseDosageInstruction = new MedicationDispenseDosageInstructionImpl();
+		return medicationDispenseDosageInstruction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationDispenseSubstitution createMedicationDispenseSubstitution() {
+		MedicationDispenseSubstitutionImpl medicationDispenseSubstitution = new MedicationDispenseSubstitutionImpl();
+		return medicationDispenseSubstitution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimResponse createClaimResponse() {
+		ClaimResponseImpl claimResponse = new ClaimResponseImpl();
+		return claimResponse;
 	}
 
 	/**
@@ -2667,9 +3314,49 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimResponse createClaimResponse() {
-		ClaimResponseImpl claimResponse = new ClaimResponseImpl();
-		return claimResponse;
+	public ClaimItems createClaimItems() {
+		ClaimItemsImpl claimItems = new ClaimItemsImpl();
+		return claimItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimItemsDetail createClaimItemsDetail() {
+		ClaimItemsDetailImpl claimItemsDetail = new ClaimItemsDetailImpl();
+		return claimItemsDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimItemsDetailSubDetail createClaimItemsDetailSubDetail() {
+		ClaimItemsDetailSubDetailImpl claimItemsDetailSubDetail = new ClaimItemsDetailSubDetailImpl();
+		return claimItemsDetailSubDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimItemsProsthesis createClaimItemsProsthesis() {
+		ClaimItemsProsthesisImpl claimItemsProsthesis = new ClaimItemsProsthesisImpl();
+		return claimItemsProsthesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimMissingTeeth createClaimMissingTeeth() {
+		ClaimMissingTeethImpl claimMissingTeeth = new ClaimMissingTeethImpl();
+		return claimMissingTeeth;
 	}
 
 	/**
@@ -2807,9 +3494,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimItems createClaimItems() {
-		ClaimItemsImpl claimItems = new ClaimItemsImpl();
-		return claimItems;
+	public ExplanationOfBenefit createExplanationOfBenefit() {
+		ExplanationOfBenefitImpl explanationOfBenefit = new ExplanationOfBenefitImpl();
+		return explanationOfBenefit;
 	}
 
 	/**
@@ -2817,9 +3504,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimItemsDetail createClaimItemsDetail() {
-		ClaimItemsDetailImpl claimItemsDetail = new ClaimItemsDetailImpl();
-		return claimItemsDetail;
+	public ExplanationOfBenefitPayee createExplanationOfBenefitPayee() {
+		ExplanationOfBenefitPayeeImpl explanationOfBenefitPayee = new ExplanationOfBenefitPayeeImpl();
+		return explanationOfBenefitPayee;
 	}
 
 	/**
@@ -2827,9 +3514,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimItemsDetailSubDetail createClaimItemsDetailSubDetail() {
-		ClaimItemsDetailSubDetailImpl claimItemsDetailSubDetail = new ClaimItemsDetailSubDetailImpl();
-		return claimItemsDetailSubDetail;
+	public ExplanationOfBenefitDiagnosis createExplanationOfBenefitDiagnosis() {
+		ExplanationOfBenefitDiagnosisImpl explanationOfBenefitDiagnosis = new ExplanationOfBenefitDiagnosisImpl();
+		return explanationOfBenefitDiagnosis;
 	}
 
 	/**
@@ -2837,9 +3524,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimItemsProsthesis createClaimItemsProsthesis() {
-		ClaimItemsProsthesisImpl claimItemsProsthesis = new ClaimItemsProsthesisImpl();
-		return claimItemsProsthesis;
+	public ExplanationOfBenefitCoverage createExplanationOfBenefitCoverage() {
+		ExplanationOfBenefitCoverageImpl explanationOfBenefitCoverage = new ExplanationOfBenefitCoverageImpl();
+		return explanationOfBenefitCoverage;
 	}
 
 	/**
@@ -2847,9 +3534,479 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimMissingTeeth createClaimMissingTeeth() {
-		ClaimMissingTeethImpl claimMissingTeeth = new ClaimMissingTeethImpl();
-		return claimMissingTeeth;
+	public ExplanationOfBenefitItems createExplanationOfBenefitItems() {
+		ExplanationOfBenefitItemsImpl explanationOfBenefitItems = new ExplanationOfBenefitItemsImpl();
+		return explanationOfBenefitItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsItemAdjudication createExplanationOfBenefitItemsItemAdjudication() {
+		ExplanationOfBenefitItemsItemAdjudicationImpl explanationOfBenefitItemsItemAdjudication = new ExplanationOfBenefitItemsItemAdjudicationImpl();
+		return explanationOfBenefitItemsItemAdjudication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsDetail createExplanationOfBenefitItemsDetail() {
+		ExplanationOfBenefitItemsDetailImpl explanationOfBenefitItemsDetail = new ExplanationOfBenefitItemsDetailImpl();
+		return explanationOfBenefitItemsDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsDetailDetailAdjudication createExplanationOfBenefitItemsDetailDetailAdjudication() {
+		ExplanationOfBenefitItemsDetailDetailAdjudicationImpl explanationOfBenefitItemsDetailDetailAdjudication = new ExplanationOfBenefitItemsDetailDetailAdjudicationImpl();
+		return explanationOfBenefitItemsDetailDetailAdjudication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsDetailSubDetail createExplanationOfBenefitItemsDetailSubDetail() {
+		ExplanationOfBenefitItemsDetailSubDetailImpl explanationOfBenefitItemsDetailSubDetail = new ExplanationOfBenefitItemsDetailSubDetailImpl();
+		return explanationOfBenefitItemsDetailSubDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication createExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudication() {
+		ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudicationImpl explanationOfBenefitItemsDetailSubDetailSubDetailAdjudication = new ExplanationOfBenefitItemsDetailSubDetailSubDetailAdjudicationImpl();
+		return explanationOfBenefitItemsDetailSubDetailSubDetailAdjudication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitItemsProsthesis createExplanationOfBenefitItemsProsthesis() {
+		ExplanationOfBenefitItemsProsthesisImpl explanationOfBenefitItemsProsthesis = new ExplanationOfBenefitItemsProsthesisImpl();
+		return explanationOfBenefitItemsProsthesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitAddedItem createExplanationOfBenefitAddedItem() {
+		ExplanationOfBenefitAddedItemImpl explanationOfBenefitAddedItem = new ExplanationOfBenefitAddedItemImpl();
+		return explanationOfBenefitAddedItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitAddedItemAddedItemAdjudication createExplanationOfBenefitAddedItemAddedItemAdjudication() {
+		ExplanationOfBenefitAddedItemAddedItemAdjudicationImpl explanationOfBenefitAddedItemAddedItemAdjudication = new ExplanationOfBenefitAddedItemAddedItemAdjudicationImpl();
+		return explanationOfBenefitAddedItemAddedItemAdjudication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitAddedItemAddedItemsDetail createExplanationOfBenefitAddedItemAddedItemsDetail() {
+		ExplanationOfBenefitAddedItemAddedItemsDetailImpl explanationOfBenefitAddedItemAddedItemsDetail = new ExplanationOfBenefitAddedItemAddedItemsDetailImpl();
+		return explanationOfBenefitAddedItemAddedItemsDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication createExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication() {
+		ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudicationImpl explanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication = new ExplanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudicationImpl();
+		return explanationOfBenefitAddedItemAddedItemsDetailAddedItemDetailAdjudication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitMissingTeeth createExplanationOfBenefitMissingTeeth() {
+		ExplanationOfBenefitMissingTeethImpl explanationOfBenefitMissingTeeth = new ExplanationOfBenefitMissingTeethImpl();
+		return explanationOfBenefitMissingTeeth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitNotes createExplanationOfBenefitNotes() {
+		ExplanationOfBenefitNotesImpl explanationOfBenefitNotes = new ExplanationOfBenefitNotesImpl();
+		return explanationOfBenefitNotes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitBenefitBalance createExplanationOfBenefitBenefitBalance() {
+		ExplanationOfBenefitBenefitBalanceImpl explanationOfBenefitBenefitBalance = new ExplanationOfBenefitBenefitBalanceImpl();
+		return explanationOfBenefitBenefitBalance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitBenefitBalanceBenefit createExplanationOfBenefitBenefitBalanceBenefit() {
+		ExplanationOfBenefitBenefitBalanceBenefitImpl explanationOfBenefitBenefitBalanceBenefit = new ExplanationOfBenefitBenefitBalanceBenefitImpl();
+		return explanationOfBenefitBenefitBalanceBenefit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuide createImplementationGuide() {
+		ImplementationGuideImpl implementationGuide = new ImplementationGuideImpl();
+		return implementationGuide;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideContact createImplementationGuideContact() {
+		ImplementationGuideContactImpl implementationGuideContact = new ImplementationGuideContactImpl();
+		return implementationGuideContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideDependency createImplementationGuideDependency() {
+		ImplementationGuideDependencyImpl implementationGuideDependency = new ImplementationGuideDependencyImpl();
+		return implementationGuideDependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuidePackage createImplementationGuidePackage() {
+		ImplementationGuidePackageImpl implementationGuidePackage = new ImplementationGuidePackageImpl();
+		return implementationGuidePackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuidePackageResource createImplementationGuidePackageResource() {
+		ImplementationGuidePackageResourceImpl implementationGuidePackageResource = new ImplementationGuidePackageResourceImpl();
+		return implementationGuidePackageResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideGlobal createImplementationGuideGlobal() {
+		ImplementationGuideGlobalImpl implementationGuideGlobal = new ImplementationGuideGlobalImpl();
+		return implementationGuideGlobal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuidePage createImplementationGuidePage() {
+		ImplementationGuidePageImpl implementationGuidePage = new ImplementationGuidePageImpl();
+		return implementationGuidePage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SearchParameter createSearchParameter() {
+		SearchParameterImpl searchParameter = new SearchParameterImpl();
+		return searchParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SearchParameterContact createSearchParameterContact() {
+		SearchParameterContactImpl searchParameterContact = new SearchParameterContactImpl();
+		return searchParameterContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfile createExpansionProfile() {
+		ExpansionProfileImpl expansionProfile = new ExpansionProfileImpl();
+		return expansionProfile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileContact createExpansionProfileContact() {
+		ExpansionProfileContactImpl expansionProfileContact = new ExpansionProfileContactImpl();
+		return expansionProfileContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileCodeSystem createExpansionProfileCodeSystem() {
+		ExpansionProfileCodeSystemImpl expansionProfileCodeSystem = new ExpansionProfileCodeSystemImpl();
+		return expansionProfileCodeSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileCodeSystemCodeSystemInclude createExpansionProfileCodeSystemCodeSystemInclude() {
+		ExpansionProfileCodeSystemCodeSystemIncludeImpl expansionProfileCodeSystemCodeSystemInclude = new ExpansionProfileCodeSystemCodeSystemIncludeImpl();
+		return expansionProfileCodeSystemCodeSystemInclude;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem createExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem() {
+		ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystemImpl expansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem = new ExpansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystemImpl();
+		return expansionProfileCodeSystemCodeSystemIncludeCodeSystemIncludeCodeSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileCodeSystemCodeSystemExclude createExpansionProfileCodeSystemCodeSystemExclude() {
+		ExpansionProfileCodeSystemCodeSystemExcludeImpl expansionProfileCodeSystemCodeSystemExclude = new ExpansionProfileCodeSystemCodeSystemExcludeImpl();
+		return expansionProfileCodeSystemCodeSystemExclude;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem createExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem() {
+		ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystemImpl expansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem = new ExpansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystemImpl();
+		return expansionProfileCodeSystemCodeSystemExcludeCodeSystemExcludeCodeSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileDesignation createExpansionProfileDesignation() {
+		ExpansionProfileDesignationImpl expansionProfileDesignation = new ExpansionProfileDesignationImpl();
+		return expansionProfileDesignation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileDesignationDesignationInclude createExpansionProfileDesignationDesignationInclude() {
+		ExpansionProfileDesignationDesignationIncludeImpl expansionProfileDesignationDesignationInclude = new ExpansionProfileDesignationDesignationIncludeImpl();
+		return expansionProfileDesignationDesignationInclude;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation createExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignation() {
+		ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignationImpl expansionProfileDesignationDesignationIncludeDesignationIncludeDesignation = new ExpansionProfileDesignationDesignationIncludeDesignationIncludeDesignationImpl();
+		return expansionProfileDesignationDesignationIncludeDesignationIncludeDesignation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileDesignationDesignationExclude createExpansionProfileDesignationDesignationExclude() {
+		ExpansionProfileDesignationDesignationExcludeImpl expansionProfileDesignationDesignationExclude = new ExpansionProfileDesignationDesignationExcludeImpl();
+		return expansionProfileDesignationDesignationExclude;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation createExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignation() {
+		ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignationImpl expansionProfileDesignationDesignationExcludeDesignationExcludeDesignation = new ExpansionProfileDesignationDesignationExcludeDesignationExcludeDesignationImpl();
+		return expansionProfileDesignationDesignationExcludeDesignationExcludeDesignation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrderSet createOrderSet() {
+		OrderSetImpl orderSet = new OrderSetImpl();
+		return orderSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrderSetItem createOrderSetItem() {
+		OrderSetItemImpl orderSetItem = new OrderSetItemImpl();
+		return orderSetItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrderSetItemCustomization createOrderSetItemCustomization() {
+		OrderSetItemCustomizationImpl orderSetItemCustomization = new OrderSetItemCustomizationImpl();
+		return orderSetItemCustomization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Provenance createProvenance() {
+		ProvenanceImpl provenance = new ProvenanceImpl();
+		return provenance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvenanceAgent createProvenanceAgent() {
+		ProvenanceAgentImpl provenanceAgent = new ProvenanceAgentImpl();
+		return provenanceAgent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvenanceAgentRelatedAgent createProvenanceAgentRelatedAgent() {
+		ProvenanceAgentRelatedAgentImpl provenanceAgentRelatedAgent = new ProvenanceAgentRelatedAgentImpl();
+		return provenanceAgentRelatedAgent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvenanceEntity createProvenanceEntity() {
+		ProvenanceEntityImpl provenanceEntity = new ProvenanceEntityImpl();
+		return provenanceEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessResponse createProcessResponse() {
+		ProcessResponseImpl processResponse = new ProcessResponseImpl();
+		return processResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessResponseNotes createProcessResponseNotes() {
+		ProcessResponseNotesImpl processResponseNotes = new ProcessResponseNotesImpl();
+		return processResponseNotes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Measure createMeasure() {
+		MeasureImpl measure = new MeasureImpl();
+		return measure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MeasurePopulation createMeasurePopulation() {
+		MeasurePopulationImpl measurePopulation = new MeasurePopulationImpl();
+		return measurePopulation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PaymentNotice createPaymentNotice() {
+		PaymentNoticeImpl paymentNotice = new PaymentNoticeImpl();
+		return paymentNotice;
 	}
 
 	/**
@@ -2877,9 +4034,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConceptMap createConceptMap() {
-		ConceptMapImpl conceptMap = new ConceptMapImpl();
-		return conceptMap;
+	public GuidanceResponse createGuidanceResponse() {
+		GuidanceResponseImpl guidanceResponse = new GuidanceResponseImpl();
+		return guidanceResponse;
 	}
 
 	/**
@@ -2887,9 +4044,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConceptMapContact createConceptMapContact() {
-		ConceptMapContactImpl conceptMapContact = new ConceptMapContactImpl();
-		return conceptMapContact;
+	public GuidanceResponseAction createGuidanceResponseAction() {
+		GuidanceResponseActionImpl guidanceResponseAction = new GuidanceResponseActionImpl();
+		return guidanceResponseAction;
 	}
 
 	/**
@@ -2897,9 +4054,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConceptMapSourceElement createConceptMapSourceElement() {
-		ConceptMapSourceElementImpl conceptMapSourceElement = new ConceptMapSourceElementImpl();
-		return conceptMapSourceElement;
+	public DetectedIssue createDetectedIssue() {
+		DetectedIssueImpl detectedIssue = new DetectedIssueImpl();
+		return detectedIssue;
 	}
 
 	/**
@@ -2907,9 +4064,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConceptMapSourceElementTargetElement createConceptMapSourceElementTargetElement() {
-		ConceptMapSourceElementTargetElementImpl conceptMapSourceElementTargetElement = new ConceptMapSourceElementTargetElementImpl();
-		return conceptMapSourceElementTargetElement;
+	public DetectedIssueMitigation createDetectedIssueMitigation() {
+		DetectedIssueMitigationImpl detectedIssueMitigation = new DetectedIssueMitigationImpl();
+		return detectedIssueMitigation;
 	}
 
 	/**
@@ -2917,49 +4074,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConceptMapSourceElementTargetElementOtherElement createConceptMapSourceElementTargetElementOtherElement() {
-		ConceptMapSourceElementTargetElementOtherElementImpl conceptMapSourceElementTargetElementOtherElement = new ConceptMapSourceElementTargetElementOtherElementImpl();
-		return conceptMapSourceElementTargetElementOtherElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponse createEligibilityResponse() {
-		EligibilityResponseImpl eligibilityResponse = new EligibilityResponseImpl();
-		return eligibilityResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityRequest createEligibilityRequest() {
-		EligibilityRequestImpl eligibilityRequest = new EligibilityRequestImpl();
-		return eligibilityRequest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Flag createFlag() {
-		FlagImpl flag = new FlagImpl();
-		return flag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AppointmentResponse createAppointmentResponse() {
-		AppointmentResponseImpl appointmentResponse = new AppointmentResponseImpl();
-		return appointmentResponse;
+	public Account createAccount() {
+		AccountImpl account = new AccountImpl();
+		return account;
 	}
 
 	/**
@@ -2987,249 +4104,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnrollmentResponse createEnrollmentResponse() {
-		EnrollmentResponseImpl enrollmentResponse = new EnrollmentResponseImpl();
-		return enrollmentResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Binary createBinary() {
-		BinaryImpl binary = new BinaryImpl();
-		return binary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScript createTestScript() {
-		TestScriptImpl testScript = new TestScriptImpl();
-		return testScript;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptContact createTestScriptContact() {
-		TestScriptContactImpl testScriptContact = new TestScriptContactImpl();
-		return testScriptContact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptMetadata createTestScriptMetadata() {
-		TestScriptMetadataImpl testScriptMetadata = new TestScriptMetadataImpl();
-		return testScriptMetadata;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptMetadataLink createTestScriptMetadataLink() {
-		TestScriptMetadataLinkImpl testScriptMetadataLink = new TestScriptMetadataLinkImpl();
-		return testScriptMetadataLink;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptMetadataCapability createTestScriptMetadataCapability() {
-		TestScriptMetadataCapabilityImpl testScriptMetadataCapability = new TestScriptMetadataCapabilityImpl();
-		return testScriptMetadataCapability;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptFixture createTestScriptFixture() {
-		TestScriptFixtureImpl testScriptFixture = new TestScriptFixtureImpl();
-		return testScriptFixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptVariable createTestScriptVariable() {
-		TestScriptVariableImpl testScriptVariable = new TestScriptVariableImpl();
-		return testScriptVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptSetup createTestScriptSetup() {
-		TestScriptSetupImpl testScriptSetup = new TestScriptSetupImpl();
-		return testScriptSetup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptSetupAction createTestScriptSetupAction() {
-		TestScriptSetupActionImpl testScriptSetupAction = new TestScriptSetupActionImpl();
-		return testScriptSetupAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptSetupActionOperation createTestScriptSetupActionOperation() {
-		TestScriptSetupActionOperationImpl testScriptSetupActionOperation = new TestScriptSetupActionOperationImpl();
-		return testScriptSetupActionOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptSetupActionOperationRequestHeader createTestScriptSetupActionOperationRequestHeader() {
-		TestScriptSetupActionOperationRequestHeaderImpl testScriptSetupActionOperationRequestHeader = new TestScriptSetupActionOperationRequestHeaderImpl();
-		return testScriptSetupActionOperationRequestHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptSetupActionAssert createTestScriptSetupActionAssert() {
-		TestScriptSetupActionAssertImpl testScriptSetupActionAssert = new TestScriptSetupActionAssertImpl();
-		return testScriptSetupActionAssert;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptTest createTestScriptTest() {
-		TestScriptTestImpl testScriptTest = new TestScriptTestImpl();
-		return testScriptTest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptTestAction createTestScriptTestAction() {
-		TestScriptTestActionImpl testScriptTestAction = new TestScriptTestActionImpl();
-		return testScriptTestAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptTeardown createTestScriptTeardown() {
-		TestScriptTeardownImpl testScriptTeardown = new TestScriptTeardownImpl();
-		return testScriptTeardown;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptTeardownAction createTestScriptTeardownAction() {
-		TestScriptTeardownActionImpl testScriptTeardownAction = new TestScriptTeardownActionImpl();
-		return testScriptTeardownAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Basic createBasic() {
-		BasicImpl basic = new BasicImpl();
-		return basic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationDispense createMedicationDispense() {
-		MedicationDispenseImpl medicationDispense = new MedicationDispenseImpl();
-		return medicationDispense;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationDispenseDosageInstruction createMedicationDispenseDosageInstruction() {
-		MedicationDispenseDosageInstructionImpl medicationDispenseDosageInstruction = new MedicationDispenseDosageInstructionImpl();
-		return medicationDispenseDosageInstruction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationDispenseSubstitution createMedicationDispenseSubstitution() {
-		MedicationDispenseSubstitutionImpl medicationDispenseSubstitution = new MedicationDispenseSubstitutionImpl();
-		return medicationDispenseSubstitution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataElement createDataElement() {
-		DataElementImpl dataElement = new DataElementImpl();
-		return dataElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataElementContact createDataElementContact() {
-		DataElementContactImpl dataElementContact = new DataElementContactImpl();
-		return dataElementContact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataElementMapping createDataElementMapping() {
-		DataElementMappingImpl dataElementMapping = new DataElementMappingImpl();
-		return dataElementMapping;
+	public AppointmentResponse createAppointmentResponse() {
+		AppointmentResponseImpl appointmentResponse = new AppointmentResponseImpl();
+		return appointmentResponse;
 	}
 
 	/**
@@ -3307,9 +4184,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PaymentReconciliation createPaymentReconciliation() {
-		PaymentReconciliationImpl paymentReconciliation = new PaymentReconciliationImpl();
-		return paymentReconciliation;
+	public Basic createBasic() {
+		BasicImpl basic = new BasicImpl();
+		return basic;
 	}
 
 	/**
@@ -3317,149 +4194,9 @@ public class FhirResourceFactoryImpl extends EFactoryImpl implements FhirResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PaymentReconciliationDetails createPaymentReconciliationDetails() {
-		PaymentReconciliationDetailsImpl paymentReconciliationDetails = new PaymentReconciliationDetailsImpl();
-		return paymentReconciliationDetails;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PaymentReconciliationNotes createPaymentReconciliationNotes() {
-		PaymentReconciliationNotesImpl paymentReconciliationNotes = new PaymentReconciliationNotesImpl();
-		return paymentReconciliationNotes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DetectedIssue createDetectedIssue() {
-		DetectedIssueImpl detectedIssue = new DetectedIssueImpl();
-		return detectedIssue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DetectedIssueMitigation createDetectedIssueMitigation() {
-		DetectedIssueMitigationImpl detectedIssueMitigation = new DetectedIssueMitigationImpl();
-		return detectedIssueMitigation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Bundle createBundle() {
-		BundleImpl bundle = new BundleImpl();
-		return bundle;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BundleLink createBundleLink() {
-		BundleLinkImpl bundleLink = new BundleLinkImpl();
-		return bundleLink;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BundleEntry createBundleEntry() {
-		BundleEntryImpl bundleEntry = new BundleEntryImpl();
-		return bundleEntry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BundleEntrySearch createBundleEntrySearch() {
-		BundleEntrySearchImpl bundleEntrySearch = new BundleEntrySearchImpl();
-		return bundleEntrySearch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BundleEntryRequest createBundleEntryRequest() {
-		BundleEntryRequestImpl bundleEntryRequest = new BundleEntryRequestImpl();
-		return bundleEntryRequest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BundleEntryResponse createBundleEntryResponse() {
-		BundleEntryResponseImpl bundleEntryResponse = new BundleEntryResponseImpl();
-		return bundleEntryResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessResponse createProcessResponse() {
-		ProcessResponseImpl processResponse = new ProcessResponseImpl();
-		return processResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessResponseNotes createProcessResponseNotes() {
-		ProcessResponseNotesImpl processResponseNotes = new ProcessResponseNotesImpl();
-		return processResponseNotes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamingSystem createNamingSystem() {
-		NamingSystemImpl namingSystem = new NamingSystemImpl();
-		return namingSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamingSystemContact createNamingSystemContact() {
-		NamingSystemContactImpl namingSystemContact = new NamingSystemContactImpl();
-		return namingSystemContact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamingSystemUniqueId createNamingSystemUniqueId() {
-		NamingSystemUniqueIdImpl namingSystemUniqueId = new NamingSystemUniqueIdImpl();
-		return namingSystemUniqueId;
+	public OrderResponse createOrderResponse() {
+		OrderResponseImpl orderResponse = new OrderResponseImpl();
+		return orderResponse;
 	}
 
 	/**

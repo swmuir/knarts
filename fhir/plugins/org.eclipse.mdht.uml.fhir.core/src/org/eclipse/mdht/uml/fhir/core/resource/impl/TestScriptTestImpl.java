@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,7 +32,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.impl.BackboneElementImpl;
 import org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest;
-import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestAction;
+import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTestTestAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,7 +89,7 @@ public class TestScriptTestImpl extends BackboneElementImpl implements TestScrip
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TestScriptTestAction> actions;
+	protected EList<TestScriptTestTestAction> actions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,9 +234,9 @@ public class TestScriptTestImpl extends BackboneElementImpl implements TestScrip
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TestScriptTestAction> getActions() {
+	public EList<TestScriptTestTestAction> getActions() {
 		if (actions == null) {
-			actions = new EObjectContainmentEList<TestScriptTestAction>(TestScriptTestAction.class, this, FhirResourcePackage.TEST_SCRIPT_TEST__ACTION);
+			actions = new EObjectContainmentEList<TestScriptTestTestAction>(TestScriptTestTestAction.class, this, FhirResourcePackage.TEST_SCRIPT_TEST__ACTION);
 		}
 		return actions;
 	}
@@ -299,7 +299,7 @@ public class TestScriptTestImpl extends BackboneElementImpl implements TestScrip
 				return;
 			case FhirResourcePackage.TEST_SCRIPT_TEST__ACTION:
 				getActions().clear();
-				getActions().addAll((Collection<? extends TestScriptTestAction>)newValue);
+				getActions().addAll((Collection<? extends TestScriptTestTestAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

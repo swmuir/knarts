@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,6 +47,7 @@ public interface Time extends DataType {
 	 * @see #setValue(XMLGregorianCalendar)
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage#getTime_Value()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.Time"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	XMLGregorianCalendar getValue();

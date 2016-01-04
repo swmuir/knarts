@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Address;
 import org.hl7.fhir.Claim;
 import org.hl7.fhir.ClaimCoverage;
 import org.hl7.fhir.ClaimDiagnosis;
@@ -39,6 +30,8 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Money;
+import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Use;
 
@@ -55,6 +48,7 @@ import org.hl7.fhir.Use;
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getBillablePeriod <em>Billable Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOrganization <em>Organization</em>}</li>
@@ -63,20 +57,29 @@ import org.hl7.fhir.Use;
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFundsReserve <em>Funds Reserve</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getRelatedClaim <em>Related Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPrescription <em>Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalPrescription <em>Original Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPayee <em>Payee</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getReferral <em>Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getDiagnosis <em>Diagnosis</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getSpecialCondition <em>Special Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getException <em>Exception</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getSchool <em>School</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccident <em>Accident</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentDate <em>Accident Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentType <em>Accident Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentLocationString <em>Accident Location String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentLocationAddress <em>Accident Location Address</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentLocationReference <em>Accident Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInterventionException <em>Intervention Exception</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOnsetDate <em>Onset Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOnsetPeriod <em>Onset Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEmploymentImpacted <em>Employment Impacted</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getItem <em>Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAdditionalMaterials <em>Additional Materials</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getMissingTeeth <em>Missing Teeth</em>}</li>
  * </ul>
@@ -133,6 +136,16 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @ordered
 	 */
 	protected DateTime created;
+
+	/**
+	 * The cached value of the '{@link #getBillablePeriod() <em>Billable Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBillablePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period billablePeriod;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
@@ -215,6 +228,16 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected Reference facility;
 
 	/**
+	 * The cached value of the '{@link #getRelatedClaim() <em>Related Claim</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedClaim()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> relatedClaim;
+
+	/**
 	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,14 +288,14 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<ClaimDiagnosis> diagnosis;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+	 * The cached value of the '{@link #getSpecialCondition() <em>Special Condition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getSpecialCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> condition;
+	protected EList<Coding> specialCondition;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -315,14 +338,14 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected org.hl7.fhir.String school;
 
 	/**
-	 * The cached value of the '{@link #getAccident() <em>Accident</em>}' containment reference.
+	 * The cached value of the '{@link #getAccidentDate() <em>Accident Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAccident()
+	 * @see #getAccidentDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date accident;
+	protected Date accidentDate;
 
 	/**
 	 * The cached value of the '{@link #getAccidentType() <em>Accident Type</em>}' containment reference.
@@ -335,6 +358,36 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected Coding accidentType;
 
 	/**
+	 * The cached value of the '{@link #getAccidentLocationString() <em>Accident Location String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccidentLocationString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String accidentLocationString;
+
+	/**
+	 * The cached value of the '{@link #getAccidentLocationAddress() <em>Accident Location Address</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccidentLocationAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected Address accidentLocationAddress;
+
+	/**
+	 * The cached value of the '{@link #getAccidentLocationReference() <em>Accident Location Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccidentLocationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference accidentLocationReference;
+
+	/**
 	 * The cached value of the '{@link #getInterventionException() <em>Intervention Exception</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,6 +398,46 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<Coding> interventionException;
 
 	/**
+	 * The cached value of the '{@link #getOnsetDate() <em>Onset Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnsetDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date onsetDate;
+
+	/**
+	 * The cached value of the '{@link #getOnsetPeriod() <em>Onset Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnsetPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period onsetPeriod;
+
+	/**
+	 * The cached value of the '{@link #getEmploymentImpacted() <em>Employment Impacted</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmploymentImpacted()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period employmentImpacted;
+
+	/**
+	 * The cached value of the '{@link #getHospitalization() <em>Hospitalization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHospitalization()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period hospitalization;
+
+	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,6 +446,16 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @ordered
 	 */
 	protected EList<ClaimItem> item;
+
+	/**
+	 * The cached value of the '{@link #getTotal() <em>Total</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotal()
+	 * @generated
+	 * @ordered
+	 */
+	protected Money total;
 
 	/**
 	 * The cached value of the '{@link #getAdditionalMaterials() <em>Additional Materials</em>}' containment reference list.
@@ -575,6 +678,49 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__CREATED, newCreated, newCreated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getBillablePeriod() {
+		return billablePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBillablePeriod(Period newBillablePeriod, NotificationChain msgs) {
+		Period oldBillablePeriod = billablePeriod;
+		billablePeriod = newBillablePeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, oldBillablePeriod, newBillablePeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBillablePeriod(Period newBillablePeriod) {
+		if (newBillablePeriod != billablePeriod) {
+			NotificationChain msgs = null;
+			if (billablePeriod != null)
+				msgs = ((InternalEObject)billablePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
+			if (newBillablePeriod != null)
+				msgs = ((InternalEObject)newBillablePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
+			msgs = basicSetBillablePeriod(newBillablePeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, newBillablePeriod, newBillablePeriod));
 	}
 
 	/**
@@ -926,6 +1072,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getRelatedClaim() {
+		if (relatedClaim == null) {
+			relatedClaim = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM__RELATED_CLAIM);
+		}
+		return relatedClaim;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getPrescription() {
 		return prescription;
 	}
@@ -1110,11 +1268,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getCondition() {
-		if (condition == null) {
-			condition = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__CONDITION);
+	public EList<Coding> getSpecialCondition() {
+		if (specialCondition == null) {
+			specialCondition = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__SPECIAL_CONDITION);
 		}
-		return condition;
+		return specialCondition;
 	}
 
 	/**
@@ -1232,8 +1390,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getAccident() {
-		return accident;
+	public Date getAccidentDate() {
+		return accidentDate;
 	}
 
 	/**
@@ -1241,11 +1399,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAccident(Date newAccident, NotificationChain msgs) {
-		Date oldAccident = accident;
-		accident = newAccident;
+	public NotificationChain basicSetAccidentDate(Date newAccidentDate, NotificationChain msgs) {
+		Date oldAccidentDate = accidentDate;
+		accidentDate = newAccidentDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT, oldAccident, newAccident);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_DATE, oldAccidentDate, newAccidentDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1256,18 +1414,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccident(Date newAccident) {
-		if (newAccident != accident) {
+	public void setAccidentDate(Date newAccidentDate) {
+		if (newAccidentDate != accidentDate) {
 			NotificationChain msgs = null;
-			if (accident != null)
-				msgs = ((InternalEObject)accident).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT, null, msgs);
-			if (newAccident != null)
-				msgs = ((InternalEObject)newAccident).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT, null, msgs);
-			msgs = basicSetAccident(newAccident, msgs);
+			if (accidentDate != null)
+				msgs = ((InternalEObject)accidentDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_DATE, null, msgs);
+			if (newAccidentDate != null)
+				msgs = ((InternalEObject)newAccidentDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_DATE, null, msgs);
+			msgs = basicSetAccidentDate(newAccidentDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT, newAccident, newAccident));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_DATE, newAccidentDate, newAccidentDate));
 	}
 
 	/**
@@ -1318,6 +1476,135 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getAccidentLocationString() {
+		return accidentLocationString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccidentLocationString(org.hl7.fhir.String newAccidentLocationString, NotificationChain msgs) {
+		org.hl7.fhir.String oldAccidentLocationString = accidentLocationString;
+		accidentLocationString = newAccidentLocationString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING, oldAccidentLocationString, newAccidentLocationString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccidentLocationString(org.hl7.fhir.String newAccidentLocationString) {
+		if (newAccidentLocationString != accidentLocationString) {
+			NotificationChain msgs = null;
+			if (accidentLocationString != null)
+				msgs = ((InternalEObject)accidentLocationString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING, null, msgs);
+			if (newAccidentLocationString != null)
+				msgs = ((InternalEObject)newAccidentLocationString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING, null, msgs);
+			msgs = basicSetAccidentLocationString(newAccidentLocationString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING, newAccidentLocationString, newAccidentLocationString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Address getAccidentLocationAddress() {
+		return accidentLocationAddress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccidentLocationAddress(Address newAccidentLocationAddress, NotificationChain msgs) {
+		Address oldAccidentLocationAddress = accidentLocationAddress;
+		accidentLocationAddress = newAccidentLocationAddress;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, oldAccidentLocationAddress, newAccidentLocationAddress);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccidentLocationAddress(Address newAccidentLocationAddress) {
+		if (newAccidentLocationAddress != accidentLocationAddress) {
+			NotificationChain msgs = null;
+			if (accidentLocationAddress != null)
+				msgs = ((InternalEObject)accidentLocationAddress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, null, msgs);
+			if (newAccidentLocationAddress != null)
+				msgs = ((InternalEObject)newAccidentLocationAddress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, null, msgs);
+			msgs = basicSetAccidentLocationAddress(newAccidentLocationAddress, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, newAccidentLocationAddress, newAccidentLocationAddress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getAccidentLocationReference() {
+		return accidentLocationReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccidentLocationReference(Reference newAccidentLocationReference, NotificationChain msgs) {
+		Reference oldAccidentLocationReference = accidentLocationReference;
+		accidentLocationReference = newAccidentLocationReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, oldAccidentLocationReference, newAccidentLocationReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccidentLocationReference(Reference newAccidentLocationReference) {
+		if (newAccidentLocationReference != accidentLocationReference) {
+			NotificationChain msgs = null;
+			if (accidentLocationReference != null)
+				msgs = ((InternalEObject)accidentLocationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, null, msgs);
+			if (newAccidentLocationReference != null)
+				msgs = ((InternalEObject)newAccidentLocationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, null, msgs);
+			msgs = basicSetAccidentLocationReference(newAccidentLocationReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, newAccidentLocationReference, newAccidentLocationReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Coding> getInterventionException() {
 		if (interventionException == null) {
 			interventionException = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__INTERVENTION_EXCEPTION);
@@ -1330,11 +1617,226 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Date getOnsetDate() {
+		return onsetDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnsetDate(Date newOnsetDate, NotificationChain msgs) {
+		Date oldOnsetDate = onsetDate;
+		onsetDate = newOnsetDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ONSET_DATE, oldOnsetDate, newOnsetDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnsetDate(Date newOnsetDate) {
+		if (newOnsetDate != onsetDate) {
+			NotificationChain msgs = null;
+			if (onsetDate != null)
+				msgs = ((InternalEObject)onsetDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ONSET_DATE, null, msgs);
+			if (newOnsetDate != null)
+				msgs = ((InternalEObject)newOnsetDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ONSET_DATE, null, msgs);
+			msgs = basicSetOnsetDate(newOnsetDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ONSET_DATE, newOnsetDate, newOnsetDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getOnsetPeriod() {
+		return onsetPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnsetPeriod(Period newOnsetPeriod, NotificationChain msgs) {
+		Period oldOnsetPeriod = onsetPeriod;
+		onsetPeriod = newOnsetPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ONSET_PERIOD, oldOnsetPeriod, newOnsetPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnsetPeriod(Period newOnsetPeriod) {
+		if (newOnsetPeriod != onsetPeriod) {
+			NotificationChain msgs = null;
+			if (onsetPeriod != null)
+				msgs = ((InternalEObject)onsetPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ONSET_PERIOD, null, msgs);
+			if (newOnsetPeriod != null)
+				msgs = ((InternalEObject)newOnsetPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ONSET_PERIOD, null, msgs);
+			msgs = basicSetOnsetPeriod(newOnsetPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ONSET_PERIOD, newOnsetPeriod, newOnsetPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getEmploymentImpacted() {
+		return employmentImpacted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEmploymentImpacted(Period newEmploymentImpacted, NotificationChain msgs) {
+		Period oldEmploymentImpacted = employmentImpacted;
+		employmentImpacted = newEmploymentImpacted;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, oldEmploymentImpacted, newEmploymentImpacted);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmploymentImpacted(Period newEmploymentImpacted) {
+		if (newEmploymentImpacted != employmentImpacted) {
+			NotificationChain msgs = null;
+			if (employmentImpacted != null)
+				msgs = ((InternalEObject)employmentImpacted).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, null, msgs);
+			if (newEmploymentImpacted != null)
+				msgs = ((InternalEObject)newEmploymentImpacted).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, null, msgs);
+			msgs = basicSetEmploymentImpacted(newEmploymentImpacted, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, newEmploymentImpacted, newEmploymentImpacted));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getHospitalization() {
+		return hospitalization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHospitalization(Period newHospitalization, NotificationChain msgs) {
+		Period oldHospitalization = hospitalization;
+		hospitalization = newHospitalization;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__HOSPITALIZATION, oldHospitalization, newHospitalization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHospitalization(Period newHospitalization) {
+		if (newHospitalization != hospitalization) {
+			NotificationChain msgs = null;
+			if (hospitalization != null)
+				msgs = ((InternalEObject)hospitalization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__HOSPITALIZATION, null, msgs);
+			if (newHospitalization != null)
+				msgs = ((InternalEObject)newHospitalization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__HOSPITALIZATION, null, msgs);
+			msgs = basicSetHospitalization(newHospitalization, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__HOSPITALIZATION, newHospitalization, newHospitalization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ClaimItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ClaimItem>(ClaimItem.class, this, FhirPackage.CLAIM__ITEM);
 		}
 		return item;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Money getTotal() {
+		return total;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTotal(Money newTotal, NotificationChain msgs) {
+		Money oldTotal = total;
+		total = newTotal;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TOTAL, oldTotal, newTotal);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTotal(Money newTotal) {
+		if (newTotal != total) {
+			NotificationChain msgs = null;
+			if (total != null)
+				msgs = ((InternalEObject)total).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TOTAL, null, msgs);
+			if (newTotal != null)
+				msgs = ((InternalEObject)newTotal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TOTAL, null, msgs);
+			msgs = basicSetTotal(newTotal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TOTAL, newTotal, newTotal));
 	}
 
 	/**
@@ -1379,6 +1881,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return basicSetOriginalRuleset(null, msgs);
 			case FhirPackage.CLAIM__CREATED:
 				return basicSetCreated(null, msgs);
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return basicSetBillablePeriod(null, msgs);
 			case FhirPackage.CLAIM__TARGET:
 				return basicSetTarget(null, msgs);
 			case FhirPackage.CLAIM__PROVIDER:
@@ -1395,6 +1899,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return basicSetEnterer(null, msgs);
 			case FhirPackage.CLAIM__FACILITY:
 				return basicSetFacility(null, msgs);
+			case FhirPackage.CLAIM__RELATED_CLAIM:
+				return ((InternalEList<?>)getRelatedClaim()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__PRESCRIPTION:
 				return basicSetPrescription(null, msgs);
 			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
@@ -1405,8 +1911,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return basicSetReferral(null, msgs);
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__CONDITION:
-				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__SPECIAL_CONDITION:
+				return ((InternalEList<?>)getSpecialCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.CLAIM__COVERAGE:
@@ -1415,14 +1921,30 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return ((InternalEList<?>)getException()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__SCHOOL:
 				return basicSetSchool(null, msgs);
-			case FhirPackage.CLAIM__ACCIDENT:
-				return basicSetAccident(null, msgs);
+			case FhirPackage.CLAIM__ACCIDENT_DATE:
+				return basicSetAccidentDate(null, msgs);
 			case FhirPackage.CLAIM__ACCIDENT_TYPE:
 				return basicSetAccidentType(null, msgs);
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING:
+				return basicSetAccidentLocationString(null, msgs);
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
+				return basicSetAccidentLocationAddress(null, msgs);
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
+				return basicSetAccidentLocationReference(null, msgs);
 			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
 				return ((InternalEList<?>)getInterventionException()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__ONSET_DATE:
+				return basicSetOnsetDate(null, msgs);
+			case FhirPackage.CLAIM__ONSET_PERIOD:
+				return basicSetOnsetPeriod(null, msgs);
+			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
+				return basicSetEmploymentImpacted(null, msgs);
+			case FhirPackage.CLAIM__HOSPITALIZATION:
+				return basicSetHospitalization(null, msgs);
 			case FhirPackage.CLAIM__ITEM:
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__TOTAL:
+				return basicSetTotal(null, msgs);
 			case FhirPackage.CLAIM__ADDITIONAL_MATERIALS:
 				return ((InternalEList<?>)getAdditionalMaterials()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__MISSING_TEETH:
@@ -1449,6 +1971,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getOriginalRuleset();
 			case FhirPackage.CLAIM__CREATED:
 				return getCreated();
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return getBillablePeriod();
 			case FhirPackage.CLAIM__TARGET:
 				return getTarget();
 			case FhirPackage.CLAIM__PROVIDER:
@@ -1465,6 +1989,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getEnterer();
 			case FhirPackage.CLAIM__FACILITY:
 				return getFacility();
+			case FhirPackage.CLAIM__RELATED_CLAIM:
+				return getRelatedClaim();
 			case FhirPackage.CLAIM__PRESCRIPTION:
 				return getPrescription();
 			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
@@ -1475,8 +2001,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getReferral();
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return getDiagnosis();
-			case FhirPackage.CLAIM__CONDITION:
-				return getCondition();
+			case FhirPackage.CLAIM__SPECIAL_CONDITION:
+				return getSpecialCondition();
 			case FhirPackage.CLAIM__PATIENT:
 				return getPatient();
 			case FhirPackage.CLAIM__COVERAGE:
@@ -1485,14 +2011,30 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getException();
 			case FhirPackage.CLAIM__SCHOOL:
 				return getSchool();
-			case FhirPackage.CLAIM__ACCIDENT:
-				return getAccident();
+			case FhirPackage.CLAIM__ACCIDENT_DATE:
+				return getAccidentDate();
 			case FhirPackage.CLAIM__ACCIDENT_TYPE:
 				return getAccidentType();
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING:
+				return getAccidentLocationString();
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
+				return getAccidentLocationAddress();
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
+				return getAccidentLocationReference();
 			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
 				return getInterventionException();
+			case FhirPackage.CLAIM__ONSET_DATE:
+				return getOnsetDate();
+			case FhirPackage.CLAIM__ONSET_PERIOD:
+				return getOnsetPeriod();
+			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
+				return getEmploymentImpacted();
+			case FhirPackage.CLAIM__HOSPITALIZATION:
+				return getHospitalization();
 			case FhirPackage.CLAIM__ITEM:
 				return getItem();
+			case FhirPackage.CLAIM__TOTAL:
+				return getTotal();
 			case FhirPackage.CLAIM__ADDITIONAL_MATERIALS:
 				return getAdditionalMaterials();
 			case FhirPackage.CLAIM__MISSING_TEETH:
@@ -1526,6 +2068,9 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__CREATED:
 				setCreated((DateTime)newValue);
 				return;
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				setBillablePeriod((Period)newValue);
+				return;
 			case FhirPackage.CLAIM__TARGET:
 				setTarget((Reference)newValue);
 				return;
@@ -1550,6 +2095,10 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__FACILITY:
 				setFacility((Reference)newValue);
 				return;
+			case FhirPackage.CLAIM__RELATED_CLAIM:
+				getRelatedClaim().clear();
+				getRelatedClaim().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.CLAIM__PRESCRIPTION:
 				setPrescription((Reference)newValue);
 				return;
@@ -1566,9 +2115,9 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				getDiagnosis().clear();
 				getDiagnosis().addAll((Collection<? extends ClaimDiagnosis>)newValue);
 				return;
-			case FhirPackage.CLAIM__CONDITION:
-				getCondition().clear();
-				getCondition().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.CLAIM__SPECIAL_CONDITION:
+				getSpecialCondition().clear();
+				getSpecialCondition().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CLAIM__PATIENT:
 				setPatient((Reference)newValue);
@@ -1584,19 +2133,43 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__SCHOOL:
 				setSchool((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.CLAIM__ACCIDENT:
-				setAccident((Date)newValue);
+			case FhirPackage.CLAIM__ACCIDENT_DATE:
+				setAccidentDate((Date)newValue);
 				return;
 			case FhirPackage.CLAIM__ACCIDENT_TYPE:
 				setAccidentType((Coding)newValue);
+				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING:
+				setAccidentLocationString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
+				setAccidentLocationAddress((Address)newValue);
+				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
+				setAccidentLocationReference((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
 				getInterventionException().clear();
 				getInterventionException().addAll((Collection<? extends Coding>)newValue);
 				return;
+			case FhirPackage.CLAIM__ONSET_DATE:
+				setOnsetDate((Date)newValue);
+				return;
+			case FhirPackage.CLAIM__ONSET_PERIOD:
+				setOnsetPeriod((Period)newValue);
+				return;
+			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
+				setEmploymentImpacted((Period)newValue);
+				return;
+			case FhirPackage.CLAIM__HOSPITALIZATION:
+				setHospitalization((Period)newValue);
+				return;
 			case FhirPackage.CLAIM__ITEM:
 				getItem().clear();
 				getItem().addAll((Collection<? extends ClaimItem>)newValue);
+				return;
+			case FhirPackage.CLAIM__TOTAL:
+				setTotal((Money)newValue);
 				return;
 			case FhirPackage.CLAIM__ADDITIONAL_MATERIALS:
 				getAdditionalMaterials().clear();
@@ -1633,6 +2206,9 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__CREATED:
 				setCreated((DateTime)null);
 				return;
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				setBillablePeriod((Period)null);
+				return;
 			case FhirPackage.CLAIM__TARGET:
 				setTarget((Reference)null);
 				return;
@@ -1657,6 +2233,9 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__FACILITY:
 				setFacility((Reference)null);
 				return;
+			case FhirPackage.CLAIM__RELATED_CLAIM:
+				getRelatedClaim().clear();
+				return;
 			case FhirPackage.CLAIM__PRESCRIPTION:
 				setPrescription((Reference)null);
 				return;
@@ -1672,8 +2251,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				getDiagnosis().clear();
 				return;
-			case FhirPackage.CLAIM__CONDITION:
-				getCondition().clear();
+			case FhirPackage.CLAIM__SPECIAL_CONDITION:
+				getSpecialCondition().clear();
 				return;
 			case FhirPackage.CLAIM__PATIENT:
 				setPatient((Reference)null);
@@ -1687,17 +2266,41 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__SCHOOL:
 				setSchool((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.CLAIM__ACCIDENT:
-				setAccident((Date)null);
+			case FhirPackage.CLAIM__ACCIDENT_DATE:
+				setAccidentDate((Date)null);
 				return;
 			case FhirPackage.CLAIM__ACCIDENT_TYPE:
 				setAccidentType((Coding)null);
 				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING:
+				setAccidentLocationString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
+				setAccidentLocationAddress((Address)null);
+				return;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
+				setAccidentLocationReference((Reference)null);
+				return;
 			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
 				getInterventionException().clear();
 				return;
+			case FhirPackage.CLAIM__ONSET_DATE:
+				setOnsetDate((Date)null);
+				return;
+			case FhirPackage.CLAIM__ONSET_PERIOD:
+				setOnsetPeriod((Period)null);
+				return;
+			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
+				setEmploymentImpacted((Period)null);
+				return;
+			case FhirPackage.CLAIM__HOSPITALIZATION:
+				setHospitalization((Period)null);
+				return;
 			case FhirPackage.CLAIM__ITEM:
 				getItem().clear();
+				return;
+			case FhirPackage.CLAIM__TOTAL:
+				setTotal((Money)null);
 				return;
 			case FhirPackage.CLAIM__ADDITIONAL_MATERIALS:
 				getAdditionalMaterials().clear();
@@ -1727,6 +2330,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return originalRuleset != null;
 			case FhirPackage.CLAIM__CREATED:
 				return created != null;
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return billablePeriod != null;
 			case FhirPackage.CLAIM__TARGET:
 				return target != null;
 			case FhirPackage.CLAIM__PROVIDER:
@@ -1743,6 +2348,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return enterer != null;
 			case FhirPackage.CLAIM__FACILITY:
 				return facility != null;
+			case FhirPackage.CLAIM__RELATED_CLAIM:
+				return relatedClaim != null && !relatedClaim.isEmpty();
 			case FhirPackage.CLAIM__PRESCRIPTION:
 				return prescription != null;
 			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
@@ -1753,8 +2360,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return referral != null;
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return diagnosis != null && !diagnosis.isEmpty();
-			case FhirPackage.CLAIM__CONDITION:
-				return condition != null && !condition.isEmpty();
+			case FhirPackage.CLAIM__SPECIAL_CONDITION:
+				return specialCondition != null && !specialCondition.isEmpty();
 			case FhirPackage.CLAIM__PATIENT:
 				return patient != null;
 			case FhirPackage.CLAIM__COVERAGE:
@@ -1763,14 +2370,30 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return exception != null && !exception.isEmpty();
 			case FhirPackage.CLAIM__SCHOOL:
 				return school != null;
-			case FhirPackage.CLAIM__ACCIDENT:
-				return accident != null;
+			case FhirPackage.CLAIM__ACCIDENT_DATE:
+				return accidentDate != null;
 			case FhirPackage.CLAIM__ACCIDENT_TYPE:
 				return accidentType != null;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_STRING:
+				return accidentLocationString != null;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
+				return accidentLocationAddress != null;
+			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
+				return accidentLocationReference != null;
 			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
 				return interventionException != null && !interventionException.isEmpty();
+			case FhirPackage.CLAIM__ONSET_DATE:
+				return onsetDate != null;
+			case FhirPackage.CLAIM__ONSET_PERIOD:
+				return onsetPeriod != null;
+			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
+				return employmentImpacted != null;
+			case FhirPackage.CLAIM__HOSPITALIZATION:
+				return hospitalization != null;
 			case FhirPackage.CLAIM__ITEM:
 				return item != null && !item.isEmpty();
+			case FhirPackage.CLAIM__TOTAL:
+				return total != null;
 			case FhirPackage.CLAIM__ADDITIONAL_MATERIALS:
 				return additionalMaterials != null && !additionalMaterials.isEmpty();
 			case FhirPackage.CLAIM__MISSING_TEETH:

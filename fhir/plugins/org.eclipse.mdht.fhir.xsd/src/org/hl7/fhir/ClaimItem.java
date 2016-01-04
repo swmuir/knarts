@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -32,7 +22,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClaimItem#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getService <em>Service</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getServiceDate <em>Service Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getServicedDate <em>Serviced Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getServicedPeriod <em>Serviced Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getPlace <em>Place</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getFactor <em>Factor</em>}</li>
@@ -172,30 +164,84 @@ public interface ClaimItem extends BackboneElement {
 	void setService(Coding value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Serviced Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serviced Date</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serviced Date</em>' containment reference.
+	 * @see #setServicedDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ServicedDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='servicedDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Date getServicedDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getServicedDate <em>Serviced Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Serviced Date</em>' containment reference.
+	 * @see #getServicedDate()
+	 * @generated
+	 */
+	void setServicedDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Serviced Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serviced Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serviced Period</em>' containment reference.
+	 * @see #setServicedPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ServicedPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='servicedPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getServicedPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getServicedPeriod <em>Serviced Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Serviced Period</em>' containment reference.
+	 * @see #getServicedPeriod()
+	 * @generated
+	 */
+	void setServicedPeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Place</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date when the enclosed suite of services were performed or completed.
+	 * Where the service was provided.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Date</em>' containment reference.
-	 * @see #setServiceDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ServiceDate()
+	 * @return the value of the '<em>Place</em>' containment reference.
+	 * @see #setPlace(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Place()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='serviceDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='place' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getServiceDate();
+	Coding getPlace();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getServiceDate <em>Service Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getPlace <em>Place</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Date</em>' containment reference.
-	 * @see #getServiceDate()
+	 * @param value the new value of the '<em>Place</em>' containment reference.
+	 * @see #getPlace()
 	 * @generated
 	 */
-	void setServiceDate(Date value);
+	void setPlace(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -306,7 +352,7 @@ public interface ClaimItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+	 * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Net</em>' containment reference.
 	 * @see #setNet(Money)
@@ -358,7 +404,7 @@ public interface ClaimItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Physical service site on the patient (limb, tooth, etc.).
+	 * Physical service site on the patient (limb, tooth, etc).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(Coding)
@@ -385,7 +431,7 @@ public interface ClaimItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A region or surface of the site, e.g. limb region or tooth surface(s).
+	 * A region or surface of the site, eg. limb region or tooth surface(s).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Site</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_SubSite()
@@ -401,7 +447,7 @@ public interface ClaimItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Modifier()

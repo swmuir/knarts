@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -44,6 +44,7 @@ import org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadataCapability;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getValidated <em>Validated</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getOrigins <em>Origin</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getLinks <em>Link</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptMetadataCapabilityImpl#getConformance <em>Conformance</em>}</li>
@@ -81,6 +82,16 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected org.eclipse.mdht.uml.fhir.core.datatype.String description;
+
+	/**
+	 * The cached value of the '{@link #getOrigins() <em>Origin</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<org.eclipse.mdht.uml.fhir.core.datatype.Integer> origins;
 
 	/**
 	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
@@ -250,6 +261,18 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<org.eclipse.mdht.uml.fhir.core.datatype.Integer> getOrigins() {
+		if (origins == null) {
+			origins = new EObjectResolvingEList<org.eclipse.mdht.uml.fhir.core.datatype.Integer>(org.eclipse.mdht.uml.fhir.core.datatype.Integer.class, this, FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__ORIGIN);
+		}
+		return origins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.eclipse.mdht.uml.fhir.core.datatype.Integer getDestination() {
 		if (destination != null && destination.eIsProxy()) {
 			InternalEObject oldDestination = (InternalEObject)destination;
@@ -350,6 +373,8 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESCRIPTION:
 				if (resolve) return getDescription();
 				return basicGetDescription();
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__ORIGIN:
+				return getOrigins();
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESTINATION:
 				if (resolve) return getDestination();
 				return basicGetDestination();
@@ -379,6 +404,10 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 				return;
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESCRIPTION:
 				setDescription((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
+				return;
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__ORIGIN:
+				getOrigins().clear();
+				getOrigins().addAll((Collection<? extends org.eclipse.mdht.uml.fhir.core.datatype.Integer>)newValue);
 				return;
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESTINATION:
 				setDestination((org.eclipse.mdht.uml.fhir.core.datatype.Integer)newValue);
@@ -411,6 +440,9 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESCRIPTION:
 				setDescription((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
 				return;
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__ORIGIN:
+				getOrigins().clear();
+				return;
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESTINATION:
 				setDestination((org.eclipse.mdht.uml.fhir.core.datatype.Integer)null);
 				return;
@@ -438,6 +470,8 @@ public class TestScriptMetadataCapabilityImpl extends BackboneElementImpl implem
 				return validated != null;
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESCRIPTION:
 				return description != null;
+			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__ORIGIN:
+				return origins != null && !origins.isEmpty();
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__DESTINATION:
 				return destination != null;
 			case FhirResourcePackage.TEST_SCRIPT_METADATA_CAPABILITY__LINK:

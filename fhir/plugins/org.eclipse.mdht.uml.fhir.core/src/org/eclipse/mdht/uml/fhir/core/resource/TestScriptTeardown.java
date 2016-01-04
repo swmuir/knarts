@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,7 +35,7 @@ import org.eclipse.mdht.uml.fhir.core.datatype.BackboneElement;
 public interface TestScriptTeardown extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownAction}.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardownTeardownAction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
@@ -47,6 +47,6 @@ public interface TestScriptTeardown extends BackboneElement {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<TestScriptTeardownAction> getActions();
+	EList<TestScriptTeardownTeardownAction> getActions();
 
 } // TestScriptTeardown

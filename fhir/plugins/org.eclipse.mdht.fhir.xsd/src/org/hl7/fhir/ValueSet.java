@@ -445,7 +445,7 @@ public interface ValueSet extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.
+	 * A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code System</em>' containment reference.
 	 * @see #setCodeSystem(ValueSetCodeSystem)

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015 David A Carlson.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David A Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -34,8 +24,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Questionnaire#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getTelecom <em>Telecom</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getSubjectType <em>Subject Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getItem <em>Item</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getQuestionnaire()
@@ -180,6 +172,48 @@ public interface Questionnaire extends DomainResource {
 	EList<ContactPoint> getTelecom();
 
 	/**
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name or label associated with this questionnaire.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Title</em>' containment reference.
+	 * @see #setTitle(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Title()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Questionnaire#getTitle <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' containment reference.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Concept</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies a how this question or group of questions is known in a particular terminology such as LOINC.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Concept</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Concept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='concept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Coding> getConcept();
+
+	/**
 	 * Returns the value of the '<em><b>Subject Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Code}.
 	 * <!-- begin-user-doc -->
@@ -196,29 +230,19 @@ public interface Questionnaire extends DomainResource {
 	EList<Code> getSubjectType();
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.QuestionnaireItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A collection of related questions (or further groupings of questions).
+	 * The questions and groupings of questions that make up the questionnaire.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(QuestionnaireGroup)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Group()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Item</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Item()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='item' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	QuestionnaireGroup getGroup();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Questionnaire#getGroup <em>Group</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' containment reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	void setGroup(QuestionnaireGroup value);
+	EList<QuestionnaireItem> getItem();
 
 } // Questionnaire

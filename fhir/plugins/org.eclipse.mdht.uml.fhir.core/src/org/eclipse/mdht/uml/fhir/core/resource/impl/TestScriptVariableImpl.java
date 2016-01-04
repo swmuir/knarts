@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,6 +35,7 @@ import org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptVariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptVariableImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptVariableImpl#getHeaderField <em>Header Field</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptVariableImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptVariableImpl#getSourceId <em>Source Id</em>}</li>
@@ -52,6 +53,16 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 	 * @ordered
 	 */
 	protected org.eclipse.mdht.uml.fhir.core.datatype.String name;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.eclipse.mdht.uml.fhir.core.datatype.String defaultValue;
 
 	/**
 	 * The cached value of the '{@link #getHeaderField() <em>Header Field</em>}' reference.
@@ -138,6 +149,44 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.TEST_SCRIPT_VARIABLE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.mdht.uml.fhir.core.datatype.String getDefaultValue() {
+		if (defaultValue != null && defaultValue.eIsProxy()) {
+			InternalEObject oldDefaultValue = (InternalEObject)defaultValue;
+			defaultValue = (org.eclipse.mdht.uml.fhir.core.datatype.String)eResolveProxy(oldDefaultValue);
+			if (defaultValue != oldDefaultValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE, oldDefaultValue, defaultValue));
+			}
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.mdht.uml.fhir.core.datatype.String basicGetDefaultValue() {
+		return defaultValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValue(org.eclipse.mdht.uml.fhir.core.datatype.String newDefaultValue) {
+		org.eclipse.mdht.uml.fhir.core.datatype.String oldDefaultValue = defaultValue;
+		defaultValue = newDefaultValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE, oldDefaultValue, defaultValue));
 	}
 
 	/**
@@ -265,6 +314,9 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__NAME:
 				if (resolve) return getName();
 				return basicGetName();
+			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
+				if (resolve) return getDefaultValue();
+				return basicGetDefaultValue();
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				if (resolve) return getHeaderField();
 				return basicGetHeaderField();
@@ -288,6 +340,9 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 		switch (featureID) {
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__NAME:
 				setName((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
+				return;
+			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
+				setDefaultValue((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
 				return;
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				setHeaderField((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
@@ -313,6 +368,9 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__NAME:
 				setName((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
 				return;
+			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
+				setDefaultValue((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
+				return;
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				setHeaderField((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
 				return;
@@ -336,6 +394,8 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 		switch (featureID) {
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__NAME:
 				return name != null;
+			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
+				return defaultValue != null;
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				return headerField != null;
 			case FhirResourcePackage.TEST_SCRIPT_VARIABLE__PATH:

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -2245,725 +2245,6 @@ public interface FhirDatatypePackage extends EPackage {
 	int ATTACHMENT_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl <em>Quantity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getQuantity()
-	 * @generated
-	 */
-	int QUANTITY = 34;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__ID = DATA_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__EXTENSION = DATA_TYPE__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__VALUE = DATA_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Comparator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__COMPARATOR = DATA_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__UNIT = DATA_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__SYSTEM = DATA_TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY__CODE = DATA_TYPE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Quantity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Quantity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTITY_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl <em>Money</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getMoney()
-	 * @generated
-	 */
-	int MONEY = 33;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__ID = QUANTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__EXTENSION = QUANTITY__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__VALUE = QUANTITY__VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Comparator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__COMPARATOR = QUANTITY__COMPARATOR;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__UNIT = QUANTITY__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__SYSTEM = QUANTITY__SYSTEM;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY__CODE = QUANTITY__CODE;
-
-	/**
-	 * The number of structural features of the '<em>Money</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Money</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONEY_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl <em>Duration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getDuration()
-	 * @generated
-	 */
-	int DURATION = 35;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__ID = QUANTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__EXTENSION = QUANTITY__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__VALUE = QUANTITY__VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Comparator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__COMPARATOR = QUANTITY__COMPARATOR;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__UNIT = QUANTITY__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__SYSTEM = QUANTITY__SYSTEM;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION__CODE = QUANTITY__CODE;
-
-	/**
-	 * The number of structural features of the '<em>Duration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Duration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DURATION_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl <em>Simple Quantity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getSimpleQuantity()
-	 * @generated
-	 */
-	int SIMPLE_QUANTITY = 36;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__ID = QUANTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__EXTENSION = QUANTITY__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__VALUE = QUANTITY__VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Comparator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__COMPARATOR = QUANTITY__COMPARATOR;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__UNIT = QUANTITY__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__SYSTEM = QUANTITY__SYSTEM;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY__CODE = QUANTITY__CODE;
-
-	/**
-	 * The number of structural features of the '<em>Simple Quantity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Simple Quantity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_QUANTITY_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl <em>Ratio</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRatio()
-	 * @generated
-	 */
-	int RATIO = 37;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO__ID = DATA_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO__EXTENSION = DATA_TYPE__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Numerator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO__NUMERATOR = DATA_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Denominator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO__DENOMINATOR = DATA_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Ratio</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Ratio</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATIO_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl <em>Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRange()
-	 * @generated
-	 */
-	int RANGE = 38;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE__ID = DATA_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE__EXTENSION = DATA_TYPE__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Low</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE__LOW = DATA_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>High</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE__HIGH = DATA_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl <em>Timing</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTiming()
-	 * @generated
-	 */
-	int TIMING = 39;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING__ID = DATA_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING__EXTENSION = DATA_TYPE__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING__EVENT = DATA_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Repeat</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING__REPEAT = DATA_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING__CODE = DATA_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Timing</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Timing</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingRepeatImpl <em>Timing Repeat</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingRepeatImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTimingRepeat()
-	 * @generated
-	 */
-	int TIMING_REPEAT = 40;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__ID = BACKBONE_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Boundsx</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__BOUNDSX = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Count</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__DURATION = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Duration Max</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__DURATION_MAX = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Duration Units</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__DURATION_UNITS = BACKBONE_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Frequency</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__FREQUENCY = BACKBONE_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Frequency Max</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__FREQUENCY_MAX = BACKBONE_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Period</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__PERIOD = BACKBONE_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Period Max</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__PERIOD_MAX = BACKBONE_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Period Units</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__PERIOD_UNITS = BACKBONE_ELEMENT_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>When</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT__WHEN = BACKBONE_ELEMENT_FEATURE_COUNT + 10;
-
-	/**
-	 * The number of structural features of the '<em>Timing Repeat</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 11;
-
-	/**
-	 * The number of operations of the '<em>Timing Repeat</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_REPEAT_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionImpl <em>Element Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2971,7 +2252,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinition()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION = 41;
+	int ELEMENT_DEFINITION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3037,7 +2318,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__CODE = DATA_TYPE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Slicing</b></em>' containment reference.
+	 * The feature id for the '<em><b>Slicing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3109,7 +2390,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__MAX = DATA_TYPE_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Base</b></em>' containment reference.
+	 * The feature id for the '<em><b>Base</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3118,7 +2399,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__BASE = DATA_TYPE_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3217,7 +2498,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__CONDITION = DATA_TYPE_FEATURE_COUNT + 24;
 
 	/**
-	 * The feature id for the '<em><b>Constraint</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Constraint</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3253,7 +2534,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__IS_SUMMARY = DATA_TYPE_FEATURE_COUNT + 28;
 
 	/**
-	 * The feature id for the '<em><b>Binding</b></em>' containment reference.
+	 * The feature id for the '<em><b>Binding</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3262,7 +2543,7 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION__BINDING = DATA_TYPE_FEATURE_COUNT + 29;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Mapping</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3289,14 +2570,14 @@ public interface FhirDatatypePackage extends EPackage {
 	int ELEMENT_DEFINITION_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionSlicingImpl <em>Element Definition Slicing</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement1Impl <em>Element Definition Element1</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionSlicingImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionSlicing()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement1Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement1()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_SLICING = 42;
+	int ELEMENT_DEFINITION_ELEMENT1 = 34;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3305,7 +2586,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT1__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3314,16 +2595,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_SLICING__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT1__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Discriminator</b></em>' reference list.
@@ -3332,7 +2604,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__DISCRIMINATOR = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT1__DISCRIMINATOR = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' reference.
@@ -3341,7 +2613,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__DESCRIPTION = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT1__DESCRIPTION = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ordered</b></em>' reference.
@@ -3350,7 +2622,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__ORDERED = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT1__ORDERED = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Rules</b></em>' reference.
@@ -3359,35 +2631,35 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING__RULES = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT1__RULES = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Slicing</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element1</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 4;
+	int ELEMENT_DEFINITION_ELEMENT1_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Slicing</em>' class.
+	 * The number of operations of the '<em>Element Definition Element1</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_SLICING_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT1_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBaseImpl <em>Element Definition Base</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement2Impl <em>Element Definition Element2</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBaseImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionBase()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement2Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement2()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_BASE = 43;
+	int ELEMENT_DEFINITION_ELEMENT2 = 35;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3396,7 +2668,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT2__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3405,16 +2677,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_BASE__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT2__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' reference.
@@ -3423,7 +2686,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE__PATH = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT2__PATH = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' reference.
@@ -3432,7 +2695,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE__MIN = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT2__MIN = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' reference.
@@ -3441,35 +2704,35 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE__MAX = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT2__MAX = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Base</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT2_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Base</em>' class.
+	 * The number of operations of the '<em>Element Definition Element2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BASE_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT2_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionTypeRefImpl <em>Element Definition Type Ref</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement3Impl <em>Element Definition Element3</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionTypeRefImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionTypeRef()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement3Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement3()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF = 44;
+	int ELEMENT_DEFINITION_ELEMENT3 = 36;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3478,7 +2741,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT3__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3487,16 +2750,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_TYPE_REF__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT3__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' reference.
@@ -3505,7 +2759,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF__CODE = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT3__CODE = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Profile</b></em>' reference list.
@@ -3514,7 +2768,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF__PROFILE = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT3__PROFILE = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Aggregation</b></em>' reference list.
@@ -3523,35 +2777,35 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF__AGGREGATION = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT3__AGGREGATION = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Type Ref</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element3</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT3_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Type Ref</em>' class.
+	 * The number of operations of the '<em>Element Definition Element3</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_TYPE_REF_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT3_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionConstraintImpl <em>Element Definition Constraint</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement4Impl <em>Element Definition Element4</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionConstraintImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement4Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement4()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT = 45;
+	int ELEMENT_DEFINITION_ELEMENT4 = 37;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3560,7 +2814,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT4__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3569,16 +2823,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT4__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3587,7 +2832,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__KEY = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT4__KEY = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' reference.
@@ -3596,7 +2841,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__REQUIREMENTS = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT4__REQUIREMENTS = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Severity</b></em>' reference.
@@ -3605,7 +2850,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__SEVERITY = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT4__SEVERITY = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Human</b></em>' reference.
@@ -3614,7 +2859,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__HUMAN = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT4__HUMAN = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Xpath</b></em>' reference.
@@ -3623,35 +2868,35 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT__XPATH = BACKBONE_ELEMENT_FEATURE_COUNT + 4;
+	int ELEMENT_DEFINITION_ELEMENT4__XPATH = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Constraint</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element4</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 5;
+	int ELEMENT_DEFINITION_ELEMENT4_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Constraint</em>' class.
+	 * The number of operations of the '<em>Element Definition Element4</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_CONSTRAINT_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT4_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBindingImpl <em>Element Definition Binding</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement5Impl <em>Element Definition Element5</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBindingImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionBinding()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement5Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement5()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_BINDING = 46;
+	int ELEMENT_DEFINITION_ELEMENT5 = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3660,7 +2905,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT5__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3669,16 +2914,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_BINDING__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT5__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Strength</b></em>' reference.
@@ -3687,7 +2923,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING__STRENGTH = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT5__STRENGTH = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' reference.
@@ -3696,7 +2932,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING__DESCRIPTION = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT5__DESCRIPTION = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value Setx</b></em>' reference.
@@ -3705,35 +2941,35 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING__VALUE_SETX = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT5__VALUE_SETX = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Binding</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element5</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT5_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Binding</em>' class.
+	 * The number of operations of the '<em>Element Definition Element5</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_BINDING_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT5_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionMappingImpl <em>Element Definition Mapping</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement6Impl <em>Element Definition Element6</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionMappingImpl
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionMapping()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement6Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement6()
 	 * @generated
 	 */
-	int ELEMENT_DEFINITION_MAPPING = 47;
+	int ELEMENT_DEFINITION_ELEMENT6 = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3742,7 +2978,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING__ID = BACKBONE_ELEMENT__ID;
+	int ELEMENT_DEFINITION_ELEMENT6__ID = ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3751,16 +2987,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING__EXTENSION = BACKBONE_ELEMENT__EXTENSION;
-
-	/**
-	 * The feature id for the '<em><b>Modifier Extension</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFINITION_MAPPING__MODIFIER_EXTENSION = BACKBONE_ELEMENT__MODIFIER_EXTENSION;
+	int ELEMENT_DEFINITION_ELEMENT6__EXTENSION = ELEMENT__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Identity</b></em>' reference.
@@ -3769,7 +2996,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING__IDENTITY = BACKBONE_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT6__IDENTITY = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' reference.
@@ -3778,7 +3005,7 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING__LANGUAGE = BACKBONE_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT_DEFINITION_ELEMENT6__LANGUAGE = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Map</b></em>' reference.
@@ -3787,25 +3014,735 @@ public interface FhirDatatypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING__MAP = BACKBONE_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT_DEFINITION_ELEMENT6__MAP = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Element Definition Mapping</em>' class.
+	 * The number of structural features of the '<em>Element Definition Element6</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING_FEATURE_COUNT = BACKBONE_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT_DEFINITION_ELEMENT6_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Element Definition Mapping</em>' class.
+	 * The number of operations of the '<em>Element Definition Element6</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_MAPPING_OPERATION_COUNT = BACKBONE_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT_DEFINITION_ELEMENT6_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl <em>Quantity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getQuantity()
+	 * @generated
+	 */
+	int QUANTITY = 41;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__EXTENSION = DATA_TYPE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__VALUE = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__COMPARATOR = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__UNIT = DATA_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__SYSTEM = DATA_TYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY__CODE = DATA_TYPE_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Quantity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Quantity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl <em>Duration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getDuration()
+	 * @generated
+	 */
+	int DURATION = 40;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__ID = QUANTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__EXTENSION = QUANTITY__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__VALUE = QUANTITY__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__COMPARATOR = QUANTITY__COMPARATOR;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__UNIT = QUANTITY__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__SYSTEM = QUANTITY__SYSTEM;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__CODE = QUANTITY__CODE;
+
+	/**
+	 * The number of structural features of the '<em>Duration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Duration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl <em>Ratio</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRatio()
+	 * @generated
+	 */
+	int RATIO = 42;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO__EXTENSION = DATA_TYPE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Numerator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO__NUMERATOR = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Denominator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO__DENOMINATOR = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Ratio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Ratio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl <em>Simple Quantity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getSimpleQuantity()
+	 * @generated
+	 */
+	int SIMPLE_QUANTITY = 43;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__ID = QUANTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__EXTENSION = QUANTITY__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__VALUE = QUANTITY__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__COMPARATOR = QUANTITY__COMPARATOR;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__UNIT = QUANTITY__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__SYSTEM = QUANTITY__SYSTEM;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY__CODE = QUANTITY__CODE;
+
+	/**
+	 * The number of structural features of the '<em>Simple Quantity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Simple Quantity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_QUANTITY_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl <em>Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRange()
+	 * @generated
+	 */
+	int RANGE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__EXTENSION = DATA_TYPE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Low</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__LOW = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>High</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__HIGH = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl <em>Timing</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTiming()
+	 * @generated
+	 */
+	int TIMING = 45;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING__EXTENSION = DATA_TYPE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING__EVENT = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Repeat</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING__REPEAT = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING__CODE = DATA_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Timing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Timing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingElement1Impl <em>Timing Element1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingElement1Impl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTimingElement1()
+	 * @generated
+	 */
+	int TIMING_ELEMENT1 = 46;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__ID = ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__EXTENSION = ELEMENT__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Boundsx</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__BOUNDSX = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Count</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__DURATION = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Duration Max</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__DURATION_MAX = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Duration Units</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__DURATION_UNITS = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Frequency</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__FREQUENCY = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Frequency Max</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__FREQUENCY_MAX = ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__PERIOD = ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Period Max</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__PERIOD_MAX = ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Period Units</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__PERIOD_UNITS = ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>When</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1__WHEN = ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The number of structural features of the '<em>Timing Element1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 11;
+
+	/**
+	 * The number of operations of the '<em>Timing Element1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_ELEMENT1_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl <em>Money</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getMoney()
+	 * @generated
+	 */
+	int MONEY = 47;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__ID = QUANTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__EXTENSION = QUANTITY__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__VALUE = QUANTITY__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__COMPARATOR = QUANTITY__COMPARATOR;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__UNIT = QUANTITY__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__SYSTEM = QUANTITY__SYSTEM;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY__CODE = QUANTITY__CODE;
+
+	/**
+	 * The number of structural features of the '<em>Money</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY_FEATURE_COUNT = QUANTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Money</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONEY_OPERATION_COUNT = QUANTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SignatureImpl <em>Signature</em>}' class.
@@ -5501,339 +5438,6 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getAttachment_Creation();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Money <em>Money</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Money</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Money
-	 * @generated
-	 */
-	EClass getMoney();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity <em>Quantity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Quantity</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity
-	 * @generated
-	 */
-	EClass getQuantity();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getValue()
-	 * @see #getQuantity()
-	 * @generated
-	 */
-	EReference getQuantity_Value();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getComparator <em>Comparator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Comparator</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getComparator()
-	 * @see #getQuantity()
-	 * @generated
-	 */
-	EReference getQuantity_Comparator();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getUnit <em>Unit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Unit</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getUnit()
-	 * @see #getQuantity()
-	 * @generated
-	 */
-	EReference getQuantity_Unit();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getSystem <em>System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>System</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getSystem()
-	 * @see #getQuantity()
-	 * @generated
-	 */
-	EReference getQuantity_System();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getCode <em>Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getCode()
-	 * @see #getQuantity()
-	 * @generated
-	 */
-	EReference getQuantity_Code();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Duration <em>Duration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Duration</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Duration
-	 * @generated
-	 */
-	EClass getDuration();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity <em>Simple Quantity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simple Quantity</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity
-	 * @generated
-	 */
-	EClass getSimpleQuantity();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio <em>Ratio</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ratio</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio
-	 * @generated
-	 */
-	EClass getRatio();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getNumerator <em>Numerator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Numerator</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getNumerator()
-	 * @see #getRatio()
-	 * @generated
-	 */
-	EReference getRatio_Numerator();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getDenominator <em>Denominator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Denominator</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getDenominator()
-	 * @see #getRatio()
-	 * @generated
-	 */
-	EReference getRatio_Denominator();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Range</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range
-	 * @generated
-	 */
-	EClass getRange();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range#getLow <em>Low</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Low</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range#getLow()
-	 * @see #getRange()
-	 * @generated
-	 */
-	EReference getRange_Low();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range#getHigh <em>High</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>High</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range#getHigh()
-	 * @see #getRange()
-	 * @generated
-	 */
-	EReference getRange_High();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing <em>Timing</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timing</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing
-	 * @generated
-	 */
-	EClass getTiming();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getEvents <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Event</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getEvents()
-	 * @see #getTiming()
-	 * @generated
-	 */
-	EReference getTiming_Event();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat <em>Repeat</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Repeat</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat()
-	 * @see #getTiming()
-	 * @generated
-	 */
-	EReference getTiming_Repeat();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getCode <em>Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getCode()
-	 * @see #getTiming()
-	 * @generated
-	 */
-	EReference getTiming_Code();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat <em>Timing Repeat</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timing Repeat</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat
-	 * @generated
-	 */
-	EClass getTimingRepeat();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getBoundsx <em>Boundsx</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Boundsx</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getBoundsx()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_Boundsx();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Count</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getCount()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_Count();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDuration <em>Duration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Duration</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDuration()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_Duration();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDurationMax <em>Duration Max</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Duration Max</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDurationMax()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_DurationMax();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDurationUnits <em>Duration Units</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Duration Units</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getDurationUnits()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_DurationUnits();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getFrequency <em>Frequency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Frequency</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getFrequency()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_Frequency();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getFrequencyMax <em>Frequency Max</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Frequency Max</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getFrequencyMax()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_FrequencyMax();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriod <em>Period</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Period</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriod()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_Period();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriodMax <em>Period Max</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Period Max</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriodMax()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_PeriodMax();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriodUnits <em>Period Units</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Period Units</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getPeriodUnits()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_PeriodUnits();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getWhen <em>When</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>When</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingRepeat#getWhen()
-	 * @see #getTimingRepeat()
-	 * @generated
-	 */
-	EReference getTimingRepeat_When();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition <em>Element Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5899,10 +5503,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Code();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getSlicing <em>Slicing</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getSlicing <em>Slicing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Slicing</em>'.
+	 * @return the meta object for the reference '<em>Slicing</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getSlicing()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -5987,10 +5591,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Max();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBase <em>Base</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBase <em>Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Base</em>'.
+	 * @return the meta object for the reference '<em>Base</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBase()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -5998,10 +5602,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Base();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getTypes <em>Type</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getTypes <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Type</em>'.
+	 * @return the meta object for the reference list '<em>Type</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getTypes()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -6119,10 +5723,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Condition();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getConstraints <em>Constraint</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getConstraints <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constraint</em>'.
+	 * @return the meta object for the reference list '<em>Constraint</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getConstraints()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -6163,10 +5767,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_IsSummary();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBinding <em>Binding</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBinding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Binding</em>'.
+	 * @return the meta object for the reference '<em>Binding</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getBinding()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -6174,10 +5778,10 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Binding();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getMappings <em>Mapping</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getMappings <em>Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mapping</em>'.
+	 * @return the meta object for the reference list '<em>Mapping</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition#getMappings()
 	 * @see #getElementDefinition()
 	 * @generated
@@ -6185,295 +5789,628 @@ public interface FhirDatatypePackage extends EPackage {
 	EReference getElementDefinition_Mapping();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing <em>Element Definition Slicing</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1 <em>Element Definition Element1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Slicing</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing
+	 * @return the meta object for class '<em>Element Definition Element1</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1
 	 * @generated
 	 */
-	EClass getElementDefinitionSlicing();
+	EClass getElementDefinitionElement1();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getDiscriminators <em>Discriminator</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getDiscriminators <em>Discriminator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Discriminator</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getDiscriminators()
-	 * @see #getElementDefinitionSlicing()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getDiscriminators()
+	 * @see #getElementDefinitionElement1()
 	 * @generated
 	 */
-	EReference getElementDefinitionSlicing_Discriminator();
+	EReference getElementDefinitionElement1_Discriminator();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Description</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getDescription()
-	 * @see #getElementDefinitionSlicing()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getDescription()
+	 * @see #getElementDefinitionElement1()
 	 * @generated
 	 */
-	EReference getElementDefinitionSlicing_Description();
+	EReference getElementDefinitionElement1_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getOrdered <em>Ordered</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getOrdered <em>Ordered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Ordered</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getOrdered()
-	 * @see #getElementDefinitionSlicing()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getOrdered()
+	 * @see #getElementDefinitionElement1()
 	 * @generated
 	 */
-	EReference getElementDefinitionSlicing_Ordered();
+	EReference getElementDefinitionElement1_Ordered();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getRules <em>Rules</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getRules <em>Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Rules</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing#getRules()
-	 * @see #getElementDefinitionSlicing()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1#getRules()
+	 * @see #getElementDefinitionElement1()
 	 * @generated
 	 */
-	EReference getElementDefinitionSlicing_Rules();
+	EReference getElementDefinitionElement1_Rules();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase <em>Element Definition Base</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2 <em>Element Definition Element2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Base</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase
+	 * @return the meta object for class '<em>Element Definition Element2</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2
 	 * @generated
 	 */
-	EClass getElementDefinitionBase();
+	EClass getElementDefinitionElement2();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getPath <em>Path</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Path</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getPath()
-	 * @see #getElementDefinitionBase()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getPath()
+	 * @see #getElementDefinitionElement2()
 	 * @generated
 	 */
-	EReference getElementDefinitionBase_Path();
+	EReference getElementDefinitionElement2_Path();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getMin <em>Min</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Min</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getMin()
-	 * @see #getElementDefinitionBase()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getMin()
+	 * @see #getElementDefinitionElement2()
 	 * @generated
 	 */
-	EReference getElementDefinitionBase_Min();
+	EReference getElementDefinitionElement2_Min();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getMax <em>Max</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Max</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase#getMax()
-	 * @see #getElementDefinitionBase()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2#getMax()
+	 * @see #getElementDefinitionElement2()
 	 * @generated
 	 */
-	EReference getElementDefinitionBase_Max();
+	EReference getElementDefinitionElement2_Max();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef <em>Element Definition Type Ref</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3 <em>Element Definition Element3</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Type Ref</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef
+	 * @return the meta object for class '<em>Element Definition Element3</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3
 	 * @generated
 	 */
-	EClass getElementDefinitionTypeRef();
+	EClass getElementDefinitionElement3();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getCode <em>Code</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getCode <em>Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Code</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getCode()
-	 * @see #getElementDefinitionTypeRef()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getCode()
+	 * @see #getElementDefinitionElement3()
 	 * @generated
 	 */
-	EReference getElementDefinitionTypeRef_Code();
+	EReference getElementDefinitionElement3_Code();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getProfiles <em>Profile</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getProfiles <em>Profile</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Profile</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getProfiles()
-	 * @see #getElementDefinitionTypeRef()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getProfiles()
+	 * @see #getElementDefinitionElement3()
 	 * @generated
 	 */
-	EReference getElementDefinitionTypeRef_Profile();
+	EReference getElementDefinitionElement3_Profile();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getAggregations <em>Aggregation</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getAggregations <em>Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Aggregation</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef#getAggregations()
-	 * @see #getElementDefinitionTypeRef()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3#getAggregations()
+	 * @see #getElementDefinitionElement3()
 	 * @generated
 	 */
-	EReference getElementDefinitionTypeRef_Aggregation();
+	EReference getElementDefinitionElement3_Aggregation();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint <em>Element Definition Constraint</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4 <em>Element Definition Element4</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Constraint</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint
+	 * @return the meta object for class '<em>Element Definition Element4</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4
 	 * @generated
 	 */
-	EClass getElementDefinitionConstraint();
+	EClass getElementDefinitionElement4();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getKey <em>Key</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getKey <em>Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Key</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getKey()
-	 * @see #getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getKey()
+	 * @see #getElementDefinitionElement4()
 	 * @generated
 	 */
-	EReference getElementDefinitionConstraint_Key();
+	EReference getElementDefinitionElement4_Key();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getRequirements <em>Requirements</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getRequirements <em>Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Requirements</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getRequirements()
-	 * @see #getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getRequirements()
+	 * @see #getElementDefinitionElement4()
 	 * @generated
 	 */
-	EReference getElementDefinitionConstraint_Requirements();
+	EReference getElementDefinitionElement4_Requirements();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getSeverity <em>Severity</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getSeverity <em>Severity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Severity</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getSeverity()
-	 * @see #getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getSeverity()
+	 * @see #getElementDefinitionElement4()
 	 * @generated
 	 */
-	EReference getElementDefinitionConstraint_Severity();
+	EReference getElementDefinitionElement4_Severity();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getHuman <em>Human</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getHuman <em>Human</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Human</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getHuman()
-	 * @see #getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getHuman()
+	 * @see #getElementDefinitionElement4()
 	 * @generated
 	 */
-	EReference getElementDefinitionConstraint_Human();
+	EReference getElementDefinitionElement4_Human();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getXpath <em>Xpath</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getXpath <em>Xpath</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Xpath</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint#getXpath()
-	 * @see #getElementDefinitionConstraint()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4#getXpath()
+	 * @see #getElementDefinitionElement4()
 	 * @generated
 	 */
-	EReference getElementDefinitionConstraint_Xpath();
+	EReference getElementDefinitionElement4_Xpath();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding <em>Element Definition Binding</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5 <em>Element Definition Element5</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Binding</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding
+	 * @return the meta object for class '<em>Element Definition Element5</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5
 	 * @generated
 	 */
-	EClass getElementDefinitionBinding();
+	EClass getElementDefinitionElement5();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getStrength <em>Strength</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getStrength <em>Strength</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Strength</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getStrength()
-	 * @see #getElementDefinitionBinding()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getStrength()
+	 * @see #getElementDefinitionElement5()
 	 * @generated
 	 */
-	EReference getElementDefinitionBinding_Strength();
+	EReference getElementDefinitionElement5_Strength();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Description</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getDescription()
-	 * @see #getElementDefinitionBinding()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getDescription()
+	 * @see #getElementDefinitionElement5()
 	 * @generated
 	 */
-	EReference getElementDefinitionBinding_Description();
+	EReference getElementDefinitionElement5_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getValueSetx <em>Value Setx</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getValueSetx <em>Value Setx</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Value Setx</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding#getValueSetx()
-	 * @see #getElementDefinitionBinding()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5#getValueSetx()
+	 * @see #getElementDefinitionElement5()
 	 * @generated
 	 */
-	EReference getElementDefinitionBinding_ValueSetx();
+	EReference getElementDefinitionElement5_ValueSetx();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping <em>Element Definition Mapping</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6 <em>Element Definition Element6</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Definition Mapping</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping
+	 * @return the meta object for class '<em>Element Definition Element6</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6
 	 * @generated
 	 */
-	EClass getElementDefinitionMapping();
+	EClass getElementDefinitionElement6();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getIdentity <em>Identity</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getIdentity <em>Identity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Identity</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getIdentity()
-	 * @see #getElementDefinitionMapping()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getIdentity()
+	 * @see #getElementDefinitionElement6()
 	 * @generated
 	 */
-	EReference getElementDefinitionMapping_Identity();
+	EReference getElementDefinitionElement6_Identity();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getLanguage <em>Language</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getLanguage <em>Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Language</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getLanguage()
-	 * @see #getElementDefinitionMapping()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getLanguage()
+	 * @see #getElementDefinitionElement6()
 	 * @generated
 	 */
-	EReference getElementDefinitionMapping_Language();
+	EReference getElementDefinitionElement6_Language();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getMap <em>Map</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getMap <em>Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Map</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping#getMap()
-	 * @see #getElementDefinitionMapping()
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6#getMap()
+	 * @see #getElementDefinitionElement6()
 	 * @generated
 	 */
-	EReference getElementDefinitionMapping_Map();
+	EReference getElementDefinitionElement6_Map();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Duration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Duration</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Duration
+	 * @generated
+	 */
+	EClass getDuration();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity <em>Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Quantity</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity
+	 * @generated
+	 */
+	EClass getQuantity();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getValue()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getComparator <em>Comparator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Comparator</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getComparator()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_Comparator();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getUnit()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_Unit();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getSystem()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_System();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Code</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Quantity#getCode()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_Code();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio <em>Ratio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ratio</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio
+	 * @generated
+	 */
+	EClass getRatio();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getNumerator <em>Numerator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Numerator</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getNumerator()
+	 * @see #getRatio()
+	 * @generated
+	 */
+	EReference getRatio_Numerator();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getDenominator <em>Denominator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Denominator</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Ratio#getDenominator()
+	 * @see #getRatio()
+	 * @generated
+	 */
+	EReference getRatio_Denominator();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity <em>Simple Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Quantity</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.SimpleQuantity
+	 * @generated
+	 */
+	EClass getSimpleQuantity();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range <em>Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Range</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range
+	 * @generated
+	 */
+	EClass getRange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range#getLow <em>Low</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Low</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range#getLow()
+	 * @see #getRange()
+	 * @generated
+	 */
+	EReference getRange_Low();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Range#getHigh <em>High</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>High</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Range#getHigh()
+	 * @see #getRange()
+	 * @generated
+	 */
+	EReference getRange_High();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing <em>Timing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Timing</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing
+	 * @generated
+	 */
+	EClass getTiming();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getEvents <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Event</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getEvents()
+	 * @see #getTiming()
+	 * @generated
+	 */
+	EReference getTiming_Event();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat <em>Repeat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Repeat</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getRepeat()
+	 * @see #getTiming()
+	 * @generated
+	 */
+	EReference getTiming_Repeat();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.Timing#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Code</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Timing#getCode()
+	 * @see #getTiming()
+	 * @generated
+	 */
+	EReference getTiming_Code();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1 <em>Timing Element1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Timing Element1</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1
+	 * @generated
+	 */
+	EClass getTimingElement1();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getBoundsx <em>Boundsx</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Boundsx</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getBoundsx()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_Boundsx();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getCount <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Count</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getCount()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_Count();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Duration</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDuration()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_Duration();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDurationMax <em>Duration Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Duration Max</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDurationMax()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_DurationMax();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDurationUnits <em>Duration Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Duration Units</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getDurationUnits()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_DurationUnits();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getFrequency <em>Frequency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Frequency</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getFrequency()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_Frequency();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getFrequencyMax <em>Frequency Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Frequency Max</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getFrequencyMax()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_FrequencyMax();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriod <em>Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Period</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriod()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_Period();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriodMax <em>Period Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Period Max</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriodMax()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_PeriodMax();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriodUnits <em>Period Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Period Units</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getPeriodUnits()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_PeriodUnits();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getWhen <em>When</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>When</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.TimingElement1#getWhen()
+	 * @see #getTimingElement1()
+	 * @generated
+	 */
+	EReference getTimingElement1_When();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Money <em>Money</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Money</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.core.datatype.Money
+	 * @generated
+	 */
+	EClass getMoney();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.core.datatype.Signature <em>Signature</em>}'.
@@ -7613,270 +7550,6 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ATTACHMENT__CREATION = eINSTANCE.getAttachment_Creation();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl <em>Money</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getMoney()
-		 * @generated
-		 */
-		EClass MONEY = eINSTANCE.getMoney();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl <em>Quantity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getQuantity()
-		 * @generated
-		 */
-		EClass QUANTITY = eINSTANCE.getQuantity();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUANTITY__VALUE = eINSTANCE.getQuantity_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Comparator</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUANTITY__COMPARATOR = eINSTANCE.getQuantity_Comparator();
-
-		/**
-		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUANTITY__UNIT = eINSTANCE.getQuantity_Unit();
-
-		/**
-		 * The meta object literal for the '<em><b>System</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUANTITY__SYSTEM = eINSTANCE.getQuantity_System();
-
-		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUANTITY__CODE = eINSTANCE.getQuantity_Code();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl <em>Duration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getDuration()
-		 * @generated
-		 */
-		EClass DURATION = eINSTANCE.getDuration();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl <em>Simple Quantity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getSimpleQuantity()
-		 * @generated
-		 */
-		EClass SIMPLE_QUANTITY = eINSTANCE.getSimpleQuantity();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl <em>Ratio</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRatio()
-		 * @generated
-		 */
-		EClass RATIO = eINSTANCE.getRatio();
-
-		/**
-		 * The meta object literal for the '<em><b>Numerator</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RATIO__NUMERATOR = eINSTANCE.getRatio_Numerator();
-
-		/**
-		 * The meta object literal for the '<em><b>Denominator</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RATIO__DENOMINATOR = eINSTANCE.getRatio_Denominator();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl <em>Range</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRange()
-		 * @generated
-		 */
-		EClass RANGE = eINSTANCE.getRange();
-
-		/**
-		 * The meta object literal for the '<em><b>Low</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANGE__LOW = eINSTANCE.getRange_Low();
-
-		/**
-		 * The meta object literal for the '<em><b>High</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANGE__HIGH = eINSTANCE.getRange_High();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl <em>Timing</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTiming()
-		 * @generated
-		 */
-		EClass TIMING = eINSTANCE.getTiming();
-
-		/**
-		 * The meta object literal for the '<em><b>Event</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING__EVENT = eINSTANCE.getTiming_Event();
-
-		/**
-		 * The meta object literal for the '<em><b>Repeat</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING__REPEAT = eINSTANCE.getTiming_Repeat();
-
-		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING__CODE = eINSTANCE.getTiming_Code();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingRepeatImpl <em>Timing Repeat</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingRepeatImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTimingRepeat()
-		 * @generated
-		 */
-		EClass TIMING_REPEAT = eINSTANCE.getTimingRepeat();
-
-		/**
-		 * The meta object literal for the '<em><b>Boundsx</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__BOUNDSX = eINSTANCE.getTimingRepeat_Boundsx();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__COUNT = eINSTANCE.getTimingRepeat_Count();
-
-		/**
-		 * The meta object literal for the '<em><b>Duration</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__DURATION = eINSTANCE.getTimingRepeat_Duration();
-
-		/**
-		 * The meta object literal for the '<em><b>Duration Max</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__DURATION_MAX = eINSTANCE.getTimingRepeat_DurationMax();
-
-		/**
-		 * The meta object literal for the '<em><b>Duration Units</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__DURATION_UNITS = eINSTANCE.getTimingRepeat_DurationUnits();
-
-		/**
-		 * The meta object literal for the '<em><b>Frequency</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__FREQUENCY = eINSTANCE.getTimingRepeat_Frequency();
-
-		/**
-		 * The meta object literal for the '<em><b>Frequency Max</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__FREQUENCY_MAX = eINSTANCE.getTimingRepeat_FrequencyMax();
-
-		/**
-		 * The meta object literal for the '<em><b>Period</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__PERIOD = eINSTANCE.getTimingRepeat_Period();
-
-		/**
-		 * The meta object literal for the '<em><b>Period Max</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__PERIOD_MAX = eINSTANCE.getTimingRepeat_PeriodMax();
-
-		/**
-		 * The meta object literal for the '<em><b>Period Units</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__PERIOD_UNITS = eINSTANCE.getTimingRepeat_PeriodUnits();
-
-		/**
-		 * The meta object literal for the '<em><b>When</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_REPEAT__WHEN = eINSTANCE.getTimingRepeat_When();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionImpl <em>Element Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7927,7 +7600,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__CODE = eINSTANCE.getElementDefinition_Code();
 
 		/**
-		 * The meta object literal for the '<em><b>Slicing</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Slicing</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7991,7 +7664,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__MAX = eINSTANCE.getElementDefinition_Max();
 
 		/**
-		 * The meta object literal for the '<em><b>Base</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Base</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7999,7 +7672,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__BASE = eINSTANCE.getElementDefinition_Base();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8087,7 +7760,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__CONDITION = eINSTANCE.getElementDefinition_Condition();
 
 		/**
-		 * The meta object literal for the '<em><b>Constraint</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Constraint</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8119,7 +7792,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__IS_SUMMARY = eINSTANCE.getElementDefinition_IsSummary();
 
 		/**
-		 * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8127,7 +7800,7 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__BINDING = eINSTANCE.getElementDefinition_Binding();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Mapping</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8135,14 +7808,14 @@ public interface FhirDatatypePackage extends EPackage {
 		EReference ELEMENT_DEFINITION__MAPPING = eINSTANCE.getElementDefinition_Mapping();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionSlicingImpl <em>Element Definition Slicing</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement1Impl <em>Element Definition Element1</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionSlicingImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionSlicing()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement1Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement1()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_SLICING = eINSTANCE.getElementDefinitionSlicing();
+		EClass ELEMENT_DEFINITION_ELEMENT1 = eINSTANCE.getElementDefinitionElement1();
 
 		/**
 		 * The meta object literal for the '<em><b>Discriminator</b></em>' reference list feature.
@@ -8150,7 +7823,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_SLICING__DISCRIMINATOR = eINSTANCE.getElementDefinitionSlicing_Discriminator();
+		EReference ELEMENT_DEFINITION_ELEMENT1__DISCRIMINATOR = eINSTANCE.getElementDefinitionElement1_Discriminator();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
@@ -8158,7 +7831,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_SLICING__DESCRIPTION = eINSTANCE.getElementDefinitionSlicing_Description();
+		EReference ELEMENT_DEFINITION_ELEMENT1__DESCRIPTION = eINSTANCE.getElementDefinitionElement1_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Ordered</b></em>' reference feature.
@@ -8166,7 +7839,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_SLICING__ORDERED = eINSTANCE.getElementDefinitionSlicing_Ordered();
+		EReference ELEMENT_DEFINITION_ELEMENT1__ORDERED = eINSTANCE.getElementDefinitionElement1_Ordered();
 
 		/**
 		 * The meta object literal for the '<em><b>Rules</b></em>' reference feature.
@@ -8174,17 +7847,17 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_SLICING__RULES = eINSTANCE.getElementDefinitionSlicing_Rules();
+		EReference ELEMENT_DEFINITION_ELEMENT1__RULES = eINSTANCE.getElementDefinitionElement1_Rules();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBaseImpl <em>Element Definition Base</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement2Impl <em>Element Definition Element2</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBaseImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionBase()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement2Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement2()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_BASE = eINSTANCE.getElementDefinitionBase();
+		EClass ELEMENT_DEFINITION_ELEMENT2 = eINSTANCE.getElementDefinitionElement2();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' reference feature.
@@ -8192,7 +7865,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BASE__PATH = eINSTANCE.getElementDefinitionBase_Path();
+		EReference ELEMENT_DEFINITION_ELEMENT2__PATH = eINSTANCE.getElementDefinitionElement2_Path();
 
 		/**
 		 * The meta object literal for the '<em><b>Min</b></em>' reference feature.
@@ -8200,7 +7873,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BASE__MIN = eINSTANCE.getElementDefinitionBase_Min();
+		EReference ELEMENT_DEFINITION_ELEMENT2__MIN = eINSTANCE.getElementDefinitionElement2_Min();
 
 		/**
 		 * The meta object literal for the '<em><b>Max</b></em>' reference feature.
@@ -8208,17 +7881,17 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BASE__MAX = eINSTANCE.getElementDefinitionBase_Max();
+		EReference ELEMENT_DEFINITION_ELEMENT2__MAX = eINSTANCE.getElementDefinitionElement2_Max();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionTypeRefImpl <em>Element Definition Type Ref</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement3Impl <em>Element Definition Element3</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionTypeRefImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionTypeRef()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement3Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement3()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_TYPE_REF = eINSTANCE.getElementDefinitionTypeRef();
+		EClass ELEMENT_DEFINITION_ELEMENT3 = eINSTANCE.getElementDefinitionElement3();
 
 		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' reference feature.
@@ -8226,7 +7899,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_TYPE_REF__CODE = eINSTANCE.getElementDefinitionTypeRef_Code();
+		EReference ELEMENT_DEFINITION_ELEMENT3__CODE = eINSTANCE.getElementDefinitionElement3_Code();
 
 		/**
 		 * The meta object literal for the '<em><b>Profile</b></em>' reference list feature.
@@ -8234,7 +7907,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_TYPE_REF__PROFILE = eINSTANCE.getElementDefinitionTypeRef_Profile();
+		EReference ELEMENT_DEFINITION_ELEMENT3__PROFILE = eINSTANCE.getElementDefinitionElement3_Profile();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregation</b></em>' reference list feature.
@@ -8242,17 +7915,17 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_TYPE_REF__AGGREGATION = eINSTANCE.getElementDefinitionTypeRef_Aggregation();
+		EReference ELEMENT_DEFINITION_ELEMENT3__AGGREGATION = eINSTANCE.getElementDefinitionElement3_Aggregation();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionConstraintImpl <em>Element Definition Constraint</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement4Impl <em>Element Definition Element4</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionConstraintImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionConstraint()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement4Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement4()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_CONSTRAINT = eINSTANCE.getElementDefinitionConstraint();
+		EClass ELEMENT_DEFINITION_ELEMENT4 = eINSTANCE.getElementDefinitionElement4();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' reference feature.
@@ -8260,7 +7933,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_CONSTRAINT__KEY = eINSTANCE.getElementDefinitionConstraint_Key();
+		EReference ELEMENT_DEFINITION_ELEMENT4__KEY = eINSTANCE.getElementDefinitionElement4_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Requirements</b></em>' reference feature.
@@ -8268,7 +7941,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_CONSTRAINT__REQUIREMENTS = eINSTANCE.getElementDefinitionConstraint_Requirements();
+		EReference ELEMENT_DEFINITION_ELEMENT4__REQUIREMENTS = eINSTANCE.getElementDefinitionElement4_Requirements();
 
 		/**
 		 * The meta object literal for the '<em><b>Severity</b></em>' reference feature.
@@ -8276,7 +7949,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_CONSTRAINT__SEVERITY = eINSTANCE.getElementDefinitionConstraint_Severity();
+		EReference ELEMENT_DEFINITION_ELEMENT4__SEVERITY = eINSTANCE.getElementDefinitionElement4_Severity();
 
 		/**
 		 * The meta object literal for the '<em><b>Human</b></em>' reference feature.
@@ -8284,7 +7957,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_CONSTRAINT__HUMAN = eINSTANCE.getElementDefinitionConstraint_Human();
+		EReference ELEMENT_DEFINITION_ELEMENT4__HUMAN = eINSTANCE.getElementDefinitionElement4_Human();
 
 		/**
 		 * The meta object literal for the '<em><b>Xpath</b></em>' reference feature.
@@ -8292,17 +7965,17 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_CONSTRAINT__XPATH = eINSTANCE.getElementDefinitionConstraint_Xpath();
+		EReference ELEMENT_DEFINITION_ELEMENT4__XPATH = eINSTANCE.getElementDefinitionElement4_Xpath();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBindingImpl <em>Element Definition Binding</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement5Impl <em>Element Definition Element5</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionBindingImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionBinding()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement5Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement5()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_BINDING = eINSTANCE.getElementDefinitionBinding();
+		EClass ELEMENT_DEFINITION_ELEMENT5 = eINSTANCE.getElementDefinitionElement5();
 
 		/**
 		 * The meta object literal for the '<em><b>Strength</b></em>' reference feature.
@@ -8310,7 +7983,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BINDING__STRENGTH = eINSTANCE.getElementDefinitionBinding_Strength();
+		EReference ELEMENT_DEFINITION_ELEMENT5__STRENGTH = eINSTANCE.getElementDefinitionElement5_Strength();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
@@ -8318,7 +7991,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BINDING__DESCRIPTION = eINSTANCE.getElementDefinitionBinding_Description();
+		EReference ELEMENT_DEFINITION_ELEMENT5__DESCRIPTION = eINSTANCE.getElementDefinitionElement5_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Value Setx</b></em>' reference feature.
@@ -8326,17 +7999,17 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_BINDING__VALUE_SETX = eINSTANCE.getElementDefinitionBinding_ValueSetx();
+		EReference ELEMENT_DEFINITION_ELEMENT5__VALUE_SETX = eINSTANCE.getElementDefinitionElement5_ValueSetx();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionMappingImpl <em>Element Definition Mapping</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement6Impl <em>Element Definition Element6</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionMappingImpl
-		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionMapping()
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.ElementDefinitionElement6Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getElementDefinitionElement6()
 		 * @generated
 		 */
-		EClass ELEMENT_DEFINITION_MAPPING = eINSTANCE.getElementDefinitionMapping();
+		EClass ELEMENT_DEFINITION_ELEMENT6 = eINSTANCE.getElementDefinitionElement6();
 
 		/**
 		 * The meta object literal for the '<em><b>Identity</b></em>' reference feature.
@@ -8344,7 +8017,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_MAPPING__IDENTITY = eINSTANCE.getElementDefinitionMapping_Identity();
+		EReference ELEMENT_DEFINITION_ELEMENT6__IDENTITY = eINSTANCE.getElementDefinitionElement6_Identity();
 
 		/**
 		 * The meta object literal for the '<em><b>Language</b></em>' reference feature.
@@ -8352,7 +8025,7 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_MAPPING__LANGUAGE = eINSTANCE.getElementDefinitionMapping_Language();
+		EReference ELEMENT_DEFINITION_ELEMENT6__LANGUAGE = eINSTANCE.getElementDefinitionElement6_Language();
 
 		/**
 		 * The meta object literal for the '<em><b>Map</b></em>' reference feature.
@@ -8360,7 +8033,271 @@ public interface FhirDatatypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_DEFINITION_MAPPING__MAP = eINSTANCE.getElementDefinitionMapping_Map();
+		EReference ELEMENT_DEFINITION_ELEMENT6__MAP = eINSTANCE.getElementDefinitionElement6_Map();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl <em>Duration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.DurationImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getDuration()
+		 * @generated
+		 */
+		EClass DURATION = eINSTANCE.getDuration();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl <em>Quantity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.QuantityImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getQuantity()
+		 * @generated
+		 */
+		EClass QUANTITY = eINSTANCE.getQuantity();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__VALUE = eINSTANCE.getQuantity_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__COMPARATOR = eINSTANCE.getQuantity_Comparator();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__UNIT = eINSTANCE.getQuantity_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__SYSTEM = eINSTANCE.getQuantity_System();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__CODE = eINSTANCE.getQuantity_Code();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl <em>Ratio</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RatioImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRatio()
+		 * @generated
+		 */
+		EClass RATIO = eINSTANCE.getRatio();
+
+		/**
+		 * The meta object literal for the '<em><b>Numerator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RATIO__NUMERATOR = eINSTANCE.getRatio_Numerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Denominator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RATIO__DENOMINATOR = eINSTANCE.getRatio_Denominator();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl <em>Simple Quantity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.SimpleQuantityImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getSimpleQuantity()
+		 * @generated
+		 */
+		EClass SIMPLE_QUANTITY = eINSTANCE.getSimpleQuantity();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl <em>Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.RangeImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getRange()
+		 * @generated
+		 */
+		EClass RANGE = eINSTANCE.getRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Low</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANGE__LOW = eINSTANCE.getRange_Low();
+
+		/**
+		 * The meta object literal for the '<em><b>High</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANGE__HIGH = eINSTANCE.getRange_High();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl <em>Timing</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTiming()
+		 * @generated
+		 */
+		EClass TIMING = eINSTANCE.getTiming();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING__EVENT = eINSTANCE.getTiming_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Repeat</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING__REPEAT = eINSTANCE.getTiming_Repeat();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING__CODE = eINSTANCE.getTiming_Code();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingElement1Impl <em>Timing Element1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.TimingElement1Impl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getTimingElement1()
+		 * @generated
+		 */
+		EClass TIMING_ELEMENT1 = eINSTANCE.getTimingElement1();
+
+		/**
+		 * The meta object literal for the '<em><b>Boundsx</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__BOUNDSX = eINSTANCE.getTimingElement1_Boundsx();
+
+		/**
+		 * The meta object literal for the '<em><b>Count</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__COUNT = eINSTANCE.getTimingElement1_Count();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__DURATION = eINSTANCE.getTimingElement1_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration Max</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__DURATION_MAX = eINSTANCE.getTimingElement1_DurationMax();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration Units</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__DURATION_UNITS = eINSTANCE.getTimingElement1_DurationUnits();
+
+		/**
+		 * The meta object literal for the '<em><b>Frequency</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__FREQUENCY = eINSTANCE.getTimingElement1_Frequency();
+
+		/**
+		 * The meta object literal for the '<em><b>Frequency Max</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__FREQUENCY_MAX = eINSTANCE.getTimingElement1_FrequencyMax();
+
+		/**
+		 * The meta object literal for the '<em><b>Period</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__PERIOD = eINSTANCE.getTimingElement1_Period();
+
+		/**
+		 * The meta object literal for the '<em><b>Period Max</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__PERIOD_MAX = eINSTANCE.getTimingElement1_PeriodMax();
+
+		/**
+		 * The meta object literal for the '<em><b>Period Units</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__PERIOD_UNITS = eINSTANCE.getTimingElement1_PeriodUnits();
+
+		/**
+		 * The meta object literal for the '<em><b>When</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_ELEMENT1__WHEN = eINSTANCE.getTimingElement1_When();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl <em>Money</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.MoneyImpl
+		 * @see org.eclipse.mdht.uml.fhir.core.datatype.impl.FhirDatatypePackageImpl#getMoney()
+		 * @generated
+		 */
+		EClass MONEY = eINSTANCE.getMoney();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.core.datatype.impl.SignatureImpl <em>Signature</em>}' class.

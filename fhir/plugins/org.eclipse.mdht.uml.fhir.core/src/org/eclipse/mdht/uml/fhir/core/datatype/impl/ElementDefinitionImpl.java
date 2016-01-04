@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,7 +15,6 @@ package org.eclipse.mdht.uml.fhir.core.datatype.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,20 +23,18 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.mdht.uml.fhir.core.datatype.Code;
 import org.eclipse.mdht.uml.fhir.core.datatype.Coding;
 import org.eclipse.mdht.uml.fhir.core.datatype.DataType;
 import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinition;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBase;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionBinding;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionConstraint;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionMapping;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionSlicing;
-import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionTypeRef;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement1;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement2;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement3;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement4;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement5;
+import org.eclipse.mdht.uml.fhir.core.datatype.ElementDefinitionElement6;
 import org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage;
 import org.eclipse.mdht.uml.fhir.core.datatype.Id;
 import org.eclipse.mdht.uml.fhir.core.datatype.Markdown;
@@ -137,14 +134,14 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	protected EList<Coding> codes;
 
 	/**
-	 * The cached value of the '{@link #getSlicing() <em>Slicing</em>}' containment reference.
+	 * The cached value of the '{@link #getSlicing() <em>Slicing</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSlicing()
 	 * @generated
 	 * @ordered
 	 */
-	protected ElementDefinitionSlicing slicing;
+	protected ElementDefinitionElement1 slicing;
 
 	/**
 	 * The cached value of the '{@link #getShort() <em>Short</em>}' reference.
@@ -217,24 +214,24 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	protected org.eclipse.mdht.uml.fhir.core.datatype.String max;
 
 	/**
-	 * The cached value of the '{@link #getBase() <em>Base</em>}' containment reference.
+	 * The cached value of the '{@link #getBase() <em>Base</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBase()
 	 * @generated
 	 * @ordered
 	 */
-	protected ElementDefinitionBase base;
+	protected ElementDefinitionElement2 base;
 
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getTypes() <em>Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementDefinitionTypeRef> types;
+	protected EList<ElementDefinitionElement3> types;
 
 	/**
 	 * The cached value of the '{@link #getNameReference() <em>Name Reference</em>}' reference.
@@ -337,14 +334,14 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	protected EList<Id> conditions;
 
 	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraint</em>}' containment reference list.
+	 * The cached value of the '{@link #getConstraints() <em>Constraint</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConstraints()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementDefinitionConstraint> constraints;
+	protected EList<ElementDefinitionElement4> constraints;
 
 	/**
 	 * The cached value of the '{@link #getMustSupport() <em>Must Support</em>}' reference.
@@ -377,24 +374,24 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	protected org.eclipse.mdht.uml.fhir.core.datatype.Boolean isSummary;
 
 	/**
-	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBinding()
 	 * @generated
 	 * @ordered
 	 */
-	protected ElementDefinitionBinding binding;
+	protected ElementDefinitionElement5 binding;
 
 	/**
-	 * The cached value of the '{@link #getMappings() <em>Mapping</em>}' containment reference list.
+	 * The cached value of the '{@link #getMappings() <em>Mapping</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMappings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementDefinitionMapping> mappings;
+	protected EList<ElementDefinitionElement6> mappings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -558,7 +555,15 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementDefinitionSlicing getSlicing() {
+	public ElementDefinitionElement1 getSlicing() {
+		if (slicing != null && slicing.eIsProxy()) {
+			InternalEObject oldSlicing = (InternalEObject)slicing;
+			slicing = (ElementDefinitionElement1)eResolveProxy(oldSlicing);
+			if (slicing != oldSlicing) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, oldSlicing, slicing));
+			}
+		}
 		return slicing;
 	}
 
@@ -567,14 +572,8 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSlicing(ElementDefinitionSlicing newSlicing, NotificationChain msgs) {
-		ElementDefinitionSlicing oldSlicing = slicing;
-		slicing = newSlicing;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, oldSlicing, newSlicing);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public ElementDefinitionElement1 basicGetSlicing() {
+		return slicing;
 	}
 
 	/**
@@ -582,18 +581,11 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlicing(ElementDefinitionSlicing newSlicing) {
-		if (newSlicing != slicing) {
-			NotificationChain msgs = null;
-			if (slicing != null)
-				msgs = ((InternalEObject)slicing).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, null, msgs);
-			if (newSlicing != null)
-				msgs = ((InternalEObject)newSlicing).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, null, msgs);
-			msgs = basicSetSlicing(newSlicing, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, newSlicing, newSlicing));
+	public void setSlicing(ElementDefinitionElement1 newSlicing) {
+		ElementDefinitionElement1 oldSlicing = slicing;
+		slicing = newSlicing;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__SLICING, oldSlicing, slicing));
 	}
 
 	/**
@@ -841,7 +833,15 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementDefinitionBase getBase() {
+	public ElementDefinitionElement2 getBase() {
+		if (base != null && base.eIsProxy()) {
+			InternalEObject oldBase = (InternalEObject)base;
+			base = (ElementDefinitionElement2)eResolveProxy(oldBase);
+			if (base != oldBase) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirDatatypePackage.ELEMENT_DEFINITION__BASE, oldBase, base));
+			}
+		}
 		return base;
 	}
 
@@ -850,14 +850,20 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBase(ElementDefinitionBase newBase, NotificationChain msgs) {
-		ElementDefinitionBase oldBase = base;
+	public ElementDefinitionElement2 basicGetBase() {
+		return base;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBase(ElementDefinitionElement2 newBase) {
+		ElementDefinitionElement2 oldBase = base;
 		base = newBase;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BASE, oldBase, newBase);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BASE, oldBase, base));
 	}
 
 	/**
@@ -865,28 +871,9 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBase(ElementDefinitionBase newBase) {
-		if (newBase != base) {
-			NotificationChain msgs = null;
-			if (base != null)
-				msgs = ((InternalEObject)base).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__BASE, null, msgs);
-			if (newBase != null)
-				msgs = ((InternalEObject)newBase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__BASE, null, msgs);
-			msgs = basicSetBase(newBase, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BASE, newBase, newBase));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ElementDefinitionTypeRef> getTypes() {
+	public EList<ElementDefinitionElement3> getTypes() {
 		if (types == null) {
-			types = new EObjectContainmentEList<ElementDefinitionTypeRef>(ElementDefinitionTypeRef.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__TYPE);
+			types = new EObjectResolvingEList<ElementDefinitionElement3>(ElementDefinitionElement3.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__TYPE);
 		}
 		return types;
 	}
@@ -1250,9 +1237,9 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ElementDefinitionConstraint> getConstraints() {
+	public EList<ElementDefinitionElement4> getConstraints() {
 		if (constraints == null) {
-			constraints = new EObjectContainmentEList<ElementDefinitionConstraint>(ElementDefinitionConstraint.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__CONSTRAINT);
+			constraints = new EObjectResolvingEList<ElementDefinitionElement4>(ElementDefinitionElement4.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__CONSTRAINT);
 		}
 		return constraints;
 	}
@@ -1376,7 +1363,15 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementDefinitionBinding getBinding() {
+	public ElementDefinitionElement5 getBinding() {
+		if (binding != null && binding.eIsProxy()) {
+			InternalEObject oldBinding = (InternalEObject)binding;
+			binding = (ElementDefinitionElement5)eResolveProxy(oldBinding);
+			if (binding != oldBinding) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, oldBinding, binding));
+			}
+		}
 		return binding;
 	}
 
@@ -1385,14 +1380,20 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBinding(ElementDefinitionBinding newBinding, NotificationChain msgs) {
-		ElementDefinitionBinding oldBinding = binding;
+	public ElementDefinitionElement5 basicGetBinding() {
+		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBinding(ElementDefinitionElement5 newBinding) {
+		ElementDefinitionElement5 oldBinding = binding;
 		binding = newBinding;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, oldBinding, newBinding);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, oldBinding, binding));
 	}
 
 	/**
@@ -1400,54 +1401,11 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBinding(ElementDefinitionBinding newBinding) {
-		if (newBinding != binding) {
-			NotificationChain msgs = null;
-			if (binding != null)
-				msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, null, msgs);
-			if (newBinding != null)
-				msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, null, msgs);
-			msgs = basicSetBinding(newBinding, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirDatatypePackage.ELEMENT_DEFINITION__BINDING, newBinding, newBinding));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ElementDefinitionMapping> getMappings() {
+	public EList<ElementDefinitionElement6> getMappings() {
 		if (mappings == null) {
-			mappings = new EObjectContainmentEList<ElementDefinitionMapping>(ElementDefinitionMapping.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING);
+			mappings = new EObjectResolvingEList<ElementDefinitionElement6>(ElementDefinitionElement6.class, this, FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING);
 		}
 		return mappings;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FhirDatatypePackage.ELEMENT_DEFINITION__SLICING:
-				return basicSetSlicing(null, msgs);
-			case FhirDatatypePackage.ELEMENT_DEFINITION__BASE:
-				return basicSetBase(null, msgs);
-			case FhirDatatypePackage.ELEMENT_DEFINITION__TYPE:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case FhirDatatypePackage.ELEMENT_DEFINITION__CONSTRAINT:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
-			case FhirDatatypePackage.ELEMENT_DEFINITION__BINDING:
-				return basicSetBinding(null, msgs);
-			case FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING:
-				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -1472,7 +1430,8 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 			case FhirDatatypePackage.ELEMENT_DEFINITION__CODE:
 				return getCodes();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SLICING:
-				return getSlicing();
+				if (resolve) return getSlicing();
+				return basicGetSlicing();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SHORT:
 				if (resolve) return getShort();
 				return basicGetShort();
@@ -1494,7 +1453,8 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				if (resolve) return getMax();
 				return basicGetMax();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BASE:
-				return getBase();
+				if (resolve) return getBase();
+				return basicGetBase();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__TYPE:
 				return getTypes();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__NAME_REFERENCE:
@@ -1538,7 +1498,8 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				if (resolve) return getIsSummary();
 				return basicGetIsSummary();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BINDING:
-				return getBinding();
+				if (resolve) return getBinding();
+				return basicGetBinding();
 			case FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING:
 				return getMappings();
 		}
@@ -1572,7 +1533,7 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				getCodes().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SLICING:
-				setSlicing((ElementDefinitionSlicing)newValue);
+				setSlicing((ElementDefinitionElement1)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SHORT:
 				setShort((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
@@ -1597,11 +1558,11 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				setMax((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BASE:
-				setBase((ElementDefinitionBase)newValue);
+				setBase((ElementDefinitionElement2)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__TYPE:
 				getTypes().clear();
-				getTypes().addAll((Collection<? extends ElementDefinitionTypeRef>)newValue);
+				getTypes().addAll((Collection<? extends ElementDefinitionElement3>)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__NAME_REFERENCE:
 				setNameReference((org.eclipse.mdht.uml.fhir.core.datatype.String)newValue);
@@ -1636,7 +1597,7 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__CONSTRAINT:
 				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends ElementDefinitionConstraint>)newValue);
+				getConstraints().addAll((Collection<? extends ElementDefinitionElement4>)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__MUST_SUPPORT:
 				setMustSupport((org.eclipse.mdht.uml.fhir.core.datatype.Boolean)newValue);
@@ -1648,11 +1609,11 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				setIsSummary((org.eclipse.mdht.uml.fhir.core.datatype.Boolean)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BINDING:
-				setBinding((ElementDefinitionBinding)newValue);
+				setBinding((ElementDefinitionElement5)newValue);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING:
 				getMappings().clear();
-				getMappings().addAll((Collection<? extends ElementDefinitionMapping>)newValue);
+				getMappings().addAll((Collection<? extends ElementDefinitionElement6>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1682,7 +1643,7 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				getCodes().clear();
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SLICING:
-				setSlicing((ElementDefinitionSlicing)null);
+				setSlicing((ElementDefinitionElement1)null);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__SHORT:
 				setShort((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
@@ -1706,7 +1667,7 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				setMax((org.eclipse.mdht.uml.fhir.core.datatype.String)null);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BASE:
-				setBase((ElementDefinitionBase)null);
+				setBase((ElementDefinitionElement2)null);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__TYPE:
 				getTypes().clear();
@@ -1754,7 +1715,7 @@ public class ElementDefinitionImpl extends DataTypeImpl implements ElementDefini
 				setIsSummary((org.eclipse.mdht.uml.fhir.core.datatype.Boolean)null);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__BINDING:
-				setBinding((ElementDefinitionBinding)null);
+				setBinding((ElementDefinitionElement5)null);
 				return;
 			case FhirDatatypePackage.ELEMENT_DEFINITION__MAPPING:
 				getMappings().clear();

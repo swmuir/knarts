@@ -28,8 +28,10 @@ import org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage;
 import org.eclipse.mdht.uml.fhir.core.resource.Resource;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScript;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptContact;
+import org.eclipse.mdht.uml.fhir.core.resource.TestScriptDestination;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptFixture;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptMetadata;
+import org.eclipse.mdht.uml.fhir.core.resource.TestScriptOrigin;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptSetup;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTeardown;
 import org.eclipse.mdht.uml.fhir.core.resource.TestScriptTest;
@@ -57,6 +59,8 @@ import org.eclipse.mdht.uml.fhir.core.resource.TestScriptVariable;
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getMetadata <em>Metadata</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getOrigins <em>Origin</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getDestinations <em>Destination</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getMultiserver <em>Multiserver</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getFixtures <em>Fixture</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.core.resource.impl.TestScriptImpl#getProfiles <em>Profile</em>}</li>
@@ -208,6 +212,26 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @ordered
 	 */
 	protected TestScriptMetadata metadata;
+
+	/**
+	 * The cached value of the '{@link #getOrigins() <em>Origin</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptOrigin> origins;
+
+	/**
+	 * The cached value of the '{@link #getDestinations() <em>Destination</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestinations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptDestination> destinations;
 
 	/**
 	 * The cached value of the '{@link #getMultiserver() <em>Multiserver</em>}' reference.
@@ -788,6 +812,30 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TestScriptOrigin> getOrigins() {
+		if (origins == null) {
+			origins = new EObjectContainmentEList<TestScriptOrigin>(TestScriptOrigin.class, this, FhirResourcePackage.TEST_SCRIPT__ORIGIN);
+		}
+		return origins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TestScriptDestination> getDestinations() {
+		if (destinations == null) {
+			destinations = new EObjectContainmentEList<TestScriptDestination>(TestScriptDestination.class, this, FhirResourcePackage.TEST_SCRIPT__DESTINATION);
+		}
+		return destinations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.eclipse.mdht.uml.fhir.core.datatype.Boolean getMultiserver() {
 		if (multiserver != null && multiserver.eIsProxy()) {
 			InternalEObject oldMultiserver = (InternalEObject)multiserver;
@@ -967,6 +1015,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return ((InternalEList<?>)getContacts()).basicRemove(otherEnd, msgs);
 			case FhirResourcePackage.TEST_SCRIPT__METADATA:
 				return basicSetMetadata(null, msgs);
+			case FhirResourcePackage.TEST_SCRIPT__ORIGIN:
+				return ((InternalEList<?>)getOrigins()).basicRemove(otherEnd, msgs);
+			case FhirResourcePackage.TEST_SCRIPT__DESTINATION:
+				return ((InternalEList<?>)getDestinations()).basicRemove(otherEnd, msgs);
 			case FhirResourcePackage.TEST_SCRIPT__FIXTURE:
 				return ((InternalEList<?>)getFixtures()).basicRemove(otherEnd, msgs);
 			case FhirResourcePackage.TEST_SCRIPT__VARIABLE:
@@ -1028,6 +1080,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return basicGetCopyright();
 			case FhirResourcePackage.TEST_SCRIPT__METADATA:
 				return getMetadata();
+			case FhirResourcePackage.TEST_SCRIPT__ORIGIN:
+				return getOrigins();
+			case FhirResourcePackage.TEST_SCRIPT__DESTINATION:
+				return getDestinations();
 			case FhirResourcePackage.TEST_SCRIPT__MULTISERVER:
 				if (resolve) return getMultiserver();
 				return basicGetMultiserver();
@@ -1099,6 +1155,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return;
 			case FhirResourcePackage.TEST_SCRIPT__METADATA:
 				setMetadata((TestScriptMetadata)newValue);
+				return;
+			case FhirResourcePackage.TEST_SCRIPT__ORIGIN:
+				getOrigins().clear();
+				getOrigins().addAll((Collection<? extends TestScriptOrigin>)newValue);
+				return;
+			case FhirResourcePackage.TEST_SCRIPT__DESTINATION:
+				getDestinations().clear();
+				getDestinations().addAll((Collection<? extends TestScriptDestination>)newValue);
 				return;
 			case FhirResourcePackage.TEST_SCRIPT__MULTISERVER:
 				setMultiserver((org.eclipse.mdht.uml.fhir.core.datatype.Boolean)newValue);
@@ -1179,6 +1243,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirResourcePackage.TEST_SCRIPT__METADATA:
 				setMetadata((TestScriptMetadata)null);
 				return;
+			case FhirResourcePackage.TEST_SCRIPT__ORIGIN:
+				getOrigins().clear();
+				return;
+			case FhirResourcePackage.TEST_SCRIPT__DESTINATION:
+				getDestinations().clear();
+				return;
 			case FhirResourcePackage.TEST_SCRIPT__MULTISERVER:
 				setMultiserver((org.eclipse.mdht.uml.fhir.core.datatype.Boolean)null);
 				return;
@@ -1240,6 +1310,10 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return copyright != null;
 			case FhirResourcePackage.TEST_SCRIPT__METADATA:
 				return metadata != null;
+			case FhirResourcePackage.TEST_SCRIPT__ORIGIN:
+				return origins != null && !origins.isEmpty();
+			case FhirResourcePackage.TEST_SCRIPT__DESTINATION:
+				return destinations != null && !destinations.isEmpty();
 			case FhirResourcePackage.TEST_SCRIPT__MULTISERVER:
 				return multiserver != null;
 			case FhirResourcePackage.TEST_SCRIPT__FIXTURE:

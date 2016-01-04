@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 David Carlson and others.
+ * Copyright (c) 2016 David Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -230,15 +230,6 @@ public interface FhirDatatypeFactory extends EFactory {
 	NarrativeDiv createNarrativeDiv();
 
 	/**
-	 * Returns a new object of class '<em>Backbone Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Backbone Element</em>'.
-	 * @generated
-	 */
-	BackboneElement createBackboneElement();
-
-	/**
 	 * Returns a new object of class '<em>Identifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,22 +293,67 @@ public interface FhirDatatypeFactory extends EFactory {
 	Attachment createAttachment();
 
 	/**
-	 * Returns a new object of class '<em>Money</em>'.
+	 * Returns a new object of class '<em>Element Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Money</em>'.
+	 * @return a new object of class '<em>Element Definition</em>'.
 	 * @generated
 	 */
-	Money createMoney();
+	ElementDefinition createElementDefinition();
 
 	/**
-	 * Returns a new object of class '<em>Quantity</em>'.
+	 * Returns a new object of class '<em>Element Definition Element1</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Quantity</em>'.
+	 * @return a new object of class '<em>Element Definition Element1</em>'.
 	 * @generated
 	 */
-	Quantity createQuantity();
+	ElementDefinitionElement1 createElementDefinitionElement1();
+
+	/**
+	 * Returns a new object of class '<em>Element Definition Element2</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Definition Element2</em>'.
+	 * @generated
+	 */
+	ElementDefinitionElement2 createElementDefinitionElement2();
+
+	/**
+	 * Returns a new object of class '<em>Element Definition Element3</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Definition Element3</em>'.
+	 * @generated
+	 */
+	ElementDefinitionElement3 createElementDefinitionElement3();
+
+	/**
+	 * Returns a new object of class '<em>Element Definition Element4</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Definition Element4</em>'.
+	 * @generated
+	 */
+	ElementDefinitionElement4 createElementDefinitionElement4();
+
+	/**
+	 * Returns a new object of class '<em>Element Definition Element5</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Definition Element5</em>'.
+	 * @generated
+	 */
+	ElementDefinitionElement5 createElementDefinitionElement5();
+
+	/**
+	 * Returns a new object of class '<em>Element Definition Element6</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Definition Element6</em>'.
+	 * @generated
+	 */
+	ElementDefinitionElement6 createElementDefinitionElement6();
 
 	/**
 	 * Returns a new object of class '<em>Duration</em>'.
@@ -329,13 +365,13 @@ public interface FhirDatatypeFactory extends EFactory {
 	Duration createDuration();
 
 	/**
-	 * Returns a new object of class '<em>Simple Quantity</em>'.
+	 * Returns a new object of class '<em>Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple Quantity</em>'.
+	 * @return a new object of class '<em>Quantity</em>'.
 	 * @generated
 	 */
-	SimpleQuantity createSimpleQuantity();
+	Quantity createQuantity();
 
 	/**
 	 * Returns a new object of class '<em>Ratio</em>'.
@@ -345,6 +381,15 @@ public interface FhirDatatypeFactory extends EFactory {
 	 * @generated
 	 */
 	Ratio createRatio();
+
+	/**
+	 * Returns a new object of class '<em>Simple Quantity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Quantity</em>'.
+	 * @generated
+	 */
+	SimpleQuantity createSimpleQuantity();
 
 	/**
 	 * Returns a new object of class '<em>Range</em>'.
@@ -365,76 +410,22 @@ public interface FhirDatatypeFactory extends EFactory {
 	Timing createTiming();
 
 	/**
-	 * Returns a new object of class '<em>Timing Repeat</em>'.
+	 * Returns a new object of class '<em>Timing Element1</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timing Repeat</em>'.
+	 * @return a new object of class '<em>Timing Element1</em>'.
 	 * @generated
 	 */
-	TimingRepeat createTimingRepeat();
+	TimingElement1 createTimingElement1();
 
 	/**
-	 * Returns a new object of class '<em>Element Definition</em>'.
+	 * Returns a new object of class '<em>Money</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition</em>'.
+	 * @return a new object of class '<em>Money</em>'.
 	 * @generated
 	 */
-	ElementDefinition createElementDefinition();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Slicing</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Slicing</em>'.
-	 * @generated
-	 */
-	ElementDefinitionSlicing createElementDefinitionSlicing();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Base</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Base</em>'.
-	 * @generated
-	 */
-	ElementDefinitionBase createElementDefinitionBase();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Type Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Type Ref</em>'.
-	 * @generated
-	 */
-	ElementDefinitionTypeRef createElementDefinitionTypeRef();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Constraint</em>'.
-	 * @generated
-	 */
-	ElementDefinitionConstraint createElementDefinitionConstraint();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Binding</em>'.
-	 * @generated
-	 */
-	ElementDefinitionBinding createElementDefinitionBinding();
-
-	/**
-	 * Returns a new object of class '<em>Element Definition Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Definition Mapping</em>'.
-	 * @generated
-	 */
-	ElementDefinitionMapping createElementDefinitionMapping();
+	Money createMoney();
 
 	/**
 	 * Returns a new object of class '<em>Signature</em>'.
