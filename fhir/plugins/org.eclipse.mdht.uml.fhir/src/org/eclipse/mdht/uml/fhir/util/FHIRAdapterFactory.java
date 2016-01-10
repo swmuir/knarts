@@ -76,8 +76,8 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 				return createStructureDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseConformaceResource(ConformaceResource object) {
-				return createConformaceResourceAdapter();
+			public Adapter caseConformanceResource(ConformanceResource object) {
+				return createConformanceResourceAdapter();
 			}
 			@Override
 			public Adapter caseElement(Element object) {
@@ -118,6 +118,10 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataElement(DataElement object) {
 				return createDataElementAdapter();
+			}
+			@Override
+			public Adapter caseValueSetMember(ValueSetMember object) {
+				return createValueSetMemberAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -168,16 +172,16 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.ConformaceResource <em>Conformace Resource</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.ConformanceResource <em>Conformance Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.ConformaceResource
+	 * @see org.eclipse.mdht.uml.fhir.ConformanceResource
 	 * @generated
 	 */
-	public Adapter createConformaceResourceAdapter() {
+	public Adapter createConformanceResourceAdapter() {
 		return null;
 	}
 
@@ -318,6 +322,20 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.ValueSetMember <em>Value Set Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.ValueSetMember
+	 * @generated
+	 */
+	public Adapter createValueSetMemberAdapter() {
 		return null;
 	}
 

@@ -330,6 +330,9 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 					valueSetName = valueSet.getUri();
 					valueSetName = valueSetName.substring(valueSetName.lastIndexOf("/") + 1);
 				}
+				else {
+					valueSetName = valueSet.getBase_Enumeration().getName();
+				}
 			}
 			else if (binding.getValueSetUri() != null) {
 				valueSetName = binding.getValueSetUri();

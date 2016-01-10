@@ -30,7 +30,7 @@ import org.eclipse.uml2.uml.Enumeration;
  * @model
  * @generated
  */
-public interface ValueSet extends ConformaceResource {
+public interface ValueSet extends ConformanceResource {
 	/**
 	 * Returns the value of the '<em><b>Base Enumeration</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -20,7 +20,7 @@ import org.eclipse.mdht.uml.fhir.ValueSet;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueSetItemProvider extends ConformaceResourceItemProvider {
+public class ValueSetItemProvider extends ConformanceResourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

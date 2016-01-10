@@ -56,18 +56,18 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/contextType"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/context"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="fhir.ecore#//ConformaceResource">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/uri"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/version"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/name"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/status"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/experimental"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/publisher"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="fhir.ecore#//ConformanceResource">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/uri"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/version"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/name"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/status"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/experimental"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/publisher"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConformaceResource/contact"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformaceResource/date"/>
+          createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConformanceResource/contact"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/date"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConformaceResource/useContext"/>
+          createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConformanceResource/useContext"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="fhir.ecore#//Element">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//Element/id"/>
@@ -129,6 +129,15 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//DataElement">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//ValueSetMember">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//ValueSetMember/base_EnumerationLiteral"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/system"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/version"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/code"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/display"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/abstract"/>
     </genClasses>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="FHIRTypes" basePackage="org.eclipse.mdht.uml.fhir"
         disposableProviderFactory="true" ecorePackage="fhir.ecore#//types">

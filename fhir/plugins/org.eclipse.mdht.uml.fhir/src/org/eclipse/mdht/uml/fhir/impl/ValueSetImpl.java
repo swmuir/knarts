@@ -37,7 +37,7 @@ import org.eclipse.uml2.uml.Enumeration;
  *
  * @generated
  */
-public class ValueSetImpl extends ConformaceResourceImpl implements ValueSet {
+public class ValueSetImpl extends ConformanceResourceImpl implements ValueSet {
 	/**
 	 * The cached value of the '{@link #getBase_Enumeration() <em>Base Enumeration</em>}' reference.
 	 * <!-- begin-user-doc -->

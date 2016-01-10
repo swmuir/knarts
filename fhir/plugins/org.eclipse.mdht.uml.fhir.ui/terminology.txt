@@ -1,3 +1,11 @@
 
-SCT Clinical findings, text "blood pressure"
+Search Value sets by name or description
+/ValueSet?name:contains=condition
+/ValueSet?description:contains=condition
+/ValueSet?reference=http://snomed.info/sct&name:contains=condition
+
+Lookup an SCT code
+/ValueSet/$lookup?system=http://snomed.info/sct&code=392570002
+
+Search SCT Clinical findings, text "blood pressure"
 http://fhir2.healthintersections.com.au/open/ValueSet/$expand?identifier=http://snomed.info/sct?fhir_vs=isa/404684003&filter=blood pressure

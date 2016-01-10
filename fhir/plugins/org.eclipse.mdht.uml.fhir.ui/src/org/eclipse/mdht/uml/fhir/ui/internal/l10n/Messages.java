@@ -34,6 +34,13 @@ public class Messages extends NLS {
 	// Dialogs
 	// ==============================================================================
 
+	public static String ConceptSelection_input_title;
+
+	public static String ConceptSelection_input_message;
+
+	public static String ConceptSelection_dialog_title;
+
+	public static String ConceptSelection_dialog_message;
 
 
 	// ==============================================================================

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.mdht.uml.fhir.ConformaceResource;
+import org.eclipse.mdht.uml.fhir.ConformanceResource;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
@@ -32,20 +32,20 @@ import org.eclipse.mdht.uml.fhir.types.Contact;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getUri <em>Uri</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#isExperimental <em>Experimental</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getContacts <em>Contact</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformaceResourceImpl#getUseContexts <em>Use Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#isExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getContacts <em>Contact</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getUseContexts <em>Use Context</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class ConformaceResourceImpl extends ElementImpl implements ConformaceResource {
+public abstract class ConformanceResourceImpl extends ElementImpl implements ConformanceResource {
 	/**
 	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -211,7 +211,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConformaceResourceImpl() {
+	protected ConformanceResourceImpl() {
 		super();
 	}
 
@@ -222,7 +222,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return FHIRPackage.Literals.CONFORMACE_RESOURCE;
+		return FHIRPackage.Literals.CONFORMANCE_RESOURCE;
 	}
 
 	/**
@@ -243,7 +243,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		String oldUri = uri;
 		uri = newUri;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__URI, oldUri, uri));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__URI, oldUri, uri));
 	}
 
 	/**
@@ -264,7 +264,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -285,7 +285,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__NAME, oldName, name));
 	}
 
 	/**
@@ -306,7 +306,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		String oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__STATUS, oldStatus, status));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__STATUS, oldStatus, status));
 	}
 
 	/**
@@ -327,7 +327,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		boolean oldExperimental = experimental;
 		experimental = newExperimental;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL, oldExperimental, experimental));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL, oldExperimental, experimental));
 	}
 
 	/**
@@ -348,7 +348,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		String oldPublisher = publisher;
 		publisher = newPublisher;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER, oldPublisher, publisher));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER, oldPublisher, publisher));
 	}
 
 	/**
@@ -358,7 +358,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	 */
 	public EList<Contact> getContacts() {
 		if (contacts == null) {
-			contacts = new EObjectContainmentEList<Contact>(Contact.class, this, FHIRPackage.CONFORMACE_RESOURCE__CONTACT);
+			contacts = new EObjectContainmentEList<Contact>(Contact.class, this, FHIRPackage.CONFORMANCE_RESOURCE__CONTACT);
 		}
 		return contacts;
 	}
@@ -381,7 +381,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		Date oldDate = date;
 		date = newDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMACE_RESOURCE__DATE, oldDate, date));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__DATE, oldDate, date));
 	}
 
 	/**
@@ -391,7 +391,7 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	 */
 	public EList<CodeableConcept> getUseContexts() {
 		if (useContexts == null) {
-			useContexts = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT);
+			useContexts = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT);
 		}
 		return useContexts;
 	}
@@ -404,9 +404,9 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				return ((InternalEList<?>)getContacts()).basicRemove(otherEnd, msgs);
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContexts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -420,23 +420,23 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FHIRPackage.CONFORMACE_RESOURCE__URI:
+			case FHIRPackage.CONFORMANCE_RESOURCE__URI:
 				return getUri();
-			case FHIRPackage.CONFORMACE_RESOURCE__VERSION:
+			case FHIRPackage.CONFORMANCE_RESOURCE__VERSION:
 				return getVersion();
-			case FHIRPackage.CONFORMACE_RESOURCE__NAME:
+			case FHIRPackage.CONFORMANCE_RESOURCE__NAME:
 				return getName();
-			case FHIRPackage.CONFORMACE_RESOURCE__STATUS:
+			case FHIRPackage.CONFORMANCE_RESOURCE__STATUS:
 				return getStatus();
-			case FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL:
+			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
 				return isExperimental();
-			case FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER:
+			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
 				return getPublisher();
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				return getContacts();
-			case FHIRPackage.CONFORMACE_RESOURCE__DATE:
+			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				return getDate();
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				return getUseContexts();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -451,32 +451,32 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FHIRPackage.CONFORMACE_RESOURCE__URI:
+			case FHIRPackage.CONFORMANCE_RESOURCE__URI:
 				setUri((String)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__VERSION:
+			case FHIRPackage.CONFORMANCE_RESOURCE__VERSION:
 				setVersion((String)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__NAME:
+			case FHIRPackage.CONFORMANCE_RESOURCE__NAME:
 				setName((String)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__STATUS:
+			case FHIRPackage.CONFORMANCE_RESOURCE__STATUS:
 				setStatus((String)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL:
+			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
 				setExperimental((Boolean)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER:
+			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
 				setPublisher((String)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				getContacts().clear();
 				getContacts().addAll((Collection<? extends Contact>)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__DATE:
+			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				setDate((Date)newValue);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				getUseContexts().clear();
 				getUseContexts().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
@@ -492,31 +492,31 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FHIRPackage.CONFORMACE_RESOURCE__URI:
+			case FHIRPackage.CONFORMANCE_RESOURCE__URI:
 				setUri(URI_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__VERSION:
+			case FHIRPackage.CONFORMANCE_RESOURCE__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__NAME:
+			case FHIRPackage.CONFORMANCE_RESOURCE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__STATUS:
+			case FHIRPackage.CONFORMANCE_RESOURCE__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL:
+			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
 				setExperimental(EXPERIMENTAL_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER:
+			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
 				setPublisher(PUBLISHER_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				getContacts().clear();
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__DATE:
+			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				setDate(DATE_EDEFAULT);
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				getUseContexts().clear();
 				return;
 		}
@@ -531,23 +531,23 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FHIRPackage.CONFORMACE_RESOURCE__URI:
+			case FHIRPackage.CONFORMANCE_RESOURCE__URI:
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
-			case FHIRPackage.CONFORMACE_RESOURCE__VERSION:
+			case FHIRPackage.CONFORMANCE_RESOURCE__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case FHIRPackage.CONFORMACE_RESOURCE__NAME:
+			case FHIRPackage.CONFORMANCE_RESOURCE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FHIRPackage.CONFORMACE_RESOURCE__STATUS:
+			case FHIRPackage.CONFORMANCE_RESOURCE__STATUS:
 				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
-			case FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL:
+			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
 				return experimental != EXPERIMENTAL_EDEFAULT;
-			case FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER:
+			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
 				return PUBLISHER_EDEFAULT == null ? publisher != null : !PUBLISHER_EDEFAULT.equals(publisher);
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				return contacts != null && !contacts.isEmpty();
-			case FHIRPackage.CONFORMACE_RESOURCE__DATE:
+			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				return useContexts != null && !useContexts.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -581,4 +581,4 @@ public abstract class ConformaceResourceImpl extends ElementImpl implements Conf
 		return result.toString();
 	}
 
-} //ConformaceResourceImpl
+} //ConformanceResourceImpl

@@ -25,7 +25,7 @@ import org.eclipse.mdht.uml.fhir.FHIRPackage;
  *
  * @generated
  */
-public class DataElementImpl extends ConformaceResourceImpl implements DataElement {
+public class DataElementImpl extends ConformanceResourceImpl implements DataElement {
 	/**
 	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->

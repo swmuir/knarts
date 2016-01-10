@@ -44,7 +44,7 @@ import org.eclipse.mdht.uml.fhir.StructureDefinition;
  *
  * @generated
  */
-public class StructureDefinitionImpl extends ConformaceResourceImpl implements StructureDefinition {
+public class StructureDefinitionImpl extends ConformanceResourceImpl implements StructureDefinition {
 	/**
 	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->

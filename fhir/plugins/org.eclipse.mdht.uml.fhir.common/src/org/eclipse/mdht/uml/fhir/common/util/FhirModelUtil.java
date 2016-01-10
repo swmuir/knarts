@@ -19,9 +19,11 @@ import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSet;
+import org.eclipse.mdht.uml.fhir.ValueSetMember;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Property;
 
 public class FhirModelUtil {
@@ -29,6 +31,11 @@ public class FhirModelUtil {
 	public static StructureDefinition getStructureDefinition(Classifier umlClass) {
 		return (StructureDefinition) EcoreUtil.getObjectByType(
 				umlClass.getStereotypeApplications(), FHIRPackage.eINSTANCE.getStructureDefinition());
+	}
+
+	public static ValueSetMember getValueSetMember(EnumerationLiteral literal) {
+		return (ValueSetMember) EcoreUtil.getObjectByType(
+				literal.getStereotypeApplications(), FHIRPackage.eINSTANCE.getValueSetMember());
 	}
 
 	public static DataElement getDataElement(Classifier umlClass) {

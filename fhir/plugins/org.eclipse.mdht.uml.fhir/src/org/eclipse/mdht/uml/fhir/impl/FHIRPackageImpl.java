@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.Comments;
-import org.eclipse.mdht.uml.fhir.ConformaceResource;
+import org.eclipse.mdht.uml.fhir.ConformanceResource;
 import org.eclipse.mdht.uml.fhir.DataElement;
 import org.eclipse.mdht.uml.fhir.Definition;
 import org.eclipse.mdht.uml.fhir.Description;
@@ -38,6 +38,7 @@ import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 
+import org.eclipse.mdht.uml.fhir.ValueSetMember;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage;
 
 import org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl;
@@ -72,7 +73,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conformaceResourceEClass = null;
+	private EClass conformanceResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,6 +144,13 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * @generated
 	 */
 	private EClass dataElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueSetMemberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,8 +312,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConformaceResource() {
-		return conformaceResourceEClass;
+	public EClass getConformanceResource() {
+		return conformanceResourceEClass;
 	}
 
 	/**
@@ -313,8 +321,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Uri() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getConformanceResource_Uri() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -322,8 +330,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Version() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(1);
+	public EAttribute getConformanceResource_Version() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -331,8 +339,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Name() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(2);
+	public EAttribute getConformanceResource_Name() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -340,8 +348,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Status() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(3);
+	public EAttribute getConformanceResource_Status() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -349,8 +357,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Experimental() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(4);
+	public EAttribute getConformanceResource_Experimental() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -358,8 +366,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Publisher() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(5);
+	public EAttribute getConformanceResource_Publisher() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -367,8 +375,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConformaceResource_Contact() {
-		return (EReference)conformaceResourceEClass.getEStructuralFeatures().get(6);
+	public EReference getConformanceResource_Contact() {
+		return (EReference)conformanceResourceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -376,8 +384,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConformaceResource_Date() {
-		return (EAttribute)conformaceResourceEClass.getEStructuralFeatures().get(7);
+	public EAttribute getConformanceResource_Date() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -385,8 +393,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConformaceResource_UseContext() {
-		return (EReference)conformaceResourceEClass.getEStructuralFeatures().get(8);
+	public EReference getConformanceResource_UseContext() {
+		return (EReference)conformanceResourceEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -718,6 +726,69 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getValueSetMember() {
+		return valueSetMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValueSetMember_Base_EnumerationLiteral() {
+		return (EReference)valueSetMemberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueSetMember_System() {
+		return (EAttribute)valueSetMemberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueSetMember_Version() {
+		return (EAttribute)valueSetMemberEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueSetMember_Code() {
+		return (EAttribute)valueSetMemberEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueSetMember_Display() {
+		return (EAttribute)valueSetMemberEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueSetMember_Abstract() {
+		return (EAttribute)valueSetMemberEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPropertyRepresentationKind() {
 		return propertyRepresentationKindEEnum;
 	}
@@ -769,16 +840,16 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT_TYPE);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT);
 
-		conformaceResourceEClass = createEClass(CONFORMACE_RESOURCE);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__URI);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__VERSION);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__NAME);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__STATUS);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__EXPERIMENTAL);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__PUBLISHER);
-		createEReference(conformaceResourceEClass, CONFORMACE_RESOURCE__CONTACT);
-		createEAttribute(conformaceResourceEClass, CONFORMACE_RESOURCE__DATE);
-		createEReference(conformaceResourceEClass, CONFORMACE_RESOURCE__USE_CONTEXT);
+		conformanceResourceEClass = createEClass(CONFORMANCE_RESOURCE);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__URI);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__VERSION);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__NAME);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__STATUS);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__EXPERIMENTAL);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__PUBLISHER);
+		createEReference(conformanceResourceEClass, CONFORMANCE_RESOURCE__CONTACT);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__DATE);
+		createEReference(conformanceResourceEClass, CONFORMANCE_RESOURCE__USE_CONTEXT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__ID);
@@ -826,6 +897,14 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		dataElementEClass = createEClass(DATA_ELEMENT);
 		createEReference(dataElementEClass, DATA_ELEMENT__BASE_CLASS);
 
+		valueSetMemberEClass = createEClass(VALUE_SET_MEMBER);
+		createEReference(valueSetMemberEClass, VALUE_SET_MEMBER__BASE_ENUMERATION_LITERAL);
+		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__SYSTEM);
+		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__VERSION);
+		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__CODE);
+		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__DISPLAY);
+		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__ABSTRACT);
+
 		// Create enums
 		propertyRepresentationKindEEnum = createEEnum(PROPERTY_REPRESENTATION_KIND);
 		bindingStrengthKindEEnum = createEEnum(BINDING_STRENGTH_KIND);
@@ -867,11 +946,11 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		structureDefinitionEClass.getESuperTypes().add(this.getConformaceResource());
-		conformaceResourceEClass.getESuperTypes().add(this.getElement());
+		structureDefinitionEClass.getESuperTypes().add(this.getConformanceResource());
+		conformanceResourceEClass.getESuperTypes().add(this.getElement());
 		elementDefinitionEClass.getESuperTypes().add(this.getElement());
-		valueSetEClass.getESuperTypes().add(this.getConformaceResource());
-		dataElementEClass.getESuperTypes().add(this.getConformaceResource());
+		valueSetEClass.getESuperTypes().add(this.getConformanceResource());
+		dataElementEClass.getESuperTypes().add(this.getConformanceResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeChoiceEClass, TypeChoice.class, "TypeChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -884,16 +963,16 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getStructureDefinition_ContextType(), theTypesPackage.getString(), "contextType", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_Context(), theTypesPackage.getString(), "context", null, 0, -1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(conformaceResourceEClass, ConformaceResource.class, "ConformaceResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConformaceResource_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Version(), theTypesPackage.getString(), "version", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Name(), theTypesPackage.getString(), "name", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Status(), theTypesPackage.getString(), "status", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Experimental(), theTypesPackage.getBoolean(), "experimental", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConformaceResource_Contact(), theFHIRTypesPackage.getContact(), null, "contact", null, 0, -1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConformaceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConformaceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformaceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(conformanceResourceEClass, ConformanceResource.class, "ConformanceResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConformanceResource_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Version(), theTypesPackage.getString(), "version", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Name(), theTypesPackage.getString(), "name", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Status(), theTypesPackage.getString(), "status", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Experimental(), theTypesPackage.getBoolean(), "experimental", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformanceResource_Contact(), theFHIRTypesPackage.getContact(), null, "contact", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformanceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Id(), theTypesPackage.getString(), "id", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -940,6 +1019,14 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 
 		initEClass(dataElementEClass, DataElement.class, "DataElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataElement_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, DataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(valueSetMemberEClass, ValueSetMember.class, "ValueSetMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValueSetMember_Base_EnumerationLiteral(), theUMLPackage.getEnumerationLiteral(), null, "base_EnumerationLiteral", null, 1, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetMember_System(), theTypesPackage.getString(), "system", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetMember_Version(), theTypesPackage.getString(), "version", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetMember_Code(), theTypesPackage.getString(), "code", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetMember_Display(), theTypesPackage.getString(), "display", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getValueSetMember_Abstract(), ecorePackage.getEBooleanObject(), "abstract", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyRepresentationKindEEnum, PropertyRepresentationKind.class, "PropertyRepresentationKind");

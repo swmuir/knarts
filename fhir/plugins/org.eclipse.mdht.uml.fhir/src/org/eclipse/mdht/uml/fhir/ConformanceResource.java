@@ -18,22 +18,22 @@ import org.eclipse.mdht.uml.fhir.types.Contact;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getUri <em>Uri</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getStatus <em>Status</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#isExperimental <em>Experimental</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getContacts <em>Contact</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getDate <em>Date</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getUseContexts <em>Use Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#isExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getContacts <em>Contact</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getDate <em>Date</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getUseContexts <em>Use Context</em>}</li>
  * </ul>
  *
- * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource()
+ * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource()
  * @model abstract="true"
  * @generated
  */
-public interface ConformaceResource extends Element {
+public interface ConformanceResource extends Element {
 	/**
 	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,14 +44,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uri</em>' attribute.
 	 * @see #setUri(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Uri()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Uri()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getUri();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getUri <em>Uri</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getUri <em>Uri</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uri</em>' attribute.
@@ -70,14 +70,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Version()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Version()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getVersion <em>Version</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Version</em>' attribute.
@@ -96,14 +96,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Name()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Name()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -122,14 +122,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Status</em>' attribute.
 	 * @see #setStatus(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Status()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Status()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getStatus <em>Status</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getStatus <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Status</em>' attribute.
@@ -148,14 +148,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experimental</em>' attribute.
 	 * @see #setExperimental(boolean)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Experimental()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Experimental()
 	 * @model dataType="org.eclipse.uml2.types.Boolean" ordered="false"
 	 * @generated
 	 */
 	boolean isExperimental();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#isExperimental <em>Experimental</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#isExperimental <em>Experimental</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Experimental</em>' attribute.
@@ -174,14 +174,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Publisher</em>' attribute.
 	 * @see #setPublisher(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Publisher()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Publisher()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getPublisher();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getPublisher <em>Publisher</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getPublisher <em>Publisher</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Publisher</em>' attribute.
@@ -200,7 +200,7 @@ public interface ConformaceResource extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Contact()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Contact()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
@@ -216,14 +216,14 @@ public interface ConformaceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Date</em>' attribute.
 	 * @see #setDate(Date)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_Date()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Date()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	Date getDate();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformaceResource#getDate <em>Date</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getDate <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Date</em>' attribute.
@@ -242,10 +242,10 @@ public interface ConformaceResource extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformaceResource_UseContext()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_UseContext()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<CodeableConcept> getUseContexts();
 
-} // ConformaceResource
+} // ConformanceResource

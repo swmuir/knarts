@@ -46,6 +46,7 @@ public interface ModelConstants {
 	 */
 	public static final String PACKAGE_NAME_RESOURCES = "Resources";
 	public static final String PACKAGE_NAME_DATATYPES = "DataTypes";
+	public static final String PACKAGE_NAME_LOGICAL = "Logical";
 	public static final String PACKAGE_NAME_VALUESETS = "ValueSets";
 	public static final String PACKAGE_NAME_EXTENSIONS = "Extensions";
 	public static final String PACKAGE_NAME_PROFILES = "Profiles";

@@ -17,23 +17,23 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.mdht.uml.fhir.ConformaceResource;
+import org.eclipse.mdht.uml.fhir.ConformanceResource;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.mdht.uml.fhir.ConformaceResource} object.
+ * This is the item provider adapter for a {@link org.eclipse.mdht.uml.fhir.ConformanceResource} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConformaceResourceItemProvider extends ElementItemProvider {
+public class ConformanceResourceItemProvider extends ElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformaceResourceItemProvider(AdapterFactory adapterFactory) {
+	public ConformanceResourceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,9 +70,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_uri_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_uri_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__URI,
+				 getString("_UI_ConformanceResource_uri_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_uri_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__URI,
 				 true,
 				 false,
 				 false,
@@ -92,9 +92,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_version_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__VERSION,
+				 getString("_UI_ConformanceResource_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_version_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__VERSION,
 				 true,
 				 false,
 				 false,
@@ -114,9 +114,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_name_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__NAME,
+				 getString("_UI_ConformanceResource_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_name_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__NAME,
 				 true,
 				 false,
 				 false,
@@ -136,9 +136,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_status_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_status_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__STATUS,
+				 getString("_UI_ConformanceResource_status_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_status_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__STATUS,
 				 true,
 				 false,
 				 false,
@@ -158,9 +158,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_experimental_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_experimental_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__EXPERIMENTAL,
+				 getString("_UI_ConformanceResource_experimental_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_experimental_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__EXPERIMENTAL,
 				 true,
 				 false,
 				 false,
@@ -180,9 +180,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_publisher_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_publisher_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__PUBLISHER,
+				 getString("_UI_ConformanceResource_publisher_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_publisher_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__PUBLISHER,
 				 true,
 				 false,
 				 false,
@@ -202,9 +202,9 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConformaceResource_date_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConformaceResource_date_feature", "_UI_ConformaceResource_type"),
-				 FHIRPackage.Literals.CONFORMACE_RESOURCE__DATE,
+				 getString("_UI_ConformanceResource_date_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_date_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__DATE,
 				 true,
 				 false,
 				 false,
@@ -225,8 +225,8 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(FHIRPackage.Literals.CONFORMACE_RESOURCE__CONTACT);
-			childrenFeatures.add(FHIRPackage.Literals.CONFORMACE_RESOURCE__USE_CONTEXT);
+			childrenFeatures.add(FHIRPackage.Literals.CONFORMANCE_RESOURCE__CONTACT);
+			childrenFeatures.add(FHIRPackage.Literals.CONFORMANCE_RESOURCE__USE_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -263,12 +263,12 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((ConformaceResource)object).getName();
+		String label = ((ConformanceResource)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_ConformaceResource_type"), StyledString.Style.QUALIFIER_STYLER); 
+			styledLabel.append(getString("_UI_ConformanceResource_type"), StyledString.Style.QUALIFIER_STYLER); 
 		} else {
-			styledLabel.append(getString("_UI_ConformaceResource_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
+			styledLabel.append(getString("_UI_ConformanceResource_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
 		}
 		return styledLabel;
 	}	
@@ -284,18 +284,18 @@ public class ConformaceResourceItemProvider extends ElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ConformaceResource.class)) {
-			case FHIRPackage.CONFORMACE_RESOURCE__URI:
-			case FHIRPackage.CONFORMACE_RESOURCE__VERSION:
-			case FHIRPackage.CONFORMACE_RESOURCE__NAME:
-			case FHIRPackage.CONFORMACE_RESOURCE__STATUS:
-			case FHIRPackage.CONFORMACE_RESOURCE__EXPERIMENTAL:
-			case FHIRPackage.CONFORMACE_RESOURCE__PUBLISHER:
-			case FHIRPackage.CONFORMACE_RESOURCE__DATE:
+		switch (notification.getFeatureID(ConformanceResource.class)) {
+			case FHIRPackage.CONFORMANCE_RESOURCE__URI:
+			case FHIRPackage.CONFORMANCE_RESOURCE__VERSION:
+			case FHIRPackage.CONFORMANCE_RESOURCE__NAME:
+			case FHIRPackage.CONFORMANCE_RESOURCE__STATUS:
+			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
+			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
+			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case FHIRPackage.CONFORMACE_RESOURCE__CONTACT:
-			case FHIRPackage.CONFORMACE_RESOURCE__USE_CONTEXT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
+			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

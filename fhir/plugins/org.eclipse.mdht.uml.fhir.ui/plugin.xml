@@ -30,6 +30,21 @@
       </propertyTester>
    </extension>
    
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%category_MDHT"
+            id="org.eclipse.mdht.uml.fhir.ui">
+      </category>
+      <view
+            name="Concepts"
+            icon="icons/eview16/taxonomy.gif"
+            category="org.eclipse.mdht.uml.fhir.ui"
+            class="org.eclipse.mdht.uml.fhir.ui.views.ConceptTaxonomyView"
+            id="org.eclipse.mdht.uml.fhir.ui.views.ConceptTaxonomyView">
+      </view>
+   </extension>
+   
    <!--
       Sub-menu definitions
    -->
@@ -380,7 +395,7 @@
       </handler>
       <handler
             commandId="org.eclipse.mdht.uml.fhir.ui.commands.addValueSet"
-            class="org.eclipse.mdht.uml.fhir.ui.handlers.NotImplementedHandler">
+            class="org.eclipse.mdht.uml.fhir.ui.handlers.AddValueSetHandler">
          <activeWhen>
             <and>
                <count value="1"/>
@@ -557,6 +572,20 @@
 	           afterTab="property.tab.FHIRPropertySection"
 	           indented="true">
 	         </propertyTab> 
+	          
+			<propertyTab
+               category="domain"
+               label="%tab.fhir.label"
+               afterTab="property.tab.GeneralPropertySection"
+               id="property.tab.FHIRResourceSection">           
+			</propertyTab> 
+	         <propertyTab
+	           label="%tab.fhir.members.label"
+	           category="domain"
+	           id="property.tab.FHIRMembersSection"
+	           afterTab="property.tab.FHIRResourceSection"
+	           indented="true">
+	         </propertyTab> 
 		</propertyTabs>
 	</extension>
 	
@@ -574,6 +603,20 @@
 	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ValueSetBindingSection" 
              filter="org.eclipse.mdht.uml.fhir.ui.filter.ValueSetBindingFilter"
 	 	     id="property.section.ValueSetBindingSection"/>
+          <propertySection tab="property.tab.FHIRBindingSection" 
+             afterSection="property.section.ValueSetBindingSection"
+	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ValueSetMemberSection" 
+             filter="org.eclipse.mdht.uml.fhir.ui.filter.HasValueSetBindingFilter"
+	 	     id="property.section.ValueSetBindingMembersSection"/>
+	 	     
+          <propertySection tab="property.tab.FHIRResourceSection" 
+	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ConformanceResourceSection" 
+             filter="org.eclipse.mdht.uml.fhir.ui.filter.ConformanceResourceFilter"
+	 	     id="property.section.ConformanceResourceSection"/>
+          <propertySection tab="property.tab.FHIRMembersSection" 
+	 	     class="org.eclipse.mdht.uml.fhir.ui.properties.ValueSetMemberSection" 
+             filter="org.eclipse.mdht.uml.fhir.ui.filter.ValueSetFilter"
+	 	     id="property.section.ValueSetMemberSection"/>
 	  </propertySections>
    </extension> 
  

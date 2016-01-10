@@ -331,6 +331,29 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.ValueSetMember} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueSetMemberItemProvider valueSetMemberItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.ValueSetMember}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueSetMemberAdapter() {
+		if (valueSetMemberItemProvider == null) {
+			valueSetMemberItemProvider = new ValueSetMemberItemProvider(this);
+		}
+
+		return valueSetMemberItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +463,7 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 		if (valueSetBindingItemProvider != null) valueSetBindingItemProvider.dispose();
 		if (valueSetItemProvider != null) valueSetItemProvider.dispose();
 		if (dataElementItemProvider != null) dataElementItemProvider.dispose();
+		if (valueSetMemberItemProvider != null) valueSetMemberItemProvider.dispose();
 	}
 
 }

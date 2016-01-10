@@ -21,7 +21,7 @@ import org.eclipse.mdht.uml.fhir.FHIRPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataElementItemProvider extends ConformaceResourceItemProvider {
+public class DataElementItemProvider extends ConformanceResourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

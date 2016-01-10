@@ -10,9 +10,11 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.fhir.util;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.ValueSet;
@@ -24,8 +26,15 @@ import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.uml.resource.UMLResource;
 
 public class ProfileUtil {
+	public static final String PROFILE_FILE_EXTENSION = "profile." + UMLResource.FILE_EXTENSION;
+
+	public static final String PROFILES_PATHMAP = "pathmap://MDHT_FHIR/";
+
+	public static final String PROFILE_URI = PROFILES_PATHMAP + "FHIR." + PROFILE_FILE_EXTENSION;
+
 	
 	public static ValueSet getValueSet(Enumeration umlEnumeration) {
 		return (ValueSet) getStereotypeApplication(umlEnumeration, FHIRPackage.eINSTANCE.getValueSet());
@@ -79,4 +88,19 @@ public class ProfileUtil {
 		return stereotype;
 	}
 	
+	/**
+	 * Load profile into provided resource set and return Profile.
+	 */
+	public static Profile getProfile(ResourceSet resourceSet) {
+		Profile profile = null;
+		Resource profileResource = resourceSet.getResource(URI.createURI(PROFILE_URI), true);
+
+		if (profileResource != null) {
+			profile = (Profile) EcoreUtil.getObjectByType(
+				profileResource.getContents(), UMLPackage.eINSTANCE.getProfile());
+		}
+
+		return profile;
+	}
+
 }

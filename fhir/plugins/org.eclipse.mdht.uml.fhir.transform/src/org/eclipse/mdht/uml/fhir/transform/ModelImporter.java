@@ -31,6 +31,7 @@ import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
+import org.eclipse.mdht.uml.fhir.ValueSetMember;
 import org.eclipse.mdht.uml.fhir.common.util.FhirModelUtil;
 import org.eclipse.mdht.uml.fhir.common.util.ModelConstants;
 import org.eclipse.mdht.uml.fhir.common.util.ModelFilter;
@@ -401,20 +402,48 @@ public class ModelImporter implements ModelConstants {
 				valueSetStereotype.setPublisher(valueSet.getPublisher().getValue());
 			}
 		}
+		
+		if (valueSet.getCodeSystem() != null) {
+			for (ValueSetConcept concept : valueSet.getCodeSystem().getConcept()) {
+				EnumerationLiteral literal = valueSetEnum.createOwnedLiteral("member");
+				if (concept.getCode() != null) {
+					literal.setName(concept.getCode().getValue());
+				}
+				if (fhirUmlProfile != null) {
+					ValueSetMember member = (ValueSetMember) UMLUtil.safeApplyStereotype(literal, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetMember().getName()));
+					if (concept.getDisplay() != null) {
+						member.setDisplay(concept.getDisplay().getValue());
+					}
+					if (concept.getAbstract() != null) {
+						member.setAbstract(concept.getAbstract().isValue());
+					}
+				}
 
-		if (valueSet.getExpansion() != null) {
-			for (ValueSetContains contains : valueSet.getExpansion().getContains()) {
-				// TODO code was null in some cases, investigate
-				if (contains.getCode() != null) {
-					valueSetEnum.createOwnedLiteral(contains.getCode().getValue());
+				if (concept.getDefinition() != null) {
+					literal.createOwnedComment().setBody(concept.getDefinition().getValue());
 				}
 			}
 		}
-		else if (valueSet.getCodeSystem() != null) {
-			for (ValueSetConcept concept : valueSet.getCodeSystem().getConcept()) {
-				EnumerationLiteral literal = valueSetEnum.createOwnedLiteral(concept.getCode().getValue());
-				if (concept.getDefinition() != null) {
-					literal.createOwnedComment().setBody(concept.getDefinition().getValue());
+		else if (valueSet.getExpansion() != null) {
+			for (ValueSetContains contains : valueSet.getExpansion().getContains()) {
+				EnumerationLiteral literal = valueSetEnum.createOwnedLiteral("member");
+				if (contains.getCode() != null) {
+					literal.setName(contains.getCode().getValue());
+				}
+				if (fhirUmlProfile != null) {
+					ValueSetMember member = (ValueSetMember) UMLUtil.safeApplyStereotype(literal, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetMember().getName()));
+					if (contains.getSystem() != null) {
+						member.setSystem(contains.getSystem().getValue());
+					}
+					if (contains.getVersion() != null) {
+						member.setVersion(contains.getVersion().getValue());
+					}
+					if (contains.getDisplay() != null) {
+						member.setDisplay(contains.getDisplay().getValue());
+					}
+					if (contains.getAbstract() != null) {
+						member.setAbstract(contains.getAbstract().isValue());
+					}
 				}
 			}
 		}
@@ -546,10 +575,12 @@ public class ModelImporter implements ModelConstants {
 		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
 		PrimitiveType primitiveType = null;
 		
+		StructureDefinitionKindList structureKind = structureDef.getKind().getValue();
+		boolean isLogicalType = StructureDefinitionKindList.LOGICAL == structureKind;
+
 		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
 		
-		StructureDefinitionKindList structureKind = structureDef.getKind().getValue();
 		if (structureDef.getContextType() != null) {
 			packageName = PACKAGE_NAME_EXTENSIONS;
 		}
@@ -562,6 +593,11 @@ public class ModelImporter implements ModelConstants {
 		else if (StructureDefinitionKindList.RESOURCE == structureKind) {
 			if (modelIndexer.isCoreResourceType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_RESOURCES;
+			}
+		}
+		else if (isLogicalType) {
+			if (modelIndexer.isCoreResourceType(structureDef.getId().getValue())) {
+				packageName = PACKAGE_NAME_LOGICAL;
 			}
 		}
 
@@ -679,13 +715,19 @@ public class ModelImporter implements ModelConstants {
 		
 		// Set of element paths that are sliced
 		Set<String> slicedElements = new HashSet<String>();
-		
-		Classifier constrainedType = modelIndexer.getConstrainedType(profileClass);
-		if (constrainedType != null) {
-			elementPathMap.put(constrainedType.getName(), profileClass);
-		} 
+
+		Classifier constrainedCoreType = null;
+		if (isLogicalType) {
+			elementPathMap.put(structureDef.getId().getValue(), profileClass);
+		}
 		else {
-			System.err.println("Cannot find constrained type for: " + structureDef.getUrl().getValue());
+			constrainedCoreType = modelIndexer.getConstrainedCoreType(profileClass);
+			if (constrainedCoreType != null) {
+				elementPathMap.put(constrainedCoreType.getName(), profileClass);
+			} 
+			else {
+				System.err.println("Cannot find constrained type for: " + structureDef.getUrl().getValue());
+			}
 		}
 		
 		for (ElementDefinition elementDef : structureDef.getDifferential().getElement()) {
@@ -710,10 +752,10 @@ public class ModelImporter implements ModelConstants {
 			// This element is not always included in a constraint profile
 			if (path.indexOf(".") == -1) {
 				// A special case for types like "id" that is a core type, but its base type is "string"
-				if (constrainedType != null && !path.equals(constrainedType.getName())) {
+				if (constrainedCoreType != null && !path.equals(constrainedCoreType.getName())) {
 					Class pathType = modelIndexer.getStructureDefinitionForId(path);
 					if (pathType != null) {
-						constrainedType = pathType;
+						constrainedCoreType = pathType;
 						elementPathMap.put(path, profileClass);
 					}
 				}
@@ -778,7 +820,7 @@ public class ModelImporter implements ModelConstants {
 				}
 			}
 
-			if (ownerClass == null && (constrainedType instanceof Class) && ownerPath.equals(constrainedType.getName())) {
+			if (ownerClass == null && (constrainedCoreType instanceof Class) && ownerPath.equals(constrainedCoreType.getName())) {
 				ownerClass = profileClass;
 			}
 			if (ownerClass == null) {
@@ -1021,7 +1063,7 @@ public class ModelImporter implements ModelConstants {
 			else if (inheritedProperty != null) {
 				property.getRedefinedProperties().add(inheritedProperty);
 			}
-			else if (!isFhirDefinedType) {
+			else if (!isFhirDefinedType && !isLogicalType) {
 				System.err.println("Inherited property not found: " + property.getQualifiedName());
 			}
 
@@ -1100,7 +1142,10 @@ public class ModelImporter implements ModelConstants {
 		}
 		
 		if (name == null) {
-			if (elementDef.getName() != null && elementDef.getName().getValue() != null) {
+//			if (elementDef.getName() != null && elementDef.getName().getValue() != null) {
+			// TODO added name != path as workaround for Grahame's FHIR CDA logical def naming
+			if (elementDef.getName() != null && elementDef.getName().getValue() != null
+					&& !elementDef.getName().getValue().equals(elementDef.getPath().getValue())) {
 				name = elementDef.getName().getValue();
 			}
 			else {

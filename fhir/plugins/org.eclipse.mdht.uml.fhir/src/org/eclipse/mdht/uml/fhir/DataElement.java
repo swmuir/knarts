@@ -19,7 +19,7 @@ package org.eclipse.mdht.uml.fhir;
  * @model
  * @generated
  */
-public interface DataElement extends ConformaceResource {
+public interface DataElement extends ConformanceResource {
 	/**
 	 * Returns the value of the '<em><b>Base Class</b></em>' reference.
 	 * <!-- begin-user-doc -->

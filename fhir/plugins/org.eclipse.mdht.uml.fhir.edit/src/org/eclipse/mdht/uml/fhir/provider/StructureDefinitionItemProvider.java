@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.Element;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructureDefinitionItemProvider extends ConformaceResourceItemProvider {
+public class StructureDefinitionItemProvider extends ConformanceResourceItemProvider {
 	
 	private ModelIndexer modelIndexer = null;
 	
@@ -218,7 +218,7 @@ public class StructureDefinitionItemProvider extends ConformaceResourceItemProvi
 				}
 			case IStructureDefinitionTableProperties.BASE_TYPE_INDEX:
 				if (structureDef.getBase_Class() != null) {
-					Classifier constrainedType = getModelIndexer(structureDef.getBase_Class()).getConstrainedType(structureDef.getBase_Class());
+					Classifier constrainedType = getModelIndexer(structureDef.getBase_Class()).getConstrainedCoreType(structureDef.getBase_Class());
 					if (constrainedType != null) {
 						return constrainedType.getName();
 					}

@@ -247,10 +247,15 @@ public class ValueSetBindingSection extends ResettableModelerPropertySection {
 				if (valueSet.getName() != null) {
 					label += valueSet.getName();
 				}
+				else {
+					label += valueSet.getBase_Enumeration().getName();
+				}
+				
 				if (valueSet.getUri() != null) {
 					label += " (" + valueSet.getUri() + ")";
 				}
 				valueSetLabel.setText(label);
+				
 			} else {
 				valueSetLabel.setText("");
 			}
@@ -517,6 +522,7 @@ public class ValueSetBindingSection extends ResettableModelerPropertySection {
 
 			if (valueSetBinding.getValueSetReference() == null || !valueSetBinding.getValueSetReference().equals(valueSet)) {
 				valueSetBinding.setValueSetReference(valueSet);
+				valueSetBinding.setDescription(valueSet.getName());
 				
 				// only one reference may be specified
 				valueSetBinding.setValueSetUri(null);
