@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <category-def name="org.eclipse.mdht.core" label="MDHT Core">
+      <description>
+         MDHT core tools for UML model editing, validation, and transformation.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.mdht.fhir" label="MDHT FHIR">
+      <description>
+         MDHT tools for designing HL7 FHIR models.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.mdht.cda" label="MDHT CDA">
+      <description>
+         MDHT tools for designing HL7 CDA models.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.mdht.dita" label="MDHT DITA Publishing">
+      <description>
+         MDHT tools for publishing UML models using DITA.
+      </description>
+   </category-def>
+   
+   <feature url="core/features/org.eclipse.mdht.uml_3.0.0.qualifier.jar" id="org.eclipse.mdht.uml" version="3.0.0.qualifier">
+      <category name="org.eclipse.mdht.core"/>
+   </feature>
+   
+   <feature url="core/features/org.eclipse.mdht.uml.fhir.feature_0.5.0.qualifier.jar" id="org.eclipse.mdht.uml.fhir.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.mdht.fhir"/>
+   </feature>
+</site>
