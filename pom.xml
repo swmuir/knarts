@@ -25,7 +25,7 @@
 
 		<!-- MDHT repositories -->
 		<mdht.eclipse.target>mars</mdht.eclipse.target>
-		<mdht.repo.main>http://download.eclipse.org/modeling/mdt/mdht/updates/nightly/${mdht.eclipse.target}</mdht.repo.main>
+		<mdht.repo.main>http://download.eclipse.org/modeling/mdht/updates/nightly/${mdht.eclipse.target}</mdht.repo.main>
 
 	</properties>
 

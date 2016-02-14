@@ -286,7 +286,7 @@
 	  
 	  
 		<profile>
-	  		<id>packAndSign</id> <!-- Stable release profile. Takes +30min. Eclipse servers only -->
+	  		<id>packAndSign</id> <!-- Stable release profile. Eclipse servers only -->
 		  	<!-- Pack200 -->
 		  	<build>
 			  	<plugins>
@@ -407,9 +407,9 @@
 			<id>nightly</id>
 			<repositories>
 				<repository>
-					<id>papyrus-nightly</id>
+					<id>mdht-nightly</id>
 					<layout>p2</layout>
-					<url>http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/${papyrus.eclipse.target}/
+					<url>http://download.eclipse.org/modeling/mdht/updates/nightly/${mdht.eclipse.target}/
 					</url>
 					<releases>
 						<enabled>true</enabled>
