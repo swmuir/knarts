@@ -14,18 +14,19 @@
 		<jarSignerVersion>1.1.2</jarSignerVersion>
 		<findbugs.version>3.0.1</findbugs.version>
 		<xtext.version>2.7.3</xtext.version>
-		<java.source.version>1.7</java.source.version>
-		<java.target.version>1.7</java.target.version>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
 		<mylyn.wikitext.version>2.4.0-SNAPSHOT</mylyn.wikitext.version>
 		<skipAllTests>false</skipAllTests>
 		<skipInnerTests>true</skipInnerTests>
+		
+		<!-- Set to file:/home/data/httpd/download.eclipse.org when building on Eclipse servers to improve performance -->
+		<eclipse.download>http://download.eclipse.org</eclipse.download> 
 
-		<!-- Manual Repositories not taken into account by simrel -->
-		<repo.orbit.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository</repo.orbit.url>
-
-		<!-- MDHT repositories -->
-		<mdht.eclipse.target>mars</mdht.eclipse.target>
-		<mdht.repo.main>http://download.eclipse.org/modeling/mdht/updates/nightly/${mdht.eclipse.target}</mdht.repo.main>
+		<!-- MDHT repositories. Used when we're building individual components 
+			(vs building the parent pom including everything) -->
+		<mdht.eclipse.target>neon</mdht.eclipse.target>
+		<mdht.repo.main>${eclipse.download}/modeling/mdht/updates/nightly/${mdht.eclipse.target}</mdht.repo.main>
 
 	</properties>
 
@@ -40,7 +41,7 @@
 		<repository>
 			<id>release.target</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/${mdht.eclipse.target}</url>
+			<url>${eclipse.download}/releases/${mdht.eclipse.target}</url>
 		</repository>
 	</repositories>
 
@@ -82,6 +83,40 @@
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>${xtext.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<environments>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+						</environments>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
