@@ -25,6 +25,7 @@
 
 p2UpdateSiteDir=${WORKSPACE}/releng/p2-site/target/repository
 updateSite=${WORKSPACE}/repository
+p2UpdateSiteZipFile=${WORKSPACE}/releng/p2-site/target/org.eclipse.mdht.p2-3.0.0-SNAPSHOT.zip
 
 if [ -n "$BUILD_ALIAS" ]; then
   buildType=S
@@ -41,20 +42,10 @@ if [ -n "$BUILD_ALIAS" ]; then
 else
   updateZipName=MDHT-Update-${FULL_BUILD_ID}.zip
 fi
-zipName="MDHT.zip"
-
-rm -rf tmp
-mkdir -p "tmp/$FULL_BUILD_ID"
 
 rm -rf $updateSite
+rm -f *.zip
+
 mv $p2UpdateSiteDir $updateSite
+mv $p2UpdateSiteZipFile  ${WORKSPACE}/$updateZipName
 
-# create the update site zip
-(cd $updateSite && zip -r $updateZipName *)
-
-mv $updateSite/$updateZipName .
-
-#mv $updateSite/$updateZipName "tmp/$FULL_BUILD_ID"
-
-#(cd tmp && zip -r $zipName *)
-#mv tmp/$zipName .
