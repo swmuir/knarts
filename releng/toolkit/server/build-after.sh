@@ -51,7 +51,10 @@ mv $p2UpdateSiteDir $updateSite
 
 # create the update site zip
 (cd $updateSite && zip -r $updateZipName *)
-mv $updateSite/$updateZipName "tmp/$FULL_BUILD_ID"
 
-(cd tmp && zip -r $zipName *)
-mv tmp/$zipName .
+mv $updateSite/$updateZipName .
+
+#mv $updateSite/$updateZipName "tmp/$FULL_BUILD_ID"
+
+#(cd tmp && zip -r $zipName *)
+#mv tmp/$zipName .
