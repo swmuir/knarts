@@ -9,7 +9,8 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+ * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+ * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
  * <p>
@@ -17,16 +18,15 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ModuleMetadataRelatedResource#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadataRelatedResource#getUri <em>Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadataRelatedResource#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadataRelatedResource#getDocument <em>Document</em>}</li>
+ *   <li>{@link org.hl7.fhir.ModuleMetadataRelatedResource#getResource <em>Resource</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getModuleMetadataRelatedResource()
  * @model extendedMetaData="name='ModuleMetadata.RelatedResource' kind='elementOnly'"
  * @generated
  */
-public interface ModuleMetadataRelatedResource extends BackboneElement {
+public interface ModuleMetadataRelatedResource extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,63 +54,11 @@ public interface ModuleMetadataRelatedResource extends BackboneElement {
 	void setType(ModuleMetadataResourceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Uri</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The uri of the related resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Uri</em>' containment reference.
-	 * @see #setUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataRelatedResource_Uri()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='uri' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Uri getUri();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadataRelatedResource#getUri <em>Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uri</em>' containment reference.
-	 * @see #getUri()
-	 * @generated
-	 */
-	void setUri(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A brief description of the related resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataRelatedResource_Description()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadataRelatedResource#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(org.hl7.fhir.String value);
-
-	/**
 	 * Returns the value of the '<em><b>Document</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The document being referenced.
+	 * The document being referenced, represented as an attachment. This is exclusive with the resource element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Document</em>' containment reference.
 	 * @see #setDocument(Attachment)
@@ -130,5 +78,31 @@ public interface ModuleMetadataRelatedResource extends BackboneElement {
 	 * @generated
 	 */
 	void setDocument(Attachment value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The related resource, such as a library, value set, profile, or other module.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resource</em>' containment reference.
+	 * @see #setResource(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataRelatedResource_Resource()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getResource();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadataRelatedResource#getResource <em>Resource</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resource</em>' containment reference.
+	 * @see #getResource()
+	 * @generated
+	 */
+	void setResource(Reference value);
 
 } // ModuleMetadataRelatedResource

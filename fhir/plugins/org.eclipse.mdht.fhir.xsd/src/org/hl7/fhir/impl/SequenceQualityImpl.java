@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SequenceQuality;
@@ -70,7 +68,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept platform;
+	protected org.hl7.fhir.String platform;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,7 +223,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getPlatform() {
+	public org.hl7.fhir.String getPlatform() {
 		return platform;
 	}
 
@@ -234,8 +232,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlatform(CodeableConcept newPlatform, NotificationChain msgs) {
-		CodeableConcept oldPlatform = platform;
+	public NotificationChain basicSetPlatform(org.hl7.fhir.String newPlatform, NotificationChain msgs) {
+		org.hl7.fhir.String oldPlatform = platform;
 		platform = newPlatform;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__PLATFORM, oldPlatform, newPlatform);
@@ -249,7 +247,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPlatform(CodeableConcept newPlatform) {
+	public void setPlatform(org.hl7.fhir.String newPlatform) {
 		if (newPlatform != platform) {
 			NotificationChain msgs = null;
 			if (platform != null)
@@ -321,7 +319,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				setScore((Quantity)newValue);
 				return;
 			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				setPlatform((CodeableConcept)newValue);
+				setPlatform((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,7 +343,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				setScore((Quantity)null);
 				return;
 			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				setPlatform((CodeableConcept)null);
+				setPlatform((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);

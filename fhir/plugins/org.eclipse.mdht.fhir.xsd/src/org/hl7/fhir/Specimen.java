@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Specimen#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getAccessionIdentifier <em>Accession Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Specimen#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Specimen#getAccessionIdentifier <em>Accession Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getReceivedTime <em>Received Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getContainer <em>Container</em>}</li>

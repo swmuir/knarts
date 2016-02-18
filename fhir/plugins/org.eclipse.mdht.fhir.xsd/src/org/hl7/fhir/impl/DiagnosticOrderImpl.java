@@ -36,15 +36,15 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSpecimen <em>Specimen</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getNote <em>Note</em>}</li>
@@ -53,26 +53,6 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class DiagnosticOrderImpl extends DomainResourceImpl implements DiagnosticOrder {
-	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubject()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference subject;
-
-	/**
-	 * The cached value of the '{@link #getOrderer() <em>Orderer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrderer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference orderer;
-
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -84,6 +64,36 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected DiagnosticOrderStatus status;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected DiagnosticOrderPriority priority;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subject;
+
+	/**
 	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +102,16 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	 * @ordered
 	 */
 	protected Reference encounter;
+
+	/**
+	 * The cached value of the '{@link #getOrderer() <em>Orderer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrderer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference orderer;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
@@ -122,26 +142,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	 * @ordered
 	 */
 	protected EList<Reference> specimen;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiagnosticOrderStatus status;
-
-	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected DiagnosticOrderPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
@@ -499,24 +499,24 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
-				return basicSetSubject(null, msgs);
-			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
-				return basicSetOrderer(null, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
+				return basicSetPriority(null, msgs);
+			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
+				return basicSetSubject(null, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
+			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
+				return basicSetOrderer(null, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__REASON:
 				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return ((InternalEList<?>)getSupportingInformation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
 				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
-				return basicSetStatus(null, msgs);
-			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
-				return basicSetPriority(null, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:
@@ -535,24 +535,24 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
-				return getSubject();
-			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
-				return getOrderer();
 			case FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
+				return getStatus();
+			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
+				return getPriority();
+			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
+				return getSubject();
 			case FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER:
 				return getEncounter();
+			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
+				return getOrderer();
 			case FhirPackage.DIAGNOSTIC_ORDER__REASON:
 				return getReason();
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return getSupportingInformation();
 			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
 				return getSpecimen();
-			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
-				return getStatus();
-			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
-				return getPriority();
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return getEvent();
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:
@@ -572,18 +572,24 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
-				setSubject((Reference)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
-				setOrderer((Reference)newValue);
-				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
+				setStatus((DiagnosticOrderStatus)newValue);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
+				setPriority((DiagnosticOrderPriority)newValue);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
+				setSubject((Reference)newValue);
+				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER:
 				setEncounter((Reference)newValue);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
+				setOrderer((Reference)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__REASON:
 				getReason().clear();
@@ -596,12 +602,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
 				getSpecimen().clear();
 				getSpecimen().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
-				setStatus((DiagnosticOrderStatus)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
-				setPriority((DiagnosticOrderPriority)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				getEvent().clear();
@@ -627,17 +627,23 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
-				setSubject((Reference)null);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
-				setOrderer((Reference)null);
-				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
+				setStatus((DiagnosticOrderStatus)null);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
+				setPriority((DiagnosticOrderPriority)null);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
+				setSubject((Reference)null);
+				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER:
 				setEncounter((Reference)null);
+				return;
+			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
+				setOrderer((Reference)null);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__REASON:
 				getReason().clear();
@@ -647,12 +653,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
 				getSpecimen().clear();
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
-				setStatus((DiagnosticOrderStatus)null);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
-				setPriority((DiagnosticOrderPriority)null);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				getEvent().clear();
@@ -675,24 +675,24 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
-				return subject != null;
-			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
-				return orderer != null;
 			case FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
+				return status != null;
+			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
+				return priority != null;
+			case FhirPackage.DIAGNOSTIC_ORDER__SUBJECT:
+				return subject != null;
 			case FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER:
 				return encounter != null;
+			case FhirPackage.DIAGNOSTIC_ORDER__ORDERER:
+				return orderer != null;
 			case FhirPackage.DIAGNOSTIC_ORDER__REASON:
 				return reason != null && !reason.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return supportingInformation != null && !supportingInformation.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
 				return specimen != null && !specimen.isEmpty();
-			case FhirPackage.DIAGNOSTIC_ORDER__STATUS:
-				return status != null;
-			case FhirPackage.DIAGNOSTIC_ORDER__PRIORITY:
-				return priority != null;
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return event != null && !event.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:

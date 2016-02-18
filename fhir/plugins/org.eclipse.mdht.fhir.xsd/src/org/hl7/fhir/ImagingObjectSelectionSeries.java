@@ -37,7 +37,7 @@ public interface ImagingObjectSelectionSeries extends BackboneElement {
 	 * @return the value of the '<em>Uid</em>' containment reference.
 	 * @see #setUid(Oid)
 	 * @see org.hl7.fhir.FhirPackage#getImagingObjectSelectionSeries_Uid()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
 	 * @generated
 	 */

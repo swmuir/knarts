@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ModuleMetadataCoverage;
-import org.hl7.fhir.ModuleMetadataFocusType;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,13 +24,12 @@ import org.hl7.fhir.ModuleMetadataFocusType;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataCoverageImpl#getFocus <em>Focus</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataCoverageImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataCoverageImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements ModuleMetadataCoverage {
+public class ModuleMetadataCoverageImpl extends ElementImpl implements ModuleMetadataCoverage {
 	/**
 	 * The cached value of the '{@link #getFocus() <em>Focus</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -39,17 +38,7 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	 * @generated
 	 * @ordered
 	 */
-	protected ModuleMetadataFocusType focus;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String description;
+	protected Coding focus;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -85,7 +74,7 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModuleMetadataFocusType getFocus() {
+	public Coding getFocus() {
 		return focus;
 	}
 
@@ -94,8 +83,8 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFocus(ModuleMetadataFocusType newFocus, NotificationChain msgs) {
-		ModuleMetadataFocusType oldFocus = focus;
+	public NotificationChain basicSetFocus(Coding newFocus, NotificationChain msgs) {
+		Coding oldFocus = focus;
 		focus = newFocus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_COVERAGE__FOCUS, oldFocus, newFocus);
@@ -109,7 +98,7 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFocus(ModuleMetadataFocusType newFocus) {
+	public void setFocus(Coding newFocus) {
 		if (newFocus != focus) {
 			NotificationChain msgs = null;
 			if (focus != null)
@@ -121,49 +110,6 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_COVERAGE__FOCUS, newFocus, newFocus));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -219,8 +165,6 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_COVERAGE__FOCUS:
 				return basicSetFocus(null, msgs);
-			case FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION:
-				return basicSetDescription(null, msgs);
 			case FhirPackage.MODULE_METADATA_COVERAGE__VALUE:
 				return basicSetValue(null, msgs);
 		}
@@ -237,8 +181,6 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_COVERAGE__FOCUS:
 				return getFocus();
-			case FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION:
-				return getDescription();
 			case FhirPackage.MODULE_METADATA_COVERAGE__VALUE:
 				return getValue();
 		}
@@ -254,10 +196,7 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_COVERAGE__FOCUS:
-				setFocus((ModuleMetadataFocusType)newValue);
-				return;
-			case FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setFocus((Coding)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA_COVERAGE__VALUE:
 				setValue((CodeableConcept)newValue);
@@ -275,10 +214,7 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_COVERAGE__FOCUS:
-				setFocus((ModuleMetadataFocusType)null);
-				return;
-			case FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setFocus((Coding)null);
 				return;
 			case FhirPackage.MODULE_METADATA_COVERAGE__VALUE:
 				setValue((CodeableConcept)null);
@@ -297,8 +233,6 @@ public class ModuleMetadataCoverageImpl extends BackboneElementImpl implements M
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_COVERAGE__FOCUS:
 				return focus != null;
-			case FhirPackage.MODULE_METADATA_COVERAGE__DESCRIPTION:
-				return description != null;
 			case FhirPackage.MODULE_METADATA_COVERAGE__VALUE:
 				return value != null;
 		}

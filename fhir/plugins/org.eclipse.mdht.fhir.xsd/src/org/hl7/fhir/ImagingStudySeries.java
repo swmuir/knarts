@@ -17,9 +17,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.ImagingStudySeries#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getModality <em>Modality</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudySeries#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getAvailability <em>Availability</em>}</li>

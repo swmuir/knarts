@@ -23,9 +23,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Conformance#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.Conformance#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.Conformance#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.Conformance#getCopyright <em>Copyright</em>}</li>

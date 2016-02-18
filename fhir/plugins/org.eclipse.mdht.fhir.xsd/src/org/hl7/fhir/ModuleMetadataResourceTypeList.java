@@ -31,16 +31,14 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	DOCUMENTATION(0, "documentation", "documentation"),
 
 	/**
-	 * The '<em><b>Evidence</b></em>' literal object.
+	 * The '<em><b>Justification</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EVIDENCE_VALUE
+	 * @see #JUSTIFICATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EVIDENCE(1, "evidence", "evidence"),
-
-	/**
+	JUSTIFICATION(1, "justification", "justification"), /**
 	 * The '<em><b>Citation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,7 +83,7 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional documentation for the module
+	 * Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness
 	 * <!-- end-model-doc -->
 	 * @see #DOCUMENTATION
 	 * @model name="documentation"
@@ -95,25 +93,25 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	public static final int DOCUMENTATION_VALUE = 0;
 
 	/**
-	 * The '<em><b>Evidence</b></em>' literal value.
+	 * The '<em><b>Justification</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Supporting evidence for the module
+	 * A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact
 	 * <!-- end-model-doc -->
-	 * @see #EVIDENCE
-	 * @model name="evidence"
+	 * @see #JUSTIFICATION
+	 * @model name="justification"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EVIDENCE_VALUE = 1;
+	public static final int JUSTIFICATION_VALUE = 1;
 
 	/**
 	 * The '<em><b>Citation</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Bibliographic citation for the module
+	 * Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module
 	 * <!-- end-model-doc -->
 	 * @see #CITATION
 	 * @model name="citation"
@@ -155,7 +153,7 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The module is derived from the resource
+	 * The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
 	 * <!-- end-model-doc -->
 	 * @see #DERIVED_FROM
 	 * @model name="derivedFrom" literal="derived-from"
@@ -173,7 +171,7 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	private static final ModuleMetadataResourceTypeList[] VALUES_ARRAY =
 		new ModuleMetadataResourceTypeList[] {
 			DOCUMENTATION,
-			EVIDENCE,
+			JUSTIFICATION,
 			CITATION,
 			PREDECESSOR,
 			SUCCESSOR,
@@ -235,7 +233,7 @@ public enum ModuleMetadataResourceTypeList implements Enumerator {
 	public static ModuleMetadataResourceTypeList get(int value) {
 		switch (value) {
 			case DOCUMENTATION_VALUE: return DOCUMENTATION;
-			case EVIDENCE_VALUE: return EVIDENCE;
+			case JUSTIFICATION_VALUE: return JUSTIFICATION;
 			case CITATION_VALUE: return CITATION;
 			case PREDECESSOR_VALUE: return PREDECESSOR;
 			case SUCCESSOR_VALUE: return SUCCESSOR;

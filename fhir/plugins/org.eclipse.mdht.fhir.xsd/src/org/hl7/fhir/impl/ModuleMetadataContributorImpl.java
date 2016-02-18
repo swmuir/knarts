@@ -2,18 +2,22 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.ModuleMetadataContact1;
 import org.hl7.fhir.ModuleMetadataContributor;
 import org.hl7.fhir.ModuleMetadataContributorType;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,12 +28,13 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataContributorImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataContributorImpl#getParty <em>Party</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataContributorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataContributorImpl#getContact <em>Contact</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModuleMetadataContributorImpl extends BackboneElementImpl implements ModuleMetadataContributor {
+public class ModuleMetadataContributorImpl extends ElementImpl implements ModuleMetadataContributor {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -41,14 +46,24 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 	protected ModuleMetadataContributorType type;
 
 	/**
-	 * The cached value of the '{@link #getParty() <em>Party</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParty()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference party;
+	protected org.hl7.fhir.String name;
+
+	/**
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContact()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModuleMetadataContact1> contact;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,8 +132,8 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getParty() {
-		return party;
+	public org.hl7.fhir.String getName() {
+		return name;
 	}
 
 	/**
@@ -126,11 +141,11 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParty(Reference newParty, NotificationChain msgs) {
-		Reference oldParty = party;
-		party = newParty;
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY, oldParty, newParty);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME, oldName, newName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -141,18 +156,30 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParty(Reference newParty) {
-		if (newParty != party) {
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
 			NotificationChain msgs = null;
-			if (party != null)
-				msgs = ((InternalEObject)party).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY, null, msgs);
-			if (newParty != null)
-				msgs = ((InternalEObject)newParty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY, null, msgs);
-			msgs = basicSetParty(newParty, msgs);
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY, newParty, newParty));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModuleMetadataContact1> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<ModuleMetadataContact1>(ModuleMetadataContact1.class, this, FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT);
+		}
+		return contact;
 	}
 
 	/**
@@ -165,8 +192,10 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY:
-				return basicSetParty(null, msgs);
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME:
+				return basicSetName(null, msgs);
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,8 +210,10 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__TYPE:
 				return getType();
-			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY:
-				return getParty();
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME:
+				return getName();
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT:
+				return getContact();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,14 +223,19 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__TYPE:
 				setType((ModuleMetadataContributorType)newValue);
 				return;
-			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY:
-				setParty((Reference)newValue);
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME:
+				setName((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT:
+				getContact().clear();
+				getContact().addAll((Collection<? extends ModuleMetadataContact1>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,8 +252,11 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__TYPE:
 				setType((ModuleMetadataContributorType)null);
 				return;
-			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY:
-				setParty((Reference)null);
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME:
+				setName((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT:
+				getContact().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -233,8 +272,10 @@ public class ModuleMetadataContributorImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__TYPE:
 				return type != null;
-			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__PARTY:
-				return party != null;
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__NAME:
+				return name != null;
+			case FhirPackage.MODULE_METADATA_CONTRIBUTOR__CONTACT:
+				return contact != null && !contact.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

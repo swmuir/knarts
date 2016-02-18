@@ -22,13 +22,14 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ModuleMetadata;
+import org.hl7.fhir.ModuleMetadataContact;
 import org.hl7.fhir.ModuleMetadataContributor;
 import org.hl7.fhir.ModuleMetadataCoverage;
 import org.hl7.fhir.ModuleMetadataRelatedResource;
 import org.hl7.fhir.ModuleMetadataStatus;
 import org.hl7.fhir.ModuleMetadataType;
 import org.hl7.fhir.Period;
-import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,11 +39,14 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getUsage <em>Usage</em>}</li>
@@ -51,17 +55,26 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getTopic <em>Topic</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getSteward <em>Steward</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getRightsDeclaration <em>Rights Declaration</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataImpl#getRelatedResource <em>Related Resource</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMetadata {
+public class ModuleMetadataImpl extends ElementImpl implements ModuleMetadata {
+	/**
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri url;
+
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -81,6 +94,16 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String version;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String name;
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -111,6 +134,16 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * @ordered
 	 */
 	protected ModuleMetadataStatus status;
+
+	/**
+	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExperimental()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean experimental;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -193,16 +226,6 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	protected EList<CodeableConcept> topic;
 
 	/**
-	 * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyword()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<org.hl7.fhir.String> keyword;
-
-	/**
 	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,27 +243,27 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference publisher;
+	protected org.hl7.fhir.String publisher;
 
 	/**
-	 * The cached value of the '{@link #getSteward() <em>Steward</em>}' containment reference.
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSteward()
+	 * @see #getContact()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference steward;
+	protected EList<ModuleMetadataContact> contact;
 
 	/**
-	 * The cached value of the '{@link #getRightsDeclaration() <em>Rights Declaration</em>}' containment reference.
+	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRightsDeclaration()
+	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String rightsDeclaration;
+	protected org.hl7.fhir.String copyright;
 
 	/**
 	 * The cached value of the '{@link #getRelatedResource() <em>Related Resource</em>}' containment reference list.
@@ -269,6 +292,49 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getModuleMetadata();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getUrl() {
+		return url;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
+		Uri oldUrl = url;
+		url = newUrl;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__URL, oldUrl, newUrl);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUrl(Uri newUrl) {
+		if (newUrl != url) {
+			NotificationChain msgs = null;
+			if (url != null)
+				msgs = ((InternalEObject)url).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__URL, null, msgs);
+			if (newUrl != null)
+				msgs = ((InternalEObject)newUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__URL, null, msgs);
+			msgs = basicSetUrl(newUrl, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__URL, newUrl, newUrl));
 	}
 
 	/**
@@ -324,6 +390,49 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__VERSION, newVersion, newVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__NAME, oldName, newName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
+			NotificationChain msgs = null;
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__NAME, newName, newName));
 	}
 
 	/**
@@ -453,6 +562,49 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getExperimental() {
+		return experimental;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExperimental(org.hl7.fhir.Boolean newExperimental, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldExperimental = experimental;
+		experimental = newExperimental;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__EXPERIMENTAL, oldExperimental, newExperimental);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExperimental(org.hl7.fhir.Boolean newExperimental) {
+		if (newExperimental != experimental) {
+			NotificationChain msgs = null;
+			if (experimental != null)
+				msgs = ((InternalEObject)experimental).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__EXPERIMENTAL, null, msgs);
+			if (newExperimental != null)
+				msgs = ((InternalEObject)newExperimental).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__EXPERIMENTAL, null, msgs);
+			msgs = basicSetExperimental(newExperimental, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__EXPERIMENTAL, newExperimental, newExperimental));
 	}
 
 	/**
@@ -742,18 +894,6 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getKeyword() {
-		if (keyword == null) {
-			keyword = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.MODULE_METADATA__KEYWORD);
-		}
-		return keyword;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ModuleMetadataContributor> getContributor() {
 		if (contributor == null) {
 			contributor = new EObjectContainmentEList<ModuleMetadataContributor>(ModuleMetadataContributor.class, this, FhirPackage.MODULE_METADATA__CONTRIBUTOR);
@@ -766,7 +906,7 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPublisher() {
+	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
 
@@ -775,8 +915,8 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPublisher(Reference newPublisher, NotificationChain msgs) {
-		Reference oldPublisher = publisher;
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
 		publisher = newPublisher;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__PUBLISHER, oldPublisher, newPublisher);
@@ -790,7 +930,7 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPublisher(Reference newPublisher) {
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
 		if (newPublisher != publisher) {
 			NotificationChain msgs = null;
 			if (publisher != null)
@@ -809,8 +949,11 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSteward() {
-		return steward;
+	public EList<ModuleMetadataContact> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<ModuleMetadataContact>(ModuleMetadataContact.class, this, FhirPackage.MODULE_METADATA__CONTACT);
+		}
+		return contact;
 	}
 
 	/**
@@ -818,11 +961,20 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSteward(Reference newSteward, NotificationChain msgs) {
-		Reference oldSteward = steward;
-		steward = newSteward;
+	public org.hl7.fhir.String getCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCopyright(org.hl7.fhir.String newCopyright, NotificationChain msgs) {
+		org.hl7.fhir.String oldCopyright = copyright;
+		copyright = newCopyright;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__STEWARD, oldSteward, newSteward);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__COPYRIGHT, oldCopyright, newCopyright);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -833,61 +985,18 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSteward(Reference newSteward) {
-		if (newSteward != steward) {
+	public void setCopyright(org.hl7.fhir.String newCopyright) {
+		if (newCopyright != copyright) {
 			NotificationChain msgs = null;
-			if (steward != null)
-				msgs = ((InternalEObject)steward).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__STEWARD, null, msgs);
-			if (newSteward != null)
-				msgs = ((InternalEObject)newSteward).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__STEWARD, null, msgs);
-			msgs = basicSetSteward(newSteward, msgs);
+			if (copyright != null)
+				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__COPYRIGHT, null, msgs);
+			if (newCopyright != null)
+				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__COPYRIGHT, null, msgs);
+			msgs = basicSetCopyright(newCopyright, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__STEWARD, newSteward, newSteward));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getRightsDeclaration() {
-		return rightsDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRightsDeclaration(org.hl7.fhir.String newRightsDeclaration, NotificationChain msgs) {
-		org.hl7.fhir.String oldRightsDeclaration = rightsDeclaration;
-		rightsDeclaration = newRightsDeclaration;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION, oldRightsDeclaration, newRightsDeclaration);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRightsDeclaration(org.hl7.fhir.String newRightsDeclaration) {
-		if (newRightsDeclaration != rightsDeclaration) {
-			NotificationChain msgs = null;
-			if (rightsDeclaration != null)
-				msgs = ((InternalEObject)rightsDeclaration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION, null, msgs);
-			if (newRightsDeclaration != null)
-				msgs = ((InternalEObject)newRightsDeclaration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION, null, msgs);
-			msgs = basicSetRightsDeclaration(newRightsDeclaration, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION, newRightsDeclaration, newRightsDeclaration));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA__COPYRIGHT, newCopyright, newCopyright));
 	}
 
 	/**
@@ -910,16 +1019,22 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.MODULE_METADATA__URL:
+				return basicSetUrl(null, msgs);
 			case FhirPackage.MODULE_METADATA__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MODULE_METADATA__VERSION:
 				return basicSetVersion(null, msgs);
+			case FhirPackage.MODULE_METADATA__NAME:
+				return basicSetName(null, msgs);
 			case FhirPackage.MODULE_METADATA__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.MODULE_METADATA__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.MODULE_METADATA__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.MODULE_METADATA__EXPERIMENTAL:
+				return basicSetExperimental(null, msgs);
 			case FhirPackage.MODULE_METADATA__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.MODULE_METADATA__PURPOSE:
@@ -936,16 +1051,14 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				return ((InternalEList<?>)getCoverage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MODULE_METADATA__TOPIC:
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MODULE_METADATA__KEYWORD:
-				return ((InternalEList<?>)getKeyword()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MODULE_METADATA__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MODULE_METADATA__PUBLISHER:
 				return basicSetPublisher(null, msgs);
-			case FhirPackage.MODULE_METADATA__STEWARD:
-				return basicSetSteward(null, msgs);
-			case FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION:
-				return basicSetRightsDeclaration(null, msgs);
+			case FhirPackage.MODULE_METADATA__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MODULE_METADATA__COPYRIGHT:
+				return basicSetCopyright(null, msgs);
 			case FhirPackage.MODULE_METADATA__RELATED_RESOURCE:
 				return ((InternalEList<?>)getRelatedResource()).basicRemove(otherEnd, msgs);
 		}
@@ -960,16 +1073,22 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.MODULE_METADATA__URL:
+				return getUrl();
 			case FhirPackage.MODULE_METADATA__IDENTIFIER:
 				return getIdentifier();
 			case FhirPackage.MODULE_METADATA__VERSION:
 				return getVersion();
+			case FhirPackage.MODULE_METADATA__NAME:
+				return getName();
 			case FhirPackage.MODULE_METADATA__TITLE:
 				return getTitle();
 			case FhirPackage.MODULE_METADATA__TYPE:
 				return getType();
 			case FhirPackage.MODULE_METADATA__STATUS:
 				return getStatus();
+			case FhirPackage.MODULE_METADATA__EXPERIMENTAL:
+				return getExperimental();
 			case FhirPackage.MODULE_METADATA__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.MODULE_METADATA__PURPOSE:
@@ -986,16 +1105,14 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				return getCoverage();
 			case FhirPackage.MODULE_METADATA__TOPIC:
 				return getTopic();
-			case FhirPackage.MODULE_METADATA__KEYWORD:
-				return getKeyword();
 			case FhirPackage.MODULE_METADATA__CONTRIBUTOR:
 				return getContributor();
 			case FhirPackage.MODULE_METADATA__PUBLISHER:
 				return getPublisher();
-			case FhirPackage.MODULE_METADATA__STEWARD:
-				return getSteward();
-			case FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION:
-				return getRightsDeclaration();
+			case FhirPackage.MODULE_METADATA__CONTACT:
+				return getContact();
+			case FhirPackage.MODULE_METADATA__COPYRIGHT:
+				return getCopyright();
 			case FhirPackage.MODULE_METADATA__RELATED_RESOURCE:
 				return getRelatedResource();
 		}
@@ -1011,12 +1128,18 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.MODULE_METADATA__URL:
+				setUrl((Uri)newValue);
+				return;
 			case FhirPackage.MODULE_METADATA__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA__VERSION:
 				setVersion((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.MODULE_METADATA__NAME:
+				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
@@ -1026,6 +1149,9 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				return;
 			case FhirPackage.MODULE_METADATA__STATUS:
 				setStatus((ModuleMetadataStatus)newValue);
+				return;
+			case FhirPackage.MODULE_METADATA__EXPERIMENTAL:
+				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -1053,22 +1179,19 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				getTopic().clear();
 				getTopic().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MODULE_METADATA__KEYWORD:
-				getKeyword().clear();
-				getKeyword().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
-				return;
 			case FhirPackage.MODULE_METADATA__CONTRIBUTOR:
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends ModuleMetadataContributor>)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA__PUBLISHER:
-				setPublisher((Reference)newValue);
+				setPublisher((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.MODULE_METADATA__STEWARD:
-				setSteward((Reference)newValue);
+			case FhirPackage.MODULE_METADATA__CONTACT:
+				getContact().clear();
+				getContact().addAll((Collection<? extends ModuleMetadataContact>)newValue);
 				return;
-			case FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION:
-				setRightsDeclaration((org.hl7.fhir.String)newValue);
+			case FhirPackage.MODULE_METADATA__COPYRIGHT:
+				setCopyright((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MODULE_METADATA__RELATED_RESOURCE:
 				getRelatedResource().clear();
@@ -1086,11 +1209,17 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MODULE_METADATA__URL:
+				setUrl((Uri)null);
+				return;
 			case FhirPackage.MODULE_METADATA__IDENTIFIER:
 				getIdentifier().clear();
 				return;
 			case FhirPackage.MODULE_METADATA__VERSION:
 				setVersion((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.MODULE_METADATA__NAME:
+				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MODULE_METADATA__TITLE:
 				setTitle((org.hl7.fhir.String)null);
@@ -1100,6 +1229,9 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				return;
 			case FhirPackage.MODULE_METADATA__STATUS:
 				setStatus((ModuleMetadataStatus)null);
+				return;
+			case FhirPackage.MODULE_METADATA__EXPERIMENTAL:
+				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.MODULE_METADATA__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -1125,20 +1257,17 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 			case FhirPackage.MODULE_METADATA__TOPIC:
 				getTopic().clear();
 				return;
-			case FhirPackage.MODULE_METADATA__KEYWORD:
-				getKeyword().clear();
-				return;
 			case FhirPackage.MODULE_METADATA__CONTRIBUTOR:
 				getContributor().clear();
 				return;
 			case FhirPackage.MODULE_METADATA__PUBLISHER:
-				setPublisher((Reference)null);
+				setPublisher((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.MODULE_METADATA__STEWARD:
-				setSteward((Reference)null);
+			case FhirPackage.MODULE_METADATA__CONTACT:
+				getContact().clear();
 				return;
-			case FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION:
-				setRightsDeclaration((org.hl7.fhir.String)null);
+			case FhirPackage.MODULE_METADATA__COPYRIGHT:
+				setCopyright((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MODULE_METADATA__RELATED_RESOURCE:
 				getRelatedResource().clear();
@@ -1155,16 +1284,22 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MODULE_METADATA__URL:
+				return url != null;
 			case FhirPackage.MODULE_METADATA__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MODULE_METADATA__VERSION:
 				return version != null;
+			case FhirPackage.MODULE_METADATA__NAME:
+				return name != null;
 			case FhirPackage.MODULE_METADATA__TITLE:
 				return title != null;
 			case FhirPackage.MODULE_METADATA__TYPE:
 				return type != null;
 			case FhirPackage.MODULE_METADATA__STATUS:
 				return status != null;
+			case FhirPackage.MODULE_METADATA__EXPERIMENTAL:
+				return experimental != null;
 			case FhirPackage.MODULE_METADATA__DESCRIPTION:
 				return description != null;
 			case FhirPackage.MODULE_METADATA__PURPOSE:
@@ -1181,16 +1316,14 @@ public class ModuleMetadataImpl extends DomainResourceImpl implements ModuleMeta
 				return coverage != null && !coverage.isEmpty();
 			case FhirPackage.MODULE_METADATA__TOPIC:
 				return topic != null && !topic.isEmpty();
-			case FhirPackage.MODULE_METADATA__KEYWORD:
-				return keyword != null && !keyword.isEmpty();
 			case FhirPackage.MODULE_METADATA__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
 			case FhirPackage.MODULE_METADATA__PUBLISHER:
 				return publisher != null;
-			case FhirPackage.MODULE_METADATA__STEWARD:
-				return steward != null;
-			case FhirPackage.MODULE_METADATA__RIGHTS_DECLARATION:
-				return rightsDeclaration != null;
+			case FhirPackage.MODULE_METADATA__CONTACT:
+				return contact != null && !contact.isEmpty();
+			case FhirPackage.MODULE_METADATA__COPYRIGHT:
+				return copyright != null;
 			case FhirPackage.MODULE_METADATA__RELATED_RESOURCE:
 				return relatedResource != null && !relatedResource.isEmpty();
 		}

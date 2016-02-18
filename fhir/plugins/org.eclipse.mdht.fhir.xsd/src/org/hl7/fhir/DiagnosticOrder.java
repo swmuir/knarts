@@ -18,15 +18,15 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticOrder#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticOrder#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticOrder#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticOrder#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSpecimen <em>Specimen</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticOrder#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticOrder#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getNote <em>Note</em>}</li>
@@ -42,7 +42,7 @@ public interface DiagnosticOrder extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+	 * On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)

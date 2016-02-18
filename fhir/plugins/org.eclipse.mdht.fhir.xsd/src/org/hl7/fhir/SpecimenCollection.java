@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Specimen Collection</b></em>'.
@@ -58,20 +56,30 @@ public interface SpecimenCollection extends BackboneElement {
 	void setCollector(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * To communicate any details or issues encountered during the specimen collection procedure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment</em>' containment reference list.
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_Comment()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<org.hl7.fhir.String> getComment();
+	org.hl7.fhir.String getComment();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getComment <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Collected Date Time</b></em>' containment reference.

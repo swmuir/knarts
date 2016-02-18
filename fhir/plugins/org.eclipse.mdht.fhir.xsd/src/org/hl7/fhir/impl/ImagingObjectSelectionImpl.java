@@ -35,10 +35,10 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getAuthoringTime <em>Authoring Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getAuthoringTime <em>Authoring Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionImpl#getStudy <em>Study</em>}</li>
  * </ul>
  *
@@ -66,6 +66,26 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 	protected Reference patient;
 
 	/**
+	 * The cached value of the '{@link #getAuthoringTime() <em>Authoring Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthoringTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime authoringTime;
+
+	/**
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference author;
+
+	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,26 +104,6 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String description;
-
-	/**
-	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAuthor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference author;
-
-	/**
-	 * The cached value of the '{@link #getAuthoringTime() <em>Authoring Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAuthoringTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime authoringTime;
 
 	/**
 	 * The cached value of the '{@link #getStudy() <em>Study</em>}' containment reference list.
@@ -416,14 +416,14 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_OBJECT_SELECTION__PATIENT:
 				return basicSetPatient(null, msgs);
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
+				return basicSetAuthoringTime(null, msgs);
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
+				return basicSetAuthor(null, msgs);
 			case FhirPackage.IMAGING_OBJECT_SELECTION__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
-				return basicSetAuthor(null, msgs);
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
-				return basicSetAuthoringTime(null, msgs);
 			case FhirPackage.IMAGING_OBJECT_SELECTION__STUDY:
 				return ((InternalEList<?>)getStudy()).basicRemove(otherEnd, msgs);
 		}
@@ -442,14 +442,14 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 				return getUid();
 			case FhirPackage.IMAGING_OBJECT_SELECTION__PATIENT:
 				return getPatient();
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
+				return getAuthoringTime();
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
+				return getAuthor();
 			case FhirPackage.IMAGING_OBJECT_SELECTION__TITLE:
 				return getTitle();
 			case FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
-				return getAuthor();
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
-				return getAuthoringTime();
 			case FhirPackage.IMAGING_OBJECT_SELECTION__STUDY:
 				return getStudy();
 		}
@@ -471,17 +471,17 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMAGING_OBJECT_SELECTION__PATIENT:
 				setPatient((Reference)newValue);
 				return;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
+				setAuthoringTime((DateTime)newValue);
+				return;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
+				setAuthor((Reference)newValue);
+				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__TITLE:
 				setTitle((CodeableConcept)newValue);
 				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
-				setAuthor((Reference)newValue);
-				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
-				setAuthoringTime((DateTime)newValue);
 				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__STUDY:
 				getStudy().clear();
@@ -505,17 +505,17 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMAGING_OBJECT_SELECTION__PATIENT:
 				setPatient((Reference)null);
 				return;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
+				setAuthoringTime((DateTime)null);
+				return;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
+				setAuthor((Reference)null);
+				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__TITLE:
 				setTitle((CodeableConcept)null);
 				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
-				setAuthor((Reference)null);
-				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
-				setAuthoringTime((DateTime)null);
 				return;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__STUDY:
 				getStudy().clear();
@@ -536,14 +536,14 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 				return uid != null;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__PATIENT:
 				return patient != null;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
+				return authoringTime != null;
+			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
+				return author != null;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__TITLE:
 				return title != null;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION:
 				return description != null;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR:
-				return author != null;
-			case FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME:
-				return authoringTime != null;
 			case FhirPackage.IMAGING_OBJECT_SELECTION__STUDY:
 				return study != null && !study.isEmpty();
 		}

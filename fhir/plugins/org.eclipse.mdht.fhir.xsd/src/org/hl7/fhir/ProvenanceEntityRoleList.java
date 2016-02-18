@@ -58,7 +58,15 @@ public enum ProvenanceEntityRoleList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOURCE(3, "source", "source");
+	SOURCE(3, "source", "source"), /**
+	 * The '<em><b>Removal</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REMOVAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REMOVAL(4, "removal", "removal");
 
 	/**
 	 * The '<em><b>Derivation</b></em>' literal value.
@@ -117,6 +125,20 @@ public enum ProvenanceEntityRoleList implements Enumerator {
 	public static final int SOURCE_VALUE = 3;
 
 	/**
+	 * The '<em><b>Removal</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A derivation for which the entity is removed from accessibility usually through the use of the Delete operation.
+	 * <!-- end-model-doc -->
+	 * @see #REMOVAL
+	 * @model name="removal"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REMOVAL_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Provenance Entity Role List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +150,7 @@ public enum ProvenanceEntityRoleList implements Enumerator {
 			REVISION,
 			QUOTATION,
 			SOURCE,
+			REMOVAL,
 		};
 
 	/**
@@ -188,6 +211,7 @@ public enum ProvenanceEntityRoleList implements Enumerator {
 			case REVISION_VALUE: return REVISION;
 			case QUOTATION_VALUE: return QUOTATION;
 			case SOURCE_VALUE: return SOURCE;
+			case REMOVAL_VALUE: return REMOVAL;
 		}
 		return null;
 	}

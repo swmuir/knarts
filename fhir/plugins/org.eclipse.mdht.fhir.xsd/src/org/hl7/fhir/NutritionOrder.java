@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.NutritionOrder#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.NutritionOrder#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getDateTime <em>Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getAllergyIntolerance <em>Allergy Intolerance</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getFoodPreferenceModifier <em>Food Preference Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getExcludeFoodModifier <em>Exclude Food Modifier</em>}</li>

@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getClaimResponse <em>Claim Response</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getClinicalImpression <em>Clinical Impression</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getCodeSystem <em>Code System</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCommunication <em>Communication</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCommunicationRequest <em>Communication Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getComposition <em>Composition</em>}</li>
@@ -76,6 +77,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getImplementationGuide <em>Implementation Guide</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getLibrary <em>Library</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getLinkage <em>Linkage</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getList <em>List</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMeasure <em>Measure</em>}</li>
@@ -87,7 +89,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMedicationStatement <em>Medication Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getMessageHeader <em>Message Header</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getModuleDefinition <em>Module Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentRoot#getModuleMetadata <em>Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getNamingSystem <em>Naming System</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getNutritionOrder <em>Nutrition Order</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getObservation <em>Observation</em>}</li>
@@ -107,6 +108,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getProcedureRequest <em>Procedure Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getProcessRequest <em>Process Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getProcessResponse <em>Process Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getProvenance <em>Provenance</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getQuestionnaireResponse <em>Questionnaire Response</em>}</li>
@@ -525,6 +527,32 @@ public interface DocumentRoot extends EObject {
 	void setClinicalImpression(ClinicalImpression value);
 
 	/**
+	 * Returns the value of the '<em><b>Code System</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code system specifies a set of codes drawn from one or more code systems.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code System</em>' containment reference.
+	 * @see #setCodeSystem(CodeSystem)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_CodeSystem()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='CodeSystem' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeSystem getCodeSystem();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getCodeSystem <em>Code System</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code System</em>' containment reference.
+	 * @see #getCodeSystem()
+	 * @generated
+	 */
+	void setCodeSystem(CodeSystem value);
+
+	/**
 	 * Returns the value of the '<em><b>Communication</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,7 +869,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+	 * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Device</em>' containment reference.
 	 * @see #setDevice(Device)
@@ -1591,6 +1619,32 @@ public interface DocumentRoot extends EObject {
 	void setLibrary(Library value);
 
 	/**
+	 * Returns the value of the '<em><b>Linkage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Linkage</em>' containment reference.
+	 * @see #setLinkage(Linkage)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Linkage()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Linkage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Linkage getLinkage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getLinkage <em>Linkage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Linkage</em>' containment reference.
+	 * @see #getLinkage()
+	 * @generated
+	 */
+	void setLinkage(Linkage value);
+
+	/**
 	 * Returns the value of the '<em><b>List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1877,32 +1931,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setModuleDefinition(ModuleDefinition value);
-
-	/**
-	 * Returns the value of the '<em><b>Module Metadata</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Module Metadata</em>' containment reference.
-	 * @see #setModuleMetadata(ModuleMetadata)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_ModuleMetadata()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ModuleMetadata' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ModuleMetadata getModuleMetadata();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getModuleMetadata <em>Module Metadata</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Module Metadata</em>' containment reference.
-	 * @see #getModuleMetadata()
-	 * @generated
-	 */
-	void setModuleMetadata(ModuleMetadata value);
 
 	/**
 	 * Returns the value of the '<em><b>Naming System</b></em>' containment reference.
@@ -2397,6 +2425,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setProcessResponse(ProcessResponse value);
+
+	/**
+	 * Returns the value of the '<em><b>Protocol</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Protocol</em>' containment reference.
+	 * @see #setProtocol(Protocol)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Protocol()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Protocol' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Protocol getProtocol();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getProtocol <em>Protocol</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Protocol</em>' containment reference.
+	 * @see #getProtocol()
+	 * @generated
+	 */
+	void setProtocol(Protocol value);
 
 	/**
 	 * Returns the value of the '<em><b>Provenance</b></em>' containment reference.

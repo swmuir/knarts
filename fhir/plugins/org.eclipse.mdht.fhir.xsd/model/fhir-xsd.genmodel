@@ -2264,6 +2264,15 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/reprocess"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/status"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActivityDefinitionCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/diet"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/drug"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/encounter"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/observation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/procedure"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/supply"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/other"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AddressTypeList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressTypeList/postal"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressTypeList/physical"/>
@@ -2298,9 +2307,9 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCertaintyList/confirmed"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceCriticalityList">
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/CRITL"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/CRITH"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/CRITU"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/low"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/high"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/unableToAssess"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceSeverityList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceSeverityList/mild"/>
@@ -2427,6 +2436,12 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/inProgress"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/completed"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CodeSystemContentModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/notPresent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/examplar"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/fragment"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/complete"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CommunicationRequestStatusList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/proposed"/>
@@ -2638,6 +2653,7 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/suspended"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/rejected"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/failed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/enteredInError"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DiagnosticReportStatusList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/registered"/>
@@ -2857,6 +2873,11 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/throttled"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/informational"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LinkageTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/alternate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/historical"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LinkTypeList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkTypeList/replace"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkTypeList/refer"/>
@@ -2944,18 +2965,9 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/reviewer"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/endorser"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataFocusTypeList">
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/patientGender"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/patientAgeGroup"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/clinicalFocus"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/targetUser"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/workflowSetting"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/workflowTask"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataFocusTypeList/clinicalVenue"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataResourceTypeList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/documentation"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/evidence"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/justification"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/citation"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/predecessor"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/successor"/>
@@ -2963,7 +2975,6 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataStatusList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/draft"/>
-      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/test"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/active"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/inactive"/>
     </genEnums>
@@ -3014,6 +3025,7 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/onHold"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/completed"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/enteredInError"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ObservationRelationshipTypeList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/hasMember"/>
@@ -3145,11 +3157,32 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//PropertyRepresentationList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationList/xmlAttr"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//PropertyTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/code"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/Coding"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/string"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/integer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProtocolStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/testing"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/review"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/withdrawn"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/superseded"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProtocolTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/condition"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/device"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/drug"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/study"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProvenanceEntityRoleList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/derivation"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/revision"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/quotation"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/removal"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//QuantityComparatorList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuantityComparatorList/_"/>
@@ -3354,6 +3387,7 @@
     </genEnums>
     <genDataTypes ecoreDataType="fhir.ecore#//AccountStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ActionListListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActivityDefinitionCategoryListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//AddressTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//AddressUseListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//AdministrativeGenderListObject"/>
@@ -3382,6 +3416,7 @@
     <genDataTypes ecoreDataType="fhir.ecore#//ClaimTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ClinicalImpressionStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//CodePrimitive"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CodeSystemContentModeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//CommunicationRequestStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//CommunicationStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//CompositionAttestationModeListObject"/>
@@ -3448,6 +3483,7 @@
     <genDataTypes ecoreDataType="fhir.ecore#//IntegerPrimitiveObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//IssueSeverityListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//IssueTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//LinkageTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//LinkTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ListModeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ListStatusListObject"/>
@@ -3462,7 +3498,6 @@
     <genDataTypes ecoreDataType="fhir.ecore#//MedicationStatementStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//MessageSignificanceCategoryListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataContributorTypeListObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataFocusTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataResourceTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataTypeListObject"/>
@@ -3495,6 +3530,9 @@
     <genDataTypes ecoreDataType="fhir.ecore#//ProfileDestinationTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ProfileOriginTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//PropertyRepresentationListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//PropertyTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//ProvenanceEntityRoleListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//QuantityComparatorListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireItemTypeListObject"/>
@@ -3551,6 +3589,9 @@
     <genClasses ecoreClass="fhir.ecore#//ActionList">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ActionList/value"/>
     </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ActivityDefinitionCategory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ActivityDefinitionCategory/value"/>
+    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Address">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Address/use"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Address/type"/>
@@ -3578,16 +3619,16 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AllergyIntolerance">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/onset"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/recordedDate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/recorder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/patient"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/reporter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/substance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/status"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/criticality"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/category"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/criticality"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/substance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/recordedDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/recorder"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/reporter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/onset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/lastOccurence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AllergyIntolerance/reaction"/>
@@ -3679,58 +3720,55 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Attachment/creation"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEvent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/event"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/participant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/subtype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/recorded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/outcome"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/outcomeDesc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/purposeOfEvent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/agent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/source"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEvent/entity"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEventAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//AuditEventAction/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//AuditEventAgent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/userId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/altId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/requestor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/policy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/media"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/network"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventAgent/purposeOfUse"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEventDetail">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventDetail/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventDetail/value"/>
     </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//AuditEventEvent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/subtype"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/dateTime"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/outcome"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/outcomeDesc"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEvent/purposeOfEvent"/>
+    <genClasses ecoreClass="fhir.ecore#//AuditEventEntity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/lifecycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/securityLabel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/query"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventEntity/detail"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEventNetwork">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventNetwork/address"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventNetwork/type"/>
     </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//AuditEventObject">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/reference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/role"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/lifecycle"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/securityLabel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/query"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventObject/detail"/>
-    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEventOutcome">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//AuditEventOutcome/value"/>
-    </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//AuditEventParticipant">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/role"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/reference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/userId"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/altId"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/requestor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/location"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/policy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/media"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/network"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//AuditEventParticipant/purposeOfUse"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//AuditEventParticipantNetworkType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//AuditEventParticipantNetworkType/value"/>
@@ -3750,8 +3788,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/subject"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/author"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/created"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Basic/author"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Binary">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Binary/contentType"/>
@@ -4134,6 +4172,68 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeableConcept/coding"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeableConcept/text"/>
     </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/experimental"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/publisher"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/contact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/date"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/useContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/requirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/copyright"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/caseSensitive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/valueSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/compositional"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/versionNeeded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/count"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystem/concept"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemConcept">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/display"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/designation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemConcept/concept"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemContact">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemContact/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemContact/telecom"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemContentMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//CodeSystemContentMode/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemDesignation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemDesignation/language"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemDesignation/use"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemDesignation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemFilter/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemFilter/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemFilter/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemFilter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemProperty">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty/type"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//CodeSystemProperty1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty1/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty1/valueCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty1/valueCoding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty1/valueString"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CodeSystemProperty1/valueInteger"/>
+    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Coding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Coding/system"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Coding/version"/>
@@ -4262,6 +4362,7 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ConceptMapElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapElement/codeSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapElement/codeSystemVersion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapElement/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapElement/target"/>
     </genClasses>
@@ -4270,6 +4371,7 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ConceptMapTarget">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapTarget/codeSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapTarget/codeSystemVersion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapTarget/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapTarget/equivalence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConceptMapTarget/comments"/>
@@ -4323,9 +4425,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/experimental"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/date"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/publisher"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/contact"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/date"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/requirements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Conformance/copyright"/>
@@ -4465,16 +4567,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/issued"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/applies"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/topic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/authority"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/domain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/subType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/actionReason"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/actor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/valuedItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/agent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/signer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/valuedItem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/term"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/bindingAttachment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/bindingReference"/>
@@ -4482,13 +4584,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/legal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Contract/rule"/>
     </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//ContractActor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractActor/entity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractActor/role"/>
+    <genClasses ecoreClass="fhir.ecore#//ContractAgent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractAgent/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractAgent/role"/>
     </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//ContractActor1">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractActor1/entity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractActor1/role"/>
+    <genClasses ecoreClass="fhir.ecore#//ContractAgent1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractAgent1/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractAgent1/role"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ContractFriendly">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractFriendly/contentAttachment"/>
@@ -4513,10 +4615,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/applies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/subType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/topic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/actionReason"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/agent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/text"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/valuedItem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ContractTerm/group"/>
@@ -4564,12 +4666,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/experimental"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/publisher"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/contact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/date"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/contact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/useContext"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/copyright"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElement/stringency"/>
@@ -4584,7 +4686,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElementMapping/identity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElementMapping/uri"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElementMapping/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElementMapping/comments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DataElementMapping/comment"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DataElementStringency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//DataElementStringency/value"/>
@@ -4602,8 +4704,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//Decimal/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DecisionSupportRule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportRule/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportRule/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportRule/moduleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportRule/library"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportRule/trigger"/>
@@ -4647,8 +4747,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//DecisionSupportRuleTriggerType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DecisionSupportServiceModule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportServiceModule/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportServiceModule/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportServiceModule/moduleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DecisionSupportServiceModule/parameter"/>
     </genClasses>
@@ -4695,21 +4793,21 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Device">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/note"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/udiCarrier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/lotNumber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/manufacturer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/manufactureDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/expirationDate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/model"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/manufactureDate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/expiry"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/udi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/lotNumber"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/owner"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/owner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/contact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Device/note"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DeviceComponent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DeviceComponent/type"/>
@@ -4802,15 +4900,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DeviceUseStatement/timingDateTime"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DiagnosticOrder">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/subject"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/orderer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/subject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/encounter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/orderer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/reason"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/supportingInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/specimen"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/status"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/priority"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/event"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/item"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/note"/>
@@ -4953,6 +5051,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/claim"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/claimResponse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/clinicalImpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/codeSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/communication"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/communicationRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/composition"/>
@@ -4994,6 +5093,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/immunizationRecommendation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/implementationGuide"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/library"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/linkage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/list"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/measure"/>
@@ -5005,7 +5105,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/medicationStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/messageHeader"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/moduleDefinition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/moduleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/namingSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/nutritionOrder"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/observation"/>
@@ -5025,6 +5124,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/procedureRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/processRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/processResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/protocol"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/provenance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/questionnaire"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/questionnaireResponse"/>
@@ -5852,6 +5952,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/actual"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/active"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Group/quantity"/>
@@ -5982,21 +6083,21 @@
     <genClasses ecoreClass="fhir.ecore#//ImagingObjectSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/authoringTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/author"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/author"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/authoringTime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelection/study"/>
     </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//ImagingObjectSelectionFrames">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionFrames/frameNumbers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionFrames/url"/>
+    <genClasses ecoreClass="fhir.ecore#//ImagingObjectSelectionFrame">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionFrame/number"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionFrame/url"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ImagingObjectSelectionInstance">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionInstance/sopClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionInstance/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionInstance/url"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionInstance/frames"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionInstance/frame"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ImagingObjectSelectionSeries">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionSeries/uid"/>
@@ -6010,35 +6111,35 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingObjectSelectionStudy/series"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ImagingStudy">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/started"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/patient"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/accession"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/order"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/modalityList"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/referrer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/availability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/modalityList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/started"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/order"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/referrer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/interpreter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/numberOfSeries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/numberOfInstances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/procedure"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/interpreter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudy/series"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ImagingStudyInstance">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/number"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/uid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/number"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/sopClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudyInstance/content"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ImagingStudySeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/number"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/modality"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/numberOfInstances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ImagingStudySeries/availability"/>
@@ -6191,20 +6292,31 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Library/moduleDefinition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Library/document"/>
     </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//Linkage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Linkage/author"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Linkage/item"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//LinkageItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//LinkageItem/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//LinkageItem/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//LinkageType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//LinkageType/value"/>
+    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//LinkType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//LinkType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//List">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/mode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/subject"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/encounter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/date"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/orderedBy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/mode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/entry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//List/emptyReason"/>
@@ -6271,12 +6383,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//MeasurePopulationType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Media">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/subtype"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/subject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/deviceName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/height"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Media/width"/>
@@ -6294,17 +6406,17 @@
     <genClasses ecoreClass="fhir.ecore#//MedicationAdministration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/medicationCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/patient"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/practitioner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/encounter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimeDateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimePeriod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/practitioner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/prescription"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/wasNotGiven"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/reasonNotGiven"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/reasonGiven"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimeDateTime"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimePeriod"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/medicationCodeableConcept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/device"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/dosage"/>
@@ -6333,14 +6445,14 @@
     <genClasses ecoreClass="fhir.ecore#//MedicationDispense">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/medicationCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/patient"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/dispenser"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/authorizingPrescription"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/quantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/daysSupply"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/medicationCodeableConcept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/whenPrepared"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/whenHandedOver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/destination"/>
@@ -6379,18 +6491,18 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationOrder">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dateWritten"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/status"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dateEnded"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonEnded"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/patient"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/prescriber"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/encounter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonCodeableConcept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonReference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/medicationCodeableConcept"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/medicationReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/encounter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dateWritten"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/prescriber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dateEnded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonEnded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dosageInstruction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dispenseRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/substitution"/>
@@ -6438,20 +6550,20 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/medicationCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/effectiveDateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/effectivePeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/informationSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/dateAsserted"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/wasNotTaken"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/reasonNotTaken"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/reasonForUseCodeableConcept"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/reasonForUseReference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/effectiveDateTime"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/effectivePeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/supportingInformation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/medicationCodeableConcept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatement/dosage"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationStatementDosage">
@@ -6571,11 +6683,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleDefinitionValueSet/codeSystem"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadata">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/experimental"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/purpose"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/usage"/>
@@ -6584,33 +6699,36 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/effectivePeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/coverage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/topic"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/keyword"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/contributor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/publisher"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/steward"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/rightsDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/contact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/copyright"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadata/relatedResource"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ModuleMetadataContact">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContact/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContact/telecom"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ModuleMetadataContact1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContact1/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContact1/telecom"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadataContributor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContributor/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContributor/party"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContributor/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataContributor/contact"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadataContributorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ModuleMetadataContributorType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadataCoverage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataCoverage/focus"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataCoverage/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataCoverage/value"/>
-    </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//ModuleMetadataFocusType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ModuleMetadataFocusType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadataRelatedResource">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataRelatedResource/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataRelatedResource/uri"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataRelatedResource/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataRelatedResource/document"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ModuleMetadataRelatedResource/resource"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ModuleMetadataResourceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ModuleMetadataResourceType/value"/>
@@ -6667,12 +6785,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//NoteType/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//NutritionOrder">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/patient"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/orderer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/patient"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/encounter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/dateTime"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/orderer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/allergyIntolerance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/foodPreferenceModifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//NutritionOrder/excludeFoodModifier"/>
@@ -6746,7 +6864,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/valuePeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/dataAbsentReason"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/interpretation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/comments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/comment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/bodySite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/method"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Observation/specimen"/>
@@ -6868,8 +6986,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderResponse/fulfillment"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//OrderSet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderSet/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderSet/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderSet/moduleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderSet/library"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//OrderSet/item"/>
@@ -6982,6 +7098,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/valueTiming"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/valueMeta"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/valueElementDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/valueModuleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/resource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ParametersParameter/part"/>
     </genClasses>
@@ -7241,6 +7358,77 @@
     <genClasses ecoreClass="fhir.ecore#//PropertyRepresentation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//PropertyRepresentation/value"/>
     </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//PropertyType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//PropertyType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//Protocol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/group"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/purpose"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/author"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Protocol/step"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolActivity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolActivity/alternative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolActivity/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolActivity/following"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolActivity/wait"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolActivity/detail"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolComponent/sequence"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolComponent/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolCondition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolCondition/valueCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolCondition/valueBoolean"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolCondition/valueQuantity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolCondition/valueRange"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolDetail">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/category"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/timingCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/timingTiming"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/performer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/product"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/quantity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/description"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolNext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolNext/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolNext/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolNext/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolPrecondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolPrecondition/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolPrecondition/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolPrecondition/intersection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolPrecondition/union"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolPrecondition/exclude"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolStatus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ProtocolStatus/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolStep">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/duration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/exit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/firstActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/activity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolStep/next"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ProtocolType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ProtocolType/value"/>
+    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Provenance">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Provenance/target"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Provenance/period"/>
@@ -7417,6 +7605,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/claim"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/claimResponse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/clinicalImpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/codeSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/communication"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/communicationRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/composition"/>
@@ -7458,6 +7647,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/immunizationRecommendation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/implementationGuide"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/library"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/linkage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/list"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/measure"/>
@@ -7469,7 +7659,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/medicationStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/messageHeader"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/moduleDefinition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/moduleMetadata"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/namingSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/nutritionOrder"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/observation"/>
@@ -7488,6 +7677,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/procedureRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/processRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/processResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/protocol"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/provenance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/questionnaire"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/questionnaireResponse"/>
@@ -7663,12 +7853,12 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Specimen">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/accessionIdentifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/subject"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/accessionIdentifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/receivedTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/collection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/treatment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/container"/>

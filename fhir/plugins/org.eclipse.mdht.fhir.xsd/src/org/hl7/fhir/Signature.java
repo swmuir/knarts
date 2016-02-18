@@ -132,12 +132,12 @@ public interface Signature extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.
+	 * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content Type</em>' containment reference.
 	 * @see #setContentType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getSignature_ContentType()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='contentType' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -158,12 +158,12 @@ public interface Signature extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The base64 encoding of the Signature content.
+	 * The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Blob</em>' containment reference.
 	 * @see #setBlob(Base64Binary)
 	 * @see org.hl7.fhir.FhirPackage#getSignature_Blob()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='blob' namespace='##targetNamespace'"
 	 * @generated
 	 */

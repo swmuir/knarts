@@ -21,6 +21,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Measure;
 import org.hl7.fhir.MeasurePopulation;
+import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.Reference;
 
 /**
@@ -71,7 +72,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference moduleMetadata;
+	protected ModuleMetadata moduleMetadata;
 
 	/**
 	 * The cached value of the '{@link #getLibrary() <em>Library</em>}' containment reference list.
@@ -192,7 +193,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getModuleMetadata() {
+	public ModuleMetadata getModuleMetadata() {
 		return moduleMetadata;
 	}
 
@@ -201,8 +202,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModuleMetadata(Reference newModuleMetadata, NotificationChain msgs) {
-		Reference oldModuleMetadata = moduleMetadata;
+	public NotificationChain basicSetModuleMetadata(ModuleMetadata newModuleMetadata, NotificationChain msgs) {
+		ModuleMetadata oldModuleMetadata = moduleMetadata;
 		moduleMetadata = newModuleMetadata;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__MODULE_METADATA, oldModuleMetadata, newModuleMetadata);
@@ -216,7 +217,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModuleMetadata(Reference newModuleMetadata) {
+	public void setModuleMetadata(ModuleMetadata newModuleMetadata) {
 		if (newModuleMetadata != moduleMetadata) {
 			NotificationChain msgs = null;
 			if (moduleMetadata != null)
@@ -347,7 +348,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setVersion((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE__MODULE_METADATA:
-				setModuleMetadata((Reference)newValue);
+				setModuleMetadata((ModuleMetadata)newValue);
 				return;
 			case FhirPackage.MEASURE__LIBRARY:
 				getLibrary().clear();
@@ -384,7 +385,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setVersion((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE__MODULE_METADATA:
-				setModuleMetadata((Reference)null);
+				setModuleMetadata((ModuleMetadata)null);
 				return;
 			case FhirPackage.MEASURE__LIBRARY:
 				getLibrary().clear();

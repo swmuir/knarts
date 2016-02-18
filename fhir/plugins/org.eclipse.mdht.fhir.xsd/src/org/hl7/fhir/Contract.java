@@ -21,16 +21,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Contract#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getApplies <em>Applies</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAuthority <em>Authority</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getDomain <em>Domain</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getActionReason <em>Action Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getActor <em>Actor</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getValuedItem <em>Valued Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getSigner <em>Signer</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getValuedItem <em>Valued Item</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getTerm <em>Term</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getBindingAttachment <em>Binding Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getBindingReference <em>Binding Reference</em>}</li>
@@ -123,20 +123,20 @@ public interface Contract extends DomainResource {
 	void setApplies(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.
+	 * Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Subject()
+	 * @return the value of the '<em>Topic</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_Topic()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='topic' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getSubject();
+	EList<Reference> getTopic();
 
 	/**
 	 * Returns the value of the '<em><b>Authority</b></em>' containment reference list.
@@ -245,20 +245,20 @@ public interface Contract extends DomainResource {
 	EList<CodeableConcept> getActionReason();
 
 	/**
-	 * Returns the value of the '<em><b>Actor</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractActor}.
+	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractAgent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of Contract actors.
+	 * List of parties to the Contract.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Actor</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Actor()
+	 * @return the value of the '<em>Agent</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_Agent()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actor' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ContractActor> getActor();
+	EList<ContractAgent> getAgent();
 
 	/**
 	 * Returns the value of the '<em><b>Valued Item</b></em>' containment reference list.

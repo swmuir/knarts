@@ -21,20 +21,20 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectiveDateTime <em>Effective Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getInformationSource <em>Information Source</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getDateAsserted <em>Date Asserted</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getWasNotTaken <em>Was Not Taken</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonNotTaken <em>Reason Not Taken</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonForUseCodeableConcept <em>Reason For Use Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonForUseReference <em>Reason For Use Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectiveDateTime <em>Effective Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getSupportingInformation <em>Supporting Information</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getDosage <em>Dosage</em>}</li>
  * </ul>
  *
@@ -314,30 +314,20 @@ public interface MedicationStatement extends DomainResource {
 	void setEffectivePeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Provides extra information about the medication statement that is not conveyed by the other attributes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(org.hl7.fhir.String)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Supporting Information</b></em>' containment reference list.

@@ -20,14 +20,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDispenser <em>Dispenser</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getAuthorizingPrescription <em>Authorizing Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDaysSupply <em>Days Supply</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getWhenPrepared <em>When Prepared</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getWhenHandedOver <em>When Handed Over</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDestination <em>Destination</em>}</li>
@@ -389,30 +389,20 @@ public interface MedicationDispense extends DomainResource {
 	EList<Reference> getReceiver();
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Extra information about the dispense that could not be conveyed in the other attributes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(org.hl7.fhir.String)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Dosage Instruction</b></em>' containment reference list.

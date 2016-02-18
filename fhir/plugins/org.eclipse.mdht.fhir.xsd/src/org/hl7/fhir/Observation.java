@@ -40,7 +40,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Observation#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getInterpretation <em>Interpretation</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getSpecimen <em>Specimen</em>}</li>
@@ -620,30 +620,30 @@ public interface Observation extends DomainResource {
 	void setInterpretation(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Comments</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comments</em>' containment reference.
-	 * @see #setComments(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_Comments()
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_Comment()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comments' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getComments();
+	org.hl7.fhir.String getComment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getComments <em>Comments</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getComment <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comments</em>' containment reference.
-	 * @see #getComments()
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
 	 * @generated
 	 */
-	void setComments(org.hl7.fhir.String value);
+	void setComment(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.

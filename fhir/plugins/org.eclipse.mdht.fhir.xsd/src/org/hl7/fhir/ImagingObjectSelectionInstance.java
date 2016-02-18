@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingObjectSelectionInstance#getSopClass <em>Sop Class</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelectionInstance#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelectionInstance#getUrl <em>Url</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingObjectSelectionInstance#getFrames <em>Frames</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingObjectSelectionInstance#getFrame <em>Frame</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getImagingObjectSelectionInstance()
@@ -107,19 +107,19 @@ public interface ImagingObjectSelectionInstance extends BackboneElement {
 	void setUrl(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Frames</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImagingObjectSelectionFrames}.
+	 * Returns the value of the '<em><b>Frame</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImagingObjectSelectionFrame}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identity and location information of the frames in the selected instance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Frames</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingObjectSelectionInstance_Frames()
+	 * @return the value of the '<em>Frame</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingObjectSelectionInstance_Frame()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='frames' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='frame' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImagingObjectSelectionFrames> getFrames();
+	EList<ImagingObjectSelectionFrame> getFrame();
 
 } // ImagingObjectSelectionInstance

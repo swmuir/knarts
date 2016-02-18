@@ -113,13 +113,13 @@ public interface SequenceCoordinate extends BackboneElement {
 	 * The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'.  Version number must be included if a versioned release of a primary build was used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Genome Build</em>' containment reference.
-	 * @see #setGenomeBuild(CodeableConcept)
+	 * @see #setGenomeBuild(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getSequenceCoordinate_GenomeBuild()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='genomeBuild' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getGenomeBuild();
+	org.hl7.fhir.String getGenomeBuild();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SequenceCoordinate#getGenomeBuild <em>Genome Build</em>}' containment reference.
@@ -129,6 +129,6 @@ public interface SequenceCoordinate extends BackboneElement {
 	 * @see #getGenomeBuild()
 	 * @generated
 	 */
-	void setGenomeBuild(CodeableConcept value);
+	void setGenomeBuild(org.hl7.fhir.String value);
 
 } // SequenceCoordinate

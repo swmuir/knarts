@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.mdht.uml.common.util.NamedElementUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
@@ -217,7 +216,7 @@ public class ModelImporter implements ModelConstants {
 //			uriString += "?_format=xml";
 //		}
 		
-		String resoruceURL = TERMINOLOGY_SERVER + "ValueSet" + "?url=" + uriString;
+		String resoruceURL = TERMINOLOGY_SERVER + "ValueSet" + "?_format=xml&url=" + uriString;
 		return importResource(URI.createURI(resoruceURL));
 	}
 	
@@ -614,7 +613,9 @@ public class ModelImporter implements ModelConstants {
 		
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);
-		NamedElementUtil.setBusinessName(profileClass, profileHumanName);
+		
+		//TODO add preference setting for this
+//		NamedElementUtil.setBusinessName(profileClass, profileHumanName);
 
 		Map<String,Constraint> constraintMap = new HashMap<String,Constraint>();
 		createConstraints(profileClass, structureDef, constraintMap);

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.ImagingObjectSelectionFrames;
+import org.hl7.fhir.ImagingObjectSelectionFrame;
 import org.hl7.fhir.ImagingObjectSelectionInstance;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.Uri;
@@ -34,7 +34,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionInstanceImpl#getSopClass <em>Sop Class</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionInstanceImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionInstanceImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionInstanceImpl#getFrames <em>Frames</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingObjectSelectionInstanceImpl#getFrame <em>Frame</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,14 +71,14 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 	protected Uri url;
 
 	/**
-	 * The cached value of the '{@link #getFrames() <em>Frames</em>}' containment reference list.
+	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrames()
+	 * @see #getFrame()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImagingObjectSelectionFrames> frames;
+	protected EList<ImagingObjectSelectionFrame> frame;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,11 +233,11 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImagingObjectSelectionFrames> getFrames() {
-		if (frames == null) {
-			frames = new EObjectContainmentEList<ImagingObjectSelectionFrames>(ImagingObjectSelectionFrames.class, this, FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES);
+	public EList<ImagingObjectSelectionFrame> getFrame() {
+		if (frame == null) {
+			frame = new EObjectContainmentEList<ImagingObjectSelectionFrame>(ImagingObjectSelectionFrame.class, this, FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME);
 		}
-		return frames;
+		return frame;
 	}
 
 	/**
@@ -254,8 +254,8 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__URL:
 				return basicSetUrl(null, msgs);
-			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES:
-				return ((InternalEList<?>)getFrames()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME:
+				return ((InternalEList<?>)getFrame()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -274,8 +274,8 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 				return getUid();
 			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__URL:
 				return getUrl();
-			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES:
-				return getFrames();
+			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME:
+				return getFrame();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -298,9 +298,9 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__URL:
 				setUrl((Uri)newValue);
 				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES:
-				getFrames().clear();
-				getFrames().addAll((Collection<? extends ImagingObjectSelectionFrames>)newValue);
+			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME:
+				getFrame().clear();
+				getFrame().addAll((Collection<? extends ImagingObjectSelectionFrame>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -323,8 +323,8 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__URL:
 				setUrl((Uri)null);
 				return;
-			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES:
-				getFrames().clear();
+			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME:
+				getFrame().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -344,8 +344,8 @@ public class ImagingObjectSelectionInstanceImpl extends BackboneElementImpl impl
 				return uid != null;
 			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__URL:
 				return url != null;
-			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAMES:
-				return frames != null && !frames.isEmpty();
+			case FhirPackage.IMAGING_OBJECT_SELECTION_INSTANCE__FRAME:
+				return frame != null && !frame.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

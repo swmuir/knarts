@@ -21,12 +21,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DataElement#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getVersion <em>Version</em>}</li>
- *   <li>{@link org.hl7.fhir.DataElement#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.hl7.fhir.DataElement#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataElement#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataElement#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.DataElement#getStringency <em>Stringency</em>}</li>

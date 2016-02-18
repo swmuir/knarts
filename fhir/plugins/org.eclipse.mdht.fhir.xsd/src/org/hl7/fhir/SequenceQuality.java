@@ -113,13 +113,13 @@ public interface SequenceQuality extends BackboneElement {
 	 * Platform.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Platform</em>' containment reference.
-	 * @see #setPlatform(CodeableConcept)
+	 * @see #setPlatform(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getSequenceQuality_Platform()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='platform' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getPlatform();
+	org.hl7.fhir.String getPlatform();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SequenceQuality#getPlatform <em>Platform</em>}' containment reference.
@@ -129,6 +129,6 @@ public interface SequenceQuality extends BackboneElement {
 	 * @see #getPlatform()
 	 * @generated
 	 */
-	void setPlatform(CodeableConcept value);
+	void setPlatform(org.hl7.fhir.String value);
 
 } // SequenceQuality

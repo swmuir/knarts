@@ -36,6 +36,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Meta;
+import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.ParametersParameter;
 import org.hl7.fhir.Period;
@@ -97,6 +98,7 @@ import org.hl7.fhir.Uuid;
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueTiming <em>Value Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueMeta <em>Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueElementDefinition <em>Value Element Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueModuleMetadata <em>Value Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getPart <em>Part</em>}</li>
  * </ul>
@@ -463,6 +465,16 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * @ordered
 	 */
 	protected ElementDefinition valueElementDefinition;
+
+	/**
+	 * The cached value of the '{@link #getValueModuleMetadata() <em>Value Module Metadata</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueModuleMetadata()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModuleMetadata valueModuleMetadata;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -2056,6 +2068,49 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModuleMetadata getValueModuleMetadata() {
+		return valueModuleMetadata;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueModuleMetadata(ModuleMetadata newValueModuleMetadata, NotificationChain msgs) {
+		ModuleMetadata oldValueModuleMetadata = valueModuleMetadata;
+		valueModuleMetadata = newValueModuleMetadata;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA, oldValueModuleMetadata, newValueModuleMetadata);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueModuleMetadata(ModuleMetadata newValueModuleMetadata) {
+		if (newValueModuleMetadata != valueModuleMetadata) {
+			NotificationChain msgs = null;
+			if (valueModuleMetadata != null)
+				msgs = ((InternalEObject)valueModuleMetadata).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA, null, msgs);
+			if (newValueModuleMetadata != null)
+				msgs = ((InternalEObject)newValueModuleMetadata).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA, null, msgs);
+			msgs = basicSetValueModuleMetadata(newValueModuleMetadata, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA, newValueModuleMetadata, newValueModuleMetadata));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceContainer getResource() {
 		return resource;
 	}
@@ -2186,6 +2241,8 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return basicSetValueMeta(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ELEMENT_DEFINITION:
 				return basicSetValueElementDefinition(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
+				return basicSetValueModuleMetadata(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return basicSetResource(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__PART:
@@ -2274,6 +2331,8 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return getValueMeta();
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ELEMENT_DEFINITION:
 				return getValueElementDefinition();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
+				return getValueModuleMetadata();
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return getResource();
 			case FhirPackage.PARAMETERS_PARAMETER__PART:
@@ -2398,6 +2457,9 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ELEMENT_DEFINITION:
 				setValueElementDefinition((ElementDefinition)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
+				setValueModuleMetadata((ModuleMetadata)newValue);
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				setResource((ResourceContainer)newValue);
@@ -2526,6 +2588,9 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ELEMENT_DEFINITION:
 				setValueElementDefinition((ElementDefinition)null);
 				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
+				setValueModuleMetadata((ModuleMetadata)null);
+				return;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				setResource((ResourceContainer)null);
 				return;
@@ -2616,6 +2681,8 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return valueMeta != null;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ELEMENT_DEFINITION:
 				return valueElementDefinition != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
+				return valueModuleMetadata != null;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return resource != null;
 			case FhirPackage.PARAMETERS_PARAMETER__PART:

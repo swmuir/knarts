@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -37,18 +38,18 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateEnded <em>Date Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonEnded <em>Reason Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getMedicationReference <em>Medication Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateWritten <em>Date Written</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPrescriber <em>Prescriber</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateEnded <em>Date Ended</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonEnded <em>Reason Ended</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDispenseRequest <em>Dispense Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getSubstitution <em>Substitution</em>}</li>
@@ -69,16 +70,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDateWritten() <em>Date Written</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDateWritten()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime dateWritten;
-
-	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,24 +80,24 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected MedicationOrderStatus status;
 
 	/**
-	 * The cached value of the '{@link #getDateEnded() <em>Date Ended</em>}' containment reference.
+	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDateEnded()
+	 * @see #getMedicationCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime dateEnded;
+	protected CodeableConcept medicationCodeableConcept;
 
 	/**
-	 * The cached value of the '{@link #getReasonEnded() <em>Reason Ended</em>}' containment reference.
+	 * The cached value of the '{@link #getMedicationReference() <em>Medication Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonEnded()
+	 * @see #getMedicationReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reasonEnded;
+	protected Reference medicationReference;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -119,16 +110,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected Reference patient;
 
 	/**
-	 * The cached value of the '{@link #getPrescriber() <em>Prescriber</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPrescriber()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference prescriber;
-
-	/**
 	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,6 +118,26 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * @ordered
 	 */
 	protected Reference encounter;
+
+	/**
+	 * The cached value of the '{@link #getDateWritten() <em>Date Written</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateWritten()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime dateWritten;
+
+	/**
+	 * The cached value of the '{@link #getPrescriber() <em>Prescriber</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrescriber()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference prescriber;
 
 	/**
 	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
@@ -159,34 +160,34 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected Reference reasonReference;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getDateEnded() <em>Date Ended</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateEnded()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime dateEnded;
+
+	/**
+	 * The cached value of the '{@link #getReasonEnded() <em>Reason Ended</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonEnded()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept reasonEnded;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String note;
-
-	/**
-	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept medicationCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getMedicationReference() <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference medicationReference;
+	protected EList<Annotation> note;
 
 	/**
 	 * The cached value of the '{@link #getDosageInstruction() <em>Dosage Instruction</em>}' containment reference list.
@@ -651,42 +652,11 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNote() {
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_ORDER__NOTE);
+		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNote(org.hl7.fhir.String newNote, NotificationChain msgs) {
-		org.hl7.fhir.String oldNote = note;
-		note = newNote;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__NOTE, oldNote, newNote);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNote(org.hl7.fhir.String newNote) {
-		if (newNote != note) {
-			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -926,30 +896,30 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ORDER__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
-				return basicSetDateWritten(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return basicSetDateEnded(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return basicSetReasonEnded(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__PATIENT:
-				return basicSetPatient(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
-				return basicSetPrescriber(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return basicSetReasonCodeableConcept(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				return basicSetReasonReference(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__NOTE:
-				return basicSetNote(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
 				return basicSetMedicationCodeableConcept(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
 				return basicSetMedicationReference(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__PATIENT:
+				return basicSetPatient(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
+				return basicSetDateWritten(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
+				return basicSetPrescriber(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
+				return basicSetReasonCodeableConcept(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
+				return basicSetReasonReference(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
+				return basicSetDateEnded(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
+				return basicSetReasonEnded(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
 				return ((InternalEList<?>)getDosageInstruction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__DISPENSE_REQUEST:
@@ -972,30 +942,30 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ORDER__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
-				return getDateWritten();
 			case FhirPackage.MEDICATION_ORDER__STATUS:
 				return getStatus();
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return getDateEnded();
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return getReasonEnded();
-			case FhirPackage.MEDICATION_ORDER__PATIENT:
-				return getPatient();
-			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
-				return getPrescriber();
-			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
-				return getEncounter();
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
-			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				return getReasonReference();
-			case FhirPackage.MEDICATION_ORDER__NOTE:
-				return getNote();
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
 				return getMedicationCodeableConcept();
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
 				return getMedicationReference();
+			case FhirPackage.MEDICATION_ORDER__PATIENT:
+				return getPatient();
+			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
+				return getEncounter();
+			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
+				return getDateWritten();
+			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
+				return getPrescriber();
+			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
+				return getReasonCodeableConcept();
+			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
+				return getReasonReference();
+			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
+				return getDateEnded();
+			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
+				return getReasonEnded();
+			case FhirPackage.MEDICATION_ORDER__NOTE:
+				return getNote();
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
 				return getDosageInstruction();
 			case FhirPackage.MEDICATION_ORDER__DISPENSE_REQUEST:
@@ -1021,26 +991,26 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
-				setDateWritten((DateTime)newValue);
-				return;
 			case FhirPackage.MEDICATION_ORDER__STATUS:
 				setStatus((MedicationOrderStatus)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				setDateEnded((DateTime)newValue);
+			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
+				setMedicationCodeableConcept((CodeableConcept)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				setReasonEnded((CodeableConcept)newValue);
+			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
+				setMedicationReference((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER__PATIENT:
 				setPatient((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
-				setPrescriber((Reference)newValue);
-				return;
 			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
 				setEncounter((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
+				setDateWritten((DateTime)newValue);
+				return;
+			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
+				setPrescriber((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
 				setReasonCodeableConcept((CodeableConcept)newValue);
@@ -1048,14 +1018,15 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				setReasonReference((Reference)newValue);
 				return;
+			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
+				setDateEnded((DateTime)newValue);
+				return;
+			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
+				setReasonEnded((CodeableConcept)newValue);
+				return;
 			case FhirPackage.MEDICATION_ORDER__NOTE:
-				setNote((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)newValue);
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
 				getDosageInstruction().clear();
@@ -1085,26 +1056,26 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
-				setDateWritten((DateTime)null);
-				return;
 			case FhirPackage.MEDICATION_ORDER__STATUS:
 				setStatus((MedicationOrderStatus)null);
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				setDateEnded((DateTime)null);
+			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
+				setMedicationCodeableConcept((CodeableConcept)null);
 				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				setReasonEnded((CodeableConcept)null);
+			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
+				setMedicationReference((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_ORDER__PATIENT:
 				setPatient((Reference)null);
 				return;
-			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
-				setPrescriber((Reference)null);
-				return;
 			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
 				setEncounter((Reference)null);
+				return;
+			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
+				setDateWritten((DateTime)null);
+				return;
+			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
+				setPrescriber((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
 				setReasonCodeableConcept((CodeableConcept)null);
@@ -1112,14 +1083,14 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				setReasonReference((Reference)null);
 				return;
+			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
+				setDateEnded((DateTime)null);
+				return;
+			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
+				setReasonEnded((CodeableConcept)null);
+				return;
 			case FhirPackage.MEDICATION_ORDER__NOTE:
-				setNote((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)null);
+				getNote().clear();
 				return;
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
 				getDosageInstruction().clear();
@@ -1147,30 +1118,30 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ORDER__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
-				return dateWritten != null;
 			case FhirPackage.MEDICATION_ORDER__STATUS:
 				return status != null;
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return dateEnded != null;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return reasonEnded != null;
-			case FhirPackage.MEDICATION_ORDER__PATIENT:
-				return patient != null;
-			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
-				return prescriber != null;
-			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
-				return encounter != null;
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null;
-			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				return reasonReference != null;
-			case FhirPackage.MEDICATION_ORDER__NOTE:
-				return note != null;
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT:
 				return medicationCodeableConcept != null;
 			case FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE:
 				return medicationReference != null;
+			case FhirPackage.MEDICATION_ORDER__PATIENT:
+				return patient != null;
+			case FhirPackage.MEDICATION_ORDER__ENCOUNTER:
+				return encounter != null;
+			case FhirPackage.MEDICATION_ORDER__DATE_WRITTEN:
+				return dateWritten != null;
+			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
+				return prescriber != null;
+			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
+				return reasonCodeableConcept != null;
+			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
+				return reasonReference != null;
+			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
+				return dateEnded != null;
+			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
+				return reasonEnded != null;
+			case FhirPackage.MEDICATION_ORDER__NOTE:
+				return note != null && !note.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
 				return dosageInstruction != null && !dosageInstruction.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__DISPENSE_REQUEST:

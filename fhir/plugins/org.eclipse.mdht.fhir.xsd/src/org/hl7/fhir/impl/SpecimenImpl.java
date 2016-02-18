@@ -37,12 +37,12 @@ import org.hl7.fhir.SpecimenTreatment;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getAccessionIdentifier <em>Accession Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getAccessionIdentifier <em>Accession Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getReceivedTime <em>Received Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getContainer <em>Container</em>}</li>
@@ -60,6 +60,16 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getAccessionIdentifier() <em>Accession Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccessionIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier accessionIdentifier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -82,16 +92,6 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> parent;
-
-	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,16 +102,6 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getAccessionIdentifier() <em>Accession Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccessionIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier accessionIdentifier;
-
-	/**
 	 * The cached value of the '{@link #getReceivedTime() <em>Received Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,6 +110,16 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * @ordered
 	 */
 	protected DateTime receivedTime;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> parent;
 
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' containment reference.
@@ -486,18 +486,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 		switch (featureID) {
 			case FhirPackage.SPECIMEN__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
+				return basicSetAccessionIdentifier(null, msgs);
 			case FhirPackage.SPECIMEN__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.SPECIMEN__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.SPECIMEN__PARENT:
-				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
-				return basicSetAccessionIdentifier(null, msgs);
 			case FhirPackage.SPECIMEN__RECEIVED_TIME:
 				return basicSetReceivedTime(null, msgs);
+			case FhirPackage.SPECIMEN__PARENT:
+				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return basicSetCollection(null, msgs);
 			case FhirPackage.SPECIMEN__TREATMENT:
@@ -518,18 +518,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 		switch (featureID) {
 			case FhirPackage.SPECIMEN__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
+				return getAccessionIdentifier();
 			case FhirPackage.SPECIMEN__STATUS:
 				return getStatus();
 			case FhirPackage.SPECIMEN__TYPE:
 				return getType();
-			case FhirPackage.SPECIMEN__PARENT:
-				return getParent();
 			case FhirPackage.SPECIMEN__SUBJECT:
 				return getSubject();
-			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
-				return getAccessionIdentifier();
 			case FhirPackage.SPECIMEN__RECEIVED_TIME:
 				return getReceivedTime();
+			case FhirPackage.SPECIMEN__PARENT:
+				return getParent();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return getCollection();
 			case FhirPackage.SPECIMEN__TREATMENT:
@@ -553,24 +553,24 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
+				setAccessionIdentifier((Identifier)newValue);
+				return;
 			case FhirPackage.SPECIMEN__STATUS:
 				setStatus((SpecimenStatus)newValue);
 				return;
 			case FhirPackage.SPECIMEN__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SPECIMEN__PARENT:
-				getParent().clear();
-				getParent().addAll((Collection<? extends Reference>)newValue);
-				return;
 			case FhirPackage.SPECIMEN__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
-				setAccessionIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.SPECIMEN__RECEIVED_TIME:
 				setReceivedTime((DateTime)newValue);
+				return;
+			case FhirPackage.SPECIMEN__PARENT:
+				getParent().clear();
+				getParent().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)newValue);
@@ -598,23 +598,23 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
+				setAccessionIdentifier((Identifier)null);
+				return;
 			case FhirPackage.SPECIMEN__STATUS:
 				setStatus((SpecimenStatus)null);
 				return;
 			case FhirPackage.SPECIMEN__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.SPECIMEN__PARENT:
-				getParent().clear();
-				return;
 			case FhirPackage.SPECIMEN__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
-				setAccessionIdentifier((Identifier)null);
-				return;
 			case FhirPackage.SPECIMEN__RECEIVED_TIME:
 				setReceivedTime((DateTime)null);
+				return;
+			case FhirPackage.SPECIMEN__PARENT:
+				getParent().clear();
 				return;
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)null);
@@ -639,18 +639,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 		switch (featureID) {
 			case FhirPackage.SPECIMEN__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
+				return accessionIdentifier != null;
 			case FhirPackage.SPECIMEN__STATUS:
 				return status != null;
 			case FhirPackage.SPECIMEN__TYPE:
 				return type != null;
-			case FhirPackage.SPECIMEN__PARENT:
-				return parent != null && !parent.isEmpty();
 			case FhirPackage.SPECIMEN__SUBJECT:
 				return subject != null;
-			case FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER:
-				return accessionIdentifier != null;
 			case FhirPackage.SPECIMEN__RECEIVED_TIME:
 				return receivedTime != null;
+			case FhirPackage.SPECIMEN__PARENT:
+				return parent != null && !parent.isEmpty();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return collection != null;
 			case FhirPackage.SPECIMEN__TREATMENT:

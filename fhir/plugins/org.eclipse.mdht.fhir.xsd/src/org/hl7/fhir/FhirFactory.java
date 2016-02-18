@@ -49,6 +49,15 @@ public interface FhirFactory extends EFactory {
 	ActionList createActionList();
 
 	/**
+	 * Returns a new object of class '<em>Activity Definition Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Activity Definition Category</em>'.
+	 * @generated
+	 */
+	ActivityDefinitionCategory createActivityDefinitionCategory();
+
+	/**
 	 * Returns a new object of class '<em>Address</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,6 +283,15 @@ public interface FhirFactory extends EFactory {
 	AuditEventAction createAuditEventAction();
 
 	/**
+	 * Returns a new object of class '<em>Audit Event Agent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Audit Event Agent</em>'.
+	 * @generated
+	 */
+	AuditEventAgent createAuditEventAgent();
+
+	/**
 	 * Returns a new object of class '<em>Audit Event Detail</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,13 +301,13 @@ public interface FhirFactory extends EFactory {
 	AuditEventDetail createAuditEventDetail();
 
 	/**
-	 * Returns a new object of class '<em>Audit Event Event</em>'.
+	 * Returns a new object of class '<em>Audit Event Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Audit Event Event</em>'.
+	 * @return a new object of class '<em>Audit Event Entity</em>'.
 	 * @generated
 	 */
-	AuditEventEvent createAuditEventEvent();
+	AuditEventEntity createAuditEventEntity();
 
 	/**
 	 * Returns a new object of class '<em>Audit Event Network</em>'.
@@ -301,15 +319,6 @@ public interface FhirFactory extends EFactory {
 	AuditEventNetwork createAuditEventNetwork();
 
 	/**
-	 * Returns a new object of class '<em>Audit Event Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Audit Event Object</em>'.
-	 * @generated
-	 */
-	AuditEventObject createAuditEventObject();
-
-	/**
 	 * Returns a new object of class '<em>Audit Event Outcome</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -317,15 +326,6 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	AuditEventOutcome createAuditEventOutcome();
-
-	/**
-	 * Returns a new object of class '<em>Audit Event Participant</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Audit Event Participant</em>'.
-	 * @generated
-	 */
-	AuditEventParticipant createAuditEventParticipant();
 
 	/**
 	 * Returns a new object of class '<em>Audit Event Participant Network Type</em>'.
@@ -823,6 +823,78 @@ public interface FhirFactory extends EFactory {
 	CodeableConcept createCodeableConcept();
 
 	/**
+	 * Returns a new object of class '<em>Code System</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System</em>'.
+	 * @generated
+	 */
+	CodeSystem createCodeSystem();
+
+	/**
+	 * Returns a new object of class '<em>Code System Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Concept</em>'.
+	 * @generated
+	 */
+	CodeSystemConcept createCodeSystemConcept();
+
+	/**
+	 * Returns a new object of class '<em>Code System Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Contact</em>'.
+	 * @generated
+	 */
+	CodeSystemContact createCodeSystemContact();
+
+	/**
+	 * Returns a new object of class '<em>Code System Content Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Content Mode</em>'.
+	 * @generated
+	 */
+	CodeSystemContentMode createCodeSystemContentMode();
+
+	/**
+	 * Returns a new object of class '<em>Code System Designation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Designation</em>'.
+	 * @generated
+	 */
+	CodeSystemDesignation createCodeSystemDesignation();
+
+	/**
+	 * Returns a new object of class '<em>Code System Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Filter</em>'.
+	 * @generated
+	 */
+	CodeSystemFilter createCodeSystemFilter();
+
+	/**
+	 * Returns a new object of class '<em>Code System Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Property</em>'.
+	 * @generated
+	 */
+	CodeSystemProperty createCodeSystemProperty();
+
+	/**
+	 * Returns a new object of class '<em>Code System Property1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code System Property1</em>'.
+	 * @generated
+	 */
+	CodeSystemProperty1 createCodeSystemProperty1();
+
+	/**
 	 * Returns a new object of class '<em>Coding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,22 +1336,22 @@ public interface FhirFactory extends EFactory {
 	Contract createContract();
 
 	/**
-	 * Returns a new object of class '<em>Contract Actor</em>'.
+	 * Returns a new object of class '<em>Contract Agent</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Contract Actor</em>'.
+	 * @return a new object of class '<em>Contract Agent</em>'.
 	 * @generated
 	 */
-	ContractActor createContractActor();
+	ContractAgent createContractAgent();
 
 	/**
-	 * Returns a new object of class '<em>Contract Actor1</em>'.
+	 * Returns a new object of class '<em>Contract Agent1</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Contract Actor1</em>'.
+	 * @return a new object of class '<em>Contract Agent1</em>'.
 	 * @generated
 	 */
-	ContractActor1 createContractActor1();
+	ContractAgent1 createContractAgent1();
 
 	/**
 	 * Returns a new object of class '<em>Contract Friendly</em>'.
@@ -2740,13 +2812,13 @@ public interface FhirFactory extends EFactory {
 	ImagingObjectSelection createImagingObjectSelection();
 
 	/**
-	 * Returns a new object of class '<em>Imaging Object Selection Frames</em>'.
+	 * Returns a new object of class '<em>Imaging Object Selection Frame</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Imaging Object Selection Frames</em>'.
+	 * @return a new object of class '<em>Imaging Object Selection Frame</em>'.
 	 * @generated
 	 */
-	ImagingObjectSelectionFrames createImagingObjectSelectionFrames();
+	ImagingObjectSelectionFrame createImagingObjectSelectionFrame();
 
 	/**
 	 * Returns a new object of class '<em>Imaging Object Selection Instance</em>'.
@@ -2990,6 +3062,33 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	Library createLibrary();
+
+	/**
+	 * Returns a new object of class '<em>Linkage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linkage</em>'.
+	 * @generated
+	 */
+	Linkage createLinkage();
+
+	/**
+	 * Returns a new object of class '<em>Linkage Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linkage Item</em>'.
+	 * @generated
+	 */
+	LinkageItem createLinkageItem();
+
+	/**
+	 * Returns a new object of class '<em>Linkage Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linkage Type</em>'.
+	 * @generated
+	 */
+	LinkageType createLinkageType();
 
 	/**
 	 * Returns a new object of class '<em>Link Type</em>'.
@@ -3460,6 +3559,24 @@ public interface FhirFactory extends EFactory {
 	ModuleMetadata createModuleMetadata();
 
 	/**
+	 * Returns a new object of class '<em>Module Metadata Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Module Metadata Contact</em>'.
+	 * @generated
+	 */
+	ModuleMetadataContact createModuleMetadataContact();
+
+	/**
+	 * Returns a new object of class '<em>Module Metadata Contact1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Module Metadata Contact1</em>'.
+	 * @generated
+	 */
+	ModuleMetadataContact1 createModuleMetadataContact1();
+
+	/**
 	 * Returns a new object of class '<em>Module Metadata Contributor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3485,15 +3602,6 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	ModuleMetadataCoverage createModuleMetadataCoverage();
-
-	/**
-	 * Returns a new object of class '<em>Module Metadata Focus Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Module Metadata Focus Type</em>'.
-	 * @generated
-	 */
-	ModuleMetadataFocusType createModuleMetadataFocusType();
 
 	/**
 	 * Returns a new object of class '<em>Module Metadata Related Resource</em>'.
@@ -4286,6 +4394,105 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	PropertyRepresentation createPropertyRepresentation();
+
+	/**
+	 * Returns a new object of class '<em>Property Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Type</em>'.
+	 * @generated
+	 */
+	PropertyType createPropertyType();
+
+	/**
+	 * Returns a new object of class '<em>Protocol</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol</em>'.
+	 * @generated
+	 */
+	Protocol createProtocol();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Activity</em>'.
+	 * @generated
+	 */
+	ProtocolActivity createProtocolActivity();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Component</em>'.
+	 * @generated
+	 */
+	ProtocolComponent createProtocolComponent();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Condition</em>'.
+	 * @generated
+	 */
+	ProtocolCondition createProtocolCondition();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Detail</em>'.
+	 * @generated
+	 */
+	ProtocolDetail createProtocolDetail();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Next</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Next</em>'.
+	 * @generated
+	 */
+	ProtocolNext createProtocolNext();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Precondition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Precondition</em>'.
+	 * @generated
+	 */
+	ProtocolPrecondition createProtocolPrecondition();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Status</em>'.
+	 * @generated
+	 */
+	ProtocolStatus createProtocolStatus();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Step</em>'.
+	 * @generated
+	 */
+	ProtocolStep createProtocolStep();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Type</em>'.
+	 * @generated
+	 */
+	ProtocolType createProtocolType();
 
 	/**
 	 * Returns a new object of class '<em>Provenance</em>'.

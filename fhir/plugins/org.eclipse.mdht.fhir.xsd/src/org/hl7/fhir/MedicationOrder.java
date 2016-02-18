@@ -19,18 +19,18 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getMedicationReference <em>Medication Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getDateWritten <em>Date Written</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDispenseRequest <em>Dispense Request</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getSubstitution <em>Substitution</em>}</li>
@@ -295,30 +295,20 @@ public interface MedicationOrder extends DomainResource {
 	void setReasonReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Extra information about the prescription that could not be conveyed by the other attributes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(org.hl7.fhir.String)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.

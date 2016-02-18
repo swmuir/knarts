@@ -14,7 +14,7 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ModuleMetadataRelatedResource;
 import org.hl7.fhir.ModuleMetadataResourceType;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,14 +25,13 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataRelatedResourceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataRelatedResourceImpl#getUri <em>Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ModuleMetadataRelatedResourceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ModuleMetadataRelatedResourceImpl#getDocument <em>Document</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ModuleMetadataRelatedResourceImpl#getResource <em>Resource</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl implements ModuleMetadataRelatedResource {
+public class ModuleMetadataRelatedResourceImpl extends ElementImpl implements ModuleMetadataRelatedResource {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -44,26 +43,6 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 	protected ModuleMetadataResourceType type;
 
 	/**
-	 * The cached value of the '{@link #getUri() <em>Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected Uri uri;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String description;
-
-	/**
 	 * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +51,16 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 	 * @ordered
 	 */
 	protected Attachment document;
+
+	/**
+	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResource()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference resource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,92 +129,6 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUri() {
-		return uri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUri(Uri newUri, NotificationChain msgs) {
-		Uri oldUri = uri;
-		uri = newUri;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI, oldUri, newUri);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUri(Uri newUri) {
-		if (newUri != uri) {
-			NotificationChain msgs = null;
-			if (uri != null)
-				msgs = ((InternalEObject)uri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI, null, msgs);
-			if (newUri != null)
-				msgs = ((InternalEObject)newUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI, null, msgs);
-			msgs = basicSetUri(newUri, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI, newUri, newUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Attachment getDocument() {
 		return document;
 	}
@@ -269,17 +172,58 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getResource() {
+		return resource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResource(Reference newResource, NotificationChain msgs) {
+		Reference oldResource = resource;
+		resource = newResource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE, oldResource, newResource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResource(Reference newResource) {
+		if (newResource != resource) {
+			NotificationChain msgs = null;
+			if (resource != null)
+				msgs = ((InternalEObject)resource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE, null, msgs);
+			if (newResource != null)
+				msgs = ((InternalEObject)newResource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE, null, msgs);
+			msgs = basicSetResource(newResource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE, newResource, newResource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI:
-				return basicSetUri(null, msgs);
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION:
-				return basicSetDescription(null, msgs);
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DOCUMENT:
 				return basicSetDocument(null, msgs);
+			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE:
+				return basicSetResource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,12 +238,10 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__TYPE:
 				return getType();
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI:
-				return getUri();
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION:
-				return getDescription();
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DOCUMENT:
 				return getDocument();
+			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE:
+				return getResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -315,14 +257,11 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__TYPE:
 				setType((ModuleMetadataResourceType)newValue);
 				return;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI:
-				setUri((Uri)newValue);
-				return;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DOCUMENT:
 				setDocument((Attachment)newValue);
+				return;
+			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE:
+				setResource((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,14 +278,11 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__TYPE:
 				setType((ModuleMetadataResourceType)null);
 				return;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI:
-				setUri((Uri)null);
-				return;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DOCUMENT:
 				setDocument((Attachment)null);
+				return;
+			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE:
+				setResource((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -362,12 +298,10 @@ public class ModuleMetadataRelatedResourceImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__TYPE:
 				return type != null;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__URI:
-				return uri != null;
-			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DESCRIPTION:
-				return description != null;
 			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__DOCUMENT:
 				return document != null;
+			case FhirPackage.MODULE_METADATA_RELATED_RESOURCE__RESOURCE:
+				return resource != null;
 		}
 		return super.eIsSet(featureID);
 	}

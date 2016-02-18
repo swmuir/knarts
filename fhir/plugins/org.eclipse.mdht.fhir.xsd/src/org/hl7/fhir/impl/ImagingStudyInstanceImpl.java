@@ -31,8 +31,8 @@ import org.hl7.fhir.UnsignedInt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getSopClass <em>Sop Class</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getTitle <em>Title</em>}</li>
@@ -43,16 +43,6 @@ import org.hl7.fhir.UnsignedInt;
  */
 public class ImagingStudyInstanceImpl extends BackboneElementImpl implements ImagingStudyInstance {
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected UnsignedInt number;
-
-	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,6 +51,16 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * @ordered
 	 */
 	protected Oid uid;
+
+	/**
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected UnsignedInt number;
 
 	/**
 	 * The cached value of the '{@link #getSopClass() <em>Sop Class</em>}' containment reference.
@@ -356,10 +356,10 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
-				return basicSetNumber(null, msgs);
 			case FhirPackage.IMAGING_STUDY_INSTANCE__UID:
 				return basicSetUid(null, msgs);
+			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
+				return basicSetNumber(null, msgs);
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return basicSetSopClass(null, msgs);
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
@@ -380,10 +380,10 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
-				return getNumber();
 			case FhirPackage.IMAGING_STUDY_INSTANCE__UID:
 				return getUid();
+			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
+				return getNumber();
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return getSopClass();
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
@@ -405,11 +405,11 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
-				setNumber((UnsignedInt)newValue);
-				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__UID:
 				setUid((Oid)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
+				setNumber((UnsignedInt)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				setSopClass((Oid)newValue);
@@ -436,11 +436,11 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
-				setNumber((UnsignedInt)null);
-				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__UID:
 				setUid((Oid)null);
+				return;
+			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
+				setNumber((UnsignedInt)null);
 				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				setSopClass((Oid)null);
@@ -466,10 +466,10 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
-				return number != null;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__UID:
 				return uid != null;
+			case FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER:
+				return number != null;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return sopClass != null;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:

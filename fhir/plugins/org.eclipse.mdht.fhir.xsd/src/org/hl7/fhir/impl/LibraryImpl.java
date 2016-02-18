@@ -21,6 +21,7 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Library;
+import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.Reference;
 
 /**
@@ -69,7 +70,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference moduleMetadata;
+	protected ModuleMetadata moduleMetadata;
 
 	/**
 	 * The cached value of the '{@link #getModuleDefinition() <em>Module Definition</em>}' containment reference.
@@ -170,7 +171,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getModuleMetadata() {
+	public ModuleMetadata getModuleMetadata() {
 		return moduleMetadata;
 	}
 
@@ -179,8 +180,8 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModuleMetadata(Reference newModuleMetadata, NotificationChain msgs) {
-		Reference oldModuleMetadata = moduleMetadata;
+	public NotificationChain basicSetModuleMetadata(ModuleMetadata newModuleMetadata, NotificationChain msgs) {
+		ModuleMetadata oldModuleMetadata = moduleMetadata;
 		moduleMetadata = newModuleMetadata;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__MODULE_METADATA, oldModuleMetadata, newModuleMetadata);
@@ -194,7 +195,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModuleMetadata(Reference newModuleMetadata) {
+	public void setModuleMetadata(ModuleMetadata newModuleMetadata) {
 		if (newModuleMetadata != moduleMetadata) {
 			NotificationChain msgs = null;
 			if (moduleMetadata != null)
@@ -355,7 +356,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				setVersion((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.LIBRARY__MODULE_METADATA:
-				setModuleMetadata((Reference)newValue);
+				setModuleMetadata((ModuleMetadata)newValue);
 				return;
 			case FhirPackage.LIBRARY__MODULE_DEFINITION:
 				setModuleDefinition((Reference)newValue);
@@ -382,7 +383,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				setVersion((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.LIBRARY__MODULE_METADATA:
-				setModuleMetadata((Reference)null);
+				setModuleMetadata((ModuleMetadata)null);
 				return;
 			case FhirPackage.LIBRARY__MODULE_DEFINITION:
 				setModuleDefinition((Reference)null);

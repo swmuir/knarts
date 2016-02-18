@@ -32,6 +32,7 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getCodeSystemVersion <em>Code System Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -48,6 +49,16 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 	 * @ordered
 	 */
 	protected Uri codeSystem;
+
+	/**
+	 * The cached value of the '{@link #getCodeSystemVersion() <em>Code System Version</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCodeSystemVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String codeSystemVersion;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -136,6 +147,49 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getCodeSystemVersion() {
+		return codeSystemVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCodeSystemVersion(org.hl7.fhir.String newCodeSystemVersion, NotificationChain msgs) {
+		org.hl7.fhir.String oldCodeSystemVersion = codeSystemVersion;
+		codeSystemVersion = newCodeSystemVersion;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION, oldCodeSystemVersion, newCodeSystemVersion);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCodeSystemVersion(org.hl7.fhir.String newCodeSystemVersion) {
+		if (newCodeSystemVersion != codeSystemVersion) {
+			NotificationChain msgs = null;
+			if (codeSystemVersion != null)
+				msgs = ((InternalEObject)codeSystemVersion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION, null, msgs);
+			if (newCodeSystemVersion != null)
+				msgs = ((InternalEObject)newCodeSystemVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION, null, msgs);
+			msgs = basicSetCodeSystemVersion(newCodeSystemVersion, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION, newCodeSystemVersion, newCodeSystemVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Code getCode() {
 		return code;
 	}
@@ -196,6 +250,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM:
 				return basicSetCodeSystem(null, msgs);
+			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION:
+				return basicSetCodeSystemVersion(null, msgs);
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
@@ -214,6 +270,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM:
 				return getCodeSystem();
+			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION:
+				return getCodeSystemVersion();
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return getCode();
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
@@ -233,6 +291,9 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM:
 				setCodeSystem((Uri)newValue);
+				return;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION:
+				setCodeSystemVersion((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				setCode((Code)newValue);
@@ -256,6 +317,9 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM:
 				setCodeSystem((Uri)null);
 				return;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION:
+				setCodeSystemVersion((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				setCode((Code)null);
 				return;
@@ -276,6 +340,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM:
 				return codeSystem != null;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE_SYSTEM_VERSION:
+				return codeSystemVersion != null;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return code != null;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:

@@ -82,13 +82,13 @@ public interface Measure extends DomainResource {
 	 * A reference to a ModuleMetadata resource that describes the metadata for the measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module Metadata</em>' containment reference.
-	 * @see #setModuleMetadata(Reference)
+	 * @see #setModuleMetadata(ModuleMetadata)
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_ModuleMetadata()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='moduleMetadata' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getModuleMetadata();
+	ModuleMetadata getModuleMetadata();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Measure#getModuleMetadata <em>Module Metadata</em>}' containment reference.
@@ -98,7 +98,7 @@ public interface Measure extends DomainResource {
 	 * @see #getModuleMetadata()
 	 * @generated
 	 */
-	void setModuleMetadata(Reference value);
+	void setModuleMetadata(ModuleMetadata value);
 
 	/**
 	 * Returns the value of the '<em><b>Library</b></em>' containment reference list.

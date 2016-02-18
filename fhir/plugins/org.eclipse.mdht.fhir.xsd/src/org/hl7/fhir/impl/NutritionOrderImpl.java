@@ -36,12 +36,12 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getDateTime <em>Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getAllergyIntolerance <em>Allergy Intolerance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getFoodPreferenceModifier <em>Food Preference Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getExcludeFoodModifier <em>Exclude Food Modifier</em>}</li>
@@ -54,26 +54,6 @@ import org.hl7.fhir.Reference;
  */
 public class NutritionOrderImpl extends DomainResourceImpl implements NutritionOrder {
 	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatient()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference patient;
-
-	/**
-	 * The cached value of the '{@link #getOrderer() <em>Orderer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrderer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference orderer;
-
-	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +62,26 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected NutritionOrderStatus status;
+
+	/**
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference patient;
 
 	/**
 	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
@@ -104,14 +104,14 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	protected DateTime dateTime;
 
 	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * The cached value of the '{@link #getOrderer() <em>Orderer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getOrderer()
 	 * @generated
 	 * @ordered
 	 */
-	protected NutritionOrderStatus status;
+	protected Reference orderer;
 
 	/**
 	 * The cached value of the '{@link #getAllergyIntolerance() <em>Allergy Intolerance</em>}' containment reference list.
@@ -561,18 +561,18 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.NUTRITION_ORDER__PATIENT:
-				return basicSetPatient(null, msgs);
-			case FhirPackage.NUTRITION_ORDER__ORDERER:
-				return basicSetOrderer(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.NUTRITION_ORDER__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.NUTRITION_ORDER__PATIENT:
+				return basicSetPatient(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__DATE_TIME:
 				return basicSetDateTime(null, msgs);
-			case FhirPackage.NUTRITION_ORDER__STATUS:
-				return basicSetStatus(null, msgs);
+			case FhirPackage.NUTRITION_ORDER__ORDERER:
+				return basicSetOrderer(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE:
 				return ((InternalEList<?>)getAllergyIntolerance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.NUTRITION_ORDER__FOOD_PREFERENCE_MODIFIER:
@@ -597,18 +597,18 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.NUTRITION_ORDER__PATIENT:
-				return getPatient();
-			case FhirPackage.NUTRITION_ORDER__ORDERER:
-				return getOrderer();
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.NUTRITION_ORDER__STATUS:
+				return getStatus();
+			case FhirPackage.NUTRITION_ORDER__PATIENT:
+				return getPatient();
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
 				return getEncounter();
 			case FhirPackage.NUTRITION_ORDER__DATE_TIME:
 				return getDateTime();
-			case FhirPackage.NUTRITION_ORDER__STATUS:
-				return getStatus();
+			case FhirPackage.NUTRITION_ORDER__ORDERER:
+				return getOrderer();
 			case FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE:
 				return getAllergyIntolerance();
 			case FhirPackage.NUTRITION_ORDER__FOOD_PREFERENCE_MODIFIER:
@@ -634,15 +634,15 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.NUTRITION_ORDER__PATIENT:
-				setPatient((Reference)newValue);
-				return;
-			case FhirPackage.NUTRITION_ORDER__ORDERER:
-				setOrderer((Reference)newValue);
-				return;
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.NUTRITION_ORDER__STATUS:
+				setStatus((NutritionOrderStatus)newValue);
+				return;
+			case FhirPackage.NUTRITION_ORDER__PATIENT:
+				setPatient((Reference)newValue);
 				return;
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
 				setEncounter((Reference)newValue);
@@ -650,8 +650,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 			case FhirPackage.NUTRITION_ORDER__DATE_TIME:
 				setDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.NUTRITION_ORDER__STATUS:
-				setStatus((NutritionOrderStatus)newValue);
+			case FhirPackage.NUTRITION_ORDER__ORDERER:
+				setOrderer((Reference)newValue);
 				return;
 			case FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE:
 				getAllergyIntolerance().clear();
@@ -687,14 +687,14 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.NUTRITION_ORDER__PATIENT:
-				setPatient((Reference)null);
-				return;
-			case FhirPackage.NUTRITION_ORDER__ORDERER:
-				setOrderer((Reference)null);
-				return;
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				getIdentifier().clear();
+				return;
+			case FhirPackage.NUTRITION_ORDER__STATUS:
+				setStatus((NutritionOrderStatus)null);
+				return;
+			case FhirPackage.NUTRITION_ORDER__PATIENT:
+				setPatient((Reference)null);
 				return;
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
 				setEncounter((Reference)null);
@@ -702,8 +702,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 			case FhirPackage.NUTRITION_ORDER__DATE_TIME:
 				setDateTime((DateTime)null);
 				return;
-			case FhirPackage.NUTRITION_ORDER__STATUS:
-				setStatus((NutritionOrderStatus)null);
+			case FhirPackage.NUTRITION_ORDER__ORDERER:
+				setOrderer((Reference)null);
 				return;
 			case FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE:
 				getAllergyIntolerance().clear();
@@ -735,18 +735,18 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.NUTRITION_ORDER__PATIENT:
-				return patient != null;
-			case FhirPackage.NUTRITION_ORDER__ORDERER:
-				return orderer != null;
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.NUTRITION_ORDER__STATUS:
+				return status != null;
+			case FhirPackage.NUTRITION_ORDER__PATIENT:
+				return patient != null;
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
 				return encounter != null;
 			case FhirPackage.NUTRITION_ORDER__DATE_TIME:
 				return dateTime != null;
-			case FhirPackage.NUTRITION_ORDER__STATUS:
-				return status != null;
+			case FhirPackage.NUTRITION_ORDER__ORDERER:
+				return orderer != null;
 			case FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE:
 				return allergyIntolerance != null && !allergyIntolerance.isEmpty();
 			case FhirPackage.NUTRITION_ORDER__FOOD_PREFERENCE_MODIFIER:

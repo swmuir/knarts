@@ -31,16 +31,6 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	DRAFT(0, "draft", "draft"),
 
 	/**
-	 * The '<em><b>Test</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TEST_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	TEST(1, "test", "test"),
-
-	/**
 	 * The '<em><b>Active</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +38,7 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTIVE(2, "active", "active"),
+	ACTIVE(1, "active", "active"),
 
 	/**
 	 * The '<em><b>Inactive</b></em>' literal object.
@@ -58,7 +48,7 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INACTIVE(3, "inactive", "inactive");
+	INACTIVE(2, "inactive", "inactive");
 
 	/**
 	 * The '<em><b>Draft</b></em>' literal value.
@@ -75,20 +65,6 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	public static final int DRAFT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Test</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The module is in test state
-	 * <!-- end-model-doc -->
-	 * @see #TEST
-	 * @model name="test"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TEST_VALUE = 1;
-
-	/**
 	 * The '<em><b>Active</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +76,7 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTIVE_VALUE = 2;
+	public static final int ACTIVE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Inactive</b></em>' literal value.
@@ -114,7 +90,7 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INACTIVE_VALUE = 3;
+	public static final int INACTIVE_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Module Metadata Status List</b></em>' enumerators.
@@ -125,7 +101,6 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	private static final ModuleMetadataStatusList[] VALUES_ARRAY =
 		new ModuleMetadataStatusList[] {
 			DRAFT,
-			TEST,
 			ACTIVE,
 			INACTIVE,
 		};
@@ -185,7 +160,6 @@ public enum ModuleMetadataStatusList implements Enumerator {
 	public static ModuleMetadataStatusList get(int value) {
 		switch (value) {
 			case DRAFT_VALUE: return DRAFT;
-			case TEST_VALUE: return TEST;
 			case ACTIVE_VALUE: return ACTIVE;
 			case INACTIVE_VALUE: return INACTIVE;
 		}

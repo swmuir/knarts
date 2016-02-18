@@ -18,20 +18,20 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getAccession <em>Accession</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getOrder <em>Order</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getModalityList <em>Modality List</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getReferrer <em>Referrer</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getModalityList <em>Modality List</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getOrder <em>Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getReferrer <em>Referrer</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfSeries <em>Number Of Series</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getSeries <em>Series</em>}</li>
  * </ul>

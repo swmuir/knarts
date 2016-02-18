@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getAuthoringTime <em>Authoring Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getAuthoringTime <em>Authoring Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingObjectSelection#getStudy <em>Study</em>}</li>
  * </ul>
  *

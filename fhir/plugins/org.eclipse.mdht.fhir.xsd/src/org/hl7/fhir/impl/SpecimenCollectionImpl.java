@@ -2,21 +2,12 @@
  */
 package org.hl7.fhir.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -56,14 +47,14 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	protected Reference collector;
 
 	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference list.
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComment()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.hl7.fhir.String> comment;
+	protected org.hl7.fhir.String comment;
 
 	/**
 	 * The cached value of the '{@link #getCollectedDateTime() <em>Collected Date Time</em>}' containment reference.
@@ -182,11 +173,42 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getComment() {
-		if (comment == null) {
-			comment = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.SPECIMEN_COLLECTION__COMMENT);
-		}
+	public org.hl7.fhir.String getComment() {
 		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
+		org.hl7.fhir.String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__COMMENT, oldComment, newComment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(org.hl7.fhir.String newComment) {
+		if (newComment != comment) {
+			NotificationChain msgs = null;
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__COMMENT, newComment, newComment));
 	}
 
 	/**
@@ -415,7 +437,7 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTOR:
 				return basicSetCollector(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__COMMENT:
-				return ((InternalEList<?>)getComment()).basicRemove(otherEnd, msgs);
+				return basicSetComment(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_DATE_TIME:
 				return basicSetCollectedDateTime(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
@@ -469,8 +491,7 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				setCollector((Reference)newValue);
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__COMMENT:
-				getComment().clear();
-				getComment().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				setComment((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_DATE_TIME:
 				setCollectedDateTime((DateTime)newValue);
@@ -503,7 +524,7 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				setCollector((Reference)null);
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__COMMENT:
-				getComment().clear();
+				setComment((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_DATE_TIME:
 				setCollectedDateTime((DateTime)null);
@@ -535,7 +556,7 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTOR:
 				return collector != null;
 			case FhirPackage.SPECIMEN_COLLECTION__COMMENT:
-				return comment != null && !comment.isEmpty();
+				return comment != null;
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_DATE_TIME:
 				return collectedDateTime != null;
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:

@@ -69,7 +69,7 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept genomeBuild;
+	protected org.hl7.fhir.String genomeBuild;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,7 +224,7 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getGenomeBuild() {
+	public org.hl7.fhir.String getGenomeBuild() {
 		return genomeBuild;
 	}
 
@@ -233,8 +233,8 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGenomeBuild(CodeableConcept newGenomeBuild, NotificationChain msgs) {
-		CodeableConcept oldGenomeBuild = genomeBuild;
+	public NotificationChain basicSetGenomeBuild(org.hl7.fhir.String newGenomeBuild, NotificationChain msgs) {
+		org.hl7.fhir.String oldGenomeBuild = genomeBuild;
 		genomeBuild = newGenomeBuild;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_COORDINATE__GENOME_BUILD, oldGenomeBuild, newGenomeBuild);
@@ -248,7 +248,7 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGenomeBuild(CodeableConcept newGenomeBuild) {
+	public void setGenomeBuild(org.hl7.fhir.String newGenomeBuild) {
 		if (newGenomeBuild != genomeBuild) {
 			NotificationChain msgs = null;
 			if (genomeBuild != null)
@@ -320,7 +320,7 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 				setEnd((org.hl7.fhir.Integer)newValue);
 				return;
 			case FhirPackage.SEQUENCE_COORDINATE__GENOME_BUILD:
-				setGenomeBuild((CodeableConcept)newValue);
+				setGenomeBuild((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,7 +344,7 @@ public class SequenceCoordinateImpl extends BackboneElementImpl implements Seque
 				setEnd((org.hl7.fhir.Integer)null);
 				return;
 			case FhirPackage.SEQUENCE_COORDINATE__GENOME_BUILD:
-				setGenomeBuild((CodeableConcept)null);
+				setGenomeBuild((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);

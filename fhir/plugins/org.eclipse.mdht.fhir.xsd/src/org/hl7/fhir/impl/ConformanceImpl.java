@@ -46,9 +46,9 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConformanceImpl#getCopyright <em>Copyright</em>}</li>
@@ -118,6 +118,16 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,16 +146,6 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 	 * @ordered
 	 */
 	protected EList<ConformanceContact> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -1031,12 +1031,12 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CONFORMANCE__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.CONFORMANCE__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.CONFORMANCE__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.CONFORMANCE__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONFORMANCE__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.CONFORMANCE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CONFORMANCE__REQUIREMENTS:
@@ -1085,12 +1085,12 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 				return getStatus();
 			case FhirPackage.CONFORMANCE__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.CONFORMANCE__DATE:
+				return getDate();
 			case FhirPackage.CONFORMANCE__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.CONFORMANCE__CONTACT:
 				return getContact();
-			case FhirPackage.CONFORMANCE__DATE:
-				return getDate();
 			case FhirPackage.CONFORMANCE__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CONFORMANCE__REQUIREMENTS:
@@ -1145,15 +1145,15 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 			case FhirPackage.CONFORMANCE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.CONFORMANCE__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.CONFORMANCE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONFORMANCE__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ConformanceContact>)newValue);
-				return;
-			case FhirPackage.CONFORMANCE__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.CONFORMANCE__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -1226,14 +1226,14 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 			case FhirPackage.CONFORMANCE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.CONFORMANCE__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.CONFORMANCE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CONFORMANCE__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.CONFORMANCE__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.CONFORMANCE__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -1296,12 +1296,12 @@ public class ConformanceImpl extends DomainResourceImpl implements Conformance {
 				return status != null;
 			case FhirPackage.CONFORMANCE__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.CONFORMANCE__DATE:
+				return date != null;
 			case FhirPackage.CONFORMANCE__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.CONFORMANCE__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.CONFORMANCE__DATE:
-				return date != null;
 			case FhirPackage.CONFORMANCE__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CONFORMANCE__REQUIREMENTS:

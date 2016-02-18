@@ -205,29 +205,19 @@ public interface AllergyIntoleranceReaction extends BackboneElement {
 	void setExposureRoute(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional text about the adverse reaction event not captured in other fields.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(Annotation)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntoleranceReaction_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Annotation getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntoleranceReaction#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(Annotation value);
+	EList<Annotation> getNote();
 
 } // AllergyIntoleranceReaction

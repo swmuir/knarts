@@ -10,19 +10,22 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
- * If the element is present, it must have either a @value, an @id, or extensions
+ * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+ * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.ModuleMetadata#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.ModuleMetadata#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ModuleMetadata#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getUsage <em>Usage</em>}</li>
@@ -31,11 +34,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getTopic <em>Topic</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadata#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadata#getSteward <em>Steward</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadata#getRightsDeclaration <em>Rights Declaration</em>}</li>
+ *   <li>{@link org.hl7.fhir.ModuleMetadata#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.ModuleMetadata#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadata#getRelatedResource <em>Related Resource</em>}</li>
  * </ul>
  *
@@ -43,7 +45,33 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ModuleMetadata' kind='elementOnly'"
  * @generated
  */
-public interface ModuleMetadata extends DomainResource {
+public interface ModuleMetadata extends Element {
+	/**
+	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Url</em>' containment reference.
+	 * @see #setUrl(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Url()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getUrl <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Url</em>' containment reference.
+	 * @see #getUrl()
+	 * @generated
+	 */
+	void setUrl(Uri value);
+
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
@@ -65,7 +93,7 @@ public interface ModuleMetadata extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
+	 * The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -87,11 +115,37 @@ public interface ModuleMetadata extends DomainResource {
 	void setVersion(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Name()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getName();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getName <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short, descriptive title for the module.
+	 * A short, descriptive, user-friendly title for the module.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Title</em>' containment reference.
 	 * @see #setTitle(org.hl7.fhir.String)
@@ -165,11 +219,37 @@ public interface ModuleMetadata extends DomainResource {
 	void setStatus(ModuleMetadataStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Experimental</em>' containment reference.
+	 * @see #setExperimental(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Experimental()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='experimental' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getExperimental();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getExperimental <em>Experimental</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Experimental</em>' containment reference.
+	 * @see #getExperimental()
+	 * @generated
+	 */
+	void setExperimental(org.hl7.fhir.Boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the module from the consumer perspective.
+	 * A free text natural language description of the module from the consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -221,7 +301,7 @@ public interface ModuleMetadata extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Notes about usage of the module.
+	 * A detailed description of how the module is used from a clinical perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Usage</em>' containment reference.
 	 * @see #setUsage(org.hl7.fhir.String)
@@ -353,28 +433,12 @@ public interface ModuleMetadata extends DomainResource {
 	EList<CodeableConcept> getTopic();
 
 	/**
-	 * Returns the value of the '<em><b>Keyword</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Keywords associated with the module.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Keyword</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Keyword()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='keyword' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<org.hl7.fhir.String> getKeyword();
-
-	/**
 	 * Returns the value of the '<em><b>Contributor</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ModuleMetadataContributor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A contributor to the content of the module.
+	 * A contributor to the content of the module, including authors, editors, reviewers, and endorsers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contributor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Contributor()
@@ -389,16 +453,16 @@ public interface ModuleMetadata extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization responsible for publishing the module.
+	 * The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(Reference)
+	 * @see #setPublisher(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Publisher()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPublisher();
+	org.hl7.fhir.String getPublisher();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getPublisher <em>Publisher</em>}' containment reference.
@@ -408,59 +472,49 @@ public interface ModuleMetadata extends DomainResource {
 	 * @see #getPublisher()
 	 * @generated
 	 */
-	void setPublisher(Reference value);
+	void setPublisher(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Steward</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ModuleMetadataContact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization responsible for stewardship of the module content.
+	 * Contacts to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Steward</em>' containment reference.
-	 * @see #setSteward(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Steward()
+	 * @return the value of the '<em>Contact</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Contact()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='steward' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSteward();
+	EList<ModuleMetadataContact> getContact();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getSteward <em>Steward</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Steward</em>' containment reference.
-	 * @see #getSteward()
-	 * @generated
-	 */
-	void setSteward(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Rights Declaration</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The legal rights declaration for the module.
+	 * A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rights Declaration</em>' containment reference.
-	 * @see #setRightsDeclaration(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_RightsDeclaration()
+	 * @return the value of the '<em>Copyright</em>' containment reference.
+	 * @see #setCopyright(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_Copyright()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rightsDeclaration' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='copyright' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getRightsDeclaration();
+	org.hl7.fhir.String getCopyright();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getRightsDeclaration <em>Rights Declaration</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadata#getCopyright <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rights Declaration</em>' containment reference.
-	 * @see #getRightsDeclaration()
+	 * @param value the new value of the '<em>Copyright</em>' containment reference.
+	 * @see #getCopyright()
 	 * @generated
 	 */
-	void setRightsDeclaration(org.hl7.fhir.String value);
+	void setCopyright(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Related Resource</b></em>' containment reference list.
@@ -468,7 +522,7 @@ public interface ModuleMetadata extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Related resources such as additional documentation, supporting evidence, or bibliographic references.
+	 * Related resources such as additional documentation, justification, or bibliographic references.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Related Resource</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getModuleMetadata_RelatedResource()

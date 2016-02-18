@@ -80,13 +80,13 @@ public interface Library extends DomainResource {
 	 * A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module Metadata</em>' containment reference.
-	 * @see #setModuleMetadata(Reference)
+	 * @see #setModuleMetadata(ModuleMetadata)
 	 * @see org.hl7.fhir.FhirPackage#getLibrary_ModuleMetadata()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='moduleMetadata' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getModuleMetadata();
+	ModuleMetadata getModuleMetadata();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Library#getModuleMetadata <em>Module Metadata</em>}' containment reference.
@@ -96,7 +96,7 @@ public interface Library extends DomainResource {
 	 * @see #getModuleMetadata()
 	 * @generated
 	 */
-	void setModuleMetadata(Reference value);
+	void setModuleMetadata(ModuleMetadata value);
 
 	/**
 	 * Returns the value of the '<em><b>Module Definition</b></em>' containment reference.

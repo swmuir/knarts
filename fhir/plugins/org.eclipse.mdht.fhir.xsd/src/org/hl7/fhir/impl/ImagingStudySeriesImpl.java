@@ -35,9 +35,9 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getModality <em>Modality</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getAvailability <em>Availability</em>}</li>
@@ -51,6 +51,16 @@ import org.hl7.fhir.Uri;
  * @generated
  */
 public class ImagingStudySeriesImpl extends BackboneElementImpl implements ImagingStudySeries {
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected Oid uid;
+
 	/**
 	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -70,16 +80,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * @ordered
 	 */
 	protected Coding modality;
-
-	/**
-	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUid()
-	 * @generated
-	 * @ordered
-	 */
-	protected Oid uid;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -630,12 +630,12 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.IMAGING_STUDY_SERIES__UID:
+				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				return basicSetNumber(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__MODALITY:
 				return basicSetModality(null, msgs);
-			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
@@ -664,12 +664,12 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.IMAGING_STUDY_SERIES__UID:
+				return getUid();
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				return getNumber();
 			case FhirPackage.IMAGING_STUDY_SERIES__MODALITY:
 				return getModality();
-			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				return getUid();
 			case FhirPackage.IMAGING_STUDY_SERIES__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
@@ -699,14 +699,14 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.IMAGING_STUDY_SERIES__UID:
+				setUid((Oid)newValue);
+				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				setNumber((UnsignedInt)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__MODALITY:
 				setModality((Coding)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				setUid((Oid)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -745,14 +745,14 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.IMAGING_STUDY_SERIES__UID:
+				setUid((Oid)null);
+				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				setNumber((UnsignedInt)null);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__MODALITY:
 				setModality((Coding)null);
-				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				setUid((Oid)null);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -790,12 +790,12 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.IMAGING_STUDY_SERIES__UID:
+				return uid != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				return number != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__MODALITY:
 				return modality != null;
-			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				return uid != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__DESCRIPTION:
 				return description != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:

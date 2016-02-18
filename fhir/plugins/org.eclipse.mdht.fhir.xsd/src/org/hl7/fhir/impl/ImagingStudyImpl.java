@@ -37,20 +37,20 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getStarted <em>Started</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getAccession <em>Accession</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getOrder <em>Order</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getModalityList <em>Modality List</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReferrer <em>Referrer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getModalityList <em>Modality List</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getStarted <em>Started</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReferrer <em>Referrer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getInterpreter <em>Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNumberOfSeries <em>Number Of Series</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getInterpreter <em>Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getSeries <em>Series</em>}</li>
  * </ul>
@@ -58,26 +58,6 @@ import org.hl7.fhir.Uri;
  * @generated
  */
 public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy {
-	/**
-	 * The cached value of the '{@link #getStarted() <em>Started</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStarted()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime started;
-
-	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatient()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference patient;
-
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -109,14 +89,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getOrder() <em>Order</em>}' containment reference list.
+	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrder()
+	 * @see #getAvailability()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> order;
+	protected InstanceAvailability availability;
 
 	/**
 	 * The cached value of the '{@link #getModalityList() <em>Modality List</em>}' containment reference list.
@@ -129,6 +109,36 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected EList<Coding> modalityList;
 
 	/**
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference patient;
+
+	/**
+	 * The cached value of the '{@link #getStarted() <em>Started</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStarted()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime started;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> order;
+
+	/**
 	 * The cached value of the '{@link #getReferrer() <em>Referrer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,14 +149,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected Reference referrer;
 
 	/**
-	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference.
+	 * The cached value of the '{@link #getInterpreter() <em>Interpreter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAvailability()
+	 * @see #getInterpreter()
 	 * @generated
 	 * @ordered
 	 */
-	protected InstanceAvailability availability;
+	protected Reference interpreter;
 
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -187,16 +197,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * @ordered
 	 */
 	protected EList<Reference> procedure;
-
-	/**
-	 * The cached value of the '{@link #getInterpreter() <em>Interpreter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterpreter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference interpreter;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -778,24 +778,26 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__STARTED:
-				return basicSetStarted(null, msgs);
-			case FhirPackage.IMAGING_STUDY__PATIENT:
-				return basicSetPatient(null, msgs);
 			case FhirPackage.IMAGING_STUDY__UID:
 				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_STUDY__ACCESSION:
 				return basicSetAccession(null, msgs);
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__ORDER:
-				return ((InternalEList<?>)getOrder()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return ((InternalEList<?>)getModalityList()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__REFERRER:
-				return basicSetReferrer(null, msgs);
 			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
 				return basicSetAvailability(null, msgs);
+			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
+				return ((InternalEList<?>)getModalityList()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__PATIENT:
+				return basicSetPatient(null, msgs);
+			case FhirPackage.IMAGING_STUDY__STARTED:
+				return basicSetStarted(null, msgs);
+			case FhirPackage.IMAGING_STUDY__ORDER:
+				return ((InternalEList<?>)getOrder()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__REFERRER:
+				return basicSetReferrer(null, msgs);
+			case FhirPackage.IMAGING_STUDY__INTERPRETER:
+				return basicSetInterpreter(null, msgs);
 			case FhirPackage.IMAGING_STUDY__URL:
 				return basicSetUrl(null, msgs);
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
@@ -804,8 +806,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return basicSetNumberOfInstances(null, msgs);
 			case FhirPackage.IMAGING_STUDY__PROCEDURE:
 				return ((InternalEList<?>)getProcedure()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__INTERPRETER:
-				return basicSetInterpreter(null, msgs);
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMAGING_STUDY__SERIES:
@@ -822,24 +822,26 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__STARTED:
-				return getStarted();
-			case FhirPackage.IMAGING_STUDY__PATIENT:
-				return getPatient();
 			case FhirPackage.IMAGING_STUDY__UID:
 				return getUid();
 			case FhirPackage.IMAGING_STUDY__ACCESSION:
 				return getAccession();
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.IMAGING_STUDY__ORDER:
-				return getOrder();
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return getModalityList();
-			case FhirPackage.IMAGING_STUDY__REFERRER:
-				return getReferrer();
 			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
 				return getAvailability();
+			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
+				return getModalityList();
+			case FhirPackage.IMAGING_STUDY__PATIENT:
+				return getPatient();
+			case FhirPackage.IMAGING_STUDY__STARTED:
+				return getStarted();
+			case FhirPackage.IMAGING_STUDY__ORDER:
+				return getOrder();
+			case FhirPackage.IMAGING_STUDY__REFERRER:
+				return getReferrer();
+			case FhirPackage.IMAGING_STUDY__INTERPRETER:
+				return getInterpreter();
 			case FhirPackage.IMAGING_STUDY__URL:
 				return getUrl();
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
@@ -848,8 +850,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return getNumberOfInstances();
 			case FhirPackage.IMAGING_STUDY__PROCEDURE:
 				return getProcedure();
-			case FhirPackage.IMAGING_STUDY__INTERPRETER:
-				return getInterpreter();
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.IMAGING_STUDY__SERIES:
@@ -867,12 +867,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__STARTED:
-				setStarted((DateTime)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY__PATIENT:
-				setPatient((Reference)newValue);
-				return;
 			case FhirPackage.IMAGING_STUDY__UID:
 				setUid((Oid)newValue);
 				return;
@@ -883,19 +877,28 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__ORDER:
-				getOrder().clear();
-				getOrder().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
+				setAvailability((InstanceAvailability)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
 				getModalityList().clear();
 				getModalityList().addAll((Collection<? extends Coding>)newValue);
 				return;
+			case FhirPackage.IMAGING_STUDY__PATIENT:
+				setPatient((Reference)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__STARTED:
+				setStarted((DateTime)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__ORDER:
+				getOrder().clear();
+				getOrder().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.IMAGING_STUDY__REFERRER:
 				setReferrer((Reference)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				setAvailability((InstanceAvailability)newValue);
+			case FhirPackage.IMAGING_STUDY__INTERPRETER:
+				setInterpreter((Reference)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__URL:
 				setUrl((Uri)newValue);
@@ -909,9 +912,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__PROCEDURE:
 				getProcedure().clear();
 				getProcedure().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY__INTERPRETER:
-				setInterpreter((Reference)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -932,12 +932,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__STARTED:
-				setStarted((DateTime)null);
-				return;
-			case FhirPackage.IMAGING_STUDY__PATIENT:
-				setPatient((Reference)null);
-				return;
 			case FhirPackage.IMAGING_STUDY__UID:
 				setUid((Oid)null);
 				return;
@@ -947,17 +941,26 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.IMAGING_STUDY__ORDER:
-				getOrder().clear();
+			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
+				setAvailability((InstanceAvailability)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
 				getModalityList().clear();
 				return;
+			case FhirPackage.IMAGING_STUDY__PATIENT:
+				setPatient((Reference)null);
+				return;
+			case FhirPackage.IMAGING_STUDY__STARTED:
+				setStarted((DateTime)null);
+				return;
+			case FhirPackage.IMAGING_STUDY__ORDER:
+				getOrder().clear();
+				return;
 			case FhirPackage.IMAGING_STUDY__REFERRER:
 				setReferrer((Reference)null);
 				return;
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				setAvailability((InstanceAvailability)null);
+			case FhirPackage.IMAGING_STUDY__INTERPRETER:
+				setInterpreter((Reference)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__URL:
 				setUrl((Uri)null);
@@ -970,9 +973,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE:
 				getProcedure().clear();
-				return;
-			case FhirPackage.IMAGING_STUDY__INTERPRETER:
-				setInterpreter((Reference)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -992,24 +992,26 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__STARTED:
-				return started != null;
-			case FhirPackage.IMAGING_STUDY__PATIENT:
-				return patient != null;
 			case FhirPackage.IMAGING_STUDY__UID:
 				return uid != null;
 			case FhirPackage.IMAGING_STUDY__ACCESSION:
 				return accession != null;
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.IMAGING_STUDY__ORDER:
-				return order != null && !order.isEmpty();
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return modalityList != null && !modalityList.isEmpty();
-			case FhirPackage.IMAGING_STUDY__REFERRER:
-				return referrer != null;
 			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
 				return availability != null;
+			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
+				return modalityList != null && !modalityList.isEmpty();
+			case FhirPackage.IMAGING_STUDY__PATIENT:
+				return patient != null;
+			case FhirPackage.IMAGING_STUDY__STARTED:
+				return started != null;
+			case FhirPackage.IMAGING_STUDY__ORDER:
+				return order != null && !order.isEmpty();
+			case FhirPackage.IMAGING_STUDY__REFERRER:
+				return referrer != null;
+			case FhirPackage.IMAGING_STUDY__INTERPRETER:
+				return interpreter != null;
 			case FhirPackage.IMAGING_STUDY__URL:
 				return url != null;
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
@@ -1018,8 +1020,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return numberOfInstances != null;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE:
 				return procedure != null && !procedure.isEmpty();
-			case FhirPackage.IMAGING_STUDY__INTERPRETER:
-				return interpreter != null;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return description != null;
 			case FhirPackage.IMAGING_STUDY__SERIES:

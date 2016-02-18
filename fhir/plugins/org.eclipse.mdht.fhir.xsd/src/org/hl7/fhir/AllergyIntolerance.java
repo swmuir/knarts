@@ -19,16 +19,16 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnset <em>Onset</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecordedDate <em>Recorded Date</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecorder <em>Recorder</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getReporter <em>Reporter</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getSubstance <em>Substance</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getCriticality <em>Criticality</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getCriticality <em>Criticality</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getSubstance <em>Substance</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecordedDate <em>Recorded Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecorder <em>Recorder</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getReporter <em>Reporter</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnset <em>Onset</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getLastOccurence <em>Last Occurence</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getReaction <em>Reaction</em>}</li>
@@ -342,30 +342,20 @@ public interface AllergyIntolerance extends DomainResource {
 	void setLastOccurence(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(Annotation)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Annotation getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(Annotation value);
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Reaction</b></em>' containment reference list.

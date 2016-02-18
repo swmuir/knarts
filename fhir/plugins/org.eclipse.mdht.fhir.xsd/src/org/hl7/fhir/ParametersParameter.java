@@ -53,6 +53,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueTiming <em>Value Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueMeta <em>Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueElementDefinition <em>Value Element Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueModuleMetadata <em>Value Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getPart <em>Part</em>}</li>
  * </ul>
@@ -1032,6 +1033,33 @@ public interface ParametersParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueElementDefinition(ElementDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Module Metadata</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Module Metadata</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Module Metadata</em>' containment reference.
+	 * @see #setValueModuleMetadata(ModuleMetadata)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueModuleMetadata()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueModuleMetadata' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ModuleMetadata getValueModuleMetadata();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueModuleMetadata <em>Value Module Metadata</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Module Metadata</em>' containment reference.
+	 * @see #getValueModuleMetadata()
+	 * @generated
+	 */
+	void setValueModuleMetadata(ModuleMetadata value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.

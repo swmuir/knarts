@@ -98,7 +98,15 @@ public enum NutritionOrderStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(7, "cancelled", "cancelled");
+	CANCELLED(7, "cancelled", "cancelled"), /**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(8, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Proposed</b></em>' literal value.
@@ -213,6 +221,20 @@ public enum NutritionOrderStatusList implements Enumerator {
 	public static final int CANCELLED_VALUE = 7;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The request was entered in error and voided.
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Nutrition Order Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +250,7 @@ public enum NutritionOrderStatusList implements Enumerator {
 			ON_HOLD,
 			COMPLETED,
 			CANCELLED,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -292,6 +315,7 @@ public enum NutritionOrderStatusList implements Enumerator {
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case COMPLETED_VALUE: return COMPLETED;
 			case CANCELLED_VALUE: return CANCELLED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

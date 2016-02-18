@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -36,20 +37,20 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getInformationSource <em>Information Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getDateAsserted <em>Date Asserted</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getWasNotTaken <em>Was Not Taken</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getReasonNotTaken <em>Reason Not Taken</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getReasonForUseCodeableConcept <em>Reason For Use Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getReasonForUseReference <em>Reason For Use Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getSupportingInformation <em>Supporting Information</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationStatementImpl#getDosage <em>Dosage</em>}</li>
  * </ul>
  *
@@ -67,6 +68,36 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected MedicationStatementStatus status;
+
+	/**
+	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMedicationCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept medicationCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getMedicationReference() <em>Medication Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMedicationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference medicationReference;
+
+	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +106,26 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * @ordered
 	 */
 	protected Reference patient;
+
+	/**
+	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectiveDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime effectiveDateTime;
+
+	/**
+	 * The cached value of the '{@link #getEffectivePeriod() <em>Effective Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectivePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period effectivePeriod;
 
 	/**
 	 * The cached value of the '{@link #getInformationSource() <em>Information Source</em>}' containment reference.
@@ -95,16 +146,6 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * @ordered
 	 */
 	protected DateTime dateAsserted;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected MedicationStatementStatus status;
 
 	/**
 	 * The cached value of the '{@link #getWasNotTaken() <em>Was Not Taken</em>}' containment reference.
@@ -147,34 +188,14 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	protected Reference reasonForUseReference;
 
 	/**
-	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEffectiveDateTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime effectiveDateTime;
-
-	/**
-	 * The cached value of the '{@link #getEffectivePeriod() <em>Effective Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEffectivePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period effectivePeriod;
-
-	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String note;
+	protected EList<Annotation> note;
 
 	/**
 	 * The cached value of the '{@link #getSupportingInformation() <em>Supporting Information</em>}' containment reference list.
@@ -185,26 +206,6 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * @ordered
 	 */
 	protected EList<Reference> supportingInformation;
-
-	/**
-	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept medicationCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getMedicationReference() <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference medicationReference;
 
 	/**
 	 * The cached value of the '{@link #getDosage() <em>Dosage</em>}' containment reference list.
@@ -651,42 +652,11 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNote() {
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_STATEMENT__NOTE);
+		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNote(org.hl7.fhir.String newNote, NotificationChain msgs) {
-		org.hl7.fhir.String oldNote = note;
-		note = newNote;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_STATEMENT__NOTE, oldNote, newNote);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNote(org.hl7.fhir.String newNote) {
-		if (newNote != note) {
-			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_STATEMENT__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_STATEMENT__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_STATEMENT__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -809,14 +779,22 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 		switch (featureID) {
 			case FhirPackage.MEDICATION_STATEMENT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_STATEMENT__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
+				return basicSetMedicationCodeableConcept(null, msgs);
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
+				return basicSetMedicationReference(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__PATIENT:
 				return basicSetPatient(null, msgs);
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
+				return basicSetEffectiveDateTime(null, msgs);
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
+				return basicSetEffectivePeriod(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__INFORMATION_SOURCE:
 				return basicSetInformationSource(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__DATE_ASSERTED:
 				return basicSetDateAsserted(null, msgs);
-			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				return basicSetStatus(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__WAS_NOT_TAKEN:
 				return basicSetWasNotTaken(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__REASON_NOT_TAKEN:
@@ -825,18 +803,10 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				return basicSetReasonForUseCodeableConcept(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__REASON_FOR_USE_REFERENCE:
 				return basicSetReasonForUseReference(null, msgs);
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
-				return basicSetEffectiveDateTime(null, msgs);
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
-				return basicSetEffectivePeriod(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__NOTE:
-				return basicSetNote(null, msgs);
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__SUPPORTING_INFORMATION:
 				return ((InternalEList<?>)getSupportingInformation()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
-				return basicSetMedicationCodeableConcept(null, msgs);
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
-				return basicSetMedicationReference(null, msgs);
 			case FhirPackage.MEDICATION_STATEMENT__DOSAGE:
 				return ((InternalEList<?>)getDosage()).basicRemove(otherEnd, msgs);
 		}
@@ -853,14 +823,22 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 		switch (featureID) {
 			case FhirPackage.MEDICATION_STATEMENT__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.MEDICATION_STATEMENT__STATUS:
+				return getStatus();
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
+				return getMedicationCodeableConcept();
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
+				return getMedicationReference();
 			case FhirPackage.MEDICATION_STATEMENT__PATIENT:
 				return getPatient();
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
+				return getEffectiveDateTime();
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
+				return getEffectivePeriod();
 			case FhirPackage.MEDICATION_STATEMENT__INFORMATION_SOURCE:
 				return getInformationSource();
 			case FhirPackage.MEDICATION_STATEMENT__DATE_ASSERTED:
 				return getDateAsserted();
-			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				return getStatus();
 			case FhirPackage.MEDICATION_STATEMENT__WAS_NOT_TAKEN:
 				return getWasNotTaken();
 			case FhirPackage.MEDICATION_STATEMENT__REASON_NOT_TAKEN:
@@ -869,18 +847,10 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				return getReasonForUseCodeableConcept();
 			case FhirPackage.MEDICATION_STATEMENT__REASON_FOR_USE_REFERENCE:
 				return getReasonForUseReference();
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
-				return getEffectiveDateTime();
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
-				return getEffectivePeriod();
 			case FhirPackage.MEDICATION_STATEMENT__NOTE:
 				return getNote();
 			case FhirPackage.MEDICATION_STATEMENT__SUPPORTING_INFORMATION:
 				return getSupportingInformation();
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
-				return getMedicationCodeableConcept();
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
-				return getMedicationReference();
 			case FhirPackage.MEDICATION_STATEMENT__DOSAGE:
 				return getDosage();
 		}
@@ -900,17 +870,29 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.MEDICATION_STATEMENT__STATUS:
+				setStatus((MedicationStatementStatus)newValue);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
+				setMedicationCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
+				setMedicationReference((Reference)newValue);
+				return;
 			case FhirPackage.MEDICATION_STATEMENT__PATIENT:
 				setPatient((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
+				setEffectiveDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
+				setEffectivePeriod((Period)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__INFORMATION_SOURCE:
 				setInformationSource((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__DATE_ASSERTED:
 				setDateAsserted((DateTime)newValue);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				setStatus((MedicationStatementStatus)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__WAS_NOT_TAKEN:
 				setWasNotTaken((org.hl7.fhir.Boolean)newValue);
@@ -925,24 +907,13 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 			case FhirPackage.MEDICATION_STATEMENT__REASON_FOR_USE_REFERENCE:
 				setReasonForUseReference((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
-				setEffectiveDateTime((DateTime)newValue);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
-				setEffectivePeriod((Period)newValue);
-				return;
 			case FhirPackage.MEDICATION_STATEMENT__NOTE:
-				setNote((org.hl7.fhir.String)newValue);
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__SUPPORTING_INFORMATION:
 				getSupportingInformation().clear();
 				getSupportingInformation().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__DOSAGE:
 				getDosage().clear();
@@ -963,17 +934,29 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 			case FhirPackage.MEDICATION_STATEMENT__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.MEDICATION_STATEMENT__STATUS:
+				setStatus((MedicationStatementStatus)null);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
+				setMedicationCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
+				setMedicationReference((Reference)null);
+				return;
 			case FhirPackage.MEDICATION_STATEMENT__PATIENT:
 				setPatient((Reference)null);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
+				setEffectiveDateTime((DateTime)null);
+				return;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
+				setEffectivePeriod((Period)null);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__INFORMATION_SOURCE:
 				setInformationSource((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__DATE_ASSERTED:
 				setDateAsserted((DateTime)null);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				setStatus((MedicationStatementStatus)null);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__WAS_NOT_TAKEN:
 				setWasNotTaken((org.hl7.fhir.Boolean)null);
@@ -987,23 +970,11 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 			case FhirPackage.MEDICATION_STATEMENT__REASON_FOR_USE_REFERENCE:
 				setReasonForUseReference((Reference)null);
 				return;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
-				setEffectiveDateTime((DateTime)null);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
-				setEffectivePeriod((Period)null);
-				return;
 			case FhirPackage.MEDICATION_STATEMENT__NOTE:
-				setNote((org.hl7.fhir.String)null);
+				getNote().clear();
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__SUPPORTING_INFORMATION:
 				getSupportingInformation().clear();
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__DOSAGE:
 				getDosage().clear();
@@ -1022,14 +993,22 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 		switch (featureID) {
 			case FhirPackage.MEDICATION_STATEMENT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.MEDICATION_STATEMENT__STATUS:
+				return status != null;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
+				return medicationCodeableConcept != null;
+			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
+				return medicationReference != null;
 			case FhirPackage.MEDICATION_STATEMENT__PATIENT:
 				return patient != null;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
+				return effectiveDateTime != null;
+			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
+				return effectivePeriod != null;
 			case FhirPackage.MEDICATION_STATEMENT__INFORMATION_SOURCE:
 				return informationSource != null;
 			case FhirPackage.MEDICATION_STATEMENT__DATE_ASSERTED:
 				return dateAsserted != null;
-			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				return status != null;
 			case FhirPackage.MEDICATION_STATEMENT__WAS_NOT_TAKEN:
 				return wasNotTaken != null;
 			case FhirPackage.MEDICATION_STATEMENT__REASON_NOT_TAKEN:
@@ -1038,18 +1017,10 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				return reasonForUseCodeableConcept != null;
 			case FhirPackage.MEDICATION_STATEMENT__REASON_FOR_USE_REFERENCE:
 				return reasonForUseReference != null;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_DATE_TIME:
-				return effectiveDateTime != null;
-			case FhirPackage.MEDICATION_STATEMENT__EFFECTIVE_PERIOD:
-				return effectivePeriod != null;
 			case FhirPackage.MEDICATION_STATEMENT__NOTE:
-				return note != null;
+				return note != null && !note.isEmpty();
 			case FhirPackage.MEDICATION_STATEMENT__SUPPORTING_INFORMATION:
 				return supportingInformation != null && !supportingInformation.isEmpty();
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_CODEABLE_CONCEPT:
-				return medicationCodeableConcept != null;
-			case FhirPackage.MEDICATION_STATEMENT__MEDICATION_REFERENCE:
-				return medicationReference != null;
 			case FhirPackage.MEDICATION_STATEMENT__DOSAGE:
 				return dosage != null && !dosage.isEmpty();
 		}

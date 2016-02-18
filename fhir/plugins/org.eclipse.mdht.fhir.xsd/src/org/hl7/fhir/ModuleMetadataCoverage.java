@@ -9,7 +9,8 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+ * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
+ * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
  * <p>
@@ -17,7 +18,6 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ModuleMetadataCoverage#getFocus <em>Focus</em>}</li>
- *   <li>{@link org.hl7.fhir.ModuleMetadataCoverage#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ModuleMetadataCoverage#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -25,7 +25,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ModuleMetadata.Coverage' kind='elementOnly'"
  * @generated
  */
-public interface ModuleMetadataCoverage extends BackboneElement {
+public interface ModuleMetadataCoverage extends Element {
 	/**
 	 * Returns the value of the '<em><b>Focus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -34,13 +34,13 @@ public interface ModuleMetadataCoverage extends BackboneElement {
 	 * Specifies the focus of the coverage attribute.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Focus</em>' containment reference.
-	 * @see #setFocus(ModuleMetadataFocusType)
+	 * @see #setFocus(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataCoverage_Focus()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='focus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ModuleMetadataFocusType getFocus();
+	Coding getFocus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadataCoverage#getFocus <em>Focus</em>}' containment reference.
@@ -50,33 +50,7 @@ public interface ModuleMetadataCoverage extends BackboneElement {
 	 * @see #getFocus()
 	 * @generated
 	 */
-	void setFocus(ModuleMetadataFocusType value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Provides an optional description of the coverage attribute.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataCoverage_Description()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ModuleMetadataCoverage#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setFocus(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
@@ -88,7 +62,7 @@ public interface ModuleMetadataCoverage extends BackboneElement {
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getModuleMetadataCoverage_Value()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */
