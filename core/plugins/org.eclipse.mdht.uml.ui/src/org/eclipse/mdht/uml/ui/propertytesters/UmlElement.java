@@ -15,6 +15,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Generalization;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 
@@ -40,6 +41,11 @@ public class UmlElement extends PropertyTester {
 				return false;
 			case "isAnAssociation":
 				return unwrap(receiver) instanceof Association;
+			case "isProperty":
+				return unwrap(receiver) instanceof Property;
+			case "isNamedElement":
+				return unwrap(receiver) instanceof NamedElement;
+
 			default:
 				return false;
 
@@ -92,23 +98,27 @@ public class UmlElement extends PropertyTester {
 
 	private static EObject unwrap(Object wrapper) {
 		Object obj = null;
-		if (wrapper instanceof EObject)
+		if (wrapper instanceof EObject) {
 			return (EObject) wrapper;
+		}
 		if (wrapper instanceof DelegatingWrapperItemProvider) {
 			obj = ((DelegatingWrapperItemProvider) wrapper).getValue();
 		} else if (wrapper instanceof UMLDomainNavigatorItem) {
 			obj = ((UMLDomainNavigatorItem) wrapper).getEObject();
-		} else
+		} else {
 			return null;
+		}
 		return unwrap(obj);
 	}
 
 	private static Package getCurrentMDHTModel() {
 
-		TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain(IResourceConstants.EDITING_DOMAIN_ID);
+		TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain(
+			IResourceConstants.EDITING_DOMAIN_ID);
 
-		if (editingDomain == null)
+		if (editingDomain == null) {
 			return null;
+		}
 
 		IWorkbenchPart part = null;
 		try {
@@ -117,17 +127,22 @@ public class UmlElement extends PropertyTester {
 
 		}
 
-		if (!(part instanceof IEditorPart) || !(((IEditorPart) part).getEditorInput() instanceof IFileEditorInput))
+		if (!(part instanceof IEditorPart) || !(((IEditorPart) part).getEditorInput() instanceof IFileEditorInput)) {
 			return null;
+		}
 
 		String modelFilePath = ((IFileEditorInput) ((IEditorPart) part).getEditorInput()).getFile().getFullPath().toString();
 		URI resourceURI = URI.createPlatformResourceURI(modelFilePath, false);
 
-		for (Resource resource : editingDomain.getResourceSet().getResources())
-			if (resource.getURI().equals(resourceURI))
-				for (EObject e : resource.getContents())
-					if (e instanceof Package)
+		for (Resource resource : editingDomain.getResourceSet().getResources()) {
+			if (resource.getURI().equals(resourceURI)) {
+				for (EObject e : resource.getContents()) {
+					if (e instanceof Package) {
 						return (Package) e;
+					}
+				}
+			}
+		}
 
 		return null;
 	}
@@ -135,7 +150,7 @@ public class UmlElement extends PropertyTester {
 	/**
 	 * A util method to test if the selected item from a UI tree structure is a
 	 * descendant of the current IG model structure.
-	 * 
+	 *
 	 * @param provider
 	 *            - A model tree content provider where the selected item came
 	 *            from.
@@ -143,7 +158,7 @@ public class UmlElement extends PropertyTester {
 	 *            - Local IG model.
 	 * @param selectedItem
 	 *            - The currently selected item from the model tree.
-	 * 
+	 *
 	 * @return TRUE if the item rooted from current local IG model. FALSE if the
 	 *         item rooted from import models.
 	 */
@@ -153,14 +168,16 @@ public class UmlElement extends PropertyTester {
 
 		EObject currentObj = unwrap(selectedItem);
 		Object child = selectedItem;
-		if (selectedItem instanceof UMLDomainNavigatorItem)
+		if (selectedItem instanceof UMLDomainNavigatorItem) {
 			child = currentObj;
+		}
 
 		if (!(currentObj instanceof Association) && !(currentObj instanceof org.eclipse.uml2.uml.Class) &&
 				!(currentObj instanceof org.eclipse.uml2.uml.Generalization)) {
 
-			if (currentObj instanceof Package)
+			if (currentObj instanceof Package) {
 				return currentObj == localModel;
+			}
 			return false;
 		}
 		rs = fromCurrentModel(provider, localModel, provider.getParent(child));
@@ -172,7 +189,7 @@ public class UmlElement extends PropertyTester {
 	 * been localised to current IG model. A Nested class path from current
 	 * selected element backward up to first localised element will be checked
 	 * for existance.
-	 * 
+	 *
 	 * @param provider
 	 *            - A model tree content provider where the selected item came
 	 *            from.
@@ -188,8 +205,9 @@ public class UmlElement extends PropertyTester {
 
 		EObject currentObj = unwrap(selectedItem);
 		Object child = selectedItem;
-		if (selectedItem instanceof UMLDomainNavigatorItem)
+		if (selectedItem instanceof UMLDomainNavigatorItem) {
 			child = currentObj;
+		}
 
 		if (!(currentObj instanceof Association) && !(currentObj instanceof org.eclipse.uml2.uml.Class) &&
 				!(currentObj instanceof org.eclipse.uml2.uml.Generalization)) {
@@ -234,10 +252,11 @@ public class UmlElement extends PropertyTester {
 	}
 
 	private static Package getOwnerModel(EObject t) {
-		if (t.eContainer() instanceof Package)
+		if (t.eContainer() instanceof Package) {
 			return (Package) t.eContainer();
-		else
+		} else {
 			return getOwnerModel(t.eContainer());
+		}
 	}
 
 }

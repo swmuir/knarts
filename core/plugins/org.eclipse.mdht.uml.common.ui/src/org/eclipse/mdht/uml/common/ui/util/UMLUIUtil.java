@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
@@ -59,8 +58,7 @@ public class UMLUIUtil {
 
 							URI modelFile = null;
 							if (plugin.exists()) {
-								URI pathMap = org.eclipse.mdht.uml.common.UmlPlugin.getPathMap(
-									plugin.getContents());
+								URI pathMap = org.eclipse.mdht.uml.common.UmlPlugin.getPathMap(plugin.getContents());
 								if (pathMap != null) {
 									modelFile = pathMap.appendSegment(resource.getName());
 								} else {
@@ -73,7 +71,7 @@ public class UMLUIUtil {
 									project.getFolder(model).getFile(resource.getName()).getRawLocation().toOSString());
 							}
 
-							PackageableElement pe = (PackageableElement) EcoreUtil.getObjectByType(
+							EcoreUtil.getObjectByType(
 								resourceSet.getResource(modelFile, true).getContents(),
 								UMLPackage.eINSTANCE.getPackageableElement());
 

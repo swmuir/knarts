@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.edit.provider;
@@ -29,8 +29,8 @@ import org.eclipse.uml2.uml.edit.providers.InterfaceRealizationItemProvider;
 /**
  *
  */
-public class InterfaceRealizationExtItemProvider extends InterfaceRealizationItemProvider implements
-		ITableItemLabelProvider, ICellModifier {
+public class InterfaceRealizationExtItemProvider extends InterfaceRealizationItemProvider
+		implements ITableItemLabelProvider, ICellModifier {
 
 	/**
 	 * @param adapterFactory
@@ -41,7 +41,7 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.uml2.uml.provider.DependencyItemProvider#getImage(java.lang.Object)
 	 */
 	@Override
@@ -51,7 +51,7 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.uml2.uml.provider.DependencyItemProvider#getText(java.lang.Object)
 	 */
 	@Override
@@ -68,13 +68,13 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 			label.append(qname);
 		}
 		return label.length() == 0
-				? getString("_UI_InterfaceRealization_type") : //$NON-NLS-1$
-				label.toString();
+				? getString("_UI_InterfaceRealization_type") //$NON-NLS-1$
+				: label.toString();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#getChildren(java.lang.Object)
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
 	 */
 	public boolean canModify(Object element, String property) {
@@ -123,7 +123,7 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object, java.lang.String)
 	 */
 	public Object getValue(Object element, String property) {
@@ -137,7 +137,7 @@ public class InterfaceRealizationExtItemProvider extends InterfaceRealizationIte
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String, java.lang.Object)
 	 */
 	public void modify(final Object element, final String property, final Object value) {

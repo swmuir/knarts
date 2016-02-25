@@ -74,7 +74,7 @@ public class TransformPackage extends TransformAbstract {
 
 		String basePackage = (String) umlPackage.getValue(ePackage, UMLUtil.TAG_DEFINITION__BASE_PACKAGE);
 		if (basePackage == null) {
-			basePackage = "org.eclipse.mdht.uml.cda";
+			basePackage = "org.openhealthtools.mdht.uml.cda";
 		}
 
 		String packageName = (String) umlPackage.getValue(ePackage, UMLUtil.TAG_DEFINITION__PACKAGE_NAME);

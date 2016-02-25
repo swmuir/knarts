@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
  */
@@ -28,7 +28,7 @@ import org.eclipse.mdht.uml.validation.*;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFactory {
@@ -36,12 +36,13 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static ValidationFactory init() {
 		try {
-			ValidationFactory theValidationFactory = (ValidationFactory) EPackage.Registry.INSTANCE.getEFactory("http://www.openhealthtools.org/mdht/schema/profile/validation/1.0.0"); //$NON-NLS-1$ 
+			ValidationFactory theValidationFactory = (ValidationFactory) EPackage.Registry.INSTANCE.getEFactory(
+				"http://www.openhealthtools.org/mdht/schema/profile/validation/1.0.0"); //$NON-NLS-1$
 			if (theValidationFactory != null) {
 				return theValidationFactory;
 			}
@@ -55,7 +56,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidationFactoryImpl() {
@@ -65,7 +66,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +84,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -106,7 +107,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,7 +130,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Diagnostic createDiagnostic() {
@@ -140,7 +141,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ConstraintProvider createConstraintProvider() {
@@ -151,7 +152,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EvaluationModeKind createEvaluationModeKindFromString(EDataType eDataType, String initialValue) {
@@ -166,7 +167,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertEvaluationModeKindToString(EDataType eDataType, Object instanceValue) {
@@ -178,7 +179,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public SeverityKind createSeverityKindFromString(EDataType eDataType, String initialValue) {
@@ -193,7 +194,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertSeverityKindToString(EDataType eDataType, Object instanceValue) {
@@ -205,7 +206,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IStatus createStatusFromString(EDataType eDataType, String initialValue) {
@@ -215,7 +216,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertStatusToString(EDataType eDataType, Object instanceValue) {
@@ -225,7 +226,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IValidationContext createValidationContextFromString(EDataType eDataType, String initialValue) {
@@ -235,7 +236,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertValidationContextToString(EDataType eDataType, Object instanceValue) {
@@ -245,7 +246,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidationPackage getValidationPackage() {
@@ -255,7 +256,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @deprecated
 	 * @generated
 	 */

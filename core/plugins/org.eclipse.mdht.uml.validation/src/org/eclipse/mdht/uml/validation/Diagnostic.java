@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
  */
@@ -21,9 +21,10 @@ import org.eclipse.uml2.uml.Constraint;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Diagnostic</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.validation.Diagnostic#getBase_Constraint <em>Base Constraint</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.validation.Diagnostic#getEvaluationMode <em>Evaluation Mode</em>}</li>
@@ -31,8 +32,7 @@ import org.eclipse.uml2.uml.Constraint;
  * <li>{@link org.eclipse.mdht.uml.validation.Diagnostic#getCode <em>Code</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.validation.Diagnostic#getMessage <em>Message</em>}</li>
  * </ul>
- * </p>
- * 
+ *
  * @see org.eclipse.mdht.uml.validation.ValidationPackage#getDiagnostic()
  * @model
  * @generated
@@ -45,7 +45,7 @@ public interface Diagnostic extends EObject {
 	 * If the meaning of the '<em>Base Constraint</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Base Constraint</em>' reference.
 	 * @see #setBase_Constraint(Constraint)
 	 * @see org.eclipse.mdht.uml.validation.ValidationPackage#getDiagnostic_Base_Constraint()
@@ -58,7 +58,7 @@ public interface Diagnostic extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getBase_Constraint <em>Base Constraint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Base Constraint</em>' reference.
 	 * @see #getBase_Constraint()
@@ -75,7 +75,7 @@ public interface Diagnostic extends EObject {
 	 * If the meaning of the '<em>Evaluation Mode</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Evaluation Mode</em>' attribute.
 	 * @see org.eclipse.mdht.uml.validation.EvaluationModeKind
 	 * @see #setEvaluationMode(EvaluationModeKind)
@@ -89,7 +89,7 @@ public interface Diagnostic extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getEvaluationMode <em>Evaluation Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Evaluation Mode</em>' attribute.
 	 * @see org.eclipse.mdht.uml.validation.EvaluationModeKind
@@ -107,7 +107,7 @@ public interface Diagnostic extends EObject {
 	 * If the meaning of the '<em>Severity</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Severity</em>' attribute.
 	 * @see org.eclipse.mdht.uml.validation.SeverityKind
 	 * @see #setSeverity(SeverityKind)
@@ -121,7 +121,7 @@ public interface Diagnostic extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getSeverity <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Severity</em>' attribute.
 	 * @see org.eclipse.mdht.uml.validation.SeverityKind
@@ -138,13 +138,13 @@ public interface Diagnostic extends EObject {
 	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #isSetCode()
 	 * @see #unsetCode()
 	 * @see #setCode(int)
 	 * @see org.eclipse.mdht.uml.validation.ValidationPackage#getDiagnostic_Code()
-	 * @model default="-1" unsettable="true" ordered="false"
+	 * @model default="-1" unsettable="true" dataType="org.eclipse.uml2.types.Integer" ordered="false"
 	 * @generated
 	 */
 	int getCode();
@@ -153,7 +153,7 @@ public interface Diagnostic extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getCode <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Code</em>' attribute.
 	 * @see #isSetCode()
@@ -167,7 +167,7 @@ public interface Diagnostic extends EObject {
 	 * Unsets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getCode <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetCode()
 	 * @see #getCode()
 	 * @see #setCode(int)
@@ -179,7 +179,7 @@ public interface Diagnostic extends EObject {
 	 * Returns whether the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getCode <em>Code</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Code</em>' attribute is set.
 	 * @see #unsetCode()
 	 * @see #getCode()
@@ -195,11 +195,11 @@ public interface Diagnostic extends EObject {
 	 * If the meaning of the '<em>Message</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see org.eclipse.mdht.uml.validation.ValidationPackage#getDiagnostic_Message()
-	 * @model required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
 	String getMessage();
@@ -208,7 +208,7 @@ public interface Diagnostic extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.validation.Diagnostic#getMessage <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Message</em>' attribute.
 	 * @see #getMessage()
@@ -219,10 +219,10 @@ public interface Diagnostic extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model dataType="org.eclipse.mdht.uml.validation.Status" required="true" ordered="false"
-	 *        contextDataType="org.eclipse.mdht.uml.validation.ValidationContext" contextRequired="true" contextOrdered="false"
-	 *        targetRequired="true" targetOrdered="false"
+	 *        contextDataType="org.eclipse.mdht.uml.validation.ValidationContext" contextRequired="true" contextOrdered="false" targetRequired="true"
+	 *        targetOrdered="false"
 	 * @generated
 	 */
 	IStatus fail(IValidationContext context, EObject target);
@@ -230,10 +230,10 @@ public interface Diagnostic extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model dataType="org.eclipse.mdht.uml.validation.Status" required="true" ordered="false"
-	 *        contextDataType="org.eclipse.mdht.uml.validation.ValidationContext" contextRequired="true" contextOrdered="false"
-	 *        targetRequired="true" targetOrdered="false" relatedMany="true" relatedOrdered="false"
+	 *        contextDataType="org.eclipse.mdht.uml.validation.ValidationContext" contextRequired="true" contextOrdered="false" targetRequired="true"
+	 *        targetOrdered="false" relatedMany="true" relatedOrdered="false"
 	 * @generated
 	 */
 	IStatus fail(IValidationContext context, EObject target, EList<EObject> related);
@@ -241,7 +241,7 @@ public interface Diagnostic extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model kind="operation" required="true" ordered="false"
 	 * @generated
 	 */
@@ -250,8 +250,8 @@ public interface Diagnostic extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @model required="true" ordered="false" objectRequired="true" objectOrdered="false"
+	 *
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" objectRequired="true" objectOrdered="false"
 	 * @generated
 	 */
 	boolean targets(EObject object);
@@ -259,7 +259,7 @@ public interface Diagnostic extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model kind="operation" required="true" ordered="false"
 	 * @generated
 	 */

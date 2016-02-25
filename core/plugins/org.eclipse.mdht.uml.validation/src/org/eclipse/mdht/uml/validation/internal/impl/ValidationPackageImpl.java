@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
  */
@@ -36,14 +36,14 @@ import org.eclipse.uml2.uml.UMLPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ValidationPackageImpl extends EPackageImpl implements ValidationPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass diagnosticEClass = null;
@@ -51,7 +51,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass constraintProviderEClass = null;
@@ -59,7 +59,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum evaluationModeKindEEnum = null;
@@ -67,7 +67,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum severityKindEEnum = null;
@@ -75,7 +75,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType statusEDataType = null;
@@ -83,7 +83,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType validationContextEDataType = null;
@@ -95,7 +95,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.mdht.uml.validation.ValidationPackage#eNS_URI
 	 * @see #init()
@@ -108,18 +108,18 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>
 	 * This method is used to initialize {@link ValidationPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly.
 	 * Instead, they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -131,9 +131,10 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		}
 
 		// Obtain or create and register package
-		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ValidationPackageImpl
-				? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new ValidationPackageImpl());
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl) (EPackage.Registry.INSTANCE.get(
+			eNS_URI) instanceof ValidationPackageImpl
+					? EPackage.Registry.INSTANCE.get(eNS_URI)
+					: new ValidationPackageImpl());
 
 		isInited = true;
 
@@ -157,7 +158,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getDiagnostic() {
@@ -167,7 +168,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getDiagnostic_Base_Constraint() {
@@ -177,7 +178,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getDiagnostic_EvaluationMode() {
@@ -187,7 +188,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getDiagnostic_Severity() {
@@ -197,7 +198,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getDiagnostic_Code() {
@@ -207,7 +208,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getDiagnostic_Message() {
@@ -217,7 +218,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getConstraintProvider() {
@@ -227,7 +228,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getConstraintProvider_Base_Namespace() {
@@ -237,7 +238,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConstraintProvider_DiagnosticSource() {
@@ -247,7 +248,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConstraintProvider_CategoryID() {
@@ -257,7 +258,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConstraintProvider_CategoryName() {
@@ -267,7 +268,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConstraintProvider_ParentCategoryID() {
@@ -277,7 +278,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConstraintProvider_BundleName() {
@@ -287,7 +288,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getEvaluationModeKind() {
@@ -297,7 +298,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getSeverityKind() {
@@ -307,7 +308,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EDataType getStatus() {
@@ -317,7 +318,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EDataType getValidationContext() {
@@ -327,7 +328,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidationFactory getValidationFactory() {
@@ -337,7 +338,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -347,7 +348,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -384,7 +385,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -394,7 +395,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -421,27 +422,20 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		// Initialize classes and features; add operations and parameters
 		initEClass(
 			diagnosticEClass, Diagnostic.class, "Diagnostic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getDiagnostic_Base_Constraint(),
-			theUMLPackage.getConstraint(),
-			null,
-			"base_Constraint", null, 1, 1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDiagnostic_Base_Constraint(), theUMLPackage.getConstraint(), null, "base_Constraint", null, 1, //$NON-NLS-1$
+			1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDiagnostic_EvaluationMode(), this.getEvaluationModeKind(), "evaluationMode", "batch", 1, 1, //$NON-NLS-1$ //$NON-NLS-2$
+			Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDiagnostic_Severity(), this.getSeverityKind(), "severity", "error", 1, 1, Diagnostic.class, //$NON-NLS-1$ //$NON-NLS-2$
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getDiagnostic_EvaluationMode(),
-			this.getEvaluationModeKind(),
-			"evaluationMode", "batch", 1, 1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+			getDiagnostic_Code(), ecorePackage.getEInt(), "code", "-1", 0, 1, Diagnostic.class, !IS_TRANSIENT, //$NON-NLS-1$ //$NON-NLS-2$
+			!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getDiagnostic_Severity(),
-			this.getSeverityKind(),
-			"severity", "error", 1, 1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(
-			getDiagnostic_Code(),
-			ecorePackage.getEInt(),
-			"code", "-1", 0, 1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEAttribute(
-			getDiagnostic_Message(),
-			ecorePackage.getEString(),
-			"message", null, 1, 1, Diagnostic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+			getDiagnostic_Message(), ecorePackage.getEString(), "message", null, 1, 1, Diagnostic.class, !IS_TRANSIENT, //$NON-NLS-1$
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = addEOperation(diagnosticEClass, this.getStatus(), "fail", 1, 1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getValidationContext(), "context", 1, 1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
@@ -461,33 +455,28 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 			diagnosticEClass, this.getConstraintProvider(), "getConstraintProvider", 1, 1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
-			constraintProviderEClass, ConstraintProvider.class,
-			"ConstraintProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getConstraintProvider_Base_Namespace(),
-			theUMLPackage.getNamespace(),
-			null,
-			"base_Namespace", null, 1, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+			constraintProviderEClass, ConstraintProvider.class, "ConstraintProvider", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConstraintProvider_Base_Namespace(), theUMLPackage.getNamespace(), null, "base_Namespace", //$NON-NLS-1$
+			null, 1, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConstraintProvider_DiagnosticSource(),
-			ecorePackage.getEString(),
-			"diagnosticSource", null, 0, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+			getConstraintProvider_DiagnosticSource(), ecorePackage.getEString(), "diagnosticSource", null, 0, 1, //$NON-NLS-1$
+			ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConstraintProvider_CategoryID(), ecorePackage.getEString(), "categoryID", null, 0, 1, //$NON-NLS-1$
+			ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConstraintProvider_CategoryName(), ecorePackage.getEString(), "categoryName", null, 0, 1, //$NON-NLS-1$
+			ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConstraintProvider_CategoryID(),
-			ecorePackage.getEString(),
-			"categoryID", null, 0, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getConstraintProvider_CategoryName(),
-			ecorePackage.getEString(),
-			"categoryName", null, 0, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getConstraintProvider_ParentCategoryID(),
-			ecorePackage.getEString(),
-			"parentCategoryID", null, 0, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getConstraintProvider_BundleName(),
-			ecorePackage.getEString(),
-			"bundleName", null, 0, 1, ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+			getConstraintProvider_ParentCategoryID(), ecorePackage.getEString(), "parentCategoryID", null, 0, 1, //$NON-NLS-1$
+			ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConstraintProvider_BundleName(), ecorePackage.getEString(), "bundleName", null, 0, 1, //$NON-NLS-1$
+			ConstraintProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(constraintProviderEClass, this.getDiagnostic(), "getDiagnostics", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
@@ -503,9 +492,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		// Initialize data types
 		initEDataType(statusEDataType, IStatus.class, "Status", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEDataType(
-			validationContextEDataType, IValidationContext.class,
-			"ValidationContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(validationContextEDataType, IValidationContext.class, "ValidationContext", IS_SERIALIZABLE, //$NON-NLS-1$
+			!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

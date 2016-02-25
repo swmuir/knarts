@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
  */
@@ -31,6 +31,7 @@ import org.eclipse.uml2.uml.Namespace;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.validation.internal.impl.ConstraintProviderImpl#getBase_Namespace <em>Base Namespace</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.validation.internal.impl.ConstraintProviderImpl#getDiagnosticSource <em>Diagnostic Source</em>}</li>
@@ -39,8 +40,7 @@ import org.eclipse.uml2.uml.Namespace;
  * <li>{@link org.eclipse.mdht.uml.validation.internal.impl.ConstraintProviderImpl#getParentCategoryID <em>Parent Category ID</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.validation.internal.impl.ConstraintProviderImpl#getBundleName <em>Bundle Name</em>}</li>
  * </ul>
- * </p>
- * 
+ *
  * @generated
  */
 public class ConstraintProviderImpl extends EObjectImpl implements ConstraintProvider {
@@ -48,7 +48,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getBase_Namespace() <em>Base Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBase_Namespace()
 	 * @generated
 	 * @ordered
@@ -59,7 +59,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The default value of the '{@link #getDiagnosticSource() <em>Diagnostic Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDiagnosticSource()
 	 * @generated
 	 * @ordered
@@ -70,7 +70,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getDiagnosticSource() <em>Diagnostic Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDiagnosticSource()
 	 * @generated
 	 * @ordered
@@ -81,7 +81,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The default value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryID()
 	 * @generated
 	 * @ordered
@@ -92,7 +92,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryID()
 	 * @generated
 	 * @ordered
@@ -103,7 +103,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The default value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryName()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryName()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The default value of the '{@link #getParentCategoryID() <em>Parent Category ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getParentCategoryID()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getParentCategoryID() <em>Parent Category ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getParentCategoryID()
 	 * @generated
 	 * @ordered
@@ -147,7 +147,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The default value of the '{@link #getBundleName() <em>Bundle Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundleName()
 	 * @generated
 	 * @ordered
@@ -158,7 +158,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	 * The cached value of the '{@link #getBundleName() <em>Bundle Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundleName()
 	 * @generated
 	 * @ordered
@@ -168,7 +168,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ConstraintProviderImpl() {
@@ -178,7 +178,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -189,7 +189,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Namespace getBase_Namespace() {
@@ -198,9 +198,8 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 			base_Namespace = (Namespace) eResolveProxy(oldBase_Namespace);
 			if (base_Namespace != oldBase_Namespace) {
 				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, ValidationPackage.CONSTRAINT_PROVIDER__BASE_NAMESPACE,
-						oldBase_Namespace, base_Namespace));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						ValidationPackage.CONSTRAINT_PROVIDER__BASE_NAMESPACE, oldBase_Namespace, base_Namespace));
 				}
 			}
 		}
@@ -210,7 +209,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Namespace basicGetBase_Namespace() {
@@ -220,23 +219,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBase_Namespace(Namespace newBase_Namespace) {
 		Namespace oldBase_Namespace = base_Namespace;
 		base_Namespace = newBase_Namespace;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__BASE_NAMESPACE, oldBase_Namespace,
-				base_Namespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__BASE_NAMESPACE,
+				oldBase_Namespace, base_Namespace));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDiagnosticSource() {
@@ -246,23 +244,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDiagnosticSource(String newDiagnosticSource) {
 		String oldDiagnosticSource = diagnosticSource;
 		diagnosticSource = newDiagnosticSource;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__DIAGNOSTIC_SOURCE, oldDiagnosticSource,
-				diagnosticSource));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				ValidationPackage.CONSTRAINT_PROVIDER__DIAGNOSTIC_SOURCE, oldDiagnosticSource, diagnosticSource));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getCategoryID() {
@@ -272,22 +269,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCategoryID(String newCategoryID) {
 		String oldCategoryID = categoryID;
 		categoryID = newCategoryID;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__CATEGORY_ID, oldCategoryID, categoryID));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__CATEGORY_ID,
+				oldCategoryID, categoryID));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getCategoryName() {
@@ -297,23 +294,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCategoryName(String newCategoryName) {
 		String oldCategoryName = categoryName;
 		categoryName = newCategoryName;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__CATEGORY_NAME, oldCategoryName,
-				categoryName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__CATEGORY_NAME,
+				oldCategoryName, categoryName));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getParentCategoryID() {
@@ -323,23 +319,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setParentCategoryID(String newParentCategoryID) {
 		String oldParentCategoryID = parentCategoryID;
 		parentCategoryID = newParentCategoryID;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__PARENT_CATEGORY_ID, oldParentCategoryID,
-				parentCategoryID));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				ValidationPackage.CONSTRAINT_PROVIDER__PARENT_CATEGORY_ID, oldParentCategoryID, parentCategoryID));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getBundleName() {
@@ -349,22 +344,22 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBundleName(String newBundleName) {
 		String oldBundleName = bundleName;
 		bundleName = newBundleName;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__BUNDLE_NAME, oldBundleName, bundleName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.CONSTRAINT_PROVIDER__BUNDLE_NAME,
+				oldBundleName, bundleName));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Diagnostic> getDiagnostics() {
@@ -374,7 +369,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -402,7 +397,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -433,7 +428,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -464,7 +459,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -499,7 +494,7 @@ public class ConstraintProviderImpl extends EObjectImpl implements ConstraintPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

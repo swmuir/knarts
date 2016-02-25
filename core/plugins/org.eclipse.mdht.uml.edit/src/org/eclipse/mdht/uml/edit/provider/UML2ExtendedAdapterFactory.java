@@ -198,7 +198,7 @@ public class UML2ExtendedAdapterFactory extends UMLItemProviderAdapterFactory {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.uml2.uml.edit.providers.UMLItemProviderAdapterFactory#createUsageAdapter()
 	 */
 	@Override

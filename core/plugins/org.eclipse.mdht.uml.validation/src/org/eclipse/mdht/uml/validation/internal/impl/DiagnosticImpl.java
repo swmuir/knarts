@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
  */
@@ -46,7 +46,7 @@ import org.eclipse.uml2.uml.Constraint;
  * <li>{@link org.eclipse.mdht.uml.validation.internal.impl.DiagnosticImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
@@ -54,7 +54,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The cached value of the '{@link #getBase_Constraint() <em>Base Constraint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBase_Constraint()
 	 * @generated
 	 * @ordered
@@ -65,7 +65,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The default value of the '{@link #getEvaluationMode() <em>Evaluation Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getEvaluationMode()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The cached value of the '{@link #getEvaluationMode() <em>Evaluation Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getEvaluationMode()
 	 * @generated
 	 * @ordered
@@ -87,7 +87,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -98,7 +98,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -109,7 +109,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -120,7 +120,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The flag representing whether the Code attribute has been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -141,7 +141,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -152,7 +152,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -162,7 +162,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DiagnosticImpl() {
@@ -172,7 +172,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -183,7 +183,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Constraint getBase_Constraint() {
@@ -192,9 +192,8 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 			base_Constraint = (Constraint) eResolveProxy(oldBase_Constraint);
 			if (base_Constraint != oldBase_Constraint) {
 				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, ValidationPackage.DIAGNOSTIC__BASE_CONSTRAINT, oldBase_Constraint,
-						base_Constraint));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						ValidationPackage.DIAGNOSTIC__BASE_CONSTRAINT, oldBase_Constraint, base_Constraint));
 				}
 			}
 		}
@@ -204,7 +203,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Constraint basicGetBase_Constraint() {
@@ -214,23 +213,22 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBase_Constraint(Constraint newBase_Constraint) {
 		Constraint oldBase_Constraint = base_Constraint;
 		base_Constraint = newBase_Constraint;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.DIAGNOSTIC__BASE_CONSTRAINT, oldBase_Constraint,
-				base_Constraint));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.DIAGNOSTIC__BASE_CONSTRAINT,
+				oldBase_Constraint, base_Constraint));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EvaluationModeKind getEvaluationMode() {
@@ -240,7 +238,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEvaluationMode(EvaluationModeKind newEvaluationMode) {
@@ -249,16 +247,15 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 				? EVALUATION_MODE_EDEFAULT
 				: newEvaluationMode;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.DIAGNOSTIC__EVALUATION_MODE, oldEvaluationMode,
-				evaluationMode));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.DIAGNOSTIC__EVALUATION_MODE,
+				oldEvaluationMode, evaluationMode));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public SeverityKind getSeverity() {
@@ -268,7 +265,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setSeverity(SeverityKind newSeverity) {
@@ -277,15 +274,15 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 				? SEVERITY_EDEFAULT
 				: newSeverity;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.DIAGNOSTIC__SEVERITY, oldSeverity, severity));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.DIAGNOSTIC__SEVERITY, oldSeverity,
+				severity));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public int getCode() {
@@ -295,7 +292,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCode(int newCode) {
@@ -304,15 +301,15 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 		boolean oldCodeESet = (eFlags & CODE_ESETFLAG) != 0;
 		eFlags |= CODE_ESETFLAG;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.DIAGNOSTIC__CODE, oldCode, code, !oldCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.DIAGNOSTIC__CODE, oldCode, code,
+				!oldCodeESet));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void unsetCode() {
@@ -321,15 +318,15 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 		code = CODE_EDEFAULT;
 		eFlags &= ~CODE_ESETFLAG;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, ValidationPackage.DIAGNOSTIC__CODE, oldCode, CODE_EDEFAULT, oldCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ValidationPackage.DIAGNOSTIC__CODE, oldCode,
+				CODE_EDEFAULT, oldCodeESet));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isSetCode() {
@@ -339,7 +336,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getMessage() {
@@ -349,22 +346,22 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMessage(String newMessage) {
 		String oldMessage = message;
 		message = newMessage;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, ValidationPackage.DIAGNOSTIC__MESSAGE, oldMessage, message));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.DIAGNOSTIC__MESSAGE, oldMessage,
+				message));
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IStatus fail(IValidationContext context, EObject target) {
@@ -374,7 +371,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IStatus fail(IValidationContext context, EObject target, EList<EObject> related) {
@@ -384,7 +381,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<EClass> getTargets() {
@@ -394,7 +391,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean targets(EObject object) {
@@ -404,7 +401,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ConstraintProvider getConstraintProvider() {
@@ -414,7 +411,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -440,7 +437,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -468,7 +465,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -496,7 +493,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -521,7 +518,7 @@ public class DiagnosticImpl extends EObjectImpl implements Diagnostic {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
