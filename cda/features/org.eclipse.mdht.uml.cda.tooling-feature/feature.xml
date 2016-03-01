@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.mdht.uml.cda.tooling"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="3.0.0.qualifier"
       provider-name="%featureProvider">
 
    <description url="https://projects.eclipse.org/projects/modeling.mdht">
@@ -20,6 +20,11 @@
    <url>
       <update label="%updateSiteName" url="http://www.eclipse.org/modeling/updates/"/>
    </url>
+
+   <requires>
+      <import feature="org.eclipse.mdht.uml.cda.basic" version="3.0.0.qualifier"/>
+      <import feature="org.eclipse.mdht.uml" version="3.0.0.qualifier"/>
+   </requires>
 
    <plugin
          id="org.eclipse.mdht.uml.cda.core"

@@ -18,7 +18,7 @@
 
 	
 		<!-- Features -->
-	 
+	 	<module>features/org.eclipse.mdht.dita-feature</module>
 		
 	</modules>
 	
