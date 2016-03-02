@@ -41,6 +41,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StructuredBodyImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StructuredBodyImpl#getTypeId <em>Type Id</em>}</li>
@@ -52,7 +53,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StructuredBodyImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StructuredBodyImpl#getMoodCode <em>Mood Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -275,20 +275,21 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -344,21 +345,22 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		if (newConfidentialityCode != confidentialityCode) {
 			NotificationChain msgs = null;
 			if (confidentialityCode != null) {
-				msgs = ((InternalEObject) confidentialityCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, null, msgs);
+				msgs = ((InternalEObject) confidentialityCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, null, msgs);
 			}
 			if (newConfidentialityCode != null) {
-				msgs = ((InternalEObject) newConfidentialityCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, null, msgs);
+				msgs = ((InternalEObject) newConfidentialityCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, null, msgs);
 			}
 			msgs = basicSetConfidentialityCode(newConfidentialityCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, newConfidentialityCode,
-				newConfidentialityCode));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__CONFIDENTIALITY_CODE, newConfidentialityCode,
+					newConfidentialityCode));
 		}
 	}
 
@@ -400,20 +402,22 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		if (newLanguageCode != languageCode) {
 			NotificationChain msgs = null;
 			if (languageCode != null) {
-				msgs = ((InternalEObject) languageCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, null, msgs);
+				msgs = ((InternalEObject) languageCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, null, msgs);
 			}
 			if (newLanguageCode != null) {
-				msgs = ((InternalEObject) newLanguageCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, null, msgs);
+				msgs = ((InternalEObject) newLanguageCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, null, msgs);
 			}
 			msgs = basicSetLanguageCode(newLanguageCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, newLanguageCode, newLanguageCode));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__LANGUAGE_CODE, newLanguageCode,
+					newLanguageCode));
 		}
 	}
 
@@ -453,9 +457,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -470,9 +475,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -508,9 +514,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -525,9 +532,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
+					oldClassCodeESet));
 		}
 	}
 
@@ -563,8 +571,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.STRUCTURED_BODY__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.STRUCTURED_BODY__MOOD_CODE, oldMoodCode, moodCode,
+					!oldMoodCodeESet));
 		}
 	}
 
@@ -579,9 +589,10 @@ public class StructuredBodyImpl extends ActImpl implements StructuredBody {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-				oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.STRUCTURED_BODY__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
+					oldMoodCodeESet));
 		}
 	}
 

@@ -36,6 +36,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Organizer#addOrganizer(org.eclipse.mdht.uml.cda.Organizer) <em>Add Organizer</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Organizer#addAct(org.eclipse.mdht.uml.cda.Act) <em>Add Act</em>}</li>
@@ -58,7 +59,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
  *   <li>{@link org.eclipse.mdht.uml.cda.Organizer#getEntryRelationshipTargets(org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship, java.lang.Object) <em>Get Entry Relationship Targets</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Organizer#getEntryRelationshipTargets(java.lang.Object) <em>Get Entry Relationship Targets</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -154,7 +154,8 @@ public class OrganizerOperations extends ClinicalStatementOperations {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public static void addSubstanceAdministration(Organizer organizer, SubstanceAdministration substanceAdministration) {
+	public static void addSubstanceAdministration(Organizer organizer,
+			SubstanceAdministration substanceAdministration) {
 		Component4 component4 = CDAFactory.eINSTANCE.createComponent4();
 		component4.setSubstanceAdministration(substanceAdministration);
 		organizer.getComponents().add(component4);
@@ -273,7 +274,8 @@ public class OrganizerOperations extends ClinicalStatementOperations {
 				regionsOfInterest.add(component.getRegionOfInterest());
 			}
 		}
-		return new BasicEList.UnmodifiableEList<RegionOfInterest>(regionsOfInterest.size(), regionsOfInterest.toArray());
+		return new BasicEList.UnmodifiableEList<RegionOfInterest>(
+			regionsOfInterest.size(), regionsOfInterest.toArray());
 	}
 
 	/**

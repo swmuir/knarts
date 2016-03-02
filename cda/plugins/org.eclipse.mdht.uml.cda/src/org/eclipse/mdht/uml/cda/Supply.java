@@ -35,6 +35,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Supply#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Supply#getTypeId <em>Type Id</em>}</li>
@@ -63,7 +64,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Supply#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Supply#getMoodCode <em>Mood Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getSupply()
  * @model

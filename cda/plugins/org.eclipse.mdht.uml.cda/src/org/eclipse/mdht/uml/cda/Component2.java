@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component2#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component2#getTypeId <em>Type Id</em>}</li>
@@ -37,7 +38,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.Component2#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component2#getContextConductionInd <em>Context Conduction Ind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2()
  * @model

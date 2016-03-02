@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.II#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.II#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.II#getAssigningAuthorityName <em>Assigning Authority Name</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.II#getDisplayable <em>Displayable</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getII()
  * @model

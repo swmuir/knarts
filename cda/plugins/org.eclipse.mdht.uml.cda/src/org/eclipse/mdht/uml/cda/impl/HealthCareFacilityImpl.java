@@ -38,6 +38,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassServiceDeliveryLocation;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.HealthCareFacilityImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.HealthCareFacilityImpl#getTypeId <em>Type Id</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassServiceDeliveryLocation;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.HealthCareFacilityImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.HealthCareFacilityImpl#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -253,20 +253,21 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -333,20 +334,20 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__CODE, null, msgs);
+				msgs = ((InternalEObject) code).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__CODE, null, msgs);
 			}
 			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__CODE, null, msgs);
+				msgs = ((InternalEObject) newCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__CODE, null, msgs);
 			}
 			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__CODE, newCode, newCode));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__CODE, newCode, newCode));
 		}
 	}
 
@@ -388,20 +389,21 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		if (newLocation != location) {
 			NotificationChain msgs = null;
 			if (location != null) {
-				msgs = ((InternalEObject) location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__LOCATION, null, msgs);
+				msgs = ((InternalEObject) location).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__LOCATION, null, msgs);
 			}
 			if (newLocation != null) {
-				msgs = ((InternalEObject) newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__LOCATION, null, msgs);
+				msgs = ((InternalEObject) newLocation).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__LOCATION, null, msgs);
 			}
 			msgs = basicSetLocation(newLocation, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__LOCATION, newLocation, newLocation));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__LOCATION, newLocation, newLocation));
 		}
 	}
 
@@ -445,21 +447,24 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		if (newServiceProviderOrganization != serviceProviderOrganization) {
 			NotificationChain msgs = null;
 			if (serviceProviderOrganization != null) {
-				msgs = ((InternalEObject) serviceProviderOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) serviceProviderOrganization).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION, null,
+					msgs);
 			}
 			if (newServiceProviderOrganization != null) {
-				msgs = ((InternalEObject) newServiceProviderOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) newServiceProviderOrganization).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION, null,
+					msgs);
 			}
 			msgs = basicSetServiceProviderOrganization(newServiceProviderOrganization, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION,
-				newServiceProviderOrganization, newServiceProviderOrganization));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__SERVICE_PROVIDER_ORGANIZATION,
+					newServiceProviderOrganization, newServiceProviderOrganization));
 		}
 	}
 
@@ -486,9 +491,10 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -503,9 +509,10 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.HEALTH_CARE_FACILITY__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.HEALTH_CARE_FACILITY__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -541,9 +548,10 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.HEALTH_CARE_FACILITY__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -558,9 +566,10 @@ public class HealthCareFacilityImpl extends RoleImpl implements HealthCareFacili
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.HEALTH_CARE_FACILITY__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.HEALTH_CARE_FACILITY__CLASS_CODE, oldClassCode,
+					CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

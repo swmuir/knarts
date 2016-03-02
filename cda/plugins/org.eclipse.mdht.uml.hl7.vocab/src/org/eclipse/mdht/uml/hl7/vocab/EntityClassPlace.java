@@ -172,6 +172,8 @@ public enum EntityClassPlace implements Enumerator {
 	 * Returns the '<em><b>Entity Class Place</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityClassPlace get(String literal) {
@@ -188,6 +190,8 @@ public enum EntityClassPlace implements Enumerator {
 	 * Returns the '<em><b>Entity Class Place</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityClassPlace getByName(String name) {
@@ -204,6 +208,8 @@ public enum EntityClassPlace implements Enumerator {
 	 * Returns the '<em><b>Entity Class Place</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityClassPlace get(int value) {

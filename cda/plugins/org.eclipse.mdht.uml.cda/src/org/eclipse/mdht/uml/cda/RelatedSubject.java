@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getTypeId <em>Type Id</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject()
  * @model

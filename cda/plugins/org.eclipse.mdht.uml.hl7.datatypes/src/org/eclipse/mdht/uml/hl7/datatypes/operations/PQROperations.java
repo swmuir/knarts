@@ -21,10 +21,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.PQR;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.PQR#setValue(java.lang.Double) <em>Set Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

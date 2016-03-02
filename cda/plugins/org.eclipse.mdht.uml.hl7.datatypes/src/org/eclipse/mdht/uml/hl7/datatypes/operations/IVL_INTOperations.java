@@ -29,6 +29,7 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_INT#validateOptionsContainingLow(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate Options Containing Low</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_INT#validateOptionsContainingCenter(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate Options Containing Center</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.ocl.ecore.OCL;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_INT#validateOptionsContainingWidth(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate Options Containing Width</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_INT#validateINT(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate INT</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -86,22 +86,24 @@ public class IVL_INTOperations extends INTOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.IVL_INT);
 			try {
-				VALIDATE_OPTIONS_CONTAINING_LOW__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_OPTIONS_CONTAINING_LOW__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_OPTIONS_CONTAINING_LOW__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_OPTIONS_CONTAINING_LOW__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_OPTIONS_CONTAINING_LOW__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ivL_INT)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-					DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_LOW,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateOptionsContainingLow",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
-					new Object[] { ivL_INT }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
+						DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_LOW,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateOptionsContainingLow",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
+						new Object[] { ivL_INT }));
 			}
 			return false;
 		}
@@ -144,22 +146,24 @@ public class IVL_INTOperations extends INTOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.IVL_INT);
 			try {
-				VALIDATE_OPTIONS_CONTAINING_CENTER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_OPTIONS_CONTAINING_CENTER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_OPTIONS_CONTAINING_CENTER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_OPTIONS_CONTAINING_CENTER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_OPTIONS_CONTAINING_CENTER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ivL_INT)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-					DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_CENTER,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateOptionsContainingCenter",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
-					new Object[] { ivL_INT }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
+						DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_CENTER,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateOptionsContainingCenter",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
+						new Object[] { ivL_INT }));
 			}
 			return false;
 		}
@@ -202,22 +206,24 @@ public class IVL_INTOperations extends INTOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.IVL_INT);
 			try {
-				VALIDATE_OPTIONS_CONTAINING_HIGH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_OPTIONS_CONTAINING_HIGH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_OPTIONS_CONTAINING_HIGH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_OPTIONS_CONTAINING_HIGH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_OPTIONS_CONTAINING_HIGH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ivL_INT)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-					DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_HIGH,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateOptionsContainingHigh",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
-					new Object[] { ivL_INT }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
+						DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_HIGH,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateOptionsContainingHigh",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
+						new Object[] { ivL_INT }));
 			}
 			return false;
 		}
@@ -260,22 +266,24 @@ public class IVL_INTOperations extends INTOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.IVL_INT);
 			try {
-				VALIDATE_OPTIONS_CONTAINING_WIDTH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_OPTIONS_CONTAINING_WIDTH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_OPTIONS_CONTAINING_WIDTH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_OPTIONS_CONTAINING_WIDTH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_OPTIONS_CONTAINING_WIDTH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ivL_INT)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-					DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_WIDTH,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateOptionsContainingWidth",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
-					new Object[] { ivL_INT }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
+						DatatypesValidator.IVL_INT__OPTIONS_CONTAINING_WIDTH,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateOptionsContainingWidth",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ivL_INT, context) }),
+						new Object[] { ivL_INT }));
 			}
 			return false;
 		}

@@ -44,14 +44,15 @@ public enum x_ServiceEventPerformer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PPRF(1, "PPRF", "PPRF"), /**
-								* The '<em><b>SPRF</b></em>' literal object.
-								* <!-- begin-user-doc -->
-								* <!-- end-user-doc -->
-								* @see #SPRF_VALUE
-								* @generated
-								* @ordered
-								*/
+	PPRF(1, "PPRF", "PPRF"),
+	/**
+	 * The '<em><b>SPRF</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #SPRF_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	SPRF(2, "SPRF", "SPRF");
 
 	/**
@@ -113,12 +114,15 @@ public enum x_ServiceEventPerformer implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<x_ServiceEventPerformer> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<x_ServiceEventPerformer> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>xService Event Performer</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_ServiceEventPerformer get(String literal) {
@@ -135,6 +139,8 @@ public enum x_ServiceEventPerformer implements Enumerator {
 	 * Returns the '<em><b>xService Event Performer</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_ServiceEventPerformer getByName(String name) {
@@ -151,6 +157,8 @@ public enum x_ServiceEventPerformer implements Enumerator {
 	 * Returns the '<em><b>xService Event Performer</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_ServiceEventPerformer get(int value) {

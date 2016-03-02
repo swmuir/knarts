@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.CustodianImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.CustodianImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.CustodianImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.CustodianImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,12 +221,12 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.CUSTODIAN__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CUSTODIAN__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.CUSTODIAN__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CUSTODIAN__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
@@ -289,21 +289,22 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		if (newAssignedCustodian != assignedCustodian) {
 			NotificationChain msgs = null;
 			if (assignedCustodian != null) {
-				msgs = ((InternalEObject) assignedCustodian).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, null, msgs);
+				msgs = ((InternalEObject) assignedCustodian).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, null, msgs);
 			}
 			if (newAssignedCustodian != null) {
-				msgs = ((InternalEObject) newAssignedCustodian).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, null, msgs);
+				msgs = ((InternalEObject) newAssignedCustodian).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, null, msgs);
 			}
 			msgs = basicSetAssignedCustodian(newAssignedCustodian, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, newAssignedCustodian,
-				newAssignedCustodian));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, newAssignedCustodian,
+					newAssignedCustodian));
 		}
 	}
 
@@ -330,9 +331,10 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -347,9 +349,10 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
+					oldNullFlavorESet));
 		}
 	}
 
@@ -385,8 +388,9 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -401,9 +405,10 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

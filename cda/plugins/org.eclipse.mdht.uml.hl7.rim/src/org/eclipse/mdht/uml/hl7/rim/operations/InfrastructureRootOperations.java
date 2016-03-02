@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.InfrastructureRoot#getRealmCodes() <em>Get Realm Codes</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.InfrastructureRoot#getTypeId() <em>Get Type Id</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.InfrastructureRoot#hasContent() <em>Has Content</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.InfrastructureRoot#isDefined(java.lang.String) <em>Is Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

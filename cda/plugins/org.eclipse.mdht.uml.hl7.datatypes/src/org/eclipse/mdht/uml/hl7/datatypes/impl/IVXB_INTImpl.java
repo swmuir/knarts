@@ -22,10 +22,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.IVXB_INT;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVXB_INTImpl#getInclusive <em>Inclusive</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -87,8 +87,9 @@ public class IVXB_INTImpl extends INTImpl implements IVXB_INT {
 		Boolean oldInclusive = inclusive;
 		inclusive = newInclusive;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.IVXB_INT__INCLUSIVE, oldInclusive, inclusive));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.IVXB_INT__INCLUSIVE, oldInclusive, inclusive));
 		}
 	}
 

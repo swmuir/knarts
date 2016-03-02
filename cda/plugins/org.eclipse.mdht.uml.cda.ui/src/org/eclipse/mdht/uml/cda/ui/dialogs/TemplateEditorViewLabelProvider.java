@@ -7,7 +7,7 @@
  *
  * Contributors:
  *   David A Carlson (XMLmodeling.com) - initial API and implementation
- *   
+ *
  * $Id$
  */
 package org.eclipse.mdht.uml.cda.ui.dialogs;

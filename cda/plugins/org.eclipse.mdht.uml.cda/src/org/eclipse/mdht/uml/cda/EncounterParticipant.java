@@ -25,6 +25,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_EncounterParticipant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.EncounterParticipant#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.EncounterParticipant#getTypeId <em>Type Id</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_EncounterParticipant;
  *   <li>{@link org.eclipse.mdht.uml.cda.EncounterParticipant#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.EncounterParticipant#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounterParticipant()
  * @model

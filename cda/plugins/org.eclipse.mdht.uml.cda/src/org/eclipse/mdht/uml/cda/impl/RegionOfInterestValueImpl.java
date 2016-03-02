@@ -23,10 +23,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.impl.INTImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RegionOfInterestValueImpl#isUnsorted <em>Unsorted</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -88,8 +88,9 @@ public class RegionOfInterestValueImpl extends INTImpl implements RegionOfIntere
 		boolean oldUnsorted = unsorted;
 		unsorted = newUnsorted;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.REGION_OF_INTEREST_VALUE__UNSORTED, oldUnsorted, unsorted));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.REGION_OF_INTEREST_VALUE__UNSORTED, oldUnsorted, unsorted));
 		}
 	}
 

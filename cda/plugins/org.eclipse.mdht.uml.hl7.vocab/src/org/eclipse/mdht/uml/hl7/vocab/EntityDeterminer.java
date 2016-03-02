@@ -96,6 +96,7 @@ public enum EntityDeterminer implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #QUANTIFIEDKIND
 	 * @model literal="QUANITFIED_KIND"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='QUANITFIED_KIND'"
 	 * @generated
 	 * @ordered
 	 */
@@ -121,6 +122,8 @@ public enum EntityDeterminer implements Enumerator {
 	 * Returns the '<em><b>Entity Determiner</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminer get(String literal) {
@@ -137,6 +140,8 @@ public enum EntityDeterminer implements Enumerator {
 	 * Returns the '<em><b>Entity Determiner</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminer getByName(String name) {
@@ -153,6 +158,8 @@ public enum EntityDeterminer implements Enumerator {
 	 * Returns the '<em><b>Entity Determiner</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminer get(int value) {

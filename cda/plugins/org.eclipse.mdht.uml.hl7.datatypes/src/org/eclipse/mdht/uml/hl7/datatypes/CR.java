@@ -21,12 +21,12 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CR#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CR#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CR#isInverted <em>Inverted</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getCR()
  * @model

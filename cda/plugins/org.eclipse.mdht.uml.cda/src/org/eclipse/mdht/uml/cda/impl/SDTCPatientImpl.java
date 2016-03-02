@@ -26,10 +26,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.II;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SDTCPatientImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

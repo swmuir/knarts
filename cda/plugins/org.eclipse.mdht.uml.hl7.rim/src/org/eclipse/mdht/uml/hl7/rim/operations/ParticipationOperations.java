@@ -27,6 +27,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Participation#getTypeCode() <em>Get Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Participation#getAct() <em>Get Act</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Participation#isTypeCodeDefined() <em>Is Type Code Defined</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Participation#isContextControlCodeDefined() <em>Is Context Control Code Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -161,7 +161,8 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 			helper.setOperationContext(
 				RIMPackage.Literals.PARTICIPATION, RIMPackage.Literals.PARTICIPATION.getEAllOperations().get(12));
 			try {
-				IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY = helper.createQuery(IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_EXP);
+				IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY = helper.createQuery(
+					IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}

@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.AD#getDelimiters <em>Delimiter</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.AD#getCountries <em>Country</em>}</li>
@@ -58,7 +59,6 @@ import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.AD#getIsNotOrdered <em>Is Not Ordered</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.AD#getMixed <em>Mixed</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getAD()
  * @model extendedMetaData="kind='mixed'"

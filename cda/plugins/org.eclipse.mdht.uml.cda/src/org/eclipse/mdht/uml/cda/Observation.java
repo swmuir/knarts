@@ -31,6 +31,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActMoodDocumentObservation;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Observation#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Observation#getTypeId <em>Type Id</em>}</li>
@@ -63,7 +64,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActMoodDocumentObservation;
  *   <li>{@link org.eclipse.mdht.uml.cda.Observation#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Observation#getNegationInd <em>Negation Ind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservation()
  * @model

@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProductImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProductImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProductImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProductImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,12 +221,12 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.PRODUCT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PRODUCT__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.PRODUCT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PRODUCT__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
@@ -290,21 +290,22 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		if (newManufacturedProduct != manufacturedProduct) {
 			NotificationChain msgs = null;
 			if (manufacturedProduct != null) {
-				msgs = ((InternalEObject) manufacturedProduct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, null, msgs);
+				msgs = ((InternalEObject) manufacturedProduct).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, null, msgs);
 			}
 			if (newManufacturedProduct != null) {
-				msgs = ((InternalEObject) newManufacturedProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, null, msgs);
+				msgs = ((InternalEObject) newManufacturedProduct).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, null, msgs);
 			}
 			msgs = basicSetManufacturedProduct(newManufacturedProduct, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, newManufacturedProduct,
-				newManufacturedProduct));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, newManufacturedProduct,
+					newManufacturedProduct));
 		}
 	}
 
@@ -331,8 +332,10 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -347,9 +350,10 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
+					oldNullFlavorESet));
 		}
 	}
 
@@ -385,8 +389,9 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -401,9 +406,10 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

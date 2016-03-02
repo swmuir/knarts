@@ -29,11 +29,11 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNamePartType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENXPImpl#getPartType <em>Part Type</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENXPImpl#getQualifiers <em>Qualifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -118,8 +118,9 @@ public class ENXPImpl extends STImpl implements ENXP {
 		boolean oldPartTypeESet = partTypeESet;
 		partTypeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.ENXP__PART_TYPE, oldPartType, partType, !oldPartTypeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.ENXP__PART_TYPE, oldPartType, partType, !oldPartTypeESet));
 		}
 	}
 
@@ -134,9 +135,10 @@ public class ENXPImpl extends STImpl implements ENXP {
 		partType = PART_TYPE_EDEFAULT;
 		partTypeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, DatatypesPackage.ENXP__PART_TYPE, oldPartType, PART_TYPE_EDEFAULT,
-				oldPartTypeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, DatatypesPackage.ENXP__PART_TYPE, oldPartType, PART_TYPE_EDEFAULT,
+					oldPartTypeESet));
 		}
 	}
 

@@ -71,6 +71,7 @@ public enum EntityDeterminerDetermined implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #QUANTIFIEDKIND
 	 * @model literal="QUANITFIED_KIND"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='QUANTIFIED_KIND'"
 	 * @generated
 	 * @ordered
 	 */
@@ -91,12 +92,15 @@ public enum EntityDeterminerDetermined implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<EntityDeterminerDetermined> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<EntityDeterminerDetermined> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Entity Determiner Determined</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminerDetermined get(String literal) {
@@ -113,6 +117,8 @@ public enum EntityDeterminerDetermined implements Enumerator {
 	 * Returns the '<em><b>Entity Determiner Determined</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminerDetermined getByName(String name) {
@@ -129,6 +135,8 @@ public enum EntityDeterminerDetermined implements Enumerator {
 	 * Returns the '<em><b>Entity Determiner Determined</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static EntityDeterminerDetermined get(int value) {

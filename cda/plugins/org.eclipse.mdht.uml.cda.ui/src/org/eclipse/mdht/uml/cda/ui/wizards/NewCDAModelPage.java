@@ -199,8 +199,9 @@ public class NewCDAModelPage extends WizardPage {
 				// Make sure the input results in valid URI
 				setPageComplete(false);
 				// URI.create(nsURI.getText());
-				setPageComplete(basePackage.getText().matches("[A-Za-z0-9\\.]*") && modelName.getText().length() > 0 &&
-						cdaDocumentName.getText().length() > 0);
+				setPageComplete(
+					basePackage.getText().matches("[A-Za-z0-9\\.]*") && modelName.getText().length() > 0 &&
+							cdaDocumentName.getText().length() > 0);
 				// } catch (Throwable throwable) {
 				//
 				// }

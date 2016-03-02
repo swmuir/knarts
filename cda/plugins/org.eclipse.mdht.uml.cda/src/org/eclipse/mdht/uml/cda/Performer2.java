@@ -29,6 +29,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationPhysicalPerformer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getTypeId <em>Type Id</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationPhysicalPerformer;
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer2()
  * @model

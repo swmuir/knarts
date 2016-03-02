@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,20 +221,21 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -289,20 +290,20 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		if (newOrder != order) {
 			NotificationChain msgs = null;
 			if (order != null) {
-				msgs = ((InternalEObject) order).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.IN_FULFILLMENT_OF__ORDER, null, msgs);
+				msgs = ((InternalEObject) order).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF__ORDER, null, msgs);
 			}
 			if (newOrder != null) {
-				msgs = ((InternalEObject) newOrder).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.IN_FULFILLMENT_OF__ORDER, null, msgs);
+				msgs = ((InternalEObject) newOrder).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF__ORDER, null, msgs);
 			}
 			msgs = basicSetOrder(newOrder, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__ORDER, newOrder, newOrder));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__ORDER, newOrder, newOrder));
 		}
 	}
 
@@ -329,9 +330,10 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -346,9 +348,10 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -384,9 +387,10 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__TYPE_CODE, oldTypeCode, typeCode,
-				!oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -401,9 +405,10 @@ public class InFulfillmentOfImpl extends ActRelationshipImpl implements InFulfil
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

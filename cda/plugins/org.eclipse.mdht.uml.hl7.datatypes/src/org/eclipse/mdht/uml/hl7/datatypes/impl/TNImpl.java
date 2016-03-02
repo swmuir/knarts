@@ -22,8 +22,6 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.TNOperations;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>TN</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

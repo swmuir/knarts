@@ -296,8 +296,7 @@ public class Validator extends AbstractNestedValidator {
 				IJavaLaunchConfigurationConstants.ID_JAVA_APPLICATION);
 			ILaunchConfigurationWorkingCopy workingCopy = type.newInstance(null, "ValidateCDA");
 			workingCopy.setAttribute(
-				IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME,
-				"org.eclipse.mdht.uml.cda.validate.Validate");
+				IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "org.eclipse.mdht.uml.cda.validate.Validate");
 			String validateArguments = String.format(
 				" \"%s\" \"%s\" \"%s\"  ", uri, validationsPath.toOSString(), documentClassQName);
 			workingCopy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, validateArguments);

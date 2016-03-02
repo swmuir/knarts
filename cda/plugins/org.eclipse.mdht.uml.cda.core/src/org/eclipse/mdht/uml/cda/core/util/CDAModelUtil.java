@@ -41,6 +41,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -52,6 +53,7 @@ import org.eclipse.mdht.uml.cda.core.profile.LogicalConstraint;
 import org.eclipse.mdht.uml.cda.core.profile.LogicalOperator;
 import org.eclipse.mdht.uml.cda.core.profile.SeverityKind;
 import org.eclipse.mdht.uml.cda.core.profile.Validation;
+import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
 import org.eclipse.mdht.uml.common.util.NamedElementUtil;
 import org.eclipse.mdht.uml.common.util.PropertyList;
 import org.eclipse.mdht.uml.common.util.UMLUtil;
@@ -148,7 +150,11 @@ public class CDAModelUtil {
 
 		for (Classifier parent : templateProperty.getClass_().allParents()) {
 			for (Property inherited : parent.getAttributes()) {
-				if (inherited.getName() != null && inherited.getName().equals(templateProperty.getName()) &&
+				Property cdaProperty = transformToCDAProperty(templateProperty);
+				if (cdaProperty == null) {
+					continue;
+				}
+				if (inherited.getName() != null && inherited.getName().equals(getCDAName(cdaProperty)) &&
 						(isCDAModel(inherited) || isDatatypeModel(inherited))) {
 					return inherited;
 				}
@@ -566,6 +572,9 @@ public class CDAModelUtil {
 					? "</b>"
 					: "");
 			message.append(" contain ");
+			if (property.getUpper() == 0 && isClosed(property)) {
+				message.append("any ");
+			}
 		} else {
 
 			if (property.getUpper() < 0 || property.getUpper() > 1) {
@@ -573,10 +582,20 @@ public class CDAModelUtil {
 			} else {
 				message.append("contain ");
 			}
+			if (property.getUpper() == 0 && isClosed(property)) {
+				message.append("any ");
+			}
 
 		}
 
-		String elementName = getCDAElementName(property);
+		String elementName = resolveCdaPropertyName(property);
+
+		String propertyPrefix = getNameSpacePrefix(UMLUtil.getInheritedProperty(property) != null
+				? UMLUtil.getInheritedProperty(property)
+				: property);
+		if (propertyPrefix != null && !elementName.contains(":")) {
+			elementName = propertyPrefix + ":" + elementName;
+		}
 
 		message.append(getMultiplicityText(property));
 		message.append(multiplicityElementToggle(property, markup, elementName));
@@ -585,21 +604,24 @@ public class CDAModelUtil {
 
 		if (appendNestedConformanceRules && endType != null) {
 
-			if (markup && isInlineClass(endType) && !isPublishSeperately(endType)) {
+			if (markup && isDisplayInline(endType)) {
 				StringBuilder sb = new StringBuilder();
+
+				message.append(openOrClosed(property));
+
+				// message.append(", where its type is ");
 
 				appendConformanceRuleIds(association, message, markup);
 
 				appendPropertyComments(sb, property, markup);
 
-				appendConformanceRules(sb, endType, (property.getUpper() == 1
-						? "This "
-						: "Such ") +
-						(property.getUpper() == 1
-								? elementName
-								: NameUtilities.pluralize(elementName)) +
-						" ",
-					markup);
+				// // (property.getUpper() == 1,? "This "
+				// : "Such ") +
+				// (property.getUpper() == 1
+				// ? elementName
+				// : NameUtilities.pluralize(elementName)) +
+				// " "
+				appendConformanceRules(sb, endType, "", markup);
 				message.append(" " + sb + " ");
 
 			} else {
@@ -637,7 +659,7 @@ public class CDAModelUtil {
 		StringBuffer message = new StringBuffer();
 		Association association = property.getAssociation();
 
-		String elementName = getCDAElementName(property);
+		String elementName = resolveCdaPropertyName(property);
 
 		if (!markup) {
 			message.append(getPrefixedSplitName(property.getClass_())).append(" ");
@@ -671,6 +693,8 @@ public class CDAModelUtil {
 		}
 
 		message.append(multiplicityElementToggle(property, markup, elementName));
+
+		message.append(openOrClosed(property));
 
 		appendConformanceRuleIds(association, message, markup);
 
@@ -840,6 +864,27 @@ public class CDAModelUtil {
 		return computeConformanceMessage(property, markup, xrefSource, true);
 	}
 
+	private static String openOrClosed(Property property) {
+		if (isClosed(property)) {
+			return " ";
+		} else {
+			return " such that it ";
+		}
+	}
+
+	private static boolean isClosed(Property property) {
+		Validation validation = org.eclipse.uml2.uml.util.UMLUtil.getStereotypeApplication(
+			(property.getAssociation() != null
+					? property.getAssociation()
+					: property),
+			Validation.class);
+		if (validation != null && validation.getKind().equals(ValidationKind.CLOSED)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public static String computeConformanceMessage(Property property, boolean markup, Package xrefSource,
 			boolean appendNestedConformanceRules) {
 
@@ -866,11 +911,17 @@ public class CDAModelUtil {
 					? "</b>"
 					: "");
 			message.append(" contain ");
+			if (property.getUpper() == 0 && isClosed(property)) {
+				message.append("any ");
+			}
 		} else {
 			if (property.getUpper() < 0 || property.getUpper() > 1) {
 				message.append("contains ");
 			} else {
 				message.append("contain ");
+			}
+			if (property.getUpper() == 0 && isClosed(property)) {
+				message.append("any ");
 			}
 		}
 
@@ -890,30 +941,11 @@ public class CDAModelUtil {
 
 		String propertyPrefix = getNameSpacePrefix(property);
 
-		// Try to get CDA Name
-		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IExtensionPoint ep = reg.getExtensionPoint("org.eclipse.mdht.uml.cda.core.TransformProvider");
-		IExtension[] extensions = ep.getExtensions();
-		TransformProvider newContributor = null;
-		Property cdaProperty = null;
-		try {
-			newContributor = (TransformProvider) extensions[0].getConfigurationElements()[0].createExecutableExtension(
-				"transform-class");
-			cdaProperty = newContributor.GetTransform(property);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		String propertyCdaName = null;
-		if (cdaProperty != null) {
-			propertyCdaName = cdaProperty.getName();
-		} else {
-			propertyCdaName = getCDAElementName(property);
-		}
+		String cdaPropertyName = resolveCdaPropertyName(property);
 
 		message.append(propertyPrefix != null
-				? propertyPrefix + ":" + propertyCdaName
-				: propertyCdaName);
+				? propertyPrefix + ":" + cdaPropertyName
+				: cdaPropertyName);
 
 		message.append(markup
 				? "</b>"
@@ -980,25 +1012,22 @@ public class CDAModelUtil {
 			}
 		}
 
-		/*
-		 * Append datatype restriction, if redefined to a specialized type
-		 */
-		List<Property> redefinedProperties = UMLUtil.getRedefinedProperties(property);
-		Property redefinedProperty = redefinedProperties.isEmpty()
-				? null
-				: redefinedProperties.get(0);
-
-		if (property.getType() != null && ((redefinedProperty == null ||
-				(!isXMLAttribute(property) && (property.getType() != redefinedProperty.getType()))))) {
-			message.append(" with " + "@xsi:type=\"");
-			if (redefinedProperty != null && redefinedProperty.getType() != null &&
-					redefinedProperty.getType().getName() != null && !redefinedProperty.getType().getName().isEmpty()) {
-				message.append(redefinedProperty.getType().getName());
-			} else {
-				message.append(property.getType().getName());
+		Property cdaProperty = transformToCDAProperty(property);
+		if (property.getType() instanceof Classifier && cdaProperty != null &&
+				cdaProperty.getType() instanceof Classifier) {
+			Classifier propertyType = (Classifier) property.getType();
+			Classifier cdaPropertyType = (Classifier) cdaProperty.getType();
+			Class propertyCdaType = CDAModelUtil.getCDAClass(propertyType);
+			if (propertyCdaType == null) {
+				propertyCdaType = CDAModelUtil.getCDADatatype(propertyType);
 			}
-			message.append("\"");
-
+			// if the datatype is not different from the immediate parent, then the xsi:type shouldn't be printed
+			if (propertyCdaType != null && cdaPropertyType != null && propertyCdaType != cdaPropertyType &&
+					propertyCdaType.getName() != null && !propertyCdaType.getName().isEmpty()) {
+				message.append(" with " + "@xsi:type=\"");
+				message.append(propertyCdaType.getName());
+				message.append("\"");
+			}
 		}
 
 		// for vocab properties, put rule ID at end, use terminology constraint if specified
@@ -1077,7 +1106,13 @@ public class CDAModelUtil {
 						hadSideEffect |= sb.length() > len;
 					}
 					if (hadSideEffect) {
-						message.append(" " + sb);
+
+						if (cdaProperty.upperBound() != 1 && property.getType() instanceof Class &&
+								CDAModelUtil.isInlineClass((Class) property.getType())) {
+							message.append(openOrClosed(property) + " " + sb);
+						} else {
+							message.append(" " + sb);
+						}
 
 					}
 				}
@@ -1087,6 +1122,110 @@ public class CDAModelUtil {
 		}
 
 		return message.toString();
+	}
+
+	/**
+	 * Fully resolve the CDA Name of a property.
+	 *
+	 * Note that this may not necessarily be the UML name of the property
+	 * as in redefined and subsets properties, so go looking for the correct name
+	 *
+	 * @param property
+	 *            the name to be resolved
+	 * @return string property name as it would appear in CDA
+	 */
+	private static String resolveCdaPropertyName(Property property) {
+		Property cdaProperty = transformToCDAProperty(property);
+
+		String propertyCdaName = null;
+		if (cdaProperty != null) {
+			propertyCdaName = getCDAName(cdaProperty);
+		} else {
+			propertyCdaName = getCDAElementName(property);
+		}
+		return propertyCdaName;
+	}
+
+	/**
+	 * transformToCDAProperty uses the Extension-point trick
+	 * to access attributes on downstream projects without creating
+	 * a dependency.
+	 *
+	 * In this case it uses CDABaseModelReflection
+	 *
+	 * @see also TransformSupplier and org.openhealthtools.mdht.uml.cda.core.TransformProvider
+	 *
+	 *      Used when resolving CDAName as opposed to UML name
+	 *
+	 * @param property
+	 *            a CDA Property
+	 * @return a transformed view of that property or null
+	 */
+	private static Property transformToCDAProperty(Property property) {
+		// Get the extension point
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IExtensionPoint ep = reg.getExtensionPoint("org.eclipse.mdht.uml.cda.core.TransformProvider");
+		IExtension[] extensions = ep.getExtensions();
+		TransformProvider newContributor = null;
+		Property cdaProperty = null;
+
+		// then apply the transform
+		try {
+			newContributor = (TransformProvider) extensions[0].getConfigurationElements()[0].createExecutableExtension(
+				"transform-class");
+			cdaProperty = newContributor.GetTransform(property);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cdaProperty;
+	}
+
+	/**
+	 * getCDAName
+	 *
+	 * recursively, depth first, check the object graph for a CDA Name using the root of the "redefined"
+	 * property if it exists.
+	 *
+	 * Also handle special cases like sectionId which has a cdaName of ID
+	 *
+	 * @param cdaProperty
+	 *            an MDHT property
+	 * @return string
+	 *         the calculated CDA name
+	 */
+	private static String getCDAName(Property cdaProperty) {
+		EList<Property> redefines = cdaProperty.getRedefinedProperties();
+
+		// if there is a stereotype name, use it
+		String name = getStereotypeName(cdaProperty);
+		if (name != null && !name.isEmpty()) {
+			return name;
+		}
+
+		// if there are redefines, check for more but only along the first branch (0)
+		if (redefines != null && redefines.size() > 0) {
+			return getCDAName(redefines.get(0));
+		}
+
+		// eventually return the property Name of the root redefined element;
+
+		return cdaProperty.getName();
+	}
+
+	/**
+	 * Get the CDA name from a stereotype if it exists
+	 *
+	 * @param cdaProperty
+	 *            a Property
+	 * @return the xmlName or null if no stereotype exists
+	 */
+	private static String getStereotypeName(Property cdaProperty) {
+		Stereotype eAttribute = cdaProperty.getAppliedStereotype("Ecore::EAttribute");
+		String name = null;
+		if (eAttribute != null) {
+			name = (String) cdaProperty.getValue(eAttribute, "xmlName");
+		}
+		return name;
 	}
 
 	private static void appendSubsetsNotation(Property property, StringBuffer message, boolean markup,
@@ -1240,6 +1379,8 @@ public class CDAModelUtil {
 			currentlyItem &= appendPropertyComments(propertyComments, property, markup);
 			if (currentlyItem) {
 				sb.append(li[0]).append(propertyComments).append(li[1]);
+			} else {
+				sb.append(propertyComments);
 			}
 
 			appendPropertyRules(sb, property, constraintMap, subConstraintMap, unprocessedConstraints, markup, !order);
@@ -1788,7 +1929,7 @@ public class CDAModelUtil {
 
 		} else {
 			if (markup) {
-				message.append("<ul>");
+				message.append("<ol>");
 			}
 			for (Element element : constraint.getConstrainedElements()) {
 				message.append(LI[0]);
@@ -1796,7 +1937,7 @@ public class CDAModelUtil {
 				message.append(LI[1]);
 			}
 			if (markup) {
-				message.append("</ul>");
+				message.append("</ol>");
 			}
 		}
 
@@ -1916,6 +2057,10 @@ public class CDAModelUtil {
 			return "../" + normalizeCodeName(target.getName()) + ".dita";
 		}
 
+		if (target instanceof Class && CDAModelUtil.isPublishSeperately((Class) target)) {
+			return "../" + normalizeCodeName(target.getName()) + ".dita";
+		}
+
 		// If the model project is available (should be) and the dita content is part of the doc project
 		if (!isCDAModel(target)) {
 			IProject sourceProject = getElementModelProject(source);
@@ -1941,18 +2086,20 @@ public class CDAModelUtil {
 			String basePackage = "";
 			String prefix = "";
 
-			String packageName = target.getNearestPackage().getName();
+			String packageName = target.getNearestPackage() != null
+					? target.getNearestPackage().getName()
+					: "";
 			if (RIMModelUtil.RIM_PACKAGE_NAME.equals(packageName)) {
-				basePackage = "org.eclipse.mdht.uml.hl7.rim";
+				basePackage = "org.openhealthtools.mdht.uml.hl7.rim";
 			} else if (CDA_PACKAGE_NAME.equals(packageName)) {
-				basePackage = "org.eclipse.mdht.uml.cda";
+				basePackage = "org.openhealthtools.mdht.uml.cda";
 			} else {
 				basePackage = getModelBasePackage(target);
 				prefix = getModelNamespacePrefix(target);
 			}
 
 			if (basePackage == null || basePackage.trim().length() == 0) {
-				basePackage = "org.eclipse.mdht.uml.cda";
+				basePackage = "org.openhealthtools.mdht.uml.cda";
 			}
 			if (prefix != null && prefix.trim().length() > 0) {
 				prefix += ".";
@@ -2026,7 +2173,7 @@ public class CDAModelUtil {
 	/**
 	 * getCDAElementName - Returns the CDA Element name as a string
 	 *
-	 * @TODO Refactor to use org.eclipse.mdht.uml.transform.ecore.TransformAbstract.getInitialProperty(Property)
+	 * @TODO Refactor to use org.openhealthtools.mdht.uml.transform.ecore.TransformAbstract.getInitialProperty(Property)
 	 *
 	 *       Currently walk the redefines to see if we can match the CDA property using the name and type
 	 *       If none found - for backwards compatibility we look for a property in the base class with a matching type which is potential error prone
@@ -2125,8 +2272,8 @@ public class CDAModelUtil {
 			elementName = "entry";
 		} else if (CDAModelUtil.isOrganizer(cdaSourceClass) && CDAModelUtil.isClinicalStatement(cdaTargetClass)) {
 			elementName = "component";
-		} else
-			if (CDAModelUtil.isClinicalStatement(cdaSourceClass) && CDAModelUtil.isClinicalStatement(cdaTargetClass)) {
+		} else if (CDAModelUtil.isClinicalStatement(cdaSourceClass) &&
+				CDAModelUtil.isClinicalStatement(cdaTargetClass)) {
 			elementName = "entryRelationship";
 		} else if (CDAModelUtil.isClinicalStatement(cdaSourceClass) && cdaTargetClass != null &&
 				"ParticipantRole".equals(cdaTargetClass.getName())) {
@@ -2575,6 +2722,31 @@ public class CDAModelUtil {
 		return severity;
 	}
 
+	/**
+	 * Get the value of the Negation Indicator, for the given element or return false
+	 *
+	 * @param element
+	 *            the element to check
+	 * @param validationStereotype
+	 *            the applied stereotype
+	 *
+	 * @return true if the Negation indicator exists and is set to true, false for all other circumstances
+	 */
+	public static Boolean getValidationNegation(Element element, Stereotype validationStereotype) {
+		Boolean negation = false;
+
+		if ((validationStereotype != null) && CDAProfileUtil.isValidationStereotype(validationStereotype)) {
+
+			Object value = element.getValue(validationStereotype, ICDAProfileConstants.VALIDATION_NEGATION_INDICATOR);
+			if (value instanceof Boolean) {
+				negation = (Boolean) value;
+			}
+
+		}
+
+		return negation;
+	}
+
 	public static String getValidationKeywordWithPropertyRange(Property property) {
 		String keyword = getValidationKeyword(property);
 		return addShallNot(keyword, property);
@@ -2582,22 +2754,34 @@ public class CDAModelUtil {
 
 	public static String getValidationKeyword(Property property) {
 		String severity = getValidationSeverity(property, ICDAProfileConstants.PROPERTY_VALIDATION);
+		Stereotype validationStereotype = CDAProfileUtil.getAppliedCDAStereotype(
+			property, ICDAProfileConstants.PROPERTY_VALIDATION);
+
+		// check if the severity has been negated, as in SHOULD NOT
+		boolean isNegated = getValidationNegation(property, validationStereotype);
+
 		if (severity == null) {
 			// get other validation stereotype, usually for terminology
 			severity = getValidationSeverity((Element) property);
 		}
-		return getValidationKeyword(severity);
+
+		String keyword = getValidationKeyword(severity);
+		if (isNegated) {
+			keyword += " NOT";
+		}
+
+		return keyword;
 	}
 
 	public static String getValidationKeywordWithPropertyRange(Element element, Property property) {
 		// use first available validation stereotype
 		String keyword = getValidationKeyword(element);
-		return addShallNot(keyword, property);
+		keyword = addShallNot(keyword, property);
+		return keyword;
 	}
 
 	private static String addShallNot(String keyword, Property property) {
-		if (property.getLower() == 0 && property.getUpper() == 0 &&
-				("SHALL".equals(keyword) || "SHOULD".equals(keyword))) {
+		if (property.getLower() == 0 && property.getUpper() == 0 && ("SHALL".equals(keyword))) {
 			keyword += " NOT";
 		}
 		return keyword;
@@ -2606,6 +2790,7 @@ public class CDAModelUtil {
 	public static String getValidationKeyword(Element element) {
 		// use first available validation stereotype
 		String severity = getValidationSeverity(element);
+
 		return getValidationKeyword(severity);
 	}
 
@@ -2748,6 +2933,44 @@ public class CDAModelUtil {
 
 		return false;
 
+	}
+
+	/**
+	 * For any given property, correctly check all Inline stereotypes and negation indicators
+	 * to determine if this property should display inline.
+	 *
+	 * @param endType
+	 *            any UML Class
+	 * @return true iff the property has been correctly stereotyped to display inline, false otherwise
+	 */
+	public static boolean isDisplayInline(Class endType) {
+		if (endType == null) {
+			return false;
+		}
+
+		if (CDAModelUtil.isInlineClass(endType) && !CDAModelUtil.isPublishSeperately(endType)) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * A convenience wrapper around isDisplayInline(Class endType) for properties.
+	 *
+	 * For any given property, correctly check all Inline stereotypes and negation indicators
+	 * to determine if this property should display inline.
+	 *
+	 * @param clazz
+	 *            any UML Class
+	 * @return true iff the property has been correctly stereotyped to display inline, false otherwise
+	 */
+	public static boolean isDisplayInline(Property property) {
+		Class endType = (property.getType() instanceof Class)
+				? (Class) property.getType()
+				: null;
+
+		return isDisplayInline(endType);
 	}
 
 	public static String getInlineFilter(Class inlineClass) {

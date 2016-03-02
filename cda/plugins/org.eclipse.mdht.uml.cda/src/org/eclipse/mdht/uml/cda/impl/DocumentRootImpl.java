@@ -32,13 +32,13 @@ import org.eclipse.mdht.uml.cda.DocumentRoot;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentRootImpl#getClinicalDocument <em>Clinical Document</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

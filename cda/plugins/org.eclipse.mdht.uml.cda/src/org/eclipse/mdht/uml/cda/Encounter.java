@@ -28,6 +28,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getTypeId <em>Type Id</em>}</li>
@@ -52,7 +53,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getSDTCDischargeDispositionCodes <em>SDTC Discharge Disposition Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter()
  * @model

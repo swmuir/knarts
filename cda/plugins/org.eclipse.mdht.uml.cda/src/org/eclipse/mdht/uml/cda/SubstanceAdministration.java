@@ -34,6 +34,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getTypeId <em>Type Id</em>}</li>
@@ -66,7 +67,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getNegationInd <em>Negation Ind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration()
  * @model

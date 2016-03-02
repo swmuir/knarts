@@ -236,6 +236,7 @@ public enum ActMood implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #EVNCRT
 	 * @model literal="EVN.CRT"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='EVN.CRT'"
 	 * @generated
 	 * @ordered
 	 */
@@ -397,6 +398,8 @@ public enum ActMood implements Enumerator {
 	 * Returns the '<em><b>Act Mood</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActMood get(String literal) {
@@ -413,6 +416,8 @@ public enum ActMood implements Enumerator {
 	 * Returns the '<em><b>Act Mood</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActMood getByName(String name) {
@@ -429,6 +434,8 @@ public enum ActMood implements Enumerator {
 	 * Returns the '<em><b>Act Mood</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActMood get(int value) {

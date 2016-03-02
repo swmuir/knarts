@@ -25,6 +25,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassServiceDeliveryLocation;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.HealthCareFacility#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.HealthCareFacility#getTypeId <em>Type Id</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassServiceDeliveryLocation;
  *   <li>{@link org.eclipse.mdht.uml.cda.HealthCareFacility#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.HealthCareFacility#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getHealthCareFacility()
  * @model

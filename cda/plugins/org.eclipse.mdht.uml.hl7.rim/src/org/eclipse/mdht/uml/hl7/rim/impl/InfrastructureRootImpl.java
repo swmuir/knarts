@@ -24,8 +24,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Infrastructure Root</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

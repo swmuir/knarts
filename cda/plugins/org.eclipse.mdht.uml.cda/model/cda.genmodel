@@ -27,6 +27,10 @@
     <details key="DERIVED_FEATURES" value="IGNORE"/>
     <details key="VALIDATION_DELEGATES" value="IGNORE"/>
     <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
   </genAnnotations>
   <foreignModel>cda.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="CDA" basePackage="org.eclipse.mdht.uml"

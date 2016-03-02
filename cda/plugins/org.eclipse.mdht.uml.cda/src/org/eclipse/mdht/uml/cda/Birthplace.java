@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClass;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Birthplace#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Birthplace#getTypeId <em>Type Id</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClass;
  *   <li>{@link org.eclipse.mdht.uml.cda.Birthplace#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Birthplace#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getBirthplace()
  * @model

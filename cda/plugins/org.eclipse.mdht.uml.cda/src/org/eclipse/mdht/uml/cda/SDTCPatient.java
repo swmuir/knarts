@@ -20,10 +20,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.II;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.SDTCPatient#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getSDTCPatient()
  * @model

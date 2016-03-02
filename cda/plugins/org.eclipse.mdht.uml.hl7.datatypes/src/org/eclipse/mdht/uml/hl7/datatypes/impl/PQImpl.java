@@ -32,12 +32,12 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.PQOperations;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PQImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PQImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PQImpl#getTranslations <em>Translation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

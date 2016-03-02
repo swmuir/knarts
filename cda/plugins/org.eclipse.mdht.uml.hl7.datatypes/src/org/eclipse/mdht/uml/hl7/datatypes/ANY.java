@@ -20,10 +20,10 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ANY#getNullFlavor <em>Null Flavor</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getANY()
  * @model abstract="true"

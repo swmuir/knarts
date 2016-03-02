@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     seanmuir - initial API and implementation
- *     
+ *
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ui.handlers;
 
@@ -35,7 +35,7 @@ import org.eclipse.uml2.uml.Class;
 
 /**
  * @author seanmuir
- * 
+ *
  */
 public class CreateLogicalConstraintHandler extends AbstractHandler {
 

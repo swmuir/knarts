@@ -27,11 +27,11 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.MOOperations;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.MOImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.MOImpl#getCurrency <em>Currency</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -135,7 +135,8 @@ public class MOImpl extends QTYImpl implements MO {
 		String oldCurrency = currency;
 		currency = newCurrency;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.MO__CURRENCY, oldCurrency, currency));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, DatatypesPackage.MO__CURRENCY, oldCurrency, currency));
 		}
 	}
 

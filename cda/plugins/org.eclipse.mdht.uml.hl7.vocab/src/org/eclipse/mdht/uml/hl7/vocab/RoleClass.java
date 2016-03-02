@@ -134,14 +134,15 @@ public enum RoleClass implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CASESBJ(10, "CASESBJ", "CASESBJ"), /**
-										* The '<em><b>CIT</b></em>' literal object.
-										* <!-- begin-user-doc -->
-										* <!-- end-user-doc -->
-										* @see #CIT_VALUE
-										* @generated
-										* @ordered
-										*/
+	CASESBJ(10, "CASESBJ", "CASESBJ"),
+	/**
+	 * The '<em><b>CIT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #CIT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	CIT(11, "CIT", "CIT"),
 
 	/**
@@ -1874,6 +1875,8 @@ public enum RoleClass implements Enumerator {
 	 * Returns the '<em><b>Role Class</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClass get(String literal) {
@@ -1890,6 +1893,8 @@ public enum RoleClass implements Enumerator {
 	 * Returns the '<em><b>Role Class</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClass getByName(String name) {
@@ -1906,6 +1911,8 @@ public enum RoleClass implements Enumerator {
 	 * Returns the '<em><b>Role Class</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClass get(int value) {

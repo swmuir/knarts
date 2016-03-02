@@ -31,6 +31,7 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#validateThumbnailThumbnail(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate Thumbnail Thumbnail</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#addText(java.lang.String) <em>Add Text</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.ocl.ecore.OCL;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#getCDATA() <em>Get CDATA</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#addCDATA(java.lang.String) <em>Add CDATA</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -97,21 +97,24 @@ public class EDOperations extends ANYOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.ED);
 			try {
-				VALIDATE_THUMBNAIL_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_THUMBNAIL_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_THUMBNAIL_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_THUMBNAIL_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_THUMBNAIL_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ed)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.ED__THUMBNAIL_THUMBNAIL,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateThumbnailThumbnail",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ed, context) }),
-					new Object[] { ed }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
+						DatatypesValidator.ED__THUMBNAIL_THUMBNAIL,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateThumbnailThumbnail",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(ed, context) }),
+						new Object[] { ed }));
 			}
 			return false;
 		}

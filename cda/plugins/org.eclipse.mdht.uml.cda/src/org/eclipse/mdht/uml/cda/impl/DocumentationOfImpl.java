@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentationOfImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentationOfImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentationOfImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.DocumentationOfImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,20 +221,21 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.DOCUMENTATION_OF__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.DOCUMENTATION_OF__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.DOCUMENTATION_OF__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.DOCUMENTATION_OF__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.DOCUMENTATION_OF__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.DOCUMENTATION_OF__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -289,20 +290,22 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		if (newServiceEvent != serviceEvent) {
 			NotificationChain msgs = null;
 			if (serviceEvent != null) {
-				msgs = ((InternalEObject) serviceEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, null, msgs);
+				msgs = ((InternalEObject) serviceEvent).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, null, msgs);
 			}
 			if (newServiceEvent != null) {
-				msgs = ((InternalEObject) newServiceEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, null, msgs);
+				msgs = ((InternalEObject) newServiceEvent).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, null, msgs);
 			}
 			msgs = basicSetServiceEvent(newServiceEvent, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, newServiceEvent, newServiceEvent));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.DOCUMENTATION_OF__SERVICE_EVENT, newServiceEvent,
+					newServiceEvent));
 		}
 	}
 
@@ -329,9 +332,10 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.DOCUMENTATION_OF__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.DOCUMENTATION_OF__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -346,9 +350,10 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.DOCUMENTATION_OF__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.DOCUMENTATION_OF__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -384,8 +389,10 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.DOCUMENTATION_OF__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.DOCUMENTATION_OF__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -400,9 +407,10 @@ public class DocumentationOfImpl extends ActRelationshipImpl implements Document
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.DOCUMENTATION_OF__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.DOCUMENTATION_OF__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

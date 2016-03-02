@@ -27,13 +27,13 @@ import org.eclipse.mdht.uml.hl7.vocab.CalendarCycle;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PIVL_TSImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PIVL_TSImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PIVL_TSImpl#getAlignment <em>Alignment</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.PIVL_TSImpl#getInstitutionSpecified <em>Institution Specified</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -173,12 +173,12 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		if (newPhase != phase) {
 			NotificationChain msgs = null;
 			if (phase != null) {
-				msgs = ((InternalEObject) phase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.PIVL_TS__PHASE, null, msgs);
+				msgs = ((InternalEObject) phase).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.PIVL_TS__PHASE, null, msgs);
 			}
 			if (newPhase != null) {
-				msgs = ((InternalEObject) newPhase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.PIVL_TS__PHASE, null, msgs);
+				msgs = ((InternalEObject) newPhase).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.PIVL_TS__PHASE, null, msgs);
 			}
 			msgs = basicSetPhase(newPhase, msgs);
 			if (msgs != null) {
@@ -227,20 +227,20 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		if (newPeriod != period) {
 			NotificationChain msgs = null;
 			if (period != null) {
-				msgs = ((InternalEObject) period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.PIVL_TS__PERIOD, null, msgs);
+				msgs = ((InternalEObject) period).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.PIVL_TS__PERIOD, null, msgs);
 			}
 			if (newPeriod != null) {
-				msgs = ((InternalEObject) newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.PIVL_TS__PERIOD, null, msgs);
+				msgs = ((InternalEObject) newPeriod).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.PIVL_TS__PERIOD, null, msgs);
 			}
 			msgs = basicSetPeriod(newPeriod, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.PIVL_TS__PERIOD, newPeriod, newPeriod));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, DatatypesPackage.PIVL_TS__PERIOD, newPeriod, newPeriod));
 		}
 	}
 
@@ -266,8 +266,10 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		boolean oldAlignmentESet = alignmentESet;
 		alignmentESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.PIVL_TS__ALIGNMENT, oldAlignment, alignment, !oldAlignmentESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.PIVL_TS__ALIGNMENT, oldAlignment, alignment,
+					!oldAlignmentESet));
 		}
 	}
 
@@ -282,9 +284,10 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		alignment = ALIGNMENT_EDEFAULT;
 		alignmentESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, DatatypesPackage.PIVL_TS__ALIGNMENT, oldAlignment, ALIGNMENT_EDEFAULT,
-				oldAlignmentESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, DatatypesPackage.PIVL_TS__ALIGNMENT, oldAlignment, ALIGNMENT_EDEFAULT,
+					oldAlignmentESet));
 		}
 	}
 
@@ -317,9 +320,10 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		boolean oldInstitutionSpecifiedESet = institutionSpecifiedESet;
 		institutionSpecifiedESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.PIVL_TS__INSTITUTION_SPECIFIED, oldInstitutionSpecified,
-				institutionSpecified, !oldInstitutionSpecifiedESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.PIVL_TS__INSTITUTION_SPECIFIED, oldInstitutionSpecified,
+					institutionSpecified, !oldInstitutionSpecifiedESet));
 		}
 	}
 
@@ -334,9 +338,10 @@ public class PIVL_TSImpl extends SXCM_TSImpl implements PIVL_TS {
 		institutionSpecified = INSTITUTION_SPECIFIED_EDEFAULT;
 		institutionSpecifiedESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, DatatypesPackage.PIVL_TS__INSTITUTION_SPECIFIED, oldInstitutionSpecified,
-				INSTITUTION_SPECIFIED_EDEFAULT, oldInstitutionSpecifiedESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, DatatypesPackage.PIVL_TS__INSTITUTION_SPECIFIED, oldInstitutionSpecified,
+					INSTITUTION_SPECIFIED_EDEFAULT, oldInstitutionSpecifiedESet));
 		}
 	}
 

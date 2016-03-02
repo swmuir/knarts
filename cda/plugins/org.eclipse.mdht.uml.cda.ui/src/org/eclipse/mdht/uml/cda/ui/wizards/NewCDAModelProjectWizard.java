@@ -114,7 +114,8 @@ public class NewCDAModelProjectWizard extends CDAWizard {
 		}
 
 		if (checkForSpaces()) {
-			MessageDialog.openWarning(getShell(), "MDHT CDA Project Wizard Exception",
+			MessageDialog.openWarning(
+				getShell(), "MDHT CDA Project Wizard Exception",
 				"Unable to create CDA Project, Unable to support Spaces ' ' within installation or workspace location");
 			return;
 		}
@@ -236,8 +237,9 @@ public class NewCDAModelProjectWizard extends CDAWizard {
 						monitor.setTaskName("Create UML Model");
 						createFolder(modelProject, "model");
 
-						createUMLModel(modelProject, newCDATemplatePage.getNamespaceURI(),
-							newCDATemplatePage.getBasePackage(), modelName);
+						createUMLModel(
+							modelProject, newCDATemplatePage.getNamespaceURI(), newCDATemplatePage.getBasePackage(),
+							modelName);
 						monitor.worked(1);
 
 						monitor.setTaskName("Create Model Plugin");

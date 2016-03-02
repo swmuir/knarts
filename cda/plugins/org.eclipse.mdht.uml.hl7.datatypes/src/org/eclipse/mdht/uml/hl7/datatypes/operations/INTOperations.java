@@ -30,11 +30,11 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.INT#validateINT(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate INT</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.INT#setValue(java.lang.Integer) <em>Set Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -92,21 +92,23 @@ public class INTOperations extends ANYOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.INT);
 			try {
-				VALIDATE_INT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_INT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_INT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_INT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_INT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(int_)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.INT__INT,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic",
-						new Object[] {
-								"validateINT",
-								org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(int_, context) }),
-					new Object[] { int_ }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.INT__INT,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateINT",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(int_, context) }),
+						new Object[] { int_ }));
 			}
 			return false;
 		}

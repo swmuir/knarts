@@ -37,6 +37,7 @@ import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getDelimiters <em>Delimiter</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getCountries <em>Country</em>}</li>
@@ -71,7 +72,6 @@ import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getIsNotOrdered <em>Is Not Ordered</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getMixed <em>Mixed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -195,8 +195,9 @@ public class ADImpl extends ANYImpl implements AD {
 		Boolean oldIsNotOrdered = isNotOrdered;
 		isNotOrdered = newIsNotOrdered;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.AD__IS_NOT_ORDERED, oldIsNotOrdered, isNotOrdered));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.AD__IS_NOT_ORDERED, oldIsNotOrdered, isNotOrdered));
 		}
 	}
 

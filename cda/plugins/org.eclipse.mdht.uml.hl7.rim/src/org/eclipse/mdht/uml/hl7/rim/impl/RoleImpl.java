@@ -24,8 +24,6 @@ import org.eclipse.mdht.uml.hl7.rim.operations.RoleOperations;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Role</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

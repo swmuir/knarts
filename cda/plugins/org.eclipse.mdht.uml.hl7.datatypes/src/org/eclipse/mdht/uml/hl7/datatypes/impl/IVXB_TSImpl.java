@@ -22,10 +22,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.IVXB_TS;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVXB_TSImpl#getInclusive <em>Inclusive</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -87,8 +87,9 @@ public class IVXB_TSImpl extends TSImpl implements IVXB_TS {
 		Boolean oldInclusive = inclusive;
 		inclusive = newInclusive;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.IVXB_TS__INCLUSIVE, oldInclusive, inclusive));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.IVXB_TS__INCLUSIVE, oldInclusive, inclusive));
 		}
 	}
 

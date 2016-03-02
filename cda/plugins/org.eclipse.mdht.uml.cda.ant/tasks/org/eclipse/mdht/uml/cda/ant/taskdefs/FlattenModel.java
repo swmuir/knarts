@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ant.taskdefs;
@@ -30,7 +30,7 @@ import org.eclipse.uml2.uml.Package;
 
 /**
  * Flatten the UML model class generalization.
- * 
+ *
  * @version $Id: $
  */
 public class FlattenModel extends CDAModelingSubTask {

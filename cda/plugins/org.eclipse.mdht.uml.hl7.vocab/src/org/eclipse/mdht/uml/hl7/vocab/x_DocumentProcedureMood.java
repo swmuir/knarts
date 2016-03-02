@@ -241,12 +241,15 @@ public enum x_DocumentProcedureMood implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<x_DocumentProcedureMood> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<x_DocumentProcedureMood> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>xDocument Procedure Mood</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentProcedureMood get(String literal) {
@@ -263,6 +266,8 @@ public enum x_DocumentProcedureMood implements Enumerator {
 	 * Returns the '<em><b>xDocument Procedure Mood</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentProcedureMood getByName(String name) {
@@ -279,6 +284,8 @@ public enum x_DocumentProcedureMood implements Enumerator {
 	 * Returns the '<em><b>xDocument Procedure Mood</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentProcedureMood get(int value) {

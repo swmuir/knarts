@@ -21,11 +21,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.RTO_QTY_QTY#getNumerator <em>Numerator</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.RTO_QTY_QTY#getDenominator <em>Denominator</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getRTO_QTY_QTY()
  * @model

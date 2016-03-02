@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipientRole;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.IntendedRecipientImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.IntendedRecipientImpl#getTypeId <em>Type Id</em>}</li>
@@ -51,7 +52,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipientRole;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.IntendedRecipientImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.IntendedRecipientImpl#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -265,20 +265,21 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -370,21 +371,22 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		if (newInformationRecipient != informationRecipient) {
 			NotificationChain msgs = null;
 			if (informationRecipient != null) {
-				msgs = ((InternalEObject) informationRecipient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT, null, msgs);
+				msgs = ((InternalEObject) informationRecipient).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT, null, msgs);
 			}
 			if (newInformationRecipient != null) {
-				msgs = ((InternalEObject) newInformationRecipient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT, null, msgs);
+				msgs = ((InternalEObject) newInformationRecipient).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT, null, msgs);
 			}
 			msgs = basicSetInformationRecipient(newInformationRecipient, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT, newInformationRecipient,
-				newInformationRecipient));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__INFORMATION_RECIPIENT,
+					newInformationRecipient, newInformationRecipient));
 		}
 	}
 
@@ -402,7 +404,8 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReceivedOrganization(Organization newReceivedOrganization, NotificationChain msgs) {
+	public NotificationChain basicSetReceivedOrganization(Organization newReceivedOrganization,
+			NotificationChain msgs) {
 		Organization oldReceivedOrganization = receivedOrganization;
 		receivedOrganization = newReceivedOrganization;
 		if (eNotificationRequired()) {
@@ -427,21 +430,22 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		if (newReceivedOrganization != receivedOrganization) {
 			NotificationChain msgs = null;
 			if (receivedOrganization != null) {
-				msgs = ((InternalEObject) receivedOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) receivedOrganization).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION, null, msgs);
 			}
 			if (newReceivedOrganization != null) {
-				msgs = ((InternalEObject) newReceivedOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) newReceivedOrganization).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION, null, msgs);
 			}
 			msgs = basicSetReceivedOrganization(newReceivedOrganization, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION, newReceivedOrganization,
-				newReceivedOrganization));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__RECEIVED_ORGANIZATION,
+					newReceivedOrganization, newReceivedOrganization));
 		}
 	}
 
@@ -468,9 +472,10 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -485,9 +490,10 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.INTENDED_RECIPIENT__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.INTENDED_RECIPIENT__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -523,9 +529,10 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INTENDED_RECIPIENT__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -540,9 +547,10 @@ public class IntendedRecipientImpl extends RoleImpl implements IntendedRecipient
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.INTENDED_RECIPIENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.INTENDED_RECIPIENT__CLASS_CODE, oldClassCode,
+					CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

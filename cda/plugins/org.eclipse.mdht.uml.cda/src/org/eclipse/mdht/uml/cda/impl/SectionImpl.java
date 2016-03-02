@@ -59,6 +59,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SectionImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SectionImpl#getTypeId <em>Type Id</em>}</li>
@@ -79,7 +80,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SectionImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SectionImpl#getMoodCode <em>Mood Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -411,12 +411,12 @@ public class SectionImpl extends ActImpl implements Section {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
@@ -586,12 +586,12 @@ public class SectionImpl extends ActImpl implements Section {
 		if (newTitle != title) {
 			NotificationChain msgs = null;
 			if (title != null) {
-				msgs = ((InternalEObject) title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__TITLE, null, msgs);
+				msgs = ((InternalEObject) title).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__TITLE, null, msgs);
 			}
 			if (newTitle != null) {
-				msgs = ((InternalEObject) newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__TITLE, null, msgs);
+				msgs = ((InternalEObject) newTitle).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__TITLE, null, msgs);
 			}
 			msgs = basicSetTitle(newTitle, msgs);
 			if (msgs != null) {
@@ -695,21 +695,22 @@ public class SectionImpl extends ActImpl implements Section {
 		if (newConfidentialityCode != confidentialityCode) {
 			NotificationChain msgs = null;
 			if (confidentialityCode != null) {
-				msgs = ((InternalEObject) confidentialityCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__CONFIDENTIALITY_CODE, null, msgs);
+				msgs = ((InternalEObject) confidentialityCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__CONFIDENTIALITY_CODE, null, msgs);
 			}
 			if (newConfidentialityCode != null) {
-				msgs = ((InternalEObject) newConfidentialityCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__CONFIDENTIALITY_CODE, null, msgs);
+				msgs = ((InternalEObject) newConfidentialityCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__CONFIDENTIALITY_CODE, null, msgs);
 			}
 			msgs = basicSetConfidentialityCode(newConfidentialityCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__CONFIDENTIALITY_CODE, newConfidentialityCode,
-				newConfidentialityCode));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__CONFIDENTIALITY_CODE, newConfidentialityCode,
+					newConfidentialityCode));
 		}
 	}
 
@@ -751,20 +752,21 @@ public class SectionImpl extends ActImpl implements Section {
 		if (newLanguageCode != languageCode) {
 			NotificationChain msgs = null;
 			if (languageCode != null) {
-				msgs = ((InternalEObject) languageCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__LANGUAGE_CODE, null, msgs);
+				msgs = ((InternalEObject) languageCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__LANGUAGE_CODE, null, msgs);
 			}
 			if (newLanguageCode != null) {
-				msgs = ((InternalEObject) newLanguageCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__LANGUAGE_CODE, null, msgs);
+				msgs = ((InternalEObject) newLanguageCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__LANGUAGE_CODE, null, msgs);
 			}
 			msgs = basicSetLanguageCode(newLanguageCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__LANGUAGE_CODE, newLanguageCode, newLanguageCode));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__LANGUAGE_CODE, newLanguageCode, newLanguageCode));
 		}
 	}
 
@@ -806,12 +808,12 @@ public class SectionImpl extends ActImpl implements Section {
 		if (newSubject != subject) {
 			NotificationChain msgs = null;
 			if (subject != null) {
-				msgs = ((InternalEObject) subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__SUBJECT, null, msgs);
+				msgs = ((InternalEObject) subject).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__SUBJECT, null, msgs);
 			}
 			if (newSubject != null) {
-				msgs = ((InternalEObject) newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SECTION__SUBJECT, null, msgs);
+				msgs = ((InternalEObject) newSubject).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SECTION__SUBJECT, null, msgs);
 			}
 			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) {
@@ -891,8 +893,10 @@ public class SectionImpl extends ActImpl implements Section {
 		boolean oldSectionIdESet = sectionIdESet;
 		sectionIdESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__SECTION_ID, oldSectionId, sectionId, !oldSectionIdESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__SECTION_ID, oldSectionId, sectionId,
+					!oldSectionIdESet));
 		}
 	}
 
@@ -907,9 +911,10 @@ public class SectionImpl extends ActImpl implements Section {
 		sectionId = SECTION_ID_EDEFAULT;
 		sectionIdESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SECTION__SECTION_ID, oldSectionId, SECTION_ID_EDEFAULT,
-				oldSectionIdESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SECTION__SECTION_ID, oldSectionId, SECTION_ID_EDEFAULT,
+					oldSectionIdESet));
 		}
 	}
 
@@ -945,8 +950,10 @@ public class SectionImpl extends ActImpl implements Section {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -961,9 +968,10 @@ public class SectionImpl extends ActImpl implements Section {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SECTION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SECTION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
+					oldNullFlavorESet));
 		}
 	}
 
@@ -999,8 +1007,10 @@ public class SectionImpl extends ActImpl implements Section {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -1015,9 +1025,10 @@ public class SectionImpl extends ActImpl implements Section {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SECTION__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SECTION__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
+					oldClassCodeESet));
 		}
 	}
 
@@ -1053,8 +1064,9 @@ public class SectionImpl extends ActImpl implements Section {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SECTION__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SECTION__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -1069,9 +1081,10 @@ public class SectionImpl extends ActImpl implements Section {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SECTION__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-				oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SECTION__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
+					oldMoodCodeESet));
 		}
 	}
 

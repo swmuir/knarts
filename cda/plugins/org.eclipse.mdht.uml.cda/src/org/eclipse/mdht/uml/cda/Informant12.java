@@ -28,6 +28,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Informant12#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Informant12#getTypeId <em>Type Id</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.Informant12#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Informant12#getContextControlCode <em>Context Control Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getInformant12()
  * @model

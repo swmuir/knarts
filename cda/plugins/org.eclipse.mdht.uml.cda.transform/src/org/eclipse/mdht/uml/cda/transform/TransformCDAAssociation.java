@@ -91,8 +91,8 @@ public class TransformCDAAssociation extends TransformAssociation {
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) && CDAModelUtil.isClinicalStatement(targetClass)) {
 			associationEndOut[0] = "entryRelationship";
 			variableDeclarationOut[0] = "entryRelationship : cda::EntryRelationship";
-		} else
-			if (CDAModelUtil.isClinicalStatement(sourceClass) && "ParticipantRole".equals(baseTargetClass.getName())) {
+		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&
+				"ParticipantRole".equals(baseTargetClass.getName())) {
 			associationEndOut[0] = "participant";
 			variableDeclarationOut[0] = "participant : cda::Participant2";
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&

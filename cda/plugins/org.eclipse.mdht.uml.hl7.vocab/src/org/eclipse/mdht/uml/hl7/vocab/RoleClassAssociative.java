@@ -84,14 +84,15 @@ public enum RoleClassAssociative implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CASESBJ(5, "CASESBJ", "CASESBJ"), /**
-										* The '<em><b>CIT</b></em>' literal object.
-										* <!-- begin-user-doc -->
-										* <!-- end-user-doc -->
-										* @see #CIT_VALUE
-										* @generated
-										* @ordered
-										*/
+	CASESBJ(5, "CASESBJ", "CASESBJ"),
+	/**
+	 * The '<em><b>CIT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #CIT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	CIT(6, "CIT", "CIT"),
 
 	/**
@@ -1257,9 +1258,9 @@ public enum RoleClassAssociative implements Enumerator {
 	 */
 	private static final RoleClassAssociative[] VALUES_ARRAY = new RoleClassAssociative[] {
 			ACCESS, AGNT, ASSIGNED, BIRTHPL, CAREGIVER, CASESBJ, CIT, COMPAR, CON, COVPTY, CRINV, CRSPNSR, DSDLOC, DST,
-			ECON, EMP, EXPR, GUAR, GUARD, HLD, HLTHCHRT, IDENT, INVSBJ, ISDLOC, LIC, MANU, MIL, MNT, NOK, NOT, OWN,
-			PAT, PAYEE, PAYOR, POLHOLD, PROV, PRS, QUAL, RESBJ, RET, RGPR, SDLOC, SGNOFF, SPNSR, STD, TERR, THER,
-			UNDWRT, WRTE, };
+			ECON, EMP, EXPR, GUAR, GUARD, HLD, HLTHCHRT, IDENT, INVSBJ, ISDLOC, LIC, MANU, MIL, MNT, NOK, NOT, OWN, PAT,
+			PAYEE, PAYOR, POLHOLD, PROV, PRS, QUAL, RESBJ, RET, RGPR, SDLOC, SGNOFF, SPNSR, STD, TERR, THER, UNDWRT,
+			WRTE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Role Class Associative</b></em>' enumerators.
@@ -1273,6 +1274,8 @@ public enum RoleClassAssociative implements Enumerator {
 	 * Returns the '<em><b>Role Class Associative</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassAssociative get(String literal) {
@@ -1289,6 +1292,8 @@ public enum RoleClassAssociative implements Enumerator {
 	 * Returns the '<em><b>Role Class Associative</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassAssociative getByName(String name) {
@@ -1305,6 +1310,8 @@ public enum RoleClassAssociative implements Enumerator {
 	 * Returns the '<em><b>Role Class Associative</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassAssociative get(int value) {

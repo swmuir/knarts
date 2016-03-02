@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Entry#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Entry#getTypeId <em>Type Id</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
  *   <li>{@link org.eclipse.mdht.uml.cda.Entry#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Entry#getContextConductionInd <em>Context Conduction Ind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntry()
  * @model

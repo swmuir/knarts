@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CD#getOriginalText <em>Original Text</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CD#getQualifiers <em>Qualifier</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CD#getSDTCValueSet <em>SDTC Value Set</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.CD#getSDTCValueSetVersion <em>SDTC Value Set Version</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getCD()
  * @model

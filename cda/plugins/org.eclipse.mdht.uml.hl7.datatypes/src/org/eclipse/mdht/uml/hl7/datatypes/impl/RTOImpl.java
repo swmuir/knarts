@@ -18,8 +18,6 @@ import org.eclipse.mdht.uml.hl7.datatypes.RTO;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>RTO</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

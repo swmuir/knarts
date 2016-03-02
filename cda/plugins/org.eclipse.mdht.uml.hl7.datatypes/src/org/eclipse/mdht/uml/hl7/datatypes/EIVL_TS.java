@@ -17,11 +17,11 @@ package org.eclipse.mdht.uml.hl7.datatypes;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS#getEvent <em>Event</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS#getOffset <em>Offset</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getEIVL_TS()
  * @model

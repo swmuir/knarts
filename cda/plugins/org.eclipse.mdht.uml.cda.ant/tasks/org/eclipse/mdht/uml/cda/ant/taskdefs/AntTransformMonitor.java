@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Christian W. Damus - initial API and implementation
- *     
+ *
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ant.taskdefs;
 
@@ -26,7 +26,7 @@ class AntTransformMonitor implements ITransformMonitor {
 
 	/**
 	 * Initializes me with my project component context.
-	 * 
+	 *
 	 * @param component
 	 *            my Ant project component
 	 */
@@ -40,10 +40,10 @@ class AntTransformMonitor implements ITransformMonitor {
 
 	/**
 	 * Creates the most appropriate monitor for the given project {@code component}.
-	 * 
+	 *
 	 * @param component
 	 *            the contextual Ant project component, or {@code null} if we are not running in the context of a component
-	 * 
+	 *
 	 * @return a suitable transform monitor (never {@code null})
 	 */
 	public static ITransformMonitor createMonitor(ProjectComponent component) {

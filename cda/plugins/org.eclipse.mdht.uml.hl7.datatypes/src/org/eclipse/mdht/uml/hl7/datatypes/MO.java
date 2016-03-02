@@ -22,11 +22,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.MO#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.MO#getCurrency <em>Currency</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getMO()
  * @model

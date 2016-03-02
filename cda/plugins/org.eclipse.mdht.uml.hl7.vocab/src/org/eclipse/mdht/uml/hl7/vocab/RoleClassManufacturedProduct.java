@@ -82,7 +82,8 @@ public enum RoleClassManufacturedProduct implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final RoleClassManufacturedProduct[] VALUES_ARRAY = new RoleClassManufacturedProduct[] { MANU, THER, };
+	private static final RoleClassManufacturedProduct[] VALUES_ARRAY = new RoleClassManufacturedProduct[] {
+			MANU, THER, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Role Class Manufactured Product</b></em>' enumerators.
@@ -90,12 +91,15 @@ public enum RoleClassManufacturedProduct implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RoleClassManufacturedProduct> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<RoleClassManufacturedProduct> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Role Class Manufactured Product</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassManufacturedProduct get(String literal) {
@@ -112,6 +116,8 @@ public enum RoleClassManufacturedProduct implements Enumerator {
 	 * Returns the '<em><b>Role Class Manufactured Product</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassManufacturedProduct getByName(String name) {
@@ -128,6 +134,8 @@ public enum RoleClassManufacturedProduct implements Enumerator {
 	 * Returns the '<em><b>Role Class Manufactured Product</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassManufacturedProduct get(int value) {

@@ -19,10 +19,10 @@ import org.eclipse.mdht.uml.hl7.vocab.SetOperator;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.SXCM_PQ#getOperator <em>Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getSXCM_PQ()
  * @model

@@ -40,6 +40,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.MaintainedEntityImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.MaintainedEntityImpl#getTypeId <em>Type Id</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClass;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.MaintainedEntityImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.MaintainedEntityImpl#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -233,20 +233,21 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -302,21 +303,22 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		if (newEffectiveTime != effectiveTime) {
 			NotificationChain msgs = null;
 			if (effectiveTime != null) {
-				msgs = ((InternalEObject) effectiveTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, null, msgs);
+				msgs = ((InternalEObject) effectiveTime).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, null, msgs);
 			}
 			if (newEffectiveTime != null) {
-				msgs = ((InternalEObject) newEffectiveTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, null, msgs);
+				msgs = ((InternalEObject) newEffectiveTime).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, null, msgs);
 			}
 			msgs = basicSetEffectiveTime(newEffectiveTime, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, newEffectiveTime,
-				newEffectiveTime));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__EFFECTIVE_TIME, newEffectiveTime,
+					newEffectiveTime));
 		}
 	}
 
@@ -359,21 +361,22 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		if (newMaintainingPerson != maintainingPerson) {
 			NotificationChain msgs = null;
 			if (maintainingPerson != null) {
-				msgs = ((InternalEObject) maintainingPerson).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, null, msgs);
+				msgs = ((InternalEObject) maintainingPerson).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, null, msgs);
 			}
 			if (newMaintainingPerson != null) {
-				msgs = ((InternalEObject) newMaintainingPerson).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, null, msgs);
+				msgs = ((InternalEObject) newMaintainingPerson).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, null, msgs);
 			}
 			msgs = basicSetMaintainingPerson(newMaintainingPerson, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, newMaintainingPerson,
-				newMaintainingPerson));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__MAINTAINING_PERSON, newMaintainingPerson,
+					newMaintainingPerson));
 		}
 	}
 
@@ -400,9 +403,10 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -417,9 +421,10 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.MAINTAINED_ENTITY__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.MAINTAINED_ENTITY__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -455,9 +460,10 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.MAINTAINED_ENTITY__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -472,9 +478,10 @@ public class MaintainedEntityImpl extends RoleImpl implements MaintainedEntity {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.MAINTAINED_ENTITY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.MAINTAINED_ENTITY__CLASS_CODE, oldClassCode,
+					CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

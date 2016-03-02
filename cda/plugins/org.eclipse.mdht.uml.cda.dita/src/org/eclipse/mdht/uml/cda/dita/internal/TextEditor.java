@@ -149,21 +149,24 @@ public class TextEditor implements ConstraintEditor {
 
 	private IPath generateTempDita() {
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IPath tmpFileInWorkspaceDir = workspace.getRoot().getLocation().append("tmp").append(
-			constraint.getContext().getName()).addFileExtension("dita");
+
+		// A constraint may not have a name yet, so use a made-up name in that case
+		String tmpName = constraint.getContext().getName() == null
+				? "tmp"
+				: constraint.getContext().getName();
+		IPath tmpFileInWorkspaceDir = workspace.getRoot().getLocation().append("tmp").append(tmpName).addFileExtension(
+			"dita");
 
 		DitaTransformerOptions transformerOptions = new DitaTransformerOptions();
 		transformerOptions.setExampleDepth(0);
 
 		TransformClassContent transformer = new TransformClassContent(transformerOptions);
 
-		if (!tmpFileInWorkspaceDir.toFile().getParentFile().exists())
+		if (!tmpFileInWorkspaceDir.toFile().getParentFile().exists()) {
 			tmpFileInWorkspaceDir.toFile().getParentFile().mkdirs();
-
-		if (constraint.getContext() instanceof Class) {
-			transformer.writeClassToFile((Class) constraint.getContext(), tmpFileInWorkspaceDir);
 		}
 
+		transformer.writeClassToFile((Class) constraint.getContext(), tmpFileInWorkspaceDir);
 		return tmpFileInWorkspaceDir;
 	}
 

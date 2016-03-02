@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#getAny <em>Any</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#getID <em>ID</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getStrucDocText()
  * @model extendedMetaData="kind='mixed'"

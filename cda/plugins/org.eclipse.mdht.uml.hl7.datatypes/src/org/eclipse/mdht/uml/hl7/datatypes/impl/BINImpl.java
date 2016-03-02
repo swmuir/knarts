@@ -23,10 +23,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.BINImpl#getRepresentation <em>Representation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -101,9 +101,10 @@ public abstract class BINImpl extends ANYImpl implements BIN {
 		boolean oldRepresentationESet = representationESet;
 		representationESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.BIN__REPRESENTATION, oldRepresentation, representation,
-				!oldRepresentationESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.BIN__REPRESENTATION, oldRepresentation, representation,
+					!oldRepresentationESet));
 		}
 	}
 
@@ -118,9 +119,10 @@ public abstract class BINImpl extends ANYImpl implements BIN {
 		representation = REPRESENTATION_EDEFAULT;
 		representationESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, DatatypesPackage.BIN__REPRESENTATION, oldRepresentation,
-				REPRESENTATION_EDEFAULT, oldRepresentationESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, DatatypesPackage.BIN__REPRESENTATION, oldRepresentation,
+					REPRESENTATION_EDEFAULT, oldRepresentationESet));
 		}
 	}
 

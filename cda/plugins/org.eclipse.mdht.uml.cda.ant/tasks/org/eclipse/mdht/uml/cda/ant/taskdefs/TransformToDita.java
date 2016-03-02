@@ -49,6 +49,8 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	private Boolean includeUsageNotes = null;
 
+	private String xmlGeneratorType = null;
+
 	private Boolean cardinalityAfterElement = null;
 
 	private Boolean appendConformanceRules = null;
@@ -56,6 +58,23 @@ public class TransformToDita extends CDAModelingSubTask {
 	private Boolean noVerticalLinesInTables = null;
 
 	private Boolean includeVocabularyConstraints = null;
+
+	private Boolean reset = null;
+
+	/**
+	 * @return the reset
+	 */
+	public Boolean getReset() {
+		return reset;
+	}
+
+	/**
+	 * @param reset
+	 *            the reset to set
+	 */
+	public void setReset(Boolean reset) {
+		this.reset = reset;
+	}
 
 	private int exampleDepth;
 
@@ -124,8 +143,9 @@ public class TransformToDita extends CDAModelingSubTask {
 							c.getDeclaredField("eINSTANCE");
 						}
 					} catch (Throwable t) {
-						logWarning("Unable to load Run time,  Samples will not be generated! " + t.getMessage() +
-								generatedPackage);
+						logWarning(
+							"Unable to load Run time,  Samples will not be generated! " + t.getMessage() +
+									generatedPackage);
 					}
 
 				}
@@ -152,6 +172,10 @@ public class TransformToDita extends CDAModelingSubTask {
 			includeVocabularyConstraints = Boolean.valueOf(project.getProperty("includeVocabularyConstraints"));
 		}
 
+		if (reset == null && project.getProperty("reset") != null) {
+			reset = Boolean.valueOf(project.getProperty("reset"));
+		}
+
 		if (noVerticalLinesInTables == null && project.getProperty("noVerticalLinesInTables") != null) {
 			noVerticalLinesInTables = Boolean.valueOf(project.getProperty("noVerticalLinesInTables"));
 		}
@@ -161,6 +185,9 @@ public class TransformToDita extends CDAModelingSubTask {
 		}
 		if (includeUsageNotes == null && project.getProperty("includeUsageNotes") != null) {
 			includeUsageNotes = Boolean.valueOf(project.getProperty("includeUsageNotes"));
+		}
+		if (xmlGeneratorType == null && project.getProperty("xmlGeneratorType") != null) {
+			xmlGeneratorType = project.getProperty("xmlGeneratorType");
 		}
 		if (cardinalityAfterElement == null && project.getProperty("cardinalityAfterElement") != null) {
 			cardinalityAfterElement = Boolean.valueOf(project.getProperty("cardinalityAfterElement"));
@@ -197,6 +224,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	public void setCardinalityAfterElement(boolean cardinalityAfter) {
 		cardinalityAfterElement = new Boolean(cardinalityAfter);
+	}
+
+	public void setXmlGeneratorType(String xmlGeneratorType) {
+		this.xmlGeneratorType = xmlGeneratorType;
 	}
 
 	public void setAppendConformanceRules(boolean appendConformanceRules) {
@@ -254,6 +285,10 @@ public class TransformToDita extends CDAModelingSubTask {
 			options.setCardinalityAfterElement(cardinalityAfterElement);
 		}
 
+		if (xmlGeneratorType != null) {
+			options.setXmlGeneratorType(xmlGeneratorType);
+		}
+
 		if (appendConformanceRules != null) {
 			options.setAppendConformanceRules(appendConformanceRules);
 		}
@@ -264,6 +299,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 		if (includeVocabularyConstraints != null) {
 			options.setIncludeVocabularyConstraints(includeVocabularyConstraints);
+		}
+
+		if (reset != null) {
+			options.setReset(reset);
 		}
 
 		options.setExampleDepth(exampleDepth);

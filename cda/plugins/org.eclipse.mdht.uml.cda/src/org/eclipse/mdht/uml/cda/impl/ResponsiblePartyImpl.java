@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ResponsiblePartyImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ResponsiblePartyImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ResponsiblePartyImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ResponsiblePartyImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,20 +221,21 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -290,21 +291,22 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		if (newAssignedEntity != assignedEntity) {
 			NotificationChain msgs = null;
 			if (assignedEntity != null) {
-				msgs = ((InternalEObject) assignedEntity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, null, msgs);
+				msgs = ((InternalEObject) assignedEntity).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, null, msgs);
 			}
 			if (newAssignedEntity != null) {
-				msgs = ((InternalEObject) newAssignedEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, null, msgs);
+				msgs = ((InternalEObject) newAssignedEntity).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, null, msgs);
 			}
 			msgs = basicSetAssignedEntity(newAssignedEntity, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, newAssignedEntity,
-				newAssignedEntity));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__ASSIGNED_ENTITY, newAssignedEntity,
+					newAssignedEntity));
 		}
 	}
 
@@ -331,9 +333,10 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -348,9 +351,10 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.RESPONSIBLE_PARTY__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.RESPONSIBLE_PARTY__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -386,9 +390,10 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__TYPE_CODE, oldTypeCode, typeCode,
-				!oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.RESPONSIBLE_PARTY__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -403,9 +408,10 @@ public class ResponsiblePartyImpl extends ParticipationImpl implements Responsib
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.RESPONSIBLE_PARTY__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.RESPONSIBLE_PARTY__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

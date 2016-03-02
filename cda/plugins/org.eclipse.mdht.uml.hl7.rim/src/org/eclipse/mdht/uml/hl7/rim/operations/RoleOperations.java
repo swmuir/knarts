@@ -29,6 +29,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Role#getClassCode() <em>Get Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Role#getPlayer() <em>Get Player</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Role#getInboundLinks() <em>Get Inbound Links</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Role#isClassCodeDefined() <em>Is Class Code Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

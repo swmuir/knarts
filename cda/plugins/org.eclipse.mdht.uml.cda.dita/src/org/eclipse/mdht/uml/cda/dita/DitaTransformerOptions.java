@@ -62,6 +62,23 @@ public class DitaTransformerOptions {
 
 	private boolean includeVocabularyConstraints = false;
 
+	private boolean reset = false;
+
+	/**
+	 * @return the reset
+	 */
+	public boolean isReset() {
+		return reset;
+	}
+
+	/**
+	 * @param reset
+	 *            the reset to set
+	 */
+	public void setReset(boolean reset) {
+		this.reset = reset;
+	}
+
 	private int exampleDepth;
 
 	/**
@@ -99,6 +116,8 @@ public class DitaTransformerOptions {
 	private HashMap<String, String> referenceList = new HashMap<String, String>();
 
 	private List<Classifier> pubClassifiers = new Vector<Classifier>();
+
+	private String xmlGeneratorType = null;
 
 	public DitaTransformerOptions() {
 		initializePreferences();
@@ -141,9 +160,15 @@ public class DitaTransformerOptions {
 	 * The value of the noVerticalLinesInTables attribute in the dita-transform ant task xml
 	 * If set, use <br>
 	 *
-	 * {@code <table frame="topbot" rowsep="1">} <br>
+	 * {@code
+	 *
+	<table frame="topbot" rowsep="1">
+	 * } <br>
 	 * instead of <br>
-	 * {@code <table frame="all" rowsep="1" colsep="1"> }
+	 * {@code
+	 *
+	<table frame="all" rowsep="1" colsep="1">
+	 *  }
 	 *
 	 * @return appendConformanceRules
 	 */
@@ -165,6 +190,14 @@ public class DitaTransformerOptions {
 
 	public void setCardinalityAfterElement(boolean cardinalityAfterElement) {
 		this.cardinalityAfterElement = cardinalityAfterElement;
+	}
+
+	public void setXmlGeneratorType(String xmlGeneratorType) {
+		this.xmlGeneratorType = xmlGeneratorType;
+	}
+
+	public String getXmlGeneratorType() {
+		return this.xmlGeneratorType;
 	}
 
 	/**

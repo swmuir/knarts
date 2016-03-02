@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassSpecimen;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SpecimenRoleImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SpecimenRoleImpl#getTypeId <em>Type Id</em>}</li>
@@ -48,7 +49,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassSpecimen;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SpecimenRoleImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SpecimenRoleImpl#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -232,20 +232,20 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SPECIMEN_ROLE__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SPECIMEN_ROLE__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SPECIMEN_ROLE__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SPECIMEN_ROLE__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SPECIMEN_ROLE__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.SPECIMEN_ROLE__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -314,21 +314,22 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		if (newSpecimenPlayingEntity != specimenPlayingEntity) {
 			NotificationChain msgs = null;
 			if (specimenPlayingEntity != null) {
-				msgs = ((InternalEObject) specimenPlayingEntity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, null, msgs);
+				msgs = ((InternalEObject) specimenPlayingEntity).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, null, msgs);
 			}
 			if (newSpecimenPlayingEntity != null) {
-				msgs = ((InternalEObject) newSpecimenPlayingEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, null, msgs);
+				msgs = ((InternalEObject) newSpecimenPlayingEntity).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, null, msgs);
 			}
 			msgs = basicSetSpecimenPlayingEntity(newSpecimenPlayingEntity, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, newSpecimenPlayingEntity,
-				newSpecimenPlayingEntity));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, newSpecimenPlayingEntity,
+					newSpecimenPlayingEntity));
 		}
 	}
 
@@ -355,9 +356,10 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -372,9 +374,10 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -410,9 +413,10 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -427,9 +431,10 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
+					oldClassCodeESet));
 		}
 	}
 

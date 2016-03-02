@@ -26,6 +26,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipientRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.IntendedRecipient#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.IntendedRecipient#getTypeId <em>Type Id</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipientRole;
  *   <li>{@link org.eclipse.mdht.uml.cda.IntendedRecipient#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.IntendedRecipient#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient()
  * @model

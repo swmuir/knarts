@@ -172,7 +172,11 @@
     <eLiterals name="ARQ" value="1"/>
     <eLiterals name="DEF" value="2"/>
     <eLiterals name="EVN" value="3"/>
-    <eLiterals name="EVNCRT" value="4" literal="EVN.CRT"/>
+    <eLiterals name="EVNCRT" value="4" literal="EVN.CRT">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="EVN.CRT"/>
+      </eAnnotations>
+    </eLiterals>
     <eLiterals name="GOL" value="5"/>
     <eLiterals name="INT" value="6"/>
     <eLiterals name="OPT" value="7"/>
@@ -406,11 +410,19 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EntityDeterminer">
     <eLiterals name="INSTANCE"/>
     <eLiterals name="KIND" value="1"/>
-    <eLiterals name="QUANTIFIEDKIND" value="2" literal="QUANITFIED_KIND"/>
+    <eLiterals name="QUANTIFIEDKIND" value="2" literal="QUANITFIED_KIND">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="QUANITFIED_KIND"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EntityDeterminerDetermined">
     <eLiterals name="KIND"/>
-    <eLiterals name="QUANTIFIEDKIND" value="1" literal="QUANITFIED_KIND"/>
+    <eLiterals name="QUANTIFIEDKIND" value="1" literal="QUANITFIED_KIND">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="QUANTIFIED_KIND"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EntityNamePartQualifier">
     <eLiterals name="AC"/>
@@ -448,8 +460,16 @@
     <eLiterals name="SYL" value="12"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IntegrityCheckAlgorithm">
-    <eLiterals name="SHA1" literal="SHA-1"/>
-    <eLiterals name="SHA256" value="1" literal="SHA-256"/>
+    <eLiterals name="SHA1" literal="SHA-1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="SHA-1"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="SHA256" value="1" literal="SHA-256">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="SHA-256"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NullFlavor">
     <eLiterals name="ASKU"/>

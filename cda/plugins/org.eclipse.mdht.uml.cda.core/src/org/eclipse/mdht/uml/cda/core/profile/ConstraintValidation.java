@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.core.profile;
@@ -21,11 +21,11 @@ import org.eclipse.uml2.uml.Constraint;
  *
  * <p>
  * The following features are supported:
- * <ul>
- *   <li>{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint <em>Base Constraint</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints <em>Enabled Dita For Constraints</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint <em>Base Constraint</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints <em>Enabled Dita For Constraints</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getConstraintValidation()
  * @model
@@ -39,6 +39,7 @@ public interface ConstraintValidation extends Validation {
 	 * If the meaning of the '<em>Base Constraint</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 *
 	 * @return the value of the '<em>Base Constraint</em>' reference.
 	 * @see #setBase_Constraint(Constraint)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getConstraintValidation_Base_Constraint()
@@ -48,10 +49,13 @@ public interface ConstraintValidation extends Validation {
 	Constraint getBase_Constraint();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint <em>Base Constraint</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint <em>Base Constraint</em>}'
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Constraint</em>' reference.
+	 *
+	 * @param value
+	 *            the new value of the '<em>Base Constraint</em>' reference.
 	 * @see #getBase_Constraint()
 	 * @generated
 	 */
@@ -66,6 +70,7 @@ public interface ConstraintValidation extends Validation {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 *
 	 * @return the value of the '<em>Enabled Dita For Constraints</em>' attribute.
 	 * @see #setEnabledDitaForConstraints(boolean)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getConstraintValidation_EnabledDitaForConstraints()
@@ -75,10 +80,13 @@ public interface ConstraintValidation extends Validation {
 	boolean isEnabledDitaForConstraints();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints <em>Enabled Dita For Constraints</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints
+	 * <em>Enabled Dita For Constraints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enabled Dita For Constraints</em>' attribute.
+	 *
+	 * @param value
+	 *            the new value of the '<em>Enabled Dita For Constraints</em>' attribute.
 	 * @see #isEnabledDitaForConstraints()
 	 * @generated
 	 */

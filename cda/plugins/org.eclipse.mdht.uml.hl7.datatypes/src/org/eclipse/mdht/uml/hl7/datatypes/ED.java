@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.hl7.vocab.IntegrityCheckAlgorithm;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#getReference <em>Reference</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.mdht.uml.hl7.vocab.IntegrityCheckAlgorithm;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#getIntegrityCheck <em>Integrity Check</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ED#getIntegrityCheckAlgorithm <em>Integrity Check Algorithm</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getED()
  * @model extendedMetaData="kind='mixed'"

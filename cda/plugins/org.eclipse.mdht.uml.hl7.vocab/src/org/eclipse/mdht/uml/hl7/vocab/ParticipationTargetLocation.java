@@ -191,12 +191,15 @@ public enum ParticipationTargetLocation implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ParticipationTargetLocation> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ParticipationTargetLocation> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Participation Target Location</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetLocation get(String literal) {
@@ -213,6 +216,8 @@ public enum ParticipationTargetLocation implements Enumerator {
 	 * Returns the '<em><b>Participation Target Location</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetLocation getByName(String name) {
@@ -229,6 +234,8 @@ public enum ParticipationTargetLocation implements Enumerator {
 	 * Returns the '<em><b>Participation Target Location</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetLocation get(int value) {

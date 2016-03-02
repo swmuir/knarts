@@ -27,6 +27,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Entity#getClassCode() <em>Get Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Entity#getDeterminerCode() <em>Get Determiner Code</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Entity#isClassCodeDefined() <em>Is Class Code Defined</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Entity#isDeterminerCodeDefined() <em>Is Determiner Code Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

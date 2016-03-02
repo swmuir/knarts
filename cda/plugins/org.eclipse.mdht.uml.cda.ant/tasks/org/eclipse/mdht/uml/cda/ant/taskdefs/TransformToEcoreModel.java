@@ -4,12 +4,12 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
  *     Kenn Hussey - adjusted to handle containment proxies
  *     Kenn Hussey - adjusted to handle (model) properties files
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ant.taskdefs;
@@ -35,7 +35,7 @@ import org.eclipse.uml2.uml.Package;
 
 /**
  * Transform CDA conceptual model to UML with Ecore extensions.
- * 
+ *
  * @version $Id: $
  */
 public class TransformToEcoreModel extends CDAModelingSubTask {

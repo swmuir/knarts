@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNameUse;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EN#getDelimiters <em>Delimiter</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EN#getFamilies <em>Family</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNameUse;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EN#getUses <em>Use</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.EN#getMixed <em>Mixed</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getEN()
  * @model extendedMetaData="kind='mixed'"

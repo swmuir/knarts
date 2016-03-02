@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
-    modelDirectory="/org.eclipse.mdht.uml.hl7.datatypes/src"
-    modelPluginID="org.eclipse.mdht.uml.hl7.datatypes" modelName="Datatypes"
-    modelPluginClass="DatatypesPlugin" importerID="org.eclipse.uml2.uml.ecore.importer"
+    modelDirectory="/org.eclipse.mdht.uml.hl7.datatypes/src" modelPluginID="org.eclipse.mdht.uml.hl7.datatypes"
+    modelName="Datatypes" modelPluginClass="DatatypesPlugin" importerID="org.eclipse.uml2.uml.ecore.importer"
     complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.genmodel#//vocab"
     pluralizedGetters="true" invariantPrefix="validate">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
@@ -25,6 +24,10 @@
     <details key="DERIVED_FEATURES" value="IGNORE"/>
     <details key="VALIDATION_DELEGATES" value="IGNORE"/>
     <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
   </genAnnotations>
   <foreignModel>datatypes.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Datatypes" basePackage="org.eclipse.mdht.uml.hl7"

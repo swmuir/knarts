@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipDocument;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedDocument#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedDocument#getTypeId <em>Type Id</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipDocument;
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedDocument#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedDocument#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedDocument()
  * @model

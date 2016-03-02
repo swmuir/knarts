@@ -26,11 +26,11 @@ import org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.EIVL_TSImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.EIVL_TSImpl#getOffset <em>Offset</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -112,12 +112,12 @@ public class EIVL_TSImpl extends SXCM_TSImpl implements EIVL_TS {
 		if (newEvent != event) {
 			NotificationChain msgs = null;
 			if (event != null) {
-				msgs = ((InternalEObject) event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.EIVL_TS__EVENT, null, msgs);
+				msgs = ((InternalEObject) event).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.EIVL_TS__EVENT, null, msgs);
 			}
 			if (newEvent != null) {
-				msgs = ((InternalEObject) newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.EIVL_TS__EVENT, null, msgs);
+				msgs = ((InternalEObject) newEvent).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.EIVL_TS__EVENT, null, msgs);
 			}
 			msgs = basicSetEvent(newEvent, msgs);
 			if (msgs != null) {
@@ -166,20 +166,20 @@ public class EIVL_TSImpl extends SXCM_TSImpl implements EIVL_TS {
 		if (newOffset != offset) {
 			NotificationChain msgs = null;
 			if (offset != null) {
-				msgs = ((InternalEObject) offset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.EIVL_TS__OFFSET, null, msgs);
+				msgs = ((InternalEObject) offset).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.EIVL_TS__OFFSET, null, msgs);
 			}
 			if (newOffset != null) {
-				msgs = ((InternalEObject) newOffset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.EIVL_TS__OFFSET, null, msgs);
+				msgs = ((InternalEObject) newOffset).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.EIVL_TS__OFFSET, null, msgs);
 			}
 			msgs = basicSetOffset(newOffset, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.EIVL_TS__OFFSET, newOffset, newOffset));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, DatatypesPackage.EIVL_TS__OFFSET, newOffset, newOffset));
 		}
 	}
 

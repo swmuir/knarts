@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationTargetLocation;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.LocationImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.LocationImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationTargetLocation;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.LocationImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.LocationImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,12 +221,12 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.LOCATION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.LOCATION__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.LOCATION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.LOCATION__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
@@ -264,7 +264,8 @@ public class LocationImpl extends ParticipationImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHealthCareFacility(HealthCareFacility newHealthCareFacility, NotificationChain msgs) {
+	public NotificationChain basicSetHealthCareFacility(HealthCareFacility newHealthCareFacility,
+			NotificationChain msgs) {
 		HealthCareFacility oldHealthCareFacility = healthCareFacility;
 		healthCareFacility = newHealthCareFacility;
 		if (eNotificationRequired()) {
@@ -289,21 +290,22 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		if (newHealthCareFacility != healthCareFacility) {
 			NotificationChain msgs = null;
 			if (healthCareFacility != null) {
-				msgs = ((InternalEObject) healthCareFacility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.LOCATION__HEALTH_CARE_FACILITY, null, msgs);
+				msgs = ((InternalEObject) healthCareFacility).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.LOCATION__HEALTH_CARE_FACILITY, null, msgs);
 			}
 			if (newHealthCareFacility != null) {
-				msgs = ((InternalEObject) newHealthCareFacility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.LOCATION__HEALTH_CARE_FACILITY, null, msgs);
+				msgs = ((InternalEObject) newHealthCareFacility).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.LOCATION__HEALTH_CARE_FACILITY, null, msgs);
 			}
 			msgs = basicSetHealthCareFacility(newHealthCareFacility, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.LOCATION__HEALTH_CARE_FACILITY, newHealthCareFacility,
-				newHealthCareFacility));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.LOCATION__HEALTH_CARE_FACILITY, newHealthCareFacility,
+					newHealthCareFacility));
 		}
 	}
 
@@ -330,8 +332,10 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.LOCATION__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.LOCATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -346,9 +350,10 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.LOCATION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.LOCATION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
+					oldNullFlavorESet));
 		}
 	}
 
@@ -384,8 +389,9 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.LOCATION__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.LOCATION__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -400,9 +406,10 @@ public class LocationImpl extends ParticipationImpl implements Location {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.LOCATION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.LOCATION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

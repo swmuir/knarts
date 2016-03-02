@@ -413,7 +413,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DatatypesPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -429,9 +429,10 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		}
 
 		// Obtain or create and register package
-		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatatypesPackageImpl
-				? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new DatatypesPackageImpl());
+		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (EPackage.Registry.INSTANCE.get(
+			eNS_URI) instanceof DatatypesPackageImpl
+					? EPackage.Registry.INSTANCE.get(eNS_URI)
+					: new DatatypesPackageImpl());
 
 		isInited = true;
 
@@ -2295,8 +2296,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getANY_NullFlavor(), theVocabPackage.getNullFlavor(), "nullFlavor", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ANY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ANY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(anyEClass, theTypesPackage.getBoolean(), "isNullFlavorDefined", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -2317,44 +2318,43 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getBIN_Representation(), this.getBinaryDataEncoding(), "representation", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.BIN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.BIN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			edEClass, org.eclipse.mdht.uml.hl7.datatypes.ED.class, "ED", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getED_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getED_Reference(), this.getTEL(), null, "reference", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ED.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getED_Thumbnail(), this.getED(), null, "thumbnail", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getED_Thumbnail(), this.getED(), null, "thumbnail", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.ED.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getED_MediaType(), this.getcsType(), "mediaType", "text/plain", 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getED_Language(), this.getcsType(), "language", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getED_Language(), this.getcsType(), "language", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.ED.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getED_Compression(), theVocabPackage.getCompressionAlgorithm(), "compression", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getED_IntegrityCheck(), ecorePackage.getEByteArray(), "integrityCheck", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getED_IntegrityCheckAlgorithm(), theVocabPackage.getIntegrityCheckAlgorithm(), "integrityCheckAlgorithm",
-			"SHA-1", 0, 1, org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			"SHA-1", 0, 1, org.eclipse.mdht.uml.hl7.datatypes.ED.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(
 			edEClass, ecorePackage.getEBoolean(), "validateThumbnailThumbnail", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2384,20 +2384,20 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getTEL_UseablePeriod(), this.getSXCM_TS(), null, "useablePeriod", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getTEL_Use(), theVocabPackage.getTelecommunicationAddressUse(), "use", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			urlEClass, org.eclipse.mdht.uml.hl7.datatypes.URL.class, "URL", IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getURL_Value(), theTypesPackage.getString(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.URL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.URL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(urlEClass, ecorePackage.getEBoolean(), "validateURL", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2409,12 +2409,12 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			sxcM_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS.class, "SXCM_TS", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			sxcM_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS.class, "SXCM_TS", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getSXCM_TS_Operator(), theVocabPackage.getSetOperator(), "operator", "I", 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			tsEClass, org.eclipse.mdht.uml.hl7.datatypes.TS.class, "TS", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2507,43 +2507,42 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getCD_OriginalText(), this.getED(), null, "originalText", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getCD_Qualifier(), this.getCR(), null, "qualifier", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getCD_Translation(), this.getCD(), null, "translation", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_Code(), this.getcsType(), "code", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.CD.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_CodeSystem(), this.getuid(), "codeSystem", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getCD_CodeSystem(), this.getuid(), "codeSystem", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.CD.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_CodeSystemName(), this.getstType(), "codeSystemName", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_CodeSystemVersion(), this.getstType(), "codeSystemVersion", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_DisplayName(), this.getstType(), "displayName", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_SDTCValueSet(), this.getstType(), "sDTCValueSet", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCD_SDTCValueSetVersion(), this.getstType(), "sDTCValueSetVersion", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			crEClass, org.eclipse.mdht.uml.hl7.datatypes.CR.class, "CR", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2553,13 +2552,13 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEReference(
-			getCR_Value(), this.getCD(), null, "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getCR_Value(), this.getCD(), null, "value", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.CR.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCR_Inverted(), theTypesPackage.getBoolean(), "inverted", "false", 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.CR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.CR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(crEClass, ecorePackage.getEBoolean(), "validateCR", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2600,20 +2599,19 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			iiEClass, org.eclipse.mdht.uml.hl7.datatypes.II.class, "II", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getII_Root(), this.getuid(), "root", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.II.class,
+			getII_Root(), this.getuid(), "root", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getII_Extension(), this.getstType(), "extension", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.II.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getII_Extension(), this.getstType(), "extension", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
 			getII_AssigningAuthorityName(), this.getstType(), "assigningAuthorityName", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getII_Displayable(), ecorePackage.getEBooleanObject(), "displayable", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.II.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(iiEClass, ecorePackage.getEBoolean(), "validateII", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2629,8 +2627,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getBL_Value(), ecorePackage.getEBooleanObject(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.BL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.BL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(blEClass, ecorePackage.getEBoolean(), "validateBL", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2659,132 +2657,132 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getAD_Delimiter(), this.getADXP(), null, "delimiter", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_Country(), this.getADXP(), null, "country", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_Country(), this.getADXP(), null, "country", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_State(), this.getADXP(), null, "state", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_State(), this.getADXP(), null, "state", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_County(), this.getADXP(), null, "county", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_County(), this.getADXP(), null, "county", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_City(), this.getADXP(), null, "city", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_City(), this.getADXP(), null, "city", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_PostalCode(), this.getADXP(), null, "postalCode", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_StreetAddressLine(), this.getADXP(), null, "streetAddressLine", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_HouseNumber(), this.getADXP(), null, "houseNumber", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_HouseNumberNumeric(), this.getADXP(), null, "houseNumberNumeric", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_Direction(), this.getADXP(), null, "direction", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_StreetName(), this.getADXP(), null, "streetName", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_StreetNameBase(), this.getADXP(), null, "streetNameBase", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_StreetNameType(), this.getADXP(), null, "streetNameType", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_AdditionalLocator(), this.getADXP(), null, "additionalLocator", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_UnitID(), this.getADXP(), null, "unitID", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_UnitID(), this.getADXP(), null, "unitID", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_UnitType(), this.getADXP(), null, "unitType", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_CareOf(), this.getADXP(), null, "careOf", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_CareOf(), this.getADXP(), null, "careOf", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_CensusTract(), this.getADXP(), null, "censusTract", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryAddressLine(), this.getADXP(), null, "deliveryAddressLine", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryInstallationType(), this.getADXP(), null, "deliveryInstallationType", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryInstallationArea(), this.getADXP(), null, "deliveryInstallationArea", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryInstallationQualifier(), this.getADXP(), null, "deliveryInstallationQualifier", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryMode(), this.getADXP(), null, "deliveryMode", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_DeliveryModeIdentifier(), this.getADXP(), null, "deliveryModeIdentifier", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_BuildingNumberSuffix(), this.getADXP(), null, "buildingNumberSuffix", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAD_PostBox(), this.getADXP(), null, "postBox", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getAD_PostBox(), this.getADXP(), null, "postBox", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.AD.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_Precinct(), this.getADXP(), null, "precinct", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getAD_Part(), ecorePackage.getEFeatureMapEntry(), "part", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAD_UseablePeriod(), this.getSXCM_TS(), null, "useablePeriod", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getAD_Use(), theVocabPackage.getPostalAddressUse(), "use", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getAD_IsNotOrdered(), ecorePackage.getEBooleanObject(), "isNotOrdered", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getAD_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.AD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(adEClass, ecorePackage.getEBoolean(), "validateDelimiter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3129,48 +3127,48 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getADXP_PartType(), theVocabPackage.getAddressPartType(), "partType", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ADXP.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ADXP.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			enEClass, org.eclipse.mdht.uml.hl7.datatypes.EN.class, "EN", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getEN_Delimiter(), this.getENXP(), null, "delimiter", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getEN_Family(), this.getENXP(), null, "family", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getEN_Family(), this.getENXP(), null, "family", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.EN.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getEN_Given(), this.getENXP(), null, "given", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getEN_Given(), this.getENXP(), null, "given", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.EN.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getEN_Prefix(), this.getENXP(), null, "prefix", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getEN_Prefix(), this.getENXP(), null, "prefix", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.EN.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getEN_Suffix(), this.getENXP(), null, "suffix", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			getEN_Suffix(), this.getENXP(), null, "suffix", null, 0, -1, org.eclipse.mdht.uml.hl7.datatypes.EN.class,
+			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getEN_Part(), ecorePackage.getEFeatureMapEntry(), "part", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getEN_ValidTime(), this.getIVL_TS(), null, "validTime", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EN.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getEN_Use(), theVocabPackage.getEntityNameUse(), "use", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getEN_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.EN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(enEClass, ecorePackage.getEBoolean(), "validateDelimiter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3245,32 +3243,32 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getENXP_PartType(), theVocabPackage.getEntityNamePartType(), "partType", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.ENXP.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ENXP.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getENXP_Qualifier(), theVocabPackage.getEntityNamePartQualifier(), "qualifier", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.ENXP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.ENXP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			ivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, "IVL_TS", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, "IVL_TS", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getIVL_TS_Low(), this.getIVXB_TS(), null, "low", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_TS_Center(), this.getTS(), null, "center", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_TS_High(), this.getIVXB_TS(), null, "high", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
-			getIVL_TS_Width(), this.getPQ(), null, "width", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getIVL_TS_Width(), this.getPQ(), null, "width", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.IVL_TS.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(
 			ivL_TSEClass, ecorePackage.getEBoolean(), "validateOptionsContainingLow", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3313,8 +3311,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			ivxB_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_TS.class, "IVXB_TS", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivxB_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_TS.class, "IVXB_TS", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getIVXB_TS_Inclusive(), ecorePackage.getEBooleanObject(), "inclusive", "true", 0, 1,
 			org.eclipse.mdht.uml.hl7.datatypes.IVXB_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -3325,15 +3323,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getPQ_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getPQ_Unit(), this.getcsType(), "unit", "1", 0, 1, org.eclipse.mdht.uml.hl7.datatypes.PQ.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getPQ_Translation(), this.getPQR(), null, "translation", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(pqEClass, null, "setValue", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDoubleObject(), "newValue", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -3343,8 +3341,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getPQR_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(pqrEClass, null, "setValue", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDoubleObject(), "newValue", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -3393,8 +3391,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getINT_Value(), ecorePackage.getEBigInteger(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(intEClass, ecorePackage.getEBoolean(), "validateINT", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3413,8 +3411,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getREAL_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.REAL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.REAL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(realEClass, ecorePackage.getEBoolean(), "validateREAL", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3489,25 +3487,24 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			getSC_Code(), this.getcsType(), "code", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.SC.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getSC_CodeSystem(), this.getuid(), "codeSystem", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getSC_CodeSystem(), this.getuid(), "codeSystem", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.SC.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getSC_CodeSystemName(), this.getstType(), "codeSystemName", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getSC_CodeSystemVersion(), this.getstType(), "codeSystemVersion", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getSC_DisplayName(), this.getstType(), "displayName", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.SC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			rtO_QTY_QTYEClass, org.eclipse.mdht.uml.hl7.datatypes.RTO_QTY_QTY.class, "RTO_QTY_QTY",
-			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			rtO_QTY_QTYEClass, org.eclipse.mdht.uml.hl7.datatypes.RTO_QTY_QTY.class, "RTO_QTY_QTY", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getRTO_QTY_QTY_Numerator(), this.getQTY(), null, "numerator", null, 1, 1,
 			org.eclipse.mdht.uml.hl7.datatypes.RTO_QTY_QTY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -3532,12 +3529,11 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getMO_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.MO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.MO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getMO_Currency(), this.getcsType(), "currency", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.MO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getMO_Currency(), this.getcsType(), "currency", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.MO.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(moEClass, ecorePackage.getEBoolean(), "validateMO", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3556,40 +3552,40 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
-			sxcM_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_INT.class, "SXCM_INT", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			sxcM_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_INT.class, "SXCM_INT", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getSXCM_INT_Operator(), theVocabPackage.getSetOperator(), "operator", "I", 0, 1,
 			org.eclipse.mdht.uml.hl7.datatypes.SXCM_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			ivxB_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_INT.class, "IVXB_INT", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivxB_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_INT.class, "IVXB_INT", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getIVXB_INT_Inclusive(), ecorePackage.getEBooleanObject(), "inclusive", "true", 0, 1,
 			org.eclipse.mdht.uml.hl7.datatypes.IVXB_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			ivL_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, "IVL_INT", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivL_INTEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, "IVL_INT", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getIVL_INT_Low(), this.getIVXB_INT(), null, "low", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_INT_Center(), this.getINT(), null, "center", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_INT_High(), this.getIVXB_INT(), null, "high", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_INT_Width(), this.getINT(), null, "width", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_INT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(
 			ivL_INTEClass, ecorePackage.getEBoolean(), "validateOptionsContainingLow", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3632,40 +3628,40 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			ivxB_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_PQ.class, "IVXB_PQ", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivxB_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.IVXB_PQ.class, "IVXB_PQ", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getIVXB_PQ_Inclusive(), ecorePackage.getEBooleanObject(), "inclusive", "true", 0, 1,
 			org.eclipse.mdht.uml.hl7.datatypes.IVXB_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 			!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			sxcM_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_PQ.class, "SXCM_PQ", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			sxcM_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.SXCM_PQ.class, "SXCM_PQ", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getSXCM_PQ_Operator(), theVocabPackage.getSetOperator(), "operator", "I", 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.SXCM_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.SXCM_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
-			ivL_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, "IVL_PQ", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			ivL_PQEClass, org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, "IVL_PQ", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getIVL_PQ_Low(), this.getIVXB_PQ(), null, "low", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_PQ_Center(), this.getPQ(), null, "center", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getIVL_PQ_High(), this.getIVXB_PQ(), null, "high", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
-			getIVL_PQ_Width(), this.getPQ(), null, "width", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getIVL_PQ_Width(), this.getPQ(), null, "width", null, 0, 1, org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(
 			ivL_PQEClass, ecorePackage.getEBoolean(), "validateOptionsContainingLow", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3730,24 +3726,24 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			pivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, "PIVL_TS", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			pivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, "PIVL_TS", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getPIVL_TS_Phase(), this.getIVL_TS(), null, "phase", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getPIVL_TS_Period(), this.getPQ(), null, "period", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getPIVL_TS_Alignment(), theVocabPackage.getCalendarCycle(), "alignment", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getPIVL_TS_InstitutionSpecified(), ecorePackage.getEBooleanObject(), "institutionSpecified", "false", 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			eivL_eventEClass, EIVL_event.class, "EIVL_event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3804,16 +3800,16 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEOperation(eivL_eventEClass, this.getEIVL_event(), "init", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(
-			eivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, "EIVL_TS", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			eivL_TSEClass, org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, "EIVL_TS", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getEIVL_TS_Event(), this.getEIVL_event(), null, "event", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getEIVL_TS_Offset(), this.getIVL_PQ(), null, "offset", null, 0, 1,
-			org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			org.eclipse.mdht.uml.hl7.datatypes.EIVL_TS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(binaryDataEncodingEEnum, BinaryDataEncoding.class, "BinaryDataEncoding");
@@ -3851,98 +3847,130 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addAnnotation(getED_Thumbnail(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element" });
 		addAnnotation(getTEL_UseablePeriod(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(getTEL_Use(), source, new String[] { "kind", "attribute" });
-		addAnnotation(tsTypeEDataType, source, new String[] {
-				"pattern", "[0-9]{1,8}|([0-9]{9,14}|[0-9]{14,14}\\.[0-9]+)([+\\-][0-9]{1,4})?" });
-		addAnnotation(csTypeEDataType, source, new String[] {
-				"pattern", "[^\\s]+", "baseType", "http://www.eclipse.org/emf/2003/XMLType#token" });
+		addAnnotation(
+			tsTypeEDataType, source,
+			new String[] { "pattern", "[0-9]{1,8}|([0-9]{9,14}|[0-9]{14,14}\\.[0-9]+)([+\\-][0-9]{1,4})?" });
+		addAnnotation(
+			csTypeEDataType, source,
+			new String[] { "pattern", "[^\\s]+", "baseType", "http://www.eclipse.org/emf/2003/XMLType#token" });
 		addAnnotation(stEClass, source, new String[] { "kind", "mixed" });
 		addAnnotation(getCD_OriginalText(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(getCD_Qualifier(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(getCD_Translation(), source, new String[] { "namespace", "urn:hl7-org:v3" });
-		addAnnotation(getCD_SDTCValueSet(), source, new String[] {
-				"name", "valueSet", "namespace", "urn:hl7-org:sdtc", "kind", "attribute" });
-		addAnnotation(getCD_SDTCValueSetVersion(), source, new String[] {
-				"name", "valueSetVersion", "namespace", "urn:hl7-org:sdtc", "kind", "attribute" });
+		addAnnotation(
+			getCD_SDTCValueSet(), source,
+			new String[] { "name", "valueSet", "namespace", "urn:hl7-org:sdtc", "kind", "attribute" });
+		addAnnotation(
+			getCD_SDTCValueSetVersion(), source,
+			new String[] { "name", "valueSetVersion", "namespace", "urn:hl7-org:sdtc", "kind", "attribute" });
 		addAnnotation(getCR_Name(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(getCR_Value(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(
-			uidEDataType,
-			source,
+			uidEDataType, source,
 			new String[] {
 					"pattern",
 					"[0-2](\\.(0|[1-9][0-9]*))* [0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12} [A-Za-z][A-Za-z0-9\\-]*" });
 		addAnnotation(stTypeEDataType, source, new String[] { "pattern", ".+" });
 		addAnnotation(adEClass, source, new String[] { "kind", "mixed" });
-		addAnnotation(getAD_Delimiter(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_Country(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_State(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_County(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_City(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_PostalCode(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_StreetAddressLine(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_HouseNumber(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_HouseNumberNumeric(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_Direction(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_StreetName(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_StreetNameBase(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_StreetNameType(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_AdditionalLocator(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_UnitID(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_UnitType(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_CareOf(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_CensusTract(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryAddressLine(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryInstallationType(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryInstallationArea(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryInstallationQualifier(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryMode(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_DeliveryModeIdentifier(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_BuildingNumberSuffix(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_PostBox(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getAD_Precinct(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_Delimiter(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_Country(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_State(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_County(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_City(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_PostalCode(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_StreetAddressLine(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_HouseNumber(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_HouseNumberNumeric(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_Direction(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_StreetName(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_StreetNameBase(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_StreetNameType(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_AdditionalLocator(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_UnitID(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_UnitType(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_CareOf(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_CensusTract(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryAddressLine(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryInstallationType(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryInstallationArea(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryInstallationQualifier(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryMode(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_DeliveryModeIdentifier(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_BuildingNumberSuffix(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_PostBox(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getAD_Precinct(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
 		addAnnotation(getAD_Part(), source, new String[] { "kind", "group" });
 		addAnnotation(getAD_UseablePeriod(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element" });
 		addAnnotation(getAD_Use(), source, new String[] { "kind", "attribute" });
 		addAnnotation(getAD_Mixed(), source, new String[] { "kind", "elementWildcard" });
 		addAnnotation(adxpEClass, source, new String[] { "kind", "mixed" });
 		addAnnotation(enEClass, source, new String[] { "kind", "mixed" });
-		addAnnotation(getEN_Delimiter(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getEN_Family(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getEN_Given(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getEN_Prefix(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
-		addAnnotation(getEN_Suffix(), source, new String[] {
-				"namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getEN_Delimiter(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getEN_Family(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getEN_Given(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getEN_Prefix(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
+		addAnnotation(
+			getEN_Suffix(), source,
+			new String[] { "namespace", "urn:hl7-org:v3", "kind", "element", "group", "#part" });
 		addAnnotation(getEN_Part(), source, new String[] { "kind", "group" });
 		addAnnotation(getEN_ValidTime(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element" });
 		addAnnotation(getEN_Use(), source, new String[] { "kind", "attribute" });

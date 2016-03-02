@@ -141,12 +141,15 @@ public enum ParticipationPhysicalPerformer implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ParticipationPhysicalPerformer> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ParticipationPhysicalPerformer> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Participation Physical Performer</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationPhysicalPerformer get(String literal) {
@@ -163,6 +166,8 @@ public enum ParticipationPhysicalPerformer implements Enumerator {
 	 * Returns the '<em><b>Participation Physical Performer</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationPhysicalPerformer getByName(String name) {
@@ -179,6 +184,8 @@ public enum ParticipationPhysicalPerformer implements Enumerator {
 	 * Returns the '<em><b>Participation Physical Performer</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationPhysicalPerformer get(int value) {

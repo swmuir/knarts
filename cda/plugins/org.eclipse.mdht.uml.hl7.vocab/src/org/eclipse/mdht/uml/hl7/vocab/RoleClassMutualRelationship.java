@@ -64,14 +64,15 @@ public enum RoleClassMutualRelationship implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CASESBJ(3, "CASESBJ", "CASESBJ"), /**
-										* The '<em><b>CIT</b></em>' literal object.
-										* <!-- begin-user-doc -->
-										* <!-- end-user-doc -->
-										* @see #CIT_VALUE
-										* @generated
-										* @ordered
-										*/
+	CASESBJ(3, "CASESBJ", "CASESBJ"),
+	/**
+	 * The '<em><b>CIT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #CIT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	CIT(4, "CIT", "CIT"),
 
 	/**
@@ -807,7 +808,8 @@ public enum RoleClassMutualRelationship implements Enumerator {
 	 */
 	private static final RoleClassMutualRelationship[] VALUES_ARRAY = new RoleClassMutualRelationship[] {
 			AGNT, ASSIGNED, CAREGIVER, CASESBJ, CIT, COMPAR, CON, COVPTY, CRINV, CRSPNSR, ECON, EMP, GUAR, GUARD,
-			INVSBJ, LIC, MIL, NOK, NOT, PAT, PAYEE, PAYOR, POLHOLD, PROV, PRS, QUAL, RESBJ, SGNOFF, SPNSR, STD, UNDWRT, };
+			INVSBJ, LIC, MIL, NOK, NOT, PAT, PAYEE, PAYOR, POLHOLD, PROV, PRS, QUAL, RESBJ, SGNOFF, SPNSR, STD,
+			UNDWRT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Role Class Mutual Relationship</b></em>' enumerators.
@@ -815,12 +817,15 @@ public enum RoleClassMutualRelationship implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RoleClassMutualRelationship> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<RoleClassMutualRelationship> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Role Class Mutual Relationship</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassMutualRelationship get(String literal) {
@@ -837,6 +842,8 @@ public enum RoleClassMutualRelationship implements Enumerator {
 	 * Returns the '<em><b>Role Class Mutual Relationship</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassMutualRelationship getByName(String name) {
@@ -853,6 +860,8 @@ public enum RoleClassMutualRelationship implements Enumerator {
 	 * Returns the '<em><b>Role Class Mutual Relationship</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RoleClassMutualRelationship get(int value) {

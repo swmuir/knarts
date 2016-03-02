@@ -30,13 +30,13 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.IVL_PQOperations;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVL_PQImpl#getLow <em>Low</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVL_PQImpl#getCenter <em>Center</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVL_PQImpl#getHigh <em>High</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVL_PQImpl#getWidth <em>Width</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -138,12 +138,12 @@ public class IVL_PQImpl extends SXCM_PQImpl implements IVL_PQ {
 		if (newLow != low) {
 			NotificationChain msgs = null;
 			if (low != null) {
-				msgs = ((InternalEObject) low).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__LOW, null, msgs);
+				msgs = ((InternalEObject) low).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__LOW, null, msgs);
 			}
 			if (newLow != null) {
-				msgs = ((InternalEObject) newLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__LOW, null, msgs);
+				msgs = ((InternalEObject) newLow).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__LOW, null, msgs);
 			}
 			msgs = basicSetLow(newLow, msgs);
 			if (msgs != null) {
@@ -192,19 +192,20 @@ public class IVL_PQImpl extends SXCM_PQImpl implements IVL_PQ {
 		if (newCenter != center) {
 			NotificationChain msgs = null;
 			if (center != null) {
-				msgs = ((InternalEObject) center).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__CENTER, null, msgs);
+				msgs = ((InternalEObject) center).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__CENTER, null, msgs);
 			}
 			if (newCenter != null) {
-				msgs = ((InternalEObject) newCenter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__CENTER, null, msgs);
+				msgs = ((InternalEObject) newCenter).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__CENTER, null, msgs);
 			}
 			msgs = basicSetCenter(newCenter, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.IVL_PQ__CENTER, newCenter, newCenter));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, DatatypesPackage.IVL_PQ__CENTER, newCenter, newCenter));
 		}
 	}
 
@@ -246,12 +247,12 @@ public class IVL_PQImpl extends SXCM_PQImpl implements IVL_PQ {
 		if (newHigh != high) {
 			NotificationChain msgs = null;
 			if (high != null) {
-				msgs = ((InternalEObject) high).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__HIGH, null, msgs);
+				msgs = ((InternalEObject) high).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__HIGH, null, msgs);
 			}
 			if (newHigh != null) {
-				msgs = ((InternalEObject) newHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__HIGH, null, msgs);
+				msgs = ((InternalEObject) newHigh).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__HIGH, null, msgs);
 			}
 			msgs = basicSetHigh(newHigh, msgs);
 			if (msgs != null) {
@@ -300,12 +301,12 @@ public class IVL_PQImpl extends SXCM_PQImpl implements IVL_PQ {
 		if (newWidth != width) {
 			NotificationChain msgs = null;
 			if (width != null) {
-				msgs = ((InternalEObject) width).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__WIDTH, null, msgs);
+				msgs = ((InternalEObject) width).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__WIDTH, null, msgs);
 			}
 			if (newWidth != null) {
-				msgs = ((InternalEObject) newWidth).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						DatatypesPackage.IVL_PQ__WIDTH, null, msgs);
+				msgs = ((InternalEObject) newWidth).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.IVL_PQ__WIDTH, null, msgs);
 			}
 			msgs = basicSetWidth(newWidth, msgs);
 			if (msgs != null) {

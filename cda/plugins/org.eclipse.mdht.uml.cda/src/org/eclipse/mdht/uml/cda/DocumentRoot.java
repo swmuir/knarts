@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.DocumentRoot#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.DocumentRoot#getClinicalDocument <em>Clinical Document</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getDocumentRoot()
  * @model extendedMetaData="kind='mixed' name=''"

@@ -19,13 +19,13 @@ import org.eclipse.mdht.uml.hl7.vocab.CalendarCycle;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS#getAlignment <em>Alignment</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.PIVL_TS#getInstitutionSpecified <em>Institution Specified</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getPIVL_TS()
  * @model

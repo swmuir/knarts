@@ -30,11 +30,11 @@ import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUseablePeriods <em>Useable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUses <em>Use</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -29,6 +29,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationTargetSubject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Subject#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Subject#getTypeId <em>Type Id</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationTargetSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.Subject#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Subject#getContextControlCode <em>Context Control Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubject()
  * @model

@@ -21,11 +21,11 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNamePartType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ENXP#getPartType <em>Part Type</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ENXP#getQualifiers <em>Qualifier</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getENXP()
  * @model extendedMetaData="kind='mixed'"

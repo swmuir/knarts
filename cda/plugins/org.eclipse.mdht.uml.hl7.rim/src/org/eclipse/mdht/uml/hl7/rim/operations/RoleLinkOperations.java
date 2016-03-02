@@ -26,13 +26,13 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.RoleLink#getTypeCode() <em>Get Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.RoleLink#getTarget() <em>Get Target</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.RoleLink#getSource() <em>Get Source</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.RoleLink#isTypeCodeDefined() <em>Is Type Code Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

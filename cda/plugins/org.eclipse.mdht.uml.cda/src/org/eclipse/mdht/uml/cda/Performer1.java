@@ -26,6 +26,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ServiceEventPerformer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer1#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer1#getTypeId <em>Type Id</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ServiceEventPerformer;
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer1#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer1#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1()
  * @model

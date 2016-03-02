@@ -29,6 +29,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Authenticator#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Authenticator#getTypeId <em>Type Id</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.Authenticator#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Authenticator#getSDTCSignatureText <em>SDTC Signature Text</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthenticator()
  * @model

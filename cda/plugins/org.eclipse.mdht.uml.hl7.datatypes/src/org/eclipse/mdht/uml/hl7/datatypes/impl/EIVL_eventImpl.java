@@ -22,8 +22,6 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.EIVL_eventOperations;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>EIVL event</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

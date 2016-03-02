@@ -26,13 +26,13 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.IIOperations;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IIImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IIImpl#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IIImpl#getAssigningAuthorityName <em>Assigning Authority Name</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IIImpl#getDisplayable <em>Displayable</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -176,8 +176,8 @@ public class IIImpl extends ANYImpl implements II {
 		String oldExtension = extension;
 		extension = newExtension;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.II__EXTENSION, oldExtension, extension));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, DatatypesPackage.II__EXTENSION, oldExtension, extension));
 		}
 	}
 
@@ -199,9 +199,10 @@ public class IIImpl extends ANYImpl implements II {
 		String oldAssigningAuthorityName = assigningAuthorityName;
 		assigningAuthorityName = newAssigningAuthorityName;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.II__ASSIGNING_AUTHORITY_NAME, oldAssigningAuthorityName,
-				assigningAuthorityName));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.II__ASSIGNING_AUTHORITY_NAME, oldAssigningAuthorityName,
+					assigningAuthorityName));
 		}
 	}
 
@@ -223,8 +224,9 @@ public class IIImpl extends ANYImpl implements II {
 		Boolean oldDisplayable = displayable;
 		displayable = newDisplayable;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.II__DISPLAYABLE, oldDisplayable, displayable));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.II__DISPLAYABLE, oldDisplayable, displayable));
 		}
 	}
 

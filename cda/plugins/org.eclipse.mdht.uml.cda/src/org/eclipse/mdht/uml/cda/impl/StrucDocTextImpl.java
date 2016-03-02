@@ -29,12 +29,12 @@ import org.eclipse.mdht.uml.cda.operations.StrucDocTextOperations;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StrucDocTextImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StrucDocTextImpl#getAny <em>Any</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.StrucDocTextImpl#getID <em>ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

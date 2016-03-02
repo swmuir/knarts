@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ReferenceRangeImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ReferenceRangeImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ReferenceRangeImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ReferenceRangeImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,20 +221,21 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.REFERENCE_RANGE__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.REFERENCE_RANGE__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.REFERENCE_RANGE__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.REFERENCE_RANGE__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.REFERENCE_RANGE__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.REFERENCE_RANGE__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -290,21 +291,22 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		if (newObservationRange != observationRange) {
 			NotificationChain msgs = null;
 			if (observationRange != null) {
-				msgs = ((InternalEObject) observationRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, null, msgs);
+				msgs = ((InternalEObject) observationRange).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, null, msgs);
 			}
 			if (newObservationRange != null) {
-				msgs = ((InternalEObject) newObservationRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, null, msgs);
+				msgs = ((InternalEObject) newObservationRange).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, null, msgs);
 			}
 			msgs = basicSetObservationRange(newObservationRange, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, newObservationRange,
-				newObservationRange));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.REFERENCE_RANGE__OBSERVATION_RANGE, newObservationRange,
+					newObservationRange));
 		}
 	}
 
@@ -331,9 +333,10 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.REFERENCE_RANGE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.REFERENCE_RANGE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -348,9 +351,10 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.REFERENCE_RANGE__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.REFERENCE_RANGE__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -386,8 +390,10 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.REFERENCE_RANGE__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.REFERENCE_RANGE__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -402,9 +408,10 @@ public class ReferenceRangeImpl extends ActRelationshipImpl implements Reference
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.REFERENCE_RANGE__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.REFERENCE_RANGE__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

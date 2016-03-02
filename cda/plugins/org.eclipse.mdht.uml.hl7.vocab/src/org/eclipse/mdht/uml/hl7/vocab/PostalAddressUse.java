@@ -372,6 +372,8 @@ public enum PostalAddressUse implements Enumerator {
 	 * Returns the '<em><b>Postal Address Use</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static PostalAddressUse get(String literal) {
@@ -388,6 +390,8 @@ public enum PostalAddressUse implements Enumerator {
 	 * Returns the '<em><b>Postal Address Use</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static PostalAddressUse getByName(String name) {
@@ -404,6 +408,8 @@ public enum PostalAddressUse implements Enumerator {
 	 * Returns the '<em><b>Postal Address Use</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static PostalAddressUse get(int value) {

@@ -22,10 +22,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.IVXB_PQ;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.IVXB_PQImpl#getInclusive <em>Inclusive</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -87,8 +87,9 @@ public class IVXB_PQImpl extends PQImpl implements IVXB_PQ {
 		Boolean oldInclusive = inclusive;
 		inclusive = newInclusive;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, DatatypesPackage.IVXB_PQ__INCLUSIVE, oldInclusive, inclusive));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, DatatypesPackage.IVXB_PQ__INCLUSIVE, oldInclusive, inclusive));
 		}
 	}
 

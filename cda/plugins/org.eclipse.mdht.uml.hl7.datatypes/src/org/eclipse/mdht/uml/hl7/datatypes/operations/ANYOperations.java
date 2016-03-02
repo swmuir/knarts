@@ -20,6 +20,7 @@ import org.eclipse.mdht.uml.hl7.datatypes.ANY;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ANY#isNullFlavorDefined() <em>Is Null Flavor Defined</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ANY#isNullFlavorUndefined() <em>Is Null Flavor Undefined</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.mdht.uml.hl7.datatypes.ANY;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ANY#isDefined(java.lang.String) <em>Is Defined</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ANY#matches(java.lang.String, java.lang.String) <em>Matches</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

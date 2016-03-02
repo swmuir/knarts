@@ -19,10 +19,10 @@ import org.eclipse.mdht.uml.hl7.vocab.AddressPartType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.ADXP#getPartType <em>Part Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getADXP()
  * @model extendedMetaData="kind='mixed'"

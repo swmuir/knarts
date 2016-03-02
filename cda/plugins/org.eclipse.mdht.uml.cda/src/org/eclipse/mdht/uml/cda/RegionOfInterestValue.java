@@ -19,10 +19,10 @@ import org.eclipse.mdht.uml.hl7.datatypes.INT;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.RegionOfInterestValue#isUnsorted <em>Unsorted</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterestValue()
  * @model

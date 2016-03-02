@@ -28,6 +28,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentActMood;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.Act#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Act#getTypeId <em>Type Id</em>}</li>
@@ -53,7 +54,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentActMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Act#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Act#getNegationInd <em>Negation Ind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getAct()
  * @model

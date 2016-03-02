@@ -252,7 +252,7 @@ public class TransformClassContent extends TransformAbstract {
 		for (Constraint constraint : allConstraints) {
 			writer.println("<li>" + CDAModelUtil.computeConformanceMessage(constraint, true)
 			// + " " + modelPrefix(constraint)
-			+ "</li>");
+					+ "</li>");
 		}
 
 		// <ol> cannot be empty

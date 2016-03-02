@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AuthorizationImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AuthorizationImpl#getTypeId <em>Type Id</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AuthorizationImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AuthorizationImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,20 +221,20 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.AUTHORIZATION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHORIZATION__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.AUTHORIZATION__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHORIZATION__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -289,20 +289,21 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		if (newConsent != consent) {
 			NotificationChain msgs = null;
 			if (consent != null) {
-				msgs = ((InternalEObject) consent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.AUTHORIZATION__CONSENT, null, msgs);
+				msgs = ((InternalEObject) consent).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHORIZATION__CONSENT, null, msgs);
 			}
 			if (newConsent != null) {
-				msgs = ((InternalEObject) newConsent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.AUTHORIZATION__CONSENT, null, msgs);
+				msgs = ((InternalEObject) newConsent).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHORIZATION__CONSENT, null, msgs);
 			}
 			msgs = basicSetConsent(newConsent, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHORIZATION__CONSENT, newConsent, newConsent));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.AUTHORIZATION__CONSENT, newConsent, newConsent));
 		}
 	}
 
@@ -329,9 +330,10 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -346,9 +348,10 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-				oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -384,8 +387,10 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -400,9 +405,10 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
+					oldTypeCodeESet));
 		}
 	}
 

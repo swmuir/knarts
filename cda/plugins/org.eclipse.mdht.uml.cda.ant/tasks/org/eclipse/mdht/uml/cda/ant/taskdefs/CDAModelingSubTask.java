@@ -4,11 +4,11 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     David A Carlson (XMLmodeling.com) - initial API and implementation
  *     Christian W. Damus - Integration of new transformation framework (artf3240)
- *     
+ *
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ant.taskdefs;
@@ -71,7 +71,7 @@ public abstract class CDAModelingSubTask extends Task {
 
 	/**
 	 * All the attribute checks should be performed in this method.
-	 * 
+	 *
 	 * @throws BuildException
 	 */
 	protected void checkAttributes() throws BuildException {
@@ -80,7 +80,7 @@ public abstract class CDAModelingSubTask extends Task {
 
 	/**
 	 * Performs the task specific code.
-	 * 
+	 *
 	 * @throws Exception
 	 */
 	abstract protected void doExecute() throws Exception;
@@ -272,7 +272,7 @@ public abstract class CDAModelingSubTask extends Task {
 
 	/**
 	 * Throws a <tt>BuildException</tt> if <tt>expression</tt> is false.
-	 * 
+	 *
 	 * @param message
 	 * @param expression
 	 * @throws BuildException

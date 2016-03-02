@@ -134,14 +134,15 @@ public enum NullFlavor implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNK(10, "UNK", "UNK"), /**
-							* The '<em><b>NP</b></em>' literal object.
-							* <!-- begin-user-doc -->
-							* <!-- end-user-doc -->
-							* @see #NP_VALUE
-							* @generated
-							* @ordered
-							*/
+	UNK(10, "UNK", "UNK"),
+	/**
+	 * The '<em><b>NP</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #NP_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	NP(11, "NP", "NP");
 
 	/**
@@ -345,6 +346,8 @@ public enum NullFlavor implements Enumerator {
 	 * Returns the '<em><b>Null Flavor</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NullFlavor get(String literal) {
@@ -361,6 +364,8 @@ public enum NullFlavor implements Enumerator {
 	 * Returns the '<em><b>Null Flavor</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NullFlavor getByName(String name) {
@@ -377,6 +382,8 @@ public enum NullFlavor implements Enumerator {
 	 * Returns the '<em><b>Null Flavor</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NullFlavor get(int value) {

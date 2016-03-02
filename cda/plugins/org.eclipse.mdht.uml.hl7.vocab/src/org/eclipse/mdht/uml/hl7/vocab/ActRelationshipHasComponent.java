@@ -141,12 +141,15 @@ public enum ActRelationshipHasComponent implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ActRelationshipHasComponent> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ActRelationshipHasComponent> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Act Relationship Has Component</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActRelationshipHasComponent get(String literal) {
@@ -163,6 +166,8 @@ public enum ActRelationshipHasComponent implements Enumerator {
 	 * Returns the '<em><b>Act Relationship Has Component</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActRelationshipHasComponent getByName(String name) {
@@ -179,6 +184,8 @@ public enum ActRelationshipHasComponent implements Enumerator {
 	 * Returns the '<em><b>Act Relationship Has Component</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ActRelationshipHasComponent get(int value) {

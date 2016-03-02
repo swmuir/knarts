@@ -29,10 +29,10 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.BL#validateBL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate BL</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -90,21 +90,23 @@ public class BLOperations extends ANYOperations {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(DatatypesPackage.Literals.BL);
 			try {
-				VALIDATE_BL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(VALIDATE_BL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				VALIDATE_BL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
+					VALIDATE_BL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			} catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
 		if (!EOCL_ENV.createQuery(VALIDATE_BL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(bl)) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(
-					Diagnostic.ERROR,
-					DatatypesValidator.DIAGNOSTIC_SOURCE,
-					DatatypesValidator.BL__BL,
-					org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-						"_UI_GenericInvariant_diagnostic", new Object[] {
-								"validateBL", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(bl, context) }),
-					new Object[] { bl }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.BL__BL,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateBL",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(bl, context) }),
+						new Object[] { bl }));
 			}
 			return false;
 		}

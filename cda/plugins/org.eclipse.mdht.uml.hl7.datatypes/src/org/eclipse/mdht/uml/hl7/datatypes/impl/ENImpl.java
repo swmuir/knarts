@@ -35,6 +35,7 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNameUse;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENImpl#getDelimiters <em>Delimiter</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENImpl#getFamilies <em>Family</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.mdht.uml.hl7.vocab.EntityNameUse;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENImpl#getUses <em>Use</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ENImpl#getMixed <em>Mixed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -138,7 +138,8 @@ public class ENImpl extends ANYImpl implements EN {
 	 * @generated
 	 */
 	public NotificationChain basicSetValidTime(IVL_TS newValidTime, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(DatatypesPackage.Literals.EN__VALID_TIME, newValidTime, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+			DatatypesPackage.Literals.EN__VALID_TIME, newValidTime, msgs);
 	}
 
 	/**

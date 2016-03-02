@@ -27,12 +27,12 @@ import org.eclipse.mdht.uml.cda.StrucDocText;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#addText(java.lang.String) <em>Add Text</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#getText() <em>Get Text</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.StrucDocText#getText(java.lang.String) <em>Get Text</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

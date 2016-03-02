@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ#getLow <em>Low</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ#getCenter <em>Center</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ#getHigh <em>High</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ#getWidth <em>Width</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getIVL_PQ()
  * @model

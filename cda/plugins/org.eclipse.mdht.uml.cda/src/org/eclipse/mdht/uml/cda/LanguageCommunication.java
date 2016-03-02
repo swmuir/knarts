@@ -25,6 +25,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.LanguageCommunication#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.LanguageCommunication#getTypeId <em>Type Id</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.LanguageCommunication#getPreferenceInd <em>Preference Ind</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.LanguageCommunication#getNullFlavor <em>Null Flavor</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication()
  * @model

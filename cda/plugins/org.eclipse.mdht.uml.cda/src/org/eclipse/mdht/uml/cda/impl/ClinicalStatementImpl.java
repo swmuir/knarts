@@ -35,8 +35,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Clinical Statement</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

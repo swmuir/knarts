@@ -42,6 +42,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ExternalDocumentImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ExternalDocumentImpl#getTypeId <em>Type Id</em>}</li>
@@ -55,7 +56,6 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ExternalDocumentImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ExternalDocumentImpl#getMoodCode <em>Mood Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -298,20 +298,21 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -378,19 +379,20 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__CODE, null, msgs);
+				msgs = ((InternalEObject) code).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__CODE, null, msgs);
 			}
 			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__CODE, null, msgs);
+				msgs = ((InternalEObject) newCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__CODE, null, msgs);
 			}
 			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CODE, newCode, newCode));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CODE, newCode, newCode));
 		}
 	}
 
@@ -432,19 +434,20 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		if (newText != text) {
 			NotificationChain msgs = null;
 			if (text != null) {
-				msgs = ((InternalEObject) text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__TEXT, null, msgs);
+				msgs = ((InternalEObject) text).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__TEXT, null, msgs);
 			}
 			if (newText != null) {
-				msgs = ((InternalEObject) newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__TEXT, null, msgs);
+				msgs = ((InternalEObject) newText).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__TEXT, null, msgs);
 			}
 			msgs = basicSetText(newText, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TEXT, newText, newText));
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TEXT, newText, newText));
 		}
 	}
 
@@ -486,20 +489,21 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		if (newSetId != setId) {
 			NotificationChain msgs = null;
 			if (setId != null) {
-				msgs = ((InternalEObject) setId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__SET_ID, null, msgs);
+				msgs = ((InternalEObject) setId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__SET_ID, null, msgs);
 			}
 			if (newSetId != null) {
-				msgs = ((InternalEObject) newSetId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__SET_ID, null, msgs);
+				msgs = ((InternalEObject) newSetId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__SET_ID, null, msgs);
 			}
 			msgs = basicSetSetId(newSetId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__SET_ID, newSetId, newSetId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__SET_ID, newSetId, newSetId));
 		}
 	}
 
@@ -542,21 +546,22 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		if (newVersionNumber != versionNumber) {
 			NotificationChain msgs = null;
 			if (versionNumber != null) {
-				msgs = ((InternalEObject) versionNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, null, msgs);
+				msgs = ((InternalEObject) versionNumber).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, null, msgs);
 			}
 			if (newVersionNumber != null) {
-				msgs = ((InternalEObject) newVersionNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, null, msgs);
+				msgs = ((InternalEObject) newVersionNumber).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, null, msgs);
 			}
 			msgs = basicSetVersionNumber(newVersionNumber, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, newVersionNumber,
-				newVersionNumber));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, newVersionNumber,
+					newVersionNumber));
 		}
 	}
 
@@ -583,9 +588,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -600,9 +606,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -638,9 +645,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode, classCode,
-				!oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode, classCode,
+					!oldClassCodeESet));
 		}
 	}
 
@@ -655,9 +663,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-				oldClassCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode,
+					CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -693,9 +702,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, moodCode,
-				!oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, moodCode,
+					!oldMoodCodeESet));
 		}
 	}
 
@@ -710,9 +720,10 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-				oldMoodCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
+					oldMoodCodeESet));
 		}
 	}
 

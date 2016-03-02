@@ -28,6 +28,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *
  * <p>
  * The following operations are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Act#getClassCode() <em>Get Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Act#getMoodCode() <em>Get Mood Code</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Act#isClassCodeDefined() <em>Is Class Code Defined</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.rim.Act#isMoodCodeDefined() <em>Is Mood Code Defined</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

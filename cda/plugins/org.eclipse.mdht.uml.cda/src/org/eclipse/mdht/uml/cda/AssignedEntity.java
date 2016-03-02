@@ -30,6 +30,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassAssignedEntity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.AssignedEntity#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.AssignedEntity#getTypeId <em>Type Id</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassAssignedEntity;
  *   <li>{@link org.eclipse.mdht.uml.cda.AssignedEntity#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.AssignedEntity#getClassCode <em>Class Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedEntity()
  * @model

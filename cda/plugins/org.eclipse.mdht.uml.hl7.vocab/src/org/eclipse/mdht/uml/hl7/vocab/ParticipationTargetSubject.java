@@ -90,12 +90,15 @@ public enum ParticipationTargetSubject implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ParticipationTargetSubject> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ParticipationTargetSubject> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Participation Target Subject</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetSubject get(String literal) {
@@ -112,6 +115,8 @@ public enum ParticipationTargetSubject implements Enumerator {
 	 * Returns the '<em><b>Participation Target Subject</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetSubject getByName(String name) {
@@ -128,6 +133,8 @@ public enum ParticipationTargetSubject implements Enumerator {
 	 * Returns the '<em><b>Participation Target Subject</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static ParticipationTargetSubject get(int value) {

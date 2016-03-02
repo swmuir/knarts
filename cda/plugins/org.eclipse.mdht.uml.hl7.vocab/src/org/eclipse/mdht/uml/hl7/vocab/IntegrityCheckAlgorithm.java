@@ -56,6 +56,7 @@ public enum IntegrityCheckAlgorithm implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #SHA1
 	 * @model literal="SHA-1"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='SHA-1'"
 	 * @generated
 	 * @ordered
 	 */
@@ -71,6 +72,7 @@ public enum IntegrityCheckAlgorithm implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #SHA256
 	 * @model literal="SHA-256"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='SHA-256'"
 	 * @generated
 	 * @ordered
 	 */
@@ -90,12 +92,15 @@ public enum IntegrityCheckAlgorithm implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<IntegrityCheckAlgorithm> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<IntegrityCheckAlgorithm> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Integrity Check Algorithm</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IntegrityCheckAlgorithm get(String literal) {
@@ -112,6 +117,8 @@ public enum IntegrityCheckAlgorithm implements Enumerator {
 	 * Returns the '<em><b>Integrity Check Algorithm</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IntegrityCheckAlgorithm getByName(String name) {
@@ -128,6 +135,8 @@ public enum IntegrityCheckAlgorithm implements Enumerator {
 	 * Returns the '<em><b>Integrity Check Algorithm</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IntegrityCheckAlgorithm get(int value) {

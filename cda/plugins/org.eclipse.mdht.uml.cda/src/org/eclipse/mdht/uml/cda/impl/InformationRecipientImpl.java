@@ -36,6 +36,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipient;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InformationRecipientImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InformationRecipientImpl#getTypeId <em>Type Id</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_InformationRecipient;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InformationRecipientImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.InformationRecipientImpl#getTypeCode <em>Type Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -218,20 +218,21 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
 			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) typeId).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, null, msgs);
 			}
 			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, null, msgs);
+				msgs = ((InternalEObject) newTypeId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, null, msgs);
 			}
 			msgs = basicSetTypeId(newTypeId, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, newTypeId, newTypeId));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, newTypeId, newTypeId));
 		}
 	}
 
@@ -243,7 +244,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 	@Override
 	public EList<II> getTemplateIds() {
 		if (templateIds == null) {
-			templateIds = new EObjectContainmentEList<II>(II.class, this, CDAPackage.INFORMATION_RECIPIENT__TEMPLATE_ID);
+			templateIds = new EObjectContainmentEList<II>(
+				II.class, this, CDAPackage.INFORMATION_RECIPIENT__TEMPLATE_ID);
 		}
 		return templateIds;
 	}
@@ -287,21 +289,22 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		if (newIntendedRecipient != intendedRecipient) {
 			NotificationChain msgs = null;
 			if (intendedRecipient != null) {
-				msgs = ((InternalEObject) intendedRecipient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, null, msgs);
+				msgs = ((InternalEObject) intendedRecipient).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, null, msgs);
 			}
 			if (newIntendedRecipient != null) {
-				msgs = ((InternalEObject) newIntendedRecipient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, null, msgs);
+				msgs = ((InternalEObject) newIntendedRecipient).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, null, msgs);
 			}
 			msgs = basicSetIntendedRecipient(newIntendedRecipient, msgs);
 			if (msgs != null) {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, newIntendedRecipient,
-				newIntendedRecipient));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, newIntendedRecipient,
+					newIntendedRecipient));
 		}
 	}
 
@@ -328,9 +331,10 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-				!oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
+					!oldNullFlavorESet));
 		}
 	}
 
@@ -345,9 +349,10 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor,
+					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -383,9 +388,10 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode, typeCode,
-				!oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode, typeCode,
+					!oldTypeCodeESet));
 		}
 	}
 
@@ -400,9 +406,10 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-				oldTypeCodeESet));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode,
+					TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

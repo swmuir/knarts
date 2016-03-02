@@ -22,8 +22,6 @@ import org.eclipse.mdht.uml.hl7.datatypes.operations.BNOperations;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>BN</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

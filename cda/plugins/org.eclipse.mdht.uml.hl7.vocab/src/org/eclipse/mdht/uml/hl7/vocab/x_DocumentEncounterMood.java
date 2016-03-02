@@ -216,12 +216,15 @@ public enum x_DocumentEncounterMood implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<x_DocumentEncounterMood> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<x_DocumentEncounterMood> VALUES = Collections.unmodifiableList(
+		Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>xDocument Encounter Mood</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentEncounterMood get(String literal) {
@@ -238,6 +241,8 @@ public enum x_DocumentEncounterMood implements Enumerator {
 	 * Returns the '<em><b>xDocument Encounter Mood</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentEncounterMood getByName(String name) {
@@ -254,6 +259,8 @@ public enum x_DocumentEncounterMood implements Enumerator {
 	 * Returns the '<em><b>xDocument Encounter Mood</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static x_DocumentEncounterMood get(int value) {
