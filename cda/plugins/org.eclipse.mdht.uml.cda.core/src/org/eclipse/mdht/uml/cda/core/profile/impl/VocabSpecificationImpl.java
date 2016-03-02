@@ -40,7 +40,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The default value of the '{@link #getCodeSystem() <em>Code System</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystem()
 	 * @generated
 	 * @ordered
@@ -73,7 +73,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The cached value of the '{@link #getCodeSystem() <em>Code System</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystem()
 	 * @generated
 	 * @ordered
@@ -84,7 +84,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The default value of the '{@link #getCodeSystemName() <em>Code System Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystemName()
 	 * @generated
 	 * @ordered
@@ -95,7 +95,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The cached value of the '{@link #getCodeSystemName() <em>Code System Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystemName()
 	 * @generated
 	 * @ordered
@@ -106,7 +106,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The default value of the '{@link #getCodeSystemVersion() <em>Code System Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystemVersion()
 	 * @generated
 	 * @ordered
@@ -117,7 +117,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The cached value of the '{@link #getCodeSystemVersion() <em>Code System Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getCodeSystemVersion()
 	 * @generated
 	 * @ordered
@@ -128,7 +128,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The default value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getDisplayName()
 	 * @generated
 	 * @ordered
@@ -139,7 +139,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	 * The cached value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getDisplayName()
 	 * @generated
 	 * @ordered
@@ -149,7 +149,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected VocabSpecificationImpl() {
@@ -159,7 +159,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -182,7 +182,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,7 +215,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -243,7 +243,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -254,7 +254,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -282,7 +282,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getCode() {
@@ -292,7 +292,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getCodeSystem() {
@@ -302,7 +302,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getCodeSystemName() {
@@ -312,7 +312,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getCodeSystemVersion() {
@@ -322,7 +322,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getDisplayName() {
@@ -332,7 +332,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setCode(String newCode) {
@@ -346,7 +346,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setCodeSystem(String newCodeSystem) {
@@ -362,7 +362,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setCodeSystemName(String newCodeSystemName) {
@@ -379,7 +379,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setCodeSystemVersion(String newCodeSystemVersion) {
@@ -396,7 +396,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setDisplayName(String newDisplayName) {
@@ -412,7 +412,7 @@ public class VocabSpecificationImpl extends PropertyValidationImpl implements Vo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

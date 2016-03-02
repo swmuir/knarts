@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getValue <em>Value</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#isInverted <em>Inverted</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR()
  * @model
@@ -76,7 +76,7 @@ public interface CR extends EObject {
 	 * @return the value of the '<em>Inverted</em>' attribute.
 	 * @see #setInverted(boolean)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR_Inverted()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" ordered="false"
 	 * @generated
 	 */
 	boolean isInverted();

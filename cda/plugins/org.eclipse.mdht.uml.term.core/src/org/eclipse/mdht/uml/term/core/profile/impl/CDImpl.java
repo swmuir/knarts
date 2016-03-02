@@ -33,6 +33,7 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CDImpl#getQualifier <em>Qualifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CDImpl#getTranslation <em>Translation</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CDImpl#getCodeSystemVersion <em>Code System Version</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CDImpl#getDisplayName <em>Display Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

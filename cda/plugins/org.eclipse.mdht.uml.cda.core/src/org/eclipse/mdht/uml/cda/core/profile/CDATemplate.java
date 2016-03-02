@@ -40,7 +40,7 @@ public interface CDATemplate extends ClassValidation {
 	 * If the meaning of the '<em>Assigning Authority Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Assigning Authority Name</em>' attribute.
 	 * @see #setAssigningAuthorityName(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCDATemplate_AssigningAuthorityName()
@@ -56,7 +56,7 @@ public interface CDATemplate extends ClassValidation {
 	 * If the meaning of the '<em>Template Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Template Id</em>' attribute.
 	 * @see #setTemplateId(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCDATemplate_TemplateId()
@@ -73,7 +73,7 @@ public interface CDATemplate extends ClassValidation {
 	 * If the meaning of the '<em>Context Dependent</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Context Dependent</em>' attribute.
 	 * @see #setContextDependent(boolean)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCDATemplate_ContextDependent()
@@ -87,7 +87,7 @@ public interface CDATemplate extends ClassValidation {
 	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Assigning Authority Name</em>' attribute.
 	 * @see #getAssigningAuthorityName()
@@ -99,7 +99,7 @@ public interface CDATemplate extends ClassValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#isContextDependent <em>Context Dependent</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Context Dependent</em>' attribute.
 	 * @see #isContextDependent()
@@ -114,7 +114,7 @@ public interface CDATemplate extends ClassValidation {
 	 * If the meaning of the '<em>Template Version</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Template Version</em>' attribute.
 	 * @see #setTemplateVersion(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCDATemplate_TemplateVersion()
@@ -127,7 +127,7 @@ public interface CDATemplate extends ClassValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateVersion <em>Template Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Template Version</em>' attribute.
 	 * @see #getTemplateVersion()
@@ -143,7 +143,7 @@ public interface CDATemplate extends ClassValidation {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Template Multiplicity</em>' attribute.
 	 * @see #setTemplateMultiplicity(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCDATemplate_TemplateMultiplicity()
@@ -157,7 +157,7 @@ public interface CDATemplate extends ClassValidation {
 	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Template Multiplicity</em>' attribute.
 	 * @see #getTemplateMultiplicity()
@@ -169,7 +169,7 @@ public interface CDATemplate extends ClassValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateId <em>Template Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Template Id</em>' attribute.
 	 * @see #getTemplateId()

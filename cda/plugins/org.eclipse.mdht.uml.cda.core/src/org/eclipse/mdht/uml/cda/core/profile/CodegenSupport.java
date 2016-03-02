@@ -44,7 +44,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Base Namespace</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Base Namespace</em>' reference.
 	 * @see #setBase_Namespace(Namespace)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_Base_Namespace()
@@ -60,7 +60,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Base Package</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Base Package</em>' attribute.
 	 * @see #setBasePackage(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_BasePackage()
@@ -76,7 +76,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Ns Prefix</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Ns Prefix</em>' attribute.
 	 * @see #setNsPrefix(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_NsPrefix()
@@ -92,7 +92,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Ns URI</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Ns URI</em>' attribute.
 	 * @see #setNsURI(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_NsURI()
@@ -108,7 +108,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Package Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Package Name</em>' attribute.
 	 * @see #setPackageName(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_PackageName()
@@ -124,7 +124,7 @@ public interface CodegenSupport extends EObject {
 	 * If the meaning of the '<em>Prefix</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Prefix</em>' attribute.
 	 * @see #setPrefix(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getCodegenSupport_Prefix()
@@ -137,7 +137,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getBase_Namespace <em>Base Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Base Namespace</em>' reference.
 	 * @see #getBase_Namespace()
@@ -149,7 +149,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getBasePackage <em>Base Package</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Base Package</em>' attribute.
 	 * @see #getBasePackage()
@@ -161,7 +161,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getNsPrefix <em>Ns Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Ns Prefix</em>' attribute.
 	 * @see #getNsPrefix()
@@ -173,7 +173,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getNsURI <em>Ns URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Ns URI</em>' attribute.
 	 * @see #getNsURI()
@@ -185,7 +185,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getPackageName <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Package Name</em>' attribute.
 	 * @see #getPackageName()
@@ -197,7 +197,7 @@ public interface CodegenSupport extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getPrefix <em>Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Prefix</em>' attribute.
 	 * @see #getPrefix()

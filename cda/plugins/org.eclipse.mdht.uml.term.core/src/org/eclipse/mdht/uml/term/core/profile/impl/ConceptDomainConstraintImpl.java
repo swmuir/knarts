@@ -28,13 +28,13 @@ import org.eclipse.uml2.uml.Property;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl#getReference <em>Reference</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl#getBase_Property <em>Base Property</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

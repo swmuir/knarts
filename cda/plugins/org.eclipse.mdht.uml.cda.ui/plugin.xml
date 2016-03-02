@@ -31,11 +31,23 @@
                afterTab="property.tab.GeneralPropertySection"
                id="property.tab.CDAPropertySection">           
          </propertyTab> 
+          <propertyTab
+            category="domain"
+            label="CDA Instance Sample"
+            afterTab="property.tab.CDAPropertySection"
+            id="property.tab.CDAInstanceSampleSection">           
+         </propertyTab>
       </propertyTabs>
    </extension>
  
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-       <propertySections contributorId="org.eclipse.mdht.uml.ui.properties">
+       <propertySections contributorId="org.eclipse.mdht.uml.ui.properties">          
+          
+         <propertySection tab="property.tab.CDAInstanceSampleSection" 
+             class="org.eclipse.mdht.uml.cda.ui.properties.CDAInstanceSampleSection" 
+             id="property.section.cda.CDAInstanceSampleSection"
+             filter="org.eclipse.mdht.uml.cda.ui.filters.TemplateFilter"/>
+                          
        
          <propertySection tab="property.tab.CDAPropertySection"
              class="org.eclipse.mdht.uml.cda.ui.properties.InlineSection"
@@ -513,4 +525,25 @@
       <initializer class="org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferenceInitializer"/>
    </extension>
             
+   <!-- Hide menu item to add an UML constraint in case an CDA association is selected -->
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.openhealthtools.mdht.uml.ui.navigator.UMLDomainNavigatorItem"
+            id="mdht.objectContribution.uml.element">
+         <visibility>
+            <and>
+               <objectState name="umlType" value="Association"/>
+	           <objectState name="hasStereotype" value="CDA::AssociationValidation"/>
+            </and>
+         </visibility>
+         <action
+               class="org.openhealthtools.mdht.uml.ui.actions.AddUMLConstraintAction"
+               id="mdht.actions.addUML.constraint2"
+               label="Constraint"
+               menubarPath="mdht.addUML/constraintGroup/"
+               overrideActionId="mdht.actions.addUML.constraint">
+         </action>
+      </objectContribution>
+   </extension>
+   
 </plugin>

@@ -61,6 +61,7 @@ public class AssociationValidationSection extends ValidationSection {
 		composite.setLayout(layout);
 
 		addValidationControls(composite, 0, 1);
+		addScope(composite, 0, 1);
 
 		FormData data = null;
 

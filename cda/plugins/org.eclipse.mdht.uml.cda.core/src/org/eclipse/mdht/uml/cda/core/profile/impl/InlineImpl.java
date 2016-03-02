@@ -32,7 +32,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Class()
 	 * @generated
 	 * @ordered
@@ -43,7 +43,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -54,7 +54,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -65,7 +65,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	 * The default value of the '{@link #isPublishSeperately() <em>Publish Seperately</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isPublishSeperately()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	 * The cached value of the '{@link #isPublishSeperately() <em>Publish Seperately</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isPublishSeperately()
 	 * @generated
 	 * @ordered
@@ -86,7 +86,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected InlineImpl() {
@@ -96,7 +96,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -107,7 +107,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class getBase_Class() {
@@ -128,7 +128,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class basicGetBase_Class() {
@@ -138,7 +138,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Class(org.eclipse.uml2.uml.Class newBase_Class) {
@@ -154,7 +154,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getFilter() {
@@ -164,7 +164,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setFilter(String newFilter) {
@@ -178,7 +178,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public boolean isPublishSeperately() {
@@ -188,7 +188,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setPublishSeperately(boolean newPublishSeperately) {
@@ -205,7 +205,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -227,7 +227,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -249,7 +249,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -271,7 +271,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,7 +292,7 @@ public class InlineImpl extends EObjectImpl implements Inline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

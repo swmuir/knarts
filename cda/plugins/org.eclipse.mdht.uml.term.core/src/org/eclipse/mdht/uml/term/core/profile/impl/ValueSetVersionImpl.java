@@ -31,6 +31,7 @@ import org.eclipse.uml2.uml.Enumeration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl#getVersion <em>Version</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.uml2.uml.Enumeration;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl#getCodeSystem <em>Code System</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl#getBase_Enumeration <em>Base Enumeration</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EReference;
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='Terminology'"
  * @generated
  */
 public interface TermPackage extends EPackage {
@@ -210,8 +211,7 @@ public interface TermPackage extends EPackage {
 		EReference CONCEPT_DOMAIN_CONSTRAINT__BASE_PROPERTY = eINSTANCE.getConceptDomainConstraint_Base_Property();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl <em>Concept Domain</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl <em>Concept Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -360,8 +360,8 @@ public interface TermPackage extends EPackage {
 		EReference CODE_SYSTEM_CONSTRAINT__BASE_PROPERTY = eINSTANCE.getCodeSystemConstraint_Base_Property();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl
-		 * <em>Code System Version</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl <em>Code System Version</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -462,8 +462,8 @@ public interface TermPackage extends EPackage {
 		EReference CODE_SYSTEM_VERSION__BASE_ENUMERATION = eINSTANCE.getCodeSystemVersion_Base_Enumeration();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl
-		 * <em>Value Set Constraint</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl <em>Value Set Constraint</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -528,8 +528,7 @@ public interface TermPackage extends EPackage {
 		EReference VALUE_SET_CONSTRAINT__BASE_PROPERTY = eINSTANCE.getValueSetConstraint_Base_Property();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl <em>Value Set Version</em>}
-		 * ' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetVersionImpl <em>Value Set Version</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -684,8 +683,7 @@ public interface TermPackage extends EPackage {
 		EReference VALUE_SET_VERSION__BASE_ENUMERATION = eINSTANCE.getValueSetVersion_Base_Enumeration();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl <em>Value Set Code</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl <em>Value Set Code</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -789,8 +787,7 @@ public interface TermPackage extends EPackage {
 		EReference VALUE_SET_CONTEXT_BINDING__BASE_CLASS = eINSTANCE.getValueSetContextBinding_Base_Class();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl <em>Usage Context</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl <em>Usage Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 *
@@ -1050,8 +1047,8 @@ public interface TermPackage extends EPackage {
 	int CR_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl
-	 * <em>Concept Domain Constraint</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainConstraintImpl <em>Concept Domain Constraint</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1183,8 +1180,8 @@ public interface TermPackage extends EPackage {
 	int CONCEPT_DOMAIN_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemConstraintImpl
-	 * <em>Code System Constraint</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemConstraintImpl <em>Code System Constraint</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1295,8 +1292,7 @@ public interface TermPackage extends EPackage {
 	int CODE_SYSTEM_CONSTRAINT_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl <em>Code System Version</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl <em>Code System Version</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1417,8 +1413,7 @@ public interface TermPackage extends EPackage {
 	int CODE_SYSTEM_VERSION_FEATURE_COUNT = 10;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl <em>Value Set Constraint</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl <em>Value Set Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1741,8 +1736,8 @@ public interface TermPackage extends EPackage {
 	int VALUE_SET_CODE_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl
-	 * <em>Value Set Context Binding</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl <em>Value Set Context Binding</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1953,8 +1948,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getCD_CodeSystem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CD#getCodeSystemName
-	 * <em>Code System Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CD#getCodeSystemName <em>Code System Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1966,8 +1960,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getCD_CodeSystemName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CD#getCodeSystemVersion
-	 * <em>Code System Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CD#getCodeSystemVersion <em>Code System Version</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -1991,8 +1985,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getCD_DisplayName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.term.core.profile.CD#getQualifier
-	 * <em>Qualifier</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.term.core.profile.CD#getQualifier <em>Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2017,8 +2010,7 @@ public interface TermPackage extends EPackage {
 	EReference getCD_Translation();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint <em>Code System Constraint</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint <em>Code System Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2042,8 +2034,7 @@ public interface TermPackage extends EPackage {
 	EReference getCodeSystemConstraint_Base_Property();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getBinding
-	 * <em>Binding</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getBinding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2080,8 +2071,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemConstraint_DisplayName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getIdentifier <em>Identifier</em>
+	 * }'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2118,8 +2109,8 @@ public interface TermPackage extends EPackage {
 	EReference getCodeSystemConstraint_Qualifier();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getReference
-	 * <em>Reference</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getReference <em>Reference</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2131,8 +2122,7 @@ public interface TermPackage extends EPackage {
 	EReference getCodeSystemConstraint_Reference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2181,8 +2171,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemVersion_EffectiveDate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getFullName
-	 * <em>Full Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getFullName <em>Full Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2194,8 +2183,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemVersion_FullName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getIdentifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2207,8 +2195,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemVersion_Identifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getReleaseDate
-	 * <em>Release Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getReleaseDate <em>Release Date</em>
+	 * }'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2244,8 +2232,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemVersion_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getStatusDate
-	 * <em>Status Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getStatusDate <em>Status Date</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2269,8 +2257,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getCodeSystemVersion_Url();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getVersion <em>Version</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2293,8 +2280,7 @@ public interface TermPackage extends EPackage {
 	EClass getConceptDomain();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getBase_Class
-	 * <em>Base Class</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getBase_Class <em>Base Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2306,8 +2292,7 @@ public interface TermPackage extends EPackage {
 	EReference getConceptDomain_Base_Class();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getFullName <em>Full Name</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getFullName <em>Full Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2319,8 +2304,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getConceptDomain_FullName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getIdentifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2344,8 +2328,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getConceptDomain_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getStatusDate
-	 * <em>Status Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomain#getStatusDate <em>Status Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2357,8 +2340,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getConceptDomain_StatusDate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint
-	 * <em>Concept Domain Constraint</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint <em>Concept Domain Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2395,8 +2377,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getConceptDomainConstraint_Identifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint#getName <em>Name</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2500,8 +2481,7 @@ public interface TermPackage extends EPackage {
 	EClass getUsageContext();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getBase_Class
-	 * <em>Base Class</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getBase_Class <em>Base Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2513,8 +2493,7 @@ public interface TermPackage extends EPackage {
 	EReference getUsageContext_Base_Class();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getIdentifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2538,8 +2517,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getUsageContext_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getStatusDate
-	 * <em>Status Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getStatusDate <em>Status Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2575,8 +2553,7 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetCode_Base_EnumerationLiteral();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getCodeSystem
-	 * <em>Code System</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getCodeSystem <em>Code System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2588,8 +2565,7 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetCode_CodeSystem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getConceptName
-	 * <em>Concept Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getConceptName <em>Concept Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2601,8 +2577,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetCode_ConceptName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getUsageNote <em>Usage Note</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getUsageNote <em>Usage Note</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2638,8 +2613,7 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetConstraint_Base_Property();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBinding
-	 * <em>Binding</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBinding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2651,8 +2625,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetConstraint_Binding();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getIdentifier <em>Identifier</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2676,8 +2650,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetConstraint_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getReference
-	 * <em>Reference</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2689,8 +2662,7 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetConstraint_Reference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2702,8 +2674,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetConstraint_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding
-	 * <em>Value Set Context Binding</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding <em>Value Set Context Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2766,8 +2737,8 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetContextBinding_UsageContext();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getValueSet
-	 * <em>Value Set</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getValueSet <em>Value Set</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2826,8 +2797,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_Binding();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getCodeSystem
-	 * <em>Code System</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getCodeSystem <em>Code System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2839,8 +2809,7 @@ public interface TermPackage extends EPackage {
 	EReference getValueSetVersion_CodeSystem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getDefinition
-	 * <em>Definition</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getDefinition <em>Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2878,8 +2847,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_ExpirationDate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getFullName
-	 * <em>Full Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getFullName <em>Full Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2891,8 +2859,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_FullName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getIdentifier
-	 * <em>Identifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getIdentifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2904,8 +2871,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_Identifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getReleaseDate
-	 * <em>Release Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getReleaseDate <em>Release Date</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2917,8 +2884,8 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_ReleaseDate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getRevisionDate
-	 * <em>Revision Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getRevisionDate <em>Revision Date</em>
+	 * }'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -2954,8 +2921,7 @@ public interface TermPackage extends EPackage {
 	EAttribute getValueSetVersion_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getStatusDate
-	 * <em>Status Date</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion#getStatusDate <em>Status Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *

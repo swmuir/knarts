@@ -159,6 +159,10 @@ public class DitaUtil {
 
 		URL ditadirURL = FileLocator.find(bundle, ditadirPath, null);
 
+		if (ditadirURL == null) {
+			return null;
+		}
+
 		ditadirURL = FileLocator.toFileURL(ditadirURL);
 
 		InputStream in = fileURL.openStream();

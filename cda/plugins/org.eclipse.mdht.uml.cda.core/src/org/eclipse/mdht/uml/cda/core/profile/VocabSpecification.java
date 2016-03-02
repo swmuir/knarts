@@ -40,7 +40,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getVocabSpecification_Code()
@@ -56,7 +56,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * If the meaning of the '<em>Code System</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Code System</em>' attribute.
 	 * @see #setCodeSystem(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getVocabSpecification_CodeSystem()
@@ -72,7 +72,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * If the meaning of the '<em>Code System Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Code System Name</em>' attribute.
 	 * @see #setCodeSystemName(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getVocabSpecification_CodeSystemName()
@@ -88,7 +88,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * If the meaning of the '<em>Code System Version</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Code System Version</em>' attribute.
 	 * @see #setCodeSystemVersion(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getVocabSpecification_CodeSystemVersion()
@@ -104,7 +104,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * If the meaning of the '<em>Display Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Display Name</em>' attribute.
 	 * @see #setDisplayName(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getVocabSpecification_DisplayName()
@@ -117,7 +117,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCode <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Code</em>' attribute.
 	 * @see #getCode()
@@ -129,7 +129,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystem <em>Code System</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Code System</em>' attribute.
 	 * @see #getCodeSystem()
@@ -141,7 +141,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystemName <em>Code System Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Code System Name</em>' attribute.
 	 * @see #getCodeSystemName()
@@ -154,7 +154,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Code System Version</em>' attribute.
 	 * @see #getCodeSystemVersion()
@@ -166,7 +166,7 @@ public interface VocabSpecification extends PropertyValidation {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getDisplayName <em>Display Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Display Name</em>' attribute.
 	 * @see #getDisplayName()

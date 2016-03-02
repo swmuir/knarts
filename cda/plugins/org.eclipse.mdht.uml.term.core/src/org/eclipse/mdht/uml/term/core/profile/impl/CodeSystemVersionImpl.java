@@ -28,6 +28,7 @@ import org.eclipse.uml2.uml.Enumeration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl#getVersion <em>Version</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.uml2.uml.Enumeration;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl#getStatusDate <em>Status Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CodeSystemVersionImpl#getBase_Enumeration <em>Base Enumeration</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

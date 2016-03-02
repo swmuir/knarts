@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CD#getQualifier <em>Qualifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CD#getTranslation <em>Translation</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CD#getCodeSystemVersion <em>Code System Version</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CD#getDisplayName <em>Display Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD()
  * @model
@@ -49,7 +49,7 @@ public interface CD extends EObject {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD_Code()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getCode();
@@ -65,7 +65,7 @@ public interface CD extends EObject {
 	 * @return the value of the '<em>Code System</em>' attribute.
 	 * @see #setCodeSystem(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD_CodeSystem()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getCodeSystem();
@@ -81,7 +81,7 @@ public interface CD extends EObject {
 	 * @return the value of the '<em>Code System Name</em>' attribute.
 	 * @see #setCodeSystemName(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD_CodeSystemName()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getCodeSystemName();
@@ -97,7 +97,7 @@ public interface CD extends EObject {
 	 * @return the value of the '<em>Code System Version</em>' attribute.
 	 * @see #setCodeSystemVersion(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD_CodeSystemVersion()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getCodeSystemVersion();
@@ -113,7 +113,7 @@ public interface CD extends EObject {
 	 * @return the value of the '<em>Display Name</em>' attribute.
 	 * @see #setDisplayName(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCD_DisplayName()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getDisplayName();

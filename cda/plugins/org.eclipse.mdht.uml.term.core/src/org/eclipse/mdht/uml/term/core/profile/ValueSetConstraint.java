@@ -22,6 +22,7 @@ import org.eclipse.uml2.uml.Property;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getReference <em>Reference</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getIdentifier <em>Identifier</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.uml2.uml.Property;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBinding <em>Binding</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBase_Property <em>Base Property</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint()
  * @model
@@ -82,7 +82,7 @@ public interface ValueSetConstraint extends EObject {
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Identifier()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -98,7 +98,7 @@ public interface ValueSetConstraint extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Name()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getName();
@@ -130,14 +130,13 @@ public interface ValueSetConstraint extends EObject {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Version()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBase_Property <em>Base Property</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *

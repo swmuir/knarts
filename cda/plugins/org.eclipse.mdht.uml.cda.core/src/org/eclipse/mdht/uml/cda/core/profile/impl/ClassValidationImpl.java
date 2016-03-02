@@ -37,7 +37,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Class()
 	 * @generated
 	 * @ordered
@@ -47,7 +47,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected ClassValidationImpl() {
@@ -57,7 +57,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class basicGetBase_Class() {
@@ -67,7 +67,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -85,7 +85,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,7 +116,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class getBase_Class() {
@@ -165,7 +165,7 @@ public class ClassValidationImpl extends ValidationImpl implements ClassValidati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Class(org.eclipse.uml2.uml.Class newBase_Class) {

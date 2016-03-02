@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl#getFullName <em>Full Name</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl#getStatusDate <em>Status Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ConceptDomainImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

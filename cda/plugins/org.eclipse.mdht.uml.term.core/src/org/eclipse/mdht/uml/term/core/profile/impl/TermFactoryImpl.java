@@ -64,8 +64,7 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 	 */
 	public static TermFactory init() {
 		try {
-			TermFactory theTermFactory = (TermFactory) EPackage.Registry.INSTANCE.getEFactory(
-				"http://www.openhealthtools.org/mdht/schemas/term/1");
+			TermFactory theTermFactory = (TermFactory) EPackage.Registry.INSTANCE.getEFactory(TermPackage.eNS_URI);
 			if (theTermFactory != null) {
 				return theTermFactory;
 			}

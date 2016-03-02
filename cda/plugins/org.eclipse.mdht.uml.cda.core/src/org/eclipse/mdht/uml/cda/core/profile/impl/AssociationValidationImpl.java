@@ -38,7 +38,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	 * The cached value of the '{@link #getBase_Association() <em>Base Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Association()
 	 * @generated
 	 * @ordered
@@ -48,7 +48,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected AssociationValidationImpl() {
@@ -58,7 +58,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Association basicGetBase_Association() {
@@ -68,7 +68,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,7 +86,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -101,7 +101,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +117,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Association getBase_Association() {
@@ -166,7 +166,7 @@ public class AssociationValidationImpl extends ValidationImpl implements Associa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Association(Association newBase_Association) {

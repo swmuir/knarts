@@ -28,12 +28,12 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CRImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CRImpl#getValue <em>Value</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.CRImpl#isInverted <em>Inverted</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

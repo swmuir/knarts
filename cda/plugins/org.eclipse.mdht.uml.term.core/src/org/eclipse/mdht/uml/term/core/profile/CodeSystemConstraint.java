@@ -23,6 +23,7 @@ import org.eclipse.uml2.uml.Property;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getReference <em>Reference</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getIdentifier <em>Identifier</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.uml2.uml.Property;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getQualifier <em>Qualifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getBase_Property <em>Base Property</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint()
  * @model
@@ -86,7 +86,7 @@ public interface CodeSystemConstraint extends EObject {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint_Code()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getCode();
@@ -102,7 +102,7 @@ public interface CodeSystemConstraint extends EObject {
 	 * @return the value of the '<em>Display Name</em>' attribute.
 	 * @see #setDisplayName(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint_DisplayName()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getDisplayName();
@@ -118,7 +118,7 @@ public interface CodeSystemConstraint extends EObject {
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint_Identifier()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -134,7 +134,7 @@ public interface CodeSystemConstraint extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint_Name()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getName();
@@ -182,14 +182,13 @@ public interface CodeSystemConstraint extends EObject {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCodeSystemConstraint_Version()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getBase_Property <em>Base Property</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -226,8 +225,7 @@ public interface CodeSystemConstraint extends EObject {
 	void setCode(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getDisplayName <em>Display Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getDisplayName <em>Display Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -239,8 +237,7 @@ public interface CodeSystemConstraint extends EObject {
 	void setDisplayName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getIdentifier <em>Identifier</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint#getIdentifier <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *

@@ -42,7 +42,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	 * The cached value of the '{@link #getBase_Association() <em>Base Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Association()
 	 * @generated
 	 * @ordered
@@ -53,7 +53,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	 * The cached value of the '{@link #getAssociationType() <em>Association Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getAssociationType()
 	 * @generated
 	 * @ordered
@@ -64,7 +64,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	 * The cached value of the '{@link #getTypeCode() <em>Type Code</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getTypeCode()
 	 * @generated
 	 * @ordered
@@ -74,7 +74,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected ActRelationshipImpl() {
@@ -84,7 +84,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class basicGetAssociationType() {
@@ -94,7 +94,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Association basicGetBase_Association() {
@@ -104,7 +104,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EnumerationLiteral basicGetTypeCode() {
@@ -114,7 +114,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,7 +142,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,7 +161,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -183,7 +183,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,7 +194,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,7 +216,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public org.eclipse.uml2.uml.Class getAssociationType() {
@@ -238,7 +238,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Association getBase_Association() {
@@ -260,7 +260,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EnumerationLiteral getTypeCode() {
@@ -281,7 +281,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setAssociationType(org.eclipse.uml2.uml.Class newAssociationType) {
@@ -298,7 +298,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Association(Association newBase_Association) {
@@ -315,7 +315,7 @@ public class ActRelationshipImpl extends EObjectImpl implements ActRelationship 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setTypeCode(EnumerationLiteral newTypeCode) {

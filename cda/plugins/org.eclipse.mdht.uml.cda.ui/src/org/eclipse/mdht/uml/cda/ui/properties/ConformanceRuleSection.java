@@ -172,7 +172,10 @@ public class ConformanceRuleSection extends ResettableModelerPropertySection {
 
 	@Override
 	public void refresh() {
+		// Toggle Append Conformance
+		CDAModelUtil.isAppendConformanceRules = true;
 		String computedMessage = CDAModelUtil.computeConformanceMessage(modelElement, false);
+		CDAModelUtil.isAppendConformanceRules = false;
 		messageDisplay.setText(computedMessage != null
 				? computedMessage
 				: "");

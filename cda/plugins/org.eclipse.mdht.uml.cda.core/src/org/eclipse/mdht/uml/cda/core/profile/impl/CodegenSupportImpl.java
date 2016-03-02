@@ -44,7 +44,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBasePackage()
 	 * @generated
 	 * @ordered
@@ -55,7 +55,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBasePackage()
 	 * @generated
 	 * @ordered
@@ -66,7 +66,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The default value of the '{@link #getNsPrefix() <em>Ns Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getNsPrefix()
 	 * @generated
 	 * @ordered
@@ -77,7 +77,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getNsPrefix() <em>Ns Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getNsPrefix()
 	 * @generated
 	 * @ordered
@@ -88,7 +88,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The default value of the '{@link #getNsURI() <em>Ns URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getNsURI()
 	 * @generated
 	 * @ordered
@@ -99,7 +99,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getNsURI() <em>Ns URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getNsURI()
 	 * @generated
 	 * @ordered
@@ -110,7 +110,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getPackageName()
 	 * @generated
 	 * @ordered
@@ -121,7 +121,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getPackageName()
 	 * @generated
 	 * @ordered
@@ -132,7 +132,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getPrefix()
 	 * @generated
 	 * @ordered
@@ -143,7 +143,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getPrefix()
 	 * @generated
 	 * @ordered
@@ -154,7 +154,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	 * The cached value of the '{@link #getBase_Namespace() <em>Base Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Namespace()
 	 * @generated
 	 * @ordered
@@ -164,7 +164,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected CodegenSupportImpl() {
@@ -174,7 +174,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Namespace basicGetBase_Namespace() {
@@ -184,7 +184,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -212,7 +212,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -247,7 +247,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -278,7 +278,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -289,7 +289,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -320,7 +320,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Namespace getBase_Namespace() {
@@ -342,7 +342,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getBasePackage() {
@@ -352,7 +352,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getNsPrefix() {
@@ -362,7 +362,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getNsURI() {
@@ -372,7 +372,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getPackageName() {
@@ -382,7 +382,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String getPrefix() {
@@ -392,7 +392,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Namespace(Namespace newBase_Namespace) {
@@ -409,7 +409,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBasePackage(String newBasePackage) {
@@ -425,7 +425,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setNsPrefix(String newNsPrefix) {
@@ -441,7 +441,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setNsURI(String newNsURI) {
@@ -455,7 +455,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setPackageName(String newPackageName) {
@@ -471,7 +471,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setPrefix(String newPrefix) {
@@ -486,7 +486,7 @@ public class CodegenSupportImpl extends EObjectImpl implements CodegenSupport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

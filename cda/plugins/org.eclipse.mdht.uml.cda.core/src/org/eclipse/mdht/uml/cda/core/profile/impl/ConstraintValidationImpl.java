@@ -40,7 +40,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	 * The cached value of the '{@link #getBase_Constraint() <em>Base Constraint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Constraint()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	 * The default value of the '{@link #isEnabledDitaForConstraints() <em>Enabled Dita For Constraints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isEnabledDitaForConstraints()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	 * The cached value of the '{@link #isEnabledDitaForConstraints() <em>Enabled Dita For Constraints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isEnabledDitaForConstraints()
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected ConstraintValidationImpl() {
@@ -82,7 +82,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Constraint basicGetBase_Constraint() {
@@ -92,7 +92,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,7 +112,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,7 +129,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,7 +148,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -167,7 +167,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,7 +178,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -197,7 +197,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Constraint getBase_Constraint() {
@@ -219,7 +219,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Constraint(Constraint newBase_Constraint) {
@@ -236,7 +236,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public boolean isEnabledDitaForConstraints() {
@@ -246,7 +246,7 @@ public class ConstraintValidationImpl extends ValidationImpl implements Constrai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setEnabledDitaForConstraints(boolean newEnabledDitaForConstraints) {

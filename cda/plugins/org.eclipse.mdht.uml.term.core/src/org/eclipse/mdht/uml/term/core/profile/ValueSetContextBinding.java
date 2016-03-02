@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getEffectiveDate <em>Effective Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getConceptDomain <em>Concept Domain</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getUsageContext <em>Usage Context</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getBase_Class <em>Base Class</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetContextBinding()
  * @model
@@ -78,7 +78,7 @@ public interface ValueSetContextBinding extends EObject {
 	 * @return the value of the '<em>Effective Date</em>' attribute.
 	 * @see #setEffectiveDate(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetContextBinding_EffectiveDate()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getEffectiveDate();
@@ -116,8 +116,7 @@ public interface ValueSetContextBinding extends EObject {
 	ValueSetVersion getValueSet();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getBase_Class <em>Base Class</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -155,8 +154,7 @@ public interface ValueSetContextBinding extends EObject {
 	void setEffectiveDate(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getUsageContext <em>Usage Context</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding#getUsageContext <em>Usage Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *

@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getStatus <em>Status</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getStatusDate <em>Status Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.UsageContext#getBase_Class <em>Base Class</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getUsageContext()
  * @model
@@ -61,7 +61,7 @@ public interface UsageContext extends EObject {
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getUsageContext_Identifier()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -95,7 +95,7 @@ public interface UsageContext extends EObject {
 	 * @return the value of the '<em>Status Date</em>' attribute.
 	 * @see #setStatusDate(String)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getUsageContext_StatusDate()
-	 * @model ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getStatusDate();

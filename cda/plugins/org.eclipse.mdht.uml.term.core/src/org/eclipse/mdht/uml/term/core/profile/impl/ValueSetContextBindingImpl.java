@@ -29,6 +29,7 @@ import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl#getEffectiveDate <em>Effective Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl#getConceptDomain <em>Concept Domain</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl#getUsageContext <em>Usage Context</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetContextBindingImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

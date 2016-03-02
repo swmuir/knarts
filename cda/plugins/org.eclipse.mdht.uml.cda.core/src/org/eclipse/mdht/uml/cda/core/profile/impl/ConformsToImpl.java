@@ -39,7 +39,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	 * The cached value of the '{@link #getBase_Generalization() <em>Base Generalization</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Generalization()
 	 * @generated
 	 * @ordered
@@ -50,7 +50,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	 * The default value of the '{@link #isRequiresParentId() <em>Requires Parent Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isRequiresParentId()
 	 * @generated
 	 * @ordered
@@ -61,7 +61,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	 * The cached value of the '{@link #isRequiresParentId() <em>Requires Parent Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isRequiresParentId()
 	 * @generated
 	 * @ordered
@@ -71,7 +71,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected ConformsToImpl() {
@@ -81,7 +81,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Generalization basicGetBase_Generalization() {
@@ -91,7 +91,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,7 +111,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,7 +147,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,7 +158,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -177,7 +177,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Generalization getBase_Generalization() {
@@ -199,7 +199,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public boolean isRequiresParentId() {
@@ -209,7 +209,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Generalization(Generalization newBase_Generalization) {
@@ -226,7 +226,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setRequiresParentId(boolean newRequiresParentId) {
@@ -243,7 +243,7 @@ public class ConformsToImpl extends ValidationImpl implements ConformsTo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

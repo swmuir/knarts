@@ -28,13 +28,13 @@ import org.eclipse.uml2.uml.EnumerationLiteral;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl#getConceptName <em>Concept Name</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl#getUsageNote <em>Usage Note</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl#getCodeSystem <em>Code System</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetCodeImpl#getBase_EnumerationLiteral <em>Base Enumeration Literal</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

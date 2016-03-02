@@ -31,7 +31,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	 * The cached value of the '{@link #getBase_Constraint() <em>Base Constraint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getBase_Constraint()
 	 * @generated
 	 * @ordered
@@ -41,7 +41,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected UnimplementableImpl() {
@@ -51,7 +51,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Constraint getBase_Constraint() {
@@ -84,7 +84,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Constraint basicGetBase_Constraint() {
@@ -94,7 +94,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void setBase_Constraint(Constraint newBase_Constraint) {
@@ -111,7 +111,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,7 +129,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,7 +161,7 @@ public class UnimplementableImpl extends EObjectImpl implements Unimplementable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

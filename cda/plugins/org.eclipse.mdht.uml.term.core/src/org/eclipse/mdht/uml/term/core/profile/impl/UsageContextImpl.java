@@ -27,13 +27,13 @@ import org.eclipse.mdht.uml.term.core.profile.UsageContext;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl#getIdentifier <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl#getStatus <em>Status</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl#getStatusDate <em>Status Date</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.UsageContextImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

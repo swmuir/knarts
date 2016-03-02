@@ -55,14 +55,14 @@ import org.eclipse.uml2.uml.UMLPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass entryEClass = null;
@@ -70,7 +70,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass associationValidationEClass = null;
@@ -78,7 +78,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass validationEClass = null;
@@ -86,7 +86,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass entryRelationshipEClass = null;
@@ -94,7 +94,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass codegenSupportEClass = null;
@@ -102,7 +102,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass propertyValidationEClass = null;
@@ -110,7 +110,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass classValidationEClass = null;
@@ -118,7 +118,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass vocabSpecificationEClass = null;
@@ -126,7 +126,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass nullFlavorEClass = null;
@@ -134,7 +134,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass textValueEClass = null;
@@ -142,7 +142,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass cdaTemplateEClass = null;
@@ -150,7 +150,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass constraintValidationEClass = null;
@@ -158,7 +158,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass conformsToEClass = null;
@@ -166,7 +166,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass conceptDomainConstraintEClass = null;
@@ -174,7 +174,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass codeSystemConstraintEClass = null;
@@ -182,7 +182,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass valueSetConstraintEClass = null;
@@ -190,7 +190,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass actRelationshipEClass = null;
@@ -198,7 +198,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass participationEClass = null;
@@ -206,7 +206,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass logicalConstraintEClass = null;
@@ -214,7 +214,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass inlineEClass = null;
@@ -222,7 +222,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EClass unimplementableEClass = null;
@@ -230,7 +230,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum severityKindEEnum = null;
@@ -238,7 +238,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum entryKindEEnum = null;
@@ -246,7 +246,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum validationKindEEnum = null;
@@ -254,7 +254,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum entryRelationshipKindEEnum = null;
@@ -262,7 +262,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum nullFlavorKindEEnum = null;
@@ -270,7 +270,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private EEnum logicalOperatorEEnum = null;
@@ -278,7 +278,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -290,7 +290,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * This method is used to initialize {@link CDAPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -329,7 +329,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -337,7 +337,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -352,7 +352,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * initialization of the package, or returns the registered package,
 	 * if one already exists.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#eNS_URI
 	 * @see #init()
@@ -367,7 +367,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -477,7 +477,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getActRelationship() {
@@ -487,7 +487,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getActRelationship_AssociationType() {
@@ -497,7 +497,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getActRelationship_Base_Association() {
@@ -507,7 +507,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getActRelationship_TypeCode() {
@@ -517,7 +517,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getAssociationValidation() {
@@ -527,7 +527,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getAssociationValidation_Base_Association() {
@@ -537,7 +537,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CDAFactory getCDAFactory() {
@@ -547,7 +547,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getCDATemplate() {
@@ -557,7 +557,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCDATemplate_AssigningAuthorityName() {
@@ -567,7 +567,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCDATemplate_ContextDependent() {
@@ -577,7 +577,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCDATemplate_TemplateVersion() {
@@ -587,7 +587,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCDATemplate_TemplateMultiplicity() {
@@ -597,7 +597,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCDATemplate_TemplateId() {
@@ -607,7 +607,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getClassValidation() {
@@ -617,7 +617,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getClassValidation_Base_Class() {
@@ -627,7 +627,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getCodegenSupport() {
@@ -637,7 +637,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getCodegenSupport_Base_Namespace() {
@@ -647,7 +647,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCodegenSupport_BasePackage() {
@@ -657,7 +657,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCodegenSupport_NsPrefix() {
@@ -667,7 +667,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCodegenSupport_NsURI() {
@@ -677,7 +677,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCodegenSupport_PackageName() {
@@ -687,7 +687,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getCodegenSupport_Prefix() {
@@ -697,7 +697,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getCodeSystemConstraint() {
@@ -707,7 +707,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getConceptDomainConstraint() {
@@ -717,7 +717,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getConformsTo() {
@@ -727,7 +727,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getConformsTo_Base_Generalization() {
@@ -737,7 +737,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getConformsTo_RequiresParentId() {
@@ -747,7 +747,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getConstraintValidation() {
@@ -757,7 +757,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getConstraintValidation_Base_Constraint() {
@@ -767,7 +767,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getConstraintValidation_EnabledDitaForConstraints() {
@@ -777,7 +777,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getEntry() {
@@ -787,7 +787,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getEntry_TypeCode() {
@@ -797,7 +797,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getEntryKind() {
@@ -807,7 +807,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getValidationKind() {
@@ -817,7 +817,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getEntryRelationship() {
@@ -827,7 +827,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getEntryRelationship_TypeCode() {
@@ -837,7 +837,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getEntryRelationshipKind() {
@@ -847,7 +847,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getNullFlavor() {
@@ -857,7 +857,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getNullFlavor_NullFlavor() {
@@ -867,7 +867,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getNullFlavorKind() {
@@ -877,7 +877,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getLogicalOperator() {
@@ -887,7 +887,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getParticipation() {
@@ -897,7 +897,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getParticipation_AssociationType() {
@@ -907,7 +907,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getParticipation_Base_Association() {
@@ -917,7 +917,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getParticipation_TypeCode() {
@@ -927,7 +927,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getLogicalConstraint() {
@@ -937,7 +937,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getLogicalConstraint_Operation() {
@@ -947,7 +947,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getInline() {
@@ -957,7 +957,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getInline_Base_Class() {
@@ -967,7 +967,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getInline_Filter() {
@@ -977,7 +977,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getInline_PublishSeperately() {
@@ -987,7 +987,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getUnimplementable() {
@@ -997,7 +997,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getUnimplementable_Base_Constraint() {
@@ -1007,7 +1007,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getPropertyValidation() {
@@ -1017,7 +1017,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EReference getPropertyValidation_Base_Property() {
@@ -1027,7 +1027,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EEnum getSeverityKind() {
@@ -1037,7 +1037,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getTextValue() {
@@ -1047,7 +1047,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getTextValue_IgnoreCase() {
@@ -1057,7 +1057,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getTextValue_Value() {
@@ -1067,7 +1067,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getValidation() {
@@ -1077,7 +1077,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_Mandatory() {
@@ -1087,7 +1087,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_Kind() {
@@ -1097,7 +1097,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_Strict() {
@@ -1107,7 +1107,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_NegationIndicator() {
@@ -1117,7 +1117,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_Message() {
@@ -1127,7 +1127,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_RuleId() {
@@ -1137,7 +1137,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getValidation_Severity() {
@@ -1147,7 +1147,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getValueSetConstraint() {
@@ -1157,7 +1157,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EClass getVocabSpecification() {
@@ -1167,7 +1167,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getVocabSpecification_Code() {
@@ -1177,7 +1177,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getVocabSpecification_CodeSystem() {
@@ -1187,7 +1187,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getVocabSpecification_CodeSystemName() {
@@ -1197,7 +1197,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getVocabSpecification_CodeSystemVersion() {
@@ -1207,7 +1207,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EAttribute getVocabSpecification_DisplayName() {
@@ -1219,7 +1219,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1566,7 +1566,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/2.0.0/UML</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void createUMLAnnotations() {

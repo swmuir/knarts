@@ -24,14 +24,14 @@ import org.eclipse.mdht.uml.cda.core.profile.*;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -44,7 +44,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public static CDAFactory init() {
@@ -63,7 +63,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CDAFactoryImpl() {
@@ -73,7 +73,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertEntryKindToString(EDataType eDataType, Object instanceValue) {
@@ -85,7 +85,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ValidationKind createValidationKindFromString(EDataType eDataType, String initialValue) {
@@ -100,7 +100,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertValidationKindToString(EDataType eDataType, Object instanceValue) {
@@ -112,7 +112,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertEntryRelationshipKindToString(EDataType eDataType, Object instanceValue) {
@@ -124,7 +124,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertNullFlavorKindToString(EDataType eDataType, Object instanceValue) {
@@ -136,7 +136,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public LogicalOperator createLogicalOperatorFromString(EDataType eDataType, String initialValue) {
@@ -151,7 +151,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertLogicalOperatorToString(EDataType eDataType, Object instanceValue) {
@@ -163,7 +163,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public String convertSeverityKindToString(EDataType eDataType, Object instanceValue) {
@@ -175,7 +175,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,7 +202,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -256,7 +256,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ActRelationship createActRelationship() {
@@ -267,7 +267,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public AssociationValidation createAssociationValidation() {
@@ -278,7 +278,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CDATemplate createCDATemplate() {
@@ -289,7 +289,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ClassValidation createClassValidation() {
@@ -300,7 +300,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CodegenSupport createCodegenSupport() {
@@ -311,7 +311,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CodeSystemConstraint createCodeSystemConstraint() {
@@ -322,7 +322,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ConceptDomainConstraint createConceptDomainConstraint() {
@@ -333,7 +333,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ConformsTo createConformsTo() {
@@ -344,7 +344,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ConstraintValidation createConstraintValidation() {
@@ -355,7 +355,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Entry createEntry() {
@@ -366,7 +366,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EntryKind createEntryKindFromString(EDataType eDataType, String initialValue) {
@@ -381,7 +381,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EntryRelationship createEntryRelationship() {
@@ -392,7 +392,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public EntryRelationshipKind createEntryRelationshipKindFromString(EDataType eDataType, String initialValue) {
@@ -407,7 +407,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -434,7 +434,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public NullFlavor createNullFlavor() {
@@ -445,7 +445,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public NullFlavorKind createNullFlavorKindFromString(EDataType eDataType, String initialValue) {
@@ -460,7 +460,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Participation createParticipation() {
@@ -471,7 +471,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public LogicalConstraint createLogicalConstraint() {
@@ -482,7 +482,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Inline createInline() {
@@ -493,7 +493,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public Unimplementable createUnimplementable() {
@@ -504,7 +504,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public PropertyValidation createPropertyValidation() {
@@ -515,7 +515,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public SeverityKind createSeverityKindFromString(EDataType eDataType, String initialValue) {
@@ -530,7 +530,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public TextValue createTextValue() {
@@ -541,7 +541,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public ValueSetConstraint createValueSetConstraint() {
@@ -552,7 +552,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public VocabSpecification createVocabSpecification() {
@@ -563,7 +563,7 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public CDAPackage getCDAPackage() {

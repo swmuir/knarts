@@ -255,6 +255,25 @@ public abstract class ValidationImpl extends EObjectImpl implements Validation {
 		return super.eIsSet(featureID);
 	}
 
+	/*
+	 * case CDAPackage.VALIDATION__MESSAGE:
+	 * setMessage((String) newValue);
+	 * return;
+	 * case CDAPackage.VALIDATION__SEVERITY:
+	 * if (featureID == CDAPackage.VALIDATION__SEVERITY && newValue instanceof EEnumLiteral) {
+	 * setSeverity(SeverityKind.getByName(((EEnumLiteral) newValue).getName()));
+	 * } else {
+	 * setSeverity((SeverityKind) newValue);
+	 * }
+	 * return;
+	 * case CDAPackage.VALIDATION__RULE_ID:
+	 * getRuleId().clear();
+	 * getRuleId().addAll((Collection<? extends String>) newValue);
+	 * return;
+	 * case CDAPackage.VALIDATION__MANDATORY:
+	 * setMandatory((Boolean) newValue);
+	 * return;
+	 */
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,11 +288,13 @@ public abstract class ValidationImpl extends EObjectImpl implements Validation {
 				setMessage((String) newValue);
 				return;
 			case CDAPackage.VALIDATION__SEVERITY:
+
 				if (featureID == CDAPackage.VALIDATION__SEVERITY && newValue instanceof EEnumLiteral) {
 					setSeverity(SeverityKind.getByName(((EEnumLiteral) newValue).getName()));
 				} else {
 					setSeverity((SeverityKind) newValue);
 				}
+
 				return;
 			case CDAPackage.VALIDATION__RULE_ID:
 				getRuleId().clear();
@@ -281,6 +302,15 @@ public abstract class ValidationImpl extends EObjectImpl implements Validation {
 				return;
 			case CDAPackage.VALIDATION__MANDATORY:
 				setMandatory((Boolean) newValue);
+				return;
+			case CDAPackage.VALIDATION__KIND:
+				setKind((ValidationKind) newValue);
+				return;
+			case CDAPackage.VALIDATION__STRICT:
+				setStrict((Boolean) newValue);
+				return;
+			case CDAPackage.VALIDATION__NEGATION_INDICATOR:
+				setNegationIndicator((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

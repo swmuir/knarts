@@ -30,7 +30,7 @@ public interface Unimplementable extends EObject {
 	 * If the meaning of the '<em>Base Constraint</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Base Constraint</em>' reference.
 	 * @see #setBase_Constraint(Constraint)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getUnimplementable_Base_Constraint()
@@ -43,7 +43,7 @@ public interface Unimplementable extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Unimplementable#getBase_Constraint <em>Base Constraint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Base Constraint</em>' reference.
 	 * @see #getBase_Constraint()

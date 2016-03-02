@@ -62,6 +62,21 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCR(CR object) {
+			return createCRAdapter();
+		}
+
+		@Override
+		public Adapter caseConceptDomainConstraint(ConceptDomainConstraint object) {
+			return createConceptDomainConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseConceptDomain(ConceptDomain object) {
+			return createConceptDomainAdapter();
+		}
+
+		@Override
 		public Adapter caseCodeSystemConstraint(CodeSystemConstraint object) {
 			return createCodeSystemConstraintAdapter();
 		}
@@ -72,23 +87,13 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseConceptDomain(ConceptDomain object) {
-			return createConceptDomainAdapter();
+		public Adapter caseValueSetConstraint(ValueSetConstraint object) {
+			return createValueSetConstraintAdapter();
 		}
 
 		@Override
-		public Adapter caseConceptDomainConstraint(ConceptDomainConstraint object) {
-			return createConceptDomainConstraintAdapter();
-		}
-
-		@Override
-		public Adapter caseCR(CR object) {
-			return createCRAdapter();
-		}
-
-		@Override
-		public Adapter caseUsageContext(UsageContext object) {
-			return createUsageContextAdapter();
+		public Adapter caseValueSetVersion(ValueSetVersion object) {
+			return createValueSetVersionAdapter();
 		}
 
 		@Override
@@ -97,18 +102,13 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseValueSetConstraint(ValueSetConstraint object) {
-			return createValueSetConstraintAdapter();
-		}
-
-		@Override
 		public Adapter caseValueSetContextBinding(ValueSetContextBinding object) {
 			return createValueSetContextBindingAdapter();
 		}
 
 		@Override
-		public Adapter caseValueSetVersion(ValueSetVersion object) {
-			return createValueSetVersionAdapter();
+		public Adapter caseUsageContext(UsageContext object) {
+			return createUsageContextAdapter();
 		}
 
 		@Override
@@ -177,8 +177,7 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion
-	 * <em>Code System Version</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion <em>Code System Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -282,8 +281,7 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint
-	 * <em>Value Set Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint <em>Value Set Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -314,8 +312,7 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion <em>Value Set Version</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetVersion <em>Value Set Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.

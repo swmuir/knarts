@@ -33,6 +33,7 @@ import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetType;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
+import org.eclipse.uml2.types.TypesPackage;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
@@ -47,8 +48,9 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 *
 	 * <p>
-	 * This method is used to initialize {@link TermPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead,
-	 * they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This method is used to initialize {@link TermPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
@@ -222,12 +224,15 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
-	 * package
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
 	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
-	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#eNS_URI
@@ -1254,6 +1259,7 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		TypesPackage theTypesPackage = (TypesPackage) EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		UMLPackage theUMLPackage = (UMLPackage) EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
 
 		// Create type parameters
@@ -1275,23 +1281,23 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_Code(), ecorePackage.getEString(), "code", null, 0, 1,
+			getCD_Code(), theTypesPackage.getString(), "code", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_CodeSystem(), ecorePackage.getEString(), "codeSystem", null, 0, 1,
+			getCD_CodeSystem(), theTypesPackage.getString(), "codeSystem", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_CodeSystemName(), ecorePackage.getEString(), "codeSystemName", null, 0, 1,
+			getCD_CodeSystemName(), theTypesPackage.getString(), "codeSystemName", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_CodeSystemVersion(), ecorePackage.getEString(), "codeSystemVersion", null, 0, 1,
+			getCD_CodeSystemVersion(), theTypesPackage.getString(), "codeSystemVersion", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCD_DisplayName(), ecorePackage.getEString(), "displayName", null, 0, 1,
+			getCD_DisplayName(), theTypesPackage.getString(), "displayName", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1307,7 +1313,7 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCR_Inverted(), ecorePackage.getEBoolean(), "inverted", null, 0, 1,
+			getCR_Inverted(), theTypesPackage.getBoolean(), "inverted", null, 0, 1,
 			org.eclipse.mdht.uml.term.core.profile.CR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1319,11 +1325,11 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			ConceptDomainConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConceptDomainConstraint_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1,
+			getConceptDomainConstraint_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
 			ConceptDomainConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 			IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConceptDomainConstraint_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+			getConceptDomainConstraint_Name(), theTypesPackage.getString(), "name", null, 0, 1,
 			ConceptDomainConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 			IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
@@ -1335,16 +1341,16 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			conceptDomainEClass, ConceptDomain.class, "ConceptDomain", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getConceptDomain_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, ConceptDomain.class,
+			getConceptDomain_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1, ConceptDomain.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConceptDomain_FullName(), ecorePackage.getEString(), "fullName", null, 0, 1, ConceptDomain.class,
+			getConceptDomain_FullName(), theTypesPackage.getString(), "fullName", null, 0, 1, ConceptDomain.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getConceptDomain_Status(), this.getStatusKind(), "status", null, 0, 1, ConceptDomain.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getConceptDomain_StatusDate(), ecorePackage.getEString(), "statusDate", null, 0, 1, ConceptDomain.class,
+			getConceptDomain_StatusDate(), theTypesPackage.getString(), "statusDate", null, 0, 1, ConceptDomain.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getConceptDomain_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1,
@@ -1359,24 +1365,24 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			CodeSystemConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemConstraint_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1,
+			getCodeSystemConstraint_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
 			CodeSystemConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemConstraint_Name(), ecorePackage.getEString(), "name", null, 0, 1, CodeSystemConstraint.class,
+			getCodeSystemConstraint_Name(), theTypesPackage.getString(), "name", null, 0, 1, CodeSystemConstraint.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemConstraint_Version(), ecorePackage.getEString(), "version", null, 0, 1,
+			getCodeSystemConstraint_Version(), theTypesPackage.getString(), "version", null, 0, 1,
 			CodeSystemConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCodeSystemConstraint_Binding(), this.getBindingKind(), "binding", null, 0, 1, CodeSystemConstraint.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemConstraint_Code(), ecorePackage.getEString(), "code", null, 0, 1, CodeSystemConstraint.class,
+			getCodeSystemConstraint_Code(), theTypesPackage.getString(), "code", null, 0, 1, CodeSystemConstraint.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemConstraint_DisplayName(), ecorePackage.getEString(), "displayName", null, 0, 1,
+			getCodeSystemConstraint_DisplayName(), theTypesPackage.getString(), "displayName", null, 0, 1,
 			CodeSystemConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEReference(
@@ -1392,34 +1398,35 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			codeSystemVersionEClass, CodeSystemVersion.class, "CodeSystemVersion", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getCodeSystemVersion_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1,
+			getCodeSystemVersion_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
 			CodeSystemVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, CodeSystemVersion.class,
+			getCodeSystemVersion_Version(), theTypesPackage.getString(), "version", null, 0, 1, CodeSystemVersion.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemVersion_FullName(), ecorePackage.getEString(), "fullName", null, 0, 1, CodeSystemVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getCodeSystemVersion_Source(), ecorePackage.getEString(), "source", null, 0, 1, CodeSystemVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getCodeSystemVersion_Url(), ecorePackage.getEString(), "url", null, 0, 1, CodeSystemVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getCodeSystemVersion_EffectiveDate(), ecorePackage.getEString(), "effectiveDate", null, 0, 1,
+			getCodeSystemVersion_FullName(), theTypesPackage.getString(), "fullName", null, 0, 1,
 			CodeSystemVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemVersion_ReleaseDate(), ecorePackage.getEString(), "releaseDate", null, 0, 1,
+			getCodeSystemVersion_Source(), theTypesPackage.getString(), "source", null, 0, 1, CodeSystemVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getCodeSystemVersion_Url(), theTypesPackage.getString(), "url", null, 0, 1, CodeSystemVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getCodeSystemVersion_EffectiveDate(), theTypesPackage.getString(), "effectiveDate", null, 0, 1,
+			CodeSystemVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getCodeSystemVersion_ReleaseDate(), theTypesPackage.getString(), "releaseDate", null, 0, 1,
 			CodeSystemVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getCodeSystemVersion_Status(), this.getStatusKind(), "status", null, 0, 1, CodeSystemVersion.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getCodeSystemVersion_StatusDate(), ecorePackage.getEString(), "statusDate", null, 0, 1,
+			getCodeSystemVersion_StatusDate(), theTypesPackage.getString(), "statusDate", null, 0, 1,
 			CodeSystemVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEReference(
@@ -1428,14 +1435,14 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(
-			codeSystemVersionEClass, ecorePackage.getEString(), "getEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+			codeSystemVersionEClass, theTypesPackage.getString(), "getEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		EOperation op = addEOperation(
 			codeSystemVersionEClass, null, "setEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		addEOperation(
-			codeSystemVersionEClass, ecorePackage.getEString(), "getEnumerationQualifiedName", 1, 1, IS_UNIQUE,
+			codeSystemVersionEClass, theTypesPackage.getString(), "getEnumerationQualifiedName", 1, 1, IS_UNIQUE,
 			!IS_ORDERED);
 
 		initEClass(
@@ -1446,15 +1453,16 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			ValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetConstraint_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1,
+			getValueSetConstraint_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
 			ValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetConstraint_Name(), ecorePackage.getEString(), "name", null, 0, 1, ValueSetConstraint.class,
+			getValueSetConstraint_Name(), theTypesPackage.getString(), "name", null, 0, 1, ValueSetConstraint.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetConstraint_Version(), ecorePackage.getEString(), "version", null, 0, 1, ValueSetConstraint.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getValueSetConstraint_Version(), theTypesPackage.getString(), "version", null, 0, 1,
+			ValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getValueSetConstraint_Binding(), this.getBindingKind(), "binding", null, 0, 1, ValueSetConstraint.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1467,45 +1475,48 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			valueSetVersionEClass, ValueSetVersion.class, "ValueSetVersion", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getValueSetVersion_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_FullName(), ecorePackage.getEString(), "fullName", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_Source(), ecorePackage.getEString(), "source", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_Url(), ecorePackage.getEString(), "url", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getValueSetVersion_EffectiveDate(), ecorePackage.getEString(), "effectiveDate", null, 0, 1,
+			getValueSetVersion_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
 			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetVersion_ExpirationDate(), ecorePackage.getEString(), "expirationDate", null, 0, 1,
+			getValueSetVersion_Version(), theTypesPackage.getString(), "version", null, 0, 1, ValueSetVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_FullName(), theTypesPackage.getString(), "fullName", null, 0, 1, ValueSetVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_Source(), theTypesPackage.getString(), "source", null, 0, 1, ValueSetVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_Url(), theTypesPackage.getString(), "url", null, 0, 1, ValueSetVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_Definition(), theTypesPackage.getString(), "definition", null, 0, 1,
 			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetVersion_ReleaseDate(), ecorePackage.getEString(), "releaseDate", null, 0, 1,
+			getValueSetVersion_EffectiveDate(), theTypesPackage.getString(), "effectiveDate", null, 0, 1,
 			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetVersion_RevisionDate(), ecorePackage.getEString(), "revisionDate", null, 0, 1,
+			getValueSetVersion_ExpirationDate(), theTypesPackage.getString(), "expirationDate", null, 0, 1,
+			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_ReleaseDate(), theTypesPackage.getString(), "releaseDate", null, 0, 1,
+			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetVersion_RevisionDate(), theTypesPackage.getString(), "revisionDate", null, 0, 1,
 			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getValueSetVersion_Status(), this.getStatusKind(), "status", null, 0, 1, ValueSetVersion.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetVersion_StatusDate(), ecorePackage.getEString(), "statusDate", null, 0, 1, ValueSetVersion.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getValueSetVersion_StatusDate(), theTypesPackage.getString(), "statusDate", null, 0, 1,
+			ValueSetVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getValueSetVersion_Type(), this.getValueSetType(), "type", null, 0, 1, ValueSetVersion.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1522,23 +1533,23 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(
-			valueSetVersionEClass, ecorePackage.getEString(), "getEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+			valueSetVersionEClass, theTypesPackage.getString(), "getEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(valueSetVersionEClass, null, "setEnumerationName", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		addEOperation(
-			valueSetVersionEClass, ecorePackage.getEString(), "getEnumerationQualifiedName", 1, 1, IS_UNIQUE,
+			valueSetVersionEClass, theTypesPackage.getString(), "getEnumerationQualifiedName", 1, 1, IS_UNIQUE,
 			!IS_ORDERED);
 
 		initEClass(
 			valueSetCodeEClass, ValueSetCode.class, "ValueSetCode", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getValueSetCode_ConceptName(), ecorePackage.getEString(), "conceptName", null, 0, 1, ValueSetCode.class,
+			getValueSetCode_ConceptName(), theTypesPackage.getString(), "conceptName", null, 0, 1, ValueSetCode.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getValueSetCode_UsageNote(), ecorePackage.getEString(), "usageNote", null, 0, 1, ValueSetCode.class,
+			getValueSetCode_UsageNote(), theTypesPackage.getString(), "usageNote", null, 0, 1, ValueSetCode.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getValueSetCode_CodeSystem(), this.getCodeSystemVersion(), null, "codeSystem", null, 0, 1,
@@ -1553,7 +1564,7 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			valueSetContextBindingEClass, ValueSetContextBinding.class, "ValueSetContextBinding", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getValueSetContextBinding_EffectiveDate(), ecorePackage.getEString(), "effectiveDate", null, 0, 1,
+			getValueSetContextBinding_EffectiveDate(), theTypesPackage.getString(), "effectiveDate", null, 0, 1,
 			ValueSetContextBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 		initEReference(
@@ -1577,13 +1588,13 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			usageContextEClass, UsageContext.class, "UsageContext", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getUsageContext_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, UsageContext.class,
+			getUsageContext_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1, UsageContext.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
 			getUsageContext_Status(), this.getStatusKind(), "status", null, 0, 1, UsageContext.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getUsageContext_StatusDate(), ecorePackage.getEString(), "statusDate", null, 0, 1, UsageContext.class,
+			getUsageContext_StatusDate(), theTypesPackage.getString(), "statusDate", null, 0, 1, UsageContext.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(
 			getUsageContext_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, UsageContext.class,
@@ -1605,6 +1616,22 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/uml2/2.0.0/UML
+		createUMLAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/2.0.0/UML</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected void createUMLAnnotations() {
+		String source = "http://www.eclipse.org/uml2/2.0.0/UML";
+		addAnnotation(this, source, new String[] { "originalName", "Terminology" });
 	}
 
 } // TermPackageImpl

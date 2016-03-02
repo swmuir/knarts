@@ -45,7 +45,7 @@ public interface Validation extends EObject {
 	 * If the meaning of the '<em>Message</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getValidation_Message()
@@ -62,7 +62,7 @@ public interface Validation extends EObject {
 	 * If the meaning of the '<em>Rule Id</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Rule Id</em>' attribute list.
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getValidation_RuleId()
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
@@ -78,7 +78,7 @@ public interface Validation extends EObject {
 	 * If the meaning of the '<em>Severity</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Severity</em>' attribute.
 	 * @see org.eclipse.mdht.uml.cda.core.profile.SeverityKind
 	 * @see #setSeverity(SeverityKind)
@@ -96,7 +96,7 @@ public interface Validation extends EObject {
 	 * If the meaning of the '<em>Mandatory</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Mandatory</em>' attribute.
 	 * @see #setMandatory(boolean)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getValidation_Mandatory()
@@ -109,7 +109,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#isMandatory <em>Mandatory</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Mandatory</em>' attribute.
 	 * @see #isMandatory()
@@ -127,7 +127,7 @@ public interface Validation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see org.eclipse.mdht.uml.cda.core.profile.ValidationKind
 	 * @see #setKind(ValidationKind)
@@ -141,7 +141,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#getKind <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Kind</em>' attribute.
 	 * @see org.eclipse.mdht.uml.cda.core.profile.ValidationKind
@@ -159,7 +159,7 @@ public interface Validation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Strict</em>' attribute.
 	 * @see #setStrict(boolean)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getValidation_Strict()
@@ -172,7 +172,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#isStrict <em>Strict</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Strict</em>' attribute.
 	 * @see #isStrict()
@@ -189,7 +189,7 @@ public interface Validation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the value of the '<em>Negation Indicator</em>' attribute.
 	 * @see #setNegationIndicator(boolean)
 	 * @see org.eclipse.mdht.uml.cda.core.profile.CDAPackage#getValidation_NegationIndicator()
@@ -202,7 +202,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#isNegationIndicator <em>Negation Indicator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Negation Indicator</em>' attribute.
 	 * @see #isNegationIndicator()
@@ -214,7 +214,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#getMessage <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Message</em>' attribute.
 	 * @see #getMessage()
@@ -226,7 +226,7 @@ public interface Validation extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#getSeverity <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @param value
 	 *            the new value of the '<em>Severity</em>' attribute.
 	 * @see org.eclipse.mdht.uml.cda.core.profile.SeverityKind
