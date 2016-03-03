@@ -1376,6 +1376,19 @@ public class UMLUtil {
 	}
 
 	/**
+	 * Returns the text that is used for anchors in PDF files linking to the given element.
+	 */
+	public static String getAnchorText(NamedElement element) {
+		String businessName = NamedElementUtil.getBusinessName(element);
+		if (businessName != null && !businessName.isEmpty() && !businessName.equals(element.getName())) {
+			// return preferably the business name
+			return businessName;
+		}
+
+		return splitName(element);
+	}
+
+	/**
 	 * This method breaks element's name into words delimited by mixed-case
 	 * naming and returns a string with name words separated by space. If model
 	 * element name already contains spaces, return unchanged.

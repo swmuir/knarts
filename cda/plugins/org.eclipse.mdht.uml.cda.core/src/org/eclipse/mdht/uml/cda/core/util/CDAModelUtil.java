@@ -640,7 +640,7 @@ public class CDAModelUtil {
 				message.append(showXref
 						? "<xref " + format + "href=\"" + xref + "\">"
 						: "");
-				message.append(prefix).append(UMLUtil.splitName(endType));
+				message.append(prefix).append(UMLUtil.getAnchorText(endType));
 				message.append(showXref
 						? "</xref>"
 						: "");
