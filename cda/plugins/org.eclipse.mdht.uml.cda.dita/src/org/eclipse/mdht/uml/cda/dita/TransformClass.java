@@ -16,7 +16,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -31,6 +33,8 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Property;
 
 public class TransformClass extends TransformAbstract {
+
+	private Set<Class> alreadyHandled = new HashSet<Class>();
 
 	public TransformClass(DitaTransformerOptions options) {
 		super(options);
@@ -167,18 +171,7 @@ public class TransformClass extends TransformAbstract {
 		List<String> packageContent = transformerOptions.getPackageContentList(umlClass.getNearestPackage());
 		packageContent.add(fileName);
 
-		// Loop over properties and generalizations - create references ditamap
-		for (Property property : umlClass.getOwnedAttributes()) {
-			if (property.getType() != null && property.getAssociation() != null &&
-					!CDAModelUtil.isDisplayInline(property)) {
-				addReference(umlClass, property.getType());
-			}
-		}
-
-		for (Generalization generalization : umlClass.getGeneralizations()) {
-			addReference(umlClass, generalization.getGeneral());
-
-		}
+		checkClassReferences(umlClass, umlClass);
 
 		Class cdaClass = CDAModelUtil.getCDAClass(umlClass);
 		if (cdaClass != null) {
@@ -203,6 +196,40 @@ public class TransformClass extends TransformAbstract {
 		}
 
 		return umlClass;
+	}
+
+	/**
+	 * Checks recursively all classes associated to umlClass for inclusion in the Class References sections
+	 *
+	 * @param source
+	 *            a top level class of the main UML model (esp. not a participation class)
+	 * @param umlClass
+	 * @return <code>false</code> if umlClass is not required to be checked for inclusion in the Class References section, otherwise <code>true</code>
+	 */
+	private boolean checkClassReferences(Class source, Class umlClass) {
+		if (!alreadyHandled.add(umlClass)) {
+			return false;
+		}
+
+		if (CDAModelUtil.isCDAModel(umlClass) || CDAModelUtil.isDatatypeModel(umlClass)) {
+			return false;
+		}
+		// Loop over properties and generalizations - create references ditamap
+		for (Property property : umlClass.getOwnedAttributes()) {
+			if (property.getType() instanceof Class && checkClassReferences(source, (Class) property.getType()) &&
+					!CDAModelUtil.isDisplayInline(property)) {
+				addReference(source, property.getType());
+			}
+		}
+
+		for (Generalization generalization : umlClass.getGeneralizations()) {
+			if (generalization.getGeneral() instanceof Class &&
+					checkClassReferences(source, (Class) generalization.getGeneral())) {
+				addReference(source, generalization.getGeneral());
+			}
+		}
+
+		return true;
 	}
 
 }

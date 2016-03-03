@@ -215,7 +215,8 @@ public class TransformClassContent extends TransformAbstract {
 		// use i>0 to omit this class
 		for (int i = allParents.size() - 1; i > 0; i--) {
 			Class parent = (Class) allParents.get(i);
-			if (!RIMModelUtil.isRIMModel(parent) && !CDAModelUtil.isCDAModel(parent)) {
+			if (!RIMModelUtil.isRIMModel(parent) && !CDAModelUtil.isCDAModel(parent) &&
+					!CDAModelUtil.isDatatypeModel(parent)) {
 				String message = CDAModelUtil.computeGeneralizationConformanceMessage(parent, true, xrefSource);
 				if (message.length() > 0) {
 					writer.println("<li>" + message + "</li>");
@@ -354,7 +355,8 @@ public class TransformClassContent extends TransformAbstract {
 		boolean hasRules = false;
 		for (Generalization generalization : umlClass.getGeneralizations()) {
 			Classifier general = generalization.getGeneral();
-			if (!RIMModelUtil.isRIMModel(general) && !CDAModelUtil.isCDAModel(general)) {
+			if (!RIMModelUtil.isRIMModel(general) && !CDAModelUtil.isCDAModel(general) &&
+					!CDAModelUtil.isDatatypeModel(general)) {
 				String message = CDAModelUtil.computeConformanceMessage(generalization, true);
 				if (message.length() > 0) {
 					hasRules = true;

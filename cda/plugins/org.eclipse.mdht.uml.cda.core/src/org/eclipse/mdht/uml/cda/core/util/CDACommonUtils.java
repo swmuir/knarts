@@ -1,5 +1,5 @@
 /**
- * Copyright: NEHTA 2015
+ * Copyright: NEHTA 2016
  * Author: Joerg Kiegeland, Distributed Models Pty Ltd
  *
  * All rights reserved. This program and the accompanying materials
@@ -25,6 +25,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.WeakHashMap;
 
 import org.apache.commons.lang.StringUtils;
@@ -59,7 +61,6 @@ import org.eclipse.uml2.uml.InstanceValue;
 import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
@@ -74,7 +75,7 @@ public class CDACommonUtils {
 	private static final String PLUGIN = "org.eclipse.mdht.uml.cda.core";
 
 	// savings: from 664ms to 50ms
-	private static Map<NamedElement, String> propertyStepCache = new WeakHashMap<NamedElement, String>();
+	public static Map<NamedElement, String> propertyStepCache = new WeakHashMap<NamedElement, String>();
 
 	private static Map<Property, CodeSystemConstraint> cachedCodeSystemConstraint = new WeakHashMap<Property, CodeSystemConstraint>();
 
@@ -86,13 +87,21 @@ public class CDACommonUtils {
 
 	private static Map<Classifier, Classifier> cacheCDAType = new WeakHashMap<Classifier, Classifier>();
 
+	private static Map<Classifier, Integer> cacheMainSection = new WeakHashMap<Classifier, Integer>();
+
+	/**
+	 * Map from a class to the list of classes which are in the same main section of the PDF file as well, or to <code>null</code> if the class is not
+	 * directly contained in a main section (i.e. nested classes)
+	 */
+	private static Map<EObject, SortedSet<Class>> cacheCDAContents = new WeakHashMap<EObject, SortedSet<Class>>();
+
 	private static Map<Element, Boolean> cacheDatatypeModel = new WeakHashMap<Element, Boolean>();
 
 	private static Map<NamedElement, String> cacheBusinessName = new WeakHashMap<NamedElement, String>();
 
-	private static Map<Class, Property> cachePropertyForClass = new WeakHashMap<Class, Property>();
+	public static Map<EObject, EObject> cachePropertyForClass = new WeakHashMap<EObject, EObject>();
 
-	private static Map<EObject, Class> cacheClassForProperty = new WeakHashMap<EObject, Class>();
+	public static Map<EObject, EObject> cacheClassForProperty = cachePropertyForClass;
 
 	public static Collection<EObject> getAllContents(Resource res) {
 		return getAllContents(res, EObject.class);
@@ -266,19 +275,12 @@ public class CDACommonUtils {
 			String step = "?";
 			if (eObject instanceof Class) {
 				Class class1 = (Class) eObject;
-				if (class1.eContainer() instanceof Package) {
-					Package package1 = (Package) class1.eContainer();
-					int mainSection = getMainSection(class1, package1);
-					if (mainSection != -1) {
-						step = (mainSection + incr) + "." + (getCDAContents(package1, mainSection).indexOf(class1) + 1);
-					}
-					Property property = getOverallPropertyReference(class1);
-					if ("?".equals(step) && property != null) {
-						step = getPropertyStep(getClassReference(property), property);
-						eObject = property;
-					} else if (!fullSection || level2) {
+				int mainSection = getMainSection(class1);
+				if (mainSection != -1) {
+					step = (mainSection + incr) + "." + (getCDAContents(class1).indexOf(class1) + 1);
+					if (!fullSection || level2) {
 						return step + " " + CDACommonUtils.getBusinessName(class1);
-					} else if (!"?".equals(step) && fullSection) {
+					} else if (fullSection) {
 						result = step + "." + result;
 						break;
 					}
@@ -289,9 +291,21 @@ public class CDACommonUtils {
 
 					}
 				}
+			} else if (eObject instanceof Constraint &&
+					CDACommonUtils.getParentingProperty((Constraint) eObject) != null) {
+				Property prop = CDACommonUtils.getParentingProperty((Constraint) eObject);
+				if (prop.getType() instanceof Class && getMainSection((Class) prop.getType()) == -1) {
+					Class class1 = (Class) prop.getType();
+					step = getPropertyStep(class1, class1);
+				} else {
+					step = getCustomizedBulletItem(prop, 0);
+				}
+				eObject = prop;
+				result = step + "." + result;
+				continue;
 			} else if (eObject instanceof NamedElement && getContainerReference(eObject) instanceof Class) {
 				NamedElement property = (NamedElement) eObject;
-				Class parentClass = getClassReference(property);
+				Class parentClass = (Class) getContainerReference(eObject);
 				step = getPropertyStep(parentClass, property);
 			} else if (eObject instanceof Enumeration && getContainerReference(eObject) instanceof Package) {
 				Package package1 = (Package) getContainerReference(eObject);
@@ -322,7 +336,10 @@ public class CDACommonUtils {
 	 *            the package the given class is contained
 	 * @return if class is not nested in the PDF file, then returns its section number, otherwise returns -1
 	 */
-	private static int getMainSection(Class class1, Package package1) {
+	private static int getMainSection_(Class class1) {
+		if (CDAModelUtil.isDisplayInline(class1) || CDACommonUtils.getCDAType(class1) == null) {
+			return -1;
+		}
 		if (CDACommonUtils.isClinicalDocument(class1)) {
 			return 2;
 		}
@@ -336,11 +353,15 @@ public class CDACommonUtils {
 		if (res != null && res.getResourceSet() != null && res.getResourceSet().getResources().get(0) == res) {
 			return 5;
 		}
-		EObject parent = getContainerReference(class1);
-		if (!(parent != null && parent.eResource() == class1.eResource())) {
-			return 6;
+		return 6;
+	}
+
+	public static int getMainSection(Class class1) {
+		Integer result = cacheMainSection.get(class1);
+		if (result == null) {
+			cacheMainSection.put(class1, result = getMainSection_(class1));
 		}
-		return -1;
+		return result;
 	}
 
 	/**
@@ -349,8 +370,8 @@ public class CDACommonUtils {
 	 *         class
 	 */
 	public static Class getClassReference(EObject property) {
-		if (cacheClassForProperty.get(property) != null) {
-			return cacheClassForProperty.get(property);
+		if (cacheClassForProperty.get(property) instanceof Class) {
+			return (Class) cacheClassForProperty.get(property);
 		}
 		return (Class) property.eContainer();
 	}
@@ -360,7 +381,7 @@ public class CDACommonUtils {
 	 * @return in case the element is associated with a section, returns the associated element of the parent section, otherwise returns the container
 	 */
 	private static EObject getContainerReference(EObject child) {
-		if (cacheClassForProperty.get(child) != null) {
+		if (cacheClassForProperty.get(child) instanceof Class) {
 			return cacheClassForProperty.get(child);
 		}
 		if (cachePropertyForClass.get(child) != null) {
@@ -394,18 +415,49 @@ public class CDACommonUtils {
 	 * @param typeName
 	 * @return all packaged elements in the given package having the given type string
 	 */
-	public static List<NamedElement> getCDAContents(Package package1, int section) {
-		List<NamedElement> result = new ArrayList<NamedElement>();
-		for (PackageableElement element : package1.getPackagedElements()) {
-			if (element instanceof Class) {
-				Class class1 = (Class) element;
-				if (getMainSection(class1, package1) == section) {
-					result.add(element);
-				}
+	public static List<Class> getCDAContents(Class class1) {
+		if (cacheCDAContents.get(class1) != null) {
+			return new ArrayList<Class>(cacheCDAContents.get(class1));
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * Checks recursively all classes associated to umlClass for inclusion in the main sections of the PDF file
+	 *
+	 * @param source
+	 *            a top level class of the main UML model (esp. not a participation class)
+	 * @param umlClass
+	 * @param sets
+	 *            five sorted sets for the main sections "Document templates", ..., "Class References"
+	 * @return <code>false</code> if umlClass is not required to be checked for inclusion in the main sections, otherwise <code>true</code>
+	 */
+	static private boolean checkClassReferences(Class source, Class umlClass, List<SortedSet<Class>> sets) {
+		if (cacheCDAContents.containsKey(umlClass) || !inSameModel(source, umlClass)) {
+			return false;
+		}
+
+		int section = getMainSection(umlClass) - 2;
+		if (section >= 0) {
+			sets.get(section).add(umlClass);
+			cacheCDAContents.put(umlClass, sets.get(section));
+		} else {
+			cacheCDAContents.put(umlClass, null);
+		}
+
+		// Loop over properties and generalizations
+		for (Property property : umlClass.getOwnedAttributes()) {
+			if (property.getType() instanceof Class && checkClassReferences(source, (Class) property.getType(), sets)) {
 			}
 		}
-		Collections.sort(result, new NamedElementComparator());
-		return result;
+
+		for (Generalization generalization : umlClass.getGeneralizations()) {
+			if (generalization.getGeneral() instanceof Class &&
+					checkClassReferences(source, (Class) generalization.getGeneral(), sets)) {
+			}
+		}
+
+		return true;
 	}
 
 	/**
@@ -442,12 +494,15 @@ public class CDACommonUtils {
 			if (CDACommonUtils.getTemplateId(umlClass) != null) {
 				offset++;
 			}
-			for (Generalization generalization : umlClass.getGeneralizations()) {
-				Classifier general = generalization.getGeneral();
-				if (!RIMModelUtil.isRIMModel(general) && !CDACommonUtils.isCDAModel(general)) {
-					String message = CDAModelUtil.computeConformanceMessage(generalization, true);
-					if (message.length() > 0) {
-						offset++;
+			if (!CDAModelUtil.isInlineClass(umlClass)) {
+				for (Generalization generalization : umlClass.getGeneralizations()) {
+					Classifier general = generalization.getGeneral();
+					if (!RIMModelUtil.isRIMModel(general) && !CDACommonUtils.isCDAModel(general) &&
+							!CDACommonUtils.isDatatypeModel(general)) {
+						String message = CDAModelUtil.computeConformanceMessage(generalization, true);
+						if (message.length() > 0) {
+							offset++;
+						}
 					}
 				}
 			}
@@ -501,36 +556,93 @@ public class CDACommonUtils {
 			}
 		}
 		for (Property prop : allProperties) {
-			propertyStepCache.put(prop, getCustomizedBulletItem(umlClass, offset + allProperties.indexOf(prop)));
+			propertyStepCache.put(prop, getCustomizedBulletItem(umlClass, offset));
+			offset++;
 		}
-		int constraintIndex = 0;
 		for (Constraint constraint : umlClass.getOwnedRules()) {
 			if (constraint.getConstrainedElements().size() == 1 &&
 					constraint.getConstrainedElements().get(0) == umlClass && constraint.getName() != null &&
 					!constraint.getName().endsWith("TemplateId") || constraint.getConstrainedElements().size() > 1) {
-				propertyStepCache.put(
-					constraint, getCustomizedBulletItem(umlClass, offset + allProperties.size() + constraintIndex));
-				constraintIndex++;
+				String constraintItem = getCustomizedBulletItem(umlClass, offset);
+				propertyStepCache.put(constraint, constraintItem);
+				offset++;
+
+				// some properties get nested into a logical constaint as opposed to the containing class
+				LogicalConstraint logicConstraint = CDAProfileUtil.getLogicalConstraint(constraint);
+				if (logicConstraint != null) {
+					int propertyIndex = 0;
+					for (Element constrainedElement : constraint.getConstrainedElements()) {
+						if (constrainedElement instanceof Property) {
+							Property property = (Property) constrainedElement;
+							String propertyItem = getCustomizedBulletItem(constraint, propertyIndex);
+							propertyStepCache.put(property, constraintItem + "." + propertyItem);
+							propertyIndex++;
+						}
+					}
+				}
 			}
 		}
+
+		// store single appended item to the class, that could usually be a constraint
+		propertyStepCache.put(umlClass, getCustomizedBulletItem(umlClass, offset));
+
 		return propertyStepCache.get(focusedProperty);
 	}
 
 	/**
+	 *
+	 * Examines whether the given constraint is hand-crafted (i.e. has a severity applied and is not auto-generated by MDHT) and constrains a single
+	 * property (thus, the constraint would be listed in the PDF file as new sub-section to the property and to its containing context class)
+	 *
+	 * @param constraint
+	 * @return the property it is subordinated to, or <code>null</code>
+	 */
+	static public Property getParentingProperty(Constraint constraint) {
+
+		if (constraint.getConstrainedElements().size() == 1 &&
+				constraint.getConstrainedElements().get(0) instanceof Property) {
+
+			Property property = (Property) constraint.getConstrainedElements().get(0);
+
+			Stereotype stereotype = CDAProfileUtil.getAppliedCDAStereotype(
+				constraint, ICDAProfileConstants.CONSTRAINT_VALIDATION);
+
+			if (stereotype != null) {
+				return property;
+			}
+		}
+
+		return null;
+	}
+
+	/**
 	 * @param umlClass
+	 *            used to determine the nesting level of the element - in most cases a Class - but can also be a Constraint as properties are nested
+	 *            within a constraint and not its containing class within the PDF file
 	 * @param index
 	 *            index of the conformance rule starting from zero in the level designated by the given class
 	 * @return
 	 */
-	public static String getCustomizedBulletItem(Class umlClass, int index) {
+	public static String getCustomizedBulletItem(Element umlClass, int index) {
 		int level = 0;
 		EObject eObject = umlClass;
 		while (eObject != null && !(eObject instanceof Package)) {
-			if (eObject instanceof Class && eObject.eContainer() instanceof Package &&
-					getMainSection((Class) eObject, (Package) eObject.eContainer()) != -1) {
+			if (eObject instanceof Class && getMainSection((Class) eObject) != -1) {
 				break;
 			}
+			EObject constrainedProperty = cachePropertyForClass.get(eObject);
 			eObject = getContainerReference(eObject);
+			if (constrainedProperty instanceof Property && eObject instanceof Class) {
+				Class class1 = (Class) eObject;
+				for (Constraint constraint : class1.getOwnedRules()) {
+					if (constraint.getConstrainedElements().contains(constrainedProperty) &&
+							CDAProfileUtil.getLogicalConstraint(constraint) != null) {
+						level++;
+						break;
+					}
+				}
+
+			}
 			level++;
 		}
 		level = level % 3;
@@ -889,15 +1001,25 @@ public class CDACommonUtils {
 	}
 
 	public static Property getOverallPropertyReference(Class class1) {
-		if (!cachePropertyForClass.containsKey(class1)) {
-			return getPropertyReference(class1);
+		if (cachePropertyForClass.get(class1) instanceof Property) {
+			return (Property) cachePropertyForClass.get(class1);
 		}
-		return cachePropertyForClass.get(class1);
+		return getPropertyReference(class1);
 	}
 
 	static public void buildupPropertyForClinicalDocument(Class umlClinicalDocument) {
 		CDACommonUtils.cachePropertyForClass.put(umlClinicalDocument, null);
 		recursePropertyPaths(umlClinicalDocument);
+		List<SortedSet<Class>> sets = new ArrayList<SortedSet<Class>>();
+		NamedElementComparator comparator = new NamedElementComparator();
+		sets.add(new TreeSet<Class>(comparator));
+		sets.add(new TreeSet<Class>(comparator));
+		sets.add(new TreeSet<Class>(comparator));
+		sets.add(new TreeSet<Class>(comparator));
+		sets.add(new TreeSet<Class>(comparator));
+		for (Class umlClass : getAllContents(umlClinicalDocument.eResource(), Class.class)) {
+			checkClassReferences(umlClinicalDocument, umlClass, sets);
+		}
 	}
 
 	public static boolean hasPropertyPath(Property property) {
@@ -912,19 +1034,11 @@ public class CDACommonUtils {
 		Collection<Property> allProperties = CDACommonUtils.allAttributes(parentClass);
 		for (Property property : allProperties) {
 			if (property.eContainer() instanceof Class && inSameModel((Class) property.eContainer(), parentClass)) {
-				Class oldClass = CDACommonUtils.cacheClassForProperty.put(property, parentClass);
-				if (oldClass != null) {
-					System.err.println(
-						oldClass.getQualifiedName() + " and " + parentClass.getQualifiedName() +
-								" both have the property " + property.getQualifiedName());
-				}
+				CDACommonUtils.cacheClassForProperty.put(property, parentClass);
 			}
 			if (property.getType() instanceof Class && inSameModel((Class) property.getType(), parentClass)) {
 				Class nestedClass = (Class) property.getType();
 				if (CDACommonUtils.cachePropertyForClass.containsKey(nestedClass)) {
-					System.err.println(
-						CDACommonUtils.cachePropertyForClass.get(nestedClass).getQualifiedName() + " and " +
-								property.getQualifiedName() + " both reference " + nestedClass.getQualifiedName());
 					continue;
 				}
 				CDACommonUtils.cachePropertyForClass.put(nestedClass, property);

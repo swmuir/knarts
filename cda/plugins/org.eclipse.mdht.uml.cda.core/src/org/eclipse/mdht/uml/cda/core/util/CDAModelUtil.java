@@ -1288,7 +1288,8 @@ public class CDAModelUtil {
 		if (!CDAModelUtil.isInlineClass(umlClass)) {
 			for (Generalization generalization : umlClass.getGeneralizations()) {
 				Classifier general = generalization.getGeneral();
-				if (!RIMModelUtil.isRIMModel(general) && !CDAModelUtil.isCDAModel(general)) {
+				if (!RIMModelUtil.isRIMModel(general) && !CDAModelUtil.isCDAModel(general) &&
+						!CDAModelUtil.isDatatypeModel(general)) {
 					String message = CDAModelUtil.computeConformanceMessage(generalization, markup);
 					if (message.length() > 0) {
 						hasRules = true;
