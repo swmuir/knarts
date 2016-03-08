@@ -528,7 +528,7 @@
    <!-- Hide menu item to add an UML constraint in case an CDA association is selected -->
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
-            objectClass="org.openhealthtools.mdht.uml.ui.navigator.UMLDomainNavigatorItem"
+            objectClass="org.eclipse.mdht.uml.ui.navigator.UMLDomainNavigatorItem"
             id="mdht.objectContribution.uml.element">
          <visibility>
             <and>
@@ -537,7 +537,7 @@
             </and>
          </visibility>
          <action
-               class="org.openhealthtools.mdht.uml.ui.actions.AddUMLConstraintAction"
+               class="org.eclipse.mdht.uml.ui.actions.AddUMLConstraintAction"
                id="mdht.actions.addUML.constraint2"
                label="Constraint"
                menubarPath="mdht.addUML/constraintGroup/"

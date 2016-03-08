@@ -16,6 +16,8 @@
 package org.eclipse.mdht.uml.cda.transform;
 
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.mdht.uml.cda.core.profile.Validation;
+import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.core.util.CDAProfileUtil;
 import org.eclipse.mdht.uml.cda.core.util.ICDAProfileConstants;
@@ -31,6 +33,24 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 
 public class TransformCDAAssociation extends TransformAssociation {
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.transform.ecore.TransformAssociation#isOpen(org.eclipse.uml2.uml.Association)
+	 */
+	@Override
+	protected boolean isOpen(Association association) {
+
+		Validation validation = org.eclipse.uml2.uml.util.UMLUtil.getStereotypeApplication(
+			association, Validation.class);
+
+		if (validation != null && validation.getKind().equals(ValidationKind.CLOSED)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	public TransformCDAAssociation(TransformerOptions options, IBaseModelReflection baseModelReflection) {
 		super(options, baseModelReflection);
@@ -73,6 +93,30 @@ public class TransformCDAAssociation extends TransformAssociation {
 		return result;
 	}
 
+	// private Property getBasePropertyThroughRedefines(Property property) {
+	//
+	// Property pp = null;
+	// CDAModelUtil.isCDAModel(element)
+	// for (Property p : property.getRedefinedProperties()) {
+	// if (isBaseModelElement(property.getClass_(), p) || isDatatypesModelElement(property.getClass_(), p)) {
+	// return p;
+	// } else {
+	// pp = getBasePropertyThroughRedefines(p);
+	// }
+	// }
+	// if (pp == null) {
+	// for (Property p : property.getSubsettedProperties()) {
+	// if (isBaseModelElement(property.getClass_(), p) || isDatatypesModelElement(property.getClass_(), p)) {
+	// return p;
+	// } else {
+	// pp = getBasePropertyThroughRedefines(p);
+	// }
+	// }
+	// }
+	//
+	// return pp;
+	// }
+
 	@Override
 	protected boolean getAssociationEndAndIteratorDeclaration(Property sourceProperty, Class sourceClass,
 			Class baseSourceClass, Class targetClass, Class baseTargetClass, String[] associationEndOut,
@@ -85,24 +129,34 @@ public class TransformCDAAssociation extends TransformAssociation {
 				(CDAModelUtil.isClinicalStatement(targetClass) || CDAModelUtil.isEntry(targetClass))) {
 			associationEndOut[0] = "entry";
 			variableDeclarationOut[0] = "entry : cda::Entry";
+			result = true;
 		} else if (CDAModelUtil.isOrganizer(sourceClass) && CDAModelUtil.isClinicalStatement(targetClass)) {
 			associationEndOut[0] = "component";
 			variableDeclarationOut[0] = "component : cda::Component4";
+			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) && CDAModelUtil.isClinicalStatement(targetClass)) {
 			associationEndOut[0] = "entryRelationship";
 			variableDeclarationOut[0] = "entryRelationship : cda::EntryRelationship";
+			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&
 				"ParticipantRole".equals(baseTargetClass.getName())) {
 			associationEndOut[0] = "participant";
 			variableDeclarationOut[0] = "participant : cda::Participant2";
+			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&
 				"AssignedEntity".equals(baseTargetClass.getName())) {
 			associationEndOut[0] = "performer";
 			variableDeclarationOut[0] = "performer : cda::Performer2";
-		} else {
-			// See if we have a property with the same class type
-			Property property = baseSourceClass.getOwnedAttribute(null, targetClass, true, null, false);
+			result = true;
+		}
 
+		if (!result) {
+			// See if we have a property with the same class type
+			Property property = CDAModelUtil.getCDAProperty(sourceProperty);
+			if (property == null) {
+				property = baseSourceClass.getOwnedAttribute(null, baseTargetClass, true, null, false);
+			}
+			// Property
 			// If not - walk the hierarchy and check for properties
 			if (property == null) {
 				for (Classifier c : targetClass.allParents()) {
@@ -126,7 +180,8 @@ public class TransformCDAAssociation extends TransformAssociation {
 			if (property != null) {
 				associationEndOut[0] = property.getName();
 
-				variableDeclarationOut[0] = property.getName() + " : cda::" + property.getType().getName();
+				// CHANGE6: don't hard-code "cda::" as it could be in a sub-package, so use getQualifiedName instead
+				variableDeclarationOut[0] = property.getName() + " : " + property.getType().getQualifiedName();
 
 				// do not generate a getter already there
 				result = true;

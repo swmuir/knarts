@@ -65,13 +65,16 @@ public class TransformClass extends TransformAbstract {
 
 		// only generate these sections for CDA templates
 		Class cdaClass = CDAModelUtil.getCDAClass(umlClass);
+
+		System.err.println("No Table For " + umlClass.getQualifiedName());
 		if (cdaClass != null) {
 
-			if (transformerOptions.isIncludeTableView()) {
-				writer.println(
-					"<section conref=\"generated/_" + normalizedClassName + ".dita#classId/tableconformance\">");
-				writer.println("</section>");
-			}
+			// if (transformerOptions.isIncludeTableView()) {
+			writer.println(
+				"<section audience=\"tableconformance\"  conref=\"generated/_" + normalizedClassName +
+						".dita#classId/tableconformance\">");
+			writer.println("</section>");
+			// }
 
 			writer.println("<p> </p>"); // need a blank line before example code block
 			writer.println("<p><b>" + TransformAbstract.getPublicationName(umlClass) + " example</b></p>");
@@ -139,6 +142,9 @@ public class TransformClass extends TransformAbstract {
 		File file = filePath.toFile();
 		PrintWriter writer = null;
 
+		if (transformerOptions.isReset() && file.exists()) {
+			file.delete();
+		}
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -163,7 +169,8 @@ public class TransformClass extends TransformAbstract {
 
 		// Loop over properties and generalizations - create references ditamap
 		for (Property property : umlClass.getOwnedAttributes()) {
-			if (property.getType() != null && property.getAssociation() != null) {
+			if (property.getType() != null && property.getAssociation() != null &&
+					!CDAModelUtil.isDisplayInline(property)) {
 				addReference(umlClass, property.getType());
 			}
 		}
