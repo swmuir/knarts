@@ -567,6 +567,8 @@ public class ConstraintSection extends WrapperAwareModelerPropertySection {
 			ditaEnableButton.setVisible(true);
 		} else {
 			ditaEnableButton.setVisible(false);
+			closeErrorTextButton.setVisible(false);
+			errorText.setVisible(false);
 		}
 
 	}
