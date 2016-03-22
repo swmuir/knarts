@@ -23,6 +23,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +44,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.cda.core.profile.LogicalConstraint;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.core.util.CDAProfileUtil;
+import org.eclipse.mdht.uml.cda.core.util.ClinicalDocumentCreator;
 import org.eclipse.mdht.uml.cda.core.util.InstanceGenerator;
+import org.eclipse.mdht.uml.cda.core.util.ModelStatus;
 import org.eclipse.mdht.uml.cda.core.util.RIMModelUtil;
 import org.eclipse.mdht.uml.cda.dita.internal.Logger;
 import org.eclipse.mdht.uml.common.util.NamedElementComparator;
@@ -470,9 +473,44 @@ public class TransformClassContent extends TransformAbstract {
 
 			transformerOptions.isIncludeTableView();
 
-			EObject eObject = instanceGenerator.createInstance(umlClass, exampleDepth > 0
-					? exampleDepth
-					: 2);
+			String xmlGeneratorType = transformerOptions.getXmlGeneratorType();
+			if (xmlGeneratorType == null) {
+				xmlGeneratorType = "custom-if-data-present";
+			}
+
+			EObject eObject = "custom-only".equals(xmlGeneratorType)
+					? null
+					: instanceGenerator.createInstance(umlClass, exampleDepth > 0
+							? exampleDepth
+							: 2);
+			if (eObject == null && !"original-only".equals(xmlGeneratorType) || "custom".equals(xmlGeneratorType) ||
+					"custom-if-data-present".equals(xmlGeneratorType)) {
+				ArrayList<ModelStatus> statuses = new ArrayList<ModelStatus>();
+				ClinicalDocumentCreator creator = new ClinicalDocumentCreator(
+					null, umlClass.eResource().getResourceSet(), statuses);
+				creator.enableSampleData(true);
+				creator.enableSampleDataExpansion(true);
+				Collection<Property> props = Collections.emptyList();
+				EObject newObject = creator.initializeSnippet(umlClass, props);
+				if (newObject == null && eObject == null && !"original".equals(xmlGeneratorType)) {
+					writer.println("Error: Custom XML generator could not create XML sample");
+					for (ModelStatus status : statuses) {
+						writer.println("Error code " + status.getCode() + ": " + status.getMessage());
+					}
+					writer.println("]]></codeblock>");
+					return;
+				}
+				if (newObject != null && (eObject == null || "custom".equals(xmlGeneratorType) ||
+						"custom-if-data-present".equals(xmlGeneratorType) && creator.getSampler().isCustomDataUsed())) {
+					String xml = creator.toXMLString(newObject, umlClass);
+					writer.write(xml);
+					writer.println("]]></codeblock>");
+					for (ModelStatus status : statuses) {
+						writer.println("<!--Error code " + status.getCode() + ": " + status.getMessage() + "-->");
+					}
+					return;
+				}
+			}
 			if (eObject != null) {
 				instanceGenerator.save(eObject, writer);
 			} else {
