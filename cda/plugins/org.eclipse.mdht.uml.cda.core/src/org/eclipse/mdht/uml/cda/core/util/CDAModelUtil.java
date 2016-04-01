@@ -778,7 +778,7 @@ public class CDAModelUtil {
 			message.append(markup
 					? "\n<li>"
 					: " ");
-			message.append("Contains exactly one [1..1] ");
+			message.append("Conforms to ");
 
 			String prefix = !UMLUtil.isSameModel(xrefSource, endType)
 					? getModelPrefix(endType) + " "
