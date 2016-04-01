@@ -288,7 +288,8 @@ public class ClinicalDocumentCreator {
 	 */
 	public void initialize(Collection<Property> mandatoryProperty) {
 		createClinicalDocument();
-		initialize(umlClinicalDocument, aClinicalDocument, mandatoryProperty, new HashSet<Property>(),
+		initialize(
+			umlClinicalDocument, aClinicalDocument, mandatoryProperty, new HashSet<Property>(),
 			Collections.<Property> emptyList(), null, null);
 	}
 
@@ -353,8 +354,9 @@ public class ClinicalDocumentCreator {
 		initialized.remove(propertyInstance);
 		EObject parent = propertyInstance.eContainer();
 		Class parentClass = (Class) getInitializedByClass(parent);
-		return initializeProperty(property, parent, Arrays.asList(property), new HashSet<Property>(),
-			Collections.<Property> emptyList(), parentClass, null);
+		return initializeProperty(
+			property, parent, Arrays.asList(property), new HashSet<Property>(), Collections.<Property> emptyList(),
+			parentClass, null);
 	}
 
 	/**
@@ -691,7 +693,7 @@ public class ClinicalDocumentCreator {
 	 * @param name
 	 * @return
 	 */
-	private static String withoutDigits(String name) {
+	public static String withoutDigits(String name) {
 		while (!"".equals(name) && Character.isDigit(name.charAt(name.length() - 1))) {
 			name = name.substring(0, name.length() - 1);
 		}

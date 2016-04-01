@@ -290,7 +290,8 @@ public class TransformClassContent extends TransformAbstract {
 			writer.print("<p id=\"shortdesc\">");
 			if (!umlClass.equals(cdaClass)) {
 				writer.print(
-					"[" + cdaClassName + ": templateId <tt>" + CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
+					"[" + ClinicalDocumentCreator.withoutDigits(cdaClassName) + ": templateId <tt>" +
+							CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
 			}
 			writer.println("</p>");
 
@@ -546,7 +547,7 @@ public class TransformClassContent extends TransformAbstract {
 		}
 		if (cdaClass != null && !umlClass.equals(cdaClass)) {
 			writer.print(
-				"[" + prefix + cdaClassName + ": templateId <tt>" + CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
+				"[" + prefix + ClinicalDocumentCreator.withoutDigits(cdaClassName) + ": templateId <tt>" + CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
 		}
 		writer.println("</shortdesc>");
 
