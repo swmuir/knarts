@@ -1337,6 +1337,9 @@ public class CDAModelUtil {
 
 		// XML attributes
 		for (Property property : propertyList.getAttributes()) {
+			if (!CDAModelUtil.hasOwnPDFSection(property)) {
+				continue;
+			}
 			hasRules = hasRules | appendPropertyList(
 				umlClass, property, markup, ol, sb, prefix, li, constraintMap, unprocessedConstraints,
 				subConstraintMap);
@@ -1358,6 +1361,33 @@ public class CDAModelUtil {
 			appendB.append(sb);
 			appendB.append(ol[1]);
 		}
+	}
+
+	/**
+	 * @param property
+	 * @return whether the given property has an independent section in the PDF file (<code>true</code>) or is only printed in context of a
+	 *         logical constraint (<code>false</code>)
+	 */
+	public static boolean hasOwnPDFSection(Property property) {
+		Validation cv = CDAProfileUtil.getValidation(property);
+		if (cv != null) {
+			// print if severity is given
+			return true;
+		}
+		Class clazz = (Class) property.eContainer();
+		for (Constraint constraint : clazz.getOwnedRules()) {
+			if (constraint.getConstrainedElements().contains(property)) {
+				LogicalConstraint logicConstraint = CDAProfileUtil.getLogicalConstraint(constraint);
+				if (logicConstraint != null) {
+					if (logicConstraint.getOperation() == LogicalOperator.IFTHEN &&
+							constraint.getConstrainedElements().indexOf(property) == 1) {
+						// for a (IF A THEN B) constraint, B hasn't its own section
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	private static boolean appendPropertyList(Element umlClass, Property property, boolean markup, String[] ol,
@@ -1905,12 +1935,14 @@ public class CDAModelUtil {
 
 			String propertyKeyword = getValidationKeyword(constraint.getConstrainedElements().get(0));
 
+			String conformanceMessage = computeConformanceMessage(constraint.getConstrainedElements().get(0), markup);
 			if (propertyKeyword != null) {
-				message.append(
-					computeConformanceMessage(constraint.getConstrainedElements().get(0), markup).replace(
-						propertyKeyword, ""));
+				conformanceMessage = conformanceMessage.replace(
+					"<b>" + propertyKeyword + "</b> contain", "there is contained");
+				conformanceMessage = conformanceMessage.replace(propertyKeyword, "");
+				message.append(conformanceMessage);
 			} else {
-				message.append(computeConformanceMessage(constraint.getConstrainedElements().get(0), markup));
+				message.append(conformanceMessage);
 			}
 
 			message.append(" then it ").append(markup

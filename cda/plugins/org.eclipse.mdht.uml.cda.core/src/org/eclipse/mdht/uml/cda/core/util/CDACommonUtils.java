@@ -544,6 +544,9 @@ public class CDACommonUtils {
 			for (Property property : propertyList.getAttributes()) {
 				if (!CDACommonUtils.isCDAModel(umlClass) && !CDACommonUtils.isCDAModel(property) &&
 						!CDACommonUtils.isDatatypeModel(property)) {
+					if (!CDAModelUtil.hasOwnPDFSection(property)) {
+						continue;
+					}
 					allProperties.add(property);
 				}
 			}
