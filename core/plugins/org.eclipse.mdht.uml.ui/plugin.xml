@@ -684,14 +684,14 @@
             class="org.eclipse.mdht.uml.ui.propertytesters.UmlElement"
             id="org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider"
             namespace="org.eclipse.mdht.uml.ui"
-            properties="instanceOf, isLocalised, fromLocal,isAnAssociation"
+            properties="instanceOf, isLocalised, fromLocal,isAnAssociation,isNamedElement"
             type="org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider">
       </propertyTester>
       <propertyTester
             class="org.eclipse.mdht.uml.ui.propertytesters.UmlElement"
             id="org.eclipse.mdht.uml.ui.navigator.UMLDomainNavigatorItem"
             namespace="org.eclipse.mdht.uml.ui"
-            properties="instanceOf, isLocalised, fromLocal,isAnAssociation"
+            properties="instanceOf, isLocalised, fromLocal,isAnAssociation,isNamedElement"
             type="org.eclipse.mdht.uml.ui.navigator.UMLDomainNavigatorItem">
       </propertyTester>
    </extension>
