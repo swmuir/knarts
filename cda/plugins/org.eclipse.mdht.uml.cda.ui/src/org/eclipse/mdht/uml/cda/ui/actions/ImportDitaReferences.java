@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.ui.actions;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,6 +35,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.actions.CopyFilesAndFoldersOperation;
@@ -74,6 +77,8 @@ public class ImportDitaReferences implements IObjectActionDelegate {
 				workspace.copy(
 					resources, workspace.getRoot().getFolder(ditaFolder.getFullPath()).getFullPath(), true, null);
 
+				fixRelativePaths(workspace.getRoot().getFolder(ditaFolder.getFullPath()).getLocation().toFile());
+
 				// Refresh
 				selectedProject.refreshLocal(IResource.DEPTH_INFINITE, null);
 
@@ -83,6 +88,32 @@ public class ImportDitaReferences implements IObjectActionDelegate {
 
 		}
 
+	}
+
+	/**
+	 * Fix relative links to the "terminology" folder for imported Dita projects as they need to navigate two folder levels higher
+	 *
+	 * @param dir
+	 */
+	private static void fixRelativePaths(File dir) {
+		if (dir.list() != null) {
+			for (String child : dir.list()) {
+				try {
+					File file = new File(dir, child);
+					if (child.endsWith(".dita")) {
+						String contents = CDACommonUtils.stringFromFile(file);
+						String fixedContents = contents.replace(
+							"<xref href=\"../../terminology/", "<xref href=\"../../../../terminology/");
+						if (!contents.equals(fixedContents)) {
+							CDACommonUtils.stringToFile(fixedContents, file);
+						}
+					}
+					fixRelativePaths(file);
+				} catch (IOException e) {
+					// skip current file
+				}
+			}
+		}
 	}
 
 	/*
