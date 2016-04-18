@@ -1272,7 +1272,7 @@ public class CDAModelUtil {
 
 	private static final String[] NOLI = { "", " " };
 
-	static private void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
+	static public void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
 
 		String[] ol = markup
 				? OL
@@ -1369,11 +1369,6 @@ public class CDAModelUtil {
 	 *         logical constraint (<code>false</code>)
 	 */
 	public static boolean hasOwnPDFSection(Property property) {
-		Validation cv = CDAProfileUtil.getValidation(property);
-		if (cv != null) {
-			// print if severity is given
-			return true;
-		}
 		Class clazz = (Class) property.eContainer();
 		for (Constraint constraint : clazz.getOwnedRules()) {
 			if (constraint.getConstrainedElements().contains(property)) {
@@ -1382,6 +1377,15 @@ public class CDAModelUtil {
 					if (logicConstraint.getOperation() == LogicalOperator.IFTHEN &&
 							constraint.getConstrainedElements().indexOf(property) == 1) {
 						// for a (IF A THEN B) constraint, B hasn't its own section
+						Validation cv = CDAProfileUtil.getValidation(property);
+						if (cv != null) {
+							// print if severity is given
+							return true;
+						}
+						return false;
+					}
+					if (logicConstraint.getOperation() == LogicalOperator.XOR) {
+						// a XOR constraint has no own section
 						return false;
 					}
 				}
@@ -1967,6 +1971,21 @@ public class CDAModelUtil {
 			for (Element element : constraint.getConstrainedElements()) {
 				message.append(LI[0]);
 				message.append(computeConformanceMessage(element, markup));
+				String propertyRules = "";
+				if (element instanceof Property) {
+					Property property = (Property) element;
+					propertyRules = appendPropertyRules(message, property);
+				}
+				if (propertyRules.length() > 0) {
+					message.append(propertyRules);
+				} else if (element instanceof Property) {
+					String computeAssociationConstraintsMsg = computeAssociationConstraints((Property) element, markup);
+					if (!computeAssociationConstraintsMsg.isEmpty()) {
+						message.append("<ol>");
+						message.append(computeAssociationConstraintsMsg);
+						message.append("</ol>");
+					}
+				}
 				message.append(LI[1]);
 			}
 			if (markup) {
@@ -1977,6 +1996,51 @@ public class CDAModelUtil {
 		appendConformanceRuleIds(constraint, message, markup);
 
 		return message.toString();
+	}
+
+	/**
+	 * @param message
+	 * @param property
+	 */
+	private static String appendPropertyRules(StringBuffer message, Property property) {
+		Class umlClass = property.getClass_();
+
+		// categorize constraints by constrainedElement name
+		List<Constraint> unprocessedConstraints = new ArrayList<Constraint>();
+		// propertyName -> constraints
+		Map<String, List<Constraint>> constraintMap = new HashMap<String, List<Constraint>>();
+		// constraint -> sub-constraints
+		Map<Constraint, List<Constraint>> subConstraintMap = new HashMap<Constraint, List<Constraint>>();
+
+		for (Constraint constraint : umlClass.getOwnedRules()) {
+			unprocessedConstraints.add(constraint);
+
+			for (Element element : constraint.getConstrainedElements()) {
+				if (CDAProfileUtil.getLogicalConstraint(constraint) == null) {
+					if (element instanceof Property) {
+						String name = ((Property) element).getName();
+						List<Constraint> rules = constraintMap.get(name);
+						if (rules == null) {
+							rules = new ArrayList<Constraint>();
+							constraintMap.put(name, rules);
+						}
+						rules.add(constraint);
+					} else if (element instanceof Constraint) {
+						Constraint subConstraint = (Constraint) element;
+						List<Constraint> rules = subConstraintMap.get(subConstraint);
+						if (rules == null) {
+							rules = new ArrayList<Constraint>();
+							subConstraintMap.put(subConstraint, rules);
+						}
+						rules.add(constraint);
+					}
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+		appendPropertyRules(sb, property, constraintMap, subConstraintMap, unprocessedConstraints, true, true);
+		return sb.toString();
 	}
 
 	private static boolean containsSeverityWord(String text) {
