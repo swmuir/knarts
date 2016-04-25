@@ -128,7 +128,7 @@ public class ModelIndexer implements ModelConstants {
 		return FhirModelUtil.isKindOf(classifier, EXTENSION_CLASS_NAME);
 	}
 
-	public Classifier getConstrainedCoreType(Classifier profileClass) {
+	public Classifier getCoreBaseType(Classifier profileClass) {
 		if (isDefinedType(profileClass)) {
 			return profileClass;
 		}

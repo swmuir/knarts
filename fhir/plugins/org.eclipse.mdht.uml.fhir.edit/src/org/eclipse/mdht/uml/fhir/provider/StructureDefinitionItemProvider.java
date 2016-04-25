@@ -218,7 +218,7 @@ public class StructureDefinitionItemProvider extends ConformanceResourceItemProv
 				}
 			case IStructureDefinitionTableProperties.BASE_TYPE_INDEX:
 				if (structureDef.getBase_Class() != null) {
-					Classifier constrainedType = getModelIndexer(structureDef.getBase_Class()).getConstrainedCoreType(structureDef.getBase_Class());
+					Classifier constrainedType = getModelIndexer(structureDef.getBase_Class()).getCoreBaseType(structureDef.getBase_Class());
 					if (constrainedType != null) {
 						return constrainedType.getName();
 					}

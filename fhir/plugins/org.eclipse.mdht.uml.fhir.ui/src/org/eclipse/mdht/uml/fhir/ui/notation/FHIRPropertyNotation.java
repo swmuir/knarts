@@ -11,12 +11,15 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.fhir.ui.notation;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.mdht.uml.common.notation.IUMLNotation;
 import org.eclipse.mdht.uml.common.notation.PropertyNotationUtil;
 import org.eclipse.mdht.uml.common.util.MultiplicityElementUtil;
 import org.eclipse.mdht.uml.common.util.NamedElementUtil;
+import org.eclipse.mdht.uml.common.util.UMLUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
@@ -24,11 +27,15 @@ import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 import org.eclipse.mdht.uml.fhir.common.util.FhirModelUtil;
+import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
+import org.eclipse.mdht.uml.fhir.types.Coding;
 import org.eclipse.mdht.uml.fhir.util.ProfileUtil;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
 
 
 /**
@@ -93,6 +100,12 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 				buffer.append(" = ");
 				buffer.append(property.getDefault());
 			}
+			else {
+				// display summary of FHIR profile fixed value
+				// TODO FHIR default or example value??
+				String fixedValue = getFixedValueAnnotation(property);
+				
+			}
 		}
 
 		boolean multiLine = ((style & IUMLNotation.DISP_MULTI_LINE) != 0);
@@ -131,8 +144,16 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 		if (extensionMetadata.length() == 0 && (style & INotationConstants.DISP_VOCABULARY) != 0) {
 			String termMetadata = getTerminologyAnnotations(property);
 			if (termMetadata.length() > 0) {
-				annotations.append(annotations.length() > 0 ? " ": "");
+				annotations.append(annotations.length() > 0 ? ", ": "");
 				annotations.append(termMetadata);
+			}
+			else {
+				String fixedCoding = getFixedValueAnnotation(property);
+				if (fixedCoding.length() > 0) {
+					annotations.append(annotations.length() > 0 ? ", ": "");
+//					annotations.append("= ");
+					annotations.append(fixedCoding);
+				}
 			}
 		}
 
@@ -198,7 +219,7 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 
 		// Return property modifiers
 		if (property.isReadOnly()) {
-			buffer.append("readOnly");
+			buffer.append("fixed");
 			needsComma = true;
 		}
 		if (property.isDerivedUnion()) {
@@ -226,6 +247,8 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 			needsComma = true;
 		}
 
+		Iterator<org.eclipse.uml2.uml.Property> it;
+/*
 		// is the property redefining another property ?
 		Iterator<org.eclipse.uml2.uml.Property> it;
 		it = property.getRedefinedProperties().iterator();
@@ -247,21 +270,23 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 				}
 			}
 		}
+*/
 
 		// is the property subsetting another property ?
-//		it = property.getSubsettedProperties().iterator();
-//		while (it.hasNext()) {
-//			Property current = it.next();
-//			if (!current.eIsProxy()) {
-//				if (needsComma) {
-//					buffer.append(", ");
-//					buffer.append(NL);
-//				}
+		it = property.getSubsettedProperties().iterator();
+		while (it.hasNext()) {
+			Property current = it.next();
+			if (!current.eIsProxy()) {
+				if (needsComma) {
+					buffer.append(", ");
+					buffer.append(NL);
+				}
 //				buffer.append("subsets ");
-//				buffer.append(current.getName());
-//				needsComma = true;
-//			}
-//		}
+				buffer.append("slices ");
+				buffer.append(current.getName());
+				needsComma = true;
+			}
+		}
 
 		return buffer.toString();
 	}
@@ -373,6 +398,113 @@ public class FHIRPropertyNotation extends PropertyNotationUtil {
 		}
 
 		return annotation.toString();
+	}
+
+	protected static String getFixedValueAnnotation(Property property) {
+		StringBuffer annotation = new StringBuffer();
+		ElementDefinition elementDef = (ElementDefinition) ProfileUtil.getStereotypeApplication(property, FHIRPackage.eINSTANCE.getElementDefinition());
+		if (elementDef != null) {
+			if (elementDef.getFixed() instanceof CodeableConcept) {
+				CodeableConcept fixedCodes = (CodeableConcept) elementDef.getFixed();
+				for (Coding coding : fixedCodes.getCodings()) {
+					StringBuffer codingDisplay = new StringBuffer();
+					if (coding.getSystem() != null) {
+						codingDisplay.append(coding.getSystem());
+					}
+					if (coding.getCode() != null) {
+						codingDisplay.append((codingDisplay.length() > 0) ? " | " : "");
+						codingDisplay.append(coding.getCode());
+					}
+					annotation.append((annotation.length() > 0) ? ", " : "");
+					annotation.append(codingDisplay);
+				}
+			}
+		}
+		
+		if (annotation.length() == 0 && property.getType() != null) {
+			annotation.append(getFixedValueAnnotation(property.getType()));
+		}
+		
+		return annotation.toString();
+	}
+	
+	protected static String getFixedValueAnnotation(Type umlType) {
+		if (!(umlType instanceof Class)) {
+			return null;
+		}
+		Class umlClass = (Class) umlType;
+		StringBuffer annotation = new StringBuffer();
+
+		//TODO Do I need to aggregate annotations from all inherited properties?
+		if (isFHIRType(umlClass, "CodeableConcept")) {
+			List<Property> codings = new ArrayList<Property>();
+			for (Property prop : umlClass.getOwnedAttributes()) {
+				if (prop.getType() instanceof Class && UMLUtil.getAllParentNames(((Class)prop.getType())).contains("Coding")) {
+					codings.add(prop);
+				}
+			}
+			for (Property coding : codings) {
+				if (coding.getType() instanceof Class) {
+					annotation.append((annotation.length() > 0) ? ", " : "");
+					annotation.append(getCodingAnnotation((Class)coding.getType()));
+				}
+			}
+		}
+		else if (isFHIRType(umlClass, "Coding")) {
+			annotation.append(getCodingAnnotation(umlClass));
+		}
+		else if (isFHIRType(umlClass, "Quantity")) {
+			// for Quantity, use 'code' or 'system', but not both
+			Property code = umlClass.getOwnedAttribute("code", null);
+			Property system = umlClass.getOwnedAttribute("system", null);
+			if (code != null) {
+				if (code.isReadOnly() && code.getDefault() != null) {
+					annotation.append(code.getDefault());
+				}
+				else if (system != null) {
+					if (system.isReadOnly() && system.getDefault() != null) {
+						annotation.append(system.getDefault());
+					}
+				}
+				else {
+					String binding = getTerminologyAnnotations(code);
+					if (binding != null) {
+						annotation.append(binding);
+					}
+				}
+			}
+		}
+		
+		return annotation.toString();
+	}
+	
+	private static String getCodingAnnotation(Class coding) {
+		StringBuffer annotation = new StringBuffer();
+		Property system = coding.getOwnedAttribute("system", null);
+		if (system != null) {
+			if (system.isReadOnly() && system.getDefault() != null) {
+				annotation.append(system.getDefault());
+			}
+		}
+		
+		Property code = coding.getOwnedAttribute("code", null);
+		if (code != null) {
+			if (code.isReadOnly() && code.getDefault() != null) {
+				annotation.append((annotation.length() > 0) ? " | " : "");
+				annotation.append(code.getDefault());
+			}
+		}
+		
+		return annotation.toString();
+	}
+
+	private static boolean isFHIRType(Classifier classifier, String typeName) {
+		for (String name : UMLUtil.getAllParentNames(classifier)) {
+			if (name.equals(typeName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
