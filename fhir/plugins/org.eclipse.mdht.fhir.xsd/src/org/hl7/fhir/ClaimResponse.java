@@ -19,13 +19,17 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponse#getRequest <em>Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestIdentifier <em>Request Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestReference <em>Request Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponse#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getOrganizationReference <em>Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestProviderIdentifier <em>Request Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestProviderReference <em>Request Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestOrganizationIdentifier <em>Request Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestOrganizationReference <em>Request Organization Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getDisposition <em>Disposition</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getPayeeType <em>Payee Type</em>}</li>
@@ -68,30 +72,58 @@ public interface ClaimResponse extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Original request resource referrence.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request</em>' containment reference.
-	 * @see #setRequest(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Request()
+	 * @return the value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #setRequestIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='requestIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequest();
+	Identifier getRequestIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequest <em>Request</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestIdentifier <em>Request Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request</em>' containment reference.
-	 * @see #getRequest()
+	 * @param value the new value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #getRequestIdentifier()
 	 * @generated
 	 */
-	void setRequest(Reference value);
+	void setRequestIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Reference</em>' containment reference.
+	 * @see #setRequestReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequestReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestReference <em>Request Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Reference</em>' containment reference.
+	 * @see #getRequestReference()
+	 * @generated
+	 */
+	void setRequestReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
@@ -172,82 +204,166 @@ public interface ClaimResponse extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Organization Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Insurer who produced this adjudicated response.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Organization()
+	 * @return the value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #setOrganizationIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_OrganizationIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='organizationIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Identifier getOrganizationIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getOrganizationIdentifier <em>Organization Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #getOrganizationIdentifier()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setOrganizationIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Request Provider</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Organization Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The practitioner who is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request Provider</em>' containment reference.
-	 * @see #setRequestProvider(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestProvider()
+	 * @return the value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #setOrganizationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_OrganizationReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestProvider' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='organizationReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequestProvider();
+	Reference getOrganizationReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestProvider <em>Request Provider</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getOrganizationReference <em>Organization Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Provider</em>' containment reference.
-	 * @see #getRequestProvider()
+	 * @param value the new value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #getOrganizationReference()
 	 * @generated
 	 */
-	void setRequestProvider(Reference value);
+	void setOrganizationReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Request Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request Provider Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Provider Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request Organization</em>' containment reference.
-	 * @see #setRequestOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestOrganization()
+	 * @return the value of the '<em>Request Provider Identifier</em>' containment reference.
+	 * @see #setRequestProviderIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestProviderIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestOrganization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='requestProviderIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequestOrganization();
+	Identifier getRequestProviderIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestOrganization <em>Request Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestProviderIdentifier <em>Request Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Organization</em>' containment reference.
-	 * @see #getRequestOrganization()
+	 * @param value the new value of the '<em>Request Provider Identifier</em>' containment reference.
+	 * @see #getRequestProviderIdentifier()
 	 * @generated
 	 */
-	void setRequestOrganization(Reference value);
+	void setRequestProviderIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Provider Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Provider Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Provider Reference</em>' containment reference.
+	 * @see #setRequestProviderReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestProviderReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestProviderReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequestProviderReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestProviderReference <em>Request Provider Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Provider Reference</em>' containment reference.
+	 * @see #getRequestProviderReference()
+	 * @generated
+	 */
+	void setRequestProviderReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Organization Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Organization Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Organization Identifier</em>' containment reference.
+	 * @see #setRequestOrganizationIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestOrganizationIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestOrganizationIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getRequestOrganizationIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestOrganizationIdentifier <em>Request Organization Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Organization Identifier</em>' containment reference.
+	 * @see #getRequestOrganizationIdentifier()
+	 * @generated
+	 */
+	void setRequestOrganizationIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Organization Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Organization Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Organization Reference</em>' containment reference.
+	 * @see #setRequestOrganizationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_RequestOrganizationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestOrganizationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequestOrganizationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getRequestOrganizationReference <em>Request Organization Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Organization Reference</em>' containment reference.
+	 * @see #getRequestOrganizationReference()
+	 * @generated
+	 */
+	void setRequestOrganizationReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.
@@ -257,13 +373,13 @@ public interface ClaimResponse extends DomainResource {
 	 * Transaction status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(Code)
+	 * @see #setOutcome(RemittanceOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getOutcome();
+	RemittanceOutcome getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -273,7 +389,7 @@ public interface ClaimResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(Code value);
+	void setOutcome(RemittanceOutcome value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

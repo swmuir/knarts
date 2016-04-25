@@ -17,8 +17,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ConceptMapTarget#getCodeSystem <em>Code System</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMapTarget#getCodeSystemVersion <em>Code System Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapTarget#getSystem <em>System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapTarget#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getEquivalence <em>Equivalence</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getComments <em>Comments</em>}</li>
@@ -32,56 +32,56 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ConceptMapTarget extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Code System</b></em>' containment reference.
+	 * Returns the value of the '<em><b>System</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code System</em>' containment reference.
-	 * @see #setCodeSystem(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_CodeSystem()
+	 * @return the value of the '<em>System</em>' containment reference.
+	 * @see #setSystem(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_System()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='codeSystem' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getCodeSystem();
+	Uri getSystem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getCodeSystem <em>Code System</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getSystem <em>System</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code System</em>' containment reference.
-	 * @see #getCodeSystem()
+	 * @param value the new value of the '<em>System</em>' containment reference.
+	 * @see #getSystem()
 	 * @generated
 	 */
-	void setCodeSystem(Uri value);
+	void setSystem(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Code System Version</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The specific version of the code system, as determined by the code system authority.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code System Version</em>' containment reference.
-	 * @see #setCodeSystemVersion(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_CodeSystemVersion()
+	 * @return the value of the '<em>Version</em>' containment reference.
+	 * @see #setVersion(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_Version()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='codeSystemVersion' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCodeSystemVersion();
+	org.hl7.fhir.String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getCodeSystemVersion <em>Code System Version</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getVersion <em>Version</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code System Version</em>' containment reference.
-	 * @see #getCodeSystemVersion()
+	 * @param value the new value of the '<em>Version</em>' containment reference.
+	 * @see #getVersion()
 	 * @generated
 	 */
-	void setCodeSystemVersion(org.hl7.fhir.String value);
+	void setVersion(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -117,13 +117,13 @@ public interface ConceptMapTarget extends BackboneElement {
 	 * The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Equivalence</em>' containment reference.
-	 * @see #setEquivalence(Code)
+	 * @see #setEquivalence(ConceptMapEquivalence)
 	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_Equivalence()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='equivalence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getEquivalence();
+	ConceptMapEquivalence getEquivalence();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getEquivalence <em>Equivalence</em>}' containment reference.
@@ -133,7 +133,7 @@ public interface ConceptMapTarget extends BackboneElement {
 	 * @see #getEquivalence()
 	 * @generated
 	 */
-	void setEquivalence(Code value);
+	void setEquivalence(ConceptMapEquivalence value);
 
 	/**
 	 * Returns the value of the '<em><b>Comments</b></em>' containment reference.

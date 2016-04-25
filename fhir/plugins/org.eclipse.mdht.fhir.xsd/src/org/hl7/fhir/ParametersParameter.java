@@ -54,6 +54,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueMeta <em>Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueElementDefinition <em>Value Element Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueModuleMetadata <em>Value Module Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueActionDefinition <em>Value Action Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getPart <em>Part</em>}</li>
  * </ul>
@@ -1060,6 +1064,114 @@ public interface ParametersParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueModuleMetadata(ModuleMetadata value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #setValueDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getValueDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueDataRequirement <em>Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #getValueDataRequirement()
+	 * @generated
+	 */
+	void setValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Action Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Action Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Action Definition</em>' containment reference.
+	 * @see #setValueActionDefinition(ActionDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueActionDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueActionDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ActionDefinition getValueActionDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueActionDefinition <em>Value Action Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Action Definition</em>' containment reference.
+	 * @see #getValueActionDefinition()
+	 * @generated
+	 */
+	void setValueActionDefinition(ActionDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #setValueParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getValueParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueParameterDefinition <em>Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #getValueParameterDefinition()
+	 * @generated
+	 */
+	void setValueParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #setValueTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getValueTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueTriggerDefinition <em>Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #getValueTriggerDefinition()
+	 * @generated
+	 */
+	void setValueTriggerDefinition(TriggerDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.

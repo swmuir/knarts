@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.ExplanationOfBenefitCoverage;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
 /**
@@ -30,8 +30,8 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitCoverageImpl#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitCoverageImpl#getRelationship <em>Relationship</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitCoverageImpl#getCoverageIdentifier <em>Coverage Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitCoverageImpl#getCoverageReference <em>Coverage Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitCoverageImpl#getPreAuthRef <em>Pre Auth Ref</em>}</li>
  * </ul>
  *
@@ -39,24 +39,24 @@ import org.hl7.fhir.Reference;
  */
 public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implements ExplanationOfBenefitCoverage {
 	/**
-	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
+	 * The cached value of the '{@link #getCoverageIdentifier() <em>Coverage Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCoverage()
+	 * @see #getCoverageIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference coverage;
+	protected Identifier coverageIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference.
+	 * The cached value of the '{@link #getCoverageReference() <em>Coverage Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelationship()
+	 * @see #getCoverageReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding relationship;
+	protected Reference coverageReference;
 
 	/**
 	 * The cached value of the '{@link #getPreAuthRef() <em>Pre Auth Ref</em>}' containment reference list.
@@ -92,8 +92,8 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getCoverage() {
-		return coverage;
+	public Identifier getCoverageIdentifier() {
+		return coverageIdentifier;
 	}
 
 	/**
@@ -101,11 +101,11 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCoverage(Reference newCoverage, NotificationChain msgs) {
-		Reference oldCoverage = coverage;
-		coverage = newCoverage;
+	public NotificationChain basicSetCoverageIdentifier(Identifier newCoverageIdentifier, NotificationChain msgs) {
+		Identifier oldCoverageIdentifier = coverageIdentifier;
+		coverageIdentifier = newCoverageIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE, oldCoverage, newCoverage);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER, oldCoverageIdentifier, newCoverageIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -116,18 +116,18 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCoverage(Reference newCoverage) {
-		if (newCoverage != coverage) {
+	public void setCoverageIdentifier(Identifier newCoverageIdentifier) {
+		if (newCoverageIdentifier != coverageIdentifier) {
 			NotificationChain msgs = null;
-			if (coverage != null)
-				msgs = ((InternalEObject)coverage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE, null, msgs);
-			if (newCoverage != null)
-				msgs = ((InternalEObject)newCoverage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE, null, msgs);
-			msgs = basicSetCoverage(newCoverage, msgs);
+			if (coverageIdentifier != null)
+				msgs = ((InternalEObject)coverageIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER, null, msgs);
+			if (newCoverageIdentifier != null)
+				msgs = ((InternalEObject)newCoverageIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER, null, msgs);
+			msgs = basicSetCoverageIdentifier(newCoverageIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE, newCoverage, newCoverage));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER, newCoverageIdentifier, newCoverageIdentifier));
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getRelationship() {
-		return relationship;
+	public Reference getCoverageReference() {
+		return coverageReference;
 	}
 
 	/**
@@ -144,11 +144,11 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelationship(Coding newRelationship, NotificationChain msgs) {
-		Coding oldRelationship = relationship;
-		relationship = newRelationship;
+	public NotificationChain basicSetCoverageReference(Reference newCoverageReference, NotificationChain msgs) {
+		Reference oldCoverageReference = coverageReference;
+		coverageReference = newCoverageReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP, oldRelationship, newRelationship);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE, oldCoverageReference, newCoverageReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -159,18 +159,18 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRelationship(Coding newRelationship) {
-		if (newRelationship != relationship) {
+	public void setCoverageReference(Reference newCoverageReference) {
+		if (newCoverageReference != coverageReference) {
 			NotificationChain msgs = null;
-			if (relationship != null)
-				msgs = ((InternalEObject)relationship).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP, null, msgs);
-			if (newRelationship != null)
-				msgs = ((InternalEObject)newRelationship).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP, null, msgs);
-			msgs = basicSetRelationship(newRelationship, msgs);
+			if (coverageReference != null)
+				msgs = ((InternalEObject)coverageReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE, null, msgs);
+			if (newCoverageReference != null)
+				msgs = ((InternalEObject)newCoverageReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE, null, msgs);
+			msgs = basicSetCoverageReference(newCoverageReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP, newRelationship, newRelationship));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE, newCoverageReference, newCoverageReference));
 	}
 
 	/**
@@ -193,10 +193,10 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE:
-				return basicSetCoverage(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP:
-				return basicSetRelationship(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER:
+				return basicSetCoverageIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE:
+				return basicSetCoverageReference(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__PRE_AUTH_REF:
 				return ((InternalEList<?>)getPreAuthRef()).basicRemove(otherEnd, msgs);
 		}
@@ -211,10 +211,10 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE:
-				return getCoverage();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP:
-				return getRelationship();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER:
+				return getCoverageIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE:
+				return getCoverageReference();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__PRE_AUTH_REF:
 				return getPreAuthRef();
 		}
@@ -230,11 +230,11 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE:
-				setCoverage((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER:
+				setCoverageIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP:
-				setRelationship((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE:
+				setCoverageReference((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__PRE_AUTH_REF:
 				getPreAuthRef().clear();
@@ -252,11 +252,11 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE:
-				setCoverage((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER:
+				setCoverageIdentifier((Identifier)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP:
-				setRelationship((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE:
+				setCoverageReference((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__PRE_AUTH_REF:
 				getPreAuthRef().clear();
@@ -273,10 +273,10 @@ public class ExplanationOfBenefitCoverageImpl extends BackboneElementImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE:
-				return coverage != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__RELATIONSHIP:
-				return relationship != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_IDENTIFIER:
+				return coverageIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__COVERAGE_REFERENCE:
+				return coverageReference != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_COVERAGE__PRE_AUTH_REF:
 				return preAuthRef != null && !preAuthRef.isEmpty();
 		}

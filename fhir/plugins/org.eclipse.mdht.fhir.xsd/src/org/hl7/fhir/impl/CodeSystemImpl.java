@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystem;
 import org.hl7.fhir.CodeSystemConcept;
 import org.hl7.fhir.CodeSystemContact;
@@ -25,6 +24,7 @@ import org.hl7.fhir.CodeSystemContentMode;
 import org.hl7.fhir.CodeSystemFilter;
 import org.hl7.fhir.CodeSystemProperty;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -114,7 +114,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -482,7 +482,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -491,8 +491,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__STATUS, oldStatus, newStatus);
@@ -506,7 +506,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -1230,7 +1230,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -1313,7 +1313,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);

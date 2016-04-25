@@ -196,6 +196,18 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDIA__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DigitalMediaType getType() {
 		return type;
 	}
@@ -282,11 +294,42 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDIA__IDENTIFIER);
+	public CodeableConcept getView() {
+		return view;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetView(CodeableConcept newView, NotificationChain msgs) {
+		CodeableConcept oldView = view;
+		view = newView;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__VIEW, oldView, newView);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return identifier;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setView(CodeableConcept newView) {
+		if (newView != view) {
+			NotificationChain msgs = null;
+			if (view != null)
+				msgs = ((InternalEObject)view).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__VIEW, null, msgs);
+			if (newView != null)
+				msgs = ((InternalEObject)newView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__VIEW, null, msgs);
+			msgs = basicSetView(newView, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__VIEW, newView, newView));
 	}
 
 	/**
@@ -373,49 +416,6 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__OPERATOR, newOperator, newOperator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getView() {
-		return view;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetView(CodeableConcept newView, NotificationChain msgs) {
-		CodeableConcept oldView = view;
-		view = newView;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__VIEW, oldView, newView);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setView(CodeableConcept newView) {
-		if (newView != view) {
-			NotificationChain msgs = null;
-			if (view != null)
-				msgs = ((InternalEObject)view).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__VIEW, null, msgs);
-			if (newView != null)
-				msgs = ((InternalEObject)newView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__VIEW, null, msgs);
-			msgs = basicSetView(newView, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__VIEW, newView, newView));
 	}
 
 	/**

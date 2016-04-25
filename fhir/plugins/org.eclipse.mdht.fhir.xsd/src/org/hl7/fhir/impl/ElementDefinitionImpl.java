@@ -80,8 +80,8 @@ import org.hl7.fhir.Uuid;
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getMin <em>Min</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getMax <em>Max</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getBase <em>Base</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getContentReference <em>Content Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getNameReference <em>Name Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefaultValueBoolean <em>Default Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefaultValueInteger <em>Default Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefaultValueDecimal <em>Default Value Decimal</em>}</li>
@@ -441,6 +441,16 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	protected ElementDefinitionBase base;
 
 	/**
+	 * The cached value of the '{@link #getContentReference() <em>Content Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri contentReference;
+
+	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,16 +459,6 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @ordered
 	 */
 	protected EList<ElementDefinitionType> type;
-
-	/**
-	 * The cached value of the '{@link #getNameReference() <em>Name Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNameReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String nameReference;
 
 	/**
 	 * The cached value of the '{@link #getDefaultValueBoolean() <em>Default Value Boolean</em>}' containment reference.
@@ -3123,11 +3123,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ElementDefinitionType> getType() {
-		if (type == null) {
-			type = new EObjectContainmentEList<ElementDefinitionType>(ElementDefinitionType.class, this, FhirPackage.ELEMENT_DEFINITION__TYPE);
-		}
-		return type;
+	public Uri getContentReference() {
+		return contentReference;
 	}
 
 	/**
@@ -3135,20 +3132,11 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNameReference() {
-		return nameReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNameReference(org.hl7.fhir.String newNameReference, NotificationChain msgs) {
-		org.hl7.fhir.String oldNameReference = nameReference;
-		nameReference = newNameReference;
+	public NotificationChain basicSetContentReference(Uri newContentReference, NotificationChain msgs) {
+		Uri oldContentReference = contentReference;
+		contentReference = newContentReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE, oldNameReference, newNameReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE, oldContentReference, newContentReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -3159,18 +3147,30 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNameReference(org.hl7.fhir.String newNameReference) {
-		if (newNameReference != nameReference) {
+	public void setContentReference(Uri newContentReference) {
+		if (newContentReference != contentReference) {
 			NotificationChain msgs = null;
-			if (nameReference != null)
-				msgs = ((InternalEObject)nameReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE, null, msgs);
-			if (newNameReference != null)
-				msgs = ((InternalEObject)newNameReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE, null, msgs);
-			msgs = basicSetNameReference(newNameReference, msgs);
+			if (contentReference != null)
+				msgs = ((InternalEObject)contentReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE, null, msgs);
+			if (newContentReference != null)
+				msgs = ((InternalEObject)newContentReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE, null, msgs);
+			msgs = basicSetContentReference(newContentReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE, newNameReference, newNameReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE, newContentReference, newContentReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ElementDefinitionType> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<ElementDefinitionType>(ElementDefinitionType.class, this, FhirPackage.ELEMENT_DEFINITION__TYPE);
+		}
+		return type;
 	}
 
 	/**
@@ -12275,10 +12275,10 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return basicSetMax(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__BASE:
 				return basicSetBase(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE:
+				return basicSetContentReference(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE:
-				return basicSetNameReference(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_BOOLEAN:
 				return basicSetDefaultValueBoolean(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_INTEGER:
@@ -12745,10 +12745,10 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return getMax();
 			case FhirPackage.ELEMENT_DEFINITION__BASE:
 				return getBase();
+			case FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE:
+				return getContentReference();
 			case FhirPackage.ELEMENT_DEFINITION__TYPE:
 				return getType();
-			case FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE:
-				return getNameReference();
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_BOOLEAN:
 				return getDefaultValueBoolean();
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_INTEGER:
@@ -13233,12 +13233,12 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FhirPackage.ELEMENT_DEFINITION__BASE:
 				setBase((ElementDefinitionBase)newValue);
 				return;
+			case FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE:
+				setContentReference((Uri)newValue);
+				return;
 			case FhirPackage.ELEMENT_DEFINITION__TYPE:
 				getType().clear();
 				getType().addAll((Collection<? extends ElementDefinitionType>)newValue);
-				return;
-			case FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE:
-				setNameReference((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_BOOLEAN:
 				setDefaultValueBoolean((org.hl7.fhir.Boolean)newValue);
@@ -13936,11 +13936,11 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FhirPackage.ELEMENT_DEFINITION__BASE:
 				setBase((ElementDefinitionBase)null);
 				return;
+			case FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE:
+				setContentReference((Uri)null);
+				return;
 			case FhirPackage.ELEMENT_DEFINITION__TYPE:
 				getType().clear();
-				return;
-			case FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE:
-				setNameReference((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_BOOLEAN:
 				setDefaultValueBoolean((org.hl7.fhir.Boolean)null);
@@ -14621,10 +14621,10 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return max != null;
 			case FhirPackage.ELEMENT_DEFINITION__BASE:
 				return base != null;
+			case FhirPackage.ELEMENT_DEFINITION__CONTENT_REFERENCE:
+				return contentReference != null;
 			case FhirPackage.ELEMENT_DEFINITION__TYPE:
 				return type != null && !type.isEmpty();
-			case FhirPackage.ELEMENT_DEFINITION__NAME_REFERENCE:
-				return nameReference != null;
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_BOOLEAN:
 				return defaultValueBoolean != null;
 			case FhirPackage.ELEMENT_DEFINITION__DEFAULT_VALUE_INTEGER:

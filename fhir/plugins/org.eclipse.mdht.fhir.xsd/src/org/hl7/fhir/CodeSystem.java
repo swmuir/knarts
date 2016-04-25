@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A code system specifies a set of codes drawn from one or more code systems.
+ * A code system resource specifies a set of codes drawn from one or more code systems.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -159,13 +159,13 @@ public interface CodeSystem extends DomainResource {
 	 * The status of the code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ConformanceResourceStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ConformanceResourceStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CodeSystem#getStatus <em>Status</em>}' containment reference.
@@ -175,7 +175,7 @@ public interface CodeSystem extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ConformanceResourceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.

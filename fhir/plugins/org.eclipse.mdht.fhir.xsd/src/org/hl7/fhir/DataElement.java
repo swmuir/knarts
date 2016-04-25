@@ -108,32 +108,6 @@ public interface DataElement extends DomainResource {
 	void setVersion(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getDataElement_Name()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getName();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DataElement#getName <em>Name</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' containment reference.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(org.hl7.fhir.String value);
-
-	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,13 +115,13 @@ public interface DataElement extends DomainResource {
 	 * The status of the data element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ConformanceResourceStatus)
 	 * @see org.hl7.fhir.FhirPackage#getDataElement_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ConformanceResourceStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DataElement#getStatus <em>Status</em>}' containment reference.
@@ -157,7 +131,7 @@ public interface DataElement extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ConformanceResourceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
@@ -212,22 +186,6 @@ public interface DataElement extends DomainResource {
 	void setPublisher(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DataElementContact}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contact</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDataElement_Contact()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<DataElementContact> getContact();
-
-	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,6 +210,48 @@ public interface DataElement extends DomainResource {
 	 * @generated
 	 */
 	void setDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDataElement_Name()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getName();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DataElement#getName <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DataElementContact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Contact</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDataElement_Contact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataElementContact> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.

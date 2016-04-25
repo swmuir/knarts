@@ -56,16 +56,16 @@ public interface TestScriptDestination extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of profile the server supports.
+	 * The type of destination profile the test system supports.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(ProfileDestinationType)
+	 * @see #setProfile(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptDestination_Profile()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ProfileDestinationType getProfile();
+	Coding getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptDestination#getProfile <em>Profile</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface TestScriptDestination extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(ProfileDestinationType value);
+	void setProfile(Coding value);
 
 } // TestScriptDestination

@@ -38,9 +38,11 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getDoseRange <em>Dose Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateRatio <em>Rate Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateRange <em>Rate Range</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateQuantity <em>Rate Quantity</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +159,26 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	protected SimpleQuantity doseQuantity;
 
 	/**
+	 * The cached value of the '{@link #getMaxDosePerPeriod() <em>Max Dose Per Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxDosePerPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ratio maxDosePerPeriod;
+
+	/**
+	 * The cached value of the '{@link #getMaxDosePerAdministration() <em>Max Dose Per Administration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxDosePerAdministration()
+	 * @generated
+	 * @ordered
+	 */
+	protected SimpleQuantity maxDosePerAdministration;
+
+	/**
 	 * The cached value of the '{@link #getRateRatio() <em>Rate Ratio</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,14 +199,14 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	protected Range rateRange;
 
 	/**
-	 * The cached value of the '{@link #getMaxDosePerPeriod() <em>Max Dose Per Period</em>}' containment reference.
+	 * The cached value of the '{@link #getRateQuantity() <em>Rate Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxDosePerPeriod()
+	 * @see #getRateQuantity()
 	 * @generated
 	 * @ordered
 	 */
-	protected Ratio maxDosePerPeriod;
+	protected SimpleQuantity rateQuantity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -683,6 +705,92 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Ratio getMaxDosePerPeriod() {
+		return maxDosePerPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMaxDosePerPeriod(Ratio newMaxDosePerPeriod, NotificationChain msgs) {
+		Ratio oldMaxDosePerPeriod = maxDosePerPeriod;
+		maxDosePerPeriod = newMaxDosePerPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, oldMaxDosePerPeriod, newMaxDosePerPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxDosePerPeriod(Ratio newMaxDosePerPeriod) {
+		if (newMaxDosePerPeriod != maxDosePerPeriod) {
+			NotificationChain msgs = null;
+			if (maxDosePerPeriod != null)
+				msgs = ((InternalEObject)maxDosePerPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, null, msgs);
+			if (newMaxDosePerPeriod != null)
+				msgs = ((InternalEObject)newMaxDosePerPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, null, msgs);
+			msgs = basicSetMaxDosePerPeriod(newMaxDosePerPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, newMaxDosePerPeriod, newMaxDosePerPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimpleQuantity getMaxDosePerAdministration() {
+		return maxDosePerAdministration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMaxDosePerAdministration(SimpleQuantity newMaxDosePerAdministration, NotificationChain msgs) {
+		SimpleQuantity oldMaxDosePerAdministration = maxDosePerAdministration;
+		maxDosePerAdministration = newMaxDosePerAdministration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION, oldMaxDosePerAdministration, newMaxDosePerAdministration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxDosePerAdministration(SimpleQuantity newMaxDosePerAdministration) {
+		if (newMaxDosePerAdministration != maxDosePerAdministration) {
+			NotificationChain msgs = null;
+			if (maxDosePerAdministration != null)
+				msgs = ((InternalEObject)maxDosePerAdministration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION, null, msgs);
+			if (newMaxDosePerAdministration != null)
+				msgs = ((InternalEObject)newMaxDosePerAdministration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION, null, msgs);
+			msgs = basicSetMaxDosePerAdministration(newMaxDosePerAdministration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION, newMaxDosePerAdministration, newMaxDosePerAdministration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Ratio getRateRatio() {
 		return rateRatio;
 	}
@@ -769,8 +877,8 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Ratio getMaxDosePerPeriod() {
-		return maxDosePerPeriod;
+	public SimpleQuantity getRateQuantity() {
+		return rateQuantity;
 	}
 
 	/**
@@ -778,11 +886,11 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMaxDosePerPeriod(Ratio newMaxDosePerPeriod, NotificationChain msgs) {
-		Ratio oldMaxDosePerPeriod = maxDosePerPeriod;
-		maxDosePerPeriod = newMaxDosePerPeriod;
+	public NotificationChain basicSetRateQuantity(SimpleQuantity newRateQuantity, NotificationChain msgs) {
+		SimpleQuantity oldRateQuantity = rateQuantity;
+		rateQuantity = newRateQuantity;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, oldMaxDosePerPeriod, newMaxDosePerPeriod);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY, oldRateQuantity, newRateQuantity);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -793,18 +901,18 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxDosePerPeriod(Ratio newMaxDosePerPeriod) {
-		if (newMaxDosePerPeriod != maxDosePerPeriod) {
+	public void setRateQuantity(SimpleQuantity newRateQuantity) {
+		if (newRateQuantity != rateQuantity) {
 			NotificationChain msgs = null;
-			if (maxDosePerPeriod != null)
-				msgs = ((InternalEObject)maxDosePerPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, null, msgs);
-			if (newMaxDosePerPeriod != null)
-				msgs = ((InternalEObject)newMaxDosePerPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, null, msgs);
-			msgs = basicSetMaxDosePerPeriod(newMaxDosePerPeriod, msgs);
+			if (rateQuantity != null)
+				msgs = ((InternalEObject)rateQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY, null, msgs);
+			if (newRateQuantity != null)
+				msgs = ((InternalEObject)newRateQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY, null, msgs);
+			msgs = basicSetRateQuantity(newRateQuantity, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD, newMaxDosePerPeriod, newMaxDosePerPeriod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY, newRateQuantity, newRateQuantity));
 	}
 
 	/**
@@ -837,12 +945,16 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return basicSetDoseRange(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__DOSE_QUANTITY:
 				return basicSetDoseQuantity(null, msgs);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
+				return basicSetMaxDosePerPeriod(null, msgs);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
+				return basicSetMaxDosePerAdministration(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return basicSetRateRatio(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
 				return basicSetRateRange(null, msgs);
-			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
-				return basicSetMaxDosePerPeriod(null, msgs);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY:
+				return basicSetRateQuantity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -877,12 +989,16 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return getDoseRange();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__DOSE_QUANTITY:
 				return getDoseQuantity();
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
+				return getMaxDosePerPeriod();
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
+				return getMaxDosePerAdministration();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return getRateRatio();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
 				return getRateRange();
-			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
-				return getMaxDosePerPeriod();
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY:
+				return getRateQuantity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -928,14 +1044,20 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__DOSE_QUANTITY:
 				setDoseQuantity((SimpleQuantity)newValue);
 				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
+				setMaxDosePerPeriod((Ratio)newValue);
+				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
+				setMaxDosePerAdministration((SimpleQuantity)newValue);
+				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				setRateRatio((Ratio)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
 				setRateRange((Range)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
-				setMaxDosePerPeriod((Ratio)newValue);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY:
+				setRateQuantity((SimpleQuantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -982,14 +1104,20 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__DOSE_QUANTITY:
 				setDoseQuantity((SimpleQuantity)null);
 				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
+				setMaxDosePerPeriod((Ratio)null);
+				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
+				setMaxDosePerAdministration((SimpleQuantity)null);
+				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				setRateRatio((Ratio)null);
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
 				setRateRange((Range)null);
 				return;
-			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
-				setMaxDosePerPeriod((Ratio)null);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY:
+				setRateQuantity((SimpleQuantity)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1025,12 +1153,16 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return doseRange != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__DOSE_QUANTITY:
 				return doseQuantity != null;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
+				return maxDosePerPeriod != null;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
+				return maxDosePerAdministration != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return rateRatio != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
 				return rateRange != null;
-			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_PERIOD:
-				return maxDosePerPeriod != null;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_QUANTITY:
+				return rateQuantity != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import java.lang.String;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,6 @@ package org.hl7.fhir;
 public interface MessageSignificanceCategory extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.hl7.fhir.MessageSignificanceCategoryList}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
@@ -35,51 +35,22 @@ public interface MessageSignificanceCategory extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see org.hl7.fhir.MessageSignificanceCategoryList
-	 * @see #isSetValue()
-	 * @see #unsetValue()
-	 * @see #setValue(MessageSignificanceCategoryList)
+	 * @see #setValue(String)
 	 * @see org.hl7.fhir.FhirPackage#getMessageSignificanceCategory_Value()
-	 * @model unsettable="true"
+	 * @model dataType="org.hl7.fhir.MessageSignificanceCategoryList"
 	 *        extendedMetaData="kind='attribute' name='value'"
 	 * @generated
 	 */
-	MessageSignificanceCategoryList getValue();
+	String getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageSignificanceCategory#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see org.hl7.fhir.MessageSignificanceCategoryList
-	 * @see #isSetValue()
-	 * @see #unsetValue()
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(MessageSignificanceCategoryList value);
-
-	/**
-	 * Unsets the value of the '{@link org.hl7.fhir.MessageSignificanceCategory#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetValue()
-	 * @see #getValue()
-	 * @see #setValue(MessageSignificanceCategoryList)
-	 * @generated
-	 */
-	void unsetValue();
-
-	/**
-	 * Returns whether the value of the '{@link org.hl7.fhir.MessageSignificanceCategory#getValue <em>Value</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Value</em>' attribute is set.
-	 * @see #unsetValue()
-	 * @see #getValue()
-	 * @see #setValue(MessageSignificanceCategoryList)
-	 * @generated
-	 */
-	boolean isSetValue();
+	void setValue(String value);
 
 } // MessageSignificanceCategory

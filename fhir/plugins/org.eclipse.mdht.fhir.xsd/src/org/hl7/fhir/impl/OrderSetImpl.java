@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ActionDefinition;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.OrderSet;
-import org.hl7.fhir.OrderSetItem;
 import org.hl7.fhir.Reference;
 
 /**
@@ -33,7 +33,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.OrderSetImpl#getModuleMetadata <em>Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrderSetImpl#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.OrderSetImpl#getItem <em>Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OrderSetImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,14 +60,14 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 	protected EList<Reference> library;
 
 	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getItem()
+	 * @see #getAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<OrderSetItem> item;
+	protected EList<ActionDefinition> action;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,11 +148,11 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<OrderSetItem> getItem() {
-		if (item == null) {
-			item = new EObjectContainmentEList<OrderSetItem>(OrderSetItem.class, this, FhirPackage.ORDER_SET__ITEM);
+	public EList<ActionDefinition> getAction() {
+		if (action == null) {
+			action = new EObjectContainmentEList<ActionDefinition>(ActionDefinition.class, this, FhirPackage.ORDER_SET__ACTION);
 		}
-		return item;
+		return action;
 	}
 
 	/**
@@ -167,8 +167,8 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 				return basicSetModuleMetadata(null, msgs);
 			case FhirPackage.ORDER_SET__LIBRARY:
 				return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ORDER_SET__ITEM:
-				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ORDER_SET__ACTION:
+				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -185,8 +185,8 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 				return getModuleMetadata();
 			case FhirPackage.ORDER_SET__LIBRARY:
 				return getLibrary();
-			case FhirPackage.ORDER_SET__ITEM:
-				return getItem();
+			case FhirPackage.ORDER_SET__ACTION:
+				return getAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,9 +207,9 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 				getLibrary().clear();
 				getLibrary().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.ORDER_SET__ITEM:
-				getItem().clear();
-				getItem().addAll((Collection<? extends OrderSetItem>)newValue);
+			case FhirPackage.ORDER_SET__ACTION:
+				getAction().clear();
+				getAction().addAll((Collection<? extends ActionDefinition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,8 +229,8 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 			case FhirPackage.ORDER_SET__LIBRARY:
 				getLibrary().clear();
 				return;
-			case FhirPackage.ORDER_SET__ITEM:
-				getItem().clear();
+			case FhirPackage.ORDER_SET__ACTION:
+				getAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -248,8 +248,8 @@ public class OrderSetImpl extends DomainResourceImpl implements OrderSet {
 				return moduleMetadata != null;
 			case FhirPackage.ORDER_SET__LIBRARY:
 				return library != null && !library.isEmpty();
-			case FhirPackage.ORDER_SET__ITEM:
-				return item != null && !item.isEmpty();
+			case FhirPackage.ORDER_SET__ACTION:
+				return action != null && !action.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

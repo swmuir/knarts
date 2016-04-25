@@ -187,6 +187,49 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Identifier getAccessionIdentifier() {
+		return accessionIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccessionIdentifier(Identifier newAccessionIdentifier, NotificationChain msgs) {
+		Identifier oldAccessionIdentifier = accessionIdentifier;
+		accessionIdentifier = newAccessionIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, oldAccessionIdentifier, newAccessionIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccessionIdentifier(Identifier newAccessionIdentifier) {
+		if (newAccessionIdentifier != accessionIdentifier) {
+			NotificationChain msgs = null;
+			if (accessionIdentifier != null)
+				msgs = ((InternalEObject)accessionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, null, msgs);
+			if (newAccessionIdentifier != null)
+				msgs = ((InternalEObject)newAccessionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, null, msgs);
+			msgs = basicSetAccessionIdentifier(newAccessionIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, newAccessionIdentifier, newAccessionIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SpecimenStatus getStatus() {
 		return status;
 	}
@@ -273,18 +316,6 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getParent() {
-		if (parent == null) {
-			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN__PARENT);
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Reference getSubject() {
 		return subject;
 	}
@@ -328,49 +359,6 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getAccessionIdentifier() {
-		return accessionIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccessionIdentifier(Identifier newAccessionIdentifier, NotificationChain msgs) {
-		Identifier oldAccessionIdentifier = accessionIdentifier;
-		accessionIdentifier = newAccessionIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, oldAccessionIdentifier, newAccessionIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccessionIdentifier(Identifier newAccessionIdentifier) {
-		if (newAccessionIdentifier != accessionIdentifier) {
-			NotificationChain msgs = null;
-			if (accessionIdentifier != null)
-				msgs = ((InternalEObject)accessionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, null, msgs);
-			if (newAccessionIdentifier != null)
-				msgs = ((InternalEObject)newAccessionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, null, msgs);
-			msgs = basicSetAccessionIdentifier(newAccessionIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN__ACCESSION_IDENTIFIER, newAccessionIdentifier, newAccessionIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DateTime getReceivedTime() {
 		return receivedTime;
 	}
@@ -407,6 +395,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN__RECEIVED_TIME, newReceivedTime, newReceivedTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getParent() {
+		if (parent == null) {
+			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN__PARENT);
+		}
+		return parent;
 	}
 
 	/**

@@ -2,6 +2,8 @@
  */
 package org.hl7.fhir.impl;
 
+import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -10,7 +12,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.NamingSystemType;
-import org.hl7.fhir.NamingSystemTypeList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +35,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NamingSystemTypeList VALUE_EDEFAULT = NamingSystemTypeList.CODESYSTEM;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -44,16 +45,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected NamingSystemTypeList value = VALUE_EDEFAULT;
-
-	/**
-	 * This is true if the Value attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean valueESet;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,7 +71,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamingSystemTypeList getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -88,36 +80,11 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(NamingSystemTypeList newValue) {
-		NamingSystemTypeList oldValue = value;
-		value = newValue == null ? VALUE_EDEFAULT : newValue;
-		boolean oldValueESet = valueESet;
-		valueESet = true;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM_TYPE__VALUE, oldValue, value, !oldValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetValue() {
-		NamingSystemTypeList oldValue = value;
-		boolean oldValueESet = valueESet;
-		value = VALUE_EDEFAULT;
-		valueESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, FhirPackage.NAMING_SYSTEM_TYPE__VALUE, oldValue, VALUE_EDEFAULT, oldValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetValue() {
-		return valueESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM_TYPE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -143,7 +110,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.NAMING_SYSTEM_TYPE__VALUE:
-				setValue((NamingSystemTypeList)newValue);
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,7 +125,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.NAMING_SYSTEM_TYPE__VALUE:
-				unsetValue();
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,7 +140,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.NAMING_SYSTEM_TYPE__VALUE:
-				return isSetValue();
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -189,7 +156,7 @@ public class NamingSystemTypeImpl extends ElementImpl implements NamingSystemTyp
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
-		if (valueESet) result.append(value); else result.append("<unset>");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

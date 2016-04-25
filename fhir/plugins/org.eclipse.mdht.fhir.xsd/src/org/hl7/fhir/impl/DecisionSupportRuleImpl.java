@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ActionDefinition;
 import org.hl7.fhir.DecisionSupportRule;
-import org.hl7.fhir.DecisionSupportRuleAction;
-import org.hl7.fhir.DecisionSupportRuleTrigger;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.TriggerDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class DecisionSupportRuleImpl extends DomainResourceImpl implements Decis
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DecisionSupportRuleTrigger> trigger;
+	protected EList<TriggerDefinition> trigger;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -90,7 +90,7 @@ public class DecisionSupportRuleImpl extends DomainResourceImpl implements Decis
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DecisionSupportRuleAction> action;
+	protected EList<ActionDefinition> action;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,9 +171,9 @@ public class DecisionSupportRuleImpl extends DomainResourceImpl implements Decis
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DecisionSupportRuleTrigger> getTrigger() {
+	public EList<TriggerDefinition> getTrigger() {
 		if (trigger == null) {
-			trigger = new EObjectContainmentEList<DecisionSupportRuleTrigger>(DecisionSupportRuleTrigger.class, this, FhirPackage.DECISION_SUPPORT_RULE__TRIGGER);
+			trigger = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.DECISION_SUPPORT_RULE__TRIGGER);
 		}
 		return trigger;
 	}
@@ -226,9 +226,9 @@ public class DecisionSupportRuleImpl extends DomainResourceImpl implements Decis
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DecisionSupportRuleAction> getAction() {
+	public EList<ActionDefinition> getAction() {
 		if (action == null) {
-			action = new EObjectContainmentEList<DecisionSupportRuleAction>(DecisionSupportRuleAction.class, this, FhirPackage.DECISION_SUPPORT_RULE__ACTION);
+			action = new EObjectContainmentEList<ActionDefinition>(ActionDefinition.class, this, FhirPackage.DECISION_SUPPORT_RULE__ACTION);
 		}
 		return action;
 	}
@@ -295,14 +295,14 @@ public class DecisionSupportRuleImpl extends DomainResourceImpl implements Decis
 				return;
 			case FhirPackage.DECISION_SUPPORT_RULE__TRIGGER:
 				getTrigger().clear();
-				getTrigger().addAll((Collection<? extends DecisionSupportRuleTrigger>)newValue);
+				getTrigger().addAll((Collection<? extends TriggerDefinition>)newValue);
 				return;
 			case FhirPackage.DECISION_SUPPORT_RULE__CONDITION:
 				setCondition((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DECISION_SUPPORT_RULE__ACTION:
 				getAction().clear();
-				getAction().addAll((Collection<? extends DecisionSupportRuleAction>)newValue);
+				getAction().addAll((Collection<? extends ActionDefinition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -44,6 +44,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getApplies <em>Applies</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getAuthority <em>Authority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getDomain <em>Domain</em>}</li>
@@ -94,6 +95,16 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * @ordered
 	 */
 	protected Period applies;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> subject;
 
 	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
@@ -408,6 +419,18 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getSubject() {
+		if (subject == null) {
+			subject = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__SUBJECT);
+		}
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__TOPIC);
@@ -535,11 +558,11 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ContractValuedItem> getValuedItem() {
-		if (valuedItem == null) {
-			valuedItem = new EObjectContainmentEList<ContractValuedItem>(ContractValuedItem.class, this, FhirPackage.CONTRACT__VALUED_ITEM);
+	public EList<ContractSigner> getSigner() {
+		if (signer == null) {
+			signer = new EObjectContainmentEList<ContractSigner>(ContractSigner.class, this, FhirPackage.CONTRACT__SIGNER);
 		}
-		return valuedItem;
+		return signer;
 	}
 
 	/**
@@ -547,11 +570,11 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ContractSigner> getSigner() {
-		if (signer == null) {
-			signer = new EObjectContainmentEList<ContractSigner>(ContractSigner.class, this, FhirPackage.CONTRACT__SIGNER);
+	public EList<ContractValuedItem> getValuedItem() {
+		if (valuedItem == null) {
+			valuedItem = new EObjectContainmentEList<ContractValuedItem>(ContractValuedItem.class, this, FhirPackage.CONTRACT__VALUED_ITEM);
 		}
-		return signer;
+		return valuedItem;
 	}
 
 	/**
@@ -702,6 +725,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return basicSetIssued(null, msgs);
 			case FhirPackage.CONTRACT__APPLIES:
 				return basicSetApplies(null, msgs);
+			case FhirPackage.CONTRACT__SUBJECT:
+				return ((InternalEList<?>)getSubject()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT__TOPIC:
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT__AUTHORITY:
@@ -752,6 +777,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return getIssued();
 			case FhirPackage.CONTRACT__APPLIES:
 				return getApplies();
+			case FhirPackage.CONTRACT__SUBJECT:
+				return getSubject();
 			case FhirPackage.CONTRACT__TOPIC:
 				return getTopic();
 			case FhirPackage.CONTRACT__AUTHORITY:
@@ -805,6 +832,10 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return;
 			case FhirPackage.CONTRACT__APPLIES:
 				setApplies((Period)newValue);
+				return;
+			case FhirPackage.CONTRACT__SUBJECT:
+				getSubject().clear();
+				getSubject().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CONTRACT__TOPIC:
 				getTopic().clear();
@@ -888,6 +919,9 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 			case FhirPackage.CONTRACT__APPLIES:
 				setApplies((Period)null);
 				return;
+			case FhirPackage.CONTRACT__SUBJECT:
+				getSubject().clear();
+				return;
 			case FhirPackage.CONTRACT__TOPIC:
 				getTopic().clear();
 				return;
@@ -954,6 +988,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return issued != null;
 			case FhirPackage.CONTRACT__APPLIES:
 				return applies != null;
+			case FhirPackage.CONTRACT__SUBJECT:
+				return subject != null && !subject.isEmpty();
 			case FhirPackage.CONTRACT__TOPIC:
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.CONTRACT__AUTHORITY:

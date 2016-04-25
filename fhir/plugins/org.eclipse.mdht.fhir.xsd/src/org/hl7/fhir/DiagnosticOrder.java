@@ -38,58 +38,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DiagnosticOrder extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Subject()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSubject();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getSubject <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
-	 * @generated
-	 */
-	void setSubject(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Orderer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The practitioner that holds legal responsibility for ordering the investigation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Orderer</em>' containment reference.
-	 * @see #setOrderer(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Orderer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='orderer' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrderer();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getOrderer <em>Orderer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Orderer</em>' containment reference.
-	 * @see #getOrderer()
-	 * @generated
-	 */
-	void setOrderer(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
@@ -104,80 +52,6 @@ public interface DiagnosticOrder extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * An encounter that provides additional information about the healthcare context in which this request is made.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Reason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getReason();
-
-	/**
-	 * Returns the value of the '<em><b>Supporting Information</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Supporting Information</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_SupportingInformation()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='supportingInformation' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getSupportingInformation();
-
-	/**
-	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * One or more specimens that the diagnostic investigation is about.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Specimen</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Specimen()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getSpecimen();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -230,6 +104,132 @@ public interface DiagnosticOrder extends DomainResource {
 	 * @generated
 	 */
 	void setPriority(DiagnosticOrderPriority value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Subject()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An encounter that provides additional information about the healthcare context in which this request is made.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEncounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	void setEncounter(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Orderer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The practitioner that holds legal responsibility for ordering the investigation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Orderer</em>' containment reference.
+	 * @see #setOrderer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Orderer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='orderer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOrderer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticOrder#getOrderer <em>Orderer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Orderer</em>' containment reference.
+	 * @see #getOrderer()
+	 * @generated
+	 */
+	void setOrderer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Reason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getReason();
+
+	/**
+	 * Returns the value of the '<em><b>Supporting Information</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supporting Information</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_SupportingInformation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportingInformation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSupportingInformation();
+
+	/**
+	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * One or more specimens that the diagnostic investigation is about.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Specimen</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Specimen()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSpecimen();
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.

@@ -24,6 +24,7 @@ import org.hl7.fhir.Coding;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
@@ -40,9 +41,16 @@ import org.hl7.fhir.SimpleQuantity;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProviderReference <em>Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSupervisorIdentifier <em>Supervisor Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSupervisorReference <em>Supervisor Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProviderQualification <em>Provider Qualification</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServiceModifier <em>Service Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getModifier <em>Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServicedDate <em>Serviced Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServicedPeriod <em>Serviced Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getPlace <em>Place</em>}</li>
@@ -54,7 +62,6 @@ import org.hl7.fhir.SimpleQuantity;
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSubSite <em>Sub Site</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getDetail <em>Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProsthesis <em>Prosthesis</em>}</li>
  * </ul>
@@ -83,14 +90,54 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	protected Coding type;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getProviderIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference provider;
+	protected Identifier providerIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProviderReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference providerReference;
+
+	/**
+	 * The cached value of the '{@link #getSupervisorIdentifier() <em>Supervisor Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupervisorIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier supervisorIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getSupervisorReference() <em>Supervisor Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupervisorReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference supervisorReference;
+
+	/**
+	 * The cached value of the '{@link #getProviderQualification() <em>Provider Qualification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProviderQualification()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding providerQualification;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosisLinkId() <em>Diagnosis Link Id</em>}' containment reference list.
@@ -111,6 +158,36 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * @ordered
 	 */
 	protected Coding service;
+
+	/**
+	 * The cached value of the '{@link #getServiceModifier() <em>Service Modifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceModifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> serviceModifier;
+
+	/**
+	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> modifier;
+
+	/**
+	 * The cached value of the '{@link #getProgramCode() <em>Program Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProgramCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> programCode;
 
 	/**
 	 * The cached value of the '{@link #getServicedDate() <em>Serviced Date</em>}' containment reference.
@@ -193,14 +270,14 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	protected Money net;
 
 	/**
-	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference.
+	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUdi()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding udi;
+	protected EList<Reference> udi;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
@@ -221,16 +298,6 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * @ordered
 	 */
 	protected EList<Coding> subSite;
-
-	/**
-	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> modifier;
 
 	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
@@ -362,8 +429,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProvider() {
-		return provider;
+	public Identifier getProviderIdentifier() {
+		return providerIdentifier;
 	}
 
 	/**
@@ -371,11 +438,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProvider(Reference newProvider, NotificationChain msgs) {
-		Reference oldProvider = provider;
-		provider = newProvider;
+	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
+		Identifier oldProviderIdentifier = providerIdentifier;
+		providerIdentifier = newProviderIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER, oldProvider, newProvider);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -386,18 +453,190 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvider(Reference newProvider) {
-		if (newProvider != provider) {
+	public void setProviderIdentifier(Identifier newProviderIdentifier) {
+		if (newProviderIdentifier != providerIdentifier) {
 			NotificationChain msgs = null;
-			if (provider != null)
-				msgs = ((InternalEObject)provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER, null, msgs);
-			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER, null, msgs);
-			msgs = basicSetProvider(newProvider, msgs);
+			if (providerIdentifier != null)
+				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER, null, msgs);
+			if (newProviderIdentifier != null)
+				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER, null, msgs);
+			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getProviderReference() {
+		return providerReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
+		Reference oldProviderReference = providerReference;
+		providerReference = newProviderReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProviderReference(Reference newProviderReference) {
+		if (newProviderReference != providerReference) {
+			NotificationChain msgs = null;
+			if (providerReference != null)
+				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE, null, msgs);
+			if (newProviderReference != null)
+				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE, null, msgs);
+			msgs = basicSetProviderReference(newProviderReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getSupervisorIdentifier() {
+		return supervisorIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSupervisorIdentifier(Identifier newSupervisorIdentifier, NotificationChain msgs) {
+		Identifier oldSupervisorIdentifier = supervisorIdentifier;
+		supervisorIdentifier = newSupervisorIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER, oldSupervisorIdentifier, newSupervisorIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupervisorIdentifier(Identifier newSupervisorIdentifier) {
+		if (newSupervisorIdentifier != supervisorIdentifier) {
+			NotificationChain msgs = null;
+			if (supervisorIdentifier != null)
+				msgs = ((InternalEObject)supervisorIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER, null, msgs);
+			if (newSupervisorIdentifier != null)
+				msgs = ((InternalEObject)newSupervisorIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER, null, msgs);
+			msgs = basicSetSupervisorIdentifier(newSupervisorIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER, newSupervisorIdentifier, newSupervisorIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSupervisorReference() {
+		return supervisorReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSupervisorReference(Reference newSupervisorReference, NotificationChain msgs) {
+		Reference oldSupervisorReference = supervisorReference;
+		supervisorReference = newSupervisorReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE, oldSupervisorReference, newSupervisorReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupervisorReference(Reference newSupervisorReference) {
+		if (newSupervisorReference != supervisorReference) {
+			NotificationChain msgs = null;
+			if (supervisorReference != null)
+				msgs = ((InternalEObject)supervisorReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE, null, msgs);
+			if (newSupervisorReference != null)
+				msgs = ((InternalEObject)newSupervisorReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE, null, msgs);
+			msgs = basicSetSupervisorReference(newSupervisorReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE, newSupervisorReference, newSupervisorReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getProviderQualification() {
+		return providerQualification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProviderQualification(Coding newProviderQualification, NotificationChain msgs) {
+		Coding oldProviderQualification = providerQualification;
+		providerQualification = newProviderQualification;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION, oldProviderQualification, newProviderQualification);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProviderQualification(Coding newProviderQualification) {
+		if (newProviderQualification != providerQualification) {
+			NotificationChain msgs = null;
+			if (providerQualification != null)
+				msgs = ((InternalEObject)providerQualification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION, null, msgs);
+			if (newProviderQualification != null)
+				msgs = ((InternalEObject)newProviderQualification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION, null, msgs);
+			msgs = basicSetProviderQualification(newProviderQualification, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION, newProviderQualification, newProviderQualification));
 	}
 
 	/**
@@ -453,6 +692,42 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICE, newService, newService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getServiceModifier() {
+		if (serviceModifier == null) {
+			serviceModifier = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER);
+		}
+		return serviceModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getModifier() {
+		if (modifier == null) {
+			modifier = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM_ITEM__MODIFIER);
+		}
+		return modifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getProgramCode() {
+		if (programCode == null) {
+			programCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM_ITEM__PROGRAM_CODE);
+		}
+		return programCode;
 	}
 
 	/**
@@ -804,42 +1079,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getUdi() {
+	public EList<Reference> getUdi() {
+		if (udi == null) {
+			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_ITEM__UDI);
+		}
 		return udi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUdi(Coding newUdi, NotificationChain msgs) {
-		Coding oldUdi = udi;
-		udi = newUdi;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__UDI, oldUdi, newUdi);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUdi(Coding newUdi) {
-		if (newUdi != udi) {
-			NotificationChain msgs = null;
-			if (udi != null)
-				msgs = ((InternalEObject)udi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__UDI, null, msgs);
-			if (newUdi != null)
-				msgs = ((InternalEObject)newUdi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__UDI, null, msgs);
-			msgs = basicSetUdi(newUdi, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__UDI, newUdi, newUdi));
 	}
 
 	/**
@@ -895,18 +1139,6 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			subSite = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM_ITEM__SUB_SITE);
 		}
 		return subSite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Coding> getModifier() {
-		if (modifier == null) {
-			modifier = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM_ITEM__MODIFIER);
-		}
-		return modifier;
 	}
 
 	/**
@@ -976,12 +1208,26 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return basicSetSequence(null, msgs);
 			case FhirPackage.CLAIM_ITEM__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.CLAIM_ITEM__PROVIDER:
-				return basicSetProvider(null, msgs);
+			case FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER:
+				return basicSetProviderIdentifier(null, msgs);
+			case FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE:
+				return basicSetProviderReference(null, msgs);
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER:
+				return basicSetSupervisorIdentifier(null, msgs);
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE:
+				return basicSetSupervisorReference(null, msgs);
+			case FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION:
+				return basicSetProviderQualification(null, msgs);
 			case FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID:
 				return ((InternalEList<?>)getDiagnosisLinkId()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return basicSetService(null, msgs);
+			case FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER:
+				return ((InternalEList<?>)getServiceModifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_ITEM__MODIFIER:
+				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
+				return ((InternalEList<?>)getProgramCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
 				return basicSetServicedDate(null, msgs);
 			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
@@ -999,13 +1245,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__NET:
 				return basicSetNet(null, msgs);
 			case FhirPackage.CLAIM_ITEM__UDI:
-				return basicSetUdi(null, msgs);
+				return ((InternalEList<?>)getUdi()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__BODY_SITE:
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return ((InternalEList<?>)getSubSite()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM_ITEM__MODIFIER:
-				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
@@ -1026,12 +1270,26 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getSequence();
 			case FhirPackage.CLAIM_ITEM__TYPE:
 				return getType();
-			case FhirPackage.CLAIM_ITEM__PROVIDER:
-				return getProvider();
+			case FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER:
+				return getProviderIdentifier();
+			case FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE:
+				return getProviderReference();
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER:
+				return getSupervisorIdentifier();
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE:
+				return getSupervisorReference();
+			case FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION:
+				return getProviderQualification();
 			case FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID:
 				return getDiagnosisLinkId();
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return getService();
+			case FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER:
+				return getServiceModifier();
+			case FhirPackage.CLAIM_ITEM__MODIFIER:
+				return getModifier();
+			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
+				return getProgramCode();
 			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
 				return getServicedDate();
 			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
@@ -1054,8 +1312,6 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getBodySite();
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return getSubSite();
-			case FhirPackage.CLAIM_ITEM__MODIFIER:
-				return getModifier();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return getDetail();
 			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
@@ -1079,8 +1335,20 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__TYPE:
 				setType((Coding)newValue);
 				return;
-			case FhirPackage.CLAIM_ITEM__PROVIDER:
-				setProvider((Reference)newValue);
+			case FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER:
+				setProviderIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE:
+				setProviderReference((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER:
+				setSupervisorIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE:
+				setSupervisorReference((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION:
+				setProviderQualification((Coding)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID:
 				getDiagnosisLinkId().clear();
@@ -1088,6 +1356,18 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return;
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				setService((Coding)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER:
+				getServiceModifier().clear();
+				getServiceModifier().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__MODIFIER:
+				getModifier().clear();
+				getModifier().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
+				getProgramCode().clear();
+				getProgramCode().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
 				setServicedDate((Date)newValue);
@@ -1114,7 +1394,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				setNet((Money)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__UDI:
-				setUdi((Coding)newValue);
+				getUdi().clear();
+				getUdi().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__BODY_SITE:
 				setBodySite((Coding)newValue);
@@ -1122,10 +1403,6 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				getSubSite().clear();
 				getSubSite().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.CLAIM_ITEM__MODIFIER:
-				getModifier().clear();
-				getModifier().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
@@ -1152,14 +1429,35 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__TYPE:
 				setType((Coding)null);
 				return;
-			case FhirPackage.CLAIM_ITEM__PROVIDER:
-				setProvider((Reference)null);
+			case FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER:
+				setProviderIdentifier((Identifier)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE:
+				setProviderReference((Reference)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER:
+				setSupervisorIdentifier((Identifier)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE:
+				setSupervisorReference((Reference)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION:
+				setProviderQualification((Coding)null);
 				return;
 			case FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID:
 				getDiagnosisLinkId().clear();
 				return;
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				setService((Coding)null);
+				return;
+			case FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER:
+				getServiceModifier().clear();
+				return;
+			case FhirPackage.CLAIM_ITEM__MODIFIER:
+				getModifier().clear();
+				return;
+			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
+				getProgramCode().clear();
 				return;
 			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
 				setServicedDate((Date)null);
@@ -1186,16 +1484,13 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				setNet((Money)null);
 				return;
 			case FhirPackage.CLAIM_ITEM__UDI:
-				setUdi((Coding)null);
+				getUdi().clear();
 				return;
 			case FhirPackage.CLAIM_ITEM__BODY_SITE:
 				setBodySite((Coding)null);
 				return;
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				getSubSite().clear();
-				return;
-			case FhirPackage.CLAIM_ITEM__MODIFIER:
-				getModifier().clear();
 				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
@@ -1219,12 +1514,26 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return sequence != null;
 			case FhirPackage.CLAIM_ITEM__TYPE:
 				return type != null;
-			case FhirPackage.CLAIM_ITEM__PROVIDER:
-				return provider != null;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_IDENTIFIER:
+				return providerIdentifier != null;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_REFERENCE:
+				return providerReference != null;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_IDENTIFIER:
+				return supervisorIdentifier != null;
+			case FhirPackage.CLAIM_ITEM__SUPERVISOR_REFERENCE:
+				return supervisorReference != null;
+			case FhirPackage.CLAIM_ITEM__PROVIDER_QUALIFICATION:
+				return providerQualification != null;
 			case FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID:
 				return diagnosisLinkId != null && !diagnosisLinkId.isEmpty();
 			case FhirPackage.CLAIM_ITEM__SERVICE:
 				return service != null;
+			case FhirPackage.CLAIM_ITEM__SERVICE_MODIFIER:
+				return serviceModifier != null && !serviceModifier.isEmpty();
+			case FhirPackage.CLAIM_ITEM__MODIFIER:
+				return modifier != null && !modifier.isEmpty();
+			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
+				return programCode != null && !programCode.isEmpty();
 			case FhirPackage.CLAIM_ITEM__SERVICED_DATE:
 				return servicedDate != null;
 			case FhirPackage.CLAIM_ITEM__SERVICED_PERIOD:
@@ -1242,13 +1551,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__NET:
 				return net != null;
 			case FhirPackage.CLAIM_ITEM__UDI:
-				return udi != null;
+				return udi != null && !udi.isEmpty();
 			case FhirPackage.CLAIM_ITEM__BODY_SITE:
 				return bodySite != null;
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return subSite != null && !subSite.isEmpty();
-			case FhirPackage.CLAIM_ITEM__MODIFIER:
-				return modifier != null && !modifier.isEmpty();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return detail != null && !detail.isEmpty();
 			case FhirPackage.CLAIM_ITEM__PROSTHESIS:

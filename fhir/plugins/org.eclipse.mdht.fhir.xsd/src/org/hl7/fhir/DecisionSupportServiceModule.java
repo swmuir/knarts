@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
+ * The DecisionSupportServiceModule describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -19,7 +19,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DecisionSupportServiceModule#getModuleMetadata <em>Module Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.DecisionSupportServiceModule#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.hl7.fhir.DecisionSupportServiceModule#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.DecisionSupportServiceModule#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModule()
@@ -32,7 +34,7 @@ public interface DecisionSupportServiceModule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a ModuleMetadata resource describing the metadata for the decision support service module.
+	 * The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module Metadata</em>' containment reference.
 	 * @see #setModuleMetadata(ModuleMetadata)
@@ -54,8 +56,24 @@ public interface DecisionSupportServiceModule extends DomainResource {
 	void setModuleMetadata(ModuleMetadata value);
 
 	/**
+	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TriggerDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Trigger</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModule_Trigger()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='trigger' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<TriggerDefinition> getTrigger();
+
+	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DecisionSupportServiceModuleParameter}.
+	 * The list contents are of type {@link org.hl7.fhir.ParameterDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -67,6 +85,22 @@ public interface DecisionSupportServiceModule extends DomainResource {
 	 *        extendedMetaData="kind='element' name='parameter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DecisionSupportServiceModuleParameter> getParameter();
+	EList<ParameterDefinition> getParameter();
+
+	/**
+	 * Returns the value of the '<em><b>Data Requirement</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DataRequirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Data Requirement</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportServiceModule_DataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataRequirement> getDataRequirement();
 
 } // DecisionSupportServiceModule

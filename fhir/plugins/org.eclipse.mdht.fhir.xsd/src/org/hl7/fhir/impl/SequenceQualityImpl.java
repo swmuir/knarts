@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SequenceQuality;
@@ -24,7 +25,7 @@ import org.hl7.fhir.SequenceQuality;
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getEnd <em>End</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getScore <em>Score</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getPlatform <em>Platform</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +62,14 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	protected Quantity score;
 
 	/**
-	 * The cached value of the '{@link #getPlatform() <em>Platform</em>}' containment reference.
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlatform()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String platform;
+	protected org.hl7.fhir.String method;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,8 +224,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPlatform() {
-		return platform;
+	public org.hl7.fhir.String getMethod() {
+		return method;
 	}
 
 	/**
@@ -232,11 +233,11 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlatform(org.hl7.fhir.String newPlatform, NotificationChain msgs) {
-		org.hl7.fhir.String oldPlatform = platform;
-		platform = newPlatform;
+	public NotificationChain basicSetMethod(org.hl7.fhir.String newMethod, NotificationChain msgs) {
+		org.hl7.fhir.String oldMethod = method;
+		method = newMethod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__PLATFORM, oldPlatform, newPlatform);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__METHOD, oldMethod, newMethod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -247,18 +248,18 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPlatform(org.hl7.fhir.String newPlatform) {
-		if (newPlatform != platform) {
+	public void setMethod(org.hl7.fhir.String newMethod) {
+		if (newMethod != method) {
 			NotificationChain msgs = null;
-			if (platform != null)
-				msgs = ((InternalEObject)platform).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__PLATFORM, null, msgs);
-			if (newPlatform != null)
-				msgs = ((InternalEObject)newPlatform).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__PLATFORM, null, msgs);
-			msgs = basicSetPlatform(newPlatform, msgs);
+			if (method != null)
+				msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__METHOD, null, msgs);
+			if (newMethod != null)
+				msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__METHOD, null, msgs);
+			msgs = basicSetMethod(newMethod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__PLATFORM, newPlatform, newPlatform));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__METHOD, newMethod, newMethod));
 	}
 
 	/**
@@ -275,8 +276,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return basicSetEnd(null, msgs);
 			case FhirPackage.SEQUENCE_QUALITY__SCORE:
 				return basicSetScore(null, msgs);
-			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				return basicSetPlatform(null, msgs);
+			case FhirPackage.SEQUENCE_QUALITY__METHOD:
+				return basicSetMethod(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,8 +296,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return getEnd();
 			case FhirPackage.SEQUENCE_QUALITY__SCORE:
 				return getScore();
-			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				return getPlatform();
+			case FhirPackage.SEQUENCE_QUALITY__METHOD:
+				return getMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -318,8 +319,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 			case FhirPackage.SEQUENCE_QUALITY__SCORE:
 				setScore((Quantity)newValue);
 				return;
-			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				setPlatform((org.hl7.fhir.String)newValue);
+			case FhirPackage.SEQUENCE_QUALITY__METHOD:
+				setMethod((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -342,8 +343,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 			case FhirPackage.SEQUENCE_QUALITY__SCORE:
 				setScore((Quantity)null);
 				return;
-			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				setPlatform((org.hl7.fhir.String)null);
+			case FhirPackage.SEQUENCE_QUALITY__METHOD:
+				setMethod((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,8 +364,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return end != null;
 			case FhirPackage.SEQUENCE_QUALITY__SCORE:
 				return score != null;
-			case FhirPackage.SEQUENCE_QUALITY__PLATFORM:
-				return platform != null;
+			case FhirPackage.SEQUENCE_QUALITY__METHOD:
+				return method != null;
 		}
 		return super.eIsSet(featureID);
 	}

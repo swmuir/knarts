@@ -32,8 +32,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMin <em>Min</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMax <em>Max</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getBase <em>Base</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getContentReference <em>Content Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinition#getNameReference <em>Name Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueBoolean <em>Default Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueInteger <em>Default Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueDecimal <em>Default Value Decimal</em>}</li>
@@ -301,7 +301,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
+	 * The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -567,7 +567,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.
+	 * Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
 	 * @see #setBase(ElementDefinitionBase)
@@ -589,6 +589,32 @@ public interface ElementDefinition extends Element {
 	void setBase(ElementDefinitionBase value);
 
 	/**
+	 * Returns the value of the '<em><b>Content Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Content Reference</em>' containment reference.
+	 * @see #setContentReference(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_ContentReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contentReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getContentReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getContentReference <em>Content Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content Reference</em>' containment reference.
+	 * @see #getContentReference()
+	 * @generated
+	 */
+	void setContentReference(Uri value);
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ElementDefinitionType}.
 	 * <!-- begin-user-doc -->
@@ -603,32 +629,6 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	EList<ElementDefinitionType> getType();
-
-	/**
-	 * Returns the value of the '<em><b>Name Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name Reference</em>' containment reference.
-	 * @see #setNameReference(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_NameReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='nameReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getNameReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getNameReference <em>Name Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name Reference</em>' containment reference.
-	 * @see #getNameReference()
-	 * @generated
-	 */
-	void setNameReference(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Boolean</b></em>' containment reference.

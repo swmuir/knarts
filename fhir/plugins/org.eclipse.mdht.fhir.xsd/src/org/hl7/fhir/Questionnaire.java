@@ -18,12 +18,14 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getTelecom <em>Telecom</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getSubjectType <em>Subject Type</em>}</li>
@@ -35,6 +37,32 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Questionnaire extends DomainResource {
+	/**
+	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An absolute URL that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this questionnaire is (or will be) published.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Url</em>' containment reference.
+	 * @see #setUrl(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Url()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Questionnaire#getUrl <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Url</em>' containment reference.
+	 * @see #getUrl()
+	 * @generated
+	 */
+	void setUrl(Uri value);
+
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
@@ -170,6 +198,22 @@ public interface Questionnaire extends DomainResource {
 	 * @generated
 	 */
 	EList<ContactPoint> getTelecom();
+
+	/**
+	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. "Pediatric", "Admissions", "Research", "Demographic", "Opinion Survey", etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Use Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_UseContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getUseContext();
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.

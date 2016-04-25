@@ -126,49 +126,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedInt getNumber() {
-		return number;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNumber(UnsignedInt newNumber, NotificationChain msgs) {
-		UnsignedInt oldNumber = number;
-		number = newNumber;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, oldNumber, newNumber);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumber(UnsignedInt newNumber) {
-		if (newNumber != number) {
-			NotificationChain msgs = null;
-			if (number != null)
-				msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, null, msgs);
-			if (newNumber != null)
-				msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, null, msgs);
-			msgs = basicSetNumber(newNumber, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, newNumber, newNumber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Oid getUid() {
 		return uid;
 	}
@@ -205,6 +162,49 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__UID, newUid, newUid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnsignedInt getNumber() {
+		return number;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNumber(UnsignedInt newNumber, NotificationChain msgs) {
+		UnsignedInt oldNumber = number;
+		number = newNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, oldNumber, newNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNumber(UnsignedInt newNumber) {
+		if (newNumber != number) {
+			NotificationChain msgs = null;
+			if (number != null)
+				msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, null, msgs);
+			if (newNumber != null)
+				msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, null, msgs);
+			msgs = basicSetNumber(newNumber, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__NUMBER, newNumber, newNumber));
 	}
 
 	/**

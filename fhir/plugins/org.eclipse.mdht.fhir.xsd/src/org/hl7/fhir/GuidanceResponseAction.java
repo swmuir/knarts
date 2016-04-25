@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken.
+ * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,17 +18,19 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getActionIdentifier <em>Action Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getNumber <em>Number</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getSupportingEvidence <em>Supporting Evidence</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getTextEquivalent <em>Text Equivalent</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getConcept <em>Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getSupportingEvidence <em>Supporting Evidence</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getRelatedAction <em>Related Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getBehavior <em>Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getResource <em>Resource</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponseAction#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction()
@@ -41,7 +43,7 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A unique identifier for the action.
+	 * A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action Identifier</em>' containment reference.
 	 * @see #setActionIdentifier(Identifier)
@@ -63,85 +65,37 @@ public interface GuidanceResponseAction extends BackboneElement {
 	void setActionIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A user-visible number for the action.
+	 * A user-visible label for the action.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Number</em>' containment reference.
-	 * @see #setNumber(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Number()
+	 * @return the value of the '<em>Label</em>' containment reference.
+	 * @see #setLabel(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Label()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='number' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNumber();
+	org.hl7.fhir.String getLabel();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponseAction#getNumber <em>Number</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponseAction#getLabel <em>Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' containment reference.
-	 * @see #getNumber()
+	 * @param value the new value of the '<em>Label</em>' containment reference.
+	 * @see #getLabel()
 	 * @generated
 	 */
-	void setNumber(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Supporting Evidence</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Supporting evidence for the action.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Supporting Evidence</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_SupportingEvidence()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='supportingEvidence' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Attachment> getSupportingEvidence();
-
-	/**
-	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Supporting documentation for the action.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Documentation</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Documentation()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Attachment> getDocumentation();
-
-	/**
-	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The participant in the action.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Participant</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Participant()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='participant' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getParticipant();
+	void setLabel(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The title of the action.
+	 * The title of the action displayed to a user.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Title</em>' containment reference.
 	 * @see #setTitle(org.hl7.fhir.String)
@@ -167,7 +121,7 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short description of the action.
+	 * A short description of the action used to provide a summary to display to the user.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -193,7 +147,7 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A text equivalent of the action to be performed.
+	 * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text Equivalent</em>' containment reference.
 	 * @see #setTextEquivalent(org.hl7.fhir.String)
@@ -220,7 +174,7 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Concepts associated with the action.
+	 * The concept represented by this action or its sub-actions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Concept</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Concept()
@@ -231,6 +185,80 @@ public interface GuidanceResponseAction extends BackboneElement {
 	EList<CodeableConcept> getConcept();
 
 	/**
+	 * Returns the value of the '<em><b>Supporting Evidence</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The evidence grade and the sources of evidence for this action.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supporting Evidence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_SupportingEvidence()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportingEvidence' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Attachment> getSupportingEvidence();
+
+	/**
+	 * Returns the value of the '<em><b>Related Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A relationship to another action such as "before" or "30-60 minutes after start of".
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Related Action</em>' containment reference.
+	 * @see #setRelatedAction(GuidanceResponseRelatedAction)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_RelatedAction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relatedAction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	GuidanceResponseRelatedAction getRelatedAction();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponseAction#getRelatedAction <em>Related Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Related Action</em>' containment reference.
+	 * @see #getRelatedAction()
+	 * @generated
+	 */
+	void setRelatedAction(GuidanceResponseRelatedAction value);
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Documentation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Documentation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Attachment> getDocumentation();
+
+	/**
+	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The participant in the action.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Participant</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Participant()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='participant' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getParticipant();
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -238,13 +266,13 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * The type of action to perform (create, update, remove).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(GuidanceResponseActionType)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	GuidanceResponseActionType getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponseAction#getType <em>Type</em>}' containment reference.
@@ -254,7 +282,23 @@ public interface GuidanceResponseAction extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(GuidanceResponseActionType value);
+	void setType(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Behavior</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.GuidanceResponseBehavior}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Behavior</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Behavior()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='behavior' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<GuidanceResponseBehavior> getBehavior();
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
@@ -283,19 +327,19 @@ public interface GuidanceResponseAction extends BackboneElement {
 	void setResource(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.GuidanceResponseAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Sub actions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Actions()
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponseAction_Action()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actions' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<GuidanceResponseAction> getActions();
+	EList<GuidanceResponseAction> getAction();
 
 } // GuidanceResponseAction

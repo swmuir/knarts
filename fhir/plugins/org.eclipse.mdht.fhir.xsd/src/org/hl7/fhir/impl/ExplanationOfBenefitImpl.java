@@ -29,7 +29,10 @@ import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.ExplanationOfBenefitItem;
 import org.hl7.fhir.ExplanationOfBenefitMissingTeeth;
 import org.hl7.fhir.ExplanationOfBenefitNote;
+import org.hl7.fhir.ExplanationOfBenefitOnset;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
+import org.hl7.fhir.ExplanationOfBenefitProcedure;
+import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
@@ -46,42 +49,52 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaim <em>Claim</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimResponse <em>Claim Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimIdentifier <em>Claim Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimReference <em>Claim Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimResponseIdentifier <em>Claim Response Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimResponseReference <em>Claim Response Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getBillablePeriod <em>Billable Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getFacility <em>Facility</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getRelatedClaim <em>Related Claim</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPrescription <em>Prescription</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOriginalPrescription <em>Original Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getProviderReference <em>Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOrganizationReference <em>Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getFacilityIdentifier <em>Facility Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getFacilityReference <em>Facility Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getRelated <em>Related</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPrescriptionIdentifier <em>Prescription Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPrescriptionReference <em>Prescription Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPayee <em>Payee</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getReferral <em>Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getReferralIdentifier <em>Referral Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getReferralReference <em>Referral Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOccurrenceCode <em>Occurrence Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOccurenceSpanCode <em>Occurence Span Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getValueCode <em>Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getDiagnosis <em>Diagnosis</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getSpecialCondition <em>Special Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPatientIdentifier <em>Patient Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPatientReference <em>Patient Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPrecedence <em>Precedence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getException <em>Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getSchool <em>School</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAccidentDate <em>Accident Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAccidentType <em>Accident Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAccidentLocationString <em>Accident Location String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAccidentLocationAddress <em>Accident Location Address</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAccidentLocationReference <em>Accident Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getInterventionException <em>Intervention Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOnsetDate <em>Onset Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOnsetPeriod <em>Onset Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOnset <em>Onset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getEmploymentImpacted <em>Employment Impacted</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getAddItem <em>Add Item</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimTotal <em>Claim Total</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getMissingTeeth <em>Missing Teeth</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getTotalCost <em>Total Cost</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getUnallocDeductable <em>Unalloc Deductable</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getTotalBenefit <em>Total Benefit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPaymentAdjustment <em>Payment Adjustment</em>}</li>
@@ -109,24 +122,54 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getClaim() <em>Claim</em>}' containment reference.
+	 * The cached value of the '{@link #getClaimIdentifier() <em>Claim Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClaim()
+	 * @see #getClaimIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference claim;
+	protected Identifier claimIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getClaimResponse() <em>Claim Response</em>}' containment reference.
+	 * The cached value of the '{@link #getClaimReference() <em>Claim Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClaimResponse()
+	 * @see #getClaimReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference claimResponse;
+	protected Reference claimReference;
+
+	/**
+	 * The cached value of the '{@link #getClaimResponseIdentifier() <em>Claim Response Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClaimResponseIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier claimResponseIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getClaimResponseReference() <em>Claim Response Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClaimResponseReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference claimResponseReference;
+
+	/**
+	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> subType;
 
 	/**
 	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
@@ -179,64 +222,114 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected org.hl7.fhir.String disposition;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getProviderIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference provider;
+	protected Identifier providerIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
+	 * @see #getProviderReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected Reference providerReference;
 
 	/**
-	 * The cached value of the '{@link #getFacility() <em>Facility</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFacility()
+	 * @see #getOrganizationIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference facility;
+	protected Identifier organizationIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getRelatedClaim() <em>Related Claim</em>}' containment reference list.
+	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelatedClaim()
+	 * @see #getOrganizationReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> relatedClaim;
+	protected Reference organizationReference;
 
 	/**
-	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
+	 * The cached value of the '{@link #getFacilityIdentifier() <em>Facility Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrescription()
+	 * @see #getFacilityIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference prescription;
+	protected Identifier facilityIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getOriginalPrescription() <em>Original Prescription</em>}' containment reference.
+	 * The cached value of the '{@link #getFacilityReference() <em>Facility Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOriginalPrescription()
+	 * @see #getFacilityReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference originalPrescription;
+	protected Reference facilityReference;
+
+	/**
+	 * The cached value of the '{@link #getRelated() <em>Related</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelated()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExplanationOfBenefitRelated> related;
+
+	/**
+	 * The cached value of the '{@link #getPrescriptionIdentifier() <em>Prescription Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrescriptionIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier prescriptionIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getPrescriptionReference() <em>Prescription Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrescriptionReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference prescriptionReference;
+
+	/**
+	 * The cached value of the '{@link #getOriginalPrescriptionIdentifier() <em>Original Prescription Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOriginalPrescriptionIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier originalPrescriptionIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getOriginalPrescriptionReference() <em>Original Prescription Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOriginalPrescriptionReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference originalPrescriptionReference;
 
 	/**
 	 * The cached value of the '{@link #getPayee() <em>Payee</em>}' containment reference.
@@ -249,14 +342,54 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected ExplanationOfBenefitPayee payee;
 
 	/**
-	 * The cached value of the '{@link #getReferral() <em>Referral</em>}' containment reference.
+	 * The cached value of the '{@link #getReferralIdentifier() <em>Referral Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferral()
+	 * @see #getReferralIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference referral;
+	protected Identifier referralIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getReferralReference() <em>Referral Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferralReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference referralReference;
+
+	/**
+	 * The cached value of the '{@link #getOccurrenceCode() <em>Occurrence Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrenceCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> occurrenceCode;
+
+	/**
+	 * The cached value of the '{@link #getOccurenceSpanCode() <em>Occurence Span Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurenceSpanCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> occurenceSpanCode;
+
+	/**
+	 * The cached value of the '{@link #getValueCode() <em>Value Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> valueCode;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
@@ -269,6 +402,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected EList<ExplanationOfBenefitDiagnosis> diagnosis;
 
 	/**
+	 * The cached value of the '{@link #getProcedure() <em>Procedure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcedure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExplanationOfBenefitProcedure> procedure;
+
+	/**
 	 * The cached value of the '{@link #getSpecialCondition() <em>Special Condition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,14 +422,24 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected EList<Coding> specialCondition;
 
 	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * The cached value of the '{@link #getPatientIdentifier() <em>Patient Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPatient()
+	 * @see #getPatientIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference patient;
+	protected Identifier patientIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getPatientReference() <em>Patient Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatientReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference patientReference;
 
 	/**
 	 * The cached value of the '{@link #getPrecedence() <em>Precedence</em>}' containment reference.
@@ -309,26 +462,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected ExplanationOfBenefitCoverage coverage;
 
 	/**
-	 * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getException()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> exception;
-
-	/**
-	 * The cached value of the '{@link #getSchool() <em>School</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchool()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String school;
-
-	/**
 	 * The cached value of the '{@link #getAccidentDate() <em>Accident Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -347,16 +480,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * @ordered
 	 */
 	protected Coding accidentType;
-
-	/**
-	 * The cached value of the '{@link #getAccidentLocationString() <em>Accident Location String</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccidentLocationString()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String accidentLocationString;
 
 	/**
 	 * The cached value of the '{@link #getAccidentLocationAddress() <em>Accident Location Address</em>}' containment reference.
@@ -389,24 +512,14 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected EList<Coding> interventionException;
 
 	/**
-	 * The cached value of the '{@link #getOnsetDate() <em>Onset Date</em>}' containment reference.
+	 * The cached value of the '{@link #getOnset() <em>Onset</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOnsetDate()
+	 * @see #getOnset()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date onsetDate;
-
-	/**
-	 * The cached value of the '{@link #getOnsetPeriod() <em>Onset Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnsetPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period onsetPeriod;
+	protected EList<ExplanationOfBenefitOnset> onset;
 
 	/**
 	 * The cached value of the '{@link #getEmploymentImpacted() <em>Employment Impacted</em>}' containment reference.
@@ -449,16 +562,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected EList<ExplanationOfBenefitAddItem> addItem;
 
 	/**
-	 * The cached value of the '{@link #getClaimTotal() <em>Claim Total</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClaimTotal()
-	 * @generated
-	 * @ordered
-	 */
-	protected Money claimTotal;
-
-	/**
 	 * The cached value of the '{@link #getMissingTeeth() <em>Missing Teeth</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -467,6 +570,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * @ordered
 	 */
 	protected EList<ExplanationOfBenefitMissingTeeth> missingTeeth;
+
+	/**
+	 * The cached value of the '{@link #getTotalCost() <em>Total Cost</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected Money totalCost;
 
 	/**
 	 * The cached value of the '{@link #getUnallocDeductable() <em>Unalloc Deductable</em>}' containment reference.
@@ -614,8 +727,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getClaim() {
-		return claim;
+	public Identifier getClaimIdentifier() {
+		return claimIdentifier;
 	}
 
 	/**
@@ -623,11 +736,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClaim(Reference newClaim, NotificationChain msgs) {
-		Reference oldClaim = claim;
-		claim = newClaim;
+	public NotificationChain basicSetClaimIdentifier(Identifier newClaimIdentifier, NotificationChain msgs) {
+		Identifier oldClaimIdentifier = claimIdentifier;
+		claimIdentifier = newClaimIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM, oldClaim, newClaim);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER, oldClaimIdentifier, newClaimIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -638,18 +751,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClaim(Reference newClaim) {
-		if (newClaim != claim) {
+	public void setClaimIdentifier(Identifier newClaimIdentifier) {
+		if (newClaimIdentifier != claimIdentifier) {
 			NotificationChain msgs = null;
-			if (claim != null)
-				msgs = ((InternalEObject)claim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM, null, msgs);
-			if (newClaim != null)
-				msgs = ((InternalEObject)newClaim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM, null, msgs);
-			msgs = basicSetClaim(newClaim, msgs);
+			if (claimIdentifier != null)
+				msgs = ((InternalEObject)claimIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER, null, msgs);
+			if (newClaimIdentifier != null)
+				msgs = ((InternalEObject)newClaimIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER, null, msgs);
+			msgs = basicSetClaimIdentifier(newClaimIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM, newClaim, newClaim));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER, newClaimIdentifier, newClaimIdentifier));
 	}
 
 	/**
@@ -657,8 +770,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getClaimResponse() {
-		return claimResponse;
+	public Reference getClaimReference() {
+		return claimReference;
 	}
 
 	/**
@@ -666,11 +779,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClaimResponse(Reference newClaimResponse, NotificationChain msgs) {
-		Reference oldClaimResponse = claimResponse;
-		claimResponse = newClaimResponse;
+	public NotificationChain basicSetClaimReference(Reference newClaimReference, NotificationChain msgs) {
+		Reference oldClaimReference = claimReference;
+		claimReference = newClaimReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE, oldClaimResponse, newClaimResponse);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE, oldClaimReference, newClaimReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -681,18 +794,116 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClaimResponse(Reference newClaimResponse) {
-		if (newClaimResponse != claimResponse) {
+	public void setClaimReference(Reference newClaimReference) {
+		if (newClaimReference != claimReference) {
 			NotificationChain msgs = null;
-			if (claimResponse != null)
-				msgs = ((InternalEObject)claimResponse).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE, null, msgs);
-			if (newClaimResponse != null)
-				msgs = ((InternalEObject)newClaimResponse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE, null, msgs);
-			msgs = basicSetClaimResponse(newClaimResponse, msgs);
+			if (claimReference != null)
+				msgs = ((InternalEObject)claimReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE, null, msgs);
+			if (newClaimReference != null)
+				msgs = ((InternalEObject)newClaimReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE, null, msgs);
+			msgs = basicSetClaimReference(newClaimReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE, newClaimResponse, newClaimResponse));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE, newClaimReference, newClaimReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getClaimResponseIdentifier() {
+		return claimResponseIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetClaimResponseIdentifier(Identifier newClaimResponseIdentifier, NotificationChain msgs) {
+		Identifier oldClaimResponseIdentifier = claimResponseIdentifier;
+		claimResponseIdentifier = newClaimResponseIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER, oldClaimResponseIdentifier, newClaimResponseIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClaimResponseIdentifier(Identifier newClaimResponseIdentifier) {
+		if (newClaimResponseIdentifier != claimResponseIdentifier) {
+			NotificationChain msgs = null;
+			if (claimResponseIdentifier != null)
+				msgs = ((InternalEObject)claimResponseIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER, null, msgs);
+			if (newClaimResponseIdentifier != null)
+				msgs = ((InternalEObject)newClaimResponseIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER, null, msgs);
+			msgs = basicSetClaimResponseIdentifier(newClaimResponseIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER, newClaimResponseIdentifier, newClaimResponseIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getClaimResponseReference() {
+		return claimResponseReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetClaimResponseReference(Reference newClaimResponseReference, NotificationChain msgs) {
+		Reference oldClaimResponseReference = claimResponseReference;
+		claimResponseReference = newClaimResponseReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE, oldClaimResponseReference, newClaimResponseReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClaimResponseReference(Reference newClaimResponseReference) {
+		if (newClaimResponseReference != claimResponseReference) {
+			NotificationChain msgs = null;
+			if (claimResponseReference != null)
+				msgs = ((InternalEObject)claimResponseReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE, null, msgs);
+			if (newClaimResponseReference != null)
+				msgs = ((InternalEObject)newClaimResponseReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE, null, msgs);
+			msgs = basicSetClaimResponseReference(newClaimResponseReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE, newClaimResponseReference, newClaimResponseReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getSubType() {
+		if (subType == null) {
+			subType = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE);
+		}
+		return subType;
 	}
 
 	/**
@@ -915,8 +1126,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProvider() {
-		return provider;
+	public Identifier getProviderIdentifier() {
+		return providerIdentifier;
 	}
 
 	/**
@@ -924,11 +1135,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProvider(Reference newProvider, NotificationChain msgs) {
-		Reference oldProvider = provider;
-		provider = newProvider;
+	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
+		Identifier oldProviderIdentifier = providerIdentifier;
+		providerIdentifier = newProviderIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER, oldProvider, newProvider);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -939,18 +1150,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvider(Reference newProvider) {
-		if (newProvider != provider) {
+	public void setProviderIdentifier(Identifier newProviderIdentifier) {
+		if (newProviderIdentifier != providerIdentifier) {
 			NotificationChain msgs = null;
-			if (provider != null)
-				msgs = ((InternalEObject)provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER, null, msgs);
-			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER, null, msgs);
-			msgs = basicSetProvider(newProvider, msgs);
+			if (providerIdentifier != null)
+				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER, null, msgs);
+			if (newProviderIdentifier != null)
+				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER, null, msgs);
+			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
 	}
 
 	/**
@@ -958,8 +1169,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
+	public Reference getProviderReference() {
+		return providerReference;
 	}
 
 	/**
@@ -967,11 +1178,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
+	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
+		Reference oldProviderReference = providerReference;
+		providerReference = newProviderReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -982,18 +1193,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
+	public void setProviderReference(Reference newProviderReference) {
+		if (newProviderReference != providerReference) {
 			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
+			if (providerReference != null)
+				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE, null, msgs);
+			if (newProviderReference != null)
+				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE, null, msgs);
+			msgs = basicSetProviderReference(newProviderReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
 	}
 
 	/**
@@ -1001,8 +1212,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getFacility() {
-		return facility;
+	public Identifier getOrganizationIdentifier() {
+		return organizationIdentifier;
 	}
 
 	/**
@@ -1010,11 +1221,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFacility(Reference newFacility, NotificationChain msgs) {
-		Reference oldFacility = facility;
-		facility = newFacility;
+	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
+		Identifier oldOrganizationIdentifier = organizationIdentifier;
+		organizationIdentifier = newOrganizationIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY, oldFacility, newFacility);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1025,18 +1236,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFacility(Reference newFacility) {
-		if (newFacility != facility) {
+	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
+		if (newOrganizationIdentifier != organizationIdentifier) {
 			NotificationChain msgs = null;
-			if (facility != null)
-				msgs = ((InternalEObject)facility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY, null, msgs);
-			if (newFacility != null)
-				msgs = ((InternalEObject)newFacility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY, null, msgs);
-			msgs = basicSetFacility(newFacility, msgs);
+			if (organizationIdentifier != null)
+				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER, null, msgs);
+			if (newOrganizationIdentifier != null)
+				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER, null, msgs);
+			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY, newFacility, newFacility));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
 	}
 
 	/**
@@ -1044,11 +1255,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getRelatedClaim() {
-		if (relatedClaim == null) {
-			relatedClaim = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM);
-		}
-		return relatedClaim;
+	public Reference getOrganizationReference() {
+		return organizationReference;
 	}
 
 	/**
@@ -1056,20 +1264,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPrescription() {
-		return prescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrescription(Reference newPrescription, NotificationChain msgs) {
-		Reference oldPrescription = prescription;
-		prescription = newPrescription;
+	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
+		Reference oldOrganizationReference = organizationReference;
+		organizationReference = newOrganizationReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION, oldPrescription, newPrescription);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1080,18 +1279,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrescription(Reference newPrescription) {
-		if (newPrescription != prescription) {
+	public void setOrganizationReference(Reference newOrganizationReference) {
+		if (newOrganizationReference != organizationReference) {
 			NotificationChain msgs = null;
-			if (prescription != null)
-				msgs = ((InternalEObject)prescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION, null, msgs);
-			if (newPrescription != null)
-				msgs = ((InternalEObject)newPrescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION, null, msgs);
-			msgs = basicSetPrescription(newPrescription, msgs);
+			if (organizationReference != null)
+				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE, null, msgs);
+			if (newOrganizationReference != null)
+				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE, null, msgs);
+			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION, newPrescription, newPrescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
 	}
 
 	/**
@@ -1099,8 +1298,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOriginalPrescription() {
-		return originalPrescription;
+	public Identifier getFacilityIdentifier() {
+		return facilityIdentifier;
 	}
 
 	/**
@@ -1108,11 +1307,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOriginalPrescription(Reference newOriginalPrescription, NotificationChain msgs) {
-		Reference oldOriginalPrescription = originalPrescription;
-		originalPrescription = newOriginalPrescription;
+	public NotificationChain basicSetFacilityIdentifier(Identifier newFacilityIdentifier, NotificationChain msgs) {
+		Identifier oldFacilityIdentifier = facilityIdentifier;
+		facilityIdentifier = newFacilityIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION, oldOriginalPrescription, newOriginalPrescription);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER, oldFacilityIdentifier, newFacilityIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1123,18 +1322,245 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOriginalPrescription(Reference newOriginalPrescription) {
-		if (newOriginalPrescription != originalPrescription) {
+	public void setFacilityIdentifier(Identifier newFacilityIdentifier) {
+		if (newFacilityIdentifier != facilityIdentifier) {
 			NotificationChain msgs = null;
-			if (originalPrescription != null)
-				msgs = ((InternalEObject)originalPrescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION, null, msgs);
-			if (newOriginalPrescription != null)
-				msgs = ((InternalEObject)newOriginalPrescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION, null, msgs);
-			msgs = basicSetOriginalPrescription(newOriginalPrescription, msgs);
+			if (facilityIdentifier != null)
+				msgs = ((InternalEObject)facilityIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER, null, msgs);
+			if (newFacilityIdentifier != null)
+				msgs = ((InternalEObject)newFacilityIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER, null, msgs);
+			msgs = basicSetFacilityIdentifier(newFacilityIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION, newOriginalPrescription, newOriginalPrescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER, newFacilityIdentifier, newFacilityIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getFacilityReference() {
+		return facilityReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFacilityReference(Reference newFacilityReference, NotificationChain msgs) {
+		Reference oldFacilityReference = facilityReference;
+		facilityReference = newFacilityReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE, oldFacilityReference, newFacilityReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFacilityReference(Reference newFacilityReference) {
+		if (newFacilityReference != facilityReference) {
+			NotificationChain msgs = null;
+			if (facilityReference != null)
+				msgs = ((InternalEObject)facilityReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE, null, msgs);
+			if (newFacilityReference != null)
+				msgs = ((InternalEObject)newFacilityReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE, null, msgs);
+			msgs = basicSetFacilityReference(newFacilityReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE, newFacilityReference, newFacilityReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExplanationOfBenefitRelated> getRelated() {
+		if (related == null) {
+			related = new EObjectContainmentEList<ExplanationOfBenefitRelated>(ExplanationOfBenefitRelated.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__RELATED);
+		}
+		return related;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getPrescriptionIdentifier() {
+		return prescriptionIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrescriptionIdentifier(Identifier newPrescriptionIdentifier, NotificationChain msgs) {
+		Identifier oldPrescriptionIdentifier = prescriptionIdentifier;
+		prescriptionIdentifier = newPrescriptionIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER, oldPrescriptionIdentifier, newPrescriptionIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrescriptionIdentifier(Identifier newPrescriptionIdentifier) {
+		if (newPrescriptionIdentifier != prescriptionIdentifier) {
+			NotificationChain msgs = null;
+			if (prescriptionIdentifier != null)
+				msgs = ((InternalEObject)prescriptionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER, null, msgs);
+			if (newPrescriptionIdentifier != null)
+				msgs = ((InternalEObject)newPrescriptionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER, null, msgs);
+			msgs = basicSetPrescriptionIdentifier(newPrescriptionIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER, newPrescriptionIdentifier, newPrescriptionIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPrescriptionReference() {
+		return prescriptionReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrescriptionReference(Reference newPrescriptionReference, NotificationChain msgs) {
+		Reference oldPrescriptionReference = prescriptionReference;
+		prescriptionReference = newPrescriptionReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE, oldPrescriptionReference, newPrescriptionReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrescriptionReference(Reference newPrescriptionReference) {
+		if (newPrescriptionReference != prescriptionReference) {
+			NotificationChain msgs = null;
+			if (prescriptionReference != null)
+				msgs = ((InternalEObject)prescriptionReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE, null, msgs);
+			if (newPrescriptionReference != null)
+				msgs = ((InternalEObject)newPrescriptionReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE, null, msgs);
+			msgs = basicSetPrescriptionReference(newPrescriptionReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE, newPrescriptionReference, newPrescriptionReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getOriginalPrescriptionIdentifier() {
+		return originalPrescriptionIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOriginalPrescriptionIdentifier(Identifier newOriginalPrescriptionIdentifier, NotificationChain msgs) {
+		Identifier oldOriginalPrescriptionIdentifier = originalPrescriptionIdentifier;
+		originalPrescriptionIdentifier = newOriginalPrescriptionIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER, oldOriginalPrescriptionIdentifier, newOriginalPrescriptionIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOriginalPrescriptionIdentifier(Identifier newOriginalPrescriptionIdentifier) {
+		if (newOriginalPrescriptionIdentifier != originalPrescriptionIdentifier) {
+			NotificationChain msgs = null;
+			if (originalPrescriptionIdentifier != null)
+				msgs = ((InternalEObject)originalPrescriptionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER, null, msgs);
+			if (newOriginalPrescriptionIdentifier != null)
+				msgs = ((InternalEObject)newOriginalPrescriptionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER, null, msgs);
+			msgs = basicSetOriginalPrescriptionIdentifier(newOriginalPrescriptionIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER, newOriginalPrescriptionIdentifier, newOriginalPrescriptionIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getOriginalPrescriptionReference() {
+		return originalPrescriptionReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOriginalPrescriptionReference(Reference newOriginalPrescriptionReference, NotificationChain msgs) {
+		Reference oldOriginalPrescriptionReference = originalPrescriptionReference;
+		originalPrescriptionReference = newOriginalPrescriptionReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE, oldOriginalPrescriptionReference, newOriginalPrescriptionReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOriginalPrescriptionReference(Reference newOriginalPrescriptionReference) {
+		if (newOriginalPrescriptionReference != originalPrescriptionReference) {
+			NotificationChain msgs = null;
+			if (originalPrescriptionReference != null)
+				msgs = ((InternalEObject)originalPrescriptionReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE, null, msgs);
+			if (newOriginalPrescriptionReference != null)
+				msgs = ((InternalEObject)newOriginalPrescriptionReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE, null, msgs);
+			msgs = basicSetOriginalPrescriptionReference(newOriginalPrescriptionReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE, newOriginalPrescriptionReference, newOriginalPrescriptionReference));
 	}
 
 	/**
@@ -1185,8 +1611,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getReferral() {
-		return referral;
+	public Identifier getReferralIdentifier() {
+		return referralIdentifier;
 	}
 
 	/**
@@ -1194,11 +1620,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReferral(Reference newReferral, NotificationChain msgs) {
-		Reference oldReferral = referral;
-		referral = newReferral;
+	public NotificationChain basicSetReferralIdentifier(Identifier newReferralIdentifier, NotificationChain msgs) {
+		Identifier oldReferralIdentifier = referralIdentifier;
+		referralIdentifier = newReferralIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL, oldReferral, newReferral);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER, oldReferralIdentifier, newReferralIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1209,18 +1635,97 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReferral(Reference newReferral) {
-		if (newReferral != referral) {
+	public void setReferralIdentifier(Identifier newReferralIdentifier) {
+		if (newReferralIdentifier != referralIdentifier) {
 			NotificationChain msgs = null;
-			if (referral != null)
-				msgs = ((InternalEObject)referral).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL, null, msgs);
-			if (newReferral != null)
-				msgs = ((InternalEObject)newReferral).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL, null, msgs);
-			msgs = basicSetReferral(newReferral, msgs);
+			if (referralIdentifier != null)
+				msgs = ((InternalEObject)referralIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER, null, msgs);
+			if (newReferralIdentifier != null)
+				msgs = ((InternalEObject)newReferralIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER, null, msgs);
+			msgs = basicSetReferralIdentifier(newReferralIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL, newReferral, newReferral));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER, newReferralIdentifier, newReferralIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getReferralReference() {
+		return referralReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReferralReference(Reference newReferralReference, NotificationChain msgs) {
+		Reference oldReferralReference = referralReference;
+		referralReference = newReferralReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE, oldReferralReference, newReferralReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferralReference(Reference newReferralReference) {
+		if (newReferralReference != referralReference) {
+			NotificationChain msgs = null;
+			if (referralReference != null)
+				msgs = ((InternalEObject)referralReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE, null, msgs);
+			if (newReferralReference != null)
+				msgs = ((InternalEObject)newReferralReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE, null, msgs);
+			msgs = basicSetReferralReference(newReferralReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE, newReferralReference, newReferralReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getOccurrenceCode() {
+		if (occurrenceCode == null) {
+			occurrenceCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE);
+		}
+		return occurrenceCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getOccurenceSpanCode() {
+		if (occurenceSpanCode == null) {
+			occurenceSpanCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE);
+		}
+		return occurenceSpanCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getValueCode() {
+		if (valueCode == null) {
+			valueCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE);
+		}
+		return valueCode;
 	}
 
 	/**
@@ -1240,6 +1745,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ExplanationOfBenefitProcedure> getProcedure() {
+		if (procedure == null) {
+			procedure = new EObjectContainmentEList<ExplanationOfBenefitProcedure>(ExplanationOfBenefitProcedure.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE);
+		}
+		return procedure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Coding> getSpecialCondition() {
 		if (specialCondition == null) {
 			specialCondition = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION);
@@ -1252,8 +1769,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatient() {
-		return patient;
+	public Identifier getPatientIdentifier() {
+		return patientIdentifier;
 	}
 
 	/**
@@ -1261,11 +1778,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
+	public NotificationChain basicSetPatientIdentifier(Identifier newPatientIdentifier, NotificationChain msgs) {
+		Identifier oldPatientIdentifier = patientIdentifier;
+		patientIdentifier = newPatientIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT, oldPatient, newPatient);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER, oldPatientIdentifier, newPatientIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1276,18 +1793,61 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
+	public void setPatientIdentifier(Identifier newPatientIdentifier) {
+		if (newPatientIdentifier != patientIdentifier) {
 			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
+			if (patientIdentifier != null)
+				msgs = ((InternalEObject)patientIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER, null, msgs);
+			if (newPatientIdentifier != null)
+				msgs = ((InternalEObject)newPatientIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER, null, msgs);
+			msgs = basicSetPatientIdentifier(newPatientIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT, newPatient, newPatient));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER, newPatientIdentifier, newPatientIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPatientReference() {
+		return patientReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatientReference(Reference newPatientReference, NotificationChain msgs) {
+		Reference oldPatientReference = patientReference;
+		patientReference = newPatientReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE, oldPatientReference, newPatientReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatientReference(Reference newPatientReference) {
+		if (newPatientReference != patientReference) {
+			NotificationChain msgs = null;
+			if (patientReference != null)
+				msgs = ((InternalEObject)patientReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE, null, msgs);
+			if (newPatientReference != null)
+				msgs = ((InternalEObject)newPatientReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE, null, msgs);
+			msgs = basicSetPatientReference(newPatientReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE, newPatientReference, newPatientReference));
 	}
 
 	/**
@@ -1381,61 +1941,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getException() {
-		if (exception == null) {
-			exception = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION);
-		}
-		return exception;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getSchool() {
-		return school;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSchool(org.hl7.fhir.String newSchool, NotificationChain msgs) {
-		org.hl7.fhir.String oldSchool = school;
-		school = newSchool;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL, oldSchool, newSchool);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSchool(org.hl7.fhir.String newSchool) {
-		if (newSchool != school) {
-			NotificationChain msgs = null;
-			if (school != null)
-				msgs = ((InternalEObject)school).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL, null, msgs);
-			if (newSchool != null)
-				msgs = ((InternalEObject)newSchool).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL, null, msgs);
-			msgs = basicSetSchool(newSchool, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL, newSchool, newSchool));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getAccidentDate() {
 		return accidentDate;
 	}
@@ -1515,49 +2020,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE, newAccidentType, newAccidentType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getAccidentLocationString() {
-		return accidentLocationString;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccidentLocationString(org.hl7.fhir.String newAccidentLocationString, NotificationChain msgs) {
-		org.hl7.fhir.String oldAccidentLocationString = accidentLocationString;
-		accidentLocationString = newAccidentLocationString;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING, oldAccidentLocationString, newAccidentLocationString);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccidentLocationString(org.hl7.fhir.String newAccidentLocationString) {
-		if (newAccidentLocationString != accidentLocationString) {
-			NotificationChain msgs = null;
-			if (accidentLocationString != null)
-				msgs = ((InternalEObject)accidentLocationString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING, null, msgs);
-			if (newAccidentLocationString != null)
-				msgs = ((InternalEObject)newAccidentLocationString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING, null, msgs);
-			msgs = basicSetAccidentLocationString(newAccidentLocationString, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING, newAccidentLocationString, newAccidentLocationString));
 	}
 
 	/**
@@ -1663,85 +2125,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getOnsetDate() {
-		return onsetDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnsetDate(Date newOnsetDate, NotificationChain msgs) {
-		Date oldOnsetDate = onsetDate;
-		onsetDate = newOnsetDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE, oldOnsetDate, newOnsetDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ExplanationOfBenefitOnset> getOnset() {
+		if (onset == null) {
+			onset = new EObjectContainmentEList<ExplanationOfBenefitOnset>(ExplanationOfBenefitOnset.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__ONSET);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnsetDate(Date newOnsetDate) {
-		if (newOnsetDate != onsetDate) {
-			NotificationChain msgs = null;
-			if (onsetDate != null)
-				msgs = ((InternalEObject)onsetDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE, null, msgs);
-			if (newOnsetDate != null)
-				msgs = ((InternalEObject)newOnsetDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE, null, msgs);
-			msgs = basicSetOnsetDate(newOnsetDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE, newOnsetDate, newOnsetDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getOnsetPeriod() {
-		return onsetPeriod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnsetPeriod(Period newOnsetPeriod, NotificationChain msgs) {
-		Period oldOnsetPeriod = onsetPeriod;
-		onsetPeriod = newOnsetPeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD, oldOnsetPeriod, newOnsetPeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnsetPeriod(Period newOnsetPeriod) {
-		if (newOnsetPeriod != onsetPeriod) {
-			NotificationChain msgs = null;
-			if (onsetPeriod != null)
-				msgs = ((InternalEObject)onsetPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD, null, msgs);
-			if (newOnsetPeriod != null)
-				msgs = ((InternalEObject)newOnsetPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD, null, msgs);
-			msgs = basicSetOnsetPeriod(newOnsetPeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD, newOnsetPeriod, newOnsetPeriod));
+		return onset;
 	}
 
 	/**
@@ -1859,8 +2247,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getClaimTotal() {
-		return claimTotal;
+	public EList<ExplanationOfBenefitMissingTeeth> getMissingTeeth() {
+		if (missingTeeth == null) {
+			missingTeeth = new EObjectContainmentEList<ExplanationOfBenefitMissingTeeth>(ExplanationOfBenefitMissingTeeth.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH);
+		}
+		return missingTeeth;
 	}
 
 	/**
@@ -1868,11 +2259,20 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClaimTotal(Money newClaimTotal, NotificationChain msgs) {
-		Money oldClaimTotal = claimTotal;
-		claimTotal = newClaimTotal;
+	public Money getTotalCost() {
+		return totalCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTotalCost(Money newTotalCost, NotificationChain msgs) {
+		Money oldTotalCost = totalCost;
+		totalCost = newTotalCost;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL, oldClaimTotal, newClaimTotal);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST, oldTotalCost, newTotalCost);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1883,30 +2283,18 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClaimTotal(Money newClaimTotal) {
-		if (newClaimTotal != claimTotal) {
+	public void setTotalCost(Money newTotalCost) {
+		if (newTotalCost != totalCost) {
 			NotificationChain msgs = null;
-			if (claimTotal != null)
-				msgs = ((InternalEObject)claimTotal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL, null, msgs);
-			if (newClaimTotal != null)
-				msgs = ((InternalEObject)newClaimTotal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL, null, msgs);
-			msgs = basicSetClaimTotal(newClaimTotal, msgs);
+			if (totalCost != null)
+				msgs = ((InternalEObject)totalCost).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST, null, msgs);
+			if (newTotalCost != null)
+				msgs = ((InternalEObject)newTotalCost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST, null, msgs);
+			msgs = basicSetTotalCost(newTotalCost, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL, newClaimTotal, newClaimTotal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ExplanationOfBenefitMissingTeeth> getMissingTeeth() {
-		if (missingTeeth == null) {
-			missingTeeth = new EObjectContainmentEList<ExplanationOfBenefitMissingTeeth>(ExplanationOfBenefitMissingTeeth.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH);
-		}
-		return missingTeeth;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST, newTotalCost, newTotalCost));
 	}
 
 	/**
@@ -2330,10 +2718,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM:
-				return basicSetClaim(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE:
-				return basicSetClaimResponse(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER:
+				return basicSetClaimIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE:
+				return basicSetClaimReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER:
+				return basicSetClaimResponseIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
+				return basicSetClaimResponseReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
+				return ((InternalEList<?>)getSubType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
 				return basicSetRuleset(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_RULESET:
@@ -2344,52 +2738,66 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return basicSetBillablePeriod(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				return basicSetDisposition(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER:
-				return basicSetProvider(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY:
-				return basicSetFacility(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM:
-				return ((InternalEList<?>)getRelatedClaim()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION:
-				return basicSetPrescription(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION:
-				return basicSetOriginalPrescription(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER:
+				return basicSetProviderIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE:
+				return basicSetProviderReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER:
+				return basicSetOrganizationIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE:
+				return basicSetOrganizationReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER:
+				return basicSetFacilityIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE:
+				return basicSetFacilityReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED:
+				return ((InternalEList<?>)getRelated()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER:
+				return basicSetPrescriptionIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE:
+				return basicSetPrescriptionReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER:
+				return basicSetOriginalPrescriptionIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE:
+				return basicSetOriginalPrescriptionReference(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PAYEE:
 				return basicSetPayee(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL:
-				return basicSetReferral(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER:
+				return basicSetReferralIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE:
+				return basicSetReferralReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE:
+				return ((InternalEList<?>)getOccurrenceCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE:
+				return ((InternalEList<?>)getOccurenceSpanCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE:
+				return ((InternalEList<?>)getValueCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS:
 				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE:
+				return ((InternalEList<?>)getProcedure()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION:
 				return ((InternalEList<?>)getSpecialCondition()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT:
-				return basicSetPatient(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER:
+				return basicSetPatientIdentifier(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE:
+				return basicSetPatientReference(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PRECEDENCE:
 				return basicSetPrecedence(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__COVERAGE:
 				return basicSetCoverage(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION:
-				return ((InternalEList<?>)getException()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL:
-				return basicSetSchool(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_DATE:
 				return basicSetAccidentDate(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE:
 				return basicSetAccidentType(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING:
-				return basicSetAccidentLocationString(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_ADDRESS:
 				return basicSetAccidentLocationAddress(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_REFERENCE:
 				return basicSetAccidentLocationReference(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__INTERVENTION_EXCEPTION:
 				return ((InternalEList<?>)getInterventionException()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE:
-				return basicSetOnsetDate(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD:
-				return basicSetOnsetPeriod(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET:
+				return ((InternalEList<?>)getOnset()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__EMPLOYMENT_IMPACTED:
 				return basicSetEmploymentImpacted(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__HOSPITALIZATION:
@@ -2398,10 +2806,10 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ADD_ITEM:
 				return ((InternalEList<?>)getAddItem()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL:
-				return basicSetClaimTotal(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH:
 				return ((InternalEList<?>)getMissingTeeth()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST:
+				return basicSetTotalCost(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__UNALLOC_DEDUCTABLE:
 				return basicSetUnallocDeductable(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_BENEFIT:
@@ -2438,10 +2846,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM:
-				return getClaim();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE:
-				return getClaimResponse();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER:
+				return getClaimIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE:
+				return getClaimReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER:
+				return getClaimResponseIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
+				return getClaimResponseReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
+				return getSubType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
 				return getRuleset();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_RULESET:
@@ -2452,52 +2866,66 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return getBillablePeriod();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				return getDisposition();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER:
-				return getProvider();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION:
-				return getOrganization();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY:
-				return getFacility();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM:
-				return getRelatedClaim();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION:
-				return getPrescription();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION:
-				return getOriginalPrescription();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER:
+				return getProviderIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE:
+				return getProviderReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER:
+				return getOrganizationIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE:
+				return getOrganizationReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER:
+				return getFacilityIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE:
+				return getFacilityReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED:
+				return getRelated();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER:
+				return getPrescriptionIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE:
+				return getPrescriptionReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER:
+				return getOriginalPrescriptionIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE:
+				return getOriginalPrescriptionReference();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PAYEE:
 				return getPayee();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL:
-				return getReferral();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER:
+				return getReferralIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE:
+				return getReferralReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE:
+				return getOccurrenceCode();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE:
+				return getOccurenceSpanCode();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE:
+				return getValueCode();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS:
 				return getDiagnosis();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE:
+				return getProcedure();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION:
 				return getSpecialCondition();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT:
-				return getPatient();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER:
+				return getPatientIdentifier();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE:
+				return getPatientReference();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PRECEDENCE:
 				return getPrecedence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__COVERAGE:
 				return getCoverage();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION:
-				return getException();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL:
-				return getSchool();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_DATE:
 				return getAccidentDate();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE:
 				return getAccidentType();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING:
-				return getAccidentLocationString();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_ADDRESS:
 				return getAccidentLocationAddress();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_REFERENCE:
 				return getAccidentLocationReference();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__INTERVENTION_EXCEPTION:
 				return getInterventionException();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE:
-				return getOnsetDate();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD:
-				return getOnsetPeriod();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET:
+				return getOnset();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__EMPLOYMENT_IMPACTED:
 				return getEmploymentImpacted();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__HOSPITALIZATION:
@@ -2506,10 +2934,10 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return getItem();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ADD_ITEM:
 				return getAddItem();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL:
-				return getClaimTotal();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH:
 				return getMissingTeeth();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST:
+				return getTotalCost();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__UNALLOC_DEDUCTABLE:
 				return getUnallocDeductable();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_BENEFIT:
@@ -2549,11 +2977,21 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM:
-				setClaim((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER:
+				setClaimIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE:
-				setClaimResponse((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE:
+				setClaimReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER:
+				setClaimResponseIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
+				setClaimResponseReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
+				getSubType().clear();
+				getSubType().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
 				setRuleset((Coding)newValue);
@@ -2570,41 +3008,78 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER:
-				setProvider((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER:
+				setProviderIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE:
+				setProviderReference((Reference)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY:
-				setFacility((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER:
+				setOrganizationIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM:
-				getRelatedClaim().clear();
-				getRelatedClaim().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE:
+				setOrganizationReference((Reference)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION:
-				setPrescription((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER:
+				setFacilityIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION:
-				setOriginalPrescription((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE:
+				setFacilityReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED:
+				getRelated().clear();
+				getRelated().addAll((Collection<? extends ExplanationOfBenefitRelated>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER:
+				setPrescriptionIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE:
+				setPrescriptionReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER:
+				setOriginalPrescriptionIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE:
+				setOriginalPrescriptionReference((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PAYEE:
 				setPayee((ExplanationOfBenefitPayee)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL:
-				setReferral((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER:
+				setReferralIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE:
+				setReferralReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE:
+				getOccurrenceCode().clear();
+				getOccurrenceCode().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE:
+				getOccurenceSpanCode().clear();
+				getOccurenceSpanCode().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE:
+				getValueCode().clear();
+				getValueCode().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS:
 				getDiagnosis().clear();
 				getDiagnosis().addAll((Collection<? extends ExplanationOfBenefitDiagnosis>)newValue);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE:
+				getProcedure().clear();
+				getProcedure().addAll((Collection<? extends ExplanationOfBenefitProcedure>)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION:
 				getSpecialCondition().clear();
 				getSpecialCondition().addAll((Collection<? extends Coding>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT:
-				setPatient((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER:
+				setPatientIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE:
+				setPatientReference((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PRECEDENCE:
 				setPrecedence((PositiveInt)newValue);
@@ -2612,21 +3087,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__COVERAGE:
 				setCoverage((ExplanationOfBenefitCoverage)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION:
-				getException().clear();
-				getException().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL:
-				setSchool((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_DATE:
 				setAccidentDate((Date)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE:
 				setAccidentType((Coding)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING:
-				setAccidentLocationString((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_ADDRESS:
 				setAccidentLocationAddress((Address)newValue);
@@ -2638,11 +3103,9 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				getInterventionException().clear();
 				getInterventionException().addAll((Collection<? extends Coding>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE:
-				setOnsetDate((Date)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD:
-				setOnsetPeriod((Period)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET:
+				getOnset().clear();
+				getOnset().addAll((Collection<? extends ExplanationOfBenefitOnset>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__EMPLOYMENT_IMPACTED:
 				setEmploymentImpacted((Period)newValue);
@@ -2658,12 +3121,12 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				getAddItem().clear();
 				getAddItem().addAll((Collection<? extends ExplanationOfBenefitAddItem>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL:
-				setClaimTotal((Money)newValue);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH:
 				getMissingTeeth().clear();
 				getMissingTeeth().addAll((Collection<? extends ExplanationOfBenefitMissingTeeth>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST:
+				setTotalCost((Money)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__UNALLOC_DEDUCTABLE:
 				setUnallocDeductable((Money)newValue);
@@ -2715,11 +3178,20 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM:
-				setClaim((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER:
+				setClaimIdentifier((Identifier)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE:
-				setClaimResponse((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE:
+				setClaimReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER:
+				setClaimResponseIdentifier((Identifier)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
+				setClaimResponseReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
+				getSubType().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
 				setRuleset((Coding)null);
@@ -2736,38 +3208,71 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER:
-				setProvider((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER:
+				setProviderIdentifier((Identifier)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE:
+				setProviderReference((Reference)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY:
-				setFacility((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER:
+				setOrganizationIdentifier((Identifier)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM:
-				getRelatedClaim().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE:
+				setOrganizationReference((Reference)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION:
-				setPrescription((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER:
+				setFacilityIdentifier((Identifier)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION:
-				setOriginalPrescription((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE:
+				setFacilityReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED:
+				getRelated().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER:
+				setPrescriptionIdentifier((Identifier)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE:
+				setPrescriptionReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER:
+				setOriginalPrescriptionIdentifier((Identifier)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE:
+				setOriginalPrescriptionReference((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PAYEE:
 				setPayee((ExplanationOfBenefitPayee)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL:
-				setReferral((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER:
+				setReferralIdentifier((Identifier)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE:
+				setReferralReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE:
+				getOccurrenceCode().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE:
+				getOccurenceSpanCode().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE:
+				getValueCode().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS:
 				getDiagnosis().clear();
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE:
+				getProcedure().clear();
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION:
 				getSpecialCondition().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT:
-				setPatient((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER:
+				setPatientIdentifier((Identifier)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE:
+				setPatientReference((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PRECEDENCE:
 				setPrecedence((PositiveInt)null);
@@ -2775,20 +3280,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__COVERAGE:
 				setCoverage((ExplanationOfBenefitCoverage)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION:
-				getException().clear();
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL:
-				setSchool((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_DATE:
 				setAccidentDate((Date)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE:
 				setAccidentType((Coding)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING:
-				setAccidentLocationString((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_ADDRESS:
 				setAccidentLocationAddress((Address)null);
@@ -2799,11 +3295,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__INTERVENTION_EXCEPTION:
 				getInterventionException().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE:
-				setOnsetDate((Date)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD:
-				setOnsetPeriod((Period)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET:
+				getOnset().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__EMPLOYMENT_IMPACTED:
 				setEmploymentImpacted((Period)null);
@@ -2817,11 +3310,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ADD_ITEM:
 				getAddItem().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL:
-				setClaimTotal((Money)null);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH:
 				getMissingTeeth().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST:
+				setTotalCost((Money)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__UNALLOC_DEDUCTABLE:
 				setUnallocDeductable((Money)null);
@@ -2870,10 +3363,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM:
-				return claim != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE:
-				return claimResponse != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_IDENTIFIER:
+				return claimIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_REFERENCE:
+				return claimReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_IDENTIFIER:
+				return claimResponseIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
+				return claimResponseReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
+				return subType != null && !subType.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
 				return ruleset != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_RULESET:
@@ -2884,52 +3383,66 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return billablePeriod != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				return disposition != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER:
-				return provider != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION:
-				return organization != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY:
-				return facility != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED_CLAIM:
-				return relatedClaim != null && !relatedClaim.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION:
-				return prescription != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION:
-				return originalPrescription != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_IDENTIFIER:
+				return providerIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROVIDER_REFERENCE:
+				return providerReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_IDENTIFIER:
+				return organizationIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORGANIZATION_REFERENCE:
+				return organizationReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_IDENTIFIER:
+				return facilityIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__FACILITY_REFERENCE:
+				return facilityReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__RELATED:
+				return related != null && !related.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_IDENTIFIER:
+				return prescriptionIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PRESCRIPTION_REFERENCE:
+				return prescriptionReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_IDENTIFIER:
+				return originalPrescriptionIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ORIGINAL_PRESCRIPTION_REFERENCE:
+				return originalPrescriptionReference != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PAYEE:
 				return payee != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL:
-				return referral != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_IDENTIFIER:
+				return referralIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__REFERRAL_REFERENCE:
+				return referralReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURRENCE_CODE:
+				return occurrenceCode != null && !occurrenceCode.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__OCCURENCE_SPAN_CODE:
+				return occurenceSpanCode != null && !occurenceSpanCode.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__VALUE_CODE:
+				return valueCode != null && !valueCode.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS:
 				return diagnosis != null && !diagnosis.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE:
+				return procedure != null && !procedure.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SPECIAL_CONDITION:
 				return specialCondition != null && !specialCondition.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT:
-				return patient != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_IDENTIFIER:
+				return patientIdentifier != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PATIENT_REFERENCE:
+				return patientReference != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__PRECEDENCE:
 				return precedence != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__COVERAGE:
 				return coverage != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__EXCEPTION:
-				return exception != null && !exception.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__SCHOOL:
-				return school != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_DATE:
 				return accidentDate != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_TYPE:
 				return accidentType != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_STRING:
-				return accidentLocationString != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_ADDRESS:
 				return accidentLocationAddress != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ACCIDENT_LOCATION_REFERENCE:
 				return accidentLocationReference != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__INTERVENTION_EXCEPTION:
 				return interventionException != null && !interventionException.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_DATE:
-				return onsetDate != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET_PERIOD:
-				return onsetPeriod != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__ONSET:
+				return onset != null && !onset.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__EMPLOYMENT_IMPACTED:
 				return employmentImpacted != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__HOSPITALIZATION:
@@ -2938,10 +3451,10 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return item != null && !item.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__ADD_ITEM:
 				return addItem != null && !addItem.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_TOTAL:
-				return claimTotal != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__MISSING_TEETH:
 				return missingTeeth != null && !missingTeeth.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_COST:
+				return totalCost != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__UNALLOC_DEDUCTABLE:
 				return unallocDeductable != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__TOTAL_BENEFIT:

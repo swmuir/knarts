@@ -31,32 +31,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImagingStudyInstance extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The number of instance in the series.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Number</em>' containment reference.
-	 * @see #setNumber(UnsignedInt)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudyInstance_Number()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='number' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	UnsignedInt getNumber();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudyInstance#getNumber <em>Number</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' containment reference.
-	 * @see #getNumber()
-	 * @generated
-	 */
-	void setNumber(UnsignedInt value);
-
-	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,6 +55,32 @@ public interface ImagingStudyInstance extends BackboneElement {
 	 * @generated
 	 */
 	void setUid(Oid value);
+
+	/**
+	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The number of instance in the series.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Number</em>' containment reference.
+	 * @see #setNumber(UnsignedInt)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudyInstance_Number()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='number' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UnsignedInt getNumber();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudyInstance#getNumber <em>Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number</em>' containment reference.
+	 * @see #getNumber()
+	 * @generated
+	 */
+	void setNumber(UnsignedInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Sop Class</b></em>' containment reference.

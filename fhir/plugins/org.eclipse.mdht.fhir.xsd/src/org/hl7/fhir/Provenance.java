@@ -193,7 +193,7 @@ public interface Provenance extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.
+	 * An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Agent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getProvenance_Agent()

@@ -17,9 +17,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getManagingOrganization <em>Managing Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getSpecialty <em>Specialty</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerPractitionerRole#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -31,30 +33,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PractitionerPractitionerRole extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Managing Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The organization where the Practitioner performs the roles associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Managing Organization</em>' containment reference.
-	 * @see #setManagingOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPractitionerPractitionerRole_ManagingOrganization()
+	 * @return the value of the '<em>Organization</em>' containment reference.
+	 * @see #setOrganization(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerPractitionerRole_Organization()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='managingOrganization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getManagingOrganization();
+	Reference getOrganization();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PractitionerPractitionerRole#getManagingOrganization <em>Managing Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PractitionerPractitionerRole#getOrganization <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Managing Organization</em>' containment reference.
-	 * @see #getManagingOrganization()
+	 * @param value the new value of the '<em>Organization</em>' containment reference.
+	 * @see #getOrganization()
 	 * @generated
 	 */
-	void setManagingOrganization(Reference value);
+	void setOrganization(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
@@ -97,6 +99,38 @@ public interface PractitionerPractitionerRole extends BackboneElement {
 	 * @generated
 	 */
 	EList<CodeableConcept> getSpecialty();
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Business Identifiers that are specific to a role/location.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerPractitionerRole_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Telecom</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContactPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contact details that are specific to the role/location/service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Telecom</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerPractitionerRole_Telecom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='telecom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContactPoint> getTelecom();
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.

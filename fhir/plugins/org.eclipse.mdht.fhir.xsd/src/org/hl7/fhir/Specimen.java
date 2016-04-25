@@ -52,6 +52,32 @@ public interface Specimen extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Accession Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Accession Identifier</em>' containment reference.
+	 * @see #setAccessionIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_AccessionIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='accessionIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getAccessionIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Specimen#getAccessionIdentifier <em>Accession Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Accession Identifier</em>' containment reference.
+	 * @see #getAccessionIdentifier()
+	 * @generated
+	 */
+	void setAccessionIdentifier(Identifier value);
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,22 +130,6 @@ public interface Specimen extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Parent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Parent()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getParent();
-
-	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,32 +156,6 @@ public interface Specimen extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Accession Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accession Identifier</em>' containment reference.
-	 * @see #setAccessionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getSpecimen_AccessionIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accessionIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getAccessionIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Specimen#getAccessionIdentifier <em>Accession Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accession Identifier</em>' containment reference.
-	 * @see #getAccessionIdentifier()
-	 * @generated
-	 */
-	void setAccessionIdentifier(Identifier value);
-
-	/**
 	 * Returns the value of the '<em><b>Received Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +180,22 @@ public interface Specimen extends DomainResource {
 	 * @generated
 	 */
 	void setReceivedTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Parent</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Parent()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getParent();
 
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' containment reference.

@@ -203,7 +203,7 @@ public interface AuditEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A person, a hardware device or software process.
+	 * An actor taking an active role in the event or activity that is logged.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Agent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAuditEvent_Agent()

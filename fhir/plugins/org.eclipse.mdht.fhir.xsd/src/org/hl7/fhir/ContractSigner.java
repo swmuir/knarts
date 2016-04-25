@@ -4,7 +4,6 @@ package org.hl7.fhir;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contract Signer</b></em>'.
@@ -38,7 +37,7 @@ public interface ContractSigner extends BackboneElement {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getContractSigner_Type()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -64,7 +63,7 @@ public interface ContractSigner extends BackboneElement {
 	 * @return the value of the '<em>Party</em>' containment reference.
 	 * @see #setParty(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getContractSigner_Party()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='party' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -90,7 +89,7 @@ public interface ContractSigner extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractSigner_Signature()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='signature' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Contract#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getApplies <em>Applies</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAuthority <em>Authority</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getDomain <em>Domain</em>}</li>
@@ -123,12 +124,28 @@ public interface Contract extends DomainResource {
 	void setApplies(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target entity impacted by or of interest to parties to the agreement.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_Subject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSubject();
+
+	/**
 	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.
+	 * The matter of concern in the context of this agreement.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContract_Topic()
@@ -250,7 +267,7 @@ public interface Contract extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of parties to the Contract.
+	 * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Agent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContract_Agent()
@@ -259,6 +276,22 @@ public interface Contract extends DomainResource {
 	 * @generated
 	 */
 	EList<ContractAgent> getAgent();
+
+	/**
+	 * Returns the value of the '<em><b>Signer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractSigner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Signer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_Signer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='signer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractSigner> getSigner();
 
 	/**
 	 * Returns the value of the '<em><b>Valued Item</b></em>' containment reference list.
@@ -275,22 +308,6 @@ public interface Contract extends DomainResource {
 	 * @generated
 	 */
 	EList<ContractValuedItem> getValuedItem();
-
-	/**
-	 * Returns the value of the '<em><b>Signer</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractSigner}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Party signing this Contract.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Signer</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Signer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='signer' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContractSigner> getSigner();
 
 	/**
 	 * Returns the value of the '<em><b>Term</b></em>' containment reference list.

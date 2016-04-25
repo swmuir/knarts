@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemProperty1;
 import org.hl7.fhir.Coding;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 
 /**
@@ -28,6 +29,8 @@ import org.hl7.fhir.FhirPackage;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueCoding <em>Value Coding</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueInteger <em>Value Integer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueDateTime <em>Value Date Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +85,26 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Integer valueInteger;
+
+	/**
+	 * The cached value of the '{@link #getValueBoolean() <em>Value Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueBoolean()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean valueBoolean;
+
+	/**
+	 * The cached value of the '{@link #getValueDateTime() <em>Value Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime valueDateTime;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -322,6 +345,92 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getValueBoolean() {
+		return valueBoolean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueBoolean(org.hl7.fhir.Boolean newValueBoolean, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldValueBoolean = valueBoolean;
+		valueBoolean = newValueBoolean;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN, oldValueBoolean, newValueBoolean);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueBoolean(org.hl7.fhir.Boolean newValueBoolean) {
+		if (newValueBoolean != valueBoolean) {
+			NotificationChain msgs = null;
+			if (valueBoolean != null)
+				msgs = ((InternalEObject)valueBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN, null, msgs);
+			if (newValueBoolean != null)
+				msgs = ((InternalEObject)newValueBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN, null, msgs);
+			msgs = basicSetValueBoolean(newValueBoolean, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN, newValueBoolean, newValueBoolean));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getValueDateTime() {
+		return valueDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDateTime(DateTime newValueDateTime, NotificationChain msgs) {
+		DateTime oldValueDateTime = valueDateTime;
+		valueDateTime = newValueDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME, oldValueDateTime, newValueDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDateTime(DateTime newValueDateTime) {
+		if (newValueDateTime != valueDateTime) {
+			NotificationChain msgs = null;
+			if (valueDateTime != null)
+				msgs = ((InternalEObject)valueDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME, null, msgs);
+			if (newValueDateTime != null)
+				msgs = ((InternalEObject)newValueDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME, null, msgs);
+			msgs = basicSetValueDateTime(newValueDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME, newValueDateTime, newValueDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -335,6 +444,10 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return basicSetValueString(null, msgs);
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_INTEGER:
 				return basicSetValueInteger(null, msgs);
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN:
+				return basicSetValueBoolean(null, msgs);
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
+				return basicSetValueDateTime(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -357,6 +470,10 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return getValueString();
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_INTEGER:
 				return getValueInteger();
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN:
+				return getValueBoolean();
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
+				return getValueDateTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -383,6 +500,12 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return;
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_INTEGER:
 				setValueInteger((org.hl7.fhir.Integer)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN:
+				setValueBoolean((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
+				setValueDateTime((DateTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,6 +534,12 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_INTEGER:
 				setValueInteger((org.hl7.fhir.Integer)null);
 				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN:
+				setValueBoolean((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
+				setValueDateTime((DateTime)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -433,6 +562,10 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return valueString != null;
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_INTEGER:
 				return valueInteger != null;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_BOOLEAN:
+				return valueBoolean != null;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
+				return valueDateTime != null;
 		}
 		return super.eIsSet(featureID);
 	}

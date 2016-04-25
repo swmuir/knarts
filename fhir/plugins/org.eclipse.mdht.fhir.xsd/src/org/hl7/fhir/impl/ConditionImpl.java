@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Age;
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Condition;
@@ -64,7 +65,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getStage <em>Stage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getEvidence <em>Evidence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getBodySite <em>Body Site</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -311,14 +312,14 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected EList<CodeableConcept> bodySite;
 
 	/**
-	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotes()
+	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String notes;
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1283,42 +1284,11 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNotes() {
-		return notes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNotes(org.hl7.fhir.String newNotes, NotificationChain msgs) {
-		org.hl7.fhir.String oldNotes = notes;
-		notes = newNotes;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__NOTES, oldNotes, newNotes);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CONDITION__NOTE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNotes(org.hl7.fhir.String newNotes) {
-		if (newNotes != notes) {
-			NotificationChain msgs = null;
-			if (notes != null)
-				msgs = ((InternalEObject)notes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__NOTES, null, msgs);
-			if (newNotes != null)
-				msgs = ((InternalEObject)newNotes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__NOTES, null, msgs);
-			msgs = basicSetNotes(newNotes, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__NOTES, newNotes, newNotes));
+		return note;
 	}
 
 	/**
@@ -1377,8 +1347,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return ((InternalEList<?>)getEvidence()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONDITION__BODY_SITE:
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONDITION__NOTES:
-				return basicSetNotes(null, msgs);
+			case FhirPackage.CONDITION__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1439,8 +1409,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return getEvidence();
 			case FhirPackage.CONDITION__BODY_SITE:
 				return getBodySite();
-			case FhirPackage.CONDITION__NOTES:
-				return getNotes();
+			case FhirPackage.CONDITION__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1529,8 +1499,9 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				getBodySite().clear();
 				getBodySite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.CONDITION__NOTES:
-				setNotes((org.hl7.fhir.String)newValue);
+			case FhirPackage.CONDITION__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1616,8 +1587,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__BODY_SITE:
 				getBodySite().clear();
 				return;
-			case FhirPackage.CONDITION__NOTES:
-				setNotes((org.hl7.fhir.String)null);
+			case FhirPackage.CONDITION__NOTE:
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1679,8 +1650,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return evidence != null && !evidence.isEmpty();
 			case FhirPackage.CONDITION__BODY_SITE:
 				return bodySite != null && !bodySite.isEmpty();
-			case FhirPackage.CONDITION__NOTES:
-				return notes != null;
+			case FhirPackage.CONDITION__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

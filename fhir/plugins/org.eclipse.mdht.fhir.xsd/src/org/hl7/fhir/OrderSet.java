@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.OrderSet#getModuleMetadata <em>Module Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.OrderSet#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.OrderSet#getItem <em>Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.OrderSet#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getOrderSet()
@@ -71,19 +71,19 @@ public interface OrderSet extends DomainResource {
 	EList<Reference> getLibrary();
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.OrderSetItem}.
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ActionDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The definition of the items that make up the orderset.
+	 * The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Item</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getOrderSet_Item()
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOrderSet_Action()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='item' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<OrderSetItem> getItem();
+	EList<ActionDefinition> getAction();
 
 } // OrderSet

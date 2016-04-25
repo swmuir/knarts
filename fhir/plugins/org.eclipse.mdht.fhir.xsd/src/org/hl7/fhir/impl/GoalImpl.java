@@ -47,7 +47,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusReason <em>Status Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getExpressedBy <em>Expressed By</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getNote <em>Note</em>}</li>
@@ -168,14 +168,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected CodeableConcept statusReason;
 
 	/**
-	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference.
+	 * The cached value of the '{@link #getExpressedBy() <em>Expressed By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAuthor()
+	 * @see #getExpressedBy()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference author;
+	protected Reference expressedBy;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -652,8 +652,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getAuthor() {
-		return author;
+	public Reference getExpressedBy() {
+		return expressedBy;
 	}
 
 	/**
@@ -661,11 +661,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAuthor(Reference newAuthor, NotificationChain msgs) {
-		Reference oldAuthor = author;
-		author = newAuthor;
+	public NotificationChain basicSetExpressedBy(Reference newExpressedBy, NotificationChain msgs) {
+		Reference oldExpressedBy = expressedBy;
+		expressedBy = newExpressedBy;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__AUTHOR, oldAuthor, newAuthor);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__EXPRESSED_BY, oldExpressedBy, newExpressedBy);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -676,18 +676,18 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAuthor(Reference newAuthor) {
-		if (newAuthor != author) {
+	public void setExpressedBy(Reference newExpressedBy) {
+		if (newExpressedBy != expressedBy) {
 			NotificationChain msgs = null;
-			if (author != null)
-				msgs = ((InternalEObject)author).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__AUTHOR, null, msgs);
-			if (newAuthor != null)
-				msgs = ((InternalEObject)newAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__AUTHOR, null, msgs);
-			msgs = basicSetAuthor(newAuthor, msgs);
+			if (expressedBy != null)
+				msgs = ((InternalEObject)expressedBy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__EXPRESSED_BY, null, msgs);
+			if (newExpressedBy != null)
+				msgs = ((InternalEObject)newExpressedBy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__EXPRESSED_BY, null, msgs);
+			msgs = basicSetExpressedBy(newExpressedBy, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__AUTHOR, newAuthor, newAuthor));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__EXPRESSED_BY, newExpressedBy, newExpressedBy));
 	}
 
 	/**
@@ -799,8 +799,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return basicSetStatusDate(null, msgs);
 			case FhirPackage.GOAL__STATUS_REASON:
 				return basicSetStatusReason(null, msgs);
-			case FhirPackage.GOAL__AUTHOR:
-				return basicSetAuthor(null, msgs);
+			case FhirPackage.GOAL__EXPRESSED_BY:
+				return basicSetExpressedBy(null, msgs);
 			case FhirPackage.GOAL__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.GOAL__ADDRESSES:
@@ -843,8 +843,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return getStatusDate();
 			case FhirPackage.GOAL__STATUS_REASON:
 				return getStatusReason();
-			case FhirPackage.GOAL__AUTHOR:
-				return getAuthor();
+			case FhirPackage.GOAL__EXPRESSED_BY:
+				return getExpressedBy();
 			case FhirPackage.GOAL__PRIORITY:
 				return getPriority();
 			case FhirPackage.GOAL__ADDRESSES:
@@ -901,8 +901,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__STATUS_REASON:
 				setStatusReason((CodeableConcept)newValue);
 				return;
-			case FhirPackage.GOAL__AUTHOR:
-				setAuthor((Reference)newValue);
+			case FhirPackage.GOAL__EXPRESSED_BY:
+				setExpressedBy((Reference)newValue);
 				return;
 			case FhirPackage.GOAL__PRIORITY:
 				setPriority((CodeableConcept)newValue);
@@ -964,8 +964,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__STATUS_REASON:
 				setStatusReason((CodeableConcept)null);
 				return;
-			case FhirPackage.GOAL__AUTHOR:
-				setAuthor((Reference)null);
+			case FhirPackage.GOAL__EXPRESSED_BY:
+				setExpressedBy((Reference)null);
 				return;
 			case FhirPackage.GOAL__PRIORITY:
 				setPriority((CodeableConcept)null);
@@ -1013,8 +1013,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return statusDate != null;
 			case FhirPackage.GOAL__STATUS_REASON:
 				return statusReason != null;
-			case FhirPackage.GOAL__AUTHOR:
-				return author != null;
+			case FhirPackage.GOAL__EXPRESSED_BY:
+				return expressedBy != null;
 			case FhirPackage.GOAL__PRIORITY:
 				return priority != null;
 			case FhirPackage.GOAL__ADDRESSES:

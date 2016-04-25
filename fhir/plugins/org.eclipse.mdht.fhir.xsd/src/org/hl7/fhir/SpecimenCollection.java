@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Specimen Collection</b></em>'.

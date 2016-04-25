@@ -17,10 +17,14 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getRequest <em>Request</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponce <em>Responce</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitter <em>Submitter</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getRequestIdentifier <em>Request Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getRequestReference <em>Request Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponceIdentifier <em>Responce Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponceReference <em>Responce Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitterIdentifier <em>Submitter Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitterReference <em>Submitter Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPayeeIdentifier <em>Payee Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPayeeReference <em>Payee Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getAmount <em>Amount</em>}</li>
  * </ul>
@@ -57,108 +61,220 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	void setType(Coding value);
 
 	/**
-	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The claim or financial resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request</em>' containment reference.
-	 * @see #setRequest(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Request()
+	 * @return the value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #setRequestIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_RequestIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='requestIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequest();
+	Identifier getRequestIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getRequest <em>Request</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getRequestIdentifier <em>Request Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request</em>' containment reference.
-	 * @see #getRequest()
+	 * @param value the new value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #getRequestIdentifier()
 	 * @generated
 	 */
-	void setRequest(Reference value);
+	void setRequestIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Responce</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The claim response resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Responce</em>' containment reference.
-	 * @see #setResponce(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Responce()
+	 * @return the value of the '<em>Request Reference</em>' containment reference.
+	 * @see #setRequestReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_RequestReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='responce' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='requestReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getResponce();
+	Reference getRequestReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponce <em>Responce</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getRequestReference <em>Request Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Responce</em>' containment reference.
-	 * @see #getResponce()
+	 * @param value the new value of the '<em>Request Reference</em>' containment reference.
+	 * @see #getRequestReference()
 	 * @generated
 	 */
-	void setResponce(Reference value);
+	void setRequestReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Submitter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Responce Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Responce Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Organization which submitted the invoice or financial transaction.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Submitter</em>' containment reference.
-	 * @see #setSubmitter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Submitter()
+	 * @return the value of the '<em>Responce Identifier</em>' containment reference.
+	 * @see #setResponceIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_ResponceIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='submitter' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='responceIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubmitter();
+	Identifier getResponceIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitter <em>Submitter</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponceIdentifier <em>Responce Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Submitter</em>' containment reference.
-	 * @see #getSubmitter()
+	 * @param value the new value of the '<em>Responce Identifier</em>' containment reference.
+	 * @see #getResponceIdentifier()
 	 * @generated
 	 */
-	void setSubmitter(Reference value);
+	void setResponceIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Responce Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Responce Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is receiving the payment.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payee</em>' containment reference.
-	 * @see #setPayee(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Payee()
+	 * @return the value of the '<em>Responce Reference</em>' containment reference.
+	 * @see #setResponceReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_ResponceReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='payee' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='responceReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPayee();
+	Reference getResponceReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponceReference <em>Responce Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payee</em>' containment reference.
-	 * @see #getPayee()
+	 * @param value the new value of the '<em>Responce Reference</em>' containment reference.
+	 * @see #getResponceReference()
 	 * @generated
 	 */
-	void setPayee(Reference value);
+	void setResponceReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Submitter Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Submitter Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Submitter Identifier</em>' containment reference.
+	 * @see #setSubmitterIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_SubmitterIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='submitterIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getSubmitterIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitterIdentifier <em>Submitter Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Submitter Identifier</em>' containment reference.
+	 * @see #getSubmitterIdentifier()
+	 * @generated
+	 */
+	void setSubmitterIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Submitter Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Submitter Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Submitter Reference</em>' containment reference.
+	 * @see #setSubmitterReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_SubmitterReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='submitterReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubmitterReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitterReference <em>Submitter Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Submitter Reference</em>' containment reference.
+	 * @see #getSubmitterReference()
+	 * @generated
+	 */
+	void setSubmitterReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Payee Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Payee Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Payee Identifier</em>' containment reference.
+	 * @see #setPayeeIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_PayeeIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='payeeIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getPayeeIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPayeeIdentifier <em>Payee Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payee Identifier</em>' containment reference.
+	 * @see #getPayeeIdentifier()
+	 * @generated
+	 */
+	void setPayeeIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Payee Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Payee Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Payee Reference</em>' containment reference.
+	 * @see #setPayeeReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_PayeeReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='payeeReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPayeeReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPayeeReference <em>Payee Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payee Reference</em>' containment reference.
+	 * @see #getPayeeReference()
+	 * @generated
+	 */
+	void setPayeeReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.

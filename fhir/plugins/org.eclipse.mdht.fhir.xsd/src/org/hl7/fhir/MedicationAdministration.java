@@ -84,6 +84,60 @@ public interface MedicationAdministration extends DomainResource {
 	void setStatus(MedicationAdministrationStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Medication Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Medication Codeable Concept</em>' containment reference.
+	 * @see #setMedicationCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_MedicationCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='medicationCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getMedicationCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Codeable Concept</em>' containment reference.
+	 * @see #getMedicationCodeableConcept()
+	 * @generated
+	 */
+	void setMedicationCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Medication Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Medication Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Medication Reference</em>' containment reference.
+	 * @see #setMedicationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_MedicationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='medicationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getMedicationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getMedicationReference <em>Medication Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Reference</em>' containment reference.
+	 * @see #getMedicationReference()
+	 * @generated
+	 */
+	void setMedicationReference(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,32 +164,6 @@ public interface MedicationAdministration extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The individual who was responsible for giving the medication to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Practitioner</em>' containment reference.
-	 * @see #setPractitioner(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Practitioner()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='practitioner' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPractitioner();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getPractitioner <em>Practitioner</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Practitioner</em>' containment reference.
-	 * @see #getPractitioner()
-	 * @generated
-	 */
-	void setPractitioner(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,6 +188,86 @@ public interface MedicationAdministration extends DomainResource {
 	 * @generated
 	 */
 	void setEncounter(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Effective Time Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective Time Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective Time Date Time</em>' containment reference.
+	 * @see #setEffectiveTimeDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_EffectiveTimeDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='effectiveTimeDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getEffectiveTimeDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimeDateTime <em>Effective Time Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Effective Time Date Time</em>' containment reference.
+	 * @see #getEffectiveTimeDateTime()
+	 * @generated
+	 */
+	void setEffectiveTimeDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Effective Time Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective Time Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective Time Period</em>' containment reference.
+	 * @see #setEffectiveTimePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_EffectiveTimePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='effectiveTimePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getEffectiveTimePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimePeriod <em>Effective Time Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Effective Time Period</em>' containment reference.
+	 * @see #getEffectiveTimePeriod()
+	 * @generated
+	 */
+	void setEffectiveTimePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The individual who was responsible for giving the medication to the patient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Practitioner</em>' containment reference.
+	 * @see #setPractitioner(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Practitioner()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='practitioner' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPractitioner();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getPractitioner <em>Practitioner</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Practitioner</em>' containment reference.
+	 * @see #getPractitioner()
+	 * @generated
+	 */
+	void setPractitioner(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.
@@ -244,114 +352,6 @@ public interface MedicationAdministration extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getReasonGiven();
-
-	/**
-	 * Returns the value of the '<em><b>Effective Time Date Time</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Effective Time Date Time</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Effective Time Date Time</em>' containment reference.
-	 * @see #setEffectiveTimeDateTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_EffectiveTimeDateTime()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='effectiveTimeDateTime' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getEffectiveTimeDateTime();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimeDateTime <em>Effective Time Date Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Effective Time Date Time</em>' containment reference.
-	 * @see #getEffectiveTimeDateTime()
-	 * @generated
-	 */
-	void setEffectiveTimeDateTime(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Effective Time Period</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Effective Time Period</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Effective Time Period</em>' containment reference.
-	 * @see #setEffectiveTimePeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_EffectiveTimePeriod()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='effectiveTimePeriod' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getEffectiveTimePeriod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimePeriod <em>Effective Time Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Effective Time Period</em>' containment reference.
-	 * @see #getEffectiveTimePeriod()
-	 * @generated
-	 */
-	void setEffectiveTimePeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #setMedicationCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_MedicationCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getMedicationCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 */
-	void setMedicationCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Medication Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #setMedicationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_MedicationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getMedicationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getMedicationReference <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #getMedicationReference()
-	 * @generated
-	 */
-	void setMedicationReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference list.

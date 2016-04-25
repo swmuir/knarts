@@ -20,7 +20,123 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.hl7.fhir.*;
+
+import org.hl7.fhir.Account;
+import org.hl7.fhir.AllergyIntolerance;
+import org.hl7.fhir.Appointment;
+import org.hl7.fhir.AppointmentResponse;
+import org.hl7.fhir.AuditEvent;
+import org.hl7.fhir.Basic;
+import org.hl7.fhir.Binary;
+import org.hl7.fhir.BodySite;
+import org.hl7.fhir.Bundle;
+import org.hl7.fhir.CarePlan;
+import org.hl7.fhir.CareTeam;
+import org.hl7.fhir.Claim;
+import org.hl7.fhir.ClaimResponse;
+import org.hl7.fhir.ClinicalImpression;
+import org.hl7.fhir.CodeSystem;
+import org.hl7.fhir.Communication;
+import org.hl7.fhir.CommunicationRequest;
+import org.hl7.fhir.CompartmentDefinition;
+import org.hl7.fhir.Composition;
+import org.hl7.fhir.ConceptMap;
+import org.hl7.fhir.Condition;
+import org.hl7.fhir.Conformance;
+import org.hl7.fhir.Contract;
+import org.hl7.fhir.Coverage;
+import org.hl7.fhir.DataElement;
+import org.hl7.fhir.DecisionSupportRule;
+import org.hl7.fhir.DecisionSupportServiceModule;
+import org.hl7.fhir.DetectedIssue;
+import org.hl7.fhir.Device;
+import org.hl7.fhir.DeviceComponent;
+import org.hl7.fhir.DeviceMetric;
+import org.hl7.fhir.DeviceUseRequest;
+import org.hl7.fhir.DeviceUseStatement;
+import org.hl7.fhir.DiagnosticOrder;
+import org.hl7.fhir.DiagnosticReport;
+import org.hl7.fhir.DocumentManifest;
+import org.hl7.fhir.DocumentReference;
+import org.hl7.fhir.DocumentRoot;
+import org.hl7.fhir.EligibilityRequest;
+import org.hl7.fhir.EligibilityResponse;
+import org.hl7.fhir.Encounter;
+import org.hl7.fhir.Endpoint;
+import org.hl7.fhir.EnrollmentRequest;
+import org.hl7.fhir.EnrollmentResponse;
+import org.hl7.fhir.EpisodeOfCare;
+import org.hl7.fhir.ExpansionProfile;
+import org.hl7.fhir.ExplanationOfBenefit;
+import org.hl7.fhir.FamilyMemberHistory;
+import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Flag;
+import org.hl7.fhir.Goal;
+import org.hl7.fhir.Group;
+import org.hl7.fhir.GuidanceResponse;
+import org.hl7.fhir.HealthcareService;
+import org.hl7.fhir.ImagingExcerpt;
+import org.hl7.fhir.ImagingObjectSelection;
+import org.hl7.fhir.ImagingStudy;
+import org.hl7.fhir.Immunization;
+import org.hl7.fhir.ImmunizationRecommendation;
+import org.hl7.fhir.ImplementationGuide;
+import org.hl7.fhir.Library;
+import org.hl7.fhir.Linkage;
+import org.hl7.fhir.List;
+import org.hl7.fhir.Location;
+import org.hl7.fhir.Measure;
+import org.hl7.fhir.MeasureReport;
+import org.hl7.fhir.Media;
+import org.hl7.fhir.Medication;
+import org.hl7.fhir.MedicationAdministration;
+import org.hl7.fhir.MedicationDispense;
+import org.hl7.fhir.MedicationOrder;
+import org.hl7.fhir.MedicationStatement;
+import org.hl7.fhir.MessageHeader;
+import org.hl7.fhir.ModuleDefinition;
+import org.hl7.fhir.NamingSystem;
+import org.hl7.fhir.NutritionOrder;
+import org.hl7.fhir.Observation;
+import org.hl7.fhir.OperationDefinition;
+import org.hl7.fhir.OperationOutcome;
+import org.hl7.fhir.Order;
+import org.hl7.fhir.OrderResponse;
+import org.hl7.fhir.OrderSet;
+import org.hl7.fhir.Organization;
+import org.hl7.fhir.Parameters;
+import org.hl7.fhir.Patient;
+import org.hl7.fhir.PaymentNotice;
+import org.hl7.fhir.PaymentReconciliation;
+import org.hl7.fhir.Person;
+import org.hl7.fhir.Practitioner;
+import org.hl7.fhir.PractitionerRole;
+import org.hl7.fhir.Procedure;
+import org.hl7.fhir.ProcedureRequest;
+import org.hl7.fhir.ProcessRequest;
+import org.hl7.fhir.ProcessResponse;
+import org.hl7.fhir.Protocol;
+import org.hl7.fhir.Provenance;
+import org.hl7.fhir.Questionnaire;
+import org.hl7.fhir.QuestionnaireResponse;
+import org.hl7.fhir.ReferralRequest;
+import org.hl7.fhir.RelatedPerson;
+import org.hl7.fhir.RiskAssessment;
+import org.hl7.fhir.Schedule;
+import org.hl7.fhir.SearchParameter;
+import org.hl7.fhir.Sequence;
+import org.hl7.fhir.Slot;
+import org.hl7.fhir.Specimen;
+import org.hl7.fhir.StructureDefinition;
+import org.hl7.fhir.StructureMap;
+import org.hl7.fhir.Subscription;
+import org.hl7.fhir.Substance;
+import org.hl7.fhir.SupplyDelivery;
+import org.hl7.fhir.SupplyRequest;
+import org.hl7.fhir.Task;
+import org.hl7.fhir.TestScript;
+import org.hl7.fhir.ValueSet;
+import org.hl7.fhir.VisionPrescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,12 +159,14 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getBundle <em>Bundle</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCarePlan <em>Care Plan</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getClaimResponse <em>Claim Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getClinicalImpression <em>Clinical Impression</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCodeSystem <em>Code System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCommunication <em>Communication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCommunicationRequest <em>Communication Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCompartmentDefinition <em>Compartment Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getComposition <em>Composition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getConceptMap <em>Concept Map</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCondition <em>Condition</em>}</li>
@@ -71,6 +189,7 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEligibilityRequest <em>Eligibility Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEligibilityResponse <em>Eligibility Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEnrollmentRequest <em>Enrollment Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEnrollmentResponse <em>Enrollment Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getEpisodeOfCare <em>Episode Of Care</em>}</li>
@@ -82,6 +201,7 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getHealthcareService <em>Healthcare Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getImagingExcerpt <em>Imaging Excerpt</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getImagingObjectSelection <em>Imaging Object Selection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getImmunization <em>Immunization</em>}</li>
@@ -92,6 +212,7 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getList <em>List</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getMeasure <em>Measure</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getMeasureReport <em>Measure Report</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getMedication <em>Medication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getMedicationAdministration <em>Medication Administration</em>}</li>
@@ -115,6 +236,7 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getPaymentReconciliation <em>Payment Reconciliation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getPractitioner <em>Practitioner</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getPractitionerRole <em>Practitioner Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getProcedureRequest <em>Procedure Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getProcessRequest <em>Process Request</em>}</li>
@@ -132,10 +254,12 @@ import org.hl7.fhir.*;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getStructureDefinition <em>Structure Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getStructureMap <em>Structure Map</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSubscription <em>Subscription</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSubstance <em>Substance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSupplyDelivery <em>Supply Delivery</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getSupplyRequest <em>Supply Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getTask <em>Task</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getTestScript <em>Test Script</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getValueSet <em>Value Set</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getVisionPrescription <em>Vision Prescription</em>}</li>
@@ -504,6 +628,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CareTeam getCareTeam() {
+		return (CareTeam)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_CareTeam(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCareTeam(CareTeam newCareTeam, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_CareTeam(), newCareTeam, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCareTeam(CareTeam newCareTeam) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_CareTeam(), newCareTeam);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Claim getClaim() {
 		return (Claim)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Claim(), true);
 	}
@@ -659,6 +810,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setCommunicationRequest(CommunicationRequest newCommunicationRequest) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_CommunicationRequest(), newCommunicationRequest);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompartmentDefinition getCompartmentDefinition() {
+		return (CompartmentDefinition)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_CompartmentDefinition(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCompartmentDefinition(CompartmentDefinition newCompartmentDefinition, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_CompartmentDefinition(), newCompartmentDefinition, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompartmentDefinition(CompartmentDefinition newCompartmentDefinition) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_CompartmentDefinition(), newCompartmentDefinition);
 	}
 
 	/**
@@ -1260,6 +1438,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Endpoint getEndpoint() {
+		return (Endpoint)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Endpoint(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEndpoint(Endpoint newEndpoint, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_Endpoint(), newEndpoint, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpoint(Endpoint newEndpoint) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Endpoint(), newEndpoint);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EnrollmentRequest getEnrollmentRequest() {
 		return (EnrollmentRequest)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_EnrollmentRequest(), true);
 	}
@@ -1557,6 +1762,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImagingExcerpt getImagingExcerpt() {
+		return (ImagingExcerpt)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_ImagingExcerpt(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetImagingExcerpt(ImagingExcerpt newImagingExcerpt, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_ImagingExcerpt(), newImagingExcerpt, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImagingExcerpt(ImagingExcerpt newImagingExcerpt) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_ImagingExcerpt(), newImagingExcerpt);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImagingObjectSelection getImagingObjectSelection() {
 		return (ImagingObjectSelection)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_ImagingObjectSelection(), true);
 	}
@@ -1820,6 +2052,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setMeasure(Measure newMeasure) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Measure(), newMeasure);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MeasureReport getMeasureReport() {
+		return (MeasureReport)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_MeasureReport(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMeasureReport(MeasureReport newMeasureReport, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_MeasureReport(), newMeasureReport, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeasureReport(MeasureReport newMeasureReport) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_MeasureReport(), newMeasureReport);
 	}
 
 	/**
@@ -2448,6 +2707,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PractitionerRole getPractitionerRole() {
+		return (PractitionerRole)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_PractitionerRole(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPractitionerRole(PractitionerRole newPractitionerRole, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_PractitionerRole(), newPractitionerRole, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPractitionerRole(PractitionerRole newPractitionerRole) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_PractitionerRole(), newPractitionerRole);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Procedure getProcedure() {
 		return (Procedure)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Procedure(), true);
 	}
@@ -2907,6 +3193,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StructureMap getStructureMap() {
+		return (StructureMap)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_StructureMap(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStructureMap(StructureMap newStructureMap, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_StructureMap(), newStructureMap, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStructureMap(StructureMap newStructureMap) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_StructureMap(), newStructureMap);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Subscription getSubscription() {
 		return (Subscription)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Subscription(), true);
 	}
@@ -3008,6 +3321,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setSupplyRequest(SupplyRequest newSupplyRequest) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_SupplyRequest(), newSupplyRequest);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task getTask() {
+		return (Task)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Task(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTask(Task newTask, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_Task(), newTask, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTask(Task newTask) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Task(), newTask);
 	}
 
 	/**
@@ -3125,6 +3465,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetBundle(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CARE_PLAN:
 				return basicSetCarePlan(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
+				return basicSetCareTeam(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
 				return basicSetClaim(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CLAIM_RESPONSE:
@@ -3137,6 +3479,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetCommunication(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__COMMUNICATION_REQUEST:
 				return basicSetCommunicationRequest(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__COMPARTMENT_DEFINITION:
+				return basicSetCompartmentDefinition(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__COMPOSITION:
 				return basicSetComposition(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CONCEPT_MAP:
@@ -3181,6 +3525,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetEligibilityResponse(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__ENDPOINT:
+				return basicSetEndpoint(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_REQUEST:
 				return basicSetEnrollmentRequest(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_RESPONSE:
@@ -3203,6 +3549,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetGuidanceResponse(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__HEALTHCARE_SERVICE:
 				return basicSetHealthcareService(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__IMAGING_EXCERPT:
+				return basicSetImagingExcerpt(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_OBJECT_SELECTION:
 				return basicSetImagingObjectSelection(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_STUDY:
@@ -3223,6 +3571,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetLocation(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__MEASURE:
 				return basicSetMeasure(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__MEASURE_REPORT:
+				return basicSetMeasureReport(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__MEDIA:
 				return basicSetMedia(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__MEDICATION:
@@ -3269,6 +3619,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetPerson(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER:
 				return basicSetPractitioner(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER_ROLE:
+				return basicSetPractitionerRole(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE:
 				return basicSetProcedure(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE_REQUEST:
@@ -3303,6 +3655,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetSpecimen(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_DEFINITION:
 				return basicSetStructureDefinition(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_MAP:
+				return basicSetStructureMap(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__SUBSCRIPTION:
 				return basicSetSubscription(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__SUBSTANCE:
@@ -3311,6 +3665,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetSupplyDelivery(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__SUPPLY_REQUEST:
 				return basicSetSupplyRequest(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__TASK:
+				return basicSetTask(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__TEST_SCRIPT:
 				return basicSetTestScript(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__VALUE_SET:
@@ -3358,6 +3714,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getBundle();
 			case FhirPackage.DOCUMENT_ROOT__CARE_PLAN:
 				return getCarePlan();
+			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
+				return getCareTeam();
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
 				return getClaim();
 			case FhirPackage.DOCUMENT_ROOT__CLAIM_RESPONSE:
@@ -3370,6 +3728,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCommunication();
 			case FhirPackage.DOCUMENT_ROOT__COMMUNICATION_REQUEST:
 				return getCommunicationRequest();
+			case FhirPackage.DOCUMENT_ROOT__COMPARTMENT_DEFINITION:
+				return getCompartmentDefinition();
 			case FhirPackage.DOCUMENT_ROOT__COMPOSITION:
 				return getComposition();
 			case FhirPackage.DOCUMENT_ROOT__CONCEPT_MAP:
@@ -3414,6 +3774,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getEligibilityResponse();
 			case FhirPackage.DOCUMENT_ROOT__ENCOUNTER:
 				return getEncounter();
+			case FhirPackage.DOCUMENT_ROOT__ENDPOINT:
+				return getEndpoint();
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_REQUEST:
 				return getEnrollmentRequest();
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_RESPONSE:
@@ -3436,6 +3798,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getGuidanceResponse();
 			case FhirPackage.DOCUMENT_ROOT__HEALTHCARE_SERVICE:
 				return getHealthcareService();
+			case FhirPackage.DOCUMENT_ROOT__IMAGING_EXCERPT:
+				return getImagingExcerpt();
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_OBJECT_SELECTION:
 				return getImagingObjectSelection();
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_STUDY:
@@ -3456,6 +3820,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getLocation();
 			case FhirPackage.DOCUMENT_ROOT__MEASURE:
 				return getMeasure();
+			case FhirPackage.DOCUMENT_ROOT__MEASURE_REPORT:
+				return getMeasureReport();
 			case FhirPackage.DOCUMENT_ROOT__MEDIA:
 				return getMedia();
 			case FhirPackage.DOCUMENT_ROOT__MEDICATION:
@@ -3502,6 +3868,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getPerson();
 			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER:
 				return getPractitioner();
+			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER_ROLE:
+				return getPractitionerRole();
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE:
 				return getProcedure();
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE_REQUEST:
@@ -3536,6 +3904,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getSpecimen();
 			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_DEFINITION:
 				return getStructureDefinition();
+			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_MAP:
+				return getStructureMap();
 			case FhirPackage.DOCUMENT_ROOT__SUBSCRIPTION:
 				return getSubscription();
 			case FhirPackage.DOCUMENT_ROOT__SUBSTANCE:
@@ -3544,6 +3914,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getSupplyDelivery();
 			case FhirPackage.DOCUMENT_ROOT__SUPPLY_REQUEST:
 				return getSupplyRequest();
+			case FhirPackage.DOCUMENT_ROOT__TASK:
+				return getTask();
 			case FhirPackage.DOCUMENT_ROOT__TEST_SCRIPT:
 				return getTestScript();
 			case FhirPackage.DOCUMENT_ROOT__VALUE_SET:
@@ -3601,6 +3973,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__CARE_PLAN:
 				setCarePlan((CarePlan)newValue);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
+				setCareTeam((CareTeam)newValue);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
 				setClaim((Claim)newValue);
 				return;
@@ -3618,6 +3993,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__COMMUNICATION_REQUEST:
 				setCommunicationRequest((CommunicationRequest)newValue);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__COMPARTMENT_DEFINITION:
+				setCompartmentDefinition((CompartmentDefinition)newValue);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__COMPOSITION:
 				setComposition((Composition)newValue);
@@ -3685,6 +4063,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__ENCOUNTER:
 				setEncounter((Encounter)newValue);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__ENDPOINT:
+				setEndpoint((Endpoint)newValue);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_REQUEST:
 				setEnrollmentRequest((EnrollmentRequest)newValue);
 				return;
@@ -3718,6 +4099,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__HEALTHCARE_SERVICE:
 				setHealthcareService((HealthcareService)newValue);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__IMAGING_EXCERPT:
+				setImagingExcerpt((ImagingExcerpt)newValue);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_OBJECT_SELECTION:
 				setImagingObjectSelection((ImagingObjectSelection)newValue);
 				return;
@@ -3747,6 +4131,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__MEASURE:
 				setMeasure((Measure)newValue);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__MEASURE_REPORT:
+				setMeasureReport((MeasureReport)newValue);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__MEDIA:
 				setMedia((Media)newValue);
@@ -3817,6 +4204,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER:
 				setPractitioner((Practitioner)newValue);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER_ROLE:
+				setPractitionerRole((PractitionerRole)newValue);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE:
 				setProcedure((Procedure)newValue);
 				return;
@@ -3868,6 +4258,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_DEFINITION:
 				setStructureDefinition((StructureDefinition)newValue);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_MAP:
+				setStructureMap((StructureMap)newValue);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__SUBSCRIPTION:
 				setSubscription((Subscription)newValue);
 				return;
@@ -3879,6 +4272,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__SUPPLY_REQUEST:
 				setSupplyRequest((SupplyRequest)newValue);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__TASK:
+				setTask((Task)newValue);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__TEST_SCRIPT:
 				setTestScript((TestScript)newValue);
@@ -3940,6 +4336,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__CARE_PLAN:
 				setCarePlan((CarePlan)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
+				setCareTeam((CareTeam)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
 				setClaim((Claim)null);
 				return;
@@ -3957,6 +4356,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__COMMUNICATION_REQUEST:
 				setCommunicationRequest((CommunicationRequest)null);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__COMPARTMENT_DEFINITION:
+				setCompartmentDefinition((CompartmentDefinition)null);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__COMPOSITION:
 				setComposition((Composition)null);
@@ -4024,6 +4426,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__ENCOUNTER:
 				setEncounter((Encounter)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__ENDPOINT:
+				setEndpoint((Endpoint)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_REQUEST:
 				setEnrollmentRequest((EnrollmentRequest)null);
 				return;
@@ -4057,6 +4462,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__HEALTHCARE_SERVICE:
 				setHealthcareService((HealthcareService)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__IMAGING_EXCERPT:
+				setImagingExcerpt((ImagingExcerpt)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_OBJECT_SELECTION:
 				setImagingObjectSelection((ImagingObjectSelection)null);
 				return;
@@ -4086,6 +4494,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__MEASURE:
 				setMeasure((Measure)null);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__MEASURE_REPORT:
+				setMeasureReport((MeasureReport)null);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__MEDIA:
 				setMedia((Media)null);
@@ -4156,6 +4567,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER:
 				setPractitioner((Practitioner)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER_ROLE:
+				setPractitionerRole((PractitionerRole)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE:
 				setProcedure((Procedure)null);
 				return;
@@ -4207,6 +4621,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_DEFINITION:
 				setStructureDefinition((StructureDefinition)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_MAP:
+				setStructureMap((StructureMap)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__SUBSCRIPTION:
 				setSubscription((Subscription)null);
 				return;
@@ -4218,6 +4635,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__SUPPLY_REQUEST:
 				setSupplyRequest((SupplyRequest)null);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__TASK:
+				setTask((Task)null);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__TEST_SCRIPT:
 				setTestScript((TestScript)null);
@@ -4266,6 +4686,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getBundle() != null;
 			case FhirPackage.DOCUMENT_ROOT__CARE_PLAN:
 				return getCarePlan() != null;
+			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
+				return getCareTeam() != null;
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
 				return getClaim() != null;
 			case FhirPackage.DOCUMENT_ROOT__CLAIM_RESPONSE:
@@ -4278,6 +4700,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCommunication() != null;
 			case FhirPackage.DOCUMENT_ROOT__COMMUNICATION_REQUEST:
 				return getCommunicationRequest() != null;
+			case FhirPackage.DOCUMENT_ROOT__COMPARTMENT_DEFINITION:
+				return getCompartmentDefinition() != null;
 			case FhirPackage.DOCUMENT_ROOT__COMPOSITION:
 				return getComposition() != null;
 			case FhirPackage.DOCUMENT_ROOT__CONCEPT_MAP:
@@ -4322,6 +4746,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getEligibilityResponse() != null;
 			case FhirPackage.DOCUMENT_ROOT__ENCOUNTER:
 				return getEncounter() != null;
+			case FhirPackage.DOCUMENT_ROOT__ENDPOINT:
+				return getEndpoint() != null;
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_REQUEST:
 				return getEnrollmentRequest() != null;
 			case FhirPackage.DOCUMENT_ROOT__ENROLLMENT_RESPONSE:
@@ -4344,6 +4770,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getGuidanceResponse() != null;
 			case FhirPackage.DOCUMENT_ROOT__HEALTHCARE_SERVICE:
 				return getHealthcareService() != null;
+			case FhirPackage.DOCUMENT_ROOT__IMAGING_EXCERPT:
+				return getImagingExcerpt() != null;
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_OBJECT_SELECTION:
 				return getImagingObjectSelection() != null;
 			case FhirPackage.DOCUMENT_ROOT__IMAGING_STUDY:
@@ -4364,6 +4792,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getLocation() != null;
 			case FhirPackage.DOCUMENT_ROOT__MEASURE:
 				return getMeasure() != null;
+			case FhirPackage.DOCUMENT_ROOT__MEASURE_REPORT:
+				return getMeasureReport() != null;
 			case FhirPackage.DOCUMENT_ROOT__MEDIA:
 				return getMedia() != null;
 			case FhirPackage.DOCUMENT_ROOT__MEDICATION:
@@ -4410,6 +4840,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getPerson() != null;
 			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER:
 				return getPractitioner() != null;
+			case FhirPackage.DOCUMENT_ROOT__PRACTITIONER_ROLE:
+				return getPractitionerRole() != null;
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE:
 				return getProcedure() != null;
 			case FhirPackage.DOCUMENT_ROOT__PROCEDURE_REQUEST:
@@ -4444,6 +4876,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getSpecimen() != null;
 			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_DEFINITION:
 				return getStructureDefinition() != null;
+			case FhirPackage.DOCUMENT_ROOT__STRUCTURE_MAP:
+				return getStructureMap() != null;
 			case FhirPackage.DOCUMENT_ROOT__SUBSCRIPTION:
 				return getSubscription() != null;
 			case FhirPackage.DOCUMENT_ROOT__SUBSTANCE:
@@ -4452,6 +4886,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getSupplyDelivery() != null;
 			case FhirPackage.DOCUMENT_ROOT__SUPPLY_REQUEST:
 				return getSupplyRequest() != null;
+			case FhirPackage.DOCUMENT_ROOT__TASK:
+				return getTask() != null;
 			case FhirPackage.DOCUMENT_ROOT__TEST_SCRIPT:
 				return getTestScript() != null;
 			case FhirPackage.DOCUMENT_ROOT__VALUE_SET:

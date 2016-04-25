@@ -85,13 +85,13 @@ public interface EnrollmentResponse extends DomainResource {
 	 * Transaction status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(Code)
+	 * @see #setOutcome(RemittanceOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getOutcome();
+	RemittanceOutcome getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -101,7 +101,7 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(Code value);
+	void setOutcome(RemittanceOutcome value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

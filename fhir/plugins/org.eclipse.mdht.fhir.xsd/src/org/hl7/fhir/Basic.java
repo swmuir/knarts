@@ -99,32 +99,6 @@ public interface Basic extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates who was responsible for creating the resource instance.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference.
-	 * @see #setAuthor(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getBasic_Author()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getAuthor();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Basic#getAuthor <em>Author</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Author</em>' containment reference.
-	 * @see #getAuthor()
-	 * @generated
-	 */
-	void setAuthor(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,5 +123,31 @@ public interface Basic extends DomainResource {
 	 * @generated
 	 */
 	void setCreated(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates who was responsible for creating the resource instance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Author</em>' containment reference.
+	 * @see #setAuthor(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getBasic_Author()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getAuthor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Basic#getAuthor <em>Author</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Author</em>' containment reference.
+	 * @see #getAuthor()
+	 * @generated
+	 */
+	void setAuthor(Reference value);
 
 } // Basic

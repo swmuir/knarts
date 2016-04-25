@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A code system specifies a set of codes drawn from one or more code systems.
+ * A code system resource specifies a set of codes drawn from one or more code systems.
  * <!-- end-model-doc -->
  *
  * <p>

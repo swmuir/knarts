@@ -19,21 +19,23 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Sequence#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getVariationID <em>Variation ID</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getReferenceSeq <em>Reference Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getSpecimen <em>Specimen</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getCoordinate <em>Coordinate</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getSpecies <em>Species</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getObservedAllele <em>Observed Allele</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getReferenceAllele <em>Reference Allele</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getCigar <em>Cigar</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getReferenceSeq <em>Reference Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getVariation <em>Variation</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getQuality <em>Quality</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getAllelicState <em>Allelic State</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getAllelicFrequency <em>Allelic Frequency</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getCopyNumberEvent <em>Copy Number Event</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getReadCoverage <em>Read Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getChip <em>Chip</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getObservedSeq <em>Observed Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getObservation <em>Observation</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getStructureVariation <em>Structure Variation</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequence()
@@ -68,46 +70,82 @@ public interface Sequence extends DomainResource {
 	void setType(SequenceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Variation ID</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC).
+	 * The patient, or group of patients whose sequencing results are described by this resource.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Variation ID</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSequence_VariationID()
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Patient()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='variationID' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getVariationID();
+	Reference getPatient();
 
 	/**
-	 * Returns the value of the '<em><b>Reference Seq</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference identifier for cDNA transcript/protein, with version, from NCBI's RefSeq or ENSEMBL. This reference sequence identifier must match the type in the Sequence.type field.
+	 * Specimen used for sequencing.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference Seq</em>' containment reference.
-	 * @see #setReferenceSeq(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSequence_ReferenceSeq()
+	 * @return the value of the '<em>Specimen</em>' containment reference.
+	 * @see #setSpecimen(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Specimen()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referenceSeq' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReferenceSeq();
+	Reference getSpecimen();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getReferenceSeq <em>Reference Seq</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getSpecimen <em>Specimen</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Seq</em>' containment reference.
-	 * @see #getReferenceSeq()
+	 * @param value the new value of the '<em>Specimen</em>' containment reference.
+	 * @see #getSpecimen()
 	 * @generated
 	 */
-	void setReferenceSeq(CodeableConcept value);
+	void setSpecimen(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Device</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The method for sequencing, for example, chip information.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Device</em>' containment reference.
+	 * @see #setDevice(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Device()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='device' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDevice();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getDevice <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device</em>' containment reference.
+	 * @see #getDevice()
+	 * @generated
+	 */
+	void setDevice(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -136,22 +174,6 @@ public interface Sequence extends DomainResource {
 	void setQuantity(Quantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Coordinate</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SequenceCoordinate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The coordinate of the variant.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Coordinate</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSequence_Coordinate()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='coordinate' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<SequenceCoordinate> getCoordinate();
-
-	/**
 	 * Returns the value of the '<em><b>Species</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,82 +200,46 @@ public interface Sequence extends DomainResource {
 	void setSpecies(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Observed Allele</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reference Seq</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SequenceReferenceSeq}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+	 * Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) .
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Observed Allele</em>' containment reference.
-	 * @see #setObservedAllele(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequence_ObservedAllele()
+	 * @return the value of the '<em>Reference Seq</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSequence_ReferenceSeq()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='observedAllele' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='referenceSeq' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getObservedAllele();
+	EList<SequenceReferenceSeq> getReferenceSeq();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getObservedAllele <em>Observed Allele</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Observed Allele</em>' containment reference.
-	 * @see #getObservedAllele()
-	 * @generated
-	 */
-	void setObservedAllele(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference Allele</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Variation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+	 * Variation info in this sequence.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference Allele</em>' containment reference.
-	 * @see #setReferenceAllele(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequence_ReferenceAllele()
+	 * @return the value of the '<em>Variation</em>' containment reference.
+	 * @see #setVariation(SequenceVariation)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Variation()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referenceAllele' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='variation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getReferenceAllele();
+	SequenceVariation getVariation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getReferenceAllele <em>Reference Allele</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getVariation <em>Variation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Allele</em>' containment reference.
-	 * @see #getReferenceAllele()
+	 * @param value the new value of the '<em>Variation</em>' containment reference.
+	 * @see #getVariation()
 	 * @generated
 	 */
-	void setReferenceAllele(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Cigar</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Cigar</em>' containment reference.
-	 * @see #setCigar(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequence_Cigar()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='cigar' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getCigar();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getCigar <em>Cigar</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cigar</em>' containment reference.
-	 * @see #getCigar()
-	 * @generated
-	 */
-	void setCigar(org.hl7.fhir.String value);
+	void setVariation(SequenceVariation value);
 
 	/**
 	 * Returns the value of the '<em><b>Quality</b></em>' containment reference list.
@@ -376,38 +362,12 @@ public interface Sequence extends DomainResource {
 	void setReadCoverage(org.hl7.fhir.Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Chip</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Information of chip.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Chip</em>' containment reference.
-	 * @see #setChip(SequenceChip)
-	 * @see org.hl7.fhir.FhirPackage#getSequence_Chip()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='chip' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	SequenceChip getChip();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getChip <em>Chip</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chip</em>' containment reference.
-	 * @see #getChip()
-	 * @generated
-	 */
-	void setChip(SequenceChip value);
-
-	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.SequenceRepository}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * External repository.
+	 * Configurations of the external repository.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Repository</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSequence_Repository()
@@ -416,5 +376,99 @@ public interface Sequence extends DomainResource {
 	 * @generated
 	 */
 	EList<SequenceRepository> getRepository();
+
+	/**
+	 * Returns the value of the '<em><b>Pointer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Pointer to next atomic sequence which at most contains one variation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pointer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Pointer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='pointer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getPointer();
+
+	/**
+	 * Returns the value of the '<em><b>Observed Seq</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Observed Sequence.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Observed Seq</em>' containment reference.
+	 * @see #setObservedSeq(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_ObservedSeq()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='observedSeq' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getObservedSeq();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getObservedSeq <em>Observed Seq</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Observed Seq</em>' containment reference.
+	 * @see #getObservedSeq()
+	 * @generated
+	 */
+	void setObservedSeq(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Observation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Analysis of the sequence.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Observation</em>' containment reference.
+	 * @see #setObservation(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_Observation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='observation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getObservation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getObservation <em>Observation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Observation</em>' containment reference.
+	 * @see #getObservation()
+	 * @generated
+	 */
+	void setObservation(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Structure Variation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Structural variant.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Structure Variation</em>' containment reference.
+	 * @see #setStructureVariation(SequenceStructureVariation)
+	 * @see org.hl7.fhir.FhirPackage#getSequence_StructureVariation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='structureVariation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	SequenceStructureVariation getStructureVariation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getStructureVariation <em>Structure Variation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Structure Variation</em>' containment reference.
+	 * @see #getStructureVariation()
+	 * @generated
+	 */
+	void setStructureVariation(SequenceStructureVariation value);
 
 } // Sequence

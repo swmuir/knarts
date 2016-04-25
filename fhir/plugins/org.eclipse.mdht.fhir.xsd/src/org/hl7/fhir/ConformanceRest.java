@@ -121,7 +121,7 @@ public interface ConformanceRest extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConformanceRest_Resource()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -207,7 +207,7 @@ public interface ConformanceRest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI which is a reference to the definition of a compartment hosted by the system.
+	 * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compartment</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConformanceRest_Compartment()
