@@ -42,9 +42,8 @@ import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.hl7.fhir.BindingStrength;
-import org.hl7.fhir.BindingStrengthList;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.ConstraintSeverity;
-import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
@@ -56,7 +55,7 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
-import org.hl7.fhir.StructureDefinitionKindList;
+import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.Uri;
 
 public class ModelExporter implements ModelConstants {
@@ -85,12 +84,16 @@ public class ModelExporter implements ModelConstants {
 				? structureDefStereotype.getId() : umlClass.getName().toLowerCase();
 		String uri = structureDefStereotype.getUri() != null 
 						? structureDefStereotype.getUri() : MDHT_STRUCTURE_URI_BASE + id;
+		ConformanceResourceStatus resourceStatus = FhirFactory.eINSTANCE.createConformanceResourceStatus();
+		String status = structureDefStereotype.getStatus() != null 
+				? structureDefStereotype.getStatus() : "draft";
+		resourceStatus.setValue(status);
 		String publisher = structureDefStereotype.getPublisher() != null 
 								? structureDefStereotype.getPublisher() : "Model Driven Health Tools (MDHT)";
 		
 		structureDef.setId(createFhirId(id));
 		structureDef.setUrl(createFhirUri(uri));
-		structureDef.setStatus(createFhirCode("draft"));
+		structureDef.setStatus(resourceStatus);
 		structureDef.setDate(createFhirDateTimeNow());
 		structureDef.setPublisher(createFhirString(publisher));
 
@@ -101,30 +104,43 @@ public class ModelExporter implements ModelConstants {
 			structureDef.setDisplay(createFhirString(structureDefStereotype.getDisplay()));
 		}
 		
+		// TODO get isLogical() from stereotype, or always 'logical' if no StructureDefintion stereotype
+		
+		
 		for (Classifier parent : umlClass.getGenerals()) {
 			Uri baseUri = getStructureDefinitionUri(parent);
 			if (baseUri != null) {
-				structureDef.setBase(baseUri);
+				structureDef.setBaseDefinition(baseUri);
+				break;
+				// TODO throw error if > 1 generalization
 			}
 		}
 		
-		// Set 'constrainedType'
-		Classifier constrainedType = getConstrainedType(umlClass);
-		if (!umlClass.equals(constrainedType)) {
-			structureDef.setConstrainedType(createFhirCode(constrainedType.getName()));
+		// Set 'baseType'
+		// TODO this does not work if target profile is also a core type, e.g. AllergyIntolerance isa DomainResource
+		//		Exclude self from search for core base type?
+		Classifier baseType = getCoreBaseType(umlClass);
+		if (!umlClass.equals(baseType)) {
+			structureDef.setBaseType(createFhirCode(baseType.getName()));
 		}
 		
 		// Set 'kind'
-		StructureDefinitionKindList kindList = StructureDefinitionKindList.LOGICAL;
+		String kindValue = "logical";
 		if (modelIndexer.isKindOfDataType(umlClass)) {
-			kindList = StructureDefinitionKindList.DATATYPE;
+			kindValue = "datatype";
 		}
 		else if (modelIndexer.isKindOfResource(umlClass)) {
-			kindList = StructureDefinitionKindList.RESOURCE;
+			kindValue = "resource";
 		}
 		StructureDefinitionKind kind = FhirFactory.eINSTANCE.createStructureDefinitionKind();
-		kind.setValue(kindList);
+		kind.setValue(kindValue);
 		structureDef.setKind(kind);
+		
+		// TODO derivation: constraint, specialization
+		// unless is 'logical', then only core types may use 'specialization'
+		 TypeDerivationRule derivationRule = FhirFactory.eINSTANCE.createTypeDerivationRule();
+		derivationRule.setValue("constraint");
+		structureDef.setDerivation(derivationRule);
 		
 		// Add 'contextType' and 'context'
 		if (modelIndexer.isExtension(umlClass)) {
@@ -147,15 +163,15 @@ public class ModelExporter implements ModelConstants {
 		// Add profile element definition for the Class
 		ElementDefinition elementDef = FhirFactory.eINSTANCE.createElementDefinition();
 		differential.getElement().add(elementDef);
-		String path = constrainedType.getName();
+		String path = baseType.getName();
 		elementDef.setPath(createFhirString(path));
 		elementDef.setMin(createFhirInteger(0));
 		elementDef.setMax(createFhirString("*"));
-		if (!umlClass.getName().equals(constrainedType.getName())) {
+		if (!umlClass.getName().equals(baseType.getName())) {
 			elementDef.setName(createFhirString(umlClass.getName()));
 		}
 		ElementDefinitionType elementDefType = FhirFactory.eINSTANCE.createElementDefinitionType();
-		elementDefType.setCode(createFhirCode(constrainedType.getName()));
+		elementDefType.setCode(createFhirCode(baseType.getName()));
 		elementDef.getType().add(elementDefType);
 		elementMap.put(umlClass, elementDef);
 
@@ -289,12 +305,9 @@ public class ModelExporter implements ModelConstants {
 								fhirConstraint.setHuman(createFhirString(diagnostic.getMessage()));
 							}
 							if (diagnostic.getSeverity() != null) {
-								ConstraintSeverityList fhirSeverityList = ConstraintSeverityList.get(diagnostic.getSeverity().getName());
-								if (fhirSeverityList != null) {
-									ConstraintSeverity fhirSeverity = FhirFactory.eINSTANCE.createConstraintSeverity();
-									fhirSeverity.setValue(fhirSeverityList);
-									fhirConstraint.setSeverity(fhirSeverity);
-								}
+								ConstraintSeverity fhirSeverity = FhirFactory.eINSTANCE.createConstraintSeverity();
+								fhirSeverity.setValue(diagnostic.getSeverity().getName());
+								fhirConstraint.setSeverity(fhirSeverity);
 							}
 						}
 						
@@ -336,7 +349,7 @@ public class ModelExporter implements ModelConstants {
 //			NamedElement nextSegment = (i == pathSegments.size() -1)  ? null : pathSegments.get(i+1);
 			if (i == 0) {
 				// This must be a Class
-				Classifier constrainedType = getConstrainedType((Classifier)pathSegment);
+				Classifier constrainedType = getCoreBaseType((Classifier)pathSegment);
 				pathNames[i] = constrainedType.getName();
 			}
 			if (pathSegment instanceof Classifier && ((Classifier)pathSegment).getOwner() instanceof Class) {
@@ -377,7 +390,7 @@ public class ModelExporter implements ModelConstants {
 			elementType = modelIndexer.getStructureDefinitionForId(REFERENCE_CLASS_NAME);
 		}
 		else {
-			elementType = getConstrainedType(type);
+			elementType = getCoreBaseType(type);
 		}
 		elementDefType.setCode(createFhirCode(elementType.getName()));
 		
@@ -401,39 +414,29 @@ public class ModelExporter implements ModelConstants {
 		return uri;
 	}
 	
-
-	private Classifier getConstrainedType(Classifier profileClass) {
-		if (modelIndexer.isDefinedType(profileClass)) {
-			return profileClass;
-		}
-		for (Classifier parent : profileClass.allParents()) {
-			if (modelIndexer.isDefinedType(parent)) {
-				return parent;
-			}
-		}
-		
-		return null;
+	private Classifier getCoreBaseType(Classifier profileClass) {
+		return modelIndexer.getCoreBaseType(profileClass);
 	}
 	
 	private Property getConstrainedProperty(Property property) {
-		Property coreProperty = null;
-		Classifier constrainedType = getConstrainedType((Classifier)property.getOwner());
-		if (constrainedType != null) {
-			coreProperty = constrainedType.getAttribute(property.getName(), null);
+		Property baseProperty = null;
+		Classifier baseType = getCoreBaseType((Classifier)property.getOwner());
+		if (baseType != null) {
+			baseProperty = baseType.getAttribute(property.getName(), null);
 		}
 
-		if (coreProperty == null) {
+		if (baseProperty == null) {
 			for (Property redefined : property.getRedefinedProperties()) {
-				coreProperty = getConstrainedProperty(redefined);
+				baseProperty = getConstrainedProperty(redefined);
 			}
 		}
-		if (coreProperty == null) {
+		if (baseProperty == null) {
 			for (Property subsetted : property.getSubsettedProperties()) {
-				coreProperty = getConstrainedProperty(subsetted);
+				baseProperty = getConstrainedProperty(subsetted);
 			}
 		}
 		
-		return coreProperty;
+		return baseProperty;
 	}
 
 	private ElementDefinitionBinding createBinding(Property property) {
@@ -446,7 +449,7 @@ public class ModelExporter implements ModelConstants {
 			binding = FhirFactory.eINSTANCE.createElementDefinitionBinding();
 			if (bindingStereotype.getStrength() != null) {
 				BindingStrength strength = FhirFactory.eINSTANCE.createBindingStrength();
-				strength.setValue(BindingStrengthList.get(bindingStereotype.getStrength().getName()));
+				strength.setValue(bindingStereotype.getStrength().getName());
 				binding.setStrength(strength);
 			}
 			

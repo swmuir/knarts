@@ -14,10 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -27,7 +25,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
+import org.eclipse.mdht.uml.fhir.ElementSlicing;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
+import org.eclipse.mdht.uml.fhir.SlicingRulesKind;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSetBinding;
 import org.eclipse.mdht.uml.fhir.ValueSetMember;
@@ -62,26 +62,50 @@ import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
-import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
+import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.Extension;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
 import org.hl7.fhir.PropertyRepresentation;
-import org.hl7.fhir.PropertyRepresentationList;
 import org.hl7.fhir.StructureDefinition;
-import org.hl7.fhir.StructureDefinitionKindList;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetConcept;
 import org.hl7.fhir.ValueSetContains;
+import org.hl7.fhir.ValueSetInclude;
 import org.hl7.fhir.util.FhirResourceFactoryImpl;
 
 public class ModelImporter implements ModelConstants {
+	
+	enum StructureDefinitionKind {
+		datatype,
+		resource,
+		logical
+	}
+
+	enum PropertyRepresentationEnum {
+		xmlAttr,
+		xmlText,
+		typeAttr,
+		cdaText
+	}
+
+	enum BindingStrengthEnum {
+		required,
+		extensible,
+		preferred,
+		example
+	}
+	
+	enum ConstraintSeverityEnum {
+		error,
+		warning
+	}
 	
 	private String[] constraintLanguages = { "Analysis", "XPath", "OCL" };
 	
@@ -174,14 +198,16 @@ public class ModelImporter implements ModelConstants {
 
 	private void initValueSets() {
 		if (modelIndexer.getValueSetForURI(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES) == null) {
-			ValueSet valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_DATA_TYPES);
-			if (valueSet != null) {
-				importValueSet(valueSet);
-			}
-			valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES);
-			if (valueSet != null) {
-				importValueSet(valueSet);
-			}
+			//TODO for now, get expanded value set from server; need to import CodeSystem
+//			ValueSet valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_DATA_TYPES);
+//			if (valueSet != null) {
+//				importValueSet(valueSet);
+//			}
+//			valueSet = valueSetMap.get(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES);
+//			if (valueSet != null) {
+//				importValueSet(valueSet);
+//			}
+			
 //			valueSetMap.get(VALUESET_ID_DEFINED_TYPES);
 //			if (valueSet != null) {
 //				importValueSet(valueSet);
@@ -189,8 +215,8 @@ public class ModelImporter implements ModelConstants {
 		}
 		
 		if (modelIndexer.getValueSetForURI(FHIR_VALUESET_URI_BASE + VALUESET_ID_RESOURCE_TYPES) == null) {
-			importValueSetFromServer(VALUESET_ID_DATA_TYPES, false);
-			importValueSetFromServer(VALUESET_ID_RESOURCE_TYPES, false);
+			importValueSetFromServer(VALUESET_ID_DATA_TYPES, true);
+			importValueSetFromServer(VALUESET_ID_RESOURCE_TYPES, true);
 //			importValueSetFromServer(VALUESET_ID_DEFINED_TYPES, true);
 		}
 	}
@@ -205,18 +231,23 @@ public class ModelImporter implements ModelConstants {
 		if (resourceId.startsWith("http")) {
 			uriString = resourceId;
 		}
-		else if (resourceId != null) {
-			uriString = FHIR_VALUESET_URI_BASE + resourceId;
+//		else if (resourceId != null) {
+//			uriString = FHIR_VALUESET_URI_BASE + resourceId;
+//		}
+		
+		String args = "ValueSet/";
+		if (expand && uriString == null) {
+			args += resourceId + "/$expand" + "?_format=xml";
+		}
+		else {
+			args += "?_format=xml";
 		}
 		
-//		if (expand) {
-//			uriString += "/$expand" + "?_format=xml";
-//		}
-//		else {
-//			uriString += "?_format=xml";
-//		}
+		if (uriString != null) {
+			args += "&url=" + uriString;
+		}
 		
-		String resoruceURL = TERMINOLOGY_SERVER + "ValueSet" + "?_format=xml&url=" + uriString;
+		String resoruceURL = TERMINOLOGY_SERVER + args;
 		return importResource(URI.createURI(resoruceURL));
 	}
 	
@@ -402,24 +433,22 @@ public class ModelImporter implements ModelConstants {
 			}
 		}
 		
-		if (valueSet.getCodeSystem() != null) {
-			for (ValueSetConcept concept : valueSet.getCodeSystem().getConcept()) {
-				EnumerationLiteral literal = valueSetEnum.createOwnedLiteral("member");
-				if (concept.getCode() != null) {
-					literal.setName(concept.getCode().getValue());
-				}
-				if (fhirUmlProfile != null) {
-					ValueSetMember member = (ValueSetMember) UMLUtil.safeApplyStereotype(literal, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetMember().getName()));
-					if (concept.getDisplay() != null) {
-						member.setDisplay(concept.getDisplay().getValue());
+		/*
+		 * TODO composed code system, get and import CodeSystem from referenced uri
+		 */
+		if (valueSet.getCompose() != null && valueSet.getCompose().getInclude() != null) {
+			for (ValueSetInclude included : valueSet.getCompose().getInclude()) {
+				for (ValueSetConcept concept : included.getConcept()) {
+					EnumerationLiteral literal = valueSetEnum.createOwnedLiteral("member");
+					if (concept.getCode() != null) {
+						literal.setName(concept.getCode().getValue());
 					}
-					if (concept.getAbstract() != null) {
-						member.setAbstract(concept.getAbstract().isValue());
+					if (fhirUmlProfile != null) {
+						ValueSetMember member = (ValueSetMember) UMLUtil.safeApplyStereotype(literal, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetMember().getName()));
+						if (concept.getDisplay() != null) {
+							member.setDisplay(concept.getDisplay().getValue());
+						}
 					}
-				}
-
-				if (concept.getDefinition() != null) {
-					literal.createOwnedComment().setBody(concept.getDefinition().getValue());
 				}
 			}
 		}
@@ -574,8 +603,9 @@ public class ModelImporter implements ModelConstants {
 		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
 		PrimitiveType primitiveType = null;
 		
-		StructureDefinitionKindList structureKind = structureDef.getKind().getValue();
-		boolean isLogicalType = StructureDefinitionKindList.LOGICAL == structureKind;
+		StructureDefinitionKind structureKind = StructureDefinitionKind.valueOf(structureDef.getKind().getValue());
+		boolean isLogicalType = StructureDefinitionKind.logical == structureKind;
+		// TODO set StructureDefinition.isLogical(true) on stereotype
 
 		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
@@ -583,13 +613,13 @@ public class ModelImporter implements ModelConstants {
 		if (structureDef.getContextType() != null) {
 			packageName = PACKAGE_NAME_EXTENSIONS;
 		}
-		else if (StructureDefinitionKindList.DATATYPE == structureKind) {
+		else if (StructureDefinitionKind.datatype == structureKind) {
 			if (modelIndexer.isCoreDataType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_DATATYPES;
 				primitiveType = getPrimitiveType(structureDef.getName().getValue());
 			}
 		}
-		else if (StructureDefinitionKindList.RESOURCE == structureKind) {
+		else if (StructureDefinitionKind.resource == structureKind) {
 			if (modelIndexer.isCoreResourceType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_RESOURCES;
 			}
@@ -640,7 +670,7 @@ public class ModelImporter implements ModelConstants {
 				structureDefStereotype.setPublisher(structureDef.getPublisher().getValue());
 			}
 			if (structureDef.getContextType() != null) {
-				structureDefStereotype.setContextType(structureDef.getContextType().getValue().getName());
+				structureDefStereotype.setContextType(structureDef.getContextType().getValue());
 			}
 			if (structureDef.getContext() != null) {
 				for (org.hl7.fhir.String fhirString : structureDef.getContext()) {
@@ -680,8 +710,8 @@ public class ModelImporter implements ModelConstants {
 		else if (RESOURCE_CLASS_NAME.equals(profileClassName)) {
 			profileClass.createGeneralization(baseClass);
 		}
-		else if (structureDef.getBase() != null) {
-			String base = structureDef.getBase().getValue();
+		else if (structureDef.getBaseDefinition() != null) {
+			String base = structureDef.getBaseDefinition().getValue();
 			Class baseProfileClass = null;
 			if (base.startsWith("http://")) {
 				baseProfileClass = importProfileForURI(base);
@@ -692,7 +722,7 @@ public class ModelImporter implements ModelConstants {
 			
 			if (baseProfileClass != null) {
 				// Add "DataType" abstract superclass for all data types
-				if (StructureDefinitionKindList.DATATYPE == structureKind
+				if (StructureDefinitionKind.datatype == structureKind
 						&& ELEMENT_CLASS_NAME.equals(baseProfileClass.getName())) {
 					baseProfileClass = dataTypeClass;
 				}
@@ -714,17 +744,17 @@ public class ModelImporter implements ModelConstants {
 		// key = name, value = UML class
 		Map<String,Classifier> nameReferenceMap = new HashMap<String,Classifier>();
 		
-		// Set of element paths that are sliced
-		Set<String> slicedElements = new HashSet<String>();
+		// Map of element paths that are sliced
+		Map<String,ElementDefinitionSlicing> slicedElements = new HashMap<String,ElementDefinitionSlicing>();
 
-		Classifier constrainedCoreType = null;
+		Classifier coreBaseType = null;
 		if (isLogicalType) {
 			elementPathMap.put(structureDef.getId().getValue(), profileClass);
 		}
 		else {
-			constrainedCoreType = modelIndexer.getConstrainedCoreType(profileClass);
-			if (constrainedCoreType != null) {
-				elementPathMap.put(constrainedCoreType.getName(), profileClass);
+			coreBaseType = modelIndexer.getCoreBaseType(profileClass);
+			if (coreBaseType != null) {
+				elementPathMap.put(coreBaseType.getName(), profileClass);
 			} 
 			else {
 				System.err.println("Cannot find constrained type for: " + structureDef.getUrl().getValue());
@@ -732,19 +762,19 @@ public class ModelImporter implements ModelConstants {
 		}
 		
 		for (ElementDefinition elementDef : structureDef.getDifferential().getElement()) {
-			if (elementDef.getSlicing() != null) {
-				slicedElements.add(elementDef.getPath().getValue());
-
-				// TODO for now omit slicing elements that don't also have a type, causes extra 'extension' property
-				if (elementDef.getType() == null) {
-					continue;
-				}
-			}
-			boolean isSliced = slicedElements.contains(elementDef.getPath().getValue());
-			
 			// parse path segments to identify nested classes and property names
 			String path = elementDef.getPath().getValue();
 			String[] pathSegments = path.split("\\.");
+			
+			if (elementDef.getSlicing() != null) {
+				slicedElements.put(path, elementDef.getSlicing());
+
+				// omit slicing elements that don't also have a type, causes extra property
+				if (elementDef.getType() == null || elementDef.getType().isEmpty()) {
+					continue;
+				}
+			}
+			boolean isSliced = slicedElements.containsKey(path);
 			
 			// Get the list of element types, then create a property, and maybe a nested class
 			List<Classifier> typeList = getTypeList(elementDef);
@@ -753,10 +783,10 @@ public class ModelImporter implements ModelConstants {
 			// This element is not always included in a constraint profile
 			if (path.indexOf(".") == -1) {
 				// A special case for types like "id" that is a core type, but its base type is "string"
-				if (constrainedCoreType != null && !path.equals(constrainedCoreType.getName())) {
+				if (coreBaseType != null && !path.equals(coreBaseType.getName())) {
 					Class pathType = modelIndexer.getStructureDefinitionForId(path);
 					if (pathType != null) {
-						constrainedCoreType = pathType;
+						coreBaseType = pathType;
 						elementPathMap.put(path, profileClass);
 					}
 				}
@@ -772,7 +802,7 @@ public class ModelImporter implements ModelConstants {
 					//TODO Element has type Element, expand check for circular generalization references
 					if (!baseType.equals(profileClass)) {
 						// Add "DataType" abstract superclass for all data types
-						if (StructureDefinitionKindList.DATATYPE == structureKind
+						if (StructureDefinitionKind.datatype == structureKind
 								&& ELEMENT_CLASS_NAME.equals(baseType.getName())) {
 							baseType = dataTypeClass;
 						}
@@ -821,7 +851,7 @@ public class ModelImporter implements ModelConstants {
 				}
 			}
 
-			if (ownerClass == null && (constrainedCoreType instanceof Class) && ownerPath.equals(constrainedCoreType.getName())) {
+			if (ownerClass == null && (coreBaseType instanceof Class) && ownerPath.equals(coreBaseType.getName())) {
 				ownerClass = profileClass;
 			}
 			if (ownerClass == null) {
@@ -830,8 +860,7 @@ public class ModelImporter implements ModelConstants {
 			}
 
 			boolean isProhibitedElement = elementDef.getMax() != null && "0".equals(elementDef.getMax().getValue());
-			String propertyName = getPropertyName(elementDef);
-
+			
 			// Map of all inherited wildcard properties, e.g. value[]
 			Map<String,Property> wildcardProperties = new HashMap<String,Property>();
 
@@ -847,6 +876,7 @@ public class ModelImporter implements ModelConstants {
 			}
 			
 			Property inheritedProperty = null;
+			String propertyName = getPropertyName(elementDef);
 			
 			// Look for inherited wildcard property, unless this is a wildcard (ends with [x]).
 			if (propertyName.indexOf("[x]") == -1) {
@@ -898,8 +928,8 @@ public class ModelImporter implements ModelConstants {
 			else if (primitiveType != null) {
 				propertyType = primitiveType;
 			}
-			else if (elementDef.getNameReference() != null) {
-				String referencedName = elementDef.getNameReference().getValue();
+			else if (elementDef.getContentReference() != null) {
+				String referencedName = elementDef.getContentReference().getValue();
 				propertyType = nameReferenceMap.get(referencedName);
 				if (propertyType == null) {
 					System.err.println("Cannot find referencedName: " + referencedName + " from owner class " 
@@ -938,10 +968,11 @@ public class ModelImporter implements ModelConstants {
 			}
 			
 			// Create the UML Property
-			// if this is an Extension element and 'name' is specified, use as Property name
-			if (elementDef.getName() != null && propertyType != null && modelIndexer.isExtension(propertyType)) {
+			if (isSliced && elementDef.getName() != null) {
+				// Sliced elements must have a unique name
 				propertyName = elementDef.getName().getValue();
 			}
+			
 			Property property = ownerClass.createOwnedAttribute(propertyName, propertyType);
 			elementPathMap.put(path, property);
 			assignMultiplicity(property, elementDef);
@@ -955,8 +986,8 @@ public class ModelImporter implements ModelConstants {
 					elementDefStereotype.setName(elementDef.getName().getValue());
 					nameReferenceMap.put(elementDef.getName().getValue(), propertyType);
 				}
-				if (elementDef.getNameReference() != null) {
-					elementDefStereotype.setName(elementDef.getNameReference().getValue());
+				if (elementDef.getContentReference() != null) {
+					elementDefStereotype.setName(elementDef.getContentReference().getValue());
 				}
 				if (elementDef.getLabel() != null) {
 					elementDefStereotype.setLabel(elementDef.getLabel().getValue());
@@ -972,13 +1003,13 @@ public class ModelImporter implements ModelConstants {
 				}
 				if (!elementDef.getRepresentation().isEmpty()) {
 					for (PropertyRepresentation rep : elementDef.getRepresentation()) {
-						PropertyRepresentationKind umlRep = PropertyRepresentationKind.get(rep.getValue().getName());
+						PropertyRepresentationKind umlRep = PropertyRepresentationKind.get(rep.getValue());
 						if (umlRep != null) {
 							elementDefStereotype.getRepresentations().add(umlRep);
 						}
 						
 						// Set Ecore::EAttribute to XML attribute
-						if (PropertyRepresentationList.XML_ATTR == rep.getValue()) {
+						if (PropertyRepresentationEnum.xmlAttr == PropertyRepresentationEnum.valueOf(rep.getValue())) {
 							Stereotype stereotype = property.getApplicableStereotype("Ecore::EAttribute");
 							if (stereotype != null) {
 								UMLUtil.safeApplyStereotype(property, stereotype);
@@ -989,12 +1020,27 @@ public class ModelImporter implements ModelConstants {
 				}
 				
 				// TODO generalize for any feature fixed*
-				if (elementDef.getFixedUri() != null) {
-					property.setStringDefaultValue(elementDef.getFixedUri().getValue());
+				/*
+				 * Fixed values.
+				 */
+				String fixedValue = null;
+				if (elementDef.getFixedCode() != null) {
+					fixedValue = elementDef.getFixedCode().getValue();
+				}
+				else if (elementDef.getFixedString() != null) {
+					fixedValue = elementDef.getFixedString().getValue();
+				}
+				else if (elementDef.getFixedUri() != null) {
+					fixedValue = elementDef.getFixedUri().getValue();
+				}
+				
+				if (fixedValue != null) {
+					property.setStringDefaultValue(fixedValue);
 					property.setIsReadOnly(true);
 					property.setLower(1);
 					property.setUpper(1);
 				}
+				
 				if (elementDef.getFixedCodeableConcept() != null) {
 					CodeableConcept ccType = FHIRTypesFactory.eINSTANCE.createCodeableConcept();
 					elementDefStereotype.setFixed(ccType);
@@ -1016,10 +1062,13 @@ public class ModelImporter implements ModelConstants {
 					}
 				}
 				
+				/*
+				 * Value set binding.
+				 */
 				if (elementDef.getBinding() != null) {
 					ElementDefinitionBinding binding = elementDef.getBinding();
 					ValueSetBinding valueSetBinding = (ValueSetBinding) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetBinding().getName()));
-					valueSetBinding.setStrength(BindingStrengthKind.get(binding.getStrength().getValue().getLiteral()));
+					valueSetBinding.setStrength(BindingStrengthKind.get(binding.getStrength().getValue()));
 					if (binding.getDescription() != null) {
 						valueSetBinding.setDescription(binding.getDescription().getValue());
 					}
@@ -1037,6 +1086,32 @@ public class ModelImporter implements ModelConstants {
 						}
 						else {
 							System.err.println("TODO resolve non-http ValueSet reference: " + vsLocation);
+						}
+					}
+				}
+
+				/*
+				 * Element slicing rules.
+				 */
+				ElementDefinitionSlicing fhirSlicing = slicedElements.get(path);
+				if (fhirSlicing != null) {
+					// only the first sliced element for a path gets slicing definition
+					slicedElements.put(path, null);
+					
+					ElementSlicing umlSlicing = (ElementSlicing) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getElementSlicing().getName()));
+					for (org.hl7.fhir.String discriminator : fhirSlicing.getDiscriminator()) {
+						umlSlicing.getDiscriminators().add(discriminator.getValue());
+					}
+					if (fhirSlicing.getDescription() != null) {
+						umlSlicing.setDescription(fhirSlicing.getDescription().getValue());
+					}
+					if (fhirSlicing.getOrdered() != null) {
+						umlSlicing.setOrdered(fhirSlicing.getOrdered().isValue());
+					}
+					if (fhirSlicing.getRules() != null) {
+						SlicingRulesKind kind = SlicingRulesKind.get(fhirSlicing.getRules().getValue());
+						if (kind != null) {
+							umlSlicing.setRules(kind);
 						}
 					}
 				}
@@ -1432,7 +1507,7 @@ public class ModelImporter implements ModelConstants {
 				umlConstraint.getStereotypeApplications(), ValidationPackage.Literals.DIAGNOSTIC);
 			if (diagnostic != null) {
 				if (fhirConstraint.getSeverity() != null) {
-					if (ConstraintSeverityList.WARNING == fhirConstraint.getSeverity().getValue()) {
+					if (ConstraintSeverityEnum.warning == ConstraintSeverityEnum.valueOf(fhirConstraint.getSeverity().getValue())) {
 						diagnostic.setSeverity(SeverityKind.WARNING);
 					}
 					else {
