@@ -131,6 +131,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementSlicing">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminator" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordered" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rules" ordered="false"
+        lowerBound="1" eType="#//SlicingRulesKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SlicingRulesKind">
+    <eLiterals name="closed"/>
+    <eLiterals name="open" value="1"/>
+    <eLiterals name="openAtEnd" value="2"/>
+  </eClassifiers>
   <eSubpackages name="types" nsURI="http://www.eclipse.org/mdht/schema/profile/fhir/types/1.0.0"
       nsPrefix="fhirtypes">
     <eClassifiers xsi:type="ecore:EClass" name="Extension">

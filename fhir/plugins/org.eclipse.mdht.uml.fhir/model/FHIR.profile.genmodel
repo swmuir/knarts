@@ -43,6 +43,11 @@
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//BindingStrengthKind/preferred"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//BindingStrengthKind/example"/>
     </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SlicingRulesKind">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//SlicingRulesKind/closed"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//SlicingRulesKind/open"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//SlicingRulesKind/openAtEnd"/>
+    </genEnums>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//TypeChoice">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//TypeChoice/base_Property"/>
@@ -138,6 +143,14 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/code"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/display"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ValueSetMember/abstract"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//ElementSlicing">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ElementSlicing/discriminator"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ElementSlicing/description"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ElementSlicing/ordered"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ElementSlicing/rules"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//ElementSlicing/base_Property"/>
     </genClasses>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="FHIRTypes" basePackage="org.eclipse.mdht.uml.fhir"
         disposableProviderFactory="true" ecorePackage="fhir.ecore#//types">

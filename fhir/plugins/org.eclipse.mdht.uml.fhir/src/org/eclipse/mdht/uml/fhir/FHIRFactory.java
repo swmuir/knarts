@@ -140,6 +140,15 @@ public interface FHIRFactory extends EFactory {
 	ValueSetMember createValueSetMember();
 
 	/**
+	 * Returns a new object of class '<em>Element Slicing</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Slicing</em>'.
+	 * @generated
+	 */
+	ElementSlicing createElementSlicing();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

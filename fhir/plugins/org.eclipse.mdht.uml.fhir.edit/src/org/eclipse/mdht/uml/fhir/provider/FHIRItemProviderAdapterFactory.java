@@ -354,6 +354,29 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.ElementSlicing} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ElementSlicingItemProvider elementSlicingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.ElementSlicing}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createElementSlicingAdapter() {
+		if (elementSlicingItemProvider == null) {
+			elementSlicingItemProvider = new ElementSlicingItemProvider(this);
+		}
+
+		return elementSlicingItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,6 +487,7 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 		if (valueSetItemProvider != null) valueSetItemProvider.dispose();
 		if (dataElementItemProvider != null) dataElementItemProvider.dispose();
 		if (valueSetMemberItemProvider != null) valueSetMemberItemProvider.dispose();
+		if (elementSlicingItemProvider != null) elementSlicingItemProvider.dispose();
 	}
 
 }

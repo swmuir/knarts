@@ -1217,6 +1217,79 @@ public interface FHIRPackage extends EPackage {
 	int VALUE_SET_MEMBER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementSlicingImpl <em>Element Slicing</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.impl.ElementSlicingImpl
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getElementSlicing()
+	 * @generated
+	 */
+	int ELEMENT_SLICING = 14;
+
+	/**
+	 * The feature id for the '<em><b>Discriminator</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING__DISCRIMINATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING__ORDERED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Rules</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING__RULES = 3;
+
+	/**
+	 * The feature id for the '<em><b>Base Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING__BASE_PROPERTY = 4;
+
+	/**
+	 * The number of structural features of the '<em>Element Slicing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Element Slicing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_SLICING_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1224,7 +1297,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getPropertyRepresentationKind()
 	 * @generated
 	 */
-	int PROPERTY_REPRESENTATION_KIND = 14;
+	int PROPERTY_REPRESENTATION_KIND = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}' enum.
@@ -1234,7 +1307,18 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getBindingStrengthKind()
 	 * @generated
 	 */
-	int BINDING_STRENGTH_KIND = 15;
+	int BINDING_STRENGTH_KIND = 16;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.SlicingRulesKind <em>Slicing Rules Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.SlicingRulesKind
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSlicingRulesKind()
+	 * @generated
+	 */
+	int SLICING_RULES_KIND = 17;
 
 
 	/**
@@ -1895,6 +1979,71 @@ public interface FHIRPackage extends EPackage {
 	EAttribute getValueSetMember_Abstract();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ElementSlicing <em>Element Slicing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element Slicing</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing
+	 * @generated
+	 */
+	EClass getElementSlicing();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.ElementSlicing#getDiscriminators <em>Discriminator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Discriminator</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing#getDiscriminators()
+	 * @see #getElementSlicing()
+	 * @generated
+	 */
+	EAttribute getElementSlicing_Discriminator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ElementSlicing#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing#getDescription()
+	 * @see #getElementSlicing()
+	 * @generated
+	 */
+	EAttribute getElementSlicing_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ElementSlicing#getOrdered <em>Ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ordered</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing#getOrdered()
+	 * @see #getElementSlicing()
+	 * @generated
+	 */
+	EAttribute getElementSlicing_Ordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ElementSlicing#getRules <em>Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rules</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing#getRules()
+	 * @see #getElementSlicing()
+	 * @generated
+	 */
+	EAttribute getElementSlicing_Rules();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.ElementSlicing#getBase_Property <em>Base Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Property</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing#getBase_Property()
+	 * @see #getElementSlicing()
+	 * @generated
+	 */
+	EReference getElementSlicing_Base_Property();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1913,6 +2062,16 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getBindingStrengthKind();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.SlicingRulesKind <em>Slicing Rules Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Slicing Rules Kind</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SlicingRulesKind
+	 * @generated
+	 */
+	EEnum getSlicingRulesKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2454,6 +2613,56 @@ public interface FHIRPackage extends EPackage {
 		EAttribute VALUE_SET_MEMBER__ABSTRACT = eINSTANCE.getValueSetMember_Abstract();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementSlicingImpl <em>Element Slicing</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.impl.ElementSlicingImpl
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getElementSlicing()
+		 * @generated
+		 */
+		EClass ELEMENT_SLICING = eINSTANCE.getElementSlicing();
+
+		/**
+		 * The meta object literal for the '<em><b>Discriminator</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_SLICING__DISCRIMINATOR = eINSTANCE.getElementSlicing_Discriminator();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_SLICING__DESCRIPTION = eINSTANCE.getElementSlicing_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Ordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_SLICING__ORDERED = eINSTANCE.getElementSlicing_Ordered();
+
+		/**
+		 * The meta object literal for the '<em><b>Rules</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_SLICING__RULES = eINSTANCE.getElementSlicing_Rules();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_SLICING__BASE_PROPERTY = eINSTANCE.getElementSlicing_Base_Property();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2472,6 +2681,16 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum BINDING_STRENGTH_KIND = eINSTANCE.getBindingStrengthKind();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.SlicingRulesKind <em>Slicing Rules Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.SlicingRulesKind
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSlicingRulesKind()
+		 * @generated
+		 */
+		EEnum SLICING_RULES_KIND = eINSTANCE.getSlicingRulesKind();
 
 	}
 

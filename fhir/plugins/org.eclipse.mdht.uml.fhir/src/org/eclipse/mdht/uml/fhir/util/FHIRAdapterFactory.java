@@ -124,6 +124,10 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 				return createValueSetMemberAdapter();
 			}
 			@Override
+			public Adapter caseElementSlicing(ElementSlicing object) {
+				return createElementSlicingAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -336,6 +340,20 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueSetMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.ElementSlicing <em>Element Slicing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.ElementSlicing
+	 * @generated
+	 */
+	public Adapter createElementSlicingAdapter() {
 		return null;
 	}
 
