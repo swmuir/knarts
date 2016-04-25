@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Goal#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStatusReason <em>Status Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.Goal#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getExpressedBy <em>Expressed By</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getNote <em>Note</em>}</li>
@@ -312,30 +312,30 @@ public interface Goal extends DomainResource {
 	void setStatusReason(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Expressed By</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates whose goal this is - patient goal, practitioner goal, etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference.
-	 * @see #setAuthor(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getGoal_Author()
+	 * @return the value of the '<em>Expressed By</em>' containment reference.
+	 * @see #setExpressedBy(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGoal_ExpressedBy()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='expressedBy' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getAuthor();
+	Reference getExpressedBy();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Goal#getAuthor <em>Author</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Goal#getExpressedBy <em>Expressed By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Author</em>' containment reference.
-	 * @see #getAuthor()
+	 * @param value the new value of the '<em>Expressed By</em>' containment reference.
+	 * @see #getExpressedBy()
 	 * @generated
 	 */
-	void setAuthor(Reference value);
+	void setExpressedBy(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.

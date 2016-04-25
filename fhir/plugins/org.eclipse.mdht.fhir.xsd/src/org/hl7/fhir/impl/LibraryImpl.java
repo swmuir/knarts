@@ -18,11 +18,15 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Library;
+import org.hl7.fhir.LibraryCodeSystem;
+import org.hl7.fhir.LibraryLibrary;
+import org.hl7.fhir.LibraryModel;
+import org.hl7.fhir.LibraryValueSet;
 import org.hl7.fhir.ModuleMetadata;
-import org.hl7.fhir.Reference;
+import org.hl7.fhir.ParameterDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,36 +36,19 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getModuleMetadata <em>Module Metadata</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getModuleDefinition <em>Module Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getLibrary <em>Library</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getValueSet <em>Value Set</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getDataRequirement <em>Data Requirement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getDocument <em>Document</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LibraryImpl extends DomainResourceImpl implements Library {
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Identifier> identifier;
-
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String version;
-
 	/**
 	 * The cached value of the '{@link #getModuleMetadata() <em>Module Metadata</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -73,14 +60,64 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	protected ModuleMetadata moduleMetadata;
 
 	/**
-	 * The cached value of the '{@link #getModuleDefinition() <em>Module Definition</em>}' containment reference.
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModuleDefinition()
+	 * @see #getModel()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference moduleDefinition;
+	protected EList<LibraryModel> model;
+
+	/**
+	 * The cached value of the '{@link #getLibrary() <em>Library</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LibraryLibrary> library;
+
+	/**
+	 * The cached value of the '{@link #getCodeSystem() <em>Code System</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCodeSystem()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LibraryCodeSystem> codeSystem;
+
+	/**
+	 * The cached value of the '{@link #getValueSet() <em>Value Set</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LibraryValueSet> valueSet;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ParameterDefinition> parameter;
+
+	/**
+	 * The cached value of the '{@link #getDataRequirement() <em>Data Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataRequirement> dataRequirement;
 
 	/**
 	 * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference.
@@ -109,61 +146,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getLibrary();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.LIBRARY__IDENTIFIER);
-		}
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getVersion() {
-		return version;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVersion(org.hl7.fhir.String newVersion, NotificationChain msgs) {
-		org.hl7.fhir.String oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__VERSION, oldVersion, newVersion);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(org.hl7.fhir.String newVersion) {
-		if (newVersion != version) {
-			NotificationChain msgs = null;
-			if (version != null)
-				msgs = ((InternalEObject)version).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__VERSION, null, msgs);
-			if (newVersion != null)
-				msgs = ((InternalEObject)newVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__VERSION, null, msgs);
-			msgs = basicSetVersion(newVersion, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__VERSION, newVersion, newVersion));
 	}
 
 	/**
@@ -214,8 +196,11 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getModuleDefinition() {
-		return moduleDefinition;
+	public EList<LibraryModel> getModel() {
+		if (model == null) {
+			model = new EObjectContainmentEList<LibraryModel>(LibraryModel.class, this, FhirPackage.LIBRARY__MODEL);
+		}
+		return model;
 	}
 
 	/**
@@ -223,14 +208,11 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModuleDefinition(Reference newModuleDefinition, NotificationChain msgs) {
-		Reference oldModuleDefinition = moduleDefinition;
-		moduleDefinition = newModuleDefinition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__MODULE_DEFINITION, oldModuleDefinition, newModuleDefinition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<LibraryLibrary> getLibrary() {
+		if (library == null) {
+			library = new EObjectContainmentEList<LibraryLibrary>(LibraryLibrary.class, this, FhirPackage.LIBRARY__LIBRARY);
 		}
-		return msgs;
+		return library;
 	}
 
 	/**
@@ -238,18 +220,47 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModuleDefinition(Reference newModuleDefinition) {
-		if (newModuleDefinition != moduleDefinition) {
-			NotificationChain msgs = null;
-			if (moduleDefinition != null)
-				msgs = ((InternalEObject)moduleDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__MODULE_DEFINITION, null, msgs);
-			if (newModuleDefinition != null)
-				msgs = ((InternalEObject)newModuleDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__MODULE_DEFINITION, null, msgs);
-			msgs = basicSetModuleDefinition(newModuleDefinition, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<LibraryCodeSystem> getCodeSystem() {
+		if (codeSystem == null) {
+			codeSystem = new EObjectContainmentEList<LibraryCodeSystem>(LibraryCodeSystem.class, this, FhirPackage.LIBRARY__CODE_SYSTEM);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__MODULE_DEFINITION, newModuleDefinition, newModuleDefinition));
+		return codeSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LibraryValueSet> getValueSet() {
+		if (valueSet == null) {
+			valueSet = new EObjectContainmentEList<LibraryValueSet>(LibraryValueSet.class, this, FhirPackage.LIBRARY__VALUE_SET);
+		}
+		return valueSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ParameterDefinition> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<ParameterDefinition>(ParameterDefinition.class, this, FhirPackage.LIBRARY__PARAMETER);
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataRequirement> getDataRequirement() {
+		if (dataRequirement == null) {
+			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.LIBRARY__DATA_REQUIREMENT);
+		}
+		return dataRequirement;
 	}
 
 	/**
@@ -303,14 +314,20 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.LIBRARY__IDENTIFIER:
-				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.LIBRARY__VERSION:
-				return basicSetVersion(null, msgs);
 			case FhirPackage.LIBRARY__MODULE_METADATA:
 				return basicSetModuleMetadata(null, msgs);
-			case FhirPackage.LIBRARY__MODULE_DEFINITION:
-				return basicSetModuleDefinition(null, msgs);
+			case FhirPackage.LIBRARY__MODEL:
+				return ((InternalEList<?>)getModel()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LIBRARY__LIBRARY:
+				return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LIBRARY__CODE_SYSTEM:
+				return ((InternalEList<?>)getCodeSystem()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LIBRARY__VALUE_SET:
+				return ((InternalEList<?>)getValueSet()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LIBRARY__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LIBRARY__DATA_REQUIREMENT:
+				return ((InternalEList<?>)getDataRequirement()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LIBRARY__DOCUMENT:
 				return basicSetDocument(null, msgs);
 		}
@@ -325,14 +342,20 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.LIBRARY__IDENTIFIER:
-				return getIdentifier();
-			case FhirPackage.LIBRARY__VERSION:
-				return getVersion();
 			case FhirPackage.LIBRARY__MODULE_METADATA:
 				return getModuleMetadata();
-			case FhirPackage.LIBRARY__MODULE_DEFINITION:
-				return getModuleDefinition();
+			case FhirPackage.LIBRARY__MODEL:
+				return getModel();
+			case FhirPackage.LIBRARY__LIBRARY:
+				return getLibrary();
+			case FhirPackage.LIBRARY__CODE_SYSTEM:
+				return getCodeSystem();
+			case FhirPackage.LIBRARY__VALUE_SET:
+				return getValueSet();
+			case FhirPackage.LIBRARY__PARAMETER:
+				return getParameter();
+			case FhirPackage.LIBRARY__DATA_REQUIREMENT:
+				return getDataRequirement();
 			case FhirPackage.LIBRARY__DOCUMENT:
 				return getDocument();
 		}
@@ -348,18 +371,32 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.LIBRARY__IDENTIFIER:
-				getIdentifier().clear();
-				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
-				return;
-			case FhirPackage.LIBRARY__VERSION:
-				setVersion((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.LIBRARY__MODULE_METADATA:
 				setModuleMetadata((ModuleMetadata)newValue);
 				return;
-			case FhirPackage.LIBRARY__MODULE_DEFINITION:
-				setModuleDefinition((Reference)newValue);
+			case FhirPackage.LIBRARY__MODEL:
+				getModel().clear();
+				getModel().addAll((Collection<? extends LibraryModel>)newValue);
+				return;
+			case FhirPackage.LIBRARY__LIBRARY:
+				getLibrary().clear();
+				getLibrary().addAll((Collection<? extends LibraryLibrary>)newValue);
+				return;
+			case FhirPackage.LIBRARY__CODE_SYSTEM:
+				getCodeSystem().clear();
+				getCodeSystem().addAll((Collection<? extends LibraryCodeSystem>)newValue);
+				return;
+			case FhirPackage.LIBRARY__VALUE_SET:
+				getValueSet().clear();
+				getValueSet().addAll((Collection<? extends LibraryValueSet>)newValue);
+				return;
+			case FhirPackage.LIBRARY__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends ParameterDefinition>)newValue);
+				return;
+			case FhirPackage.LIBRARY__DATA_REQUIREMENT:
+				getDataRequirement().clear();
+				getDataRequirement().addAll((Collection<? extends DataRequirement>)newValue);
 				return;
 			case FhirPackage.LIBRARY__DOCUMENT:
 				setDocument((Attachment)newValue);
@@ -376,17 +413,26 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.LIBRARY__IDENTIFIER:
-				getIdentifier().clear();
-				return;
-			case FhirPackage.LIBRARY__VERSION:
-				setVersion((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.LIBRARY__MODULE_METADATA:
 				setModuleMetadata((ModuleMetadata)null);
 				return;
-			case FhirPackage.LIBRARY__MODULE_DEFINITION:
-				setModuleDefinition((Reference)null);
+			case FhirPackage.LIBRARY__MODEL:
+				getModel().clear();
+				return;
+			case FhirPackage.LIBRARY__LIBRARY:
+				getLibrary().clear();
+				return;
+			case FhirPackage.LIBRARY__CODE_SYSTEM:
+				getCodeSystem().clear();
+				return;
+			case FhirPackage.LIBRARY__VALUE_SET:
+				getValueSet().clear();
+				return;
+			case FhirPackage.LIBRARY__PARAMETER:
+				getParameter().clear();
+				return;
+			case FhirPackage.LIBRARY__DATA_REQUIREMENT:
+				getDataRequirement().clear();
 				return;
 			case FhirPackage.LIBRARY__DOCUMENT:
 				setDocument((Attachment)null);
@@ -403,14 +449,20 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.LIBRARY__IDENTIFIER:
-				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.LIBRARY__VERSION:
-				return version != null;
 			case FhirPackage.LIBRARY__MODULE_METADATA:
 				return moduleMetadata != null;
-			case FhirPackage.LIBRARY__MODULE_DEFINITION:
-				return moduleDefinition != null;
+			case FhirPackage.LIBRARY__MODEL:
+				return model != null && !model.isEmpty();
+			case FhirPackage.LIBRARY__LIBRARY:
+				return library != null && !library.isEmpty();
+			case FhirPackage.LIBRARY__CODE_SYSTEM:
+				return codeSystem != null && !codeSystem.isEmpty();
+			case FhirPackage.LIBRARY__VALUE_SET:
+				return valueSet != null && !valueSet.isEmpty();
+			case FhirPackage.LIBRARY__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
+			case FhirPackage.LIBRARY__DATA_REQUIREMENT:
+				return dataRequirement != null && !dataRequirement.isEmpty();
 			case FhirPackage.LIBRARY__DOCUMENT:
 				return document != null;
 		}

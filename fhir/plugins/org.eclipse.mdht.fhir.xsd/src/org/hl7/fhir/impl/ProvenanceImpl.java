@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;

@@ -199,13 +199,13 @@ public interface FamilyMemberHistory extends DomainResource {
 	 * Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Gender</em>' containment reference.
-	 * @see #setGender(Code)
+	 * @see #setGender(AdministrativeGender)
 	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_Gender()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='gender' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getGender();
+	AdministrativeGender getGender();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.FamilyMemberHistory#getGender <em>Gender</em>}' containment reference.
@@ -215,7 +215,7 @@ public interface FamilyMemberHistory extends DomainResource {
 	 * @see #getGender()
 	 * @generated
 	 */
-	void setGender(Code value);
+	void setGender(AdministrativeGender value);
 
 	/**
 	 * Returns the value of the '<em><b>Born Period</b></em>' containment reference.

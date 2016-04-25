@@ -172,7 +172,7 @@ public interface ContractTerm extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.
+	 * The matter of concern in the context of this provision of the agrement.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractTerm_Topic()
@@ -220,7 +220,7 @@ public interface ContractTerm extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.
+	 * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Agent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractTerm_Agent()

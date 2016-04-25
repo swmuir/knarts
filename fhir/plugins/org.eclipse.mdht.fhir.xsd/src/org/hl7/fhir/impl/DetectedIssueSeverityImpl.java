@@ -2,6 +2,8 @@
  */
 package org.hl7.fhir.impl;
 
+import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -9,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.DetectedIssueSeverity;
-import org.hl7.fhir.DetectedIssueSeverityList;
 import org.hl7.fhir.FhirPackage;
 
 /**
@@ -34,7 +35,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DetectedIssueSeverityList VALUE_EDEFAULT = DetectedIssueSeverityList.HIGH;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -44,16 +45,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * @generated
 	 * @ordered
 	 */
-	protected DetectedIssueSeverityList value = VALUE_EDEFAULT;
-
-	/**
-	 * This is true if the Value attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean valueESet;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,7 +71,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DetectedIssueSeverityList getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -88,36 +80,11 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(DetectedIssueSeverityList newValue) {
-		DetectedIssueSeverityList oldValue = value;
-		value = newValue == null ? VALUE_EDEFAULT : newValue;
-		boolean oldValueESet = valueESet;
-		valueESet = true;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, value, !oldValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetValue() {
-		DetectedIssueSeverityList oldValue = value;
-		boolean oldValueESet = valueESet;
-		value = VALUE_EDEFAULT;
-		valueESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, VALUE_EDEFAULT, oldValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetValue() {
-		return valueESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, value));
 	}
 
 	/**
@@ -143,7 +110,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				setValue((DetectedIssueSeverityList)newValue);
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,7 +125,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				unsetValue();
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,7 +140,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				return isSetValue();
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -189,7 +156,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
-		if (valueESet) result.append(value); else result.append("<unset>");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

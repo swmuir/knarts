@@ -4,7 +4,6 @@ package org.hl7.fhir;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Module Metadata Contributor</b></em>'.

@@ -18,6 +18,7 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.UnitsOfTime;
+import org.hl7.fhir.UnsignedInt;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,15 +32,17 @@ import org.hl7.fhir.UnitsOfTime;
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsRange <em>Bounds Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsPeriod <em>Bounds Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getCount <em>Count</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getCountMax <em>Count Max</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getDurationMax <em>Duration Max</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getDurationUnits <em>Duration Units</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getDurationUnit <em>Duration Unit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getFrequency <em>Frequency</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getFrequencyMax <em>Frequency Max</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriodMax <em>Period Max</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriodUnits <em>Period Units</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriodUnit <em>Period Unit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getWhen <em>When</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getOffset <em>Offset</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +89,16 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	protected org.hl7.fhir.Integer count;
 
 	/**
+	 * The cached value of the '{@link #getCountMax() <em>Count Max</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCountMax()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Integer countMax;
+
+	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,14 +119,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	protected Decimal durationMax;
 
 	/**
-	 * The cached value of the '{@link #getDurationUnits() <em>Duration Units</em>}' containment reference.
+	 * The cached value of the '{@link #getDurationUnit() <em>Duration Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDurationUnits()
+	 * @see #getDurationUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnitsOfTime durationUnits;
+	protected UnitsOfTime durationUnit;
 
 	/**
 	 * The cached value of the '{@link #getFrequency() <em>Frequency</em>}' containment reference.
@@ -156,14 +169,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	protected Decimal periodMax;
 
 	/**
-	 * The cached value of the '{@link #getPeriodUnits() <em>Period Units</em>}' containment reference.
+	 * The cached value of the '{@link #getPeriodUnit() <em>Period Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPeriodUnits()
+	 * @see #getPeriodUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnitsOfTime periodUnits;
+	protected UnitsOfTime periodUnit;
 
 	/**
 	 * The cached value of the '{@link #getWhen() <em>When</em>}' containment reference.
@@ -174,6 +187,16 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * @ordered
 	 */
 	protected EventTiming when;
+
+	/**
+	 * The cached value of the '{@link #getOffset() <em>Offset</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOffset()
+	 * @generated
+	 * @ordered
+	 */
+	protected UnsignedInt offset;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -371,6 +394,49 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Integer getCountMax() {
+		return countMax;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCountMax(org.hl7.fhir.Integer newCountMax, NotificationChain msgs) {
+		org.hl7.fhir.Integer oldCountMax = countMax;
+		countMax = newCountMax;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__COUNT_MAX, oldCountMax, newCountMax);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCountMax(org.hl7.fhir.Integer newCountMax) {
+		if (newCountMax != countMax) {
+			NotificationChain msgs = null;
+			if (countMax != null)
+				msgs = ((InternalEObject)countMax).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__COUNT_MAX, null, msgs);
+			if (newCountMax != null)
+				msgs = ((InternalEObject)newCountMax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__COUNT_MAX, null, msgs);
+			msgs = basicSetCountMax(newCountMax, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__COUNT_MAX, newCountMax, newCountMax));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Decimal getDuration() {
 		return duration;
 	}
@@ -457,8 +523,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnitsOfTime getDurationUnits() {
-		return durationUnits;
+	public UnitsOfTime getDurationUnit() {
+		return durationUnit;
 	}
 
 	/**
@@ -466,11 +532,11 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDurationUnits(UnitsOfTime newDurationUnits, NotificationChain msgs) {
-		UnitsOfTime oldDurationUnits = durationUnits;
-		durationUnits = newDurationUnits;
+	public NotificationChain basicSetDurationUnit(UnitsOfTime newDurationUnit, NotificationChain msgs) {
+		UnitsOfTime oldDurationUnit = durationUnit;
+		durationUnit = newDurationUnit;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__DURATION_UNITS, oldDurationUnits, newDurationUnits);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__DURATION_UNIT, oldDurationUnit, newDurationUnit);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -481,18 +547,18 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDurationUnits(UnitsOfTime newDurationUnits) {
-		if (newDurationUnits != durationUnits) {
+	public void setDurationUnit(UnitsOfTime newDurationUnit) {
+		if (newDurationUnit != durationUnit) {
 			NotificationChain msgs = null;
-			if (durationUnits != null)
-				msgs = ((InternalEObject)durationUnits).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__DURATION_UNITS, null, msgs);
-			if (newDurationUnits != null)
-				msgs = ((InternalEObject)newDurationUnits).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__DURATION_UNITS, null, msgs);
-			msgs = basicSetDurationUnits(newDurationUnits, msgs);
+			if (durationUnit != null)
+				msgs = ((InternalEObject)durationUnit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__DURATION_UNIT, null, msgs);
+			if (newDurationUnit != null)
+				msgs = ((InternalEObject)newDurationUnit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__DURATION_UNIT, null, msgs);
+			msgs = basicSetDurationUnit(newDurationUnit, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__DURATION_UNITS, newDurationUnits, newDurationUnits));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__DURATION_UNIT, newDurationUnit, newDurationUnit));
 	}
 
 	/**
@@ -672,8 +738,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnitsOfTime getPeriodUnits() {
-		return periodUnits;
+	public UnitsOfTime getPeriodUnit() {
+		return periodUnit;
 	}
 
 	/**
@@ -681,11 +747,11 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPeriodUnits(UnitsOfTime newPeriodUnits, NotificationChain msgs) {
-		UnitsOfTime oldPeriodUnits = periodUnits;
-		periodUnits = newPeriodUnits;
+	public NotificationChain basicSetPeriodUnit(UnitsOfTime newPeriodUnit, NotificationChain msgs) {
+		UnitsOfTime oldPeriodUnit = periodUnit;
+		periodUnit = newPeriodUnit;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__PERIOD_UNITS, oldPeriodUnits, newPeriodUnits);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__PERIOD_UNIT, oldPeriodUnit, newPeriodUnit);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -696,18 +762,18 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPeriodUnits(UnitsOfTime newPeriodUnits) {
-		if (newPeriodUnits != periodUnits) {
+	public void setPeriodUnit(UnitsOfTime newPeriodUnit) {
+		if (newPeriodUnit != periodUnit) {
 			NotificationChain msgs = null;
-			if (periodUnits != null)
-				msgs = ((InternalEObject)periodUnits).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__PERIOD_UNITS, null, msgs);
-			if (newPeriodUnits != null)
-				msgs = ((InternalEObject)newPeriodUnits).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__PERIOD_UNITS, null, msgs);
-			msgs = basicSetPeriodUnits(newPeriodUnits, msgs);
+			if (periodUnit != null)
+				msgs = ((InternalEObject)periodUnit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__PERIOD_UNIT, null, msgs);
+			if (newPeriodUnit != null)
+				msgs = ((InternalEObject)newPeriodUnit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__PERIOD_UNIT, null, msgs);
+			msgs = basicSetPeriodUnit(newPeriodUnit, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__PERIOD_UNITS, newPeriodUnits, newPeriodUnits));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__PERIOD_UNIT, newPeriodUnit, newPeriodUnit));
 	}
 
 	/**
@@ -758,6 +824,49 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UnsignedInt getOffset() {
+		return offset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOffset(UnsignedInt newOffset, NotificationChain msgs) {
+		UnsignedInt oldOffset = offset;
+		offset = newOffset;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__OFFSET, oldOffset, newOffset);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOffset(UnsignedInt newOffset) {
+		if (newOffset != offset) {
+			NotificationChain msgs = null;
+			if (offset != null)
+				msgs = ((InternalEObject)offset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__OFFSET, null, msgs);
+			if (newOffset != null)
+				msgs = ((InternalEObject)newOffset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__OFFSET, null, msgs);
+			msgs = basicSetOffset(newOffset, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__OFFSET, newOffset, newOffset));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -769,12 +878,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return basicSetBoundsPeriod(null, msgs);
 			case FhirPackage.TIMING_REPEAT__COUNT:
 				return basicSetCount(null, msgs);
+			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
+				return basicSetCountMax(null, msgs);
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				return basicSetDuration(null, msgs);
 			case FhirPackage.TIMING_REPEAT__DURATION_MAX:
 				return basicSetDurationMax(null, msgs);
-			case FhirPackage.TIMING_REPEAT__DURATION_UNITS:
-				return basicSetDurationUnits(null, msgs);
+			case FhirPackage.TIMING_REPEAT__DURATION_UNIT:
+				return basicSetDurationUnit(null, msgs);
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
 				return basicSetFrequency(null, msgs);
 			case FhirPackage.TIMING_REPEAT__FREQUENCY_MAX:
@@ -783,10 +894,12 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.TIMING_REPEAT__PERIOD_MAX:
 				return basicSetPeriodMax(null, msgs);
-			case FhirPackage.TIMING_REPEAT__PERIOD_UNITS:
-				return basicSetPeriodUnits(null, msgs);
+			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
+				return basicSetPeriodUnit(null, msgs);
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return basicSetWhen(null, msgs);
+			case FhirPackage.TIMING_REPEAT__OFFSET:
+				return basicSetOffset(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -807,12 +920,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return getBoundsPeriod();
 			case FhirPackage.TIMING_REPEAT__COUNT:
 				return getCount();
+			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
+				return getCountMax();
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				return getDuration();
 			case FhirPackage.TIMING_REPEAT__DURATION_MAX:
 				return getDurationMax();
-			case FhirPackage.TIMING_REPEAT__DURATION_UNITS:
-				return getDurationUnits();
+			case FhirPackage.TIMING_REPEAT__DURATION_UNIT:
+				return getDurationUnit();
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
 				return getFrequency();
 			case FhirPackage.TIMING_REPEAT__FREQUENCY_MAX:
@@ -821,10 +936,12 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return getPeriod();
 			case FhirPackage.TIMING_REPEAT__PERIOD_MAX:
 				return getPeriodMax();
-			case FhirPackage.TIMING_REPEAT__PERIOD_UNITS:
-				return getPeriodUnits();
+			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
+				return getPeriodUnit();
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return getWhen();
+			case FhirPackage.TIMING_REPEAT__OFFSET:
+				return getOffset();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -849,14 +966,17 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__COUNT:
 				setCount((org.hl7.fhir.Integer)newValue);
 				return;
+			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
+				setCountMax((org.hl7.fhir.Integer)newValue);
+				return;
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				setDuration((Decimal)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__DURATION_MAX:
 				setDurationMax((Decimal)newValue);
 				return;
-			case FhirPackage.TIMING_REPEAT__DURATION_UNITS:
-				setDurationUnits((UnitsOfTime)newValue);
+			case FhirPackage.TIMING_REPEAT__DURATION_UNIT:
+				setDurationUnit((UnitsOfTime)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
 				setFrequency((org.hl7.fhir.Integer)newValue);
@@ -870,11 +990,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__PERIOD_MAX:
 				setPeriodMax((Decimal)newValue);
 				return;
-			case FhirPackage.TIMING_REPEAT__PERIOD_UNITS:
-				setPeriodUnits((UnitsOfTime)newValue);
+			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
+				setPeriodUnit((UnitsOfTime)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				setWhen((EventTiming)newValue);
+				return;
+			case FhirPackage.TIMING_REPEAT__OFFSET:
+				setOffset((UnsignedInt)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -900,14 +1023,17 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__COUNT:
 				setCount((org.hl7.fhir.Integer)null);
 				return;
+			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
+				setCountMax((org.hl7.fhir.Integer)null);
+				return;
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				setDuration((Decimal)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__DURATION_MAX:
 				setDurationMax((Decimal)null);
 				return;
-			case FhirPackage.TIMING_REPEAT__DURATION_UNITS:
-				setDurationUnits((UnitsOfTime)null);
+			case FhirPackage.TIMING_REPEAT__DURATION_UNIT:
+				setDurationUnit((UnitsOfTime)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
 				setFrequency((org.hl7.fhir.Integer)null);
@@ -921,11 +1047,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__PERIOD_MAX:
 				setPeriodMax((Decimal)null);
 				return;
-			case FhirPackage.TIMING_REPEAT__PERIOD_UNITS:
-				setPeriodUnits((UnitsOfTime)null);
+			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
+				setPeriodUnit((UnitsOfTime)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				setWhen((EventTiming)null);
+				return;
+			case FhirPackage.TIMING_REPEAT__OFFSET:
+				setOffset((UnsignedInt)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -947,12 +1076,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return boundsPeriod != null;
 			case FhirPackage.TIMING_REPEAT__COUNT:
 				return count != null;
+			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
+				return countMax != null;
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				return duration != null;
 			case FhirPackage.TIMING_REPEAT__DURATION_MAX:
 				return durationMax != null;
-			case FhirPackage.TIMING_REPEAT__DURATION_UNITS:
-				return durationUnits != null;
+			case FhirPackage.TIMING_REPEAT__DURATION_UNIT:
+				return durationUnit != null;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
 				return frequency != null;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY_MAX:
@@ -961,10 +1092,12 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return period != null;
 			case FhirPackage.TIMING_REPEAT__PERIOD_MAX:
 				return periodMax != null;
-			case FhirPackage.TIMING_REPEAT__PERIOD_UNITS:
-				return periodUnits != null;
+			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
+				return periodUnit != null;
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return when != null;
+			case FhirPackage.TIMING_REPEAT__OFFSET:
+				return offset != null;
 		}
 		return super.eIsSet(featureID);
 	}

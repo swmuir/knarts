@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuidanceResponse;
 import org.hl7.fhir.GuidanceResponseAction;
@@ -37,6 +38,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getEvaluationMessage <em>Evaluation Message</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getOutputParameters <em>Output Parameters</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +103,16 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * @ordered
 	 */
 	protected EList<GuidanceResponseAction> action;
+
+	/**
+	 * The cached value of the '{@link #getDataRequirement() <em>Data Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataRequirement> dataRequirement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -322,6 +334,18 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<DataRequirement> getDataRequirement() {
+		if (dataRequirement == null) {
+			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT);
+		}
+		return dataRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -337,6 +361,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 				return basicSetOutputParameters(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
+				return ((InternalEList<?>)getDataRequirement()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -361,6 +387,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 				return getOutputParameters();
 			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
 				return getAction();
+			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
+				return getDataRequirement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +422,10 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 				getAction().clear();
 				getAction().addAll((Collection<? extends GuidanceResponseAction>)newValue);
 				return;
+			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
+				getDataRequirement().clear();
+				getDataRequirement().addAll((Collection<? extends DataRequirement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -424,6 +456,9 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
 				getAction().clear();
 				return;
+			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
+				getDataRequirement().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -448,6 +483,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 				return outputParameters != null;
 			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
 				return action != null && !action.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
+				return dataRequirement != null && !dataRequirement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

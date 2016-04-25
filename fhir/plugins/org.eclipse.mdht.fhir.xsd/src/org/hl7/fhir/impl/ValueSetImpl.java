@@ -17,15 +17,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSet;
-import org.hl7.fhir.ValueSetCodeSystem;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetContact;
 import org.hl7.fhir.ValueSetExpansion;
@@ -54,7 +53,6 @@ import org.hl7.fhir.ValueSetExpansion;
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getExtensible <em>Extensible</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getCodeSystem <em>Code System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getCompose <em>Compose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getExpansion <em>Expansion</em>}</li>
  * </ul>
@@ -110,7 +108,7 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -221,16 +219,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean extensible;
-
-	/**
-	 * The cached value of the '{@link #getCodeSystem() <em>Code System</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCodeSystem()
-	 * @generated
-	 * @ordered
-	 */
-	protected ValueSetCodeSystem codeSystem;
 
 	/**
 	 * The cached value of the '{@link #getCompose() <em>Compose</em>}' containment reference.
@@ -448,7 +436,7 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -457,8 +445,8 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET__STATUS, oldStatus, newStatus);
@@ -472,7 +460,7 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -902,49 +890,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueSetCodeSystem getCodeSystem() {
-		return codeSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCodeSystem(ValueSetCodeSystem newCodeSystem, NotificationChain msgs) {
-		ValueSetCodeSystem oldCodeSystem = codeSystem;
-		codeSystem = newCodeSystem;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET__CODE_SYSTEM, oldCodeSystem, newCodeSystem);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCodeSystem(ValueSetCodeSystem newCodeSystem) {
-		if (newCodeSystem != codeSystem) {
-			NotificationChain msgs = null;
-			if (codeSystem != null)
-				msgs = ((InternalEObject)codeSystem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET__CODE_SYSTEM, null, msgs);
-			if (newCodeSystem != null)
-				msgs = ((InternalEObject)newCodeSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET__CODE_SYSTEM, null, msgs);
-			msgs = basicSetCodeSystem(newCodeSystem, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET__CODE_SYSTEM, newCodeSystem, newCodeSystem));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ValueSetCompose getCompose() {
 		return compose;
 	}
@@ -1066,8 +1011,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.VALUE_SET__EXTENSIBLE:
 				return basicSetExtensible(null, msgs);
-			case FhirPackage.VALUE_SET__CODE_SYSTEM:
-				return basicSetCodeSystem(null, msgs);
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return basicSetCompose(null, msgs);
 			case FhirPackage.VALUE_SET__EXPANSION:
@@ -1116,8 +1059,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return getCopyright();
 			case FhirPackage.VALUE_SET__EXTENSIBLE:
 				return getExtensible();
-			case FhirPackage.VALUE_SET__CODE_SYSTEM:
-				return getCodeSystem();
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return getCompose();
 			case FhirPackage.VALUE_SET__EXPANSION:
@@ -1148,7 +1089,7 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.VALUE_SET__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.VALUE_SET__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -1185,9 +1126,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 			case FhirPackage.VALUE_SET__EXTENSIBLE:
 				setExtensible((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.VALUE_SET__CODE_SYSTEM:
-				setCodeSystem((ValueSetCodeSystem)newValue);
-				return;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				setCompose((ValueSetCompose)newValue);
 				return;
@@ -1219,7 +1157,7 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.VALUE_SET__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.VALUE_SET__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -1253,9 +1191,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return;
 			case FhirPackage.VALUE_SET__EXTENSIBLE:
 				setExtensible((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.VALUE_SET__CODE_SYSTEM:
-				setCodeSystem((ValueSetCodeSystem)null);
 				return;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				setCompose((ValueSetCompose)null);
@@ -1307,8 +1242,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return copyright != null;
 			case FhirPackage.VALUE_SET__EXTENSIBLE:
 				return extensible != null;
-			case FhirPackage.VALUE_SET__CODE_SYSTEM:
-				return codeSystem != null;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return compose != null;
 			case FhirPackage.VALUE_SET__EXPANSION:

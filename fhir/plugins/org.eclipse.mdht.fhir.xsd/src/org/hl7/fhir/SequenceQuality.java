@@ -19,7 +19,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.SequenceQuality#getStart <em>Start</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceQuality#getEnd <em>End</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceQuality#getScore <em>Score</em>}</li>
- *   <li>{@link org.hl7.fhir.SequenceQuality#getPlatform <em>Platform</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceQuality#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequenceQuality()
@@ -106,29 +106,29 @@ public interface SequenceQuality extends BackboneElement {
 	void setScore(Quantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Platform</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Platform.
+	 * Method for quality.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Platform</em>' containment reference.
-	 * @see #setPlatform(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequenceQuality_Platform()
+	 * @return the value of the '<em>Method</em>' containment reference.
+	 * @see #setMethod(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceQuality_Method()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='platform' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getPlatform();
+	org.hl7.fhir.String getMethod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SequenceQuality#getPlatform <em>Platform</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceQuality#getMethod <em>Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Platform</em>' containment reference.
-	 * @see #getPlatform()
+	 * @param value the new value of the '<em>Method</em>' containment reference.
+	 * @see #getMethod()
 	 * @generated
 	 */
-	void setPlatform(org.hl7.fhir.String value);
+	void setMethod(org.hl7.fhir.String value);
 
 } // SequenceQuality

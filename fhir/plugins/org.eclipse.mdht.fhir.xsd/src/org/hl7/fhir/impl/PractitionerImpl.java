@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Address;
+import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.Attachment;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.Date;
@@ -75,14 +75,14 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	protected org.hl7.fhir.Boolean active;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected HumanName name;
+	protected EList<HumanName> name;
 
 	/**
 	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
@@ -112,7 +112,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * @generated
 	 * @ordered
 	 */
-	protected Code gender;
+	protected AdministrativeGender gender;
 
 	/**
 	 * The cached value of the '{@link #getBirthDate() <em>Birth Date</em>}' containment reference.
@@ -243,42 +243,11 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HumanName getName() {
+	public EList<HumanName> getName() {
+		if (name == null) {
+			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.PRACTITIONER__NAME);
+		}
 		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetName(HumanName newName, NotificationChain msgs) {
-		HumanName oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER__NAME, oldName, newName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(HumanName newName) {
-		if (newName != name) {
-			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER__NAME, newName, newName));
 	}
 
 	/**
@@ -310,7 +279,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getGender() {
+	public AdministrativeGender getGender() {
 		return gender;
 	}
 
@@ -319,8 +288,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGender(Code newGender, NotificationChain msgs) {
-		Code oldGender = gender;
+	public NotificationChain basicSetGender(AdministrativeGender newGender, NotificationChain msgs) {
+		AdministrativeGender oldGender = gender;
 		gender = newGender;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER__GENDER, oldGender, newGender);
@@ -334,7 +303,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGender(Code newGender) {
+	public void setGender(AdministrativeGender newGender) {
 		if (newGender != gender) {
 			NotificationChain msgs = null;
 			if (gender != null)
@@ -452,7 +421,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 			case FhirPackage.PRACTITIONER__ACTIVE:
 				return basicSetActive(null, msgs);
 			case FhirPackage.PRACTITIONER__NAME:
-				return basicSetName(null, msgs);
+				return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__ADDRESS:
@@ -524,7 +493,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.PRACTITIONER__NAME:
-				setName((HumanName)newValue);
+				getName().clear();
+				getName().addAll((Collection<? extends HumanName>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER__TELECOM:
 				getTelecom().clear();
@@ -535,7 +505,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				getAddress().addAll((Collection<? extends Address>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER__GENDER:
-				setGender((Code)newValue);
+				setGender((AdministrativeGender)newValue);
 				return;
 			case FhirPackage.PRACTITIONER__BIRTH_DATE:
 				setBirthDate((Date)newValue);
@@ -575,7 +545,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.PRACTITIONER__NAME:
-				setName((HumanName)null);
+				getName().clear();
 				return;
 			case FhirPackage.PRACTITIONER__TELECOM:
 				getTelecom().clear();
@@ -584,7 +554,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				getAddress().clear();
 				return;
 			case FhirPackage.PRACTITIONER__GENDER:
-				setGender((Code)null);
+				setGender((AdministrativeGender)null);
 				return;
 			case FhirPackage.PRACTITIONER__BIRTH_DATE:
 				setBirthDate((Date)null);
@@ -618,7 +588,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 			case FhirPackage.PRACTITIONER__ACTIVE:
 				return active != null;
 			case FhirPackage.PRACTITIONER__NAME:
-				return name != null;
+				return name != null && !name.isEmpty();
 			case FhirPackage.PRACTITIONER__TELECOM:
 				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.PRACTITIONER__ADDRESS:

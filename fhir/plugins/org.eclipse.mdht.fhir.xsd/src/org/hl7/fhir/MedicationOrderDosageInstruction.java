@@ -27,9 +27,11 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getDoseRange <em>Dose Range</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateRatio <em>Rate Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateRange <em>Rate Range</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateQuantity <em>Rate Quantity</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction()
@@ -330,6 +332,58 @@ public interface MedicationOrderDosageInstruction extends BackboneElement {
 	void setDoseQuantity(SimpleQuantity value);
 
 	/**
+	 * Returns the value of the '<em><b>Max Dose Per Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Dose Per Period</em>' containment reference.
+	 * @see #setMaxDosePerPeriod(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_MaxDosePerPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='maxDosePerPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Ratio getMaxDosePerPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerPeriod <em>Max Dose Per Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Dose Per Period</em>' containment reference.
+	 * @see #getMaxDosePerPeriod()
+	 * @generated
+	 */
+	void setMaxDosePerPeriod(Ratio value);
+
+	/**
+	 * Returns the value of the '<em><b>Max Dose Per Administration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Dose Per Administration</em>' containment reference.
+	 * @see #setMaxDosePerAdministration(SimpleQuantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_MaxDosePerAdministration()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='maxDosePerAdministration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	SimpleQuantity getMaxDosePerAdministration();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Dose Per Administration</em>' containment reference.
+	 * @see #getMaxDosePerAdministration()
+	 * @generated
+	 */
+	void setMaxDosePerAdministration(SimpleQuantity value);
+
+	/**
 	 * Returns the value of the '<em><b>Rate Ratio</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -384,29 +438,30 @@ public interface MedicationOrderDosageInstruction extends BackboneElement {
 	void setRateRange(Range value);
 
 	/**
-	 * Returns the value of the '<em><b>Max Dose Per Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rate Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rate Quantity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Max Dose Per Period</em>' containment reference.
-	 * @see #setMaxDosePerPeriod(Ratio)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_MaxDosePerPeriod()
+	 * @return the value of the '<em>Rate Quantity</em>' containment reference.
+	 * @see #setRateQuantity(SimpleQuantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_RateQuantity()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='maxDosePerPeriod' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='rateQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Ratio getMaxDosePerPeriod();
+	SimpleQuantity getRateQuantity();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerPeriod <em>Max Dose Per Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateQuantity <em>Rate Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Max Dose Per Period</em>' containment reference.
-	 * @see #getMaxDosePerPeriod()
+	 * @param value the new value of the '<em>Rate Quantity</em>' containment reference.
+	 * @see #getRateQuantity()
 	 * @generated
 	 */
-	void setMaxDosePerPeriod(Ratio value);
+	void setRateQuantity(SimpleQuantity value);
 
 } // MedicationOrderDosageInstruction

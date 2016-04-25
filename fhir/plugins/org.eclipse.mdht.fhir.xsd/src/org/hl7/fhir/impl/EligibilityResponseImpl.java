@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityResponse;
@@ -26,6 +25,7 @@ import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,15 +36,19 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequest <em>Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestIdentifier <em>Request Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestReference <em>Request Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getDisposition <em>Disposition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getOrganizationReference <em>Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestProviderIdentifier <em>Request Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestProviderReference <em>Request Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestOrganizationIdentifier <em>Request Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getRequestOrganizationReference <em>Request Organization Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getInforce <em>Inforce</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getForm <em>Form</em>}</li>
@@ -66,14 +70,24 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
+	 * The cached value of the '{@link #getRequestIdentifier() <em>Request Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequest()
+	 * @see #getRequestIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference request;
+	protected Identifier requestIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getRequestReference() <em>Request Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference requestReference;
 
 	/**
 	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
@@ -83,7 +97,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * @generated
 	 * @ordered
 	 */
-	protected Code outcome;
+	protected RemittanceOutcome outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -126,34 +140,64 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
+	 * @see #getOrganizationIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected Identifier organizationIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getRequestProvider() <em>Request Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestProvider()
+	 * @see #getOrganizationReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requestProvider;
+	protected Reference organizationReference;
 
 	/**
-	 * The cached value of the '{@link #getRequestOrganization() <em>Request Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getRequestProviderIdentifier() <em>Request Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestOrganization()
+	 * @see #getRequestProviderIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requestOrganization;
+	protected Identifier requestProviderIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getRequestProviderReference() <em>Request Provider Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestProviderReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference requestProviderReference;
+
+	/**
+	 * The cached value of the '{@link #getRequestOrganizationIdentifier() <em>Request Organization Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestOrganizationIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier requestOrganizationIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getRequestOrganizationReference() <em>Request Organization Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestOrganizationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference requestOrganizationReference;
 
 	/**
 	 * The cached value of the '{@link #getInforce() <em>Inforce</em>}' containment reference.
@@ -241,8 +285,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequest() {
-		return request;
+	public Identifier getRequestIdentifier() {
+		return requestIdentifier;
 	}
 
 	/**
@@ -250,11 +294,11 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequest(Reference newRequest, NotificationChain msgs) {
-		Reference oldRequest = request;
-		request = newRequest;
+	public NotificationChain basicSetRequestIdentifier(Identifier newRequestIdentifier, NotificationChain msgs) {
+		Identifier oldRequestIdentifier = requestIdentifier;
+		requestIdentifier = newRequestIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST, oldRequest, newRequest);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER, oldRequestIdentifier, newRequestIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -265,18 +309,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequest(Reference newRequest) {
-		if (newRequest != request) {
+	public void setRequestIdentifier(Identifier newRequestIdentifier) {
+		if (newRequestIdentifier != requestIdentifier) {
 			NotificationChain msgs = null;
-			if (request != null)
-				msgs = ((InternalEObject)request).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST, null, msgs);
-			if (newRequest != null)
-				msgs = ((InternalEObject)newRequest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST, null, msgs);
-			msgs = basicSetRequest(newRequest, msgs);
+			if (requestIdentifier != null)
+				msgs = ((InternalEObject)requestIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER, null, msgs);
+			if (newRequestIdentifier != null)
+				msgs = ((InternalEObject)newRequestIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER, null, msgs);
+			msgs = basicSetRequestIdentifier(newRequestIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST, newRequest, newRequest));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER, newRequestIdentifier, newRequestIdentifier));
 	}
 
 	/**
@@ -284,7 +328,50 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getOutcome() {
+	public Reference getRequestReference() {
+		return requestReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestReference(Reference newRequestReference, NotificationChain msgs) {
+		Reference oldRequestReference = requestReference;
+		requestReference = newRequestReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE, oldRequestReference, newRequestReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestReference(Reference newRequestReference) {
+		if (newRequestReference != requestReference) {
+			NotificationChain msgs = null;
+			if (requestReference != null)
+				msgs = ((InternalEObject)requestReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE, null, msgs);
+			if (newRequestReference != null)
+				msgs = ((InternalEObject)newRequestReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE, null, msgs);
+			msgs = basicSetRequestReference(newRequestReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE, newRequestReference, newRequestReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RemittanceOutcome getOutcome() {
 		return outcome;
 	}
 
@@ -293,8 +380,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(Code newOutcome, NotificationChain msgs) {
-		Code oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
+		RemittanceOutcome oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -308,7 +395,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(Code newOutcome) {
+	public void setOutcome(RemittanceOutcome newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -499,8 +586,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
+	public Identifier getOrganizationIdentifier() {
+		return organizationIdentifier;
 	}
 
 	/**
@@ -508,11 +595,11 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
+	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
+		Identifier oldOrganizationIdentifier = organizationIdentifier;
+		organizationIdentifier = newOrganizationIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -523,18 +610,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
+	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
+		if (newOrganizationIdentifier != organizationIdentifier) {
 			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
+			if (organizationIdentifier != null)
+				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER, null, msgs);
+			if (newOrganizationIdentifier != null)
+				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER, null, msgs);
+			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
 	}
 
 	/**
@@ -542,8 +629,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestProvider() {
-		return requestProvider;
+	public Reference getOrganizationReference() {
+		return organizationReference;
 	}
 
 	/**
@@ -551,11 +638,11 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestProvider(Reference newRequestProvider, NotificationChain msgs) {
-		Reference oldRequestProvider = requestProvider;
-		requestProvider = newRequestProvider;
+	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
+		Reference oldOrganizationReference = organizationReference;
+		organizationReference = newOrganizationReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER, oldRequestProvider, newRequestProvider);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -566,18 +653,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestProvider(Reference newRequestProvider) {
-		if (newRequestProvider != requestProvider) {
+	public void setOrganizationReference(Reference newOrganizationReference) {
+		if (newOrganizationReference != organizationReference) {
 			NotificationChain msgs = null;
-			if (requestProvider != null)
-				msgs = ((InternalEObject)requestProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER, null, msgs);
-			if (newRequestProvider != null)
-				msgs = ((InternalEObject)newRequestProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER, null, msgs);
-			msgs = basicSetRequestProvider(newRequestProvider, msgs);
+			if (organizationReference != null)
+				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE, null, msgs);
+			if (newOrganizationReference != null)
+				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE, null, msgs);
+			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER, newRequestProvider, newRequestProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
 	}
 
 	/**
@@ -585,8 +672,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestOrganization() {
-		return requestOrganization;
+	public Identifier getRequestProviderIdentifier() {
+		return requestProviderIdentifier;
 	}
 
 	/**
@@ -594,11 +681,11 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestOrganization(Reference newRequestOrganization, NotificationChain msgs) {
-		Reference oldRequestOrganization = requestOrganization;
-		requestOrganization = newRequestOrganization;
+	public NotificationChain basicSetRequestProviderIdentifier(Identifier newRequestProviderIdentifier, NotificationChain msgs) {
+		Identifier oldRequestProviderIdentifier = requestProviderIdentifier;
+		requestProviderIdentifier = newRequestProviderIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION, oldRequestOrganization, newRequestOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, oldRequestProviderIdentifier, newRequestProviderIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -609,18 +696,147 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestOrganization(Reference newRequestOrganization) {
-		if (newRequestOrganization != requestOrganization) {
+	public void setRequestProviderIdentifier(Identifier newRequestProviderIdentifier) {
+		if (newRequestProviderIdentifier != requestProviderIdentifier) {
 			NotificationChain msgs = null;
-			if (requestOrganization != null)
-				msgs = ((InternalEObject)requestOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
-			if (newRequestOrganization != null)
-				msgs = ((InternalEObject)newRequestOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
-			msgs = basicSetRequestOrganization(newRequestOrganization, msgs);
+			if (requestProviderIdentifier != null)
+				msgs = ((InternalEObject)requestProviderIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, null, msgs);
+			if (newRequestProviderIdentifier != null)
+				msgs = ((InternalEObject)newRequestProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, null, msgs);
+			msgs = basicSetRequestProviderIdentifier(newRequestProviderIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION, newRequestOrganization, newRequestOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, newRequestProviderIdentifier, newRequestProviderIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRequestProviderReference() {
+		return requestProviderReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestProviderReference(Reference newRequestProviderReference, NotificationChain msgs) {
+		Reference oldRequestProviderReference = requestProviderReference;
+		requestProviderReference = newRequestProviderReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE, oldRequestProviderReference, newRequestProviderReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestProviderReference(Reference newRequestProviderReference) {
+		if (newRequestProviderReference != requestProviderReference) {
+			NotificationChain msgs = null;
+			if (requestProviderReference != null)
+				msgs = ((InternalEObject)requestProviderReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE, null, msgs);
+			if (newRequestProviderReference != null)
+				msgs = ((InternalEObject)newRequestProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE, null, msgs);
+			msgs = basicSetRequestProviderReference(newRequestProviderReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE, newRequestProviderReference, newRequestProviderReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getRequestOrganizationIdentifier() {
+		return requestOrganizationIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestOrganizationIdentifier(Identifier newRequestOrganizationIdentifier, NotificationChain msgs) {
+		Identifier oldRequestOrganizationIdentifier = requestOrganizationIdentifier;
+		requestOrganizationIdentifier = newRequestOrganizationIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, oldRequestOrganizationIdentifier, newRequestOrganizationIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestOrganizationIdentifier(Identifier newRequestOrganizationIdentifier) {
+		if (newRequestOrganizationIdentifier != requestOrganizationIdentifier) {
+			NotificationChain msgs = null;
+			if (requestOrganizationIdentifier != null)
+				msgs = ((InternalEObject)requestOrganizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, null, msgs);
+			if (newRequestOrganizationIdentifier != null)
+				msgs = ((InternalEObject)newRequestOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, null, msgs);
+			msgs = basicSetRequestOrganizationIdentifier(newRequestOrganizationIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, newRequestOrganizationIdentifier, newRequestOrganizationIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRequestOrganizationReference() {
+		return requestOrganizationReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestOrganizationReference(Reference newRequestOrganizationReference, NotificationChain msgs) {
+		Reference oldRequestOrganizationReference = requestOrganizationReference;
+		requestOrganizationReference = newRequestOrganizationReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, oldRequestOrganizationReference, newRequestOrganizationReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestOrganizationReference(Reference newRequestOrganizationReference) {
+		if (newRequestOrganizationReference != requestOrganizationReference) {
+			NotificationChain msgs = null;
+			if (requestOrganizationReference != null)
+				msgs = ((InternalEObject)requestOrganizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, null, msgs);
+			if (newRequestOrganizationReference != null)
+				msgs = ((InternalEObject)newRequestOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, null, msgs);
+			msgs = basicSetRequestOrganizationReference(newRequestOrganizationReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, newRequestOrganizationReference, newRequestOrganizationReference));
 	}
 
 	/**
@@ -786,8 +1002,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST:
-				return basicSetRequest(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER:
+				return basicSetRequestIdentifier(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE:
+				return basicSetRequestReference(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
@@ -798,12 +1016,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return basicSetOriginalRuleset(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER:
-				return basicSetRequestProvider(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
-				return basicSetRequestOrganization(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER:
+				return basicSetOrganizationIdentifier(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE:
+				return basicSetOrganizationReference(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
+				return basicSetRequestProviderIdentifier(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE:
+				return basicSetRequestProviderReference(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
+				return basicSetRequestOrganizationIdentifier(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
+				return basicSetRequestOrganizationReference(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
 				return basicSetInforce(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
@@ -828,8 +1052,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST:
-				return getRequest();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER:
+				return getRequestIdentifier();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE:
+				return getRequestReference();
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
 				return getOutcome();
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
@@ -840,12 +1066,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return getOriginalRuleset();
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				return getCreated();
-			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION:
-				return getOrganization();
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER:
-				return getRequestProvider();
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
-				return getRequestOrganization();
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER:
+				return getOrganizationIdentifier();
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE:
+				return getOrganizationReference();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
+				return getRequestProviderIdentifier();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE:
+				return getRequestProviderReference();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
+				return getRequestOrganizationIdentifier();
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
+				return getRequestOrganizationReference();
 			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
 				return getInforce();
 			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:
@@ -873,11 +1105,14 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST:
-				setRequest((Reference)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER:
+				setRequestIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE:
+				setRequestReference((Reference)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
-				setOutcome((Code)newValue);
+				setOutcome((RemittanceOutcome)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -891,14 +1126,23 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER:
+				setOrganizationIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER:
-				setRequestProvider((Reference)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE:
+				setOrganizationReference((Reference)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
+				setRequestProviderIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE:
+				setRequestProviderReference((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
+				setRequestOrganizationIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
+				setRequestOrganizationReference((Reference)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
 				setInforce((org.hl7.fhir.Boolean)newValue);
@@ -932,11 +1176,14 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST:
-				setRequest((Reference)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER:
+				setRequestIdentifier((Identifier)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE:
+				setRequestReference((Reference)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
-				setOutcome((Code)null);
+				setOutcome((RemittanceOutcome)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
@@ -950,14 +1197,23 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER:
+				setOrganizationIdentifier((Identifier)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER:
-				setRequestProvider((Reference)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE:
+				setOrganizationReference((Reference)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
+				setRequestProviderIdentifier((Identifier)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE:
+				setRequestProviderReference((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
+				setRequestOrganizationIdentifier((Identifier)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
+				setRequestOrganizationReference((Reference)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
 				setInforce((org.hl7.fhir.Boolean)null);
@@ -988,8 +1244,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST:
-				return request != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_IDENTIFIER:
+				return requestIdentifier != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_REFERENCE:
+				return requestReference != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
 				return outcome != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
@@ -1000,12 +1258,18 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return originalRuleset != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				return created != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION:
-				return organization != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER:
-				return requestProvider != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION:
-				return requestOrganization != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_IDENTIFIER:
+				return organizationIdentifier != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__ORGANIZATION_REFERENCE:
+				return organizationReference != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
+				return requestProviderIdentifier != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_PROVIDER_REFERENCE:
+				return requestProviderReference != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
+				return requestOrganizationIdentifier != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
+				return requestOrganizationReference != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__INFORCE:
 				return inforce != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__CONTRACT:

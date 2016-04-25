@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.DataElement;
 import org.hl7.fhir.DataElementContact;
 import org.hl7.fhir.DataElementMapping;
@@ -94,7 +94,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -318,50 +318,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
-		org.hl7.fhir.String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__NAME, oldName, newName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(org.hl7.fhir.String newName) {
-		if (newName != name) {
-			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__NAME, newName, newName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -370,8 +327,8 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__STATUS, oldStatus, newStatus);
@@ -385,7 +342,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -490,18 +447,6 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DataElementContact> getContact() {
-		if (contact == null) {
-			contact = new EObjectContainmentEList<DataElementContact>(DataElementContact.class, this, FhirPackage.DATA_ELEMENT__CONTACT);
-		}
-		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DateTime getDate() {
 		return date;
 	}
@@ -538,6 +483,61 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__NAME, oldName, newName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
+			NotificationChain msgs = null;
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataElementContact> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<DataElementContact>(DataElementContact.class, this, FhirPackage.DATA_ELEMENT__CONTACT);
+		}
+		return contact;
 	}
 
 	/**
@@ -762,7 +762,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				setVersion((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -820,7 +820,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				setVersion((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);

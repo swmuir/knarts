@@ -36,6 +36,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImagingStudySeries extends BackboneElement {
 	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Formal identifier for this series.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Uid</em>' containment reference.
+	 * @see #setUid(Oid)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Uid()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Oid getUid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudySeries#getUid <em>Uid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' containment reference.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(Oid value);
+
+	/**
 	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,32 +112,6 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * @generated
 	 */
 	void setModality(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Formal identifier for this series.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Uid</em>' containment reference.
-	 * @see #setUid(Oid)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Uid()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Oid getUid();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudySeries#getUid <em>Uid</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uid</em>' containment reference.
-	 * @see #getUid()
-	 * @generated
-	 */
-	void setUid(Oid value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

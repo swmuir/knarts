@@ -22,16 +22,22 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getTarget <em>Target</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getTargetIdentifier <em>Target Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getTargetReference <em>Target Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getProviderIdentifier <em>Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getProviderReference <em>Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getOrganizationReference <em>Organization Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getEnterer <em>Enterer</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getFacility <em>Facility</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getEntererIdentifier <em>Enterer Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getEntererReference <em>Enterer Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getFacilityIdentifier <em>Facility Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getFacilityReference <em>Facility Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getPatientIdentifier <em>Patient Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getPatientReference <em>Patient Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getCoverageIdentifier <em>Coverage Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getCoverageReference <em>Coverage Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getBusinessArrangement <em>Business Arrangement</em>}</li>
- *   <li>{@link org.hl7.fhir.EligibilityRequest#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getServicedDate <em>Serviced Date</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getServicedPeriod <em>Serviced Period</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getBenefitCategory <em>Benefit Category</em>}</li>
@@ -138,82 +144,166 @@ public interface EligibilityRequest extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Insurer who is target  of the request.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Target()
+	 * @return the value of the '<em>Target Identifier</em>' containment reference.
+	 * @see #setTargetIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_TargetIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getTarget();
+	Identifier getTargetIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getTarget <em>Target</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getTargetIdentifier <em>Target Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' containment reference.
-	 * @see #getTarget()
+	 * @param value the new value of the '<em>Target Identifier</em>' containment reference.
+	 * @see #getTargetIdentifier()
 	 * @generated
 	 */
-	void setTarget(Reference value);
+	void setTargetIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The practitioner who is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Provider</em>' containment reference.
-	 * @see #setProvider(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Provider()
+	 * @return the value of the '<em>Target Reference</em>' containment reference.
+	 * @see #setTargetReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_TargetReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='provider' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProvider();
+	Reference getTargetReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getProvider <em>Provider</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getTargetReference <em>Target Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider</em>' containment reference.
-	 * @see #getProvider()
+	 * @param value the new value of the '<em>Target Reference</em>' containment reference.
+	 * @see #getTargetReference()
 	 * @generated
 	 */
-	void setProvider(Reference value);
+	void setTargetReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Provider Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Organization()
+	 * @return the value of the '<em>Provider Identifier</em>' containment reference.
+	 * @see #setProviderIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_ProviderIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='providerIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Identifier getProviderIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getProviderIdentifier <em>Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>Provider Identifier</em>' containment reference.
+	 * @see #getProviderIdentifier()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setProviderIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Provider Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provider Reference</em>' containment reference.
+	 * @see #setProviderReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_ProviderReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='providerReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getProviderReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getProviderReference <em>Provider Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provider Reference</em>' containment reference.
+	 * @see #getProviderReference()
+	 * @generated
+	 */
+	void setProviderReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #setOrganizationIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_OrganizationIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='organizationIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getOrganizationIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getOrganizationIdentifier <em>Organization Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #getOrganizationIdentifier()
+	 * @generated
+	 */
+	void setOrganizationIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #setOrganizationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_OrganizationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='organizationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOrganizationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getOrganizationReference <em>Organization Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #getOrganizationReference()
+	 * @generated
+	 */
+	void setOrganizationReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -242,108 +332,220 @@ public interface EligibilityRequest extends DomainResource {
 	void setPriority(Coding value);
 
 	/**
-	 * Returns the value of the '<em><b>Enterer</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Enterer Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enterer Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Person who created the invoice/claim/pre-determination or pre-authorization.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Enterer</em>' containment reference.
-	 * @see #setEnterer(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Enterer()
+	 * @return the value of the '<em>Enterer Identifier</em>' containment reference.
+	 * @see #setEntererIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_EntererIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='enterer' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='entererIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEnterer();
+	Identifier getEntererIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getEnterer <em>Enterer</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getEntererIdentifier <em>Enterer Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enterer</em>' containment reference.
-	 * @see #getEnterer()
+	 * @param value the new value of the '<em>Enterer Identifier</em>' containment reference.
+	 * @see #getEntererIdentifier()
 	 * @generated
 	 */
-	void setEnterer(Reference value);
+	void setEntererIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Facility</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Enterer Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enterer Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Facility where the services were provided.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Facility</em>' containment reference.
-	 * @see #setFacility(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Facility()
+	 * @return the value of the '<em>Enterer Reference</em>' containment reference.
+	 * @see #setEntererReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_EntererReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='facility' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='entererReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getFacility();
+	Reference getEntererReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getFacility <em>Facility</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getEntererReference <em>Enterer Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Facility</em>' containment reference.
-	 * @see #getFacility()
+	 * @param value the new value of the '<em>Enterer Reference</em>' containment reference.
+	 * @see #getEntererReference()
 	 * @generated
 	 */
-	void setFacility(Reference value);
+	void setEntererReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Facility Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Facility Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Patient Resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Patient()
+	 * @return the value of the '<em>Facility Identifier</em>' containment reference.
+	 * @see #setFacilityIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_FacilityIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='facilityIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Identifier getFacilityIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getFacilityIdentifier <em>Facility Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Facility Identifier</em>' containment reference.
+	 * @see #getFacilityIdentifier()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setFacilityIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Facility Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Facility Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Financial instrument by which payment information for health care.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Coverage</em>' containment reference.
-	 * @see #setCoverage(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Coverage()
+	 * @return the value of the '<em>Facility Reference</em>' containment reference.
+	 * @see #setFacilityReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_FacilityReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='coverage' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='facilityReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getCoverage();
+	Reference getFacilityReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getCoverage <em>Coverage</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getFacilityReference <em>Facility Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Coverage</em>' containment reference.
-	 * @see #getCoverage()
+	 * @param value the new value of the '<em>Facility Reference</em>' containment reference.
+	 * @see #getFacilityReference()
 	 * @generated
 	 */
-	void setCoverage(Reference value);
+	void setFacilityReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Patient Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Patient Identifier</em>' containment reference.
+	 * @see #setPatientIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_PatientIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patientIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getPatientIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getPatientIdentifier <em>Patient Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient Identifier</em>' containment reference.
+	 * @see #getPatientIdentifier()
+	 * @generated
+	 */
+	void setPatientIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Patient Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Patient Reference</em>' containment reference.
+	 * @see #setPatientReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_PatientReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patientReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatientReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getPatientReference <em>Patient Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient Reference</em>' containment reference.
+	 * @see #getPatientReference()
+	 * @generated
+	 */
+	void setPatientReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Coverage Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Coverage Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Coverage Identifier</em>' containment reference.
+	 * @see #setCoverageIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_CoverageIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='coverageIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getCoverageIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getCoverageIdentifier <em>Coverage Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Coverage Identifier</em>' containment reference.
+	 * @see #getCoverageIdentifier()
+	 * @generated
+	 */
+	void setCoverageIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Coverage Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Coverage Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Coverage Reference</em>' containment reference.
+	 * @see #setCoverageReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_CoverageReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='coverageReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getCoverageReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getCoverageReference <em>Coverage Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Coverage Reference</em>' containment reference.
+	 * @see #getCoverageReference()
+	 * @generated
+	 */
+	void setCoverageReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Business Arrangement</b></em>' containment reference.
@@ -370,32 +572,6 @@ public interface EligibilityRequest extends DomainResource {
 	 * @generated
 	 */
 	void setBusinessArrangement(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The relationship of the patient to the subscriber.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Relationship</em>' containment reference.
-	 * @see #setRelationship(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Relationship()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getRelationship();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getRelationship <em>Relationship</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relationship</em>' containment reference.
-	 * @see #getRelationship()
-	 * @generated
-	 */
-	void setRelationship(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Serviced Date</b></em>' containment reference.

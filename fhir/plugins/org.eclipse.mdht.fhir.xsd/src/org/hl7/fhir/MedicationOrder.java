@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationOrder#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}</li>
@@ -59,32 +59,6 @@ public interface MedicationOrder extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Date Written</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date (and perhaps time) when the prescription was written.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Written</em>' containment reference.
-	 * @see #setDateWritten(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_DateWritten()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dateWritten' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDateWritten();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getDateWritten <em>Date Written</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Written</em>' containment reference.
-	 * @see #getDateWritten()
-	 * @generated
-	 */
-	void setDateWritten(DateTime value);
-
-	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,206 +83,6 @@ public interface MedicationOrder extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(MedicationOrderStatus value);
-
-	/**
-	 * Returns the value of the '<em><b>Date Ended</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date (and perhaps time) when the prescription was stopped.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Ended</em>' containment reference.
-	 * @see #setDateEnded(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_DateEnded()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dateEnded' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDateEnded();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Ended</em>' containment reference.
-	 * @see #getDateEnded()
-	 * @generated
-	 */
-	void setDateEnded(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Ended</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The reason why the prescription was stopped, if it was.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Ended</em>' containment reference.
-	 * @see #setReasonEnded(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonEnded()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonEnded' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getReasonEnded();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Ended</em>' containment reference.
-	 * @see #getReasonEnded()
-	 * @generated
-	 */
-	void setReasonEnded(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A link to a resource representing the person to whom the medication will be given.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Patient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Prescriber</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The healthcare professional responsible for authorizing the prescription.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Prescriber</em>' containment reference.
-	 * @see #setPrescriber(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Prescriber()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescriber' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPrescriber();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescriber</em>' containment reference.
-	 * @see #getPrescriber()
-	 * @generated
-	 */
-	void setPrescriber(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #setReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getReasonCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getReasonCodeableConcept <em>Reason Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #getReasonCodeableConcept()
-	 * @generated
-	 */
-	void setReasonCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #setReasonReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReasonReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getReasonReference <em>Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #getReasonReference()
-	 * @generated
-	 */
-	void setReasonReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Extra information about the prescription that could not be conveyed by the other attributes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Note()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
@@ -363,6 +137,210 @@ public interface MedicationOrder extends DomainResource {
 	 * @generated
 	 */
 	void setMedicationReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A link to a resource representing the person to whom the medication will be given.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Patient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEncounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	void setEncounter(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Date Written</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date (and perhaps time) when the prescription was written.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date Written</em>' containment reference.
+	 * @see #setDateWritten(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_DateWritten()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dateWritten' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDateWritten();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getDateWritten <em>Date Written</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date Written</em>' containment reference.
+	 * @see #getDateWritten()
+	 * @generated
+	 */
+	void setDateWritten(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Prescriber</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The healthcare professional responsible for authorizing the prescription.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Prescriber</em>' containment reference.
+	 * @see #setPrescriber(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Prescriber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='prescriber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPrescriber();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prescriber</em>' containment reference.
+	 * @see #getPrescriber()
+	 * @generated
+	 */
+	void setPrescriber(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Can be the reason or the indication for writing the prescription.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Condition that supports why the prescription is being written.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getReasonReference();
+
+	/**
+	 * Returns the value of the '<em><b>Date Ended</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date (and perhaps time) when the prescription was stopped.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date Ended</em>' containment reference.
+	 * @see #setDateEnded(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_DateEnded()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dateEnded' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDateEnded();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date Ended</em>' containment reference.
+	 * @see #getDateEnded()
+	 * @generated
+	 */
+	void setDateEnded(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason Ended</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The reason why the prescription was stopped, if it was.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Ended</em>' containment reference.
+	 * @see #setReasonEnded(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonEnded()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonEnded' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getReasonEnded();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reason Ended</em>' containment reference.
+	 * @see #getReasonEnded()
+	 * @generated
+	 */
+	void setReasonEnded(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Extra information about the prescription that could not be conveyed by the other attributes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Dosage Instruction</b></em>' containment reference list.

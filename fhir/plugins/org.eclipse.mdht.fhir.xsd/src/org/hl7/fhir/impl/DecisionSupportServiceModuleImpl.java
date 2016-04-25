@@ -17,10 +17,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DecisionSupportServiceModule;
-import org.hl7.fhir.DecisionSupportServiceModuleParameter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ModuleMetadata;
+import org.hl7.fhir.ParameterDefinition;
+import org.hl7.fhir.TriggerDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +33,9 @@ import org.hl7.fhir.ModuleMetadata;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DecisionSupportServiceModuleImpl#getModuleMetadata <em>Module Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DecisionSupportServiceModuleImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DecisionSupportServiceModuleImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DecisionSupportServiceModuleImpl#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,6 +52,16 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 	protected ModuleMetadata moduleMetadata;
 
 	/**
+	 * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTrigger()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TriggerDefinition> trigger;
+
+	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +69,17 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DecisionSupportServiceModuleParameter> parameter;
+	protected EList<ParameterDefinition> parameter;
+
+	/**
+	 * The cached value of the '{@link #getDataRequirement() <em>Data Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataRequirement> dataRequirement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,11 +148,35 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DecisionSupportServiceModuleParameter> getParameter() {
+	public EList<TriggerDefinition> getTrigger() {
+		if (trigger == null) {
+			trigger = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER);
+		}
+		return trigger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ParameterDefinition> getParameter() {
 		if (parameter == null) {
-			parameter = new EObjectContainmentEList<DecisionSupportServiceModuleParameter>(DecisionSupportServiceModuleParameter.class, this, FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER);
+			parameter = new EObjectContainmentEList<ParameterDefinition>(ParameterDefinition.class, this, FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER);
 		}
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataRequirement> getDataRequirement() {
+		if (dataRequirement == null) {
+			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT);
+		}
+		return dataRequirement;
 	}
 
 	/**
@@ -141,8 +189,12 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 		switch (featureID) {
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__MODULE_METADATA:
 				return basicSetModuleMetadata(null, msgs);
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER:
+				return ((InternalEList<?>)getTrigger()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER:
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT:
+				return ((InternalEList<?>)getDataRequirement()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -157,8 +209,12 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 		switch (featureID) {
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__MODULE_METADATA:
 				return getModuleMetadata();
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER:
+				return getTrigger();
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER:
 				return getParameter();
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT:
+				return getDataRequirement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,9 +231,17 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__MODULE_METADATA:
 				setModuleMetadata((ModuleMetadata)newValue);
 				return;
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER:
+				getTrigger().clear();
+				getTrigger().addAll((Collection<? extends TriggerDefinition>)newValue);
+				return;
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER:
 				getParameter().clear();
-				getParameter().addAll((Collection<? extends DecisionSupportServiceModuleParameter>)newValue);
+				getParameter().addAll((Collection<? extends ParameterDefinition>)newValue);
+				return;
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT:
+				getDataRequirement().clear();
+				getDataRequirement().addAll((Collection<? extends DataRequirement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,8 +258,14 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__MODULE_METADATA:
 				setModuleMetadata((ModuleMetadata)null);
 				return;
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER:
+				getTrigger().clear();
+				return;
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER:
 				getParameter().clear();
+				return;
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT:
+				getDataRequirement().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -211,8 +281,12 @@ public class DecisionSupportServiceModuleImpl extends DomainResourceImpl impleme
 		switch (featureID) {
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__MODULE_METADATA:
 				return moduleMetadata != null;
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__TRIGGER:
+				return trigger != null && !trigger.isEmpty();
 			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__PARAMETER:
 				return parameter != null && !parameter.isEmpty();
+			case FhirPackage.DECISION_SUPPORT_SERVICE_MODULE__DATA_REQUIREMENT:
+				return dataRequirement != null && !dataRequirement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -233,8 +233,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getOnset() {
-		return onset;
+	public AllergyIntoleranceStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -242,11 +242,11 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOnset(DateTime newOnset, NotificationChain msgs) {
-		DateTime oldOnset = onset;
-		onset = newOnset;
+	public NotificationChain basicSetStatus(AllergyIntoleranceStatus newStatus, NotificationChain msgs) {
+		AllergyIntoleranceStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ONSET, oldOnset, newOnset);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -257,18 +257,233 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOnset(DateTime newOnset) {
-		if (newOnset != onset) {
+	public void setStatus(AllergyIntoleranceStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (onset != null)
-				msgs = ((InternalEObject)onset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ONSET, null, msgs);
-			if (newOnset != null)
-				msgs = ((InternalEObject)newOnset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ONSET, null, msgs);
-			msgs = basicSetOnset(newOnset, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ONSET, newOnset, newOnset));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllergyIntoleranceType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(AllergyIntoleranceType newType, NotificationChain msgs) {
+		AllergyIntoleranceType oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(AllergyIntoleranceType newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllergyIntoleranceCategory getCategory() {
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCategory(AllergyIntoleranceCategory newCategory, NotificationChain msgs) {
+		AllergyIntoleranceCategory oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, oldCategory, newCategory);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCategory(AllergyIntoleranceCategory newCategory) {
+		if (newCategory != category) {
+			NotificationChain msgs = null;
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, newCategory, newCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllergyIntoleranceCriticality getCriticality() {
+		return criticality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCriticality(AllergyIntoleranceCriticality newCriticality, NotificationChain msgs) {
+		AllergyIntoleranceCriticality oldCriticality = criticality;
+		criticality = newCriticality;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, oldCriticality, newCriticality);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCriticality(AllergyIntoleranceCriticality newCriticality) {
+		if (newCriticality != criticality) {
+			NotificationChain msgs = null;
+			if (criticality != null)
+				msgs = ((InternalEObject)criticality).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, null, msgs);
+			if (newCriticality != null)
+				msgs = ((InternalEObject)newCriticality).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, null, msgs);
+			msgs = basicSetCriticality(newCriticality, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, newCriticality, newCriticality));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getSubstance() {
+		return substance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubstance(CodeableConcept newSubstance, NotificationChain msgs) {
+		CodeableConcept oldSubstance = substance;
+		substance = newSubstance;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, oldSubstance, newSubstance);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubstance(CodeableConcept newSubstance) {
+		if (newSubstance != substance) {
+			NotificationChain msgs = null;
+			if (substance != null)
+				msgs = ((InternalEObject)substance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, null, msgs);
+			if (newSubstance != null)
+				msgs = ((InternalEObject)newSubstance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, null, msgs);
+			msgs = basicSetSubstance(newSubstance, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, newSubstance, newSubstance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPatient() {
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__PATIENT, oldPatient, newPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
+			NotificationChain msgs = null;
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__PATIENT, newPatient, newPatient));
 	}
 
 	/**
@@ -362,49 +577,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatient() {
-		return patient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__PATIENT, oldPatient, newPatient);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
-			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__PATIENT, newPatient, newPatient));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Reference getReporter() {
 		return reporter;
 	}
@@ -448,8 +620,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getSubstance() {
-		return substance;
+	public DateTime getOnset() {
+		return onset;
 	}
 
 	/**
@@ -457,11 +629,11 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubstance(CodeableConcept newSubstance, NotificationChain msgs) {
-		CodeableConcept oldSubstance = substance;
-		substance = newSubstance;
+	public NotificationChain basicSetOnset(DateTime newOnset, NotificationChain msgs) {
+		DateTime oldOnset = onset;
+		onset = newOnset;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, oldSubstance, newSubstance);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ONSET, oldOnset, newOnset);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -472,190 +644,18 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubstance(CodeableConcept newSubstance) {
-		if (newSubstance != substance) {
+	public void setOnset(DateTime newOnset) {
+		if (newOnset != onset) {
 			NotificationChain msgs = null;
-			if (substance != null)
-				msgs = ((InternalEObject)substance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, null, msgs);
-			if (newSubstance != null)
-				msgs = ((InternalEObject)newSubstance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, null, msgs);
-			msgs = basicSetSubstance(newSubstance, msgs);
+			if (onset != null)
+				msgs = ((InternalEObject)onset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ONSET, null, msgs);
+			if (newOnset != null)
+				msgs = ((InternalEObject)newOnset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ONSET, null, msgs);
+			msgs = basicSetOnset(newOnset, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__SUBSTANCE, newSubstance, newSubstance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatus(AllergyIntoleranceStatus newStatus, NotificationChain msgs) {
-		AllergyIntoleranceStatus oldStatus = status;
-		status = newStatus;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__STATUS, oldStatus, newStatus);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatus(AllergyIntoleranceStatus newStatus) {
-		if (newStatus != status) {
-			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__STATUS, newStatus, newStatus));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceCriticality getCriticality() {
-		return criticality;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCriticality(AllergyIntoleranceCriticality newCriticality, NotificationChain msgs) {
-		AllergyIntoleranceCriticality oldCriticality = criticality;
-		criticality = newCriticality;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, oldCriticality, newCriticality);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCriticality(AllergyIntoleranceCriticality newCriticality) {
-		if (newCriticality != criticality) {
-			NotificationChain msgs = null;
-			if (criticality != null)
-				msgs = ((InternalEObject)criticality).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, null, msgs);
-			if (newCriticality != null)
-				msgs = ((InternalEObject)newCriticality).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, null, msgs);
-			msgs = basicSetCriticality(newCriticality, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY, newCriticality, newCriticality));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(AllergyIntoleranceType newType, NotificationChain msgs) {
-		AllergyIntoleranceType oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(AllergyIntoleranceType newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceCategory getCategory() {
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(AllergyIntoleranceCategory newCategory, NotificationChain msgs) {
-		AllergyIntoleranceCategory oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(AllergyIntoleranceCategory newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY, newCategory, newCategory));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ONSET, newOnset, newOnset));
 	}
 
 	/**

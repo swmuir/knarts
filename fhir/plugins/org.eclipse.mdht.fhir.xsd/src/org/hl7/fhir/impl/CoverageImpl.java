@@ -33,18 +33,24 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getIssuer <em>Issuer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getIssuerIdentifier <em>Issuer Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getIssuerReference <em>Issuer Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getBin <em>Bin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSubscriberId <em>Subscriber Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPlanholderIdentifier <em>Planholder Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPlanholderReference <em>Planholder Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getBeneficiaryIdentifier <em>Beneficiary Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getBeneficiaryReference <em>Beneficiary Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPlan <em>Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSubPlan <em>Sub Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSubscriber <em>Subscriber</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getException <em>Exception</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSchool <em>School</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getNetwork <em>Network</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getContract <em>Contract</em>}</li>
  * </ul>
@@ -53,14 +59,24 @@ import org.hl7.fhir.Reference;
  */
 public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	/**
-	 * The cached value of the '{@link #getIssuer() <em>Issuer</em>}' containment reference.
+	 * The cached value of the '{@link #getIssuerIdentifier() <em>Issuer Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIssuer()
+	 * @see #getIssuerIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference issuer;
+	protected Identifier issuerIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getIssuerReference() <em>Issuer Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIssuerReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference issuerReference;
 
 	/**
 	 * The cached value of the '{@link #getBin() <em>Bin</em>}' containment reference.
@@ -70,7 +86,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier bin;
+	protected org.hl7.fhir.String bin;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -93,14 +109,54 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	protected Coding type;
 
 	/**
-	 * The cached value of the '{@link #getSubscriberId() <em>Subscriber Id</em>}' containment reference.
+	 * The cached value of the '{@link #getPlanholderIdentifier() <em>Planholder Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubscriberId()
+	 * @see #getPlanholderIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier subscriberId;
+	protected Identifier planholderIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getPlanholderReference() <em>Planholder Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlanholderReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference planholderReference;
+
+	/**
+	 * The cached value of the '{@link #getBeneficiaryIdentifier() <em>Beneficiary Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeneficiaryIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier beneficiaryIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getBeneficiaryReference() <em>Beneficiary Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeneficiaryReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference beneficiaryReference;
+
+	/**
+	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationship()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding relationship;
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -163,14 +219,24 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	protected PositiveInt sequence;
 
 	/**
-	 * The cached value of the '{@link #getSubscriber() <em>Subscriber</em>}' containment reference.
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubscriber()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subscriber;
+	protected EList<Coding> exception;
+
+	/**
+	 * The cached value of the '{@link #getSchool() <em>School</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchool()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String school;
 
 	/**
 	 * The cached value of the '{@link #getNetwork() <em>Network</em>}' containment reference.
@@ -180,7 +246,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier network;
+	protected org.hl7.fhir.String network;
 
 	/**
 	 * The cached value of the '{@link #getContract() <em>Contract</em>}' containment reference list.
@@ -216,8 +282,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getIssuer() {
-		return issuer;
+	public Identifier getIssuerIdentifier() {
+		return issuerIdentifier;
 	}
 
 	/**
@@ -225,11 +291,11 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIssuer(Reference newIssuer, NotificationChain msgs) {
-		Reference oldIssuer = issuer;
-		issuer = newIssuer;
+	public NotificationChain basicSetIssuerIdentifier(Identifier newIssuerIdentifier, NotificationChain msgs) {
+		Identifier oldIssuerIdentifier = issuerIdentifier;
+		issuerIdentifier = newIssuerIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER, oldIssuer, newIssuer);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER_IDENTIFIER, oldIssuerIdentifier, newIssuerIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -240,18 +306,18 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIssuer(Reference newIssuer) {
-		if (newIssuer != issuer) {
+	public void setIssuerIdentifier(Identifier newIssuerIdentifier) {
+		if (newIssuerIdentifier != issuerIdentifier) {
 			NotificationChain msgs = null;
-			if (issuer != null)
-				msgs = ((InternalEObject)issuer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER, null, msgs);
-			if (newIssuer != null)
-				msgs = ((InternalEObject)newIssuer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER, null, msgs);
-			msgs = basicSetIssuer(newIssuer, msgs);
+			if (issuerIdentifier != null)
+				msgs = ((InternalEObject)issuerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER_IDENTIFIER, null, msgs);
+			if (newIssuerIdentifier != null)
+				msgs = ((InternalEObject)newIssuerIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER_IDENTIFIER, null, msgs);
+			msgs = basicSetIssuerIdentifier(newIssuerIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER, newIssuer, newIssuer));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER_IDENTIFIER, newIssuerIdentifier, newIssuerIdentifier));
 	}
 
 	/**
@@ -259,7 +325,50 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getBin() {
+	public Reference getIssuerReference() {
+		return issuerReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIssuerReference(Reference newIssuerReference, NotificationChain msgs) {
+		Reference oldIssuerReference = issuerReference;
+		issuerReference = newIssuerReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER_REFERENCE, oldIssuerReference, newIssuerReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIssuerReference(Reference newIssuerReference) {
+		if (newIssuerReference != issuerReference) {
+			NotificationChain msgs = null;
+			if (issuerReference != null)
+				msgs = ((InternalEObject)issuerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER_REFERENCE, null, msgs);
+			if (newIssuerReference != null)
+				msgs = ((InternalEObject)newIssuerReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__ISSUER_REFERENCE, null, msgs);
+			msgs = basicSetIssuerReference(newIssuerReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__ISSUER_REFERENCE, newIssuerReference, newIssuerReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getBin() {
 		return bin;
 	}
 
@@ -268,8 +377,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBin(Identifier newBin, NotificationChain msgs) {
-		Identifier oldBin = bin;
+	public NotificationChain basicSetBin(org.hl7.fhir.String newBin, NotificationChain msgs) {
+		org.hl7.fhir.String oldBin = bin;
 		bin = newBin;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__BIN, oldBin, newBin);
@@ -283,7 +392,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBin(Identifier newBin) {
+	public void setBin(org.hl7.fhir.String newBin) {
 		if (newBin != bin) {
 			NotificationChain msgs = null;
 			if (bin != null)
@@ -388,8 +497,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getSubscriberId() {
-		return subscriberId;
+	public Identifier getPlanholderIdentifier() {
+		return planholderIdentifier;
 	}
 
 	/**
@@ -397,11 +506,11 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubscriberId(Identifier newSubscriberId, NotificationChain msgs) {
-		Identifier oldSubscriberId = subscriberId;
-		subscriberId = newSubscriberId;
+	public NotificationChain basicSetPlanholderIdentifier(Identifier newPlanholderIdentifier, NotificationChain msgs) {
+		Identifier oldPlanholderIdentifier = planholderIdentifier;
+		planholderIdentifier = newPlanholderIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SUBSCRIBER_ID, oldSubscriberId, newSubscriberId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER, oldPlanholderIdentifier, newPlanholderIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -412,18 +521,190 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubscriberId(Identifier newSubscriberId) {
-		if (newSubscriberId != subscriberId) {
+	public void setPlanholderIdentifier(Identifier newPlanholderIdentifier) {
+		if (newPlanholderIdentifier != planholderIdentifier) {
 			NotificationChain msgs = null;
-			if (subscriberId != null)
-				msgs = ((InternalEObject)subscriberId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SUBSCRIBER_ID, null, msgs);
-			if (newSubscriberId != null)
-				msgs = ((InternalEObject)newSubscriberId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SUBSCRIBER_ID, null, msgs);
-			msgs = basicSetSubscriberId(newSubscriberId, msgs);
+			if (planholderIdentifier != null)
+				msgs = ((InternalEObject)planholderIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER, null, msgs);
+			if (newPlanholderIdentifier != null)
+				msgs = ((InternalEObject)newPlanholderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER, null, msgs);
+			msgs = basicSetPlanholderIdentifier(newPlanholderIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SUBSCRIBER_ID, newSubscriberId, newSubscriberId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER, newPlanholderIdentifier, newPlanholderIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPlanholderReference() {
+		return planholderReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPlanholderReference(Reference newPlanholderReference, NotificationChain msgs) {
+		Reference oldPlanholderReference = planholderReference;
+		planholderReference = newPlanholderReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__PLANHOLDER_REFERENCE, oldPlanholderReference, newPlanholderReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlanholderReference(Reference newPlanholderReference) {
+		if (newPlanholderReference != planholderReference) {
+			NotificationChain msgs = null;
+			if (planholderReference != null)
+				msgs = ((InternalEObject)planholderReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__PLANHOLDER_REFERENCE, null, msgs);
+			if (newPlanholderReference != null)
+				msgs = ((InternalEObject)newPlanholderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__PLANHOLDER_REFERENCE, null, msgs);
+			msgs = basicSetPlanholderReference(newPlanholderReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__PLANHOLDER_REFERENCE, newPlanholderReference, newPlanholderReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getBeneficiaryIdentifier() {
+		return beneficiaryIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBeneficiaryIdentifier(Identifier newBeneficiaryIdentifier, NotificationChain msgs) {
+		Identifier oldBeneficiaryIdentifier = beneficiaryIdentifier;
+		beneficiaryIdentifier = newBeneficiaryIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER, oldBeneficiaryIdentifier, newBeneficiaryIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBeneficiaryIdentifier(Identifier newBeneficiaryIdentifier) {
+		if (newBeneficiaryIdentifier != beneficiaryIdentifier) {
+			NotificationChain msgs = null;
+			if (beneficiaryIdentifier != null)
+				msgs = ((InternalEObject)beneficiaryIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER, null, msgs);
+			if (newBeneficiaryIdentifier != null)
+				msgs = ((InternalEObject)newBeneficiaryIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER, null, msgs);
+			msgs = basicSetBeneficiaryIdentifier(newBeneficiaryIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER, newBeneficiaryIdentifier, newBeneficiaryIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getBeneficiaryReference() {
+		return beneficiaryReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBeneficiaryReference(Reference newBeneficiaryReference, NotificationChain msgs) {
+		Reference oldBeneficiaryReference = beneficiaryReference;
+		beneficiaryReference = newBeneficiaryReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__BENEFICIARY_REFERENCE, oldBeneficiaryReference, newBeneficiaryReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBeneficiaryReference(Reference newBeneficiaryReference) {
+		if (newBeneficiaryReference != beneficiaryReference) {
+			NotificationChain msgs = null;
+			if (beneficiaryReference != null)
+				msgs = ((InternalEObject)beneficiaryReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__BENEFICIARY_REFERENCE, null, msgs);
+			if (newBeneficiaryReference != null)
+				msgs = ((InternalEObject)newBeneficiaryReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__BENEFICIARY_REFERENCE, null, msgs);
+			msgs = basicSetBeneficiaryReference(newBeneficiaryReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__BENEFICIARY_REFERENCE, newBeneficiaryReference, newBeneficiaryReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getRelationship() {
+		return relationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRelationship(Coding newRelationship, NotificationChain msgs) {
+		Coding oldRelationship = relationship;
+		relationship = newRelationship;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__RELATIONSHIP, oldRelationship, newRelationship);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRelationship(Coding newRelationship) {
+		if (newRelationship != relationship) {
+			NotificationChain msgs = null;
+			if (relationship != null)
+				msgs = ((InternalEObject)relationship).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__RELATIONSHIP, null, msgs);
+			if (newRelationship != null)
+				msgs = ((InternalEObject)newRelationship).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__RELATIONSHIP, null, msgs);
+			msgs = basicSetRelationship(newRelationship, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__RELATIONSHIP, newRelationship, newRelationship));
 	}
 
 	/**
@@ -658,8 +939,11 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubscriber() {
-		return subscriber;
+	public EList<Coding> getException() {
+		if (exception == null) {
+			exception = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.COVERAGE__EXCEPTION);
+		}
+		return exception;
 	}
 
 	/**
@@ -667,11 +951,20 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubscriber(Reference newSubscriber, NotificationChain msgs) {
-		Reference oldSubscriber = subscriber;
-		subscriber = newSubscriber;
+	public org.hl7.fhir.String getSchool() {
+		return school;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSchool(org.hl7.fhir.String newSchool, NotificationChain msgs) {
+		org.hl7.fhir.String oldSchool = school;
+		school = newSchool;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SUBSCRIBER, oldSubscriber, newSubscriber);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SCHOOL, oldSchool, newSchool);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -682,18 +975,18 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubscriber(Reference newSubscriber) {
-		if (newSubscriber != subscriber) {
+	public void setSchool(org.hl7.fhir.String newSchool) {
+		if (newSchool != school) {
 			NotificationChain msgs = null;
-			if (subscriber != null)
-				msgs = ((InternalEObject)subscriber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SUBSCRIBER, null, msgs);
-			if (newSubscriber != null)
-				msgs = ((InternalEObject)newSubscriber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SUBSCRIBER, null, msgs);
-			msgs = basicSetSubscriber(newSubscriber, msgs);
+			if (school != null)
+				msgs = ((InternalEObject)school).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SCHOOL, null, msgs);
+			if (newSchool != null)
+				msgs = ((InternalEObject)newSchool).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__SCHOOL, null, msgs);
+			msgs = basicSetSchool(newSchool, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SUBSCRIBER, newSubscriber, newSubscriber));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__SCHOOL, newSchool, newSchool));
 	}
 
 	/**
@@ -701,7 +994,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getNetwork() {
+	public org.hl7.fhir.String getNetwork() {
 		return network;
 	}
 
@@ -710,8 +1003,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNetwork(Identifier newNetwork, NotificationChain msgs) {
-		Identifier oldNetwork = network;
+	public NotificationChain basicSetNetwork(org.hl7.fhir.String newNetwork, NotificationChain msgs) {
+		org.hl7.fhir.String oldNetwork = network;
 		network = newNetwork;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__NETWORK, oldNetwork, newNetwork);
@@ -725,7 +1018,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNetwork(Identifier newNetwork) {
+	public void setNetwork(org.hl7.fhir.String newNetwork) {
 		if (newNetwork != network) {
 			NotificationChain msgs = null;
 			if (network != null)
@@ -759,16 +1052,26 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.COVERAGE__ISSUER:
-				return basicSetIssuer(null, msgs);
+			case FhirPackage.COVERAGE__ISSUER_IDENTIFIER:
+				return basicSetIssuerIdentifier(null, msgs);
+			case FhirPackage.COVERAGE__ISSUER_REFERENCE:
+				return basicSetIssuerReference(null, msgs);
 			case FhirPackage.COVERAGE__BIN:
 				return basicSetBin(null, msgs);
 			case FhirPackage.COVERAGE__PERIOD:
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.COVERAGE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.COVERAGE__SUBSCRIBER_ID:
-				return basicSetSubscriberId(null, msgs);
+			case FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER:
+				return basicSetPlanholderIdentifier(null, msgs);
+			case FhirPackage.COVERAGE__PLANHOLDER_REFERENCE:
+				return basicSetPlanholderReference(null, msgs);
+			case FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER:
+				return basicSetBeneficiaryIdentifier(null, msgs);
+			case FhirPackage.COVERAGE__BENEFICIARY_REFERENCE:
+				return basicSetBeneficiaryReference(null, msgs);
+			case FhirPackage.COVERAGE__RELATIONSHIP:
+				return basicSetRelationship(null, msgs);
 			case FhirPackage.COVERAGE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COVERAGE__GROUP:
@@ -781,8 +1084,10 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return basicSetDependent(null, msgs);
 			case FhirPackage.COVERAGE__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.COVERAGE__SUBSCRIBER:
-				return basicSetSubscriber(null, msgs);
+			case FhirPackage.COVERAGE__EXCEPTION:
+				return ((InternalEList<?>)getException()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COVERAGE__SCHOOL:
+				return basicSetSchool(null, msgs);
 			case FhirPackage.COVERAGE__NETWORK:
 				return basicSetNetwork(null, msgs);
 			case FhirPackage.COVERAGE__CONTRACT:
@@ -799,16 +1104,26 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.COVERAGE__ISSUER:
-				return getIssuer();
+			case FhirPackage.COVERAGE__ISSUER_IDENTIFIER:
+				return getIssuerIdentifier();
+			case FhirPackage.COVERAGE__ISSUER_REFERENCE:
+				return getIssuerReference();
 			case FhirPackage.COVERAGE__BIN:
 				return getBin();
 			case FhirPackage.COVERAGE__PERIOD:
 				return getPeriod();
 			case FhirPackage.COVERAGE__TYPE:
 				return getType();
-			case FhirPackage.COVERAGE__SUBSCRIBER_ID:
-				return getSubscriberId();
+			case FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER:
+				return getPlanholderIdentifier();
+			case FhirPackage.COVERAGE__PLANHOLDER_REFERENCE:
+				return getPlanholderReference();
+			case FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER:
+				return getBeneficiaryIdentifier();
+			case FhirPackage.COVERAGE__BENEFICIARY_REFERENCE:
+				return getBeneficiaryReference();
+			case FhirPackage.COVERAGE__RELATIONSHIP:
+				return getRelationship();
 			case FhirPackage.COVERAGE__IDENTIFIER:
 				return getIdentifier();
 			case FhirPackage.COVERAGE__GROUP:
@@ -821,8 +1136,10 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return getDependent();
 			case FhirPackage.COVERAGE__SEQUENCE:
 				return getSequence();
-			case FhirPackage.COVERAGE__SUBSCRIBER:
-				return getSubscriber();
+			case FhirPackage.COVERAGE__EXCEPTION:
+				return getException();
+			case FhirPackage.COVERAGE__SCHOOL:
+				return getSchool();
 			case FhirPackage.COVERAGE__NETWORK:
 				return getNetwork();
 			case FhirPackage.COVERAGE__CONTRACT:
@@ -840,11 +1157,14 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.COVERAGE__ISSUER:
-				setIssuer((Reference)newValue);
+			case FhirPackage.COVERAGE__ISSUER_IDENTIFIER:
+				setIssuerIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.COVERAGE__ISSUER_REFERENCE:
+				setIssuerReference((Reference)newValue);
 				return;
 			case FhirPackage.COVERAGE__BIN:
-				setBin((Identifier)newValue);
+				setBin((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COVERAGE__PERIOD:
 				setPeriod((Period)newValue);
@@ -852,8 +1172,20 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 			case FhirPackage.COVERAGE__TYPE:
 				setType((Coding)newValue);
 				return;
-			case FhirPackage.COVERAGE__SUBSCRIBER_ID:
-				setSubscriberId((Identifier)newValue);
+			case FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER:
+				setPlanholderIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.COVERAGE__PLANHOLDER_REFERENCE:
+				setPlanholderReference((Reference)newValue);
+				return;
+			case FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER:
+				setBeneficiaryIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.COVERAGE__BENEFICIARY_REFERENCE:
+				setBeneficiaryReference((Reference)newValue);
+				return;
+			case FhirPackage.COVERAGE__RELATIONSHIP:
+				setRelationship((Coding)newValue);
 				return;
 			case FhirPackage.COVERAGE__IDENTIFIER:
 				getIdentifier().clear();
@@ -874,11 +1206,15 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 			case FhirPackage.COVERAGE__SEQUENCE:
 				setSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.COVERAGE__SUBSCRIBER:
-				setSubscriber((Reference)newValue);
+			case FhirPackage.COVERAGE__EXCEPTION:
+				getException().clear();
+				getException().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.COVERAGE__SCHOOL:
+				setSchool((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COVERAGE__NETWORK:
-				setNetwork((Identifier)newValue);
+				setNetwork((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COVERAGE__CONTRACT:
 				getContract().clear();
@@ -896,11 +1232,14 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.COVERAGE__ISSUER:
-				setIssuer((Reference)null);
+			case FhirPackage.COVERAGE__ISSUER_IDENTIFIER:
+				setIssuerIdentifier((Identifier)null);
+				return;
+			case FhirPackage.COVERAGE__ISSUER_REFERENCE:
+				setIssuerReference((Reference)null);
 				return;
 			case FhirPackage.COVERAGE__BIN:
-				setBin((Identifier)null);
+				setBin((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COVERAGE__PERIOD:
 				setPeriod((Period)null);
@@ -908,8 +1247,20 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 			case FhirPackage.COVERAGE__TYPE:
 				setType((Coding)null);
 				return;
-			case FhirPackage.COVERAGE__SUBSCRIBER_ID:
-				setSubscriberId((Identifier)null);
+			case FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER:
+				setPlanholderIdentifier((Identifier)null);
+				return;
+			case FhirPackage.COVERAGE__PLANHOLDER_REFERENCE:
+				setPlanholderReference((Reference)null);
+				return;
+			case FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER:
+				setBeneficiaryIdentifier((Identifier)null);
+				return;
+			case FhirPackage.COVERAGE__BENEFICIARY_REFERENCE:
+				setBeneficiaryReference((Reference)null);
+				return;
+			case FhirPackage.COVERAGE__RELATIONSHIP:
+				setRelationship((Coding)null);
 				return;
 			case FhirPackage.COVERAGE__IDENTIFIER:
 				getIdentifier().clear();
@@ -929,11 +1280,14 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 			case FhirPackage.COVERAGE__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.COVERAGE__SUBSCRIBER:
-				setSubscriber((Reference)null);
+			case FhirPackage.COVERAGE__EXCEPTION:
+				getException().clear();
+				return;
+			case FhirPackage.COVERAGE__SCHOOL:
+				setSchool((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COVERAGE__NETWORK:
-				setNetwork((Identifier)null);
+				setNetwork((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COVERAGE__CONTRACT:
 				getContract().clear();
@@ -950,16 +1304,26 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.COVERAGE__ISSUER:
-				return issuer != null;
+			case FhirPackage.COVERAGE__ISSUER_IDENTIFIER:
+				return issuerIdentifier != null;
+			case FhirPackage.COVERAGE__ISSUER_REFERENCE:
+				return issuerReference != null;
 			case FhirPackage.COVERAGE__BIN:
 				return bin != null;
 			case FhirPackage.COVERAGE__PERIOD:
 				return period != null;
 			case FhirPackage.COVERAGE__TYPE:
 				return type != null;
-			case FhirPackage.COVERAGE__SUBSCRIBER_ID:
-				return subscriberId != null;
+			case FhirPackage.COVERAGE__PLANHOLDER_IDENTIFIER:
+				return planholderIdentifier != null;
+			case FhirPackage.COVERAGE__PLANHOLDER_REFERENCE:
+				return planholderReference != null;
+			case FhirPackage.COVERAGE__BENEFICIARY_IDENTIFIER:
+				return beneficiaryIdentifier != null;
+			case FhirPackage.COVERAGE__BENEFICIARY_REFERENCE:
+				return beneficiaryReference != null;
+			case FhirPackage.COVERAGE__RELATIONSHIP:
+				return relationship != null;
 			case FhirPackage.COVERAGE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.COVERAGE__GROUP:
@@ -972,8 +1336,10 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return dependent != null;
 			case FhirPackage.COVERAGE__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.COVERAGE__SUBSCRIBER:
-				return subscriber != null;
+			case FhirPackage.COVERAGE__EXCEPTION:
+				return exception != null && !exception.isEmpty();
+			case FhirPackage.COVERAGE__SCHOOL:
+				return school != null;
 			case FhirPackage.COVERAGE__NETWORK:
 				return network != null;
 			case FhirPackage.COVERAGE__CONTRACT:

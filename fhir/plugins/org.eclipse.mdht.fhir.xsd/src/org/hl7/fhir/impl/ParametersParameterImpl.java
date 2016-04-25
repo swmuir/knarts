@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ActionDefinition;
 import org.hl7.fhir.Address;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.Attachment;
@@ -25,6 +26,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactPoint;
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
@@ -38,6 +40,7 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.ModuleMetadata;
 import org.hl7.fhir.Oid;
+import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.ParametersParameter;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
@@ -50,6 +53,7 @@ import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.TriggerDefinition;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.Uuid;
@@ -99,6 +103,10 @@ import org.hl7.fhir.Uuid;
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueMeta <em>Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueElementDefinition <em>Value Element Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueModuleMetadata <em>Value Module Metadata</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueActionDefinition <em>Value Action Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getPart <em>Part</em>}</li>
  * </ul>
@@ -475,6 +483,46 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * @ordered
 	 */
 	protected ModuleMetadata valueModuleMetadata;
+
+	/**
+	 * The cached value of the '{@link #getValueDataRequirement() <em>Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataRequirement valueDataRequirement;
+
+	/**
+	 * The cached value of the '{@link #getValueActionDefinition() <em>Value Action Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueActionDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected ActionDefinition valueActionDefinition;
+
+	/**
+	 * The cached value of the '{@link #getValueParameterDefinition() <em>Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueParameterDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterDefinition valueParameterDefinition;
+
+	/**
+	 * The cached value of the '{@link #getValueTriggerDefinition() <em>Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueTriggerDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TriggerDefinition valueTriggerDefinition;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -2111,6 +2159,178 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataRequirement getValueDataRequirement() {
+		return valueDataRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDataRequirement(DataRequirement newValueDataRequirement, NotificationChain msgs) {
+		DataRequirement oldValueDataRequirement = valueDataRequirement;
+		valueDataRequirement = newValueDataRequirement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, oldValueDataRequirement, newValueDataRequirement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDataRequirement(DataRequirement newValueDataRequirement) {
+		if (newValueDataRequirement != valueDataRequirement) {
+			NotificationChain msgs = null;
+			if (valueDataRequirement != null)
+				msgs = ((InternalEObject)valueDataRequirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, null, msgs);
+			if (newValueDataRequirement != null)
+				msgs = ((InternalEObject)newValueDataRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, null, msgs);
+			msgs = basicSetValueDataRequirement(newValueDataRequirement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, newValueDataRequirement, newValueDataRequirement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionDefinition getValueActionDefinition() {
+		return valueActionDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueActionDefinition(ActionDefinition newValueActionDefinition, NotificationChain msgs) {
+		ActionDefinition oldValueActionDefinition = valueActionDefinition;
+		valueActionDefinition = newValueActionDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION, oldValueActionDefinition, newValueActionDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueActionDefinition(ActionDefinition newValueActionDefinition) {
+		if (newValueActionDefinition != valueActionDefinition) {
+			NotificationChain msgs = null;
+			if (valueActionDefinition != null)
+				msgs = ((InternalEObject)valueActionDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION, null, msgs);
+			if (newValueActionDefinition != null)
+				msgs = ((InternalEObject)newValueActionDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION, null, msgs);
+			msgs = basicSetValueActionDefinition(newValueActionDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION, newValueActionDefinition, newValueActionDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDefinition getValueParameterDefinition() {
+		return valueParameterDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueParameterDefinition(ParameterDefinition newValueParameterDefinition, NotificationChain msgs) {
+		ParameterDefinition oldValueParameterDefinition = valueParameterDefinition;
+		valueParameterDefinition = newValueParameterDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, oldValueParameterDefinition, newValueParameterDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueParameterDefinition(ParameterDefinition newValueParameterDefinition) {
+		if (newValueParameterDefinition != valueParameterDefinition) {
+			NotificationChain msgs = null;
+			if (valueParameterDefinition != null)
+				msgs = ((InternalEObject)valueParameterDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, null, msgs);
+			if (newValueParameterDefinition != null)
+				msgs = ((InternalEObject)newValueParameterDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, null, msgs);
+			msgs = basicSetValueParameterDefinition(newValueParameterDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, newValueParameterDefinition, newValueParameterDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TriggerDefinition getValueTriggerDefinition() {
+		return valueTriggerDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueTriggerDefinition(TriggerDefinition newValueTriggerDefinition, NotificationChain msgs) {
+		TriggerDefinition oldValueTriggerDefinition = valueTriggerDefinition;
+		valueTriggerDefinition = newValueTriggerDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, oldValueTriggerDefinition, newValueTriggerDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueTriggerDefinition(TriggerDefinition newValueTriggerDefinition) {
+		if (newValueTriggerDefinition != valueTriggerDefinition) {
+			NotificationChain msgs = null;
+			if (valueTriggerDefinition != null)
+				msgs = ((InternalEObject)valueTriggerDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, null, msgs);
+			if (newValueTriggerDefinition != null)
+				msgs = ((InternalEObject)newValueTriggerDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, null, msgs);
+			msgs = basicSetValueTriggerDefinition(newValueTriggerDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, newValueTriggerDefinition, newValueTriggerDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceContainer getResource() {
 		return resource;
 	}
@@ -2243,6 +2463,14 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return basicSetValueElementDefinition(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
 				return basicSetValueModuleMetadata(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return basicSetValueDataRequirement(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION:
+				return basicSetValueActionDefinition(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return basicSetValueParameterDefinition(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return basicSetValueTriggerDefinition(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return basicSetResource(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__PART:
@@ -2333,6 +2561,14 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return getValueElementDefinition();
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
 				return getValueModuleMetadata();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return getValueDataRequirement();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION:
+				return getValueActionDefinition();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return getValueParameterDefinition();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return getValueTriggerDefinition();
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return getResource();
 			case FhirPackage.PARAMETERS_PARAMETER__PART:
@@ -2460,6 +2696,18 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
 				setValueModuleMetadata((ModuleMetadata)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				setValueDataRequirement((DataRequirement)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION:
+				setValueActionDefinition((ActionDefinition)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				setValueParameterDefinition((ParameterDefinition)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				setValueTriggerDefinition((TriggerDefinition)newValue);
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				setResource((ResourceContainer)newValue);
@@ -2591,6 +2839,18 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
 				setValueModuleMetadata((ModuleMetadata)null);
 				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				setValueDataRequirement((DataRequirement)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION:
+				setValueActionDefinition((ActionDefinition)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				setValueParameterDefinition((ParameterDefinition)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				setValueTriggerDefinition((TriggerDefinition)null);
+				return;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				setResource((ResourceContainer)null);
 				return;
@@ -2683,6 +2943,14 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return valueElementDefinition != null;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_MODULE_METADATA:
 				return valueModuleMetadata != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return valueDataRequirement != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_ACTION_DEFINITION:
+				return valueActionDefinition != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return valueParameterDefinition != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return valueTriggerDefinition != null;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
 				return resource != null;
 			case FhirPackage.PARAMETERS_PARAMETER__PART:

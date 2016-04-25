@@ -185,6 +185,49 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Oid getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUid(Oid newUid, NotificationChain msgs) {
+		Oid oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__UID, oldUid, newUid);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(Oid newUid) {
+		if (newUid != uid) {
+			NotificationChain msgs = null;
+			if (uid != null)
+				msgs = ((InternalEObject)uid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__UID, null, msgs);
+			if (newUid != null)
+				msgs = ((InternalEObject)newUid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__UID, null, msgs);
+			msgs = basicSetUid(newUid, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__UID, newUid, newUid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UnsignedInt getNumber() {
 		return number;
 	}
@@ -264,49 +307,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__MODALITY, newModality, newModality));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Oid getUid() {
-		return uid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUid(Oid newUid, NotificationChain msgs) {
-		Oid oldUid = uid;
-		uid = newUid;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__UID, oldUid, newUid);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUid(Oid newUid) {
-		if (newUid != uid) {
-			NotificationChain msgs = null;
-			if (uid != null)
-				msgs = ((InternalEObject)uid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__UID, null, msgs);
-			if (newUid != null)
-				msgs = ((InternalEObject)newUid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__UID, null, msgs);
-			msgs = basicSetUid(newUid, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__UID, newUid, newUid));
 	}
 
 	/**

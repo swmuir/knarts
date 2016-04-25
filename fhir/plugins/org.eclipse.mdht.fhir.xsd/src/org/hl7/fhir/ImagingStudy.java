@@ -42,58 +42,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImagingStudy extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Started</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Date and Time the study started.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Started</em>' containment reference.
-	 * @see #setStarted(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Started()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='started' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getStarted();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Started</em>' containment reference.
-	 * @see #getStarted()
-	 * @generated
-	 */
-	void setStarted(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The patient imaged in the study.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Patient()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,20 +110,30 @@ public interface ImagingStudy extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Order</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Availability</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of the diagnostic orders that resulted in this imaging study being performed.
+	 * Availability of study (online, offline or nearline).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Order</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Order()
+	 * @return the value of the '<em>Availability</em>' containment reference.
+	 * @see #setAvailability(InstanceAvailability)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Availability()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='order' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='availability' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getOrder();
+	InstanceAvailability getAvailability();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getAvailability <em>Availability</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Availability</em>' containment reference.
+	 * @see #getAvailability()
+	 * @generated
+	 */
+	void setAvailability(InstanceAvailability value);
 
 	/**
 	 * Returns the value of the '<em><b>Modality List</b></em>' containment reference list.
@@ -192,6 +150,74 @@ public interface ImagingStudy extends DomainResource {
 	 * @generated
 	 */
 	EList<Coding> getModalityList();
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The patient imaged in the study.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Patient()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Started</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Date and Time the study started.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Started</em>' containment reference.
+	 * @see #setStarted(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Started()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='started' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getStarted();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Started</em>' containment reference.
+	 * @see #getStarted()
+	 * @generated
+	 */
+	void setStarted(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Order</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of the diagnostic orders that resulted in this imaging study being performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Order</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Order()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='order' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getOrder();
 
 	/**
 	 * Returns the value of the '<em><b>Referrer</b></em>' containment reference.
@@ -220,30 +246,30 @@ public interface ImagingStudy extends DomainResource {
 	void setReferrer(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Availability</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Interpreter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Availability of study (online, offline or nearline).
+	 * Who read the study and interpreted the images or other content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Availability</em>' containment reference.
-	 * @see #setAvailability(InstanceAvailability)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Availability()
+	 * @return the value of the '<em>Interpreter</em>' containment reference.
+	 * @see #setInterpreter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Interpreter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='availability' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='interpreter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	InstanceAvailability getAvailability();
+	Reference getInterpreter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getAvailability <em>Availability</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Availability</em>' containment reference.
-	 * @see #getAvailability()
+	 * @param value the new value of the '<em>Interpreter</em>' containment reference.
+	 * @see #getInterpreter()
 	 * @generated
 	 */
-	void setAvailability(InstanceAvailability value);
+	void setInterpreter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
@@ -338,32 +364,6 @@ public interface ImagingStudy extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getProcedure();
-
-	/**
-	 * Returns the value of the '<em><b>Interpreter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Who read the study and interpreted the images or other content.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpreter</em>' containment reference.
-	 * @see #setInterpreter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Interpreter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='interpreter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getInterpreter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interpreter</em>' containment reference.
-	 * @see #getInterpreter()
-	 * @generated
-	 */
-	void setInterpreter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

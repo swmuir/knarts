@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.NamingSystem;
@@ -38,10 +38,10 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getResponsible <em>Responsible</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUseContext <em>Use Context</em>}</li>
@@ -71,7 +71,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
@@ -82,6 +82,16 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @ordered
 	 */
 	protected NamingSystemType kind;
+
+	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
@@ -112,16 +122,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String responsible;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -250,7 +250,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -259,8 +259,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__STATUS, oldStatus, newStatus);
@@ -274,7 +274,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -329,6 +329,49 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__KIND, newKind, newKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__DATE, newDate, newDate));
 	}
 
 	/**
@@ -427,49 +470,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__RESPONSIBLE, newResponsible, newResponsible));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__DATE, newDate, newDate));
 	}
 
 	/**
@@ -682,14 +682,14 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return basicSetStatus(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				return basicSetKind(null, msgs);
+			case FhirPackage.NAMING_SYSTEM__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				return basicSetResponsible(null, msgs);
-			case FhirPackage.NAMING_SYSTEM__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__DESCRIPTION:
@@ -720,14 +720,14 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return getStatus();
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				return getKind();
+			case FhirPackage.NAMING_SYSTEM__DATE:
+				return getDate();
 			case FhirPackage.NAMING_SYSTEM__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.NAMING_SYSTEM__CONTACT:
 				return getContact();
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				return getResponsible();
-			case FhirPackage.NAMING_SYSTEM__DATE:
-				return getDate();
 			case FhirPackage.NAMING_SYSTEM__TYPE:
 				return getType();
 			case FhirPackage.NAMING_SYSTEM__DESCRIPTION:
@@ -757,10 +757,13 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				setKind((NamingSystemType)newValue);
+				return;
+			case FhirPackage.NAMING_SYSTEM__DATE:
+				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
@@ -771,9 +774,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return;
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				setResponsible((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.NAMING_SYSTEM__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__TYPE:
 				setType((CodeableConcept)newValue);
@@ -811,10 +811,13 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				setKind((NamingSystemType)null);
+				return;
+			case FhirPackage.NAMING_SYSTEM__DATE:
+				setDate((DateTime)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
@@ -824,9 +827,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return;
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				setResponsible((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.NAMING_SYSTEM__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__TYPE:
 				setType((CodeableConcept)null);
@@ -864,14 +864,14 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return status != null;
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				return kind != null;
+			case FhirPackage.NAMING_SYSTEM__DATE:
+				return date != null;
 			case FhirPackage.NAMING_SYSTEM__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.NAMING_SYSTEM__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				return responsible != null;
-			case FhirPackage.NAMING_SYSTEM__DATE:
-				return date != null;
 			case FhirPackage.NAMING_SYSTEM__TYPE:
 				return type != null;
 			case FhirPackage.NAMING_SYSTEM__DESCRIPTION:

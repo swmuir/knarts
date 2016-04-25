@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinitionType#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionType#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionType#getAggregation <em>Aggregation</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionType#getVersioning <em>Versioning</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getElementDefinitionType()
@@ -85,5 +86,31 @@ public interface ElementDefinitionType extends Element {
 	 * @generated
 	 */
 	EList<AggregationMode> getAggregation();
+
+	/**
+	 * Returns the value of the '<em><b>Versioning</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Versioning</em>' containment reference.
+	 * @see #setVersioning(ReferenceVersionRules)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionType_Versioning()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='versioning' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ReferenceVersionRules getVersioning();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionType#getVersioning <em>Versioning</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Versioning</em>' containment reference.
+	 * @see #getVersioning()
+	 * @generated
+	 */
+	void setVersioning(ReferenceVersionRules value);
 
 } // ElementDefinitionType

@@ -197,6 +197,61 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.NUTRITION_ORDER__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NutritionOrderStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(NutritionOrderStatus newStatus, NotificationChain msgs) {
+		NutritionOrderStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(NutritionOrderStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getPatient() {
 		return patient;
 	}
@@ -233,61 +288,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__PATIENT, newPatient, newPatient));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrderer() {
-		return orderer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrderer(Reference newOrderer, NotificationChain msgs) {
-		Reference oldOrderer = orderer;
-		orderer = newOrderer;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__ORDERER, oldOrderer, newOrderer);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrderer(Reference newOrderer) {
-		if (newOrderer != orderer) {
-			NotificationChain msgs = null;
-			if (orderer != null)
-				msgs = ((InternalEObject)orderer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__ORDERER, null, msgs);
-			if (newOrderer != null)
-				msgs = ((InternalEObject)newOrderer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__ORDERER, null, msgs);
-			msgs = basicSetOrderer(newOrderer, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__ORDERER, newOrderer, newOrderer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.NUTRITION_ORDER__IDENTIFIER);
-		}
-		return identifier;
 	}
 
 	/**
@@ -381,8 +381,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NutritionOrderStatus getStatus() {
-		return status;
+	public Reference getOrderer() {
+		return orderer;
 	}
 
 	/**
@@ -390,11 +390,11 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(NutritionOrderStatus newStatus, NotificationChain msgs) {
-		NutritionOrderStatus oldStatus = status;
-		status = newStatus;
+	public NotificationChain basicSetOrderer(Reference newOrderer, NotificationChain msgs) {
+		Reference oldOrderer = orderer;
+		orderer = newOrderer;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__ORDERER, oldOrderer, newOrderer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -405,18 +405,18 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(NutritionOrderStatus newStatus) {
-		if (newStatus != status) {
+	public void setOrderer(Reference newOrderer) {
+		if (newOrderer != orderer) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (orderer != null)
+				msgs = ((InternalEObject)orderer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__ORDERER, null, msgs);
+			if (newOrderer != null)
+				msgs = ((InternalEObject)newOrderer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__ORDERER, null, msgs);
+			msgs = basicSetOrderer(newOrderer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__ORDERER, newOrderer, newOrderer));
 	}
 
 	/**

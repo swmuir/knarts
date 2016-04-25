@@ -30,6 +30,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponseCode <em>Response Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getSourceId <em>Source Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getValidateProfileId <em>Validate Profile Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getValue <em>Value</em>}</li>
@@ -228,7 +230,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.
+	 * The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Minimum Id</em>' containment reference.
 	 * @see #setMinimumId(org.hl7.fhir.String)
@@ -404,6 +406,58 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @generated
 	 */
 	void setResponseCode(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The TestScript.rule id value this assert will evaluate.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Rule</em>' containment reference.
+	 * @see #setRule(TestScriptRule2)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Rule()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestScriptRule2 getRule();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRule <em>Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule</em>' containment reference.
+	 * @see #getRule()
+	 * @generated
+	 */
+	void setRule(TestScriptRule2 value);
+
+	/**
+	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The TestScript.ruleset id value this assert will evaluate.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Ruleset</em>' containment reference.
+	 * @see #setRuleset(TestScriptRuleset1)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Ruleset()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestScriptRuleset1 getRuleset();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRuleset <em>Ruleset</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ruleset</em>' containment reference.
+	 * @see #getRuleset()
+	 * @generated
+	 */
+	void setRuleset(TestScriptRuleset1 value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Id</b></em>' containment reference.

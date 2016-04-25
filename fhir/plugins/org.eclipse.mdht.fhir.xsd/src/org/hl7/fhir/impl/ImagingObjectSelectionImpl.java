@@ -225,6 +225,92 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateTime getAuthoringTime() {
+		return authoringTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAuthoringTime(DateTime newAuthoringTime, NotificationChain msgs) {
+		DateTime oldAuthoringTime = authoringTime;
+		authoringTime = newAuthoringTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, oldAuthoringTime, newAuthoringTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthoringTime(DateTime newAuthoringTime) {
+		if (newAuthoringTime != authoringTime) {
+			NotificationChain msgs = null;
+			if (authoringTime != null)
+				msgs = ((InternalEObject)authoringTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, null, msgs);
+			if (newAuthoringTime != null)
+				msgs = ((InternalEObject)newAuthoringTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, null, msgs);
+			msgs = basicSetAuthoringTime(newAuthoringTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, newAuthoringTime, newAuthoringTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getAuthor() {
+		return author;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAuthor(Reference newAuthor, NotificationChain msgs) {
+		Reference oldAuthor = author;
+		author = newAuthor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, oldAuthor, newAuthor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthor(Reference newAuthor) {
+		if (newAuthor != author) {
+			NotificationChain msgs = null;
+			if (author != null)
+				msgs = ((InternalEObject)author).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, null, msgs);
+			if (newAuthor != null)
+				msgs = ((InternalEObject)newAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, null, msgs);
+			msgs = basicSetAuthor(newAuthor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, newAuthor, newAuthor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodeableConcept getTitle() {
 		return title;
 	}
@@ -304,92 +390,6 @@ public class ImagingObjectSelectionImpl extends DomainResourceImpl implements Im
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getAuthor() {
-		return author;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAuthor(Reference newAuthor, NotificationChain msgs) {
-		Reference oldAuthor = author;
-		author = newAuthor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, oldAuthor, newAuthor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAuthor(Reference newAuthor) {
-		if (newAuthor != author) {
-			NotificationChain msgs = null;
-			if (author != null)
-				msgs = ((InternalEObject)author).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, null, msgs);
-			if (newAuthor != null)
-				msgs = ((InternalEObject)newAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, null, msgs);
-			msgs = basicSetAuthor(newAuthor, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHOR, newAuthor, newAuthor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getAuthoringTime() {
-		return authoringTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAuthoringTime(DateTime newAuthoringTime, NotificationChain msgs) {
-		DateTime oldAuthoringTime = authoringTime;
-		authoringTime = newAuthoringTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, oldAuthoringTime, newAuthoringTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAuthoringTime(DateTime newAuthoringTime) {
-		if (newAuthoringTime != authoringTime) {
-			NotificationChain msgs = null;
-			if (authoringTime != null)
-				msgs = ((InternalEObject)authoringTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, null, msgs);
-			if (newAuthoringTime != null)
-				msgs = ((InternalEObject)newAuthoringTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, null, msgs);
-			msgs = basicSetAuthoringTime(newAuthoringTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_OBJECT_SELECTION__AUTHORING_TIME, newAuthoringTime, newAuthoringTime));
 	}
 
 	/**

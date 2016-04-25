@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.ProfileOriginType;
 import org.hl7.fhir.TestScriptOrigin;
 
 /**
@@ -47,7 +47,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * @generated
 	 * @ordered
 	 */
-	protected ProfileOriginType profile;
+	protected Coding profile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,7 +116,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProfileOriginType getProfile() {
+	public Coding getProfile() {
 		return profile;
 	}
 
@@ -125,8 +125,8 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(ProfileOriginType newProfile, NotificationChain msgs) {
-		ProfileOriginType oldProfile = profile;
+	public NotificationChain basicSetProfile(Coding newProfile, NotificationChain msgs) {
+		Coding oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ORIGIN__PROFILE, oldProfile, newProfile);
@@ -140,7 +140,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(ProfileOriginType newProfile) {
+	public void setProfile(Coding newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -198,7 +198,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 				setIndex((org.hl7.fhir.Integer)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ORIGIN__PROFILE:
-				setProfile((ProfileOriginType)newValue);
+				setProfile((Coding)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,7 +216,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 				setIndex((org.hl7.fhir.Integer)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ORIGIN__PROFILE:
-				setProfile((ProfileOriginType)null);
+				setProfile((Coding)null);
 				return;
 		}
 		super.eUnset(featureID);

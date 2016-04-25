@@ -31,13 +31,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScript#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScript#getMetadata <em>Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getDestination <em>Destination</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScript#getMultiserver <em>Multiserver</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScript#getMetadata <em>Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScript#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScript#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getTest <em>Test</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getTeardown <em>Teardown</em>}</li>
@@ -134,13 +135,13 @@ public interface TestScript extends DomainResource {
 	 * The status of the TestScript.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ConformanceResourceStatus)
 	 * @see org.hl7.fhir.FhirPackage#getTestScript_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ConformanceResourceStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScript#getStatus <em>Status</em>}' containment reference.
@@ -150,7 +151,7 @@ public interface TestScript extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ConformanceResourceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -367,32 +368,6 @@ public interface TestScript extends DomainResource {
 	void setCopyright(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Metadata</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The required capability must exist and are assumed to function correctly on the FHIR server being tested.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Metadata</em>' containment reference.
-	 * @see #setMetadata(TestScriptMetadata)
-	 * @see org.hl7.fhir.FhirPackage#getTestScript_Metadata()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='metadata' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TestScriptMetadata getMetadata();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestScript#getMetadata <em>Metadata</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metadata</em>' containment reference.
-	 * @see #getMetadata()
-	 * @generated
-	 */
-	void setMetadata(TestScriptMetadata value);
-
-	/**
 	 * Returns the value of the '<em><b>Origin</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.TestScriptOrigin}.
 	 * <!-- begin-user-doc -->
@@ -425,30 +400,30 @@ public interface TestScript extends DomainResource {
 	EList<TestScriptDestination> getDestination();
 
 	/**
-	 * Returns the value of the '<em><b>Multiserver</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Metadata</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
+	 * The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Multiserver</em>' containment reference.
-	 * @see #setMultiserver(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getTestScript_Multiserver()
+	 * @return the value of the '<em>Metadata</em>' containment reference.
+	 * @see #setMetadata(TestScriptMetadata)
+	 * @see org.hl7.fhir.FhirPackage#getTestScript_Metadata()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='multiserver' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='metadata' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getMultiserver();
+	TestScriptMetadata getMetadata();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestScript#getMultiserver <em>Multiserver</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TestScript#getMetadata <em>Metadata</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Multiserver</em>' containment reference.
-	 * @see #getMultiserver()
+	 * @param value the new value of the '<em>Metadata</em>' containment reference.
+	 * @see #getMetadata()
 	 * @generated
 	 */
-	void setMultiserver(org.hl7.fhir.Boolean value);
+	void setMetadata(TestScriptMetadata value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixture</b></em>' containment reference list.
@@ -497,6 +472,38 @@ public interface TestScript extends DomainResource {
 	 * @generated
 	 */
 	EList<TestScriptVariable> getVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TestScriptRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Assert rule to be used in one or more asserts within the test script.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Rule</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTestScript_Rule()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<TestScriptRule> getRule();
+
+	/**
+	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TestScriptRuleset}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Ruleset</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTestScript_Ruleset()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<TestScriptRuleset> getRuleset();
 
 	/**
 	 * Returns the value of the '<em><b>Setup</b></em>' containment reference.

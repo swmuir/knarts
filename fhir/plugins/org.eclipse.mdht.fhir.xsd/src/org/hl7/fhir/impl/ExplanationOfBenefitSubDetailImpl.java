@@ -24,6 +24,7 @@ import org.hl7.fhir.ExplanationOfBenefitSubDetail;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.SimpleQuantity;
 
 /**
@@ -37,6 +38,7 @@ import org.hl7.fhir.SimpleQuantity;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getFactor <em>Factor</em>}</li>
@@ -78,6 +80,16 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @ordered
 	 */
 	protected Coding service;
+
+	/**
+	 * The cached value of the '{@link #getProgramCode() <em>Program Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProgramCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> programCode;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -130,14 +142,14 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	protected Money net;
 
 	/**
-	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference.
+	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUdi()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding udi;
+	protected EList<Reference> udi;
 
 	/**
 	 * The cached value of the '{@link #getAdjudication() <em>Adjudication</em>}' containment reference list.
@@ -295,6 +307,18 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE, newService, newService));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getProgramCode() {
+		if (programCode == null) {
+			programCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE);
+		}
+		return programCode;
 	}
 
 	/**
@@ -517,42 +541,11 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getUdi() {
+	public EList<Reference> getUdi() {
+		if (udi == null) {
+			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI);
+		}
 		return udi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUdi(Coding newUdi, NotificationChain msgs) {
-		Coding oldUdi = udi;
-		udi = newUdi;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI, oldUdi, newUdi);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUdi(Coding newUdi) {
-		if (newUdi != udi) {
-			NotificationChain msgs = null;
-			if (udi != null)
-				msgs = ((InternalEObject)udi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI, null, msgs);
-			if (newUdi != null)
-				msgs = ((InternalEObject)newUdi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI, null, msgs);
-			msgs = basicSetUdi(newUdi, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI, newUdi, newUdi));
 	}
 
 	/**
@@ -581,6 +574,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return basicSetType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return basicSetService(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
+				return ((InternalEList<?>)getProgramCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UNIT_PRICE:
@@ -592,7 +587,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				return basicSetNet(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
-				return basicSetUdi(null, msgs);
+				return ((InternalEList<?>)getUdi()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				return ((InternalEList<?>)getAdjudication()).basicRemove(otherEnd, msgs);
 		}
@@ -613,6 +608,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return getType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return getService();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
+				return getProgramCode();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
 				return getQuantity();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UNIT_PRICE:
@@ -649,6 +646,10 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				setService((Coding)newValue);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
+				getProgramCode().clear();
+				getProgramCode().addAll((Collection<? extends Coding>)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
 				setQuantity((SimpleQuantity)newValue);
 				return;
@@ -665,7 +666,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				setNet((Money)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
-				setUdi((Coding)newValue);
+				getUdi().clear();
+				getUdi().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				getAdjudication().clear();
@@ -692,6 +694,9 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				setService((Coding)null);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
+				getProgramCode().clear();
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
 				setQuantity((SimpleQuantity)null);
 				return;
@@ -708,7 +713,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				setNet((Money)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
-				setUdi((Coding)null);
+				getUdi().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				getAdjudication().clear();
@@ -731,6 +736,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return type != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return service != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
+				return programCode != null && !programCode.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
 				return quantity != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UNIT_PRICE:
@@ -742,7 +749,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				return net != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
-				return udi != null;
+				return udi != null && !udi.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				return adjudication != null && !adjudication.isEmpty();
 		}

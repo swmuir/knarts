@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A code system specifies a set of codes drawn from one or more code systems.
+ * A code system resource specifies a set of codes drawn from one or more code systems.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -21,6 +21,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueCoding <em>Value Coding</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueInteger <em>Value Integer</em>}</li>
+ *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueDateTime <em>Value Date Time</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty1()
@@ -161,5 +163,59 @@ public interface CodeSystemProperty1 extends BackboneElement {
 	 * @generated
 	 */
 	void setValueInteger(org.hl7.fhir.Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Boolean</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Boolean</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #setValueBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty1_ValueBoolean()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueBoolean' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getValueBoolean();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CodeSystemProperty1#getValueBoolean <em>Value Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #getValueBoolean()
+	 * @generated
+	 */
+	void setValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #setValueDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty1_ValueDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getValueDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CodeSystemProperty1#getValueDateTime <em>Value Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #getValueDateTime()
+	 * @generated
+	 */
+	void setValueDateTime(DateTime value);
 
 } // CodeSystemProperty1

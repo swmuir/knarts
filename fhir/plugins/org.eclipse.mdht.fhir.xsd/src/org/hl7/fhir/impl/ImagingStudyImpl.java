@@ -242,92 +242,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getStarted() {
-		return started;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStarted(DateTime newStarted, NotificationChain msgs) {
-		DateTime oldStarted = started;
-		started = newStarted;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STARTED, oldStarted, newStarted);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStarted(DateTime newStarted) {
-		if (newStarted != started) {
-			NotificationChain msgs = null;
-			if (started != null)
-				msgs = ((InternalEObject)started).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STARTED, null, msgs);
-			if (newStarted != null)
-				msgs = ((InternalEObject)newStarted).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STARTED, null, msgs);
-			msgs = basicSetStarted(newStarted, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STARTED, newStarted, newStarted));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getPatient() {
-		return patient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PATIENT, oldPatient, newPatient);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
-			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PATIENT, newPatient, newPatient));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Oid getUid() {
 		return uid;
 	}
@@ -426,11 +340,42 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getOrder() {
-		if (order == null) {
-			order = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__ORDER);
+	public InstanceAvailability getAvailability() {
+		return availability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAvailability(InstanceAvailability newAvailability, NotificationChain msgs) {
+		InstanceAvailability oldAvailability = availability;
+		availability = newAvailability;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, oldAvailability, newAvailability);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return order;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailability(InstanceAvailability newAvailability) {
+		if (newAvailability != availability) {
+			NotificationChain msgs = null;
+			if (availability != null)
+				msgs = ((InternalEObject)availability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
+			if (newAvailability != null)
+				msgs = ((InternalEObject)newAvailability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
+			msgs = basicSetAvailability(newAvailability, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, newAvailability, newAvailability));
 	}
 
 	/**
@@ -443,6 +388,104 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			modalityList = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.IMAGING_STUDY__MODALITY_LIST);
 		}
 		return modalityList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPatient() {
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PATIENT, oldPatient, newPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
+			NotificationChain msgs = null;
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PATIENT, newPatient, newPatient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getStarted() {
+		return started;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStarted(DateTime newStarted, NotificationChain msgs) {
+		DateTime oldStarted = started;
+		started = newStarted;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STARTED, oldStarted, newStarted);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStarted(DateTime newStarted) {
+		if (newStarted != started) {
+			NotificationChain msgs = null;
+			if (started != null)
+				msgs = ((InternalEObject)started).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STARTED, null, msgs);
+			if (newStarted != null)
+				msgs = ((InternalEObject)newStarted).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STARTED, null, msgs);
+			msgs = basicSetStarted(newStarted, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STARTED, newStarted, newStarted));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getOrder() {
+		if (order == null) {
+			order = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__ORDER);
+		}
+		return order;
 	}
 
 	/**
@@ -493,8 +536,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceAvailability getAvailability() {
-		return availability;
+	public Reference getInterpreter() {
+		return interpreter;
 	}
 
 	/**
@@ -502,11 +545,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAvailability(InstanceAvailability newAvailability, NotificationChain msgs) {
-		InstanceAvailability oldAvailability = availability;
-		availability = newAvailability;
+	public NotificationChain basicSetInterpreter(Reference newInterpreter, NotificationChain msgs) {
+		Reference oldInterpreter = interpreter;
+		interpreter = newInterpreter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, oldAvailability, newAvailability);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__INTERPRETER, oldInterpreter, newInterpreter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -517,18 +560,18 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAvailability(InstanceAvailability newAvailability) {
-		if (newAvailability != availability) {
+	public void setInterpreter(Reference newInterpreter) {
+		if (newInterpreter != interpreter) {
 			NotificationChain msgs = null;
-			if (availability != null)
-				msgs = ((InternalEObject)availability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
-			if (newAvailability != null)
-				msgs = ((InternalEObject)newAvailability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
-			msgs = basicSetAvailability(newAvailability, msgs);
+			if (interpreter != null)
+				msgs = ((InternalEObject)interpreter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__INTERPRETER, null, msgs);
+			if (newInterpreter != null)
+				msgs = ((InternalEObject)newInterpreter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__INTERPRETER, null, msgs);
+			msgs = basicSetInterpreter(newInterpreter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, newAvailability, newAvailability));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__INTERPRETER, newInterpreter, newInterpreter));
 	}
 
 	/**
@@ -670,49 +713,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			procedure = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE);
 		}
 		return procedure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getInterpreter() {
-		return interpreter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInterpreter(Reference newInterpreter, NotificationChain msgs) {
-		Reference oldInterpreter = interpreter;
-		interpreter = newInterpreter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__INTERPRETER, oldInterpreter, newInterpreter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterpreter(Reference newInterpreter) {
-		if (newInterpreter != interpreter) {
-			NotificationChain msgs = null;
-			if (interpreter != null)
-				msgs = ((InternalEObject)interpreter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__INTERPRETER, null, msgs);
-			if (newInterpreter != null)
-				msgs = ((InternalEObject)newInterpreter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__INTERPRETER, null, msgs);
-			msgs = basicSetInterpreter(newInterpreter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__INTERPRETER, newInterpreter, newInterpreter));
 	}
 
 	/**

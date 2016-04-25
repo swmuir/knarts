@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasurePopulation;
 import org.hl7.fhir.MeasurePopulationType;
 
@@ -23,6 +24,7 @@ import org.hl7.fhir.MeasurePopulationType;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getCriteria <em>Criteria</em>}</li>
@@ -40,6 +42,16 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * @ordered
 	 */
 	protected MeasurePopulationType type;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -131,6 +143,49 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -272,6 +327,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 		switch (featureID) {
 			case FhirPackage.MEASURE_POPULATION__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.MEASURE_POPULATION__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
@@ -292,6 +349,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 		switch (featureID) {
 			case FhirPackage.MEASURE_POPULATION__TYPE:
 				return getType();
+			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.MEASURE_POPULATION__NAME:
 				return getName();
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
@@ -312,6 +371,9 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 		switch (featureID) {
 			case FhirPackage.MEASURE_POPULATION__TYPE:
 				setType((MeasurePopulationType)newValue);
+				return;
+			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.MEASURE_POPULATION__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -337,6 +399,9 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 			case FhirPackage.MEASURE_POPULATION__TYPE:
 				setType((MeasurePopulationType)null);
 				return;
+			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
+				setIdentifier((Identifier)null);
+				return;
 			case FhirPackage.MEASURE_POPULATION__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
@@ -360,6 +425,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 		switch (featureID) {
 			case FhirPackage.MEASURE_POPULATION__TYPE:
 				return type != null;
+			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.MEASURE_POPULATION__NAME:
 				return name != null;
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:

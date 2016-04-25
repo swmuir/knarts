@@ -55,6 +55,58 @@ public interface List extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the current state of this list.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(ListStatus)
+	 * @see org.hl7.fhir.FhirPackage#getList_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ListStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.List#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(ListStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Mode</em>' containment reference.
+	 * @see #setMode(ListMode)
+	 * @see org.hl7.fhir.FhirPackage#getList_Mode()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='mode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ListMode getMode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.List#getMode <em>Mode</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mode</em>' containment reference.
+	 * @see #getMode()
+	 * @generated
+	 */
+	void setMode(ListMode value);
+
+	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,32 +185,6 @@ public interface List extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getList_Source()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSource();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.List#getSource <em>Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' containment reference.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,32 +209,6 @@ public interface List extends DomainResource {
 	 * @generated
 	 */
 	void setEncounter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates the current state of this list.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ListStatus)
-	 * @see org.hl7.fhir.FhirPackage#getList_Status()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ListStatus getStatus();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.List#getStatus <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
-	 * @generated
-	 */
-	void setStatus(ListStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
@@ -237,6 +237,32 @@ public interface List extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getList_Source()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSource();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.List#getSource <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Ordered By</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,32 +287,6 @@ public interface List extends DomainResource {
 	 * @generated
 	 */
 	void setOrderedBy(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Mode</em>' containment reference.
-	 * @see #setMode(ListMode)
-	 * @see org.hl7.fhir.FhirPackage#getList_Mode()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='mode' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ListMode getMode();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.List#getMode <em>Mode</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mode</em>' containment reference.
-	 * @see #getMode()
-	 * @generated
-	 */
-	void setMode(ListMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

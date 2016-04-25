@@ -38,6 +38,48 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface NutritionOrder extends DomainResource {
 	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifiers assigned to this order by the order sender or by the order receiver.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The workflow status of the nutrition order/request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(NutritionOrderStatus)
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	NutritionOrderStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(NutritionOrderStatus value);
+
+	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,48 +104,6 @@ public interface NutritionOrder extends DomainResource {
 	 * @generated
 	 */
 	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Orderer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Orderer</em>' containment reference.
-	 * @see #setOrderer(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Orderer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='orderer' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrderer();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getOrderer <em>Orderer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Orderer</em>' containment reference.
-	 * @see #getOrderer()
-	 * @generated
-	 */
-	void setOrderer(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifiers assigned to this order by the order sender or by the order receiver.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
@@ -158,30 +158,30 @@ public interface NutritionOrder extends DomainResource {
 	void setDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Orderer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The workflow status of the nutrition order/request.
+	 * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(NutritionOrderStatus)
-	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Status()
+	 * @return the value of the '<em>Orderer</em>' containment reference.
+	 * @see #setOrderer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Orderer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='orderer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	NutritionOrderStatus getStatus();
+	Reference getOrderer();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getOrderer <em>Orderer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
+	 * @param value the new value of the '<em>Orderer</em>' containment reference.
+	 * @see #getOrderer()
 	 * @generated
 	 */
-	void setStatus(NutritionOrderStatus value);
+	void setOrderer(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Allergy Intolerance</b></em>' containment reference list.

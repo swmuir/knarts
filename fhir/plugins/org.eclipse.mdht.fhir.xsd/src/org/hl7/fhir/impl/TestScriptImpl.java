@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -29,6 +29,8 @@ import org.hl7.fhir.TestScriptDestination;
 import org.hl7.fhir.TestScriptFixture;
 import org.hl7.fhir.TestScriptMetadata;
 import org.hl7.fhir.TestScriptOrigin;
+import org.hl7.fhir.TestScriptRule;
+import org.hl7.fhir.TestScriptRuleset;
 import org.hl7.fhir.TestScriptSetup;
 import org.hl7.fhir.TestScriptTeardown;
 import org.hl7.fhir.TestScriptTest;
@@ -56,13 +58,14 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getMetadata <em>Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getDestination <em>Destination</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getMultiserver <em>Multiserver</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getMetadata <em>Metadata</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getTest <em>Test</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getTeardown <em>Teardown</em>}</li>
@@ -109,7 +112,7 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -202,16 +205,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	protected org.hl7.fhir.String copyright;
 
 	/**
-	 * The cached value of the '{@link #getMetadata() <em>Metadata</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetadata()
-	 * @generated
-	 * @ordered
-	 */
-	protected TestScriptMetadata metadata;
-
-	/**
 	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,14 +225,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	protected EList<TestScriptDestination> destination;
 
 	/**
-	 * The cached value of the '{@link #getMultiserver() <em>Multiserver</em>}' containment reference.
+	 * The cached value of the '{@link #getMetadata() <em>Metadata</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMultiserver()
+	 * @see #getMetadata()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean multiserver;
+	protected TestScriptMetadata metadata;
 
 	/**
 	 * The cached value of the '{@link #getFixture() <em>Fixture</em>}' containment reference list.
@@ -270,6 +263,26 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @ordered
 	 */
 	protected EList<TestScriptVariable> variable;
+
+	/**
+	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptRule> rule;
+
+	/**
+	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleset()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TestScriptRuleset> ruleset;
 
 	/**
 	 * The cached value of the '{@link #getSetup() <em>Setup</em>}' containment reference.
@@ -454,7 +467,7 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -463,8 +476,8 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__STATUS, oldStatus, newStatus);
@@ -478,7 +491,7 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -822,6 +835,30 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TestScriptOrigin> getOrigin() {
+		if (origin == null) {
+			origin = new EObjectContainmentEList<TestScriptOrigin>(TestScriptOrigin.class, this, FhirPackage.TEST_SCRIPT__ORIGIN);
+		}
+		return origin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TestScriptDestination> getDestination() {
+		if (destination == null) {
+			destination = new EObjectContainmentEList<TestScriptDestination>(TestScriptDestination.class, this, FhirPackage.TEST_SCRIPT__DESTINATION);
+		}
+		return destination;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TestScriptMetadata getMetadata() {
 		return metadata;
 	}
@@ -865,73 +902,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TestScriptOrigin> getOrigin() {
-		if (origin == null) {
-			origin = new EObjectContainmentEList<TestScriptOrigin>(TestScriptOrigin.class, this, FhirPackage.TEST_SCRIPT__ORIGIN);
-		}
-		return origin;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TestScriptDestination> getDestination() {
-		if (destination == null) {
-			destination = new EObjectContainmentEList<TestScriptDestination>(TestScriptDestination.class, this, FhirPackage.TEST_SCRIPT__DESTINATION);
-		}
-		return destination;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.Boolean getMultiserver() {
-		return multiserver;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMultiserver(org.hl7.fhir.Boolean newMultiserver, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldMultiserver = multiserver;
-		multiserver = newMultiserver;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__MULTISERVER, oldMultiserver, newMultiserver);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMultiserver(org.hl7.fhir.Boolean newMultiserver) {
-		if (newMultiserver != multiserver) {
-			NotificationChain msgs = null;
-			if (multiserver != null)
-				msgs = ((InternalEObject)multiserver).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__MULTISERVER, null, msgs);
-			if (newMultiserver != null)
-				msgs = ((InternalEObject)newMultiserver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__MULTISERVER, null, msgs);
-			msgs = basicSetMultiserver(newMultiserver, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__MULTISERVER, newMultiserver, newMultiserver));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<TestScriptFixture> getFixture() {
 		if (fixture == null) {
 			fixture = new EObjectContainmentEList<TestScriptFixture>(TestScriptFixture.class, this, FhirPackage.TEST_SCRIPT__FIXTURE);
@@ -961,6 +931,30 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			variable = new EObjectContainmentEList<TestScriptVariable>(TestScriptVariable.class, this, FhirPackage.TEST_SCRIPT__VARIABLE);
 		}
 		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TestScriptRule> getRule() {
+		if (rule == null) {
+			rule = new EObjectContainmentEList<TestScriptRule>(TestScriptRule.class, this, FhirPackage.TEST_SCRIPT__RULE);
+		}
+		return rule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TestScriptRuleset> getRuleset() {
+		if (ruleset == null) {
+			ruleset = new EObjectContainmentEList<TestScriptRuleset>(TestScriptRuleset.class, this, FhirPackage.TEST_SCRIPT__RULESET);
+		}
+		return ruleset;
 	}
 
 	/**
@@ -1095,20 +1089,22 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return basicSetRequirements(null, msgs);
 			case FhirPackage.TEST_SCRIPT__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
-			case FhirPackage.TEST_SCRIPT__METADATA:
-				return basicSetMetadata(null, msgs);
 			case FhirPackage.TEST_SCRIPT__ORIGIN:
 				return ((InternalEList<?>)getOrigin()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__DESTINATION:
 				return ((InternalEList<?>)getDestination()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TEST_SCRIPT__MULTISERVER:
-				return basicSetMultiserver(null, msgs);
+			case FhirPackage.TEST_SCRIPT__METADATA:
+				return basicSetMetadata(null, msgs);
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
 				return ((InternalEList<?>)getFixture()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__PROFILE:
 				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TEST_SCRIPT__RULE:
+				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TEST_SCRIPT__RULESET:
+				return ((InternalEList<?>)getRuleset()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return basicSetSetup(null, msgs);
 			case FhirPackage.TEST_SCRIPT__TEST:
@@ -1153,20 +1149,22 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return getRequirements();
 			case FhirPackage.TEST_SCRIPT__COPYRIGHT:
 				return getCopyright();
-			case FhirPackage.TEST_SCRIPT__METADATA:
-				return getMetadata();
 			case FhirPackage.TEST_SCRIPT__ORIGIN:
 				return getOrigin();
 			case FhirPackage.TEST_SCRIPT__DESTINATION:
 				return getDestination();
-			case FhirPackage.TEST_SCRIPT__MULTISERVER:
-				return getMultiserver();
+			case FhirPackage.TEST_SCRIPT__METADATA:
+				return getMetadata();
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
 				return getFixture();
 			case FhirPackage.TEST_SCRIPT__PROFILE:
 				return getProfile();
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return getVariable();
+			case FhirPackage.TEST_SCRIPT__RULE:
+				return getRule();
+			case FhirPackage.TEST_SCRIPT__RULESET:
+				return getRuleset();
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return getSetup();
 			case FhirPackage.TEST_SCRIPT__TEST:
@@ -1196,7 +1194,7 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
@@ -1227,9 +1225,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__COPYRIGHT:
 				setCopyright((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.TEST_SCRIPT__METADATA:
-				setMetadata((TestScriptMetadata)newValue);
-				return;
 			case FhirPackage.TEST_SCRIPT__ORIGIN:
 				getOrigin().clear();
 				getOrigin().addAll((Collection<? extends TestScriptOrigin>)newValue);
@@ -1238,8 +1233,8 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				getDestination().clear();
 				getDestination().addAll((Collection<? extends TestScriptDestination>)newValue);
 				return;
-			case FhirPackage.TEST_SCRIPT__MULTISERVER:
-				setMultiserver((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.TEST_SCRIPT__METADATA:
+				setMetadata((TestScriptMetadata)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
 				getFixture().clear();
@@ -1252,6 +1247,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				getVariable().clear();
 				getVariable().addAll((Collection<? extends TestScriptVariable>)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT__RULE:
+				getRule().clear();
+				getRule().addAll((Collection<? extends TestScriptRule>)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT__RULESET:
+				getRuleset().clear();
+				getRuleset().addAll((Collection<? extends TestScriptRuleset>)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				setSetup((TestScriptSetup)newValue);
@@ -1285,7 +1288,7 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.TEST_SCRIPT__IDENTIFIER:
 				setIdentifier((Identifier)null);
@@ -1314,17 +1317,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__COPYRIGHT:
 				setCopyright((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.TEST_SCRIPT__METADATA:
-				setMetadata((TestScriptMetadata)null);
-				return;
 			case FhirPackage.TEST_SCRIPT__ORIGIN:
 				getOrigin().clear();
 				return;
 			case FhirPackage.TEST_SCRIPT__DESTINATION:
 				getDestination().clear();
 				return;
-			case FhirPackage.TEST_SCRIPT__MULTISERVER:
-				setMultiserver((org.hl7.fhir.Boolean)null);
+			case FhirPackage.TEST_SCRIPT__METADATA:
+				setMetadata((TestScriptMetadata)null);
 				return;
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
 				getFixture().clear();
@@ -1334,6 +1334,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return;
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				getVariable().clear();
+				return;
+			case FhirPackage.TEST_SCRIPT__RULE:
+				getRule().clear();
+				return;
+			case FhirPackage.TEST_SCRIPT__RULESET:
+				getRuleset().clear();
 				return;
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				setSetup((TestScriptSetup)null);
@@ -1382,20 +1388,22 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return requirements != null;
 			case FhirPackage.TEST_SCRIPT__COPYRIGHT:
 				return copyright != null;
-			case FhirPackage.TEST_SCRIPT__METADATA:
-				return metadata != null;
 			case FhirPackage.TEST_SCRIPT__ORIGIN:
 				return origin != null && !origin.isEmpty();
 			case FhirPackage.TEST_SCRIPT__DESTINATION:
 				return destination != null && !destination.isEmpty();
-			case FhirPackage.TEST_SCRIPT__MULTISERVER:
-				return multiserver != null;
+			case FhirPackage.TEST_SCRIPT__METADATA:
+				return metadata != null;
 			case FhirPackage.TEST_SCRIPT__FIXTURE:
 				return fixture != null && !fixture.isEmpty();
 			case FhirPackage.TEST_SCRIPT__PROFILE:
 				return profile != null && !profile.isEmpty();
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return variable != null && !variable.isEmpty();
+			case FhirPackage.TEST_SCRIPT__RULE:
+				return rule != null && !rule.isEmpty();
+			case FhirPackage.TEST_SCRIPT__RULESET:
+				return ruleset != null && !ruleset.isEmpty();
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return setup != null;
 			case FhirPackage.TEST_SCRIPT__TEST:

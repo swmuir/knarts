@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PractitionerPractitionerRole;
 import org.hl7.fhir.Reference;
@@ -31,9 +33,11 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getManagingOrganization <em>Managing Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getSpecialty <em>Specialty</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerPractitionerRoleImpl#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -43,14 +47,14 @@ import org.hl7.fhir.Reference;
  */
 public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implements PractitionerPractitionerRole {
 	/**
-	 * The cached value of the '{@link #getManagingOrganization() <em>Managing Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getManagingOrganization()
+	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference managingOrganization;
+	protected Reference organization;
 
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
@@ -71,6 +75,26 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> specialty;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTelecom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContactPoint> telecom;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -126,8 +150,8 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getManagingOrganization() {
-		return managingOrganization;
+	public Reference getOrganization() {
+		return organization;
 	}
 
 	/**
@@ -135,11 +159,11 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetManagingOrganization(Reference newManagingOrganization, NotificationChain msgs) {
-		Reference oldManagingOrganization = managingOrganization;
-		managingOrganization = newManagingOrganization;
+	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
+		Reference oldOrganization = organization;
+		organization = newOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION, oldManagingOrganization, newManagingOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION, oldOrganization, newOrganization);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -150,18 +174,18 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setManagingOrganization(Reference newManagingOrganization) {
-		if (newManagingOrganization != managingOrganization) {
+	public void setOrganization(Reference newOrganization) {
+		if (newOrganization != organization) {
 			NotificationChain msgs = null;
-			if (managingOrganization != null)
-				msgs = ((InternalEObject)managingOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION, null, msgs);
-			if (newManagingOrganization != null)
-				msgs = ((InternalEObject)newManagingOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION, null, msgs);
-			msgs = basicSetManagingOrganization(newManagingOrganization, msgs);
+			if (organization != null)
+				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION, null, msgs);
+			msgs = basicSetOrganization(newOrganization, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION, newManagingOrganization, newManagingOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION, newOrganization, newOrganization));
 	}
 
 	/**
@@ -217,6 +241,30 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY);
 		}
 		return specialty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ContactPoint> getTelecom() {
+		if (telecom == null) {
+			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM);
+		}
+		return telecom;
 	}
 
 	/**
@@ -294,12 +342,16 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION:
-				return basicSetManagingOrganization(null, msgs);
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ROLE:
 				return basicSetRole(null, msgs);
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY:
 				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM:
+				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__PERIOD:
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__LOCATION:
@@ -318,12 +370,16 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION:
-				return getManagingOrganization();
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION:
+				return getOrganization();
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ROLE:
 				return getRole();
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY:
 				return getSpecialty();
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER:
+				return getIdentifier();
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM:
+				return getTelecom();
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__PERIOD:
 				return getPeriod();
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__LOCATION:
@@ -343,8 +399,8 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION:
-				setManagingOrganization((Reference)newValue);
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION:
+				setOrganization((Reference)newValue);
 				return;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ROLE:
 				setRole((CodeableConcept)newValue);
@@ -352,6 +408,14 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY:
 				getSpecialty().clear();
 				getSpecialty().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER:
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM:
+				getTelecom().clear();
+				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__PERIOD:
 				setPeriod((Period)newValue);
@@ -376,14 +440,20 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION:
-				setManagingOrganization((Reference)null);
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION:
+				setOrganization((Reference)null);
 				return;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ROLE:
 				setRole((CodeableConcept)null);
 				return;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY:
 				getSpecialty().clear();
+				return;
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER:
+				getIdentifier().clear();
+				return;
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM:
+				getTelecom().clear();
 				return;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__PERIOD:
 				setPeriod((Period)null);
@@ -406,12 +476,16 @@ public class PractitionerPractitionerRoleImpl extends BackboneElementImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__MANAGING_ORGANIZATION:
-				return managingOrganization != null;
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ORGANIZATION:
+				return organization != null;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__ROLE:
 				return role != null;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__SPECIALTY:
 				return specialty != null && !specialty.isEmpty();
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__TELECOM:
+				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__PERIOD:
 				return period != null;
 			case FhirPackage.PRACTITIONER_PRACTITIONER_ROLE__LOCATION:

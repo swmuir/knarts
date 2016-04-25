@@ -18,10 +18,13 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.Library#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Library#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getModuleMetadata <em>Module Metadata</em>}</li>
- *   <li>{@link org.hl7.fhir.Library#getModuleDefinition <em>Module Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getModel <em>Model</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getLibrary <em>Library</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getValueSet <em>Value Set</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getDataRequirement <em>Data Requirement</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getDocument <em>Document</em>}</li>
  * </ul>
  *
@@ -31,53 +34,11 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Library extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getLibrary_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Version</em>' containment reference.
-	 * @see #setVersion(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getLibrary_Version()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getVersion();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Library#getVersion <em>Version</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' containment reference.
-	 * @see #getVersion()
-	 * @generated
-	 */
-	void setVersion(org.hl7.fhir.String value);
-
-	/**
 	 * Returns the value of the '<em><b>Module Metadata</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.
+	 * The metadata for the library, including publishing, life-cycle, version, documentation, and supporting evidence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module Metadata</em>' containment reference.
 	 * @see #setModuleMetadata(ModuleMetadata)
@@ -99,30 +60,100 @@ public interface Library extends DomainResource {
 	void setModuleMetadata(ModuleMetadata value);
 
 	/**
-	 * Returns the value of the '<em><b>Module Definition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Model</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.LibraryModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a ModuleDefinition resource describing the header information for the library.
+	 * A model element describes the model and version used by the library.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Module Definition</em>' containment reference.
-	 * @see #setModuleDefinition(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getLibrary_ModuleDefinition()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='moduleDefinition' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Model</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_Model()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='model' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getModuleDefinition();
+	EList<LibraryModel> getModel();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Library#getModuleDefinition <em>Module Definition</em>}' containment reference.
+	 * Returns the value of the '<em><b>Library</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.LibraryLibrary}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Module Definition</em>' containment reference.
-	 * @see #getModuleDefinition()
+	 * <!-- begin-model-doc -->
+	 * A library element describes a library referenced by this library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Library</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_Library()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='library' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setModuleDefinition(Reference value);
+	EList<LibraryLibrary> getLibrary();
+
+	/**
+	 * Returns the value of the '<em><b>Code System</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.LibraryCodeSystem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code system definition used within the library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code System</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_CodeSystem()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='codeSystem' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<LibraryCodeSystem> getCodeSystem();
+
+	/**
+	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.LibraryValueSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A value set definition referenced by the library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value Set</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_ValueSet()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<LibraryValueSet> getValueSet();
+
+	/**
+	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ParameterDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The parameter element defines parameters used by the library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Parameter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_Parameter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='parameter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ParameterDefinition> getParameter();
+
+	/**
+	 * Returns the value of the '<em><b>Data Requirement</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DataRequirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The dataRequirement element specifies a data requirement used by some expression within the library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Data Requirement</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_DataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataRequirement> getDataRequirement();
 
 	/**
 	 * Returns the value of the '<em><b>Document</b></em>' containment reference.

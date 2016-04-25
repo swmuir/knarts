@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Address;
+import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.Attachment;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.Date;
@@ -114,7 +114,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code gender;
+	protected AdministrativeGender gender;
 
 	/**
 	 * The cached value of the '{@link #getBirthDate() <em>Birth Date</em>}' containment reference.
@@ -359,7 +359,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getGender() {
+	public AdministrativeGender getGender() {
 		return gender;
 	}
 
@@ -368,8 +368,8 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGender(Code newGender, NotificationChain msgs) {
-		Code oldGender = gender;
+	public NotificationChain basicSetGender(AdministrativeGender newGender, NotificationChain msgs) {
+		AdministrativeGender oldGender = gender;
 		gender = newGender;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PATIENT__GENDER, oldGender, newGender);
@@ -383,7 +383,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGender(Code newGender) {
+	public void setGender(AdministrativeGender newGender) {
 		if (newGender != gender) {
 			NotificationChain msgs = null;
 			if (gender != null)
@@ -938,7 +938,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
 				return;
 			case FhirPackage.PATIENT__GENDER:
-				setGender((Code)newValue);
+				setGender((AdministrativeGender)newValue);
 				return;
 			case FhirPackage.PATIENT__BIRTH_DATE:
 				setBirthDate((Date)newValue);
@@ -1013,7 +1013,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				getTelecom().clear();
 				return;
 			case FhirPackage.PATIENT__GENDER:
-				setGender((Code)null);
+				setGender((AdministrativeGender)null);
 				return;
 			case FhirPackage.PATIENT__BIRTH_DATE:
 				setBirthDate((Date)null);

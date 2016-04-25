@@ -24,7 +24,7 @@ import org.hl7.fhir.Money;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAdjudication1Impl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAdjudication1Impl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAdjudication1Impl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAdjudication1Impl#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAdjudication1Impl#getValue <em>Value</em>}</li>
@@ -34,14 +34,14 @@ import org.hl7.fhir.Money;
  */
 public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl implements ExplanationOfBenefitAdjudication1 {
 	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCode()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding code;
+	protected Coding category;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
@@ -97,8 +97,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCode() {
-		return code;
+	public Coding getCategory() {
+		return category;
 	}
 
 	/**
@@ -106,11 +106,11 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Coding newCode, NotificationChain msgs) {
-		Coding oldCode = code;
-		code = newCode;
+	public NotificationChain basicSetCategory(Coding newCategory, NotificationChain msgs) {
+		Coding oldCategory = category;
+		category = newCategory;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE, oldCode, newCode);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY, oldCategory, newCategory);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -121,18 +121,18 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Coding newCode) {
-		if (newCode != code) {
+	public void setCategory(Coding newCategory) {
+		if (newCategory != category) {
 			NotificationChain msgs = null;
-			if (code != null)
-				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE, null, msgs);
-			if (newCode != null)
-				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE, null, msgs);
-			msgs = basicSetCode(newCode, msgs);
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE, newCode, newCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -272,8 +272,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE:
-				return basicSetCode(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY:
+				return basicSetCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__REASON:
 				return basicSetReason(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__AMOUNT:
@@ -292,8 +292,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE:
-				return getCode();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY:
+				return getCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__REASON:
 				return getReason();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__AMOUNT:
@@ -312,8 +312,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE:
-				setCode((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY:
+				setCategory((Coding)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__REASON:
 				setReason((Coding)newValue);
@@ -336,8 +336,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE:
-				setCode((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY:
+				setCategory((Coding)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__REASON:
 				setReason((Coding)null);
@@ -360,8 +360,8 @@ public class ExplanationOfBenefitAdjudication1Impl extends BackboneElementImpl i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CODE:
-				return code != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__CATEGORY:
+				return category != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__REASON:
 				return reason != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADJUDICATION1__AMOUNT:

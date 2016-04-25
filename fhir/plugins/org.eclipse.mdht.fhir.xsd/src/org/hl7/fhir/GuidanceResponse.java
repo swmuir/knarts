@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken.
+ * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getEvaluationMessage <em>Evaluation Message</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getOutputParameters <em>Output Parameters</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getGuidanceResponse()
@@ -36,7 +37,7 @@ public interface GuidanceResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.
+	 * The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request Id</em>' containment reference.
 	 * @see #setRequestId(org.hl7.fhir.String)
@@ -62,7 +63,7 @@ public interface GuidanceResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a knowledge module involved in an interaction.
+	 * A reference to the knowledge module that was invoked.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module</em>' containment reference.
 	 * @see #setModule(Reference)
@@ -166,5 +167,21 @@ public interface GuidanceResponse extends DomainResource {
 	 * @generated
 	 */
 	EList<GuidanceResponseAction> getAction();
+
+	/**
+	 * Returns the value of the '<em><b>Data Requirement</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DataRequirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Data Requirement</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_DataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataRequirement> getDataRequirement();
 
 } // GuidanceResponse

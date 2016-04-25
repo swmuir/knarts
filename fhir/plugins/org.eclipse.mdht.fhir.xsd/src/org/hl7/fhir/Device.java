@@ -47,7 +47,7 @@ public interface Device extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.
+	 * Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDevice_Identifier()
@@ -62,7 +62,7 @@ public interface Device extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+	 * [Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Udi Carrier</em>' containment reference.
 	 * @see #setUdiCarrier(Identifier)
@@ -82,48 +82,6 @@ public interface Device extends DomainResource {
 	 * @generated
 	 */
 	void setUdiCarrier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Code or identifier to identify a kind of device.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Descriptive information, usage information or implantation information that is not captured in an existing element.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Note()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -152,6 +110,58 @@ public interface Device extends DomainResource {
 	void setStatus(DeviceStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Code or identifier to identify a kind of device.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Lot Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Lot number assigned by the manufacturer.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Lot Number</em>' containment reference.
+	 * @see #setLotNumber(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_LotNumber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='lotNumber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getLotNumber();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getLotNumber <em>Lot Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Lot Number</em>' containment reference.
+	 * @see #getLotNumber()
+	 * @generated
+	 */
+	void setLotNumber(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,58 +186,6 @@ public interface Device extends DomainResource {
 	 * @generated
 	 */
 	void setManufacturer(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Model</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The "model" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Model</em>' containment reference.
-	 * @see #setModel(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Model()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='model' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getModel();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getModel <em>Model</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' containment reference.
-	 * @see #getModel()
-	 * @generated
-	 */
-	void setModel(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Version</em>' containment reference.
-	 * @see #setVersion(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Version()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getVersion();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getVersion <em>Version</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' containment reference.
-	 * @see #getVersion()
-	 * @generated
-	 */
-	void setVersion(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Manufacture Date</b></em>' containment reference.
@@ -282,30 +240,82 @@ public interface Device extends DomainResource {
 	void setExpirationDate(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Lot Number</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Lot number assigned by the manufacturer.
+	 * The "model" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Lot Number</em>' containment reference.
-	 * @see #setLotNumber(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_LotNumber()
+	 * @return the value of the '<em>Model</em>' containment reference.
+	 * @see #setModel(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Model()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='lotNumber' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='model' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getLotNumber();
+	org.hl7.fhir.String getModel();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getLotNumber <em>Lot Number</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getModel <em>Model</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lot Number</em>' containment reference.
-	 * @see #getLotNumber()
+	 * @param value the new value of the '<em>Model</em>' containment reference.
+	 * @see #getModel()
 	 * @generated
 	 */
-	void setLotNumber(org.hl7.fhir.String value);
+	void setModel(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Version</em>' containment reference.
+	 * @see #setVersion(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Version()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getVersion();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getVersion <em>Version</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' containment reference.
+	 * @see #getVersion()
+	 * @generated
+	 */
+	void setVersion(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Patient information, If the device is affixed to a person.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Patient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' containment reference.
@@ -334,6 +344,22 @@ public interface Device extends DomainResource {
 	void setOwner(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContactPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contact details for an organization or a particular human that is responsible for the device.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Contact</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Contact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContactPoint> getContact();
+
+	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,48 +386,6 @@ public interface Device extends DomainResource {
 	void setLocation(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Patient information, if the resource is affixed to a person.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Patient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContactPoint}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contact details for an organization or a particular human that is responsible for the device.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contact</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDevice_Contact()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContactPoint> getContact();
-
-	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,5 +410,21 @@ public interface Device extends DomainResource {
 	 * @generated
 	 */
 	void setUrl(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Descriptive information, usage information or implantation information that is not captured in an existing element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Annotation> getNote();
 
 } // Device

@@ -339,6 +339,92 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getMedicationCodeableConcept() {
+		return medicationCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldMedicationCodeableConcept = medicationCodeableConcept;
+		medicationCodeableConcept = newMedicationCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, oldMedicationCodeableConcept, newMedicationCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept) {
+		if (newMedicationCodeableConcept != medicationCodeableConcept) {
+			NotificationChain msgs = null;
+			if (medicationCodeableConcept != null)
+				msgs = ((InternalEObject)medicationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, null, msgs);
+			if (newMedicationCodeableConcept != null)
+				msgs = ((InternalEObject)newMedicationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetMedicationCodeableConcept(newMedicationCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, newMedicationCodeableConcept, newMedicationCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getMedicationReference() {
+		return medicationReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMedicationReference(Reference newMedicationReference, NotificationChain msgs) {
+		Reference oldMedicationReference = medicationReference;
+		medicationReference = newMedicationReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, oldMedicationReference, newMedicationReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMedicationReference(Reference newMedicationReference) {
+		if (newMedicationReference != medicationReference) {
+			NotificationChain msgs = null;
+			if (medicationReference != null)
+				msgs = ((InternalEObject)medicationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, null, msgs);
+			if (newMedicationReference != null)
+				msgs = ((InternalEObject)newMedicationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, null, msgs);
+			msgs = basicSetMedicationReference(newMedicationReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, newMedicationReference, newMedicationReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getPatient() {
 		return patient;
 	}
@@ -559,92 +645,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__DAYS_SUPPLY, newDaysSupply, newDaysSupply));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getMedicationCodeableConcept() {
-		return medicationCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldMedicationCodeableConcept = medicationCodeableConcept;
-		medicationCodeableConcept = newMedicationCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, oldMedicationCodeableConcept, newMedicationCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept) {
-		if (newMedicationCodeableConcept != medicationCodeableConcept) {
-			NotificationChain msgs = null;
-			if (medicationCodeableConcept != null)
-				msgs = ((InternalEObject)medicationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			if (newMedicationCodeableConcept != null)
-				msgs = ((InternalEObject)newMedicationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetMedicationCodeableConcept(newMedicationCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT, newMedicationCodeableConcept, newMedicationCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getMedicationReference() {
-		return medicationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationReference(Reference newMedicationReference, NotificationChain msgs) {
-		Reference oldMedicationReference = medicationReference;
-		medicationReference = newMedicationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, oldMedicationReference, newMedicationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationReference(Reference newMedicationReference) {
-		if (newMedicationReference != medicationReference) {
-			NotificationChain msgs = null;
-			if (medicationReference != null)
-				msgs = ((InternalEObject)medicationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, null, msgs);
-			if (newMedicationReference != null)
-				msgs = ((InternalEObject)newMedicationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, null, msgs);
-			msgs = basicSetMedicationReference(newMedicationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__MEDICATION_REFERENCE, newMedicationReference, newMedicationReference));
 	}
 
 	/**

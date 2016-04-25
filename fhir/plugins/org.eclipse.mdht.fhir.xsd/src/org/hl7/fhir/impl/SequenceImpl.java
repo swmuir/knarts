@@ -21,12 +21,14 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.Sequence;
-import org.hl7.fhir.SequenceChip;
-import org.hl7.fhir.SequenceCoordinate;
 import org.hl7.fhir.SequenceQuality;
+import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
+import org.hl7.fhir.SequenceStructureVariation;
 import org.hl7.fhir.SequenceType;
+import org.hl7.fhir.SequenceVariation;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,21 +39,23 @@ import org.hl7.fhir.SequenceType;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getVariationID <em>Variation ID</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getReferenceSeq <em>Reference Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getSpecimen <em>Specimen</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getCoordinate <em>Coordinate</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getSpecies <em>Species</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getObservedAllele <em>Observed Allele</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getReferenceAllele <em>Reference Allele</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getCigar <em>Cigar</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getReferenceSeq <em>Reference Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getVariation <em>Variation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getQuality <em>Quality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getAllelicState <em>Allelic State</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getAllelicFrequency <em>Allelic Frequency</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getCopyNumberEvent <em>Copy Number Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getReadCoverage <em>Read Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getChip <em>Chip</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getObservedSeq <em>Observed Seq</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getObservation <em>Observation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getStructureVariation <em>Structure Variation</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,24 +72,34 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	protected SequenceType type;
 
 	/**
-	 * The cached value of the '{@link #getVariationID() <em>Variation ID</em>}' containment reference list.
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariationID()
+	 * @see #getPatient()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> variationID;
+	protected Reference patient;
 
 	/**
-	 * The cached value of the '{@link #getReferenceSeq() <em>Reference Seq</em>}' containment reference.
+	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferenceSeq()
+	 * @see #getSpecimen()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept referenceSeq;
+	protected Reference specimen;
+
+	/**
+	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDevice()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference device;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -98,16 +112,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	protected Quantity quantity;
 
 	/**
-	 * The cached value of the '{@link #getCoordinate() <em>Coordinate</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCoordinate()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SequenceCoordinate> coordinate;
-
-	/**
 	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,34 +122,24 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	protected CodeableConcept species;
 
 	/**
-	 * The cached value of the '{@link #getObservedAllele() <em>Observed Allele</em>}' containment reference.
+	 * The cached value of the '{@link #getReferenceSeq() <em>Reference Seq</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getObservedAllele()
+	 * @see #getReferenceSeq()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String observedAllele;
+	protected EList<SequenceReferenceSeq> referenceSeq;
 
 	/**
-	 * The cached value of the '{@link #getReferenceAllele() <em>Reference Allele</em>}' containment reference.
+	 * The cached value of the '{@link #getVariation() <em>Variation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferenceAllele()
+	 * @see #getVariation()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String referenceAllele;
-
-	/**
-	 * The cached value of the '{@link #getCigar() <em>Cigar</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCigar()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String cigar;
+	protected SequenceVariation variation;
 
 	/**
 	 * The cached value of the '{@link #getQuality() <em>Quality</em>}' containment reference list.
@@ -198,16 +192,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	protected org.hl7.fhir.Integer readCoverage;
 
 	/**
-	 * The cached value of the '{@link #getChip() <em>Chip</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChip()
-	 * @generated
-	 * @ordered
-	 */
-	protected SequenceChip chip;
-
-	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,6 +200,46 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * @ordered
 	 */
 	protected EList<SequenceRepository> repository;
+
+	/**
+	 * The cached value of the '{@link #getPointer() <em>Pointer</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPointer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> pointer;
+
+	/**
+	 * The cached value of the '{@link #getObservedSeq() <em>Observed Seq</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservedSeq()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String observedSeq;
+
+	/**
+	 * The cached value of the '{@link #getObservation() <em>Observation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference observation;
+
+	/**
+	 * The cached value of the '{@link #getStructureVariation() <em>Structure Variation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStructureVariation()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceStructureVariation structureVariation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -284,11 +308,8 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getVariationID() {
-		if (variationID == null) {
-			variationID = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SEQUENCE__VARIATION_ID);
-		}
-		return variationID;
+	public Reference getPatient() {
+		return patient;
 	}
 
 	/**
@@ -296,20 +317,11 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReferenceSeq() {
-		return referenceSeq;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReferenceSeq(CodeableConcept newReferenceSeq, NotificationChain msgs) {
-		CodeableConcept oldReferenceSeq = referenceSeq;
-		referenceSeq = newReferenceSeq;
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__REFERENCE_SEQ, oldReferenceSeq, newReferenceSeq);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__PATIENT, oldPatient, newPatient);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -320,18 +332,104 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReferenceSeq(CodeableConcept newReferenceSeq) {
-		if (newReferenceSeq != referenceSeq) {
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
 			NotificationChain msgs = null;
-			if (referenceSeq != null)
-				msgs = ((InternalEObject)referenceSeq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__REFERENCE_SEQ, null, msgs);
-			if (newReferenceSeq != null)
-				msgs = ((InternalEObject)newReferenceSeq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__REFERENCE_SEQ, null, msgs);
-			msgs = basicSetReferenceSeq(newReferenceSeq, msgs);
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__REFERENCE_SEQ, newReferenceSeq, newReferenceSeq));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__PATIENT, newPatient, newPatient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSpecimen() {
+		return specimen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpecimen(Reference newSpecimen, NotificationChain msgs) {
+		Reference oldSpecimen = specimen;
+		specimen = newSpecimen;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__SPECIMEN, oldSpecimen, newSpecimen);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSpecimen(Reference newSpecimen) {
+		if (newSpecimen != specimen) {
+			NotificationChain msgs = null;
+			if (specimen != null)
+				msgs = ((InternalEObject)specimen).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__SPECIMEN, null, msgs);
+			if (newSpecimen != null)
+				msgs = ((InternalEObject)newSpecimen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__SPECIMEN, null, msgs);
+			msgs = basicSetSpecimen(newSpecimen, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__SPECIMEN, newSpecimen, newSpecimen));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getDevice() {
+		return device;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDevice(Reference newDevice, NotificationChain msgs) {
+		Reference oldDevice = device;
+		device = newDevice;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__DEVICE, oldDevice, newDevice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDevice(Reference newDevice) {
+		if (newDevice != device) {
+			NotificationChain msgs = null;
+			if (device != null)
+				msgs = ((InternalEObject)device).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__DEVICE, null, msgs);
+			if (newDevice != null)
+				msgs = ((InternalEObject)newDevice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__DEVICE, null, msgs);
+			msgs = basicSetDevice(newDevice, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__DEVICE, newDevice, newDevice));
 	}
 
 	/**
@@ -382,18 +480,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SequenceCoordinate> getCoordinate() {
-		if (coordinate == null) {
-			coordinate = new EObjectContainmentEList<SequenceCoordinate>(SequenceCoordinate.class, this, FhirPackage.SEQUENCE__COORDINATE);
-		}
-		return coordinate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CodeableConcept getSpecies() {
 		return species;
 	}
@@ -437,8 +523,11 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getObservedAllele() {
-		return observedAllele;
+	public EList<SequenceReferenceSeq> getReferenceSeq() {
+		if (referenceSeq == null) {
+			referenceSeq = new EObjectContainmentEList<SequenceReferenceSeq>(SequenceReferenceSeq.class, this, FhirPackage.SEQUENCE__REFERENCE_SEQ);
+		}
+		return referenceSeq;
 	}
 
 	/**
@@ -446,11 +535,20 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetObservedAllele(org.hl7.fhir.String newObservedAllele, NotificationChain msgs) {
-		org.hl7.fhir.String oldObservedAllele = observedAllele;
-		observedAllele = newObservedAllele;
+	public SequenceVariation getVariation() {
+		return variation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVariation(SequenceVariation newVariation, NotificationChain msgs) {
+		SequenceVariation oldVariation = variation;
+		variation = newVariation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVED_ALLELE, oldObservedAllele, newObservedAllele);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__VARIATION, oldVariation, newVariation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -461,104 +559,18 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setObservedAllele(org.hl7.fhir.String newObservedAllele) {
-		if (newObservedAllele != observedAllele) {
+	public void setVariation(SequenceVariation newVariation) {
+		if (newVariation != variation) {
 			NotificationChain msgs = null;
-			if (observedAllele != null)
-				msgs = ((InternalEObject)observedAllele).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVED_ALLELE, null, msgs);
-			if (newObservedAllele != null)
-				msgs = ((InternalEObject)newObservedAllele).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVED_ALLELE, null, msgs);
-			msgs = basicSetObservedAllele(newObservedAllele, msgs);
+			if (variation != null)
+				msgs = ((InternalEObject)variation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__VARIATION, null, msgs);
+			if (newVariation != null)
+				msgs = ((InternalEObject)newVariation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__VARIATION, null, msgs);
+			msgs = basicSetVariation(newVariation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVED_ALLELE, newObservedAllele, newObservedAllele));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getReferenceAllele() {
-		return referenceAllele;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReferenceAllele(org.hl7.fhir.String newReferenceAllele, NotificationChain msgs) {
-		org.hl7.fhir.String oldReferenceAllele = referenceAllele;
-		referenceAllele = newReferenceAllele;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__REFERENCE_ALLELE, oldReferenceAllele, newReferenceAllele);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReferenceAllele(org.hl7.fhir.String newReferenceAllele) {
-		if (newReferenceAllele != referenceAllele) {
-			NotificationChain msgs = null;
-			if (referenceAllele != null)
-				msgs = ((InternalEObject)referenceAllele).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__REFERENCE_ALLELE, null, msgs);
-			if (newReferenceAllele != null)
-				msgs = ((InternalEObject)newReferenceAllele).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__REFERENCE_ALLELE, null, msgs);
-			msgs = basicSetReferenceAllele(newReferenceAllele, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__REFERENCE_ALLELE, newReferenceAllele, newReferenceAllele));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getCigar() {
-		return cigar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCigar(org.hl7.fhir.String newCigar, NotificationChain msgs) {
-		org.hl7.fhir.String oldCigar = cigar;
-		cigar = newCigar;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__CIGAR, oldCigar, newCigar);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCigar(org.hl7.fhir.String newCigar) {
-		if (newCigar != cigar) {
-			NotificationChain msgs = null;
-			if (cigar != null)
-				msgs = ((InternalEObject)cigar).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__CIGAR, null, msgs);
-			if (newCigar != null)
-				msgs = ((InternalEObject)newCigar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__CIGAR, null, msgs);
-			msgs = basicSetCigar(newCigar, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__CIGAR, newCigar, newCigar));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__VARIATION, newVariation, newVariation));
 	}
 
 	/**
@@ -750,49 +762,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SequenceChip getChip() {
-		return chip;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetChip(SequenceChip newChip, NotificationChain msgs) {
-		SequenceChip oldChip = chip;
-		chip = newChip;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__CHIP, oldChip, newChip);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChip(SequenceChip newChip) {
-		if (newChip != chip) {
-			NotificationChain msgs = null;
-			if (chip != null)
-				msgs = ((InternalEObject)chip).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__CHIP, null, msgs);
-			if (newChip != null)
-				msgs = ((InternalEObject)newChip).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__CHIP, null, msgs);
-			msgs = basicSetChip(newChip, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__CHIP, newChip, newChip));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<SequenceRepository> getRepository() {
 		if (repository == null) {
 			repository = new EObjectContainmentEList<SequenceRepository>(SequenceRepository.class, this, FhirPackage.SEQUENCE__REPOSITORY);
@@ -805,27 +774,166 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getPointer() {
+		if (pointer == null) {
+			pointer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SEQUENCE__POINTER);
+		}
+		return pointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getObservedSeq() {
+		return observedSeq;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObservedSeq(org.hl7.fhir.String newObservedSeq, NotificationChain msgs) {
+		org.hl7.fhir.String oldObservedSeq = observedSeq;
+		observedSeq = newObservedSeq;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVED_SEQ, oldObservedSeq, newObservedSeq);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObservedSeq(org.hl7.fhir.String newObservedSeq) {
+		if (newObservedSeq != observedSeq) {
+			NotificationChain msgs = null;
+			if (observedSeq != null)
+				msgs = ((InternalEObject)observedSeq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVED_SEQ, null, msgs);
+			if (newObservedSeq != null)
+				msgs = ((InternalEObject)newObservedSeq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVED_SEQ, null, msgs);
+			msgs = basicSetObservedSeq(newObservedSeq, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVED_SEQ, newObservedSeq, newObservedSeq));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getObservation() {
+		return observation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObservation(Reference newObservation, NotificationChain msgs) {
+		Reference oldObservation = observation;
+		observation = newObservation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVATION, oldObservation, newObservation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObservation(Reference newObservation) {
+		if (newObservation != observation) {
+			NotificationChain msgs = null;
+			if (observation != null)
+				msgs = ((InternalEObject)observation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVATION, null, msgs);
+			if (newObservation != null)
+				msgs = ((InternalEObject)newObservation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__OBSERVATION, null, msgs);
+			msgs = basicSetObservation(newObservation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__OBSERVATION, newObservation, newObservation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceStructureVariation getStructureVariation() {
+		return structureVariation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStructureVariation(SequenceStructureVariation newStructureVariation, NotificationChain msgs) {
+		SequenceStructureVariation oldStructureVariation = structureVariation;
+		structureVariation = newStructureVariation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__STRUCTURE_VARIATION, oldStructureVariation, newStructureVariation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStructureVariation(SequenceStructureVariation newStructureVariation) {
+		if (newStructureVariation != structureVariation) {
+			NotificationChain msgs = null;
+			if (structureVariation != null)
+				msgs = ((InternalEObject)structureVariation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__STRUCTURE_VARIATION, null, msgs);
+			if (newStructureVariation != null)
+				msgs = ((InternalEObject)newStructureVariation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE__STRUCTURE_VARIATION, null, msgs);
+			msgs = basicSetStructureVariation(newStructureVariation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__STRUCTURE_VARIATION, newStructureVariation, newStructureVariation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.SEQUENCE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.SEQUENCE__VARIATION_ID:
-				return ((InternalEList<?>)getVariationID()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
-				return basicSetReferenceSeq(null, msgs);
+			case FhirPackage.SEQUENCE__PATIENT:
+				return basicSetPatient(null, msgs);
+			case FhirPackage.SEQUENCE__SPECIMEN:
+				return basicSetSpecimen(null, msgs);
+			case FhirPackage.SEQUENCE__DEVICE:
+				return basicSetDevice(null, msgs);
 			case FhirPackage.SEQUENCE__QUANTITY:
 				return basicSetQuantity(null, msgs);
-			case FhirPackage.SEQUENCE__COORDINATE:
-				return ((InternalEList<?>)getCoordinate()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SEQUENCE__SPECIES:
 				return basicSetSpecies(null, msgs);
-			case FhirPackage.SEQUENCE__OBSERVED_ALLELE:
-				return basicSetObservedAllele(null, msgs);
-			case FhirPackage.SEQUENCE__REFERENCE_ALLELE:
-				return basicSetReferenceAllele(null, msgs);
-			case FhirPackage.SEQUENCE__CIGAR:
-				return basicSetCigar(null, msgs);
+			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
+				return ((InternalEList<?>)getReferenceSeq()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SEQUENCE__VARIATION:
+				return basicSetVariation(null, msgs);
 			case FhirPackage.SEQUENCE__QUALITY:
 				return ((InternalEList<?>)getQuality()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SEQUENCE__ALLELIC_STATE:
@@ -836,10 +944,16 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return basicSetCopyNumberEvent(null, msgs);
 			case FhirPackage.SEQUENCE__READ_COVERAGE:
 				return basicSetReadCoverage(null, msgs);
-			case FhirPackage.SEQUENCE__CHIP:
-				return basicSetChip(null, msgs);
 			case FhirPackage.SEQUENCE__REPOSITORY:
 				return ((InternalEList<?>)getRepository()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SEQUENCE__POINTER:
+				return ((InternalEList<?>)getPointer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SEQUENCE__OBSERVED_SEQ:
+				return basicSetObservedSeq(null, msgs);
+			case FhirPackage.SEQUENCE__OBSERVATION:
+				return basicSetObservation(null, msgs);
+			case FhirPackage.SEQUENCE__STRUCTURE_VARIATION:
+				return basicSetStructureVariation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -854,22 +968,20 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 		switch (featureID) {
 			case FhirPackage.SEQUENCE__TYPE:
 				return getType();
-			case FhirPackage.SEQUENCE__VARIATION_ID:
-				return getVariationID();
-			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
-				return getReferenceSeq();
+			case FhirPackage.SEQUENCE__PATIENT:
+				return getPatient();
+			case FhirPackage.SEQUENCE__SPECIMEN:
+				return getSpecimen();
+			case FhirPackage.SEQUENCE__DEVICE:
+				return getDevice();
 			case FhirPackage.SEQUENCE__QUANTITY:
 				return getQuantity();
-			case FhirPackage.SEQUENCE__COORDINATE:
-				return getCoordinate();
 			case FhirPackage.SEQUENCE__SPECIES:
 				return getSpecies();
-			case FhirPackage.SEQUENCE__OBSERVED_ALLELE:
-				return getObservedAllele();
-			case FhirPackage.SEQUENCE__REFERENCE_ALLELE:
-				return getReferenceAllele();
-			case FhirPackage.SEQUENCE__CIGAR:
-				return getCigar();
+			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
+				return getReferenceSeq();
+			case FhirPackage.SEQUENCE__VARIATION:
+				return getVariation();
 			case FhirPackage.SEQUENCE__QUALITY:
 				return getQuality();
 			case FhirPackage.SEQUENCE__ALLELIC_STATE:
@@ -880,10 +992,16 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return getCopyNumberEvent();
 			case FhirPackage.SEQUENCE__READ_COVERAGE:
 				return getReadCoverage();
-			case FhirPackage.SEQUENCE__CHIP:
-				return getChip();
 			case FhirPackage.SEQUENCE__REPOSITORY:
 				return getRepository();
+			case FhirPackage.SEQUENCE__POINTER:
+				return getPointer();
+			case FhirPackage.SEQUENCE__OBSERVED_SEQ:
+				return getObservedSeq();
+			case FhirPackage.SEQUENCE__OBSERVATION:
+				return getObservation();
+			case FhirPackage.SEQUENCE__STRUCTURE_VARIATION:
+				return getStructureVariation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -900,31 +1018,27 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 			case FhirPackage.SEQUENCE__TYPE:
 				setType((SequenceType)newValue);
 				return;
-			case FhirPackage.SEQUENCE__VARIATION_ID:
-				getVariationID().clear();
-				getVariationID().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.SEQUENCE__PATIENT:
+				setPatient((Reference)newValue);
 				return;
-			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
-				setReferenceSeq((CodeableConcept)newValue);
+			case FhirPackage.SEQUENCE__SPECIMEN:
+				setSpecimen((Reference)newValue);
+				return;
+			case FhirPackage.SEQUENCE__DEVICE:
+				setDevice((Reference)newValue);
 				return;
 			case FhirPackage.SEQUENCE__QUANTITY:
 				setQuantity((Quantity)newValue);
 				return;
-			case FhirPackage.SEQUENCE__COORDINATE:
-				getCoordinate().clear();
-				getCoordinate().addAll((Collection<? extends SequenceCoordinate>)newValue);
-				return;
 			case FhirPackage.SEQUENCE__SPECIES:
 				setSpecies((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SEQUENCE__OBSERVED_ALLELE:
-				setObservedAllele((org.hl7.fhir.String)newValue);
+			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
+				getReferenceSeq().clear();
+				getReferenceSeq().addAll((Collection<? extends SequenceReferenceSeq>)newValue);
 				return;
-			case FhirPackage.SEQUENCE__REFERENCE_ALLELE:
-				setReferenceAllele((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.SEQUENCE__CIGAR:
-				setCigar((org.hl7.fhir.String)newValue);
+			case FhirPackage.SEQUENCE__VARIATION:
+				setVariation((SequenceVariation)newValue);
 				return;
 			case FhirPackage.SEQUENCE__QUALITY:
 				getQuality().clear();
@@ -942,12 +1056,22 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 			case FhirPackage.SEQUENCE__READ_COVERAGE:
 				setReadCoverage((org.hl7.fhir.Integer)newValue);
 				return;
-			case FhirPackage.SEQUENCE__CHIP:
-				setChip((SequenceChip)newValue);
-				return;
 			case FhirPackage.SEQUENCE__REPOSITORY:
 				getRepository().clear();
 				getRepository().addAll((Collection<? extends SequenceRepository>)newValue);
+				return;
+			case FhirPackage.SEQUENCE__POINTER:
+				getPointer().clear();
+				getPointer().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.SEQUENCE__OBSERVED_SEQ:
+				setObservedSeq((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.SEQUENCE__OBSERVATION:
+				setObservation((Reference)newValue);
+				return;
+			case FhirPackage.SEQUENCE__STRUCTURE_VARIATION:
+				setStructureVariation((SequenceStructureVariation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -964,29 +1088,26 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 			case FhirPackage.SEQUENCE__TYPE:
 				setType((SequenceType)null);
 				return;
-			case FhirPackage.SEQUENCE__VARIATION_ID:
-				getVariationID().clear();
+			case FhirPackage.SEQUENCE__PATIENT:
+				setPatient((Reference)null);
 				return;
-			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
-				setReferenceSeq((CodeableConcept)null);
+			case FhirPackage.SEQUENCE__SPECIMEN:
+				setSpecimen((Reference)null);
+				return;
+			case FhirPackage.SEQUENCE__DEVICE:
+				setDevice((Reference)null);
 				return;
 			case FhirPackage.SEQUENCE__QUANTITY:
 				setQuantity((Quantity)null);
 				return;
-			case FhirPackage.SEQUENCE__COORDINATE:
-				getCoordinate().clear();
-				return;
 			case FhirPackage.SEQUENCE__SPECIES:
 				setSpecies((CodeableConcept)null);
 				return;
-			case FhirPackage.SEQUENCE__OBSERVED_ALLELE:
-				setObservedAllele((org.hl7.fhir.String)null);
+			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
+				getReferenceSeq().clear();
 				return;
-			case FhirPackage.SEQUENCE__REFERENCE_ALLELE:
-				setReferenceAllele((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.SEQUENCE__CIGAR:
-				setCigar((org.hl7.fhir.String)null);
+			case FhirPackage.SEQUENCE__VARIATION:
+				setVariation((SequenceVariation)null);
 				return;
 			case FhirPackage.SEQUENCE__QUALITY:
 				getQuality().clear();
@@ -1003,11 +1124,20 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 			case FhirPackage.SEQUENCE__READ_COVERAGE:
 				setReadCoverage((org.hl7.fhir.Integer)null);
 				return;
-			case FhirPackage.SEQUENCE__CHIP:
-				setChip((SequenceChip)null);
-				return;
 			case FhirPackage.SEQUENCE__REPOSITORY:
 				getRepository().clear();
+				return;
+			case FhirPackage.SEQUENCE__POINTER:
+				getPointer().clear();
+				return;
+			case FhirPackage.SEQUENCE__OBSERVED_SEQ:
+				setObservedSeq((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.SEQUENCE__OBSERVATION:
+				setObservation((Reference)null);
+				return;
+			case FhirPackage.SEQUENCE__STRUCTURE_VARIATION:
+				setStructureVariation((SequenceStructureVariation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1023,22 +1153,20 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 		switch (featureID) {
 			case FhirPackage.SEQUENCE__TYPE:
 				return type != null;
-			case FhirPackage.SEQUENCE__VARIATION_ID:
-				return variationID != null && !variationID.isEmpty();
-			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
-				return referenceSeq != null;
+			case FhirPackage.SEQUENCE__PATIENT:
+				return patient != null;
+			case FhirPackage.SEQUENCE__SPECIMEN:
+				return specimen != null;
+			case FhirPackage.SEQUENCE__DEVICE:
+				return device != null;
 			case FhirPackage.SEQUENCE__QUANTITY:
 				return quantity != null;
-			case FhirPackage.SEQUENCE__COORDINATE:
-				return coordinate != null && !coordinate.isEmpty();
 			case FhirPackage.SEQUENCE__SPECIES:
 				return species != null;
-			case FhirPackage.SEQUENCE__OBSERVED_ALLELE:
-				return observedAllele != null;
-			case FhirPackage.SEQUENCE__REFERENCE_ALLELE:
-				return referenceAllele != null;
-			case FhirPackage.SEQUENCE__CIGAR:
-				return cigar != null;
+			case FhirPackage.SEQUENCE__REFERENCE_SEQ:
+				return referenceSeq != null && !referenceSeq.isEmpty();
+			case FhirPackage.SEQUENCE__VARIATION:
+				return variation != null;
 			case FhirPackage.SEQUENCE__QUALITY:
 				return quality != null && !quality.isEmpty();
 			case FhirPackage.SEQUENCE__ALLELIC_STATE:
@@ -1049,10 +1177,16 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return copyNumberEvent != null;
 			case FhirPackage.SEQUENCE__READ_COVERAGE:
 				return readCoverage != null;
-			case FhirPackage.SEQUENCE__CHIP:
-				return chip != null;
 			case FhirPackage.SEQUENCE__REPOSITORY:
 				return repository != null && !repository.isEmpty();
+			case FhirPackage.SEQUENCE__POINTER:
+				return pointer != null && !pointer.isEmpty();
+			case FhirPackage.SEQUENCE__OBSERVED_SEQ:
+				return observedSeq != null;
+			case FhirPackage.SEQUENCE__OBSERVATION:
+				return observation != null;
+			case FhirPackage.SEQUENCE__STRUCTURE_VARIATION:
+				return structureVariation != null;
 		}
 		return super.eIsSet(featureID);
 	}

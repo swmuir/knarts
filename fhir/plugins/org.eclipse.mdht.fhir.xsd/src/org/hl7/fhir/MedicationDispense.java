@@ -95,6 +95,60 @@ public interface MedicationDispense extends DomainResource {
 	void setStatus(MedicationDispenseStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Medication Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Medication Codeable Concept</em>' containment reference.
+	 * @see #setMedicationCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_MedicationCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='medicationCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getMedicationCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Codeable Concept</em>' containment reference.
+	 * @see #getMedicationCodeableConcept()
+	 * @generated
+	 */
+	void setMedicationCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Medication Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Medication Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Medication Reference</em>' containment reference.
+	 * @see #setMedicationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_MedicationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='medicationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getMedicationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Reference</em>' containment reference.
+	 * @see #getMedicationReference()
+	 * @generated
+	 */
+	void setMedicationReference(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,60 +295,6 @@ public interface MedicationDispense extends DomainResource {
 	void setDaysSupply(SimpleQuantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #setMedicationCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_MedicationCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getMedicationCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 */
-	void setMedicationCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Medication Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #setMedicationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_MedicationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getMedicationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #getMedicationReference()
-	 * @generated
-	 */
-	void setMedicationReference(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>When Prepared</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,7 +410,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates how the medication is to be used by the patient.
+	 * Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dosage Instruction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_DosageInstruction()

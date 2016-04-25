@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getFactor <em>Factor</em>}</li>
@@ -111,6 +112,22 @@ public interface ExplanationOfBenefitSubDetail extends BackboneElement {
 	 * @generated
 	 */
 	void setService(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Program Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Program Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitSubDetail_ProgramCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='programCode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Coding> getProgramCode();
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -243,30 +260,20 @@ public interface ExplanationOfBenefitSubDetail extends BackboneElement {
 	void setNet(Money value);
 
 	/**
-	 * Returns the value of the '<em><b>Udi</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Udi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * List of Unique Device Identifiers associated with this line item.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Udi</em>' containment reference.
-	 * @see #setUdi(Coding)
+	 * @return the value of the '<em>Udi</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitSubDetail_Udi()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='udi' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getUdi();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitSubDetail#getUdi <em>Udi</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Udi</em>' containment reference.
-	 * @see #getUdi()
-	 * @generated
-	 */
-	void setUdi(Coding value);
+	EList<Reference> getUdi();
 
 	/**
 	 * Returns the value of the '<em><b>Adjudication</b></em>' containment reference list.

@@ -197,176 +197,11 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, oldSubject, newSubject);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
-			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, newSubject, newSubject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrderer() {
-		return orderer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrderer(Reference newOrderer, NotificationChain msgs) {
-		Reference oldOrderer = orderer;
-		orderer = newOrderer;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ORDERER, oldOrderer, newOrderer);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrderer(Reference newOrderer) {
-		if (newOrderer != orderer) {
-			NotificationChain msgs = null;
-			if (orderer != null)
-				msgs = ((InternalEObject)orderer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ORDERER, null, msgs);
-			if (newOrderer != null)
-				msgs = ((InternalEObject)newOrderer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ORDERER, null, msgs);
-			msgs = basicSetOrderer(newOrderer, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ORDERER, newOrderer, newOrderer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DIAGNOSTIC_ORDER__IDENTIFIER);
 		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getEncounter() {
-		return encounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, oldEncounter, newEncounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
-			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, newEncounter, newEncounter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_ORDER__REASON);
-		}
-		return reason;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getSupportingInformation() {
-		if (supportingInformation == null) {
-			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION);
-		}
-		return supportingInformation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getSpecimen() {
-		if (specimen == null) {
-			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN);
-		}
-		return specimen;
 	}
 
 	/**
@@ -453,6 +288,171 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
+			NotificationChain msgs = null;
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getEncounter() {
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, oldEncounter, newEncounter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
+			NotificationChain msgs = null;
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ENCOUNTER, newEncounter, newEncounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getOrderer() {
+		return orderer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrderer(Reference newOrderer, NotificationChain msgs) {
+		Reference oldOrderer = orderer;
+		orderer = newOrderer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ORDERER, oldOrderer, newOrderer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrderer(Reference newOrderer) {
+		if (newOrderer != orderer) {
+			NotificationChain msgs = null;
+			if (orderer != null)
+				msgs = ((InternalEObject)orderer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ORDERER, null, msgs);
+			if (newOrderer != null)
+				msgs = ((InternalEObject)newOrderer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_ORDER__ORDERER, null, msgs);
+			msgs = basicSetOrderer(newOrderer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER__ORDERER, newOrderer, newOrderer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getReason() {
+		if (reason == null) {
+			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_ORDER__REASON);
+		}
+		return reason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getSupportingInformation() {
+		if (supportingInformation == null) {
+			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION);
+		}
+		return supportingInformation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getSpecimen() {
+		if (specimen == null) {
+			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN);
+		}
+		return specimen;
 	}
 
 	/**

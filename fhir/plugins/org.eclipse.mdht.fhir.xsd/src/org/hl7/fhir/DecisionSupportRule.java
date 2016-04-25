@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource defines a decision support rule of the form [on Event] if Condition then Action.
+ * This resource defines a decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of a actions that should be taken whenever some condition is met in response to a particular event or events.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -35,7 +35,7 @@ public interface DecisionSupportRule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a ModuleMetadata resource that provides metadata for the rule.
+	 * The metadata for the decision support rule, including publishing, life-cycle, version, documentation, and supporting evidence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Module Metadata</em>' containment reference.
 	 * @see #setModuleMetadata(ModuleMetadata)
@@ -74,11 +74,11 @@ public interface DecisionSupportRule extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DecisionSupportRuleTrigger}.
+	 * The list contents are of type {@link org.hl7.fhir.TriggerDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of a triggering event.
+	 * The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Trigger</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportRule_Trigger()
@@ -86,14 +86,14 @@ public interface DecisionSupportRule extends DomainResource {
 	 *        extendedMetaData="kind='element' name='trigger' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DecisionSupportRuleTrigger> getTrigger();
+	EList<TriggerDefinition> getTrigger();
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The condition for the artifact.
+	 * The condition element describes he "if" portion of the rule that determines whether or not the rule "fires". The condition must be the name of an expression in a referenced library.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference.
 	 * @see #setCondition(org.hl7.fhir.String)
@@ -116,11 +116,11 @@ public interface DecisionSupportRule extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DecisionSupportRuleAction}.
+	 * The list contents are of type {@link org.hl7.fhir.ActionDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The definition of the actions that should be returned by evaluation of the artifact.
+	 * The action element defines the "when" portion of the rule that determines what actions should be performed if the condition evaluates to true.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDecisionSupportRule_Action()
@@ -128,6 +128,6 @@ public interface DecisionSupportRule extends DomainResource {
 	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DecisionSupportRuleAction> getAction();
+	EList<ActionDefinition> getAction();
 
 } // DecisionSupportRule

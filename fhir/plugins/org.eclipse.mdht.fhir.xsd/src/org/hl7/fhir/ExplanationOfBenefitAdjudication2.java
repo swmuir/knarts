@@ -16,7 +16,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getValue <em>Value</em>}</li>
@@ -28,30 +28,30 @@ package org.hl7.fhir;
  */
 public interface ExplanationOfBenefitAdjudication2 extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAdjudication2_Code()
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAdjudication2_Category()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCode();
+	Coding getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getCode <em>Code</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitAdjudication2#getCategory <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	void setCode(Coding value);
+	void setCategory(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.

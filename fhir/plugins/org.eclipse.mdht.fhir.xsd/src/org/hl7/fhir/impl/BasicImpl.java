@@ -214,49 +214,6 @@ public class BasicImpl extends DomainResourceImpl implements Basic {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getAuthor() {
-		return author;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAuthor(Reference newAuthor, NotificationChain msgs) {
-		Reference oldAuthor = author;
-		author = newAuthor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BASIC__AUTHOR, oldAuthor, newAuthor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAuthor(Reference newAuthor) {
-		if (newAuthor != author) {
-			NotificationChain msgs = null;
-			if (author != null)
-				msgs = ((InternalEObject)author).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BASIC__AUTHOR, null, msgs);
-			if (newAuthor != null)
-				msgs = ((InternalEObject)newAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BASIC__AUTHOR, null, msgs);
-			msgs = basicSetAuthor(newAuthor, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BASIC__AUTHOR, newAuthor, newAuthor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getCreated() {
 		return created;
 	}
@@ -293,6 +250,49 @@ public class BasicImpl extends DomainResourceImpl implements Basic {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BASIC__CREATED, newCreated, newCreated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getAuthor() {
+		return author;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAuthor(Reference newAuthor, NotificationChain msgs) {
+		Reference oldAuthor = author;
+		author = newAuthor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BASIC__AUTHOR, oldAuthor, newAuthor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthor(Reference newAuthor) {
+		if (newAuthor != author) {
+			NotificationChain msgs = null;
+			if (author != null)
+				msgs = ((InternalEObject)author).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BASIC__AUTHOR, null, msgs);
+			if (newAuthor != null)
+				msgs = ((InternalEObject)newAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BASIC__AUTHOR, null, msgs);
+			msgs = basicSetAuthor(newAuthor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BASIC__AUTHOR, newAuthor, newAuthor));
 	}
 
 	/**

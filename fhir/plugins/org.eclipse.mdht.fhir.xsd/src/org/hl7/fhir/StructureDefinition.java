@@ -36,11 +36,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.StructureDefinition#getFhirVersion <em>Fhir Version</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getMapping <em>Mapping</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureDefinition#getConstrainedType <em>Constrained Type</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getContextType <em>Context Type</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureDefinition#getBase <em>Base</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureDefinition#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureDefinition#getBaseDefinition <em>Base Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureDefinition#getDerivation <em>Derivation</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getSnapshot <em>Snapshot</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getDifferential <em>Differential</em>}</li>
  * </ul>
@@ -178,13 +179,13 @@ public interface StructureDefinition extends DomainResource {
 	 * The status of the StructureDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ConformanceResourceStatus)
 	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ConformanceResourceStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getStatus <em>Status</em>}' containment reference.
@@ -194,7 +195,7 @@ public interface StructureDefinition extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ConformanceResourceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
@@ -405,7 +406,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.3.0 for this version.
+	 * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.4.0 for this version.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fhir Version</em>' containment reference.
 	 * @see #setFhirVersion(Id)
@@ -467,32 +468,6 @@ public interface StructureDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setKind(StructureDefinitionKind value);
-
-	/**
-	 * Returns the value of the '<em><b>Constrained Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Constrained Type</em>' containment reference.
-	 * @see #setConstrainedType(Code)
-	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_ConstrainedType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='constrainedType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Code getConstrainedType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getConstrainedType <em>Constrained Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Constrained Type</em>' containment reference.
-	 * @see #getConstrainedType()
-	 * @generated
-	 */
-	void setConstrainedType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' containment reference.
@@ -563,30 +538,82 @@ public interface StructureDefinition extends DomainResource {
 	EList<org.hl7.fhir.String> getContext();
 
 	/**
-	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is the base structure from which this set of constraints is derived.
+	 * The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Base()
+	 * @return the value of the '<em>Base Type</em>' containment reference.
+	 * @see #setBaseType(Code)
+	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_BaseType()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='baseType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getBase();
+	Code getBaseType();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getBase <em>Base</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getBaseType <em>Base Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base</em>' containment reference.
-	 * @see #getBase()
+	 * @param value the new value of the '<em>Base Type</em>' containment reference.
+	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setBase(Uri value);
+	void setBaseType(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Base Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Base Definition</em>' containment reference.
+	 * @see #setBaseDefinition(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_BaseDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='baseDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getBaseDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getBaseDefinition <em>Base Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base Definition</em>' containment reference.
+	 * @see #getBaseDefinition()
+	 * @generated
+	 */
+	void setBaseDefinition(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Derivation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * How the type relates to the baseDefinition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Derivation</em>' containment reference.
+	 * @see #setDerivation(TypeDerivationRule)
+	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Derivation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='derivation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TypeDerivationRule getDerivation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getDerivation <em>Derivation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Derivation</em>' containment reference.
+	 * @see #getDerivation()
+	 * @generated
+	 */
+	void setDerivation(TypeDerivationRule value);
 
 	/**
 	 * Returns the value of the '<em><b>Snapshot</b></em>' containment reference.

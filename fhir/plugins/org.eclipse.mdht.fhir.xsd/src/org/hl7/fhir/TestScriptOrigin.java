@@ -56,16 +56,16 @@ public interface TestScriptOrigin extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of profile the server supports.
+	 * The type of origin profile the test system supports.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(ProfileOriginType)
+	 * @see #setProfile(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOrigin_Profile()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ProfileOriginType getProfile();
+	Coding getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOrigin#getProfile <em>Profile</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface TestScriptOrigin extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(ProfileOriginType value);
+	void setProfile(Coding value);
 
 } // TestScriptOrigin

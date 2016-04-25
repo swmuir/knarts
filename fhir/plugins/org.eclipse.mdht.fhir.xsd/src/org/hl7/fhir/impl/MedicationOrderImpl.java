@@ -45,7 +45,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateEnded <em>Date Ended</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonEnded <em>Reason Ended</em>}</li>
@@ -140,24 +140,24 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected Reference prescriber;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reasonCodeableConcept;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
-	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReasonReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reasonReference;
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getDateEnded() <em>Date Ended</em>}' containment reference.
@@ -265,6 +265,221 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MedicationOrderStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(MedicationOrderStatus newStatus, NotificationChain msgs) {
+		MedicationOrderStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(MedicationOrderStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getMedicationCodeableConcept() {
+		return medicationCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldMedicationCodeableConcept = medicationCodeableConcept;
+		medicationCodeableConcept = newMedicationCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, oldMedicationCodeableConcept, newMedicationCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept) {
+		if (newMedicationCodeableConcept != medicationCodeableConcept) {
+			NotificationChain msgs = null;
+			if (medicationCodeableConcept != null)
+				msgs = ((InternalEObject)medicationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, null, msgs);
+			if (newMedicationCodeableConcept != null)
+				msgs = ((InternalEObject)newMedicationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetMedicationCodeableConcept(newMedicationCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, newMedicationCodeableConcept, newMedicationCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getMedicationReference() {
+		return medicationReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMedicationReference(Reference newMedicationReference, NotificationChain msgs) {
+		Reference oldMedicationReference = medicationReference;
+		medicationReference = newMedicationReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, oldMedicationReference, newMedicationReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMedicationReference(Reference newMedicationReference) {
+		if (newMedicationReference != medicationReference) {
+			NotificationChain msgs = null;
+			if (medicationReference != null)
+				msgs = ((InternalEObject)medicationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, null, msgs);
+			if (newMedicationReference != null)
+				msgs = ((InternalEObject)newMedicationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, null, msgs);
+			msgs = basicSetMedicationReference(newMedicationReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, newMedicationReference, newMedicationReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPatient() {
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PATIENT, oldPatient, newPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
+			NotificationChain msgs = null;
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PATIENT, newPatient, newPatient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getEncounter() {
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__ENCOUNTER, oldEncounter, newEncounter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
+			NotificationChain msgs = null;
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__ENCOUNTER, newEncounter, newEncounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getDateWritten() {
 		return dateWritten;
 	}
@@ -308,8 +523,8 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationOrderStatus getStatus() {
-		return status;
+	public Reference getPrescriber() {
+		return prescriber;
 	}
 
 	/**
@@ -317,11 +532,11 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(MedicationOrderStatus newStatus, NotificationChain msgs) {
-		MedicationOrderStatus oldStatus = status;
-		status = newStatus;
+	public NotificationChain basicSetPrescriber(Reference newPrescriber, NotificationChain msgs) {
+		Reference oldPrescriber = prescriber;
+		prescriber = newPrescriber;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PRESCRIBER, oldPrescriber, newPrescriber);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -332,18 +547,42 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(MedicationOrderStatus newStatus) {
-		if (newStatus != status) {
+	public void setPrescriber(Reference newPrescriber) {
+		if (newPrescriber != prescriber) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (prescriber != null)
+				msgs = ((InternalEObject)prescriber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PRESCRIBER, null, msgs);
+			if (newPrescriber != null)
+				msgs = ((InternalEObject)newPrescriber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PRESCRIBER, null, msgs);
+			msgs = basicSetPrescriber(newPrescriber, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PRESCRIBER, newPrescriber, newPrescriber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ORDER__REASON_CODE);
+		}
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ORDER__REASON_REFERENCE);
+		}
+		return reasonReference;
 	}
 
 	/**
@@ -437,312 +676,11 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatient() {
-		return patient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PATIENT, oldPatient, newPatient);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
-			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PATIENT, newPatient, newPatient));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getPrescriber() {
-		return prescriber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrescriber(Reference newPrescriber, NotificationChain msgs) {
-		Reference oldPrescriber = prescriber;
-		prescriber = newPrescriber;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PRESCRIBER, oldPrescriber, newPrescriber);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrescriber(Reference newPrescriber) {
-		if (newPrescriber != prescriber) {
-			NotificationChain msgs = null;
-			if (prescriber != null)
-				msgs = ((InternalEObject)prescriber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PRESCRIBER, null, msgs);
-			if (newPrescriber != null)
-				msgs = ((InternalEObject)newPrescriber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__PRESCRIBER, null, msgs);
-			msgs = basicSetPrescriber(newPrescriber, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__PRESCRIBER, newPrescriber, newPrescriber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getEncounter() {
-		return encounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__ENCOUNTER, oldEncounter, newEncounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
-			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__ENCOUNTER, newEncounter, newEncounter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getReasonCodeableConcept() {
-		return reasonCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonCodeableConcept(CodeableConcept newReasonCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldReasonCodeableConcept = reasonCodeableConcept;
-		reasonCodeableConcept = newReasonCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT, oldReasonCodeableConcept, newReasonCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonCodeableConcept(CodeableConcept newReasonCodeableConcept) {
-		if (newReasonCodeableConcept != reasonCodeableConcept) {
-			NotificationChain msgs = null;
-			if (reasonCodeableConcept != null)
-				msgs = ((InternalEObject)reasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT, null, msgs);
-			if (newReasonCodeableConcept != null)
-				msgs = ((InternalEObject)newReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetReasonCodeableConcept(newReasonCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT, newReasonCodeableConcept, newReasonCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReasonReference() {
-		return reasonReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonReference(Reference newReasonReference, NotificationChain msgs) {
-		Reference oldReasonReference = reasonReference;
-		reasonReference = newReasonReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_REFERENCE, oldReasonReference, newReasonReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonReference(Reference newReasonReference) {
-		if (newReasonReference != reasonReference) {
-			NotificationChain msgs = null;
-			if (reasonReference != null)
-				msgs = ((InternalEObject)reasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_REFERENCE, null, msgs);
-			if (newReasonReference != null)
-				msgs = ((InternalEObject)newReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_REFERENCE, null, msgs);
-			msgs = basicSetReasonReference(newReasonReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_REFERENCE, newReasonReference, newReasonReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_ORDER__NOTE);
 		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getMedicationCodeableConcept() {
-		return medicationCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldMedicationCodeableConcept = medicationCodeableConcept;
-		medicationCodeableConcept = newMedicationCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, oldMedicationCodeableConcept, newMedicationCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept) {
-		if (newMedicationCodeableConcept != medicationCodeableConcept) {
-			NotificationChain msgs = null;
-			if (medicationCodeableConcept != null)
-				msgs = ((InternalEObject)medicationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			if (newMedicationCodeableConcept != null)
-				msgs = ((InternalEObject)newMedicationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetMedicationCodeableConcept(newMedicationCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_CODEABLE_CONCEPT, newMedicationCodeableConcept, newMedicationCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getMedicationReference() {
-		return medicationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationReference(Reference newMedicationReference, NotificationChain msgs) {
-		Reference oldMedicationReference = medicationReference;
-		medicationReference = newMedicationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, oldMedicationReference, newMedicationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationReference(Reference newMedicationReference) {
-		if (newMedicationReference != medicationReference) {
-			NotificationChain msgs = null;
-			if (medicationReference != null)
-				msgs = ((InternalEObject)medicationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, null, msgs);
-			if (newMedicationReference != null)
-				msgs = ((InternalEObject)newMedicationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, null, msgs);
-			msgs = basicSetMedicationReference(newMedicationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__MEDICATION_REFERENCE, newMedicationReference, newMedicationReference));
 	}
 
 	/**
@@ -910,10 +848,10 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return basicSetDateWritten(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
 				return basicSetPrescriber(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return basicSetReasonCodeableConcept(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				return basicSetReasonReference(null, msgs);
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
 				return basicSetDateEnded(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
@@ -956,8 +894,8 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return getDateWritten();
 			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
 				return getPrescriber();
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
+			case FhirPackage.MEDICATION_ORDER__REASON_CODE:
+				return getReasonCode();
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				return getReasonReference();
 			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
@@ -1012,11 +950,13 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
 				setPrescriber((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)newValue);
+			case FhirPackage.MEDICATION_ORDER__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				setReasonReference((Reference)newValue);
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
 				setDateEnded((DateTime)newValue);
@@ -1077,11 +1017,11 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
 				setPrescriber((Reference)null);
 				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)null);
+			case FhirPackage.MEDICATION_ORDER__REASON_CODE:
+				getReasonCode().clear();
 				return;
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				setReasonReference((Reference)null);
+				getReasonReference().clear();
 				return;
 			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
 				setDateEnded((DateTime)null);
@@ -1132,10 +1072,10 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return dateWritten != null;
 			case FhirPackage.MEDICATION_ORDER__PRESCRIBER:
 				return prescriber != null;
-			case FhirPackage.MEDICATION_ORDER__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null;
+			case FhirPackage.MEDICATION_ORDER__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
-				return reasonReference != null;
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
 				return dateEnded != null;
 			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:

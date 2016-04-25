@@ -42,7 +42,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Condition#getStage <em>Stage</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getEvidence <em>Evidence</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getBodySite <em>Body Site</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCondition()
@@ -656,29 +656,19 @@ public interface Condition extends DomainResource {
 	EList<CodeableConcept> getBodySite();
 
 	/**
-	 * Returns the value of the '<em><b>Notes</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Notes</em>' containment reference.
-	 * @see #setNotes(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Notes()
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notes' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNotes();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getNotes <em>Notes</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Notes</em>' containment reference.
-	 * @see #getNotes()
-	 * @generated
-	 */
-	void setNotes(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 } // Condition

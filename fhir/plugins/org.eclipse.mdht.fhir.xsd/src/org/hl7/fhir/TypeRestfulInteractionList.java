@@ -71,16 +71,6 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	HISTORY_INSTANCE(4, "historyInstance", "history-instance"),
 
 	/**
-	 * The '<em><b>Validate</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VALIDATE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	VALIDATE(5, "validate", "validate"),
-
-	/**
 	 * The '<em><b>History Type</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +78,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HISTORY_TYPE(6, "historyType", "history-type"),
+	HISTORY_TYPE(5, "historyType", "history-type"),
 
 	/**
 	 * The '<em><b>Create</b></em>' literal object.
@@ -98,7 +88,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CREATE(7, "create", "create"),
+	CREATE(6, "create", "create"),
 
 	/**
 	 * The '<em><b>Search Type</b></em>' literal object.
@@ -108,7 +98,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEARCH_TYPE(8, "searchType", "search-type");
+	SEARCH_TYPE(7, "searchType", "search-type");
 
 	/**
 	 * The '<em><b>Read</b></em>' literal value.
@@ -181,20 +171,6 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	public static final int HISTORY_INSTANCE_VALUE = 4;
 
 	/**
-	 * The '<em><b>Validate</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * <!-- end-model-doc -->
-	 * @see #VALIDATE
-	 * @model name="validate"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int VALIDATE_VALUE = 5;
-
-	/**
 	 * The '<em><b>History Type</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,7 +182,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HISTORY_TYPE_VALUE = 6;
+	public static final int HISTORY_TYPE_VALUE = 5;
 
 	/**
 	 * The '<em><b>Create</b></em>' literal value.
@@ -220,7 +196,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CREATE_VALUE = 7;
+	public static final int CREATE_VALUE = 6;
 
 	/**
 	 * The '<em><b>Search Type</b></em>' literal value.
@@ -234,7 +210,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEARCH_TYPE_VALUE = 8;
+	public static final int SEARCH_TYPE_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Type Restful Interaction List</b></em>' enumerators.
@@ -249,7 +225,6 @@ public enum TypeRestfulInteractionList implements Enumerator {
 			UPDATE,
 			DELETE,
 			HISTORY_INSTANCE,
-			VALIDATE,
 			HISTORY_TYPE,
 			CREATE,
 			SEARCH_TYPE,
@@ -314,7 +289,6 @@ public enum TypeRestfulInteractionList implements Enumerator {
 			case UPDATE_VALUE: return UPDATE;
 			case DELETE_VALUE: return DELETE;
 			case HISTORY_INSTANCE_VALUE: return HISTORY_INSTANCE;
-			case VALIDATE_VALUE: return VALIDATE;
 			case HISTORY_TYPE_VALUE: return HISTORY_TYPE;
 			case CREATE_VALUE: return CREATE;
 			case SEARCH_TYPE_VALUE: return SEARCH_TYPE;

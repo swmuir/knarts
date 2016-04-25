@@ -33,7 +33,9 @@ import org.hl7.fhir.Schedule;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getServiceCategory <em>Service Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getPlanningHorizon <em>Planning Horizon</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getComment <em>Comment</em>}</li>
@@ -53,14 +55,34 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getServiceCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> type;
+	protected CodeableConcept serviceCategory;
+
+	/**
+	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> serviceType;
+
+	/**
+	 * The cached value of the '{@link #getSpecialty() <em>Specialty</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecialty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> specialty;
 
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference.
@@ -128,11 +150,66 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getType() {
-		if (type == null) {
-			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SCHEDULE__TYPE);
+	public CodeableConcept getServiceCategory() {
+		return serviceCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetServiceCategory(CodeableConcept newServiceCategory, NotificationChain msgs) {
+		CodeableConcept oldServiceCategory = serviceCategory;
+		serviceCategory = newServiceCategory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__SERVICE_CATEGORY, oldServiceCategory, newServiceCategory);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return type;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setServiceCategory(CodeableConcept newServiceCategory) {
+		if (newServiceCategory != serviceCategory) {
+			NotificationChain msgs = null;
+			if (serviceCategory != null)
+				msgs = ((InternalEObject)serviceCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__SERVICE_CATEGORY, null, msgs);
+			if (newServiceCategory != null)
+				msgs = ((InternalEObject)newServiceCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__SERVICE_CATEGORY, null, msgs);
+			msgs = basicSetServiceCategory(newServiceCategory, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__SERVICE_CATEGORY, newServiceCategory, newServiceCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getServiceType() {
+		if (serviceType == null) {
+			serviceType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SCHEDULE__SERVICE_TYPE);
+		}
+		return serviceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getSpecialty() {
+		if (specialty == null) {
+			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SCHEDULE__SPECIALTY);
+		}
+		return specialty;
 	}
 
 	/**
@@ -274,8 +351,12 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SCHEDULE__TYPE:
-				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
+				return basicSetServiceCategory(null, msgs);
+			case FhirPackage.SCHEDULE__SERVICE_TYPE:
+				return ((InternalEList<?>)getServiceType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SCHEDULE__SPECIALTY:
+				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SCHEDULE__ACTOR:
 				return basicSetActor(null, msgs);
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
@@ -296,8 +377,12 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.SCHEDULE__TYPE:
-				return getType();
+			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
+				return getServiceCategory();
+			case FhirPackage.SCHEDULE__SERVICE_TYPE:
+				return getServiceType();
+			case FhirPackage.SCHEDULE__SPECIALTY:
+				return getSpecialty();
 			case FhirPackage.SCHEDULE__ACTOR:
 				return getActor();
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
@@ -321,9 +406,16 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.SCHEDULE__TYPE:
-				getType().clear();
-				getType().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
+				setServiceCategory((CodeableConcept)newValue);
+				return;
+			case FhirPackage.SCHEDULE__SERVICE_TYPE:
+				getServiceType().clear();
+				getServiceType().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.SCHEDULE__SPECIALTY:
+				getSpecialty().clear();
+				getSpecialty().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SCHEDULE__ACTOR:
 				setActor((Reference)newValue);
@@ -349,8 +441,14 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.SCHEDULE__TYPE:
-				getType().clear();
+			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
+				setServiceCategory((CodeableConcept)null);
+				return;
+			case FhirPackage.SCHEDULE__SERVICE_TYPE:
+				getServiceType().clear();
+				return;
+			case FhirPackage.SCHEDULE__SPECIALTY:
+				getSpecialty().clear();
 				return;
 			case FhirPackage.SCHEDULE__ACTOR:
 				setActor((Reference)null);
@@ -375,8 +473,12 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.SCHEDULE__TYPE:
-				return type != null && !type.isEmpty();
+			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
+				return serviceCategory != null;
+			case FhirPackage.SCHEDULE__SERVICE_TYPE:
+				return serviceType != null && !serviceType.isEmpty();
+			case FhirPackage.SCHEDULE__SPECIALTY:
+				return specialty != null && !specialty.isEmpty();
 			case FhirPackage.SCHEDULE__ACTOR:
 				return actor != null;
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:

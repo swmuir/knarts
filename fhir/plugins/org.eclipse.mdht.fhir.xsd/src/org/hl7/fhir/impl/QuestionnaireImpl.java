@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.DateTime;
@@ -26,6 +27,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Questionnaire;
 import org.hl7.fhir.QuestionnaireItem;
 import org.hl7.fhir.QuestionnaireStatus;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,12 +37,14 @@ import org.hl7.fhir.QuestionnaireStatus;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getTelecom <em>Telecom</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getSubjectType <em>Subject Type</em>}</li>
@@ -50,6 +54,16 @@ import org.hl7.fhir.QuestionnaireStatus;
  * @generated
  */
 public class QuestionnaireImpl extends DomainResourceImpl implements Questionnaire {
+	/**
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri url;
+
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -111,6 +125,16 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected EList<ContactPoint> telecom;
 
 	/**
+	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> useContext;
+
+	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,6 +191,49 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getQuestionnaire();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getUrl() {
+		return url;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
+		Uri oldUrl = url;
+		url = newUrl;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__URL, oldUrl, newUrl);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUrl(Uri newUrl) {
+		if (newUrl != url) {
+			NotificationChain msgs = null;
+			if (url != null)
+				msgs = ((InternalEObject)url).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__URL, null, msgs);
+			if (newUrl != null)
+				msgs = ((InternalEObject)newUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__URL, null, msgs);
+			msgs = basicSetUrl(newUrl, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__URL, newUrl, newUrl));
 	}
 
 	/**
@@ -370,6 +437,18 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getUseContext() {
+		if (useContext == null) {
+			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.QUESTIONNAIRE__USE_CONTEXT);
+		}
+		return useContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -452,6 +531,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.QUESTIONNAIRE__URL:
+				return basicSetUrl(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__VERSION:
@@ -464,6 +545,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__CONCEPT:
@@ -484,6 +567,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.QUESTIONNAIRE__URL:
+				return getUrl();
 			case FhirPackage.QUESTIONNAIRE__IDENTIFIER:
 				return getIdentifier();
 			case FhirPackage.QUESTIONNAIRE__VERSION:
@@ -496,6 +581,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return getPublisher();
 			case FhirPackage.QUESTIONNAIRE__TELECOM:
 				return getTelecom();
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return getUseContext();
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return getTitle();
 			case FhirPackage.QUESTIONNAIRE__CONCEPT:
@@ -517,6 +604,9 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.QUESTIONNAIRE__URL:
+				setUrl((Uri)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
@@ -536,6 +626,10 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__TELECOM:
 				getTelecom().clear();
 				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				getUseContext().clear();
+				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
@@ -564,6 +658,9 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.QUESTIONNAIRE__URL:
+				setUrl((Uri)null);
+				return;
 			case FhirPackage.QUESTIONNAIRE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
@@ -581,6 +678,9 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return;
 			case FhirPackage.QUESTIONNAIRE__TELECOM:
 				getTelecom().clear();
+				return;
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				getUseContext().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				setTitle((org.hl7.fhir.String)null);
@@ -606,6 +706,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.QUESTIONNAIRE__URL:
+				return url != null;
 			case FhirPackage.QUESTIONNAIRE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__VERSION:
@@ -618,6 +720,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return publisher != null;
 			case FhirPackage.QUESTIONNAIRE__TELECOM:
 				return telecom != null && !telecom.isEmpty();
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return useContext != null && !useContext.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return title != null;
 			case FhirPackage.QUESTIONNAIRE__CONCEPT:

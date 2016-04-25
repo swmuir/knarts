@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ConformanceResourceStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
@@ -98,7 +98,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ConformanceResourceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -383,7 +383,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ConformanceResourceStatus getStatus() {
 		return status;
 	}
 
@@ -392,8 +392,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
+		ConformanceResourceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__STATUS, oldStatus, newStatus);
@@ -407,7 +407,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ConformanceResourceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -905,7 +905,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ConformanceResourceStatus)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -974,7 +974,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
-				setStatus((Code)null);
+				setStatus((ConformanceResourceStatus)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);

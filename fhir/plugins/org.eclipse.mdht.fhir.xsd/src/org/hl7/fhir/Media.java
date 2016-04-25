@@ -38,6 +38,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Media extends DomainResource {
 	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,20 +106,30 @@ public interface Media extends DomainResource {
 	void setSubtype(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * Returns the value of the '<em><b>View</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.
+	 * The name of the imaging view e.g. Lateral or Antero-posterior (AP).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedia_Identifier()
+	 * @return the value of the '<em>View</em>' containment reference.
+	 * @see #setView(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_View()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='view' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Identifier> getIdentifier();
+	CodeableConcept getView();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getView <em>View</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>View</em>' containment reference.
+	 * @see #getView()
+	 * @generated
+	 */
+	void setView(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -156,32 +182,6 @@ public interface Media extends DomainResource {
 	 * @generated
 	 */
 	void setOperator(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>View</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the imaging view e.g. Lateral or Antero-posterior (AP).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>View</em>' containment reference.
-	 * @see #setView(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_View()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='view' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getView();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getView <em>View</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>View</em>' containment reference.
-	 * @see #getView()
-	 * @generated
-	 */
-	void setView(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Device Name</b></em>' containment reference.

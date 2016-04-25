@@ -18,10 +18,12 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuidanceResponseAction;
-import org.hl7.fhir.GuidanceResponseActionType;
+import org.hl7.fhir.GuidanceResponseBehavior;
+import org.hl7.fhir.GuidanceResponseRelatedAction;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
@@ -34,17 +36,19 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getActionIdentifier <em>Action Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getNumber <em>Number</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getSupportingEvidence <em>Supporting Evidence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getTextEquivalent <em>Text Equivalent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getConcept <em>Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getSupportingEvidence <em>Supporting Evidence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getRelatedAction <em>Related Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getBehavior <em>Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getResource <em>Resource</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseActionImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,44 +65,14 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	protected Identifier actionIdentifier;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String number;
-
-	/**
-	 * The cached value of the '{@link #getSupportingEvidence() <em>Supporting Evidence</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSupportingEvidence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attachment> supportingEvidence;
-
-	/**
-	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocumentation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attachment> documentation;
-
-	/**
-	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParticipant()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> participant;
+	protected org.hl7.fhir.String label;
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -141,6 +115,46 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	protected EList<CodeableConcept> concept;
 
 	/**
+	 * The cached value of the '{@link #getSupportingEvidence() <em>Supporting Evidence</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupportingEvidence()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Attachment> supportingEvidence;
+
+	/**
+	 * The cached value of the '{@link #getRelatedAction() <em>Related Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected GuidanceResponseRelatedAction relatedAction;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Attachment> documentation;
+
+	/**
+	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParticipant()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> participant;
+
+	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,7 +162,17 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * @generated
 	 * @ordered
 	 */
-	protected GuidanceResponseActionType type;
+	protected Code type;
+
+	/**
+	 * The cached value of the '{@link #getBehavior() <em>Behavior</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBehavior()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GuidanceResponseBehavior> behavior;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -161,14 +185,14 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	protected Reference resource;
 
 	/**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActions()
+	 * @see #getAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GuidanceResponseAction> actions;
+	protected EList<GuidanceResponseAction> action;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,8 +261,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNumber() {
-		return number;
+	public org.hl7.fhir.String getLabel() {
+		return label;
 	}
 
 	/**
@@ -246,11 +270,11 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNumber(org.hl7.fhir.String newNumber, NotificationChain msgs) {
-		org.hl7.fhir.String oldNumber = number;
-		number = newNumber;
+	public NotificationChain basicSetLabel(org.hl7.fhir.String newLabel, NotificationChain msgs) {
+		org.hl7.fhir.String oldLabel = label;
+		label = newLabel;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER, oldNumber, newNumber);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL, oldLabel, newLabel);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -261,54 +285,18 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumber(org.hl7.fhir.String newNumber) {
-		if (newNumber != number) {
+	public void setLabel(org.hl7.fhir.String newLabel) {
+		if (newLabel != label) {
 			NotificationChain msgs = null;
-			if (number != null)
-				msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER, null, msgs);
-			if (newNumber != null)
-				msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER, null, msgs);
-			msgs = basicSetNumber(newNumber, msgs);
+			if (label != null)
+				msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL, null, msgs);
+			if (newLabel != null)
+				msgs = ((InternalEObject)newLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL, null, msgs);
+			msgs = basicSetLabel(newLabel, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER, newNumber, newNumber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Attachment> getSupportingEvidence() {
-		if (supportingEvidence == null) {
-			supportingEvidence = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE);
-		}
-		return supportingEvidence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Attachment> getDocumentation() {
-		if (documentation == null) {
-			documentation = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION);
-		}
-		return documentation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getParticipant() {
-		if (participant == null) {
-			participant = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT);
-		}
-		return participant;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL, newLabel, newLabel));
 	}
 
 	/**
@@ -457,7 +445,86 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuidanceResponseActionType getType() {
+	public EList<Attachment> getSupportingEvidence() {
+		if (supportingEvidence == null) {
+			supportingEvidence = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE);
+		}
+		return supportingEvidence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GuidanceResponseRelatedAction getRelatedAction() {
+		return relatedAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRelatedAction(GuidanceResponseRelatedAction newRelatedAction, NotificationChain msgs) {
+		GuidanceResponseRelatedAction oldRelatedAction = relatedAction;
+		relatedAction = newRelatedAction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION, oldRelatedAction, newRelatedAction);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRelatedAction(GuidanceResponseRelatedAction newRelatedAction) {
+		if (newRelatedAction != relatedAction) {
+			NotificationChain msgs = null;
+			if (relatedAction != null)
+				msgs = ((InternalEObject)relatedAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION, null, msgs);
+			if (newRelatedAction != null)
+				msgs = ((InternalEObject)newRelatedAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION, null, msgs);
+			msgs = basicSetRelatedAction(newRelatedAction, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION, newRelatedAction, newRelatedAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Attachment> getDocumentation() {
+		if (documentation == null) {
+			documentation = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION);
+		}
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getParticipant() {
+		if (participant == null) {
+			participant = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT);
+		}
+		return participant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Code getType() {
 		return type;
 	}
 
@@ -466,8 +533,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(GuidanceResponseActionType newType, NotificationChain msgs) {
-		GuidanceResponseActionType oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE, oldType, newType);
@@ -481,7 +548,7 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(GuidanceResponseActionType newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -493,6 +560,18 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GuidanceResponseBehavior> getBehavior() {
+		if (behavior == null) {
+			behavior = new EObjectContainmentEList<GuidanceResponseBehavior>(GuidanceResponseBehavior.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR);
+		}
+		return behavior;
 	}
 
 	/**
@@ -543,11 +622,11 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GuidanceResponseAction> getActions() {
-		if (actions == null) {
-			actions = new EObjectContainmentEList<GuidanceResponseAction>(GuidanceResponseAction.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS);
+	public EList<GuidanceResponseAction> getAction() {
+		if (action == null) {
+			action = new EObjectContainmentEList<GuidanceResponseAction>(GuidanceResponseAction.class, this, FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION);
 		}
-		return actions;
+		return action;
 	}
 
 	/**
@@ -560,14 +639,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION_IDENTIFIER:
 				return basicSetActionIdentifier(null, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER:
-				return basicSetNumber(null, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
-				return ((InternalEList<?>)getSupportingEvidence()).basicRemove(otherEnd, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
-				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
-				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL:
+				return basicSetLabel(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DESCRIPTION:
@@ -576,12 +649,22 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 				return basicSetTextEquivalent(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__CONCEPT:
 				return ((InternalEList<?>)getConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
+				return ((InternalEList<?>)getSupportingEvidence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION:
+				return basicSetRelatedAction(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
+				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
+				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR:
+				return ((InternalEList<?>)getBehavior()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RESOURCE:
 				return basicSetResource(null, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS:
-				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION:
+				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -596,14 +679,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION_IDENTIFIER:
 				return getActionIdentifier();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER:
-				return getNumber();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
-				return getSupportingEvidence();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
-				return getDocumentation();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
-				return getParticipant();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL:
+				return getLabel();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TITLE:
 				return getTitle();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DESCRIPTION:
@@ -612,12 +689,22 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 				return getTextEquivalent();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__CONCEPT:
 				return getConcept();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
+				return getSupportingEvidence();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION:
+				return getRelatedAction();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
+				return getDocumentation();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
+				return getParticipant();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE:
 				return getType();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR:
+				return getBehavior();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RESOURCE:
 				return getResource();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS:
-				return getActions();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION:
+				return getAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -634,20 +721,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION_IDENTIFIER:
 				setActionIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER:
-				setNumber((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
-				getSupportingEvidence().clear();
-				getSupportingEvidence().addAll((Collection<? extends Attachment>)newValue);
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
-				getDocumentation().clear();
-				getDocumentation().addAll((Collection<? extends Attachment>)newValue);
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
-				getParticipant().clear();
-				getParticipant().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL:
+				setLabel((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
@@ -662,15 +737,34 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 				getConcept().clear();
 				getConcept().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
+				getSupportingEvidence().clear();
+				getSupportingEvidence().addAll((Collection<? extends Attachment>)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION:
+				setRelatedAction((GuidanceResponseRelatedAction)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
+				getDocumentation().clear();
+				getDocumentation().addAll((Collection<? extends Attachment>)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
+				getParticipant().clear();
+				getParticipant().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE:
-				setType((GuidanceResponseActionType)newValue);
+				setType((Code)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR:
+				getBehavior().clear();
+				getBehavior().addAll((Collection<? extends GuidanceResponseBehavior>)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RESOURCE:
 				setResource((Reference)newValue);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS:
-				getActions().clear();
-				getActions().addAll((Collection<? extends GuidanceResponseAction>)newValue);
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION:
+				getAction().clear();
+				getAction().addAll((Collection<? extends GuidanceResponseAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -687,17 +781,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION_IDENTIFIER:
 				setActionIdentifier((Identifier)null);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER:
-				setNumber((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
-				getSupportingEvidence().clear();
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
-				getDocumentation().clear();
-				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
-				getParticipant().clear();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL:
+				setLabel((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)null);
@@ -711,14 +796,29 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__CONCEPT:
 				getConcept().clear();
 				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
+				getSupportingEvidence().clear();
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION:
+				setRelatedAction((GuidanceResponseRelatedAction)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
+				getDocumentation().clear();
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
+				getParticipant().clear();
+				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE:
-				setType((GuidanceResponseActionType)null);
+				setType((Code)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR:
+				getBehavior().clear();
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RESOURCE:
 				setResource((Reference)null);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS:
-				getActions().clear();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION:
+				getAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -734,14 +834,8 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION_IDENTIFIER:
 				return actionIdentifier != null;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__NUMBER:
-				return number != null;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
-				return supportingEvidence != null && !supportingEvidence.isEmpty();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
-				return documentation != null && !documentation.isEmpty();
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
-				return participant != null && !participant.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__LABEL:
+				return label != null;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TITLE:
 				return title != null;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DESCRIPTION:
@@ -750,12 +844,22 @@ public class GuidanceResponseActionImpl extends BackboneElementImpl implements G
 				return textEquivalent != null;
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__CONCEPT:
 				return concept != null && !concept.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__SUPPORTING_EVIDENCE:
+				return supportingEvidence != null && !supportingEvidence.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RELATED_ACTION:
+				return relatedAction != null;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__DOCUMENTATION:
+				return documentation != null && !documentation.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__PARTICIPANT:
+				return participant != null && !participant.isEmpty();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__TYPE:
 				return type != null;
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__BEHAVIOR:
+				return behavior != null && !behavior.isEmpty();
 			case FhirPackage.GUIDANCE_RESPONSE_ACTION__RESOURCE:
 				return resource != null;
-			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTIONS:
-				return actions != null && !actions.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE_ACTION__ACTION:
+				return action != null && !action.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,11 +22,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PaymentNotice#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getTarget <em>Target</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getRequest <em>Request</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getResponse <em>Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getTargetIdentifier <em>Target Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getTargetReference <em>Target Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getProviderIdentifier <em>Provider Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getProviderReference <em>Provider Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getOrganizationReference <em>Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getRequestIdentifier <em>Request Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getRequestReference <em>Request Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getResponseIdentifier <em>Response Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getResponseReference <em>Response Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getPaymentStatus <em>Payment Status</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getStatusDate <em>Status Date</em>}</li>
  * </ul>
@@ -131,134 +136,274 @@ public interface PaymentNotice extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Insurer who is target  of the request.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Target()
+	 * @return the value of the '<em>Target Identifier</em>' containment reference.
+	 * @see #setTargetIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_TargetIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getTarget();
+	Identifier getTargetIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getTarget <em>Target</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getTargetIdentifier <em>Target Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' containment reference.
-	 * @see #getTarget()
+	 * @param value the new value of the '<em>Target Identifier</em>' containment reference.
+	 * @see #getTargetIdentifier()
 	 * @generated
 	 */
-	void setTarget(Reference value);
+	void setTargetIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The practitioner who is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Provider</em>' containment reference.
-	 * @see #setProvider(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Provider()
+	 * @return the value of the '<em>Target Reference</em>' containment reference.
+	 * @see #setTargetReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_TargetReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='provider' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProvider();
+	Reference getTargetReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getProvider <em>Provider</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getTargetReference <em>Target Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider</em>' containment reference.
-	 * @see #getProvider()
+	 * @param value the new value of the '<em>Target Reference</em>' containment reference.
+	 * @see #getTargetReference()
 	 * @generated
 	 */
-	void setProvider(Reference value);
+	void setTargetReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Provider Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Organization()
+	 * @return the value of the '<em>Provider Identifier</em>' containment reference.
+	 * @see #setProviderIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_ProviderIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='providerIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Identifier getProviderIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getProviderIdentifier <em>Provider Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>Provider Identifier</em>' containment reference.
+	 * @see #getProviderIdentifier()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setProviderIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Provider Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reference of resource to reverse.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request</em>' containment reference.
-	 * @see #setRequest(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Request()
+	 * @return the value of the '<em>Provider Reference</em>' containment reference.
+	 * @see #setProviderReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_ProviderReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='providerReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequest();
+	Reference getProviderReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getRequest <em>Request</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getProviderReference <em>Provider Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request</em>' containment reference.
-	 * @see #getRequest()
+	 * @param value the new value of the '<em>Provider Reference</em>' containment reference.
+	 * @see #getProviderReference()
 	 * @generated
 	 */
-	void setRequest(Reference value);
+	void setProviderReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Response</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Organization Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reference of response to resource to reverse.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Response</em>' containment reference.
-	 * @see #setResponse(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Response()
+	 * @return the value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #setOrganizationIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_OrganizationIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='response' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='organizationIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getResponse();
+	Identifier getOrganizationIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getResponse <em>Response</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getOrganizationIdentifier <em>Organization Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Response</em>' containment reference.
-	 * @see #getResponse()
+	 * @param value the new value of the '<em>Organization Identifier</em>' containment reference.
+	 * @see #getOrganizationIdentifier()
 	 * @generated
 	 */
-	void setResponse(Reference value);
+	void setOrganizationIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Organization Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #setOrganizationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_OrganizationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='organizationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOrganizationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getOrganizationReference <em>Organization Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization Reference</em>' containment reference.
+	 * @see #getOrganizationReference()
+	 * @generated
+	 */
+	void setOrganizationReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #setRequestIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_RequestIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getRequestIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getRequestIdentifier <em>Request Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Identifier</em>' containment reference.
+	 * @see #getRequestIdentifier()
+	 * @generated
+	 */
+	void setRequestIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Reference</em>' containment reference.
+	 * @see #setRequestReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_RequestReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequestReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getRequestReference <em>Request Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Reference</em>' containment reference.
+	 * @see #getRequestReference()
+	 * @generated
+	 */
+	void setRequestReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Response Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Response Identifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Response Identifier</em>' containment reference.
+	 * @see #setResponseIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_ResponseIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='responseIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getResponseIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getResponseIdentifier <em>Response Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Response Identifier</em>' containment reference.
+	 * @see #getResponseIdentifier()
+	 * @generated
+	 */
+	void setResponseIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Response Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Response Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Response Reference</em>' containment reference.
+	 * @see #setResponseReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_ResponseReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='responseReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getResponseReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getResponseReference <em>Response Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Response Reference</em>' containment reference.
+	 * @see #getResponseReference()
+	 * @generated
+	 */
+	void setResponseReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Payment Status</b></em>' containment reference.

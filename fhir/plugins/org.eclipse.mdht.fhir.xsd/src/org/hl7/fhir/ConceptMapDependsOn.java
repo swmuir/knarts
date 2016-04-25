@@ -17,7 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getElement <em>Element</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -53,30 +53,30 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	void setElement(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Code System</b></em>' containment reference.
+	 * Returns the value of the '<em><b>System</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code System</em>' containment reference.
-	 * @see #setCodeSystem(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_CodeSystem()
+	 * @return the value of the '<em>System</em>' containment reference.
+	 * @see #setSystem(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_System()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='codeSystem' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getCodeSystem();
+	Uri getSystem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getCodeSystem <em>Code System</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code System</em>' containment reference.
-	 * @see #getCodeSystem()
+	 * @param value the new value of the '<em>System</em>' containment reference.
+	 * @see #getSystem()
 	 * @generated
 	 */
-	void setCodeSystem(Uri value);
+	void setSystem(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
