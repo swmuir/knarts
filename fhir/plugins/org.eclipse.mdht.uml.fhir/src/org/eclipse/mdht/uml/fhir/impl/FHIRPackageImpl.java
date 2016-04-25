@@ -28,11 +28,13 @@ import org.eclipse.mdht.uml.fhir.Definition;
 import org.eclipse.mdht.uml.fhir.Description;
 import org.eclipse.mdht.uml.fhir.Element;
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
+import org.eclipse.mdht.uml.fhir.ElementSlicing;
 import org.eclipse.mdht.uml.fhir.FHIRFactory;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.Requirements;
 import org.eclipse.mdht.uml.fhir.ShortDescription;
+import org.eclipse.mdht.uml.fhir.SlicingRulesKind;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.ValueSet;
@@ -157,6 +159,13 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass elementSlicingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum propertyRepresentationKindEEnum = null;
 
 	/**
@@ -165,6 +174,13 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * @generated
 	 */
 	private EEnum bindingStrengthKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum slicingRulesKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -789,6 +805,60 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getElementSlicing() {
+		return elementSlicingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementSlicing_Discriminator() {
+		return (EAttribute)elementSlicingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementSlicing_Description() {
+		return (EAttribute)elementSlicingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementSlicing_Ordered() {
+		return (EAttribute)elementSlicingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementSlicing_Rules() {
+		return (EAttribute)elementSlicingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementSlicing_Base_Property() {
+		return (EReference)elementSlicingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPropertyRepresentationKind() {
 		return propertyRepresentationKindEEnum;
 	}
@@ -800,6 +870,15 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 */
 	public EEnum getBindingStrengthKind() {
 		return bindingStrengthKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSlicingRulesKind() {
+		return slicingRulesKindEEnum;
 	}
 
 	/**
@@ -905,9 +984,17 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__DISPLAY);
 		createEAttribute(valueSetMemberEClass, VALUE_SET_MEMBER__ABSTRACT);
 
+		elementSlicingEClass = createEClass(ELEMENT_SLICING);
+		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__DISCRIMINATOR);
+		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__DESCRIPTION);
+		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__ORDERED);
+		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__RULES);
+		createEReference(elementSlicingEClass, ELEMENT_SLICING__BASE_PROPERTY);
+
 		// Create enums
 		propertyRepresentationKindEEnum = createEEnum(PROPERTY_REPRESENTATION_KIND);
 		bindingStrengthKindEEnum = createEEnum(BINDING_STRENGTH_KIND);
+		slicingRulesKindEEnum = createEEnum(SLICING_RULES_KIND);
 	}
 
 	/**
@@ -1028,6 +1115,13 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getValueSetMember_Display(), theTypesPackage.getString(), "display", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getValueSetMember_Abstract(), ecorePackage.getEBooleanObject(), "abstract", null, 0, 1, ValueSetMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(elementSlicingEClass, ElementSlicing.class, "ElementSlicing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElementSlicing_Discriminator(), theTypesPackage.getString(), "discriminator", null, 0, -1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementSlicing_Description(), theTypesPackage.getString(), "description", null, 0, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementSlicing_Ordered(), ecorePackage.getEBooleanObject(), "ordered", null, 0, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementSlicing_Rules(), this.getSlicingRulesKind(), "rules", null, 1, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementSlicing_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(propertyRepresentationKindEEnum, PropertyRepresentationKind.class, "PropertyRepresentationKind");
 		addEEnumLiteral(propertyRepresentationKindEEnum, PropertyRepresentationKind.XML_ATTR);
@@ -1037,6 +1131,11 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		addEEnumLiteral(bindingStrengthKindEEnum, BindingStrengthKind.EXTENSIBLE);
 		addEEnumLiteral(bindingStrengthKindEEnum, BindingStrengthKind.PREFERRED);
 		addEEnumLiteral(bindingStrengthKindEEnum, BindingStrengthKind.EXAMPLE);
+
+		initEEnum(slicingRulesKindEEnum, SlicingRulesKind.class, "SlicingRulesKind");
+		addEEnumLiteral(slicingRulesKindEEnum, SlicingRulesKind.CLOSED);
+		addEEnumLiteral(slicingRulesKindEEnum, SlicingRulesKind.OPEN);
+		addEEnumLiteral(slicingRulesKindEEnum, SlicingRulesKind.OPEN_AT_END);
 
 		// Create resource
 		createResource(eNS_URI);

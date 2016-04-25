@@ -79,6 +79,7 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 			case FHIRPackage.VALUE_SET: return createValueSet();
 			case FHIRPackage.DATA_ELEMENT: return createDataElement();
 			case FHIRPackage.VALUE_SET_MEMBER: return createValueSetMember();
+			case FHIRPackage.ELEMENT_SLICING: return createElementSlicing();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -96,6 +97,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 				return createPropertyRepresentationKindFromString(eDataType, initialValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
 				return createBindingStrengthKindFromString(eDataType, initialValue);
+			case FHIRPackage.SLICING_RULES_KIND:
+				return createSlicingRulesKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +116,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 				return convertPropertyRepresentationKindToString(eDataType, instanceValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
 				return convertBindingStrengthKindToString(eDataType, instanceValue);
+			case FHIRPackage.SLICING_RULES_KIND:
+				return convertSlicingRulesKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -243,6 +248,16 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ElementSlicing createElementSlicing() {
+		ElementSlicingImpl elementSlicing = new ElementSlicingImpl();
+		return elementSlicing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PropertyRepresentationKind createPropertyRepresentationKindFromString(EDataType eDataType, String initialValue) {
 		PropertyRepresentationKind result = PropertyRepresentationKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -275,6 +290,26 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	 * @generated
 	 */
 	public String convertBindingStrengthKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SlicingRulesKind createSlicingRulesKindFromString(EDataType eDataType, String initialValue) {
+		SlicingRulesKind result = SlicingRulesKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSlicingRulesKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
