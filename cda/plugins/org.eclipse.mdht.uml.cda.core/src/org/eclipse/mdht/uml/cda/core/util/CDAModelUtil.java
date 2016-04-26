@@ -154,7 +154,7 @@ public class CDAModelUtil {
 				if (cdaProperty == null) {
 					continue;
 				}
-				if (inherited.getName() != null && inherited.getName().equals(getCDAName(cdaProperty)) &&
+				if (getCDAName(inherited) != null && getCDAName(inherited).equals(getCDAName(cdaProperty)) &&
 						(isCDAModel(inherited) || isDatatypeModel(inherited))) {
 					return inherited;
 				}
@@ -1272,7 +1272,7 @@ public class CDAModelUtil {
 
 	private static final String[] NOLI = { "", " " };
 
-	static private void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
+	static public void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
 
 		String[] ol = markup
 				? OL
