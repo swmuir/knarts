@@ -1272,7 +1272,7 @@ public class CDAModelUtil {
 
 	private static final String[] NOLI = { "", " " };
 
-	static private void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
+	public static void appendConformanceRules(StringBuilder appendB, Class umlClass, String prefix, boolean markup) {
 
 		String[] ol = markup
 				? OL
