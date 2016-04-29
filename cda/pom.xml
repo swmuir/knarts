@@ -30,6 +30,8 @@
 <!--  	<module>plugins/org.eclipse.mdht.uml.term.models</module> -->
 		<module>plugins/org.eclipse.mdht.uml.term.transform</module>
 		<module>plugins/org.eclipse.mdht.uml.term.ui</module>
+		
+		<module>tests/org.eclipse.mdht.uml.cda.test</module>
 	
 		<!-- Features -->
 		<module>features/org.eclipse.mdht.uml.cda.basic-feature</module>
