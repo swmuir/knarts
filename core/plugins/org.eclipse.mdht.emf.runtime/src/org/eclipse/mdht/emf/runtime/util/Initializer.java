@@ -377,6 +377,13 @@ public interface Initializer<T extends EObject> {
 	class Util {
 		public static final String INITIALIZERS_ANNOTATION_SOURCE = "http://www.eclipse.org/mdht/uml";
 
+		/**
+		 * @deprecated
+		 * 			Used to support older runtime initializations configuration
+		 */
+		@Deprecated
+		public static final String INITIALIZERS_ANNOTATION_SOURCE_OHT = "http://www.openhealthtools.org/mdht/uml";
+
 		public static final String INITIALIZERS_ANNOTATION_DETAIL = "initializers";
 
 		private Util() {
@@ -472,8 +479,13 @@ public interface Initializer<T extends EObject> {
 		 * @return whether it has generated initializers
 		 */
 		public static boolean hasInitializers(EPackage epackage) {
-			return EcoreUtil.getAnnotation(
-				epackage, INITIALIZERS_ANNOTATION_SOURCE, INITIALIZERS_ANNOTATION_DETAIL) != null;
+			if (EcoreUtil.getAnnotation(
+				epackage, INITIALIZERS_ANNOTATION_SOURCE, INITIALIZERS_ANNOTATION_DETAIL) != null) {
+				return true;
+			} else {
+				return EcoreUtil.getAnnotation(
+					epackage, INITIALIZERS_ANNOTATION_SOURCE_OHT, INITIALIZERS_ANNOTATION_DETAIL) != null;
+			}
 		}
 
 		/**
@@ -492,6 +504,11 @@ public interface Initializer<T extends EObject> {
 
 			String uris = EcoreUtil.getAnnotation(
 				epackage, INITIALIZERS_ANNOTATION_SOURCE, INITIALIZERS_ANNOTATION_DETAIL);
+
+			if (uris == null) {
+				uris = EcoreUtil.getAnnotation(
+					epackage, INITIALIZERS_ANNOTATION_SOURCE_OHT, INITIALIZERS_ANNOTATION_DETAIL);
+			}
 			if (uris != null) {
 				List<Initializer.Factory> listResult = new java.util.ArrayList<Initializer.Factory>();
 				for (String next : uris.split("\\s+")) {
