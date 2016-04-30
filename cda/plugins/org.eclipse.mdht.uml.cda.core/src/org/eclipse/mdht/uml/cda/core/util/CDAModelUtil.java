@@ -2481,6 +2481,24 @@ public class CDAModelUtil {
 		return templateVersion;
 	}
 
+	public static String getAssigningAuthorityName(Class template) {
+		String assigningAuthorityName = null;
+		Stereotype hl7Template = CDAProfileUtil.getAppliedCDAStereotype(template, ICDAProfileConstants.CDA_TEMPLATE);
+		if (hl7Template != null) {
+			assigningAuthorityName = (String) template.getValue(
+				hl7Template, ICDAProfileConstants.CDA_TEMPLATE_ASSIGNING_AUTHORITY_NAME);
+		} else {
+			for (Classifier parent : template.getGenerals()) {
+				assigningAuthorityName = getAssigningAuthorityName((Class) parent);
+				if (assigningAuthorityName != null) {
+					break;
+				}
+			}
+		}
+
+		return assigningAuthorityName;
+	}
+
 	public static String getModelPrefix(Element element) {
 		String prefix = null;
 		Package thePackage = UMLUtil.getTopPackage(element);

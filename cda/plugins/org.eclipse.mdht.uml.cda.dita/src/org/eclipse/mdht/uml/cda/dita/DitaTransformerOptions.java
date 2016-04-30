@@ -62,6 +62,8 @@ public class DitaTransformerOptions {
 
 	private boolean includeVocabularyConstraints = false;
 
+	private boolean printAssigningAuthorityName = false;
+
 	private boolean reset = false;
 
 	/**
@@ -223,6 +225,14 @@ public class DitaTransformerOptions {
 
 	public void setIncludeVocabularyConstraints(boolean includeVocabularyConstraints) {
 		this.includeVocabularyConstraints = includeVocabularyConstraints;
+	}
+
+	public boolean isPrintAssigningAuthorityName() {
+		return printAssigningAuthorityName;
+	}
+
+	public void setPrintAssigningAuthorityName(boolean printAssigningAuthorityName) {
+		this.printAssigningAuthorityName = printAssigningAuthorityName;
 	}
 
 	public String getBaseURL() {

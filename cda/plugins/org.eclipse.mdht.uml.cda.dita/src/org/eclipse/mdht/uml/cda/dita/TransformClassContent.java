@@ -42,6 +42,7 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.cda.core.profile.LogicalConstraint;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.core.util.CDAProfileUtil;
 import org.eclipse.mdht.uml.cda.core.util.ClinicalDocumentCreator;
@@ -353,7 +354,19 @@ public class TransformClassContent extends TransformAbstract {
 	private void appendConformanceRules(PrintWriter writer, Class umlClass) {
 		writer.println("<ol id=\"conformance\">");
 
-		if (CDAModelUtil.getTemplateId(umlClass) != null) {
+		Property templateIdProperty = null;
+
+		if (transformerOptions.isPrintAssigningAuthorityName()) {
+			templateIdProperty = CDACommonUtils.createTemplateIdProperty(umlClass);
+		}
+
+		if (templateIdProperty != null) {
+			writer.println("<li>" + CDAModelUtil.computeConformanceMessage(templateIdProperty, true) + "</li>");
+			// remove property as it is already printed and is not required anymore
+			umlClass.getOwnedAttributes().remove(templateIdProperty);
+		}
+
+		if (CDAModelUtil.getTemplateId(umlClass) != null && templateIdProperty == null) {
 			writer.println("<li>" + CDAModelUtil.computeConformanceMessage(umlClass, true) + "</li>");
 		}
 		boolean hasRules = false;
@@ -547,7 +560,8 @@ public class TransformClassContent extends TransformAbstract {
 		}
 		if (cdaClass != null && !umlClass.equals(cdaClass)) {
 			writer.print(
-				"[" + prefix + ClinicalDocumentCreator.withoutDigits(cdaClassName) + ": templateId <tt>" + CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
+				"[" + prefix + ClinicalDocumentCreator.withoutDigits(cdaClassName) + ": templateId <tt>" +
+						CDAModelUtil.getTemplateId(umlClass) + "</tt>]");
 		}
 		writer.println("</shortdesc>");
 

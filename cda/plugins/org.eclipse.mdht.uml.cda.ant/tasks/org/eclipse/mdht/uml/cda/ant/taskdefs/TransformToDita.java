@@ -59,6 +59,8 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	private Boolean includeVocabularyConstraints = null;
 
+	private Boolean printAssigningAuthorityName = null;
+
 	private Boolean reset = null;
 
 	/**
@@ -172,6 +174,10 @@ public class TransformToDita extends CDAModelingSubTask {
 			includeVocabularyConstraints = Boolean.valueOf(project.getProperty("includeVocabularyConstraints"));
 		}
 
+		if (printAssigningAuthorityName == null && project.getProperty("printAssigningAuthorityName") != null) {
+			printAssigningAuthorityName = Boolean.valueOf(project.getProperty("printAssigningAuthorityName"));
+		}
+
 		if (reset == null && project.getProperty("reset") != null) {
 			reset = Boolean.valueOf(project.getProperty("reset"));
 		}
@@ -216,6 +222,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	public void setIncludeVocabularyConstraints(boolean include) {
 		includeVocabularyConstraints = new Boolean(include);
+	}
+
+	public void setPrintAssigningAuthorityName(boolean value) {
+		printAssigningAuthorityName = new Boolean(value);
 	}
 
 	public void setIncludeUsageNotes(boolean include) {
@@ -299,6 +309,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 		if (includeVocabularyConstraints != null) {
 			options.setIncludeVocabularyConstraints(includeVocabularyConstraints);
+		}
+
+		if (printAssigningAuthorityName != null) {
+			options.setPrintAssigningAuthorityName(printAssigningAuthorityName);
 		}
 
 		if (reset != null) {
