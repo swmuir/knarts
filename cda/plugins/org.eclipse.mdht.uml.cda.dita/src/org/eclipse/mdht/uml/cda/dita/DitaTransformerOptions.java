@@ -62,6 +62,8 @@ public class DitaTransformerOptions {
 
 	private boolean includeVocabularyConstraints = false;
 
+	private boolean printTerminologyConstraintAsList = false;
+
 	private boolean reset = false;
 
 	/**
@@ -223,6 +225,14 @@ public class DitaTransformerOptions {
 
 	public void setIncludeVocabularyConstraints(boolean includeVocabularyConstraints) {
 		this.includeVocabularyConstraints = includeVocabularyConstraints;
+	}
+
+	public boolean isPrintTerminologyConstraintAsList() {
+		return printTerminologyConstraintAsList;
+	}
+
+	public void setPrintTerminologyConstraintAsList(boolean printTerminologyConstraintAsList) {
+		this.printTerminologyConstraintAsList = printTerminologyConstraintAsList;
 	}
 
 	public String getBaseURL() {

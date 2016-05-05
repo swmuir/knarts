@@ -51,6 +51,8 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	private String xmlGeneratorType = null;
 
+	private Boolean printTerminologyConstraintAsList = null;
+
 	private Boolean cardinalityAfterElement = null;
 
 	private Boolean appendConformanceRules = null;
@@ -195,6 +197,9 @@ public class TransformToDita extends CDAModelingSubTask {
 		if (appendConformanceRules == null && project.getProperty("appendConformanceRules") != null) {
 			appendConformanceRules = Boolean.valueOf(project.getProperty("appendConformanceRules"));
 		}
+		if (printTerminologyConstraintAsList == null && project.getProperty("printTerminologyConstraintAsList") != null) {
+			printTerminologyConstraintAsList = Boolean.valueOf(project.getProperty("printTerminologyConstraintAsList"));
+		}
 
 		Integer.getInteger(project.getProperty("exampleDepth"));
 
@@ -224,6 +229,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 	public void setCardinalityAfterElement(boolean cardinalityAfter) {
 		cardinalityAfterElement = new Boolean(cardinalityAfter);
+	}
+
+	public void setPrintTerminologyConstraintAsList(boolean printTerminologyConstraintAsList) {
+		this.printTerminologyConstraintAsList = new Boolean(printTerminologyConstraintAsList);
 	}
 
 	public void setXmlGeneratorType(String xmlGeneratorType) {
@@ -299,6 +308,10 @@ public class TransformToDita extends CDAModelingSubTask {
 
 		if (includeVocabularyConstraints != null) {
 			options.setIncludeVocabularyConstraints(includeVocabularyConstraints);
+		}
+
+		if (printTerminologyConstraintAsList != null) {
+			options.setPrintTerminologyConstraintAsList(printTerminologyConstraintAsList);
 		}
 
 		if (reset != null) {

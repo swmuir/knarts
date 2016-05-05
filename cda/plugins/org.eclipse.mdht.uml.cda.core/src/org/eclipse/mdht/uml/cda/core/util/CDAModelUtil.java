@@ -28,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -46,6 +45,7 @@ import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.uml.cda.core.profile.CodeSystemConstraint;
 import org.eclipse.mdht.uml.cda.core.profile.EntryRelationship;
 import org.eclipse.mdht.uml.cda.core.profile.EntryRelationshipKind;
 import org.eclipse.mdht.uml.cda.core.profile.Inline;
@@ -54,16 +54,7 @@ import org.eclipse.mdht.uml.cda.core.profile.LogicalOperator;
 import org.eclipse.mdht.uml.cda.core.profile.SeverityKind;
 import org.eclipse.mdht.uml.cda.core.profile.Validation;
 import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
-import org.eclipse.mdht.uml.common.util.NamedElementUtil;
-import org.eclipse.mdht.uml.common.util.PropertyList;
-import org.eclipse.mdht.uml.common.util.UMLUtil;
-import org.eclipse.mdht.uml.term.core.profile.BindingKind;
-import org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint;
-import org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion;
-import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
-import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
-import org.eclipse.mdht.uml.term.core.util.ITermProfileConstants;
-import org.eclipse.mdht.uml.term.core.util.TermProfileUtil;
+import org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
@@ -82,6 +73,7 @@ import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.util.UMLSwitch;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class CDAModelUtil {
 

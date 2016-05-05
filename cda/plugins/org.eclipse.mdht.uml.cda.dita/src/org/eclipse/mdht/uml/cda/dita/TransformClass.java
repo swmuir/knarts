@@ -24,6 +24,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.dita.internal.Logger;
 import org.eclipse.mdht.uml.common.util.UMLUtil;
@@ -35,6 +36,8 @@ import org.eclipse.uml2.uml.Property;
 public class TransformClass extends TransformAbstract {
 
 	private Set<Class> alreadyHandled = new HashSet<Class>();
+
+	private Set<Class> alreadyHandledForPrintTerminologyConstraintAsList = new HashSet<Class>();
 
 	public TransformClass(DitaTransformerOptions options) {
 		super(options);
@@ -172,6 +175,11 @@ public class TransformClass extends TransformAbstract {
 		packageContent.add(fileName);
 
 		checkClassReferences(umlClass, umlClass);
+
+		if (transformerOptions.isPrintTerminologyConstraintAsList()) {
+			CDACommonUtils.printTerminologyConstraintAsList(
+				umlClass, alreadyHandledForPrintTerminologyConstraintAsList);
+		}
 
 		Class cdaClass = CDAModelUtil.getCDAClass(umlClass);
 		if (cdaClass != null) {
