@@ -64,6 +64,8 @@ public class DitaTransformerOptions {
 
 	private boolean printTerminologyConstraintAsList = false;
 
+	private boolean printAssigningAuthorityName = false;
+
 	private boolean reset = false;
 
 	/**
@@ -233,6 +235,15 @@ public class DitaTransformerOptions {
 
 	public void setPrintTerminologyConstraintAsList(boolean printTerminologyConstraintAsList) {
 		this.printTerminologyConstraintAsList = printTerminologyConstraintAsList;
+	}
+
+	public boolean isPrintAssigningAuthorityName() {
+		return printAssigningAuthorityName;
+	}
+
+	public void setPrintAssigningAuthorityName(boolean printAssigningAuthorityName) {
+		this.printAssigningAuthorityName = printAssigningAuthorityName;
+
 	}
 
 	public String getBaseURL() {

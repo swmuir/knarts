@@ -1198,6 +1198,88 @@ public class CDACommonUtils {
 	}
 
 	/**
+	 * Adds a templateId property to the given class mirroring the constraints from an applied templateId stereotype including the
+	 * assigningAuthorityName attribute
+	 *
+	 * @param umlClass
+	 * @return the newly added property, or <code>null</code> if there are no constraints to be mirrored
+	 */
+	public static Property createTemplateIdProperty(Class umlClass) {
+		String templateId = CDAModelUtil.getTemplateId(umlClass);
+		if (templateId != null) {
+			Property templateIdProp = createProperty3(umlClass, "templateId", SeverityKind.ERROR);
+			if (templateIdProp != null) {
+				String templateVersion = CDAModelUtil.getTemplateVersion(umlClass);
+				String assigningAuthorityName = CDAModelUtil.getAssigningAuthorityName(umlClass);
+
+				// created nested class
+				Class nestedClass = UMLFactory.eINSTANCE.createClass();
+				Generalization gen = UMLFactory.eINSTANCE.createGeneralization();
+				Classifier type = (Classifier) templateIdProp.getType();
+				gen.setGeneral(type);
+				nestedClass.getGeneralizations().add(gen);
+				nestedClass.setName(type.getName() + "_for_" + templateIdProp.getName());
+				umlClass.getNestedClassifiers().add(nestedClass);
+				templateIdProp.setType(nestedClass);
+
+				// directly constrain properties
+				createProperty2(nestedClass, "root", templateId, SeverityKind.ERROR);
+				createProperty2(nestedClass, "extension", templateVersion, SeverityKind.ERROR);
+				createProperty2(nestedClass, "assigningAuthorityName", assigningAuthorityName, SeverityKind.WARNING);
+				return templateIdProp;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 *
+	 * Creates a property for the given class deriving from a base property of the given name and sets the given default value and the given severity
+	 *
+	 * @param cls
+	 * @param name
+	 * @param defaultValue
+	 * @param severity
+	 */
+	private static void createProperty2(Class cls, String name, String defaultValue, SeverityKind severity) {
+		if (defaultValue == null) {
+			return;
+		}
+		Property property = CDACommonUtils.createProperty3(cls, name, severity);
+		if (property != null) {
+			property.setDefault(defaultValue);
+		}
+	}
+
+	/**
+	 *
+	 * Creates a property for the given class deriving from a base property of the given name and sets the given severity
+	 *
+	 * @param cls
+	 * @param name
+	 * @param value
+	 * @return
+	 */
+	private static Property createProperty3(Class cls, String name, SeverityKind severity) {
+		Property existing = CDACommonUtils.findAttribute(cls, name);
+		if (existing != null && existing.eContainer() != cls) {
+			Property derivedProperty = UMLFactory.eINSTANCE.createProperty();
+			derivedProperty.setName(existing.getName());
+			derivedProperty.setType(existing.getType());
+			if (severity == SeverityKind.WARNING) {
+				derivedProperty.setLower(0);
+			}
+			cls.getOwnedAttributes().add(derivedProperty);
+			PropertyValidation pv = CDAFactory.eINSTANCE.createPropertyValidation();
+			pv.setBase_Property(derivedProperty);
+			pv.setSeverity(severity);
+			cls.eResource().getContents().add(pv);
+			return derivedProperty;
+		}
+		return null;
+	}
+
+	/**
 	 * @param element
 	 *            MDHT model element
 	 * @return the MDHT clinical document
