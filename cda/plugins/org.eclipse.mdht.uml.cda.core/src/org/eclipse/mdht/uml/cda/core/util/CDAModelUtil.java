@@ -1379,7 +1379,12 @@ public class CDAModelUtil {
 			StringBuilder propertyComments = new StringBuilder();
 			currentlyItem &= appendPropertyComments(propertyComments, property, markup);
 			if (currentlyItem) {
-				sb.append(li[0]).append(propertyComments).append(li[1]);
+				int pos = ccm.indexOf(propertyComments.toString());
+				// append property comments only if they are not already in the conformance message already (to be precise, before the first list item
+				// of the conformance message)
+				if (!(pos >= 0 && pos < ccm.indexOf(li[0]))) {
+					sb.append(li[0]).append(propertyComments).append(li[1]);
+				}
 			} else {
 				sb.append(propertyComments);
 			}
