@@ -457,12 +457,21 @@ public class TransformClassContent extends TransformAbstract {
 
 		for (Property property : allProperties) {
 			hasRules = true;
-			writer.println("<li>" + CDAModelUtil.computeConformanceMessage(property, true));
+			writer.println("<li>");
+			String extendedConformanceMessage = CDAModelUtil.computeConformanceMessage(property, true);
+
 			if (!(property.getType().getOwner() instanceof Class)) {
 				// comments are output preceding inline classes
-				appendPropertyComments(writer, property);
+				StringWriter stringWriter = new StringWriter();
+				PrintWriter printWriter = new PrintWriter(stringWriter);
+				appendPropertyComments(printWriter, property);
+				extendedConformanceMessage = extendedConformanceMessage + stringWriter.getBuffer().toString();
 			}
-			appendPropertyRules(writer, property, constraintMap, subConstraintMap, unprocessedConstraints);
+			StringWriter stringWriter = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(stringWriter);
+			appendPropertyRules(printWriter, property, constraintMap, subConstraintMap, unprocessedConstraints);
+			extendedConformanceMessage = meltOL(extendedConformanceMessage, stringWriter.getBuffer().toString());
+			writer.println(extendedConformanceMessage);
 			writer.println("</li>");
 		}
 
@@ -476,6 +485,19 @@ public class TransformClassContent extends TransformAbstract {
 		}
 
 		writer.println("</ol>");
+	}
+
+	/**
+	 * @param a
+	 * @param b
+	 * @return returns the concatenation of <code>a</code> and <code>b</code>; however, if <code>a</code> and <code>b</code> ends and starts an
+	 *         unordered list respectively, joins those two lists
+	 */
+	public static String meltOL(String a, String b) {
+		if (a.endsWith("</ol>") && b.startsWith("<ol>")) {
+			return a.substring(0, a.length() - "</ol>".length()) + b.substring("<ol>".length());
+		}
+		return a + b;
 	}
 
 	private void appendExample(PrintWriter writer, Class umlClass) {
