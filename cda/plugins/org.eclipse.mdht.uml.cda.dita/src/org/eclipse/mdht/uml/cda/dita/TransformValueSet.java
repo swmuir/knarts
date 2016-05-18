@@ -259,6 +259,10 @@ public class TransformValueSet extends TransformAbstract {
 	@Override
 	public Object caseEnumeration(Enumeration umlEnumeration) {
 		String fileName = normalizeCodeName(umlEnumeration.getName()) + ".dita";
+		if (transformerOptions.getValueSetList().contains(fileName)) {
+			// no need to generate dita file twice!
+			return umlEnumeration;
+		}
 		String pathFolder = "terminology";
 		IPath filePath = transformerOptions.getOutputPath().append(pathFolder).addTrailingSeparator().append(fileName);
 		File file = filePath.toFile();

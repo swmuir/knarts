@@ -19,7 +19,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -27,17 +29,26 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.dita.internal.Logger;
+import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
+import org.eclipse.mdht.uml.term.core.util.ITermProfileConstants;
+import org.eclipse.mdht.uml.term.core.util.TermProfileUtil;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.ElementImport;
+import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.util.UMLSwitch;
 
 public class DitaTransformer {
 
 	private DitaTransformerOptions transformerOptions;
+
+	Set<Class> alreadyHandledClassesForTerminologyChecking = new HashSet<Class>();
 
 	public DitaTransformer() {
 		this(new DitaTransformerOptions());
@@ -111,6 +122,7 @@ public class DitaTransformer {
 								transformClass.doSwitch(child);
 							}
 							transformClassProperties.doSwitch(child);
+							checkTerminologyReferences((Class) child, transformValueSet);
 						}
 					}
 
@@ -172,4 +184,51 @@ public class DitaTransformer {
 		}
 	}
 
+	/**
+	 * Checks recursively all classes having references to the "Value sets" sections in order to generate the corresponding value set file
+	 *
+	 * @param umlClass
+	 * @param transformValueSet
+	 */
+	private void checkTerminologyReferences(Class umlClass, UMLSwitch<Object> transformValueSet) {
+		if (!alreadyHandledClassesForTerminologyChecking.add(umlClass)) {
+			return;
+		}
+
+		if (CDAModelUtil.isCDAModel(umlClass) || CDAModelUtil.isDatatypeModel(umlClass)) {
+			return;
+		}
+
+		// Loop over properties and generalizations
+
+		for (Property property : umlClass.getOwnedAttributes()) {
+			if (property.getType() instanceof Class) {
+				Class class1 = (Class) property.getType();
+				checkTerminologyReferences(class1, transformValueSet);
+			}
+			Enumeration enumeration = null;
+			if (property.getType() instanceof Enumeration) {
+				enumeration = (Enumeration) property.getType();
+			}
+			Stereotype codeSystemConstraint = TermProfileUtil.getAppliedStereotype(
+				property, ITermProfileConstants.CODE_SYSTEM_CONSTRAINT);
+			ValueSetConstraint valueSetConstraint = TermProfileUtil.getValueSetConstraint(property);
+			if (property.getAssociation() == null && codeSystemConstraint == null && valueSetConstraint != null &&
+					valueSetConstraint.getReference() != null &&
+					valueSetConstraint.getReference().getBase_Enumeration() != null) {
+				enumeration = valueSetConstraint.getReference().getBase_Enumeration();
+			}
+			if (enumeration != null && enumeration.eResource() != null &&
+					enumeration.eResource().getURI().toString().endsWith("-vocab.uml")) {
+				transformValueSet.doSwitch(enumeration);
+			}
+		}
+
+		for (Generalization generalization : umlClass.getGeneralizations()) {
+			if (generalization.getGeneral() instanceof Class) {
+				Class class1 = (Class) generalization.getGeneral();
+				checkTerminologyReferences(class1, transformValueSet);
+			}
+		}
+	}
 }
