@@ -150,9 +150,18 @@ public class TransformClassContent extends TransformAbstract {
 				LogicalConstraint logicConstraint = CDAProfileUtil.getLogicalConstraint(constraint);
 				if (logicConstraint != null) {
 					for (Element constrainedElement : constraint.getConstrainedElements()) {
-						if (constrainedElement instanceof Property &&
-								CDAModelUtil.getValidationKeyword(constrainedElement) == null) {
-							allProperties.remove(constrainedElement);
+						if (constrainedElement instanceof Property) {
+							Property property = (Property) constrainedElement;
+							String validation = CDAModelUtil.getValidationKeyword(constrainedElement);
+
+							if (validation == null && property.getAssociation() != null) {
+								validation = CDAModelUtil.getValidationKeyword(property.getAssociation());
+							}
+
+							if (validation == null) {
+								allProperties.remove(constrainedElement);
+								allAttributes.remove(constrainedElement);
+							}
 						}
 					}
 				}
@@ -431,10 +440,18 @@ public class TransformClassContent extends TransformAbstract {
 			LogicalConstraint logicConstraint = CDAProfileUtil.getLogicalConstraint(constraint);
 			if (logicConstraint != null) {
 				for (Element constrainedElement : constraint.getConstrainedElements()) {
-					if (constrainedElement instanceof Property &&
-							CDAModelUtil.getValidationKeyword(constrainedElement) == null) {
-						allProperties.remove(constrainedElement);
-						allAttributes.remove(constrainedElement);
+					if (constrainedElement instanceof Property) {
+						Property property = (Property) constrainedElement;
+						String validation = CDAModelUtil.getValidationKeyword(constrainedElement);
+
+						if (validation == null && property.getAssociation() != null) {
+							validation = CDAModelUtil.getValidationKeyword(property.getAssociation());
+						}
+
+						if (validation == null) {
+							allProperties.remove(constrainedElement);
+							allAttributes.remove(constrainedElement);
+						}
 					}
 				}
 			}
