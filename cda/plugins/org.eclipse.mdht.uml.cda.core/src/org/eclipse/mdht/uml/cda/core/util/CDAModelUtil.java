@@ -998,7 +998,7 @@ public class CDAModelUtil {
 			if (value != null && value.length() > 0) {
 				SeverityKind level = (SeverityKind) property.getValue(
 					textValue, ICDAProfileConstants.VALIDATION_SEVERITY);
-				message.append(" and ").append(markup
+				message.append(" which ").append(markup
 						? "<b>"
 						: "").append(
 							level != null
