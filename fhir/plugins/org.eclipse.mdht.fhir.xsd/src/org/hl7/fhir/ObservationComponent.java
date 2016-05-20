@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getDataAbsentReason <em>Data Absent Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationComponent#getInterpretation <em>Interpretation</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getReferenceRange <em>Reference Range</em>}</li>
  * </ul>
  *
@@ -358,6 +369,32 @@ public interface ObservationComponent extends BackboneElement {
 	 * @generated
 	 */
 	void setDataAbsentReason(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Interpretation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Interpretation</em>' containment reference.
+	 * @see #setInterpretation(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getObservationComponent_Interpretation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='interpretation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getInterpretation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationComponent#getInterpretation <em>Interpretation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interpretation</em>' containment reference.
+	 * @see #getInterpretation()
+	 * @generated
+	 */
+	void setInterpretation(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference Range</b></em>' containment reference list.

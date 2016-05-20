@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -35,6 +45,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getSubstitution <em>Substitution</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationDispense()
@@ -445,5 +456,21 @@ public interface MedicationDispense extends DomainResource {
 	 * @generated
 	 */
 	void setSubstitution(MedicationDispenseSubstitution value);
+
+	/**
+	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationDispenseEventHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A summary of the events of interest that have occurred, such as when the dispense was verified.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Event History</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_EventHistory()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='eventHistory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MedicationDispenseEventHistory> getEventHistory();
 
 } // MedicationDispense

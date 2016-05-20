@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -25,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Specimen#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getReceivedTime <em>Received Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getContainer <em>Container</em>}</li>
@@ -196,6 +207,22 @@ public interface Specimen extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getParent();
+
+	/**
+	 * Returns the value of the '<em><b>Request</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Details concerning a test or procedure request that required a specimen to be collected.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Request()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getRequest();
 
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' containment reference.

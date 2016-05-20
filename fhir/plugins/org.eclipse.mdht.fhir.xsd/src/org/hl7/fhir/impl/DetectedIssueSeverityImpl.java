@@ -1,8 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
-
-import java.lang.String;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.DetectedIssueSeverity;
+import org.hl7.fhir.DetectedIssueSeverityList;
 import org.hl7.fhir.FhirPackage;
 
 /**
@@ -35,7 +44,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final DetectedIssueSeverityList VALUE_EDEFAULT = DetectedIssueSeverityList.HIGH;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +54,16 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected DetectedIssueSeverityList value = VALUE_EDEFAULT;
+
+	/**
+	 * This is true if the Value attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean valueESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +89,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public DetectedIssueSeverityList getValue() {
 		return value;
 	}
 
@@ -80,11 +98,36 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
+	public void setValue(DetectedIssueSeverityList newValue) {
+		DetectedIssueSeverityList oldValue = value;
+		value = newValue == null ? VALUE_EDEFAULT : newValue;
+		boolean oldValueESet = valueESet;
+		valueESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, value, !oldValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetValue() {
+		DetectedIssueSeverityList oldValue = value;
+		boolean oldValueESet = valueESet;
+		value = VALUE_EDEFAULT;
+		valueESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE, oldValue, VALUE_EDEFAULT, oldValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetValue() {
+		return valueESet;
 	}
 
 	/**
@@ -110,7 +153,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				setValue((String)newValue);
+				setValue((DetectedIssueSeverityList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,7 +168,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				setValue(VALUE_EDEFAULT);
+				unsetValue();
 				return;
 		}
 		super.eUnset(featureID);
@@ -140,7 +183,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DETECTED_ISSUE_SEVERITY__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return isSetValue();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,7 +199,7 @@ public class DetectedIssueSeverityImpl extends ElementImpl implements DetectedIs
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
-		result.append(value);
+		if (valueESet) result.append(value); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

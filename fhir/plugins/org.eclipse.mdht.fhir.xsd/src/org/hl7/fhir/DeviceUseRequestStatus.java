@@ -1,8 +1,17 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
 
-import java.lang.String;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +37,7 @@ import java.lang.String;
 public interface DeviceUseRequestStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.hl7.fhir.DeviceUseRequestStatusList}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
@@ -35,22 +45,51 @@ public interface DeviceUseRequestStatus extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
+	 * @see org.hl7.fhir.DeviceUseRequestStatusList
+	 * @see #isSetValue()
+	 * @see #unsetValue()
+	 * @see #setValue(DeviceUseRequestStatusList)
 	 * @see org.hl7.fhir.FhirPackage#getDeviceUseRequestStatus_Value()
-	 * @model dataType="org.hl7.fhir.DeviceUseRequestStatusList"
+	 * @model unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='value'"
 	 * @generated
 	 */
-	String getValue();
+	DeviceUseRequestStatusList getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseRequestStatus#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see org.hl7.fhir.DeviceUseRequestStatusList
+	 * @see #isSetValue()
+	 * @see #unsetValue()
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(String value);
+	void setValue(DeviceUseRequestStatusList value);
+
+	/**
+	 * Unsets the value of the '{@link org.hl7.fhir.DeviceUseRequestStatus#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetValue()
+	 * @see #getValue()
+	 * @see #setValue(DeviceUseRequestStatusList)
+	 * @generated
+	 */
+	void unsetValue();
+
+	/**
+	 * Returns whether the value of the '{@link org.hl7.fhir.DeviceUseRequestStatus#getValue <em>Value</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Value</em>' attribute is set.
+	 * @see #unsetValue()
+	 * @see #getValue()
+	 * @see #setValue(DeviceUseRequestStatusList)
+	 * @generated
+	 */
+	boolean isSetValue();
 
 } // DeviceUseRequestStatus

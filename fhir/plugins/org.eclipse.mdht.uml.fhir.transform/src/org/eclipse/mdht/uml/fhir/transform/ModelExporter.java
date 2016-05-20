@@ -45,24 +45,31 @@ import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.hl7.fhir.BindingStrength;
+import org.hl7.fhir.BindingStrengthList;
 import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ConformanceResourceStatusList;
 import org.hl7.fhir.ConstraintSeverity;
+import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.ExtensionContext;
+import org.hl7.fhir.ExtensionContextList;
 import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SlicingRules;
+import org.hl7.fhir.SlicingRulesList;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
+import org.hl7.fhir.StructureDefinitionKindList;
 import org.hl7.fhir.TypeDerivationRule;
+import org.hl7.fhir.TypeDerivationRuleList;
 import org.hl7.fhir.Uri;
 
 public class ModelExporter implements ModelConstants {
@@ -94,7 +101,7 @@ public class ModelExporter implements ModelConstants {
 		ConformanceResourceStatus resourceStatus = FhirFactory.eINSTANCE.createConformanceResourceStatus();
 		String status = structureDefStereotype.getStatus() != null 
 				? structureDefStereotype.getStatus() : "draft";
-		resourceStatus.setValue(status);
+		resourceStatus.setValue(ConformanceResourceStatusList.get(status));
 		String publisher = structureDefStereotype.getPublisher() != null 
 								? structureDefStereotype.getPublisher() : "Model Driven Health Tools (MDHT)";
 		if (structureDefStereotype.getCopyright() != null) {
@@ -147,7 +154,7 @@ public class ModelExporter implements ModelConstants {
 		}
 		
 		StructureDefinitionKind kind = FhirFactory.eINSTANCE.createStructureDefinitionKind();
-		kind.setValue(kindValue);
+		kind.setValue(StructureDefinitionKindList.get(kindValue));
 		structureDef.setKind(kind);
 		
 		// derivation (optional): constraint, specialization
@@ -155,7 +162,7 @@ public class ModelExporter implements ModelConstants {
 		DerivationKind derivation = structureDefStereotype.getDerivation();
 		if (derivation != null) {
 			TypeDerivationRule derivationRule = FhirFactory.eINSTANCE.createTypeDerivationRule();
-			derivationRule.setValue(derivation.getName());
+			derivationRule.setValue(TypeDerivationRuleList.get(derivation.getName()));
 			structureDef.setDerivation(derivationRule);
 		}
 		
@@ -163,7 +170,7 @@ public class ModelExporter implements ModelConstants {
 		if (modelIndexer.isExtension(umlClass)) {
 			if (structureDefStereotype.getContextType() != null) {
 				ExtensionContext contextType = FhirFactory.eINSTANCE.createExtensionContext();
-				contextType.setValue(structureDefStereotype.getContextType());
+				contextType.setValue(ExtensionContextList.get(structureDefStereotype.getContextType()));
 				structureDef.setContextType(contextType);
 			}
 			for (String context : structureDefStereotype.getContexts()) {
@@ -384,7 +391,7 @@ public class ModelExporter implements ModelConstants {
 							}
 							if (diagnostic.getSeverity() != null) {
 								ConstraintSeverity fhirSeverity = FhirFactory.eINSTANCE.createConstraintSeverity();
-								fhirSeverity.setValue(diagnostic.getSeverity().getName());
+								fhirSeverity.setValue(ConstraintSeverityList.get(diagnostic.getSeverity().getName()));
 								fhirConstraint.setSeverity(fhirSeverity);
 							}
 						}
@@ -584,7 +591,7 @@ public class ModelExporter implements ModelConstants {
 			binding = FhirFactory.eINSTANCE.createElementDefinitionBinding();
 			if (bindingStereotype.getStrength() != null) {
 				BindingStrength strength = FhirFactory.eINSTANCE.createBindingStrength();
-				strength.setValue(bindingStereotype.getStrength().getName());
+				strength.setValue(BindingStrengthList.get(bindingStereotype.getStrength().getName()));
 				binding.setStrength(strength);
 			}
 			
@@ -620,7 +627,7 @@ public class ModelExporter implements ModelConstants {
 			}
 			if (slicingStereotype.getRules() != null) {
 				SlicingRules slicingRules = FhirFactory.eINSTANCE.createSlicingRules();
-				slicingRules.setValue(slicingStereotype.getRules().getName());
+				slicingRules.setValue(SlicingRulesList.get(slicingStereotype.getRules().getName()));
 				slicing.setRules(slicingRules);
 			}
 			if (slicingStereotype.getOrdered() != null) {

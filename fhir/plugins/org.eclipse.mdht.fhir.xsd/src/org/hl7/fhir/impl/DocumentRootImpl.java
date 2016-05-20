@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -43,6 +53,7 @@ import org.hl7.fhir.Composition;
 import org.hl7.fhir.ConceptMap;
 import org.hl7.fhir.Condition;
 import org.hl7.fhir.Conformance;
+import org.hl7.fhir.Consent;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.DataElement;
@@ -171,6 +182,7 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getConceptMap <em>Concept Map</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getConformance <em>Conformance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getConsent <em>Consent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getDataElement <em>Data Element</em>}</li>
@@ -945,6 +957,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setConformance(Conformance newConformance) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Conformance(), newConformance);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Consent getConsent() {
+		return (Consent)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Consent(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConsent(Consent newConsent, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_Consent(), newConsent, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsent(Consent newConsent) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Consent(), newConsent);
 	}
 
 	/**
@@ -3489,6 +3528,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetCondition(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CONFORMANCE:
 				return basicSetConformance(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__CONSENT:
+				return basicSetConsent(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CONTRACT:
 				return basicSetContract(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__COVERAGE:
@@ -3738,6 +3779,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCondition();
 			case FhirPackage.DOCUMENT_ROOT__CONFORMANCE:
 				return getConformance();
+			case FhirPackage.DOCUMENT_ROOT__CONSENT:
+				return getConsent();
 			case FhirPackage.DOCUMENT_ROOT__CONTRACT:
 				return getContract();
 			case FhirPackage.DOCUMENT_ROOT__COVERAGE:
@@ -4008,6 +4051,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__CONFORMANCE:
 				setConformance((Conformance)newValue);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__CONSENT:
+				setConsent((Consent)newValue);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__CONTRACT:
 				setContract((Contract)newValue);
@@ -4372,6 +4418,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__CONFORMANCE:
 				setConformance((Conformance)null);
 				return;
+			case FhirPackage.DOCUMENT_ROOT__CONSENT:
+				setConsent((Consent)null);
+				return;
 			case FhirPackage.DOCUMENT_ROOT__CONTRACT:
 				setContract((Contract)null);
 				return;
@@ -4710,6 +4759,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCondition() != null;
 			case FhirPackage.DOCUMENT_ROOT__CONFORMANCE:
 				return getConformance() != null;
+			case FhirPackage.DOCUMENT_ROOT__CONSENT:
+				return getConsent() != null;
 			case FhirPackage.DOCUMENT_ROOT__CONTRACT:
 				return getContract() != null;
 			case FhirPackage.DOCUMENT_ROOT__COVERAGE:

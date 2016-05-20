@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -43,6 +53,7 @@ import org.hl7.fhir.SpecimenTreatment;
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getReceivedTime <em>Received Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getContainer <em>Container</em>}</li>
@@ -120,6 +131,16 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * @ordered
 	 */
 	protected EList<Reference> parent;
+
+	/**
+	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequest()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> request;
 
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' containment reference.
@@ -414,6 +435,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getRequest() {
+		if (request == null) {
+			request = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN__REQUEST);
+		}
+		return request;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SpecimenCollection getCollection() {
 		return collection;
 	}
@@ -498,6 +531,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return basicSetReceivedTime(null, msgs);
 			case FhirPackage.SPECIMEN__PARENT:
 				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN__REQUEST:
+				return ((InternalEList<?>)getRequest()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return basicSetCollection(null, msgs);
 			case FhirPackage.SPECIMEN__TREATMENT:
@@ -530,6 +565,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return getReceivedTime();
 			case FhirPackage.SPECIMEN__PARENT:
 				return getParent();
+			case FhirPackage.SPECIMEN__REQUEST:
+				return getRequest();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return getCollection();
 			case FhirPackage.SPECIMEN__TREATMENT:
@@ -571,6 +608,10 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__PARENT:
 				getParent().clear();
 				getParent().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.SPECIMEN__REQUEST:
+				getRequest().clear();
+				getRequest().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)newValue);
@@ -616,6 +657,9 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__PARENT:
 				getParent().clear();
 				return;
+			case FhirPackage.SPECIMEN__REQUEST:
+				getRequest().clear();
+				return;
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)null);
 				return;
@@ -651,6 +695,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return receivedTime != null;
 			case FhirPackage.SPECIMEN__PARENT:
 				return parent != null && !parent.isEmpty();
+			case FhirPackage.SPECIMEN__REQUEST:
+				return request != null && !request.isEmpty();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return collection != null;
 			case FhirPackage.SPECIMEN__TREATMENT:

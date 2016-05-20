@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -26,7 +36,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSupportingInformation <em>Supporting Information</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticOrder#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrder#getNote <em>Note</em>}</li>
@@ -214,22 +223,6 @@ public interface DiagnosticOrder extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getSupportingInformation();
-
-	/**
-	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * One or more specimens that the diagnostic investigation is about.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Specimen</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrder_Specimen()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getSpecimen();
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.

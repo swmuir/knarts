@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -10,13 +20,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationOrderDispenseRequest;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.SimpleQuantity;
 
 /**
@@ -27,8 +35,6 @@ import org.hl7.fhir.SimpleQuantity;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderDispenseRequestImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderDispenseRequestImpl#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDispenseRequestImpl#getValidityPeriod <em>Validity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDispenseRequestImpl#getNumberOfRepeatsAllowed <em>Number Of Repeats Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDispenseRequestImpl#getQuantity <em>Quantity</em>}</li>
@@ -38,26 +44,6 @@ import org.hl7.fhir.SimpleQuantity;
  * @generated
  */
 public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl implements MedicationOrderDispenseRequest {
-	/**
-	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept medicationCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getMedicationReference() <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMedicationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference medicationReference;
-
 	/**
 	 * The cached value of the '{@link #getValidityPeriod() <em>Validity Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -115,92 +101,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedicationOrderDispenseRequest();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getMedicationCodeableConcept() {
-		return medicationCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldMedicationCodeableConcept = medicationCodeableConcept;
-		medicationCodeableConcept = newMedicationCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT, oldMedicationCodeableConcept, newMedicationCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationCodeableConcept(CodeableConcept newMedicationCodeableConcept) {
-		if (newMedicationCodeableConcept != medicationCodeableConcept) {
-			NotificationChain msgs = null;
-			if (medicationCodeableConcept != null)
-				msgs = ((InternalEObject)medicationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			if (newMedicationCodeableConcept != null)
-				msgs = ((InternalEObject)newMedicationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetMedicationCodeableConcept(newMedicationCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT, newMedicationCodeableConcept, newMedicationCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getMedicationReference() {
-		return medicationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMedicationReference(Reference newMedicationReference, NotificationChain msgs) {
-		Reference oldMedicationReference = medicationReference;
-		medicationReference = newMedicationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE, oldMedicationReference, newMedicationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMedicationReference(Reference newMedicationReference) {
-		if (newMedicationReference != medicationReference) {
-			NotificationChain msgs = null;
-			if (medicationReference != null)
-				msgs = ((InternalEObject)medicationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE, null, msgs);
-			if (newMedicationReference != null)
-				msgs = ((InternalEObject)newMedicationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE, null, msgs);
-			msgs = basicSetMedicationReference(newMedicationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE, newMedicationReference, newMedicationReference));
 	}
 
 	/**
@@ -383,10 +283,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT:
-				return basicSetMedicationCodeableConcept(null, msgs);
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE:
-				return basicSetMedicationReference(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return basicSetValidityPeriod(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:
@@ -407,10 +303,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT:
-				return getMedicationCodeableConcept();
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE:
-				return getMedicationReference();
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return getValidityPeriod();
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:
@@ -431,12 +323,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)newValue);
-				return;
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				setValidityPeriod((Period)newValue);
 				return;
@@ -461,12 +347,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT:
-				setMedicationCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE:
-				setMedicationReference((Reference)null);
-				return;
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				setValidityPeriod((Period)null);
 				return;
@@ -491,10 +371,6 @@ public class MedicationOrderDispenseRequestImpl extends BackboneElementImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_CODEABLE_CONCEPT:
-				return medicationCodeableConcept != null;
-			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__MEDICATION_REFERENCE:
-				return medicationReference != null;
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return validityPeriod != null;
 			case FhirPackage.MEDICATION_ORDER_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:

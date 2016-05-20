@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -44,6 +54,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getConceptMap <em>Concept Map</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getConformance <em>Conformance</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getConsent <em>Consent</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getDataElement <em>Data Element</em>}</li>
@@ -767,6 +778,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setConformance(Conformance value);
+
+	/**
+	 * Returns the value of the '<em><b>Consent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Consent</em>' containment reference.
+	 * @see #setConsent(Consent)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Consent()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Consent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Consent getConsent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getConsent <em>Consent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Consent</em>' containment reference.
+	 * @see #getConsent()
+	 * @generated
+	 */
+	void setConsent(Consent value);
 
 	/**
 	 * Returns the value of the '<em><b>Contract</b></em>' containment reference.

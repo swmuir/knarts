@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -22,7 +32,6 @@ import org.hl7.fhir.DiagnosticOrderEvent;
 import org.hl7.fhir.DiagnosticOrderItem;
 import org.hl7.fhir.DiagnosticOrderStatus;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +42,6 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderItemImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderItemImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderItemImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderItemImpl#getEvent <em>Event</em>}</li>
@@ -51,16 +59,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 	 * @ordered
 	 */
 	protected CodeableConcept code;
-
-	/**
-	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecimen()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> specimen;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
@@ -152,18 +150,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE, newCode, newCode));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getSpecimen() {
-		if (specimen == null) {
-			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN);
-		}
-		return specimen;
 	}
 
 	/**
@@ -274,8 +260,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE:
 				return basicSetCode(null, msgs);
-			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN:
-				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__BODY_SITE:
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__STATUS:
@@ -296,8 +280,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE:
 				return getCode();
-			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN:
-				return getSpecimen();
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__BODY_SITE:
 				return getBodySite();
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__STATUS:
@@ -319,10 +301,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE:
 				setCode((CodeableConcept)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN:
-				getSpecimen().clear();
-				getSpecimen().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__BODY_SITE:
 				setBodySite((CodeableConcept)newValue);
@@ -349,9 +327,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE:
 				setCode((CodeableConcept)null);
 				return;
-			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN:
-				getSpecimen().clear();
-				return;
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__BODY_SITE:
 				setBodySite((CodeableConcept)null);
 				return;
@@ -375,8 +350,6 @@ public class DiagnosticOrderItemImpl extends BackboneElementImpl implements Diag
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__CODE:
 				return code != null;
-			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__SPECIMEN:
-				return specimen != null && !specimen.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__BODY_SITE:
 				return bodySite != null;
 			case FhirPackage.DIAGNOSTIC_ORDER_ITEM__STATUS:

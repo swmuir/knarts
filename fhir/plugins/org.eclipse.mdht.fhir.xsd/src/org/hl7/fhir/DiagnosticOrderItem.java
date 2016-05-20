@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -18,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DiagnosticOrderItem#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticOrderItem#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrderItem#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrderItem#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticOrderItem#getEvent <em>Event</em>}</li>
@@ -54,22 +63,6 @@ public interface DiagnosticOrderItem extends BackboneElement {
 	 * @generated
 	 */
 	void setCode(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If the item is related to a specific specimen.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Specimen</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticOrderItem_Specimen()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getSpecimen();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.

@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -25,6 +35,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationOrder;
 import org.hl7.fhir.MedicationOrderDispenseRequest;
 import org.hl7.fhir.MedicationOrderDosageInstruction;
+import org.hl7.fhir.MedicationOrderEventHistory;
 import org.hl7.fhir.MedicationOrderStatus;
 import org.hl7.fhir.MedicationOrderSubstitution;
 import org.hl7.fhir.Reference;
@@ -47,13 +58,12 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPrescriber <em>Prescriber</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDateEnded <em>Date Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getReasonEnded <em>Reason Ended</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getDispenseRequest <em>Dispense Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getSubstitution <em>Substitution</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getPriorPrescription <em>Prior Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderImpl#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
  * @generated
@@ -160,26 +170,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	protected EList<Reference> reasonReference;
 
 	/**
-	 * The cached value of the '{@link #getDateEnded() <em>Date Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDateEnded()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime dateEnded;
-
-	/**
-	 * The cached value of the '{@link #getReasonEnded() <em>Reason Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReasonEnded()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept reasonEnded;
-
-	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +218,16 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * @ordered
 	 */
 	protected Reference priorPrescription;
+
+	/**
+	 * The cached value of the '{@link #getEventHistory() <em>Event History</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventHistory()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicationOrderEventHistory> eventHistory;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -590,92 +590,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getDateEnded() {
-		return dateEnded;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDateEnded(DateTime newDateEnded, NotificationChain msgs) {
-		DateTime oldDateEnded = dateEnded;
-		dateEnded = newDateEnded;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__DATE_ENDED, oldDateEnded, newDateEnded);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDateEnded(DateTime newDateEnded) {
-		if (newDateEnded != dateEnded) {
-			NotificationChain msgs = null;
-			if (dateEnded != null)
-				msgs = ((InternalEObject)dateEnded).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__DATE_ENDED, null, msgs);
-			if (newDateEnded != null)
-				msgs = ((InternalEObject)newDateEnded).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__DATE_ENDED, null, msgs);
-			msgs = basicSetDateEnded(newDateEnded, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__DATE_ENDED, newDateEnded, newDateEnded));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getReasonEnded() {
-		return reasonEnded;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonEnded(CodeableConcept newReasonEnded, NotificationChain msgs) {
-		CodeableConcept oldReasonEnded = reasonEnded;
-		reasonEnded = newReasonEnded;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_ENDED, oldReasonEnded, newReasonEnded);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonEnded(CodeableConcept newReasonEnded) {
-		if (newReasonEnded != reasonEnded) {
-			NotificationChain msgs = null;
-			if (reasonEnded != null)
-				msgs = ((InternalEObject)reasonEnded).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_ENDED, null, msgs);
-			if (newReasonEnded != null)
-				msgs = ((InternalEObject)newReasonEnded).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER__REASON_ENDED, null, msgs);
-			msgs = basicSetReasonEnded(newReasonEnded, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER__REASON_ENDED, newReasonEnded, newReasonEnded));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_ORDER__NOTE);
@@ -829,6 +743,18 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MedicationOrderEventHistory> getEventHistory() {
+		if (eventHistory == null) {
+			eventHistory = new EObjectContainmentEList<MedicationOrderEventHistory>(MedicationOrderEventHistory.class, this, FhirPackage.MEDICATION_ORDER__EVENT_HISTORY);
+		}
+		return eventHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -852,10 +778,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return basicSetDateEnded(null, msgs);
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return basicSetReasonEnded(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
@@ -866,6 +788,8 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return basicSetSubstitution(null, msgs);
 			case FhirPackage.MEDICATION_ORDER__PRIOR_PRESCRIPTION:
 				return basicSetPriorPrescription(null, msgs);
+			case FhirPackage.MEDICATION_ORDER__EVENT_HISTORY:
+				return ((InternalEList<?>)getEventHistory()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -898,10 +822,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return getReasonCode();
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				return getReasonReference();
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return getDateEnded();
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return getReasonEnded();
 			case FhirPackage.MEDICATION_ORDER__NOTE:
 				return getNote();
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
@@ -912,6 +832,8 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return getSubstitution();
 			case FhirPackage.MEDICATION_ORDER__PRIOR_PRESCRIPTION:
 				return getPriorPrescription();
+			case FhirPackage.MEDICATION_ORDER__EVENT_HISTORY:
+				return getEventHistory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -958,12 +880,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				getReasonReference().clear();
 				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				setDateEnded((DateTime)newValue);
-				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				setReasonEnded((CodeableConcept)newValue);
-				return;
 			case FhirPackage.MEDICATION_ORDER__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
@@ -980,6 +896,10 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return;
 			case FhirPackage.MEDICATION_ORDER__PRIOR_PRESCRIPTION:
 				setPriorPrescription((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_ORDER__EVENT_HISTORY:
+				getEventHistory().clear();
+				getEventHistory().addAll((Collection<? extends MedicationOrderEventHistory>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1023,12 +943,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				getReasonReference().clear();
 				return;
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				setDateEnded((DateTime)null);
-				return;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				setReasonEnded((CodeableConcept)null);
-				return;
 			case FhirPackage.MEDICATION_ORDER__NOTE:
 				getNote().clear();
 				return;
@@ -1043,6 +957,9 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return;
 			case FhirPackage.MEDICATION_ORDER__PRIOR_PRESCRIPTION:
 				setPriorPrescription((Reference)null);
+				return;
+			case FhirPackage.MEDICATION_ORDER__EVENT_HISTORY:
+				getEventHistory().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1076,10 +993,6 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__REASON_REFERENCE:
 				return reasonReference != null && !reasonReference.isEmpty();
-			case FhirPackage.MEDICATION_ORDER__DATE_ENDED:
-				return dateEnded != null;
-			case FhirPackage.MEDICATION_ORDER__REASON_ENDED:
-				return reasonEnded != null;
 			case FhirPackage.MEDICATION_ORDER__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.MEDICATION_ORDER__DOSAGE_INSTRUCTION:
@@ -1090,6 +1003,8 @@ public class MedicationOrderImpl extends DomainResourceImpl implements Medicatio
 				return substitution != null;
 			case FhirPackage.MEDICATION_ORDER__PRIOR_PRESCRIPTION:
 				return priorPrescription != null;
+			case FhirPackage.MEDICATION_ORDER__EVENT_HISTORY:
+				return eventHistory != null && !eventHistory.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

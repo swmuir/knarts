@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -480,13 +490,6 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass carePlanParticipantEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass carePlanRelatedPlanEClass = null;
 
 	/**
@@ -705,6 +708,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * @generated
 	 */
 	private EClass claimTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass claimType2EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1139,6 +1149,55 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * @generated
 	 */
 	private EClass conformanceStatementKindEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentAgentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentAgent1EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentExceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentFriendlyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentLegalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consentStatusEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2860,6 +2919,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass medicationAdministrationEventHistoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass medicationAdministrationStatusEClass = null;
 
 	/**
@@ -2889,6 +2955,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * @generated
 	 */
 	private EClass medicationDispenseDosageInstructionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass medicationDispenseEventHistoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2931,6 +3004,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * @generated
 	 */
 	private EClass medicationOrderDosageInstructionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass medicationOrderEventHistoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4449,6 +4529,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass taskFulfillmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass taskInputEClass = null;
 
 	/**
@@ -4876,7 +4963,595 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum accountStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionListListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionRelationshipAnchorListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionRelationshipTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum activityDefinitionCategoryListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum addressTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum addressUseListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum administrativeGenderListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum aggregationModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceCategoryListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceCertaintyListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceCriticalityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceSeverityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum allergyIntoleranceTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum appointmentStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum assertionDirectionTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum assertionOperatorTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum assertionResponseTypesListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum auditEventActionListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum auditEventOutcomeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum auditEventParticipantNetworkTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum bindingStrengthListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum bundleTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum carePlanActivityStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum carePlanRelationshipListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum carePlanStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum claimType2ListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum claimTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum clinicalImpressionStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum codeSystemContentModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum communicationRequestStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum communicationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compartmentTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compositionAttestationModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compositionStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conceptMapEquivalenceListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conditionalDeleteStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conditionVerificationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conformanceEventModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conformanceResourceStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum conformanceStatementKindListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum consentStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum constraintSeverityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contactPointSystemListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contactPointUseListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contentTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dataElementStringencyListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum daysOfWeekListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum detectedIssueSeverityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceMetricCalibrationStateListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceMetricCalibrationTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceMetricCategoryListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceMetricColorListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceMetricOperationalStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceUseRequestPriorityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deviceUseRequestStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum diagnosticOrderPriorityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum diagnosticOrderStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum diagnosticReportStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum digitalMediaTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum documentModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum documentReferenceStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum documentRelationshipTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dWebTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum encounterClassListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum encounterLocationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum encounterStateListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum endpointStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum episodeOfCareStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum eventTimingListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum extensionContextListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum familyHistoryStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum filterOperatorListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum flagStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum goalStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum groupTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum guidanceResponseStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum guideDependencyTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum guidePageKindListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum httpVerbListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum identifierUseListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum identityAssuranceLevelListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4890,7 +5565,560 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum issueSeverityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum issueTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum linkageTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum linkTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum listModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum listStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum locationModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum locationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measmntPrincipleListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measureDataUsageListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measurePopulationTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measureReportStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measureReportTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measureScoringListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum measureTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum medicationAdministrationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum medicationDispenseStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum medicationOrderStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum medicationStatementStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum messageSignificanceCategoryListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum moduleMetadataContributorTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum moduleMetadataResourceTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum moduleMetadataStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum moduleMetadataTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nameUseListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum namingSystemIdentifierTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum namingSystemTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum narrativeStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum noteTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nutritionOrderStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum observationRelationshipTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum observationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operationKindListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operationParameterUseListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum orderStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum participantRequiredListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum participantTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum participationStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum procedureRequestPriorityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum procedureRequestStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum procedureStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum propertyRepresentationListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum propertyTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum provenanceEntityRoleListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum quantityComparatorListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum questionnaireItemTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum questionnaireResponseStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum questionnaireStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum referenceVersionRulesListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum referralCategoryListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum referralStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum remittanceOutcomeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum resourceVersionPolicyListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum responseTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum restfulConformanceModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum searchEntryModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum searchModifierCodeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum searchParamTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sequenceTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum slicingRulesListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum slotStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum specimenStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureDefinitionKindListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureMapContextTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureMapInputModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureMapListModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureMapModelModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum structureMapTransformListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum subscriptionChannelTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum subscriptionStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum supplyDeliveryStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum supplyRequestStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum systemRestfulInteractionListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum taskPriorityListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum taskStatusListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum transactionModeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum triggerTypeListEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeDerivationRuleListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4911,161 +6139,196 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType accountStatusListEDataType = null;
+	private EEnum unknownContentCodeListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType actionListListEDataType = null;
+	private EEnum useListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType actionRelationshipAnchorListEDataType = null;
+	private EEnum visionBaseListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType actionRelationshipTypeListEDataType = null;
+	private EEnum visionEyesListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType actionTypeListEDataType = null;
+	private EEnum xPathUsageTypeListEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType activityDefinitionCategoryListEDataType = null;
+	private EDataType accountStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType addressTypeListEDataType = null;
+	private EDataType actionListListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType addressUseListEDataType = null;
+	private EDataType actionRelationshipAnchorListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType administrativeGenderListEDataType = null;
+	private EDataType actionRelationshipTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType aggregationModeListEDataType = null;
+	private EDataType actionTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceCategoryListEDataType = null;
+	private EDataType activityDefinitionCategoryListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceCertaintyListEDataType = null;
+	private EDataType addressTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceCriticalityListEDataType = null;
+	private EDataType addressUseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceSeverityListEDataType = null;
+	private EDataType administrativeGenderListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceStatusListEDataType = null;
+	private EDataType aggregationModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType allergyIntoleranceTypeListEDataType = null;
+	private EDataType allergyIntoleranceCategoryListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType appointmentStatusListEDataType = null;
+	private EDataType allergyIntoleranceCertaintyListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType assertionDirectionTypeListEDataType = null;
+	private EDataType allergyIntoleranceCriticalityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType assertionOperatorTypeListEDataType = null;
+	private EDataType allergyIntoleranceSeverityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType assertionResponseTypesListEDataType = null;
+	private EDataType allergyIntoleranceStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType auditEventActionListEDataType = null;
+	private EDataType allergyIntoleranceTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType auditEventOutcomeListEDataType = null;
+	private EDataType appointmentStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType auditEventParticipantNetworkTypeListEDataType = null;
+	private EDataType assertionDirectionTypeListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType assertionOperatorTypeListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType assertionResponseTypesListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType auditEventActionListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType auditEventOutcomeListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType auditEventParticipantNetworkTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5079,7 +6342,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType bindingStrengthListEDataType = null;
+	private EDataType bindingStrengthListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5100,42 +6363,49 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType bundleTypeListEDataType = null;
+	private EDataType bundleTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType carePlanActivityStatusListEDataType = null;
+	private EDataType carePlanActivityStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType carePlanRelationshipListEDataType = null;
+	private EDataType carePlanRelationshipListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType carePlanStatusListEDataType = null;
+	private EDataType carePlanStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType claimTypeListEDataType = null;
+	private EDataType claimType2ListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType clinicalImpressionStatusListEDataType = null;
+	private EDataType claimTypeListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType clinicalImpressionStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5149,119 +6419,126 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType codeSystemContentModeListEDataType = null;
+	private EDataType codeSystemContentModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType communicationRequestStatusListEDataType = null;
+	private EDataType communicationRequestStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType communicationStatusListEDataType = null;
+	private EDataType communicationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType compartmentTypeListEDataType = null;
+	private EDataType compartmentTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType compositionAttestationModeListEDataType = null;
+	private EDataType compositionAttestationModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType compositionStatusListEDataType = null;
+	private EDataType compositionStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conceptMapEquivalenceListEDataType = null;
+	private EDataType conceptMapEquivalenceListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conditionalDeleteStatusListEDataType = null;
+	private EDataType conditionalDeleteStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conditionVerificationStatusListEDataType = null;
+	private EDataType conditionVerificationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conformanceEventModeListEDataType = null;
+	private EDataType conformanceEventModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conformanceResourceStatusListEDataType = null;
+	private EDataType conformanceResourceStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType conformanceStatementKindListEDataType = null;
+	private EDataType conformanceStatementKindListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType constraintSeverityListEDataType = null;
+	private EDataType consentStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType contactPointSystemListEDataType = null;
+	private EDataType constraintSeverityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType contactPointUseListEDataType = null;
+	private EDataType contactPointSystemListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType contentTypeListEDataType = null;
+	private EDataType contactPointUseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType dataElementStringencyListEDataType = null;
+	private EDataType contentTypeListObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType dataElementStringencyListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5296,7 +6573,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType daysOfWeekListEDataType = null;
+	private EDataType daysOfWeekListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5310,154 +6587,154 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType detectedIssueSeverityListEDataType = null;
+	private EDataType detectedIssueSeverityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceMetricCalibrationStateListEDataType = null;
+	private EDataType deviceMetricCalibrationStateListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceMetricCalibrationTypeListEDataType = null;
+	private EDataType deviceMetricCalibrationTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceMetricCategoryListEDataType = null;
+	private EDataType deviceMetricCategoryListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceMetricColorListEDataType = null;
+	private EDataType deviceMetricColorListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceMetricOperationalStatusListEDataType = null;
+	private EDataType deviceMetricOperationalStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceStatusListEDataType = null;
+	private EDataType deviceStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceUseRequestPriorityListEDataType = null;
+	private EDataType deviceUseRequestPriorityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType deviceUseRequestStatusListEDataType = null;
+	private EDataType deviceUseRequestStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType diagnosticOrderPriorityListEDataType = null;
+	private EDataType diagnosticOrderPriorityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType diagnosticOrderStatusListEDataType = null;
+	private EDataType diagnosticOrderStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType diagnosticReportStatusListEDataType = null;
+	private EDataType diagnosticReportStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType digitalMediaTypeListEDataType = null;
+	private EDataType digitalMediaTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType documentModeListEDataType = null;
+	private EDataType documentModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType documentReferenceStatusListEDataType = null;
+	private EDataType documentReferenceStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType documentRelationshipTypeListEDataType = null;
+	private EDataType documentRelationshipTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType dWebTypeListEDataType = null;
+	private EDataType dWebTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType encounterClassListEDataType = null;
+	private EDataType encounterClassListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType encounterLocationStatusListEDataType = null;
+	private EDataType encounterLocationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType encounterStateListEDataType = null;
+	private EDataType encounterStateListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType endpointStatusListEDataType = null;
+	private EDataType endpointStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType episodeOfCareStatusListEDataType = null;
+	private EDataType episodeOfCareStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5471,84 +6748,84 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType extensionContextListEDataType = null;
+	private EDataType extensionContextListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType familyHistoryStatusListEDataType = null;
+	private EDataType familyHistoryStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType filterOperatorListEDataType = null;
+	private EDataType filterOperatorListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType flagStatusListEDataType = null;
+	private EDataType flagStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType goalStatusListEDataType = null;
+	private EDataType goalStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType groupTypeListEDataType = null;
+	private EDataType groupTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType guidanceResponseStatusListEDataType = null;
+	private EDataType guidanceResponseStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType guideDependencyTypeListEDataType = null;
+	private EDataType guideDependencyTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType guidePageKindListEDataType = null;
+	private EDataType guidePageKindListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType httpVerbListEDataType = null;
+	private EDataType httpVerbListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType identifierUseListEDataType = null;
+	private EDataType identifierUseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType identityAssuranceLevelListEDataType = null;
+	private EDataType identityAssuranceLevelListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5590,56 +6867,56 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType issueSeverityListEDataType = null;
+	private EDataType issueSeverityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType issueTypeListEDataType = null;
+	private EDataType issueTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType linkageTypeListEDataType = null;
+	private EDataType linkageTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType linkTypeListEDataType = null;
+	private EDataType linkTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType listModeListEDataType = null;
+	private EDataType listModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType listStatusListEDataType = null;
+	private EDataType listStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType locationModeListEDataType = null;
+	private EDataType locationModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType locationStatusListEDataType = null;
+	private EDataType locationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5653,168 +6930,168 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measmntPrincipleListEDataType = null;
+	private EDataType measmntPrincipleListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measureDataUsageListEDataType = null;
+	private EDataType measureDataUsageListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measurePopulationTypeListEDataType = null;
+	private EDataType measurePopulationTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measureReportStatusListEDataType = null;
+	private EDataType measureReportStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measureReportTypeListEDataType = null;
+	private EDataType measureReportTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measureScoringListEDataType = null;
+	private EDataType measureScoringListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType measureTypeListEDataType = null;
+	private EDataType measureTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType medicationAdministrationStatusListEDataType = null;
+	private EDataType medicationAdministrationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType medicationDispenseStatusListEDataType = null;
+	private EDataType medicationDispenseStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType medicationOrderStatusListEDataType = null;
+	private EDataType medicationOrderStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType medicationStatementStatusListEDataType = null;
+	private EDataType medicationStatementStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType messageSignificanceCategoryListEDataType = null;
+	private EDataType messageSignificanceCategoryListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType moduleMetadataContributorTypeListEDataType = null;
+	private EDataType moduleMetadataContributorTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType moduleMetadataResourceTypeListEDataType = null;
+	private EDataType moduleMetadataResourceTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType moduleMetadataStatusListEDataType = null;
+	private EDataType moduleMetadataStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType moduleMetadataTypeListEDataType = null;
+	private EDataType moduleMetadataTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType nameUseListEDataType = null;
+	private EDataType nameUseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType namingSystemIdentifierTypeListEDataType = null;
+	private EDataType namingSystemIdentifierTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType namingSystemTypeListEDataType = null;
+	private EDataType namingSystemTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType narrativeStatusListEDataType = null;
+	private EDataType narrativeStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType noteTypeListEDataType = null;
+	private EDataType noteTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType nutritionOrderStatusListEDataType = null;
+	private EDataType nutritionOrderStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType observationRelationshipTypeListEDataType = null;
+	private EDataType observationRelationshipTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType observationStatusListEDataType = null;
+	private EDataType observationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5828,42 +7105,42 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType operationKindListEDataType = null;
+	private EDataType operationKindListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType operationParameterUseListEDataType = null;
+	private EDataType operationParameterUseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType orderStatusListEDataType = null;
+	private EDataType orderStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType participantRequiredListEDataType = null;
+	private EDataType participantRequiredListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType participantTypeListEDataType = null;
+	private EDataType participantTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType participationStatusListEDataType = null;
+	private EDataType participationStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5877,133 +7154,133 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType procedureRequestPriorityListEDataType = null;
+	private EDataType procedureRequestPriorityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType procedureRequestStatusListEDataType = null;
+	private EDataType procedureRequestStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType procedureStatusListEDataType = null;
+	private EDataType procedureStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType propertyRepresentationListEDataType = null;
+	private EDataType propertyRepresentationListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType propertyTypeListEDataType = null;
+	private EDataType propertyTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType protocolStatusListEDataType = null;
+	private EDataType protocolStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType protocolTypeListEDataType = null;
+	private EDataType protocolTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType provenanceEntityRoleListEDataType = null;
+	private EDataType provenanceEntityRoleListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType quantityComparatorListEDataType = null;
+	private EDataType quantityComparatorListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType questionnaireItemTypeListEDataType = null;
+	private EDataType questionnaireItemTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType questionnaireResponseStatusListEDataType = null;
+	private EDataType questionnaireResponseStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType questionnaireStatusListEDataType = null;
+	private EDataType questionnaireStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType referenceVersionRulesListEDataType = null;
+	private EDataType referenceVersionRulesListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType referralCategoryListEDataType = null;
+	private EDataType referralCategoryListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType referralStatusListEDataType = null;
+	private EDataType referralStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType remittanceOutcomeListEDataType = null;
+	private EDataType remittanceOutcomeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType resourceVersionPolicyListEDataType = null;
+	private EDataType resourceVersionPolicyListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType responseTypeListEDataType = null;
+	private EDataType responseTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType restfulConformanceModeListEDataType = null;
+	private EDataType restfulConformanceModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6017,49 +7294,49 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType searchEntryModeListEDataType = null;
+	private EDataType searchEntryModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType searchModifierCodeListEDataType = null;
+	private EDataType searchModifierCodeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType searchParamTypeListEDataType = null;
+	private EDataType searchParamTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType sequenceTypeListEDataType = null;
+	private EDataType sequenceTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType slicingRulesListEDataType = null;
+	private EDataType slicingRulesListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType slotStatusListEDataType = null;
+	private EDataType slotStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType specimenStatusListEDataType = null;
+	private EDataType specimenStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6073,70 +7350,70 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureDefinitionKindListEDataType = null;
+	private EDataType structureDefinitionKindListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureMapContextTypeListEDataType = null;
+	private EDataType structureMapContextTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureMapInputModeListEDataType = null;
+	private EDataType structureMapInputModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureMapListModeListEDataType = null;
+	private EDataType structureMapListModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureMapModelModeListEDataType = null;
+	private EDataType structureMapModelModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType structureMapTransformListEDataType = null;
+	private EDataType structureMapTransformListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType subscriptionChannelTypeListEDataType = null;
+	private EDataType subscriptionChannelTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType subscriptionStatusListEDataType = null;
+	private EDataType subscriptionStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType supplyDeliveryStatusListEDataType = null;
+	private EDataType supplyDeliveryStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType supplyRequestStatusListEDataType = null;
+	private EDataType supplyRequestStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6150,14 +7427,14 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType taskPriorityListEDataType = null;
+	private EDataType taskPriorityListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType taskStatusListEDataType = null;
+	private EDataType taskStatusListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6171,21 +7448,21 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType transactionModeListEDataType = null;
+	private EDataType transactionModeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType triggerTypeListEDataType = null;
+	private EDataType triggerTypeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType typeDerivationRuleListEDataType = null;
+	private EDataType typeDerivationRuleListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6206,7 +7483,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType unknownContentCodeListEDataType = null;
+	private EDataType unknownContentCodeListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6227,7 +7504,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType useListEDataType = null;
+	private EDataType useListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6241,21 +7518,21 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType visionBaseListEDataType = null;
+	private EDataType visionBaseListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType visionEyesListEDataType = null;
+	private EDataType visionEyesListObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType xPathUsageTypeListEDataType = null;
+	private EDataType xPathUsageTypeListObjectEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -6472,7 +7749,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionDefinition() {
 		if (actionDefinitionEClass == null) {
-			actionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(3);
+			actionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(4);
 		}
 		return actionDefinitionEClass;
 	}
@@ -6619,7 +7896,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionDefinitionBehavior() {
 		if (actionDefinitionBehaviorEClass == null) {
-			actionDefinitionBehaviorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(4);
+			actionDefinitionBehaviorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(5);
 		}
 		return actionDefinitionBehaviorEClass;
 	}
@@ -6649,7 +7926,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionDefinitionCustomization() {
 		if (actionDefinitionCustomizationEClass == null) {
-			actionDefinitionCustomizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(5);
+			actionDefinitionCustomizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(6);
 		}
 		return actionDefinitionCustomizationEClass;
 	}
@@ -6679,7 +7956,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionDefinitionRelatedAction() {
 		if (actionDefinitionRelatedActionEClass == null) {
-			actionDefinitionRelatedActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(6);
+			actionDefinitionRelatedActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(7);
 		}
 		return actionDefinitionRelatedActionEClass;
 	}
@@ -6736,7 +8013,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionList() {
 		if (actionListEClass == null) {
-			actionListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(7);
+			actionListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(8);
 		}
 		return actionListEClass;
 	}
@@ -6757,7 +8034,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionRelationshipAnchor() {
 		if (actionRelationshipAnchorEClass == null) {
-			actionRelationshipAnchorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(9);
+			actionRelationshipAnchorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(11);
 		}
 		return actionRelationshipAnchorEClass;
 	}
@@ -6778,7 +8055,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionRelationshipType() {
 		if (actionRelationshipTypeEClass == null) {
-			actionRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(11);
+			actionRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(14);
 		}
 		return actionRelationshipTypeEClass;
 	}
@@ -6799,7 +8076,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActionType() {
 		if (actionTypeEClass == null) {
-			actionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(13);
+			actionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(17);
 		}
 		return actionTypeEClass;
 	}
@@ -6820,7 +8097,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getActivityDefinitionCategory() {
 		if (activityDefinitionCategoryEClass == null) {
-			activityDefinitionCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(15);
+			activityDefinitionCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(20);
 		}
 		return activityDefinitionCategoryEClass;
 	}
@@ -6841,7 +8118,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAddress() {
 		if (addressEClass == null) {
-			addressEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(17);
+			addressEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(23);
 		}
 		return addressEClass;
 	}
@@ -6943,7 +8220,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAddressType() {
 		if (addressTypeEClass == null) {
-			addressTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(18);
+			addressTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(24);
 		}
 		return addressTypeEClass;
 	}
@@ -6964,7 +8241,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAddressUse() {
 		if (addressUseEClass == null) {
-			addressUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(20);
+			addressUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(27);
 		}
 		return addressUseEClass;
 	}
@@ -6985,7 +8262,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAdministrativeGender() {
 		if (administrativeGenderEClass == null) {
-			administrativeGenderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(22);
+			administrativeGenderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(30);
 		}
 		return administrativeGenderEClass;
 	}
@@ -7006,7 +8283,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAge() {
 		if (ageEClass == null) {
-			ageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(24);
+			ageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(33);
 		}
 		return ageEClass;
 	}
@@ -7018,7 +8295,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAggregationMode() {
 		if (aggregationModeEClass == null) {
-			aggregationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(25);
+			aggregationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(34);
 		}
 		return aggregationModeEClass;
 	}
@@ -7039,7 +8316,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntolerance() {
 		if (allergyIntoleranceEClass == null) {
-			allergyIntoleranceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(27);
+			allergyIntoleranceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(37);
 		}
 		return allergyIntoleranceEClass;
 	}
@@ -7177,7 +8454,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceCategory() {
 		if (allergyIntoleranceCategoryEClass == null) {
-			allergyIntoleranceCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(28);
+			allergyIntoleranceCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(38);
 		}
 		return allergyIntoleranceCategoryEClass;
 	}
@@ -7198,7 +8475,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceCertainty() {
 		if (allergyIntoleranceCertaintyEClass == null) {
-			allergyIntoleranceCertaintyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(30);
+			allergyIntoleranceCertaintyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(41);
 		}
 		return allergyIntoleranceCertaintyEClass;
 	}
@@ -7219,7 +8496,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceCriticality() {
 		if (allergyIntoleranceCriticalityEClass == null) {
-			allergyIntoleranceCriticalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(32);
+			allergyIntoleranceCriticalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(44);
 		}
 		return allergyIntoleranceCriticalityEClass;
 	}
@@ -7240,7 +8517,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceReaction() {
 		if (allergyIntoleranceReactionEClass == null) {
-			allergyIntoleranceReactionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(34);
+			allergyIntoleranceReactionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(47);
 		}
 		return allergyIntoleranceReactionEClass;
 	}
@@ -7324,7 +8601,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceSeverity() {
 		if (allergyIntoleranceSeverityEClass == null) {
-			allergyIntoleranceSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(35);
+			allergyIntoleranceSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(48);
 		}
 		return allergyIntoleranceSeverityEClass;
 	}
@@ -7345,7 +8622,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceStatus() {
 		if (allergyIntoleranceStatusEClass == null) {
-			allergyIntoleranceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(37);
+			allergyIntoleranceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(51);
 		}
 		return allergyIntoleranceStatusEClass;
 	}
@@ -7366,7 +8643,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAllergyIntoleranceType() {
 		if (allergyIntoleranceTypeEClass == null) {
-			allergyIntoleranceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(39);
+			allergyIntoleranceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(54);
 		}
 		return allergyIntoleranceTypeEClass;
 	}
@@ -7387,7 +8664,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAnnotation() {
 		if (annotationEClass == null) {
-			annotationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(41);
+			annotationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(57);
 		}
 		return annotationEClass;
 	}
@@ -7435,7 +8712,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAppointment() {
 		if (appointmentEClass == null) {
-			appointmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(42);
+			appointmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(58);
 		}
 		return appointmentEClass;
 	}
@@ -7591,7 +8868,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAppointmentParticipant() {
 		if (appointmentParticipantEClass == null) {
-			appointmentParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(43);
+			appointmentParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(59);
 		}
 		return appointmentParticipantEClass;
 	}
@@ -7639,7 +8916,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAppointmentResponse() {
 		if (appointmentResponseEClass == null) {
-			appointmentResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(44);
+			appointmentResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(60);
 		}
 		return appointmentResponseEClass;
 	}
@@ -7723,7 +9000,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAppointmentStatus() {
 		if (appointmentStatusEClass == null) {
-			appointmentStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(45);
+			appointmentStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(61);
 		}
 		return appointmentStatusEClass;
 	}
@@ -7744,7 +9021,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAssertionDirectionType() {
 		if (assertionDirectionTypeEClass == null) {
-			assertionDirectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(47);
+			assertionDirectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(64);
 		}
 		return assertionDirectionTypeEClass;
 	}
@@ -7765,7 +9042,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAssertionOperatorType() {
 		if (assertionOperatorTypeEClass == null) {
-			assertionOperatorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(49);
+			assertionOperatorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(67);
 		}
 		return assertionOperatorTypeEClass;
 	}
@@ -7786,7 +9063,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAssertionResponseTypes() {
 		if (assertionResponseTypesEClass == null) {
-			assertionResponseTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(51);
+			assertionResponseTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(70);
 		}
 		return assertionResponseTypesEClass;
 	}
@@ -7807,7 +9084,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAttachment() {
 		if (attachmentEClass == null) {
-			attachmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(53);
+			attachmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(73);
 		}
 		return attachmentEClass;
 	}
@@ -7891,7 +9168,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEvent() {
 		if (auditEventEClass == null) {
-			auditEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(54);
+			auditEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(74);
 		}
 		return auditEventEClass;
 	}
@@ -7993,7 +9270,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventAction() {
 		if (auditEventActionEClass == null) {
-			auditEventActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(55);
+			auditEventActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(75);
 		}
 		return auditEventActionEClass;
 	}
@@ -8014,7 +9291,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventAgent() {
 		if (auditEventAgentEClass == null) {
-			auditEventAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(57);
+			auditEventAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(78);
 		}
 		return auditEventAgentEClass;
 	}
@@ -8125,7 +9402,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventDetail() {
 		if (auditEventDetailEClass == null) {
-			auditEventDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(58);
+			auditEventDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(79);
 		}
 		return auditEventDetailEClass;
 	}
@@ -8155,7 +9432,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventEntity() {
 		if (auditEventEntityEClass == null) {
-			auditEventEntityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(59);
+			auditEventEntityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(80);
 		}
 		return auditEventEntityEClass;
 	}
@@ -8257,7 +9534,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventNetwork() {
 		if (auditEventNetworkEClass == null) {
-			auditEventNetworkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(60);
+			auditEventNetworkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(81);
 		}
 		return auditEventNetworkEClass;
 	}
@@ -8287,7 +9564,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventOutcome() {
 		if (auditEventOutcomeEClass == null) {
-			auditEventOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(61);
+			auditEventOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(82);
 		}
 		return auditEventOutcomeEClass;
 	}
@@ -8308,7 +9585,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventParticipantNetworkType() {
 		if (auditEventParticipantNetworkTypeEClass == null) {
-			auditEventParticipantNetworkTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(63);
+			auditEventParticipantNetworkTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(85);
 		}
 		return auditEventParticipantNetworkTypeEClass;
 	}
@@ -8329,7 +9606,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getAuditEventSource() {
 		if (auditEventSourceEClass == null) {
-			auditEventSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(65);
+			auditEventSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(88);
 		}
 		return auditEventSourceEClass;
 	}
@@ -8368,7 +9645,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBackboneElement() {
 		if (backboneElementEClass == null) {
-			backboneElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(66);
+			backboneElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(89);
 		}
 		return backboneElementEClass;
 	}
@@ -8389,7 +9666,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBase64Binary() {
 		if (base64BinaryEClass == null) {
-			base64BinaryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(67);
+			base64BinaryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(90);
 		}
 		return base64BinaryEClass;
 	}
@@ -8410,7 +9687,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBasic() {
 		if (basicEClass == null) {
-			basicEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(69);
+			basicEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(92);
 		}
 		return basicEClass;
 	}
@@ -8467,7 +9744,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBinary() {
 		if (binaryEClass == null) {
-			binaryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(70);
+			binaryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(93);
 		}
 		return binaryEClass;
 	}
@@ -8497,7 +9774,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBindingStrength() {
 		if (bindingStrengthEClass == null) {
-			bindingStrengthEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(71);
+			bindingStrengthEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(94);
 		}
 		return bindingStrengthEClass;
 	}
@@ -8518,7 +9795,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBodySite() {
 		if (bodySiteEClass == null) {
-			bodySiteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(73);
+			bodySiteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(97);
 		}
 		return bodySiteEClass;
 	}
@@ -8584,7 +9861,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBoolean() {
 		if (booleanEClass == null) {
-			booleanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(74);
+			booleanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(98);
 		}
 		return booleanEClass;
 	}
@@ -8605,7 +9882,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundle() {
 		if (bundleEClass == null) {
-			bundleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(77);
+			bundleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(101);
 		}
 		return bundleEClass;
 	}
@@ -8662,7 +9939,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleEntry() {
 		if (bundleEntryEClass == null) {
-			bundleEntryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(78);
+			bundleEntryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(102);
 		}
 		return bundleEntryEClass;
 	}
@@ -8728,7 +10005,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleLink() {
 		if (bundleLinkEClass == null) {
-			bundleLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(79);
+			bundleLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(103);
 		}
 		return bundleLinkEClass;
 	}
@@ -8758,7 +10035,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleRequest() {
 		if (bundleRequestEClass == null) {
-			bundleRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(80);
+			bundleRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(104);
 		}
 		return bundleRequestEClass;
 	}
@@ -8824,7 +10101,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleResponse() {
 		if (bundleResponseEClass == null) {
-			bundleResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(81);
+			bundleResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(105);
 		}
 		return bundleResponseEClass;
 	}
@@ -8872,7 +10149,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleSearch() {
 		if (bundleSearchEClass == null) {
-			bundleSearchEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(82);
+			bundleSearchEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(106);
 		}
 		return bundleSearchEClass;
 	}
@@ -8902,7 +10179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getBundleType() {
 		if (bundleTypeEClass == null) {
-			bundleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(83);
+			bundleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(107);
 		}
 		return bundleTypeEClass;
 	}
@@ -8923,7 +10200,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlan() {
 		if (carePlanEClass == null) {
-			carePlanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(85);
+			carePlanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(110);
 		}
 		return carePlanEClass;
 	}
@@ -9041,7 +10318,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCarePlan_Participant() {
+	public EReference getCarePlan_CareTeam() {
         return (EReference)getCarePlan().getEStructuralFeatures().get(12);
 	}
 
@@ -9079,7 +10356,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlanActivity() {
 		if (carePlanActivityEClass == null) {
-			carePlanActivityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(86);
+			carePlanActivityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(111);
 		}
 		return carePlanActivityEClass;
 	}
@@ -9127,7 +10404,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlanActivityStatus() {
 		if (carePlanActivityStatusEClass == null) {
-			carePlanActivityStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(87);
+			carePlanActivityStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(112);
 		}
 		return carePlanActivityStatusEClass;
 	}
@@ -9148,7 +10425,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlanDetail() {
 		if (carePlanDetailEClass == null) {
-			carePlanDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(89);
+			carePlanDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(115);
 		}
 		return carePlanDetailEClass;
 	}
@@ -9320,39 +10597,9 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCarePlanParticipant() {
-		if (carePlanParticipantEClass == null) {
-			carePlanParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(90);
-		}
-		return carePlanParticipantEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCarePlanParticipant_Role() {
-        return (EReference)getCarePlanParticipant().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCarePlanParticipant_Member() {
-        return (EReference)getCarePlanParticipant().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCarePlanRelatedPlan() {
 		if (carePlanRelatedPlanEClass == null) {
-			carePlanRelatedPlanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(91);
+			carePlanRelatedPlanEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(116);
 		}
 		return carePlanRelatedPlanEClass;
 	}
@@ -9382,7 +10629,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlanRelationship() {
 		if (carePlanRelationshipEClass == null) {
-			carePlanRelationshipEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(92);
+			carePlanRelationshipEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(117);
 		}
 		return carePlanRelationshipEClass;
 	}
@@ -9403,7 +10650,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCarePlanStatus() {
 		if (carePlanStatusEClass == null) {
-			carePlanStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(94);
+			carePlanStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(120);
 		}
 		return carePlanStatusEClass;
 	}
@@ -9424,7 +10671,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCareTeam() {
 		if (careTeamEClass == null) {
-			careTeamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(96);
+			careTeamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(123);
 		}
 		return careTeamEClass;
 	}
@@ -9508,7 +10755,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCareTeamParticipant() {
 		if (careTeamParticipantEClass == null) {
-			careTeamParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(97);
+			careTeamParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(124);
 		}
 		return careTeamParticipantEClass;
 	}
@@ -9547,7 +10794,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaim() {
 		if (claimEClass == null) {
-			claimEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(98);
+			claimEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(125);
 		}
 		return claimEClass;
 	}
@@ -10000,7 +11247,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimCoverage() {
 		if (claimCoverageEClass == null) {
-			claimCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(99);
+			claimCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(126);
 		}
 		return claimCoverageEClass;
 	}
@@ -10084,7 +11331,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimDetail() {
 		if (claimDetailEClass == null) {
-			claimDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(100);
+			claimDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(127);
 		}
 		return claimDetailEClass;
 	}
@@ -10195,7 +11442,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimDiagnosis() {
 		if (claimDiagnosisEClass == null) {
-			claimDiagnosisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(101);
+			claimDiagnosisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(128);
 		}
 		return claimDiagnosisEClass;
 	}
@@ -10225,7 +11472,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimItem() {
 		if (claimItemEClass == null) {
-			claimItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(102);
+			claimItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(129);
 		}
 		return claimItemEClass;
 	}
@@ -10462,7 +11709,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimMissingTeeth() {
 		if (claimMissingTeethEClass == null) {
-			claimMissingTeethEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(103);
+			claimMissingTeethEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(130);
 		}
 		return claimMissingTeethEClass;
 	}
@@ -10501,7 +11748,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimOnset() {
 		if (claimOnsetEClass == null) {
-			claimOnsetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(104);
+			claimOnsetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(131);
 		}
 		return claimOnsetEClass;
 	}
@@ -10540,7 +11787,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimPayee() {
 		if (claimPayeeEClass == null) {
-			claimPayeeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(105);
+			claimPayeeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(132);
 		}
 		return claimPayeeEClass;
 	}
@@ -10579,7 +11826,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimProcedure() {
 		if (claimProcedureEClass == null) {
-			claimProcedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(106);
+			claimProcedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(133);
 		}
 		return claimProcedureEClass;
 	}
@@ -10627,7 +11874,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimProsthesis() {
 		if (claimProsthesisEClass == null) {
-			claimProsthesisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(107);
+			claimProsthesisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(134);
 		}
 		return claimProsthesisEClass;
 	}
@@ -10666,7 +11913,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimRelated() {
 		if (claimRelatedEClass == null) {
-			claimRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(108);
+			claimRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(135);
 		}
 		return claimRelatedEClass;
 	}
@@ -10714,7 +11961,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponse() {
 		if (claimResponseEClass == null) {
-			claimResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(109);
+			claimResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(136);
 		}
 		return claimResponseEClass;
 	}
@@ -10996,7 +12243,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAddItem() {
 		if (claimResponseAddItemEClass == null) {
-			claimResponseAddItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(110);
+			claimResponseAddItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(137);
 		}
 		return claimResponseAddItemEClass;
 	}
@@ -11062,7 +12309,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAdjudication() {
 		if (claimResponseAdjudicationEClass == null) {
-			claimResponseAdjudicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(111);
+			claimResponseAdjudicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(138);
 		}
 		return claimResponseAdjudicationEClass;
 	}
@@ -11110,7 +12357,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAdjudication1() {
 		if (claimResponseAdjudication1EClass == null) {
-			claimResponseAdjudication1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(112);
+			claimResponseAdjudication1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(139);
 		}
 		return claimResponseAdjudication1EClass;
 	}
@@ -11158,7 +12405,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAdjudication2() {
 		if (claimResponseAdjudication2EClass == null) {
-			claimResponseAdjudication2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(113);
+			claimResponseAdjudication2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(140);
 		}
 		return claimResponseAdjudication2EClass;
 	}
@@ -11206,7 +12453,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAdjudication3() {
 		if (claimResponseAdjudication3EClass == null) {
-			claimResponseAdjudication3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(114);
+			claimResponseAdjudication3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(141);
 		}
 		return claimResponseAdjudication3EClass;
 	}
@@ -11254,7 +12501,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseAdjudication4() {
 		if (claimResponseAdjudication4EClass == null) {
-			claimResponseAdjudication4EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(115);
+			claimResponseAdjudication4EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(142);
 		}
 		return claimResponseAdjudication4EClass;
 	}
@@ -11302,7 +12549,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseCoverage() {
 		if (claimResponseCoverageEClass == null) {
-			claimResponseCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(116);
+			claimResponseCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(143);
 		}
 		return claimResponseCoverageEClass;
 	}
@@ -11377,7 +12624,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseDetail() {
 		if (claimResponseDetailEClass == null) {
-			claimResponseDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(117);
+			claimResponseDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(144);
 		}
 		return claimResponseDetailEClass;
 	}
@@ -11416,7 +12663,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseDetail1() {
 		if (claimResponseDetail1EClass == null) {
-			claimResponseDetail1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(118);
+			claimResponseDetail1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(145);
 		}
 		return claimResponseDetail1EClass;
 	}
@@ -11455,7 +12702,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseError() {
 		if (claimResponseErrorEClass == null) {
-			claimResponseErrorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(119);
+			claimResponseErrorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(146);
 		}
 		return claimResponseErrorEClass;
 	}
@@ -11503,7 +12750,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseItem() {
 		if (claimResponseItemEClass == null) {
-			claimResponseItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(120);
+			claimResponseItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(147);
 		}
 		return claimResponseItemEClass;
 	}
@@ -11551,7 +12798,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseNote() {
 		if (claimResponseNoteEClass == null) {
-			claimResponseNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(121);
+			claimResponseNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(148);
 		}
 		return claimResponseNoteEClass;
 	}
@@ -11590,7 +12837,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimResponseSubDetail() {
 		if (claimResponseSubDetailEClass == null) {
-			claimResponseSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(122);
+			claimResponseSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(149);
 		}
 		return claimResponseSubDetailEClass;
 	}
@@ -11620,7 +12867,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimSubDetail() {
 		if (claimSubDetailEClass == null) {
-			claimSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(123);
+			claimSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(150);
 		}
 		return claimSubDetailEClass;
 	}
@@ -11722,7 +12969,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClaimType() {
 		if (claimTypeEClass == null) {
-			claimTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(124);
+			claimTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(151);
 		}
 		return claimTypeEClass;
 	}
@@ -11741,9 +12988,30 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getClaimType2() {
+		if (claimType2EClass == null) {
+			claimType2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(152);
+		}
+		return claimType2EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClaimType2_Value() {
+        return (EAttribute)getClaimType2().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClinicalImpression() {
 		if (clinicalImpressionEClass == null) {
-			clinicalImpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(126);
+			clinicalImpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(157);
 		}
 		return clinicalImpressionEClass;
 	}
@@ -11917,7 +13185,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClinicalImpressionFinding() {
 		if (clinicalImpressionFindingEClass == null) {
-			clinicalImpressionFindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(127);
+			clinicalImpressionFindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(158);
 		}
 		return clinicalImpressionFindingEClass;
 	}
@@ -11947,7 +13215,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClinicalImpressionInvestigations() {
 		if (clinicalImpressionInvestigationsEClass == null) {
-			clinicalImpressionInvestigationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(128);
+			clinicalImpressionInvestigationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(159);
 		}
 		return clinicalImpressionInvestigationsEClass;
 	}
@@ -11977,7 +13245,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClinicalImpressionRuledOut() {
 		if (clinicalImpressionRuledOutEClass == null) {
-			clinicalImpressionRuledOutEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(129);
+			clinicalImpressionRuledOutEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(160);
 		}
 		return clinicalImpressionRuledOutEClass;
 	}
@@ -12007,7 +13275,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getClinicalImpressionStatus() {
 		if (clinicalImpressionStatusEClass == null) {
-			clinicalImpressionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(130);
+			clinicalImpressionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(161);
 		}
 		return clinicalImpressionStatusEClass;
 	}
@@ -12028,7 +13296,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCode() {
 		if (codeEClass == null) {
-			codeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(132);
+			codeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(164);
 		}
 		return codeEClass;
 	}
@@ -12049,7 +13317,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeableConcept() {
 		if (codeableConceptEClass == null) {
-			codeableConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(133);
+			codeableConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(165);
 		}
 		return codeableConceptEClass;
 	}
@@ -12079,7 +13347,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystem() {
 		if (codeSystemEClass == null) {
-			codeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(135);
+			codeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(167);
 		}
 		return codeSystemEClass;
 	}
@@ -12289,7 +13557,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemConcept() {
 		if (codeSystemConceptEClass == null) {
-			codeSystemConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(136);
+			codeSystemConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(168);
 		}
 		return codeSystemConceptEClass;
 	}
@@ -12355,7 +13623,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemContact() {
 		if (codeSystemContactEClass == null) {
-			codeSystemContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(137);
+			codeSystemContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(169);
 		}
 		return codeSystemContactEClass;
 	}
@@ -12385,7 +13653,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemContentMode() {
 		if (codeSystemContentModeEClass == null) {
-			codeSystemContentModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(138);
+			codeSystemContentModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(170);
 		}
 		return codeSystemContentModeEClass;
 	}
@@ -12406,7 +13674,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemDesignation() {
 		if (codeSystemDesignationEClass == null) {
-			codeSystemDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(140);
+			codeSystemDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(173);
 		}
 		return codeSystemDesignationEClass;
 	}
@@ -12445,7 +13713,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemFilter() {
 		if (codeSystemFilterEClass == null) {
-			codeSystemFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(141);
+			codeSystemFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(174);
 		}
 		return codeSystemFilterEClass;
 	}
@@ -12493,7 +13761,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemProperty() {
 		if (codeSystemPropertyEClass == null) {
-			codeSystemPropertyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(142);
+			codeSystemPropertyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(175);
 		}
 		return codeSystemPropertyEClass;
 	}
@@ -12532,7 +13800,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCodeSystemProperty1() {
 		if (codeSystemProperty1EClass == null) {
-			codeSystemProperty1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(143);
+			codeSystemProperty1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(176);
 		}
 		return codeSystemProperty1EClass;
 	}
@@ -12607,7 +13875,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCoding() {
 		if (codingEClass == null) {
-			codingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(144);
+			codingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(177);
 		}
 		return codingEClass;
 	}
@@ -12664,7 +13932,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunication() {
 		if (communicationEClass == null) {
-			communicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(145);
+			communicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(178);
 		}
 		return communicationEClass;
 	}
@@ -12793,7 +14061,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunicationPayload() {
 		if (communicationPayloadEClass == null) {
-			communicationPayloadEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(146);
+			communicationPayloadEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(179);
 		}
 		return communicationPayloadEClass;
 	}
@@ -12832,7 +14100,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunicationRequest() {
 		if (communicationRequestEClass == null) {
-			communicationRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(147);
+			communicationRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(180);
 		}
 		return communicationRequestEClass;
 	}
@@ -12979,7 +14247,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunicationRequestPayload() {
 		if (communicationRequestPayloadEClass == null) {
-			communicationRequestPayloadEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(148);
+			communicationRequestPayloadEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(181);
 		}
 		return communicationRequestPayloadEClass;
 	}
@@ -13018,7 +14286,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunicationRequestStatus() {
 		if (communicationRequestStatusEClass == null) {
-			communicationRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(149);
+			communicationRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(182);
 		}
 		return communicationRequestStatusEClass;
 	}
@@ -13039,7 +14307,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCommunicationStatus() {
 		if (communicationStatusEClass == null) {
-			communicationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(151);
+			communicationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(185);
 		}
 		return communicationStatusEClass;
 	}
@@ -13060,7 +14328,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompartmentDefinition() {
 		if (compartmentDefinitionEClass == null) {
-			compartmentDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(153);
+			compartmentDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(188);
 		}
 		return compartmentDefinitionEClass;
 	}
@@ -13180,7 +14448,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompartmentDefinitionContact() {
 		if (compartmentDefinitionContactEClass == null) {
-			compartmentDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(154);
+			compartmentDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(189);
 		}
 		return compartmentDefinitionContactEClass;
 	}
@@ -13210,7 +14478,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompartmentDefinitionResource() {
 		if (compartmentDefinitionResourceEClass == null) {
-			compartmentDefinitionResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(155);
+			compartmentDefinitionResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(190);
 		}
 		return compartmentDefinitionResourceEClass;
 	}
@@ -13249,7 +14517,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompartmentType() {
 		if (compartmentTypeEClass == null) {
-			compartmentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(156);
+			compartmentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(191);
 		}
 		return compartmentTypeEClass;
 	}
@@ -13270,7 +14538,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getComposition() {
 		if (compositionEClass == null) {
-			compositionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(158);
+			compositionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(194);
 		}
 		return compositionEClass;
 	}
@@ -13408,7 +14676,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompositionAttestationMode() {
 		if (compositionAttestationModeEClass == null) {
-			compositionAttestationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(159);
+			compositionAttestationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(195);
 		}
 		return compositionAttestationModeEClass;
 	}
@@ -13429,7 +14697,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompositionAttester() {
 		if (compositionAttesterEClass == null) {
-			compositionAttesterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(161);
+			compositionAttesterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(198);
 		}
 		return compositionAttesterEClass;
 	}
@@ -13468,7 +14736,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompositionEvent() {
 		if (compositionEventEClass == null) {
-			compositionEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(162);
+			compositionEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(199);
 		}
 		return compositionEventEClass;
 	}
@@ -13507,7 +14775,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompositionSection() {
 		if (compositionSectionEClass == null) {
-			compositionSectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(163);
+			compositionSectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(200);
 		}
 		return compositionSectionEClass;
 	}
@@ -13591,7 +14859,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCompositionStatus() {
 		if (compositionStatusEClass == null) {
-			compositionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(164);
+			compositionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(201);
 		}
 		return compositionStatusEClass;
 	}
@@ -13612,7 +14880,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMap() {
 		if (conceptMapEClass == null) {
-			conceptMapEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(166);
+			conceptMapEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(204);
 		}
 		return conceptMapEClass;
 	}
@@ -13786,7 +15054,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMapContact() {
 		if (conceptMapContactEClass == null) {
-			conceptMapContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(167);
+			conceptMapContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(205);
 		}
 		return conceptMapContactEClass;
 	}
@@ -13816,7 +15084,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMapDependsOn() {
 		if (conceptMapDependsOnEClass == null) {
-			conceptMapDependsOnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(168);
+			conceptMapDependsOnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(206);
 		}
 		return conceptMapDependsOnEClass;
 	}
@@ -13855,7 +15123,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMapElement() {
 		if (conceptMapElementEClass == null) {
-			conceptMapElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(169);
+			conceptMapElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(207);
 		}
 		return conceptMapElementEClass;
 	}
@@ -13903,7 +15171,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMapEquivalence() {
 		if (conceptMapEquivalenceEClass == null) {
-			conceptMapEquivalenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(170);
+			conceptMapEquivalenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(208);
 		}
 		return conceptMapEquivalenceEClass;
 	}
@@ -13924,7 +15192,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConceptMapTarget() {
 		if (conceptMapTargetEClass == null) {
-			conceptMapTargetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(172);
+			conceptMapTargetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(211);
 		}
 		return conceptMapTargetEClass;
 	}
@@ -13999,7 +15267,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCondition() {
 		if (conditionEClass == null) {
-			conditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(173);
+			conditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(212);
 		}
 		return conditionEClass;
 	}
@@ -14236,7 +15504,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConditionalDeleteStatus() {
 		if (conditionalDeleteStatusEClass == null) {
-			conditionalDeleteStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(174);
+			conditionalDeleteStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(213);
 		}
 		return conditionalDeleteStatusEClass;
 	}
@@ -14257,7 +15525,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConditionEvidence() {
 		if (conditionEvidenceEClass == null) {
-			conditionEvidenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(176);
+			conditionEvidenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(216);
 		}
 		return conditionEvidenceEClass;
 	}
@@ -14287,7 +15555,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConditionStage() {
 		if (conditionStageEClass == null) {
-			conditionStageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(177);
+			conditionStageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(217);
 		}
 		return conditionStageEClass;
 	}
@@ -14317,7 +15585,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConditionVerificationStatus() {
 		if (conditionVerificationStatusEClass == null) {
-			conditionVerificationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(178);
+			conditionVerificationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(218);
 		}
 		return conditionVerificationStatusEClass;
 	}
@@ -14338,7 +15606,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformance() {
 		if (conformanceEClass == null) {
-			conformanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(180);
+			conformanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(221);
 		}
 		return conformanceEClass;
 	}
@@ -14548,7 +15816,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceCertificate() {
 		if (conformanceCertificateEClass == null) {
-			conformanceCertificateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(181);
+			conformanceCertificateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(222);
 		}
 		return conformanceCertificateEClass;
 	}
@@ -14578,7 +15846,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceContact() {
 		if (conformanceContactEClass == null) {
-			conformanceContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(182);
+			conformanceContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(223);
 		}
 		return conformanceContactEClass;
 	}
@@ -14608,7 +15876,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceDocument() {
 		if (conformanceDocumentEClass == null) {
-			conformanceDocumentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(183);
+			conformanceDocumentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(224);
 		}
 		return conformanceDocumentEClass;
 	}
@@ -14647,7 +15915,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceEndpoint() {
 		if (conformanceEndpointEClass == null) {
-			conformanceEndpointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(184);
+			conformanceEndpointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(225);
 		}
 		return conformanceEndpointEClass;
 	}
@@ -14677,7 +15945,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceEvent() {
 		if (conformanceEventEClass == null) {
-			conformanceEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(185);
+			conformanceEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(226);
 		}
 		return conformanceEventEClass;
 	}
@@ -14752,7 +16020,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceEventMode() {
 		if (conformanceEventModeEClass == null) {
-			conformanceEventModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(186);
+			conformanceEventModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(227);
 		}
 		return conformanceEventModeEClass;
 	}
@@ -14773,7 +16041,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceImplementation() {
 		if (conformanceImplementationEClass == null) {
-			conformanceImplementationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(188);
+			conformanceImplementationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(230);
 		}
 		return conformanceImplementationEClass;
 	}
@@ -14803,7 +16071,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceInteraction() {
 		if (conformanceInteractionEClass == null) {
-			conformanceInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(189);
+			conformanceInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(231);
 		}
 		return conformanceInteractionEClass;
 	}
@@ -14833,7 +16101,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceInteraction1() {
 		if (conformanceInteraction1EClass == null) {
-			conformanceInteraction1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(190);
+			conformanceInteraction1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(232);
 		}
 		return conformanceInteraction1EClass;
 	}
@@ -14863,7 +16131,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceMessaging() {
 		if (conformanceMessagingEClass == null) {
-			conformanceMessagingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(191);
+			conformanceMessagingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(233);
 		}
 		return conformanceMessagingEClass;
 	}
@@ -14911,7 +16179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceOperation() {
 		if (conformanceOperationEClass == null) {
-			conformanceOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(192);
+			conformanceOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(234);
 		}
 		return conformanceOperationEClass;
 	}
@@ -14941,7 +16209,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceResource() {
 		if (conformanceResourceEClass == null) {
-			conformanceResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(193);
+			conformanceResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(235);
 		}
 		return conformanceResourceEClass;
 	}
@@ -15061,7 +16329,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceResourceStatus() {
 		if (conformanceResourceStatusEClass == null) {
-			conformanceResourceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(194);
+			conformanceResourceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(236);
 		}
 		return conformanceResourceStatusEClass;
 	}
@@ -15082,7 +16350,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceRest() {
 		if (conformanceRestEClass == null) {
-			conformanceRestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(196);
+			conformanceRestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(239);
 		}
 		return conformanceRestEClass;
 	}
@@ -15175,7 +16443,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceSearchParam() {
 		if (conformanceSearchParamEClass == null) {
-			conformanceSearchParamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(197);
+			conformanceSearchParamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(240);
 		}
 		return conformanceSearchParamEClass;
 	}
@@ -15250,7 +16518,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceSecurity() {
 		if (conformanceSecurityEClass == null) {
-			conformanceSecurityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(198);
+			conformanceSecurityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(241);
 		}
 		return conformanceSecurityEClass;
 	}
@@ -15298,7 +16566,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceSoftware() {
 		if (conformanceSoftwareEClass == null) {
-			conformanceSoftwareEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(199);
+			conformanceSoftwareEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(242);
 		}
 		return conformanceSoftwareEClass;
 	}
@@ -15337,7 +16605,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getConformanceStatementKind() {
 		if (conformanceStatementKindEClass == null) {
-			conformanceStatementKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(200);
+			conformanceStatementKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(243);
 		}
 		return conformanceStatementKindEClass;
 	}
@@ -15356,9 +16624,372 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConsent() {
+		if (consentEClass == null) {
+			consentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(246);
+		}
+		return consentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Identifier() {
+        return (EReference)getConsent().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Status() {
+        return (EReference)getConsent().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Type() {
+        return (EReference)getConsent().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Issued() {
+        return (EReference)getConsent().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Applies() {
+        return (EReference)getConsent().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Topic() {
+        return (EReference)getConsent().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Patient() {
+        return (EReference)getConsent().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Authority() {
+        return (EReference)getConsent().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Domain() {
+        return (EReference)getConsent().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Action() {
+        return (EReference)getConsent().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Agent() {
+        return (EReference)getConsent().getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Except() {
+        return (EReference)getConsent().getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Friendly() {
+        return (EReference)getConsent().getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Legal() {
+        return (EReference)getConsent().getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsent_Rule() {
+        return (EReference)getConsent().getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentAgent() {
+		if (consentAgentEClass == null) {
+			consentAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(247);
+		}
+		return consentAgentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentAgent_Actor() {
+        return (EReference)getConsentAgent().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentAgent_Role() {
+        return (EReference)getConsentAgent().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentAgent1() {
+		if (consentAgent1EClass == null) {
+			consentAgent1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(248);
+		}
+		return consentAgent1EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentAgent1_Actor() {
+        return (EReference)getConsentAgent1().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentAgent1_Role() {
+        return (EReference)getConsentAgent1().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentExcept() {
+		if (consentExceptEClass == null) {
+			consentExceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(249);
+		}
+		return consentExceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Applies() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Type() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_SubType() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Topic() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Action() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Agent() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentExcept_Text() {
+        return (EReference)getConsentExcept().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentFriendly() {
+		if (consentFriendlyEClass == null) {
+			consentFriendlyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(250);
+		}
+		return consentFriendlyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentFriendly_ContentAttachment() {
+        return (EReference)getConsentFriendly().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentFriendly_ContentReference() {
+        return (EReference)getConsentFriendly().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentLegal() {
+		if (consentLegalEClass == null) {
+			consentLegalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(251);
+		}
+		return consentLegalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentLegal_ContentAttachment() {
+        return (EReference)getConsentLegal().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsentLegal_ContentReference() {
+        return (EReference)getConsentLegal().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsentStatus() {
+		if (consentStatusEClass == null) {
+			consentStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(252);
+		}
+		return consentStatusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConsentStatus_Value() {
+        return (EAttribute)getConsentStatus().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConstraintSeverity() {
 		if (constraintSeverityEClass == null) {
-			constraintSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(202);
+			constraintSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(255);
 		}
 		return constraintSeverityEClass;
 	}
@@ -15379,7 +17010,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContactPoint() {
 		if (contactPointEClass == null) {
-			contactPointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(204);
+			contactPointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(258);
 		}
 		return contactPointEClass;
 	}
@@ -15436,7 +17067,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContactPointSystem() {
 		if (contactPointSystemEClass == null) {
-			contactPointSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(205);
+			contactPointSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(259);
 		}
 		return contactPointSystemEClass;
 	}
@@ -15457,7 +17088,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContactPointUse() {
 		if (contactPointUseEClass == null) {
-			contactPointUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(207);
+			contactPointUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(262);
 		}
 		return contactPointUseEClass;
 	}
@@ -15478,7 +17109,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContentType() {
 		if (contentTypeEClass == null) {
-			contentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(209);
+			contentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(265);
 		}
 		return contentTypeEClass;
 	}
@@ -15499,7 +17130,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContract() {
 		if (contractEClass == null) {
-			contractEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(211);
+			contractEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(268);
 		}
 		return contractEClass;
 	}
@@ -15691,7 +17322,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractAgent() {
 		if (contractAgentEClass == null) {
-			contractAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(212);
+			contractAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(269);
 		}
 		return contractAgentEClass;
 	}
@@ -15721,7 +17352,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractAgent1() {
 		if (contractAgent1EClass == null) {
-			contractAgent1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(213);
+			contractAgent1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(270);
 		}
 		return contractAgent1EClass;
 	}
@@ -15751,7 +17382,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractFriendly() {
 		if (contractFriendlyEClass == null) {
-			contractFriendlyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(214);
+			contractFriendlyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(271);
 		}
 		return contractFriendlyEClass;
 	}
@@ -15781,7 +17412,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractLegal() {
 		if (contractLegalEClass == null) {
-			contractLegalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(215);
+			contractLegalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(272);
 		}
 		return contractLegalEClass;
 	}
@@ -15811,7 +17442,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractRule() {
 		if (contractRuleEClass == null) {
-			contractRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(216);
+			contractRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(273);
 		}
 		return contractRuleEClass;
 	}
@@ -15841,7 +17472,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractSigner() {
 		if (contractSignerEClass == null) {
-			contractSignerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(217);
+			contractSignerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(274);
 		}
 		return contractSignerEClass;
 	}
@@ -15880,7 +17511,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractTerm() {
 		if (contractTermEClass == null) {
-			contractTermEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(218);
+			contractTermEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(275);
 		}
 		return contractTermEClass;
 	}
@@ -16000,7 +17631,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractValuedItem() {
 		if (contractValuedItemEClass == null) {
-			contractValuedItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(219);
+			contractValuedItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(276);
 		}
 		return contractValuedItemEClass;
 	}
@@ -16093,7 +17724,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getContractValuedItem1() {
 		if (contractValuedItem1EClass == null) {
-			contractValuedItem1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(220);
+			contractValuedItem1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(277);
 		}
 		return contractValuedItem1EClass;
 	}
@@ -16186,7 +17817,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCount() {
 		if (countEClass == null) {
-			countEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(221);
+			countEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(278);
 		}
 		return countEClass;
 	}
@@ -16198,7 +17829,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getCoverage() {
 		if (coverageEClass == null) {
-			coverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(222);
+			coverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(279);
 		}
 		return coverageEClass;
 	}
@@ -16390,7 +18021,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataElement() {
 		if (dataElementEClass == null) {
-			dataElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(223);
+			dataElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(280);
 		}
 		return dataElementEClass;
 	}
@@ -16528,7 +18159,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataElementContact() {
 		if (dataElementContactEClass == null) {
-			dataElementContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(224);
+			dataElementContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(281);
 		}
 		return dataElementContactEClass;
 	}
@@ -16558,7 +18189,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataElementMapping() {
 		if (dataElementMappingEClass == null) {
-			dataElementMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(225);
+			dataElementMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(282);
 		}
 		return dataElementMappingEClass;
 	}
@@ -16606,7 +18237,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataElementStringency() {
 		if (dataElementStringencyEClass == null) {
-			dataElementStringencyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(226);
+			dataElementStringencyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(283);
 		}
 		return dataElementStringencyEClass;
 	}
@@ -16627,7 +18258,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataRequirement() {
 		if (dataRequirementEClass == null) {
-			dataRequirementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(228);
+			dataRequirementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(286);
 		}
 		return dataRequirementEClass;
 	}
@@ -16684,7 +18315,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataRequirementCodeFilter() {
 		if (dataRequirementCodeFilterEClass == null) {
-			dataRequirementCodeFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(229);
+			dataRequirementCodeFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(287);
 		}
 		return dataRequirementCodeFilterEClass;
 	}
@@ -16750,7 +18381,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDataRequirementDateFilter() {
 		if (dataRequirementDateFilterEClass == null) {
-			dataRequirementDateFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(230);
+			dataRequirementDateFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(288);
 		}
 		return dataRequirementDateFilterEClass;
 	}
@@ -16789,7 +18420,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDate() {
 		if (dateEClass == null) {
-			dateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(231);
+			dateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(289);
 		}
 		return dateEClass;
 	}
@@ -16810,7 +18441,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDateTime() {
 		if (dateTimeEClass == null) {
-			dateTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(234);
+			dateTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(292);
 		}
 		return dateTimeEClass;
 	}
@@ -16831,7 +18462,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDaysOfWeek() {
 		if (daysOfWeekEClass == null) {
-			daysOfWeekEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(237);
+			daysOfWeekEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(295);
 		}
 		return daysOfWeekEClass;
 	}
@@ -16852,7 +18483,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDecimal() {
 		if (decimalEClass == null) {
-			decimalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(239);
+			decimalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(298);
 		}
 		return decimalEClass;
 	}
@@ -16873,7 +18504,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDecisionSupportRule() {
 		if (decisionSupportRuleEClass == null) {
-			decisionSupportRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(241);
+			decisionSupportRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(300);
 		}
 		return decisionSupportRuleEClass;
 	}
@@ -16930,7 +18561,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDecisionSupportServiceModule() {
 		if (decisionSupportServiceModuleEClass == null) {
-			decisionSupportServiceModuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(242);
+			decisionSupportServiceModuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(301);
 		}
 		return decisionSupportServiceModuleEClass;
 	}
@@ -16978,7 +18609,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDetectedIssue() {
 		if (detectedIssueEClass == null) {
-			detectedIssueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(243);
+			detectedIssueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(302);
 		}
 		return detectedIssueEClass;
 	}
@@ -17080,7 +18711,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDetectedIssueMitigation() {
 		if (detectedIssueMitigationEClass == null) {
-			detectedIssueMitigationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(244);
+			detectedIssueMitigationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(303);
 		}
 		return detectedIssueMitigationEClass;
 	}
@@ -17119,7 +18750,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDetectedIssueSeverity() {
 		if (detectedIssueSeverityEClass == null) {
-			detectedIssueSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(245);
+			detectedIssueSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(304);
 		}
 		return detectedIssueSeverityEClass;
 	}
@@ -17140,7 +18771,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDevice() {
 		if (deviceEClass == null) {
-			deviceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(247);
+			deviceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(307);
 		}
 		return deviceEClass;
 	}
@@ -17296,7 +18927,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceComponent() {
 		if (deviceComponentEClass == null) {
-			deviceComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(248);
+			deviceComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(308);
 		}
 		return deviceComponentEClass;
 	}
@@ -17398,7 +19029,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceComponentProductionSpecification() {
 		if (deviceComponentProductionSpecificationEClass == null) {
-			deviceComponentProductionSpecificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(249);
+			deviceComponentProductionSpecificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(309);
 		}
 		return deviceComponentProductionSpecificationEClass;
 	}
@@ -17437,7 +19068,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetric() {
 		if (deviceMetricEClass == null) {
-			deviceMetricEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(250);
+			deviceMetricEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(310);
 		}
 		return deviceMetricEClass;
 	}
@@ -17539,7 +19170,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricCalibration() {
 		if (deviceMetricCalibrationEClass == null) {
-			deviceMetricCalibrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(251);
+			deviceMetricCalibrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(311);
 		}
 		return deviceMetricCalibrationEClass;
 	}
@@ -17578,7 +19209,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricCalibrationState() {
 		if (deviceMetricCalibrationStateEClass == null) {
-			deviceMetricCalibrationStateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(252);
+			deviceMetricCalibrationStateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(312);
 		}
 		return deviceMetricCalibrationStateEClass;
 	}
@@ -17599,7 +19230,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricCalibrationType() {
 		if (deviceMetricCalibrationTypeEClass == null) {
-			deviceMetricCalibrationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(254);
+			deviceMetricCalibrationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(315);
 		}
 		return deviceMetricCalibrationTypeEClass;
 	}
@@ -17620,7 +19251,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricCategory() {
 		if (deviceMetricCategoryEClass == null) {
-			deviceMetricCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(256);
+			deviceMetricCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(318);
 		}
 		return deviceMetricCategoryEClass;
 	}
@@ -17641,7 +19272,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricColor() {
 		if (deviceMetricColorEClass == null) {
-			deviceMetricColorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(258);
+			deviceMetricColorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(321);
 		}
 		return deviceMetricColorEClass;
 	}
@@ -17662,7 +19293,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceMetricOperationalStatus() {
 		if (deviceMetricOperationalStatusEClass == null) {
-			deviceMetricOperationalStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(260);
+			deviceMetricOperationalStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(324);
 		}
 		return deviceMetricOperationalStatusEClass;
 	}
@@ -17683,7 +19314,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceStatus() {
 		if (deviceStatusEClass == null) {
-			deviceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(262);
+			deviceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(327);
 		}
 		return deviceStatusEClass;
 	}
@@ -17704,7 +19335,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceUseRequest() {
 		if (deviceUseRequestEClass == null) {
-			deviceUseRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(264);
+			deviceUseRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(330);
 		}
 		return deviceUseRequestEClass;
 	}
@@ -17860,7 +19491,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceUseRequestPriority() {
 		if (deviceUseRequestPriorityEClass == null) {
-			deviceUseRequestPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(265);
+			deviceUseRequestPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(331);
 		}
 		return deviceUseRequestPriorityEClass;
 	}
@@ -17881,7 +19512,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceUseRequestStatus() {
 		if (deviceUseRequestStatusEClass == null) {
-			deviceUseRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(267);
+			deviceUseRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(334);
 		}
 		return deviceUseRequestStatusEClass;
 	}
@@ -17902,7 +19533,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDeviceUseStatement() {
 		if (deviceUseStatementEClass == null) {
-			deviceUseStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(269);
+			deviceUseStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(337);
 		}
 		return deviceUseStatementEClass;
 	}
@@ -18022,7 +19653,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticOrder() {
 		if (diagnosticOrderEClass == null) {
-			diagnosticOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(270);
+			diagnosticOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(338);
 		}
 		return diagnosticOrderEClass;
 	}
@@ -18104,7 +19735,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrder_Specimen() {
+	public EReference getDiagnosticOrder_Event() {
         return (EReference)getDiagnosticOrder().getEStructuralFeatures().get(8);
 	}
 
@@ -18113,7 +19744,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrder_Event() {
+	public EReference getDiagnosticOrder_Item() {
         return (EReference)getDiagnosticOrder().getEStructuralFeatures().get(9);
 	}
 
@@ -18122,17 +19753,8 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrder_Item() {
-        return (EReference)getDiagnosticOrder().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDiagnosticOrder_Note() {
-        return (EReference)getDiagnosticOrder().getEStructuralFeatures().get(11);
+        return (EReference)getDiagnosticOrder().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -18142,7 +19764,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticOrderEvent() {
 		if (diagnosticOrderEventEClass == null) {
-			diagnosticOrderEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(271);
+			diagnosticOrderEventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(339);
 		}
 		return diagnosticOrderEventEClass;
 	}
@@ -18190,7 +19812,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticOrderItem() {
 		if (diagnosticOrderItemEClass == null) {
-			diagnosticOrderItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(272);
+			diagnosticOrderItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(340);
 		}
 		return diagnosticOrderItemEClass;
 	}
@@ -18209,7 +19831,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrderItem_Specimen() {
+	public EReference getDiagnosticOrderItem_BodySite() {
         return (EReference)getDiagnosticOrderItem().getEStructuralFeatures().get(1);
 	}
 
@@ -18218,7 +19840,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrderItem_BodySite() {
+	public EReference getDiagnosticOrderItem_Status() {
         return (EReference)getDiagnosticOrderItem().getEStructuralFeatures().get(2);
 	}
 
@@ -18227,17 +19849,8 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagnosticOrderItem_Status() {
-        return (EReference)getDiagnosticOrderItem().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDiagnosticOrderItem_Event() {
-        return (EReference)getDiagnosticOrderItem().getEStructuralFeatures().get(4);
+        return (EReference)getDiagnosticOrderItem().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -18247,7 +19860,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticOrderPriority() {
 		if (diagnosticOrderPriorityEClass == null) {
-			diagnosticOrderPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(273);
+			diagnosticOrderPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(341);
 		}
 		return diagnosticOrderPriorityEClass;
 	}
@@ -18268,7 +19881,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticOrderStatus() {
 		if (diagnosticOrderStatusEClass == null) {
-			diagnosticOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(275);
+			diagnosticOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(344);
 		}
 		return diagnosticOrderStatusEClass;
 	}
@@ -18289,7 +19902,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticReport() {
 		if (diagnosticReportEClass == null) {
-			diagnosticReportEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(277);
+			diagnosticReportEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(347);
 		}
 		return diagnosticReportEClass;
 	}
@@ -18463,7 +20076,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticReportImage() {
 		if (diagnosticReportImageEClass == null) {
-			diagnosticReportImageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(278);
+			diagnosticReportImageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(348);
 		}
 		return diagnosticReportImageEClass;
 	}
@@ -18493,7 +20106,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDiagnosticReportStatus() {
 		if (diagnosticReportStatusEClass == null) {
-			diagnosticReportStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(279);
+			diagnosticReportStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(349);
 		}
 		return diagnosticReportStatusEClass;
 	}
@@ -18514,7 +20127,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDigitalMediaType() {
 		if (digitalMediaTypeEClass == null) {
-			digitalMediaTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(281);
+			digitalMediaTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(352);
 		}
 		return digitalMediaTypeEClass;
 	}
@@ -18535,7 +20148,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDistance() {
 		if (distanceEClass == null) {
-			distanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(283);
+			distanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(355);
 		}
 		return distanceEClass;
 	}
@@ -18547,7 +20160,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentManifest() {
 		if (documentManifestEClass == null) {
-			documentManifestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(284);
+			documentManifestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(356);
 		}
 		return documentManifestEClass;
 	}
@@ -18667,7 +20280,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentManifestContent() {
 		if (documentManifestContentEClass == null) {
-			documentManifestContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(285);
+			documentManifestContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(357);
 		}
 		return documentManifestContentEClass;
 	}
@@ -18697,7 +20310,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentManifestRelated() {
 		if (documentManifestRelatedEClass == null) {
-			documentManifestRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(286);
+			documentManifestRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(358);
 		}
 		return documentManifestRelatedEClass;
 	}
@@ -18727,7 +20340,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentMode() {
 		if (documentModeEClass == null) {
-			documentModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(287);
+			documentModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(359);
 		}
 		return documentModeEClass;
 	}
@@ -18748,7 +20361,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReference() {
 		if (documentReferenceEClass == null) {
-			documentReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(289);
+			documentReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(362);
 		}
 		return documentReferenceEClass;
 	}
@@ -18913,7 +20526,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReferenceContent() {
 		if (documentReferenceContentEClass == null) {
-			documentReferenceContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(290);
+			documentReferenceContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(363);
 		}
 		return documentReferenceContentEClass;
 	}
@@ -18943,7 +20556,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReferenceContext() {
 		if (documentReferenceContextEClass == null) {
-			documentReferenceContextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(291);
+			documentReferenceContextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(364);
 		}
 		return documentReferenceContextEClass;
 	}
@@ -19018,7 +20631,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReferenceRelated() {
 		if (documentReferenceRelatedEClass == null) {
-			documentReferenceRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(292);
+			documentReferenceRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(365);
 		}
 		return documentReferenceRelatedEClass;
 	}
@@ -19048,7 +20661,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReferenceRelatesTo() {
 		if (documentReferenceRelatesToEClass == null) {
-			documentReferenceRelatesToEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(293);
+			documentReferenceRelatesToEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(366);
 		}
 		return documentReferenceRelatesToEClass;
 	}
@@ -19078,7 +20691,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentReferenceStatus() {
 		if (documentReferenceStatusEClass == null) {
-			documentReferenceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(294);
+			documentReferenceStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(367);
 		}
 		return documentReferenceStatusEClass;
 	}
@@ -19099,7 +20712,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentRelationshipType() {
 		if (documentRelationshipTypeEClass == null) {
-			documentRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(296);
+			documentRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(370);
 		}
 		return documentRelationshipTypeEClass;
 	}
@@ -19120,7 +20733,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDocumentRoot() {
 		if (documentRootEClass == null) {
-			documentRootEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(298);
+			documentRootEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(373);
 		}
 		return documentRootEClass;
 	}
@@ -19355,7 +20968,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Contract() {
+	public EReference getDocumentRoot_Consent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(25);
 	}
 
@@ -19364,7 +20977,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Coverage() {
+	public EReference getDocumentRoot_Contract() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(26);
 	}
 
@@ -19373,7 +20986,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DataElement() {
+	public EReference getDocumentRoot_Coverage() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(27);
 	}
 
@@ -19382,7 +20995,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DecisionSupportRule() {
+	public EReference getDocumentRoot_DataElement() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(28);
 	}
 
@@ -19391,7 +21004,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DecisionSupportServiceModule() {
+	public EReference getDocumentRoot_DecisionSupportRule() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(29);
 	}
 
@@ -19400,7 +21013,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DetectedIssue() {
+	public EReference getDocumentRoot_DecisionSupportServiceModule() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(30);
 	}
 
@@ -19409,7 +21022,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Device() {
+	public EReference getDocumentRoot_DetectedIssue() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(31);
 	}
 
@@ -19418,7 +21031,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DeviceComponent() {
+	public EReference getDocumentRoot_Device() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(32);
 	}
 
@@ -19427,7 +21040,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DeviceMetric() {
+	public EReference getDocumentRoot_DeviceComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(33);
 	}
 
@@ -19436,7 +21049,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DeviceUseRequest() {
+	public EReference getDocumentRoot_DeviceMetric() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(34);
 	}
 
@@ -19445,7 +21058,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DeviceUseStatement() {
+	public EReference getDocumentRoot_DeviceUseRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(35);
 	}
 
@@ -19454,7 +21067,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DiagnosticOrder() {
+	public EReference getDocumentRoot_DeviceUseStatement() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(36);
 	}
 
@@ -19463,7 +21076,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DiagnosticReport() {
+	public EReference getDocumentRoot_DiagnosticOrder() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(37);
 	}
 
@@ -19472,7 +21085,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DocumentManifest() {
+	public EReference getDocumentRoot_DiagnosticReport() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(38);
 	}
 
@@ -19481,7 +21094,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DocumentReference() {
+	public EReference getDocumentRoot_DocumentManifest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(39);
 	}
 
@@ -19490,7 +21103,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EligibilityRequest() {
+	public EReference getDocumentRoot_DocumentReference() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(40);
 	}
 
@@ -19499,7 +21112,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EligibilityResponse() {
+	public EReference getDocumentRoot_EligibilityRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(41);
 	}
 
@@ -19508,7 +21121,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Encounter() {
+	public EReference getDocumentRoot_EligibilityResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(42);
 	}
 
@@ -19517,7 +21130,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Endpoint() {
+	public EReference getDocumentRoot_Encounter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(43);
 	}
 
@@ -19526,7 +21139,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EnrollmentRequest() {
+	public EReference getDocumentRoot_Endpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(44);
 	}
 
@@ -19535,7 +21148,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EnrollmentResponse() {
+	public EReference getDocumentRoot_EnrollmentRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(45);
 	}
 
@@ -19544,7 +21157,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EpisodeOfCare() {
+	public EReference getDocumentRoot_EnrollmentResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(46);
 	}
 
@@ -19553,7 +21166,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ExpansionProfile() {
+	public EReference getDocumentRoot_EpisodeOfCare() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(47);
 	}
 
@@ -19562,7 +21175,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ExplanationOfBenefit() {
+	public EReference getDocumentRoot_ExpansionProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(48);
 	}
 
@@ -19571,7 +21184,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_FamilyMemberHistory() {
+	public EReference getDocumentRoot_ExplanationOfBenefit() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(49);
 	}
 
@@ -19580,7 +21193,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Flag() {
+	public EReference getDocumentRoot_FamilyMemberHistory() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(50);
 	}
 
@@ -19589,7 +21202,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Goal() {
+	public EReference getDocumentRoot_Flag() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(51);
 	}
 
@@ -19598,7 +21211,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Group() {
+	public EReference getDocumentRoot_Goal() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(52);
 	}
 
@@ -19607,7 +21220,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_GuidanceResponse() {
+	public EReference getDocumentRoot_Group() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(53);
 	}
 
@@ -19616,7 +21229,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_HealthcareService() {
+	public EReference getDocumentRoot_GuidanceResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(54);
 	}
 
@@ -19625,7 +21238,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ImagingExcerpt() {
+	public EReference getDocumentRoot_HealthcareService() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(55);
 	}
 
@@ -19634,7 +21247,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ImagingObjectSelection() {
+	public EReference getDocumentRoot_ImagingExcerpt() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(56);
 	}
 
@@ -19643,7 +21256,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ImagingStudy() {
+	public EReference getDocumentRoot_ImagingObjectSelection() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(57);
 	}
 
@@ -19652,7 +21265,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Immunization() {
+	public EReference getDocumentRoot_ImagingStudy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(58);
 	}
 
@@ -19661,7 +21274,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ImmunizationRecommendation() {
+	public EReference getDocumentRoot_Immunization() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(59);
 	}
 
@@ -19670,7 +21283,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ImplementationGuide() {
+	public EReference getDocumentRoot_ImmunizationRecommendation() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(60);
 	}
 
@@ -19679,7 +21292,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Library() {
+	public EReference getDocumentRoot_ImplementationGuide() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(61);
 	}
 
@@ -19688,7 +21301,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Linkage() {
+	public EReference getDocumentRoot_Library() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(62);
 	}
 
@@ -19697,7 +21310,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_List() {
+	public EReference getDocumentRoot_Linkage() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(63);
 	}
 
@@ -19706,7 +21319,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Location() {
+	public EReference getDocumentRoot_List() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(64);
 	}
 
@@ -19715,7 +21328,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Measure() {
+	public EReference getDocumentRoot_Location() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(65);
 	}
 
@@ -19724,7 +21337,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MeasureReport() {
+	public EReference getDocumentRoot_Measure() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(66);
 	}
 
@@ -19733,7 +21346,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Media() {
+	public EReference getDocumentRoot_MeasureReport() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(67);
 	}
 
@@ -19742,7 +21355,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Medication() {
+	public EReference getDocumentRoot_Media() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(68);
 	}
 
@@ -19751,7 +21364,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MedicationAdministration() {
+	public EReference getDocumentRoot_Medication() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(69);
 	}
 
@@ -19760,7 +21373,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MedicationDispense() {
+	public EReference getDocumentRoot_MedicationAdministration() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(70);
 	}
 
@@ -19769,7 +21382,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MedicationOrder() {
+	public EReference getDocumentRoot_MedicationDispense() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(71);
 	}
 
@@ -19778,7 +21391,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MedicationStatement() {
+	public EReference getDocumentRoot_MedicationOrder() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(72);
 	}
 
@@ -19787,7 +21400,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessageHeader() {
+	public EReference getDocumentRoot_MedicationStatement() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(73);
 	}
 
@@ -19796,7 +21409,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ModuleDefinition() {
+	public EReference getDocumentRoot_MessageHeader() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(74);
 	}
 
@@ -19805,7 +21418,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NamingSystem() {
+	public EReference getDocumentRoot_ModuleDefinition() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(75);
 	}
 
@@ -19814,7 +21427,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NutritionOrder() {
+	public EReference getDocumentRoot_NamingSystem() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(76);
 	}
 
@@ -19823,7 +21436,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Observation() {
+	public EReference getDocumentRoot_NutritionOrder() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(77);
 	}
 
@@ -19832,7 +21445,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OperationDefinition() {
+	public EReference getDocumentRoot_Observation() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(78);
 	}
 
@@ -19841,7 +21454,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OperationOutcome() {
+	public EReference getDocumentRoot_OperationDefinition() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(79);
 	}
 
@@ -19850,7 +21463,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Order() {
+	public EReference getDocumentRoot_OperationOutcome() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(80);
 	}
 
@@ -19859,7 +21472,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OrderResponse() {
+	public EReference getDocumentRoot_Order() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(81);
 	}
 
@@ -19868,7 +21481,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OrderSet() {
+	public EReference getDocumentRoot_OrderResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(82);
 	}
 
@@ -19877,7 +21490,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Organization() {
+	public EReference getDocumentRoot_OrderSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(83);
 	}
 
@@ -19886,7 +21499,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Parameters() {
+	public EReference getDocumentRoot_Organization() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(84);
 	}
 
@@ -19895,7 +21508,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Patient() {
+	public EReference getDocumentRoot_Parameters() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(85);
 	}
 
@@ -19904,7 +21517,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PaymentNotice() {
+	public EReference getDocumentRoot_Patient() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(86);
 	}
 
@@ -19913,7 +21526,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PaymentReconciliation() {
+	public EReference getDocumentRoot_PaymentNotice() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(87);
 	}
 
@@ -19922,7 +21535,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Person() {
+	public EReference getDocumentRoot_PaymentReconciliation() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(88);
 	}
 
@@ -19931,7 +21544,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Practitioner() {
+	public EReference getDocumentRoot_Person() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(89);
 	}
 
@@ -19940,7 +21553,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PractitionerRole() {
+	public EReference getDocumentRoot_Practitioner() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(90);
 	}
 
@@ -19949,7 +21562,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Procedure() {
+	public EReference getDocumentRoot_PractitionerRole() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(91);
 	}
 
@@ -19958,7 +21571,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ProcedureRequest() {
+	public EReference getDocumentRoot_Procedure() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(92);
 	}
 
@@ -19967,7 +21580,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ProcessRequest() {
+	public EReference getDocumentRoot_ProcedureRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(93);
 	}
 
@@ -19976,7 +21589,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ProcessResponse() {
+	public EReference getDocumentRoot_ProcessRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(94);
 	}
 
@@ -19985,7 +21598,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Protocol() {
+	public EReference getDocumentRoot_ProcessResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(95);
 	}
 
@@ -19994,7 +21607,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Provenance() {
+	public EReference getDocumentRoot_Protocol() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(96);
 	}
 
@@ -20003,7 +21616,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Questionnaire() {
+	public EReference getDocumentRoot_Provenance() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(97);
 	}
 
@@ -20012,7 +21625,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_QuestionnaireResponse() {
+	public EReference getDocumentRoot_Questionnaire() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(98);
 	}
 
@@ -20021,7 +21634,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ReferralRequest() {
+	public EReference getDocumentRoot_QuestionnaireResponse() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(99);
 	}
 
@@ -20030,7 +21643,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_RelatedPerson() {
+	public EReference getDocumentRoot_ReferralRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(100);
 	}
 
@@ -20039,7 +21652,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_RiskAssessment() {
+	public EReference getDocumentRoot_RelatedPerson() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(101);
 	}
 
@@ -20048,7 +21661,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Schedule() {
+	public EReference getDocumentRoot_RiskAssessment() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(102);
 	}
 
@@ -20057,7 +21670,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SearchParameter() {
+	public EReference getDocumentRoot_Schedule() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(103);
 	}
 
@@ -20066,7 +21679,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Sequence() {
+	public EReference getDocumentRoot_SearchParameter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(104);
 	}
 
@@ -20075,7 +21688,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Slot() {
+	public EReference getDocumentRoot_Sequence() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(105);
 	}
 
@@ -20084,7 +21697,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Specimen() {
+	public EReference getDocumentRoot_Slot() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(106);
 	}
 
@@ -20093,7 +21706,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_StructureDefinition() {
+	public EReference getDocumentRoot_Specimen() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(107);
 	}
 
@@ -20102,7 +21715,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_StructureMap() {
+	public EReference getDocumentRoot_StructureDefinition() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(108);
 	}
 
@@ -20111,7 +21724,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Subscription() {
+	public EReference getDocumentRoot_StructureMap() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(109);
 	}
 
@@ -20120,7 +21733,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Substance() {
+	public EReference getDocumentRoot_Subscription() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(110);
 	}
 
@@ -20129,7 +21742,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SupplyDelivery() {
+	public EReference getDocumentRoot_Substance() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(111);
 	}
 
@@ -20138,7 +21751,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SupplyRequest() {
+	public EReference getDocumentRoot_SupplyDelivery() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(112);
 	}
 
@@ -20147,7 +21760,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Task() {
+	public EReference getDocumentRoot_SupplyRequest() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(113);
 	}
 
@@ -20156,7 +21769,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_TestScript() {
+	public EReference getDocumentRoot_Task() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(114);
 	}
 
@@ -20165,7 +21778,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ValueSet() {
+	public EReference getDocumentRoot_TestScript() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(115);
 	}
 
@@ -20174,8 +21787,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_VisionPrescription() {
+	public EReference getDocumentRoot_ValueSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(116);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_VisionPrescription() {
+        return (EReference)getDocumentRoot().getEStructuralFeatures().get(117);
 	}
 
 	/**
@@ -20185,7 +21807,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDomainResource() {
 		if (domainResourceEClass == null) {
-			domainResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(299);
+			domainResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(374);
 		}
 		return domainResourceEClass;
 	}
@@ -20233,7 +21855,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDuration() {
 		if (durationEClass == null) {
-			durationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(300);
+			durationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(375);
 		}
 		return durationEClass;
 	}
@@ -20254,7 +21876,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getDWebType() {
 		if (dWebTypeEClass == null) {
-			dWebTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(301);
+			dWebTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(376);
 		}
 		return dWebTypeEClass;
 	}
@@ -20275,7 +21897,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElement() {
 		if (elementEClass == null) {
-			elementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(303);
+			elementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(379);
 		}
 		return elementEClass;
 	}
@@ -20305,7 +21927,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinition() {
 		if (elementDefinitionEClass == null) {
-			elementDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(304);
+			elementDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(380);
 		}
 		return elementDefinitionEClass;
 	}
@@ -22378,7 +24000,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionBase() {
 		if (elementDefinitionBaseEClass == null) {
-			elementDefinitionBaseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(305);
+			elementDefinitionBaseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(381);
 		}
 		return elementDefinitionBaseEClass;
 	}
@@ -22417,7 +24039,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionBinding() {
 		if (elementDefinitionBindingEClass == null) {
-			elementDefinitionBindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(306);
+			elementDefinitionBindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(382);
 		}
 		return elementDefinitionBindingEClass;
 	}
@@ -22465,7 +24087,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionConstraint() {
 		if (elementDefinitionConstraintEClass == null) {
-			elementDefinitionConstraintEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(307);
+			elementDefinitionConstraintEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(383);
 		}
 		return elementDefinitionConstraintEClass;
 	}
@@ -22531,7 +24153,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionMapping() {
 		if (elementDefinitionMappingEClass == null) {
-			elementDefinitionMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(308);
+			elementDefinitionMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(384);
 		}
 		return elementDefinitionMappingEClass;
 	}
@@ -22570,7 +24192,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionSlicing() {
 		if (elementDefinitionSlicingEClass == null) {
-			elementDefinitionSlicingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(309);
+			elementDefinitionSlicingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(385);
 		}
 		return elementDefinitionSlicingEClass;
 	}
@@ -22618,7 +24240,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getElementDefinitionType() {
 		if (elementDefinitionTypeEClass == null) {
-			elementDefinitionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(310);
+			elementDefinitionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(386);
 		}
 		return elementDefinitionTypeEClass;
 	}
@@ -22666,7 +24288,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEligibilityRequest() {
 		if (eligibilityRequestEClass == null) {
-			eligibilityRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(311);
+			eligibilityRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(387);
 		}
 		return eligibilityRequestEClass;
 	}
@@ -22894,7 +24516,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEligibilityResponse() {
 		if (eligibilityResponseEClass == null) {
-			eligibilityResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(312);
+			eligibilityResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(388);
 		}
 		return eligibilityResponseEClass;
 	}
@@ -23077,7 +24699,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEligibilityResponseBenefitBalance() {
 		if (eligibilityResponseBenefitBalanceEClass == null) {
-			eligibilityResponseBenefitBalanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(313);
+			eligibilityResponseBenefitBalanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(389);
 		}
 		return eligibilityResponseBenefitBalanceEClass;
 	}
@@ -23143,7 +24765,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEligibilityResponseError() {
 		if (eligibilityResponseErrorEClass == null) {
-			eligibilityResponseErrorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(314);
+			eligibilityResponseErrorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(390);
 		}
 		return eligibilityResponseErrorEClass;
 	}
@@ -23164,7 +24786,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEligibilityResponseFinancial() {
 		if (eligibilityResponseFinancialEClass == null) {
-			eligibilityResponseFinancialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(315);
+			eligibilityResponseFinancialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(391);
 		}
 		return eligibilityResponseFinancialEClass;
 	}
@@ -23221,7 +24843,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounter() {
 		if (encounterEClass == null) {
-			encounterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(316);
+			encounterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(392);
 		}
 		return encounterEClass;
 	}
@@ -23404,7 +25026,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterClass() {
 		if (encounterClassEClass == null) {
-			encounterClassEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(317);
+			encounterClassEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(393);
 		}
 		return encounterClassEClass;
 	}
@@ -23425,7 +25047,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterHospitalization() {
 		if (encounterHospitalizationEClass == null) {
-			encounterHospitalizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(319);
+			encounterHospitalizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(396);
 		}
 		return encounterHospitalizationEClass;
 	}
@@ -23536,7 +25158,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterLocation() {
 		if (encounterLocationEClass == null) {
-			encounterLocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(320);
+			encounterLocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(397);
 		}
 		return encounterLocationEClass;
 	}
@@ -23575,7 +25197,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterLocationStatus() {
 		if (encounterLocationStatusEClass == null) {
-			encounterLocationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(321);
+			encounterLocationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(398);
 		}
 		return encounterLocationStatusEClass;
 	}
@@ -23596,7 +25218,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterParticipant() {
 		if (encounterParticipantEClass == null) {
-			encounterParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(323);
+			encounterParticipantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(401);
 		}
 		return encounterParticipantEClass;
 	}
@@ -23635,7 +25257,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterState() {
 		if (encounterStateEClass == null) {
-			encounterStateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(324);
+			encounterStateEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(402);
 		}
 		return encounterStateEClass;
 	}
@@ -23656,7 +25278,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEncounterStatusHistory() {
 		if (encounterStatusHistoryEClass == null) {
-			encounterStatusHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(326);
+			encounterStatusHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(405);
 		}
 		return encounterStatusHistoryEClass;
 	}
@@ -23686,7 +25308,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEndpoint() {
 		if (endpointEClass == null) {
-			endpointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(327);
+			endpointEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(406);
 		}
 		return endpointEClass;
 	}
@@ -23806,7 +25428,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEndpointStatus() {
 		if (endpointStatusEClass == null) {
-			endpointStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(328);
+			endpointStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(407);
 		}
 		return endpointStatusEClass;
 	}
@@ -23827,7 +25449,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEnrollmentRequest() {
 		if (enrollmentRequestEClass == null) {
-			enrollmentRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(330);
+			enrollmentRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(410);
 		}
 		return enrollmentRequestEClass;
 	}
@@ -23929,7 +25551,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEnrollmentResponse() {
 		if (enrollmentResponseEClass == null) {
-			enrollmentResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(331);
+			enrollmentResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(411);
 		}
 		return enrollmentResponseEClass;
 	}
@@ -24031,7 +25653,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEpisodeOfCare() {
 		if (episodeOfCareEClass == null) {
-			episodeOfCareEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(332);
+			episodeOfCareEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(412);
 		}
 		return episodeOfCareEClass;
 	}
@@ -24142,7 +25764,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEpisodeOfCareStatus() {
 		if (episodeOfCareStatusEClass == null) {
-			episodeOfCareStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(333);
+			episodeOfCareStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(413);
 		}
 		return episodeOfCareStatusEClass;
 	}
@@ -24163,7 +25785,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEpisodeOfCareStatusHistory() {
 		if (episodeOfCareStatusHistoryEClass == null) {
-			episodeOfCareStatusHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(334);
+			episodeOfCareStatusHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(414);
 		}
 		return episodeOfCareStatusHistoryEClass;
 	}
@@ -24193,7 +25815,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getEventTiming() {
 		if (eventTimingEClass == null) {
-			eventTimingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(336);
+			eventTimingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(417);
 		}
 		return eventTimingEClass;
 	}
@@ -24214,7 +25836,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfile() {
 		if (expansionProfileEClass == null) {
-			expansionProfileEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(339);
+			expansionProfileEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(420);
 		}
 		return expansionProfileEClass;
 	}
@@ -24406,7 +26028,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileCodeSystem() {
 		if (expansionProfileCodeSystemEClass == null) {
-			expansionProfileCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(340);
+			expansionProfileCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(421);
 		}
 		return expansionProfileCodeSystemEClass;
 	}
@@ -24436,7 +26058,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileCodeSystem1() {
 		if (expansionProfileCodeSystem1EClass == null) {
-			expansionProfileCodeSystem1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(341);
+			expansionProfileCodeSystem1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(422);
 		}
 		return expansionProfileCodeSystem1EClass;
 	}
@@ -24466,7 +26088,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileCodeSystem2() {
 		if (expansionProfileCodeSystem2EClass == null) {
-			expansionProfileCodeSystem2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(342);
+			expansionProfileCodeSystem2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(423);
 		}
 		return expansionProfileCodeSystem2EClass;
 	}
@@ -24496,7 +26118,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileContact() {
 		if (expansionProfileContactEClass == null) {
-			expansionProfileContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(343);
+			expansionProfileContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(424);
 		}
 		return expansionProfileContactEClass;
 	}
@@ -24526,7 +26148,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileDesignation() {
 		if (expansionProfileDesignationEClass == null) {
-			expansionProfileDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(344);
+			expansionProfileDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(425);
 		}
 		return expansionProfileDesignationEClass;
 	}
@@ -24556,7 +26178,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileDesignation1() {
 		if (expansionProfileDesignation1EClass == null) {
-			expansionProfileDesignation1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(345);
+			expansionProfileDesignation1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(426);
 		}
 		return expansionProfileDesignation1EClass;
 	}
@@ -24586,7 +26208,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileDesignation2() {
 		if (expansionProfileDesignation2EClass == null) {
-			expansionProfileDesignation2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(346);
+			expansionProfileDesignation2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(427);
 		}
 		return expansionProfileDesignation2EClass;
 	}
@@ -24616,7 +26238,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileExclude() {
 		if (expansionProfileExcludeEClass == null) {
-			expansionProfileExcludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(347);
+			expansionProfileExcludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(428);
 		}
 		return expansionProfileExcludeEClass;
 	}
@@ -24637,7 +26259,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileExclude1() {
 		if (expansionProfileExclude1EClass == null) {
-			expansionProfileExclude1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(348);
+			expansionProfileExclude1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(429);
 		}
 		return expansionProfileExclude1EClass;
 	}
@@ -24658,7 +26280,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileInclude() {
 		if (expansionProfileIncludeEClass == null) {
-			expansionProfileIncludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(349);
+			expansionProfileIncludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(430);
 		}
 		return expansionProfileIncludeEClass;
 	}
@@ -24679,7 +26301,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExpansionProfileInclude1() {
 		if (expansionProfileInclude1EClass == null) {
-			expansionProfileInclude1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(350);
+			expansionProfileInclude1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(431);
 		}
 		return expansionProfileInclude1EClass;
 	}
@@ -24700,7 +26322,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefit() {
 		if (explanationOfBenefitEClass == null) {
-			explanationOfBenefitEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(351);
+			explanationOfBenefitEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(432);
 		}
 		return explanationOfBenefitEClass;
 	}
@@ -24755,7 +26377,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_SubType() {
+	public EReference getExplanationOfBenefit_Type() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(5);
 	}
 
@@ -24764,7 +26386,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Ruleset() {
+	public EReference getExplanationOfBenefit_SubType() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(6);
 	}
 
@@ -24773,7 +26395,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OriginalRuleset() {
+	public EReference getExplanationOfBenefit_Ruleset() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(7);
 	}
 
@@ -24782,7 +26404,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Created() {
+	public EReference getExplanationOfBenefit_OriginalRuleset() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(8);
 	}
 
@@ -24791,7 +26413,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_BillablePeriod() {
+	public EReference getExplanationOfBenefit_Created() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(9);
 	}
 
@@ -24800,7 +26422,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Disposition() {
+	public EReference getExplanationOfBenefit_BillablePeriod() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(10);
 	}
 
@@ -24809,7 +26431,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_ProviderIdentifier() {
+	public EReference getExplanationOfBenefit_Disposition() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(11);
 	}
 
@@ -24818,7 +26440,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_ProviderReference() {
+	public EReference getExplanationOfBenefit_ProviderIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(12);
 	}
 
@@ -24827,7 +26449,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OrganizationIdentifier() {
+	public EReference getExplanationOfBenefit_ProviderReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(13);
 	}
 
@@ -24836,7 +26458,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OrganizationReference() {
+	public EReference getExplanationOfBenefit_OrganizationIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(14);
 	}
 
@@ -24845,7 +26467,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_FacilityIdentifier() {
+	public EReference getExplanationOfBenefit_OrganizationReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(15);
 	}
 
@@ -24854,7 +26476,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_FacilityReference() {
+	public EReference getExplanationOfBenefit_FacilityIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(16);
 	}
 
@@ -24863,7 +26485,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Related() {
+	public EReference getExplanationOfBenefit_FacilityReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(17);
 	}
 
@@ -24872,7 +26494,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PrescriptionIdentifier() {
+	public EReference getExplanationOfBenefit_Related() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(18);
 	}
 
@@ -24881,7 +26503,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PrescriptionReference() {
+	public EReference getExplanationOfBenefit_PrescriptionIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(19);
 	}
 
@@ -24890,7 +26512,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OriginalPrescriptionIdentifier() {
+	public EReference getExplanationOfBenefit_PrescriptionReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(20);
 	}
 
@@ -24899,7 +26521,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OriginalPrescriptionReference() {
+	public EReference getExplanationOfBenefit_OriginalPrescriptionIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(21);
 	}
 
@@ -24908,7 +26530,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Payee() {
+	public EReference getExplanationOfBenefit_OriginalPrescriptionReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(22);
 	}
 
@@ -24917,7 +26539,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_ReferralIdentifier() {
+	public EReference getExplanationOfBenefit_Payee() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(23);
 	}
 
@@ -24926,7 +26548,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_ReferralReference() {
+	public EReference getExplanationOfBenefit_ReferralIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(24);
 	}
 
@@ -24935,7 +26557,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OccurrenceCode() {
+	public EReference getExplanationOfBenefit_ReferralReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(25);
 	}
 
@@ -24944,7 +26566,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_OccurenceSpanCode() {
+	public EReference getExplanationOfBenefit_OccurrenceCode() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(26);
 	}
 
@@ -24953,7 +26575,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_ValueCode() {
+	public EReference getExplanationOfBenefit_OccurenceSpanCode() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(27);
 	}
 
@@ -24962,7 +26584,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Diagnosis() {
+	public EReference getExplanationOfBenefit_ValueCode() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(28);
 	}
 
@@ -24971,7 +26593,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Procedure() {
+	public EReference getExplanationOfBenefit_Diagnosis() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(29);
 	}
 
@@ -24980,7 +26602,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_SpecialCondition() {
+	public EReference getExplanationOfBenefit_Procedure() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(30);
 	}
 
@@ -24989,7 +26611,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PatientIdentifier() {
+	public EReference getExplanationOfBenefit_SpecialCondition() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(31);
 	}
 
@@ -24998,7 +26620,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PatientReference() {
+	public EReference getExplanationOfBenefit_PatientIdentifier() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(32);
 	}
 
@@ -25007,7 +26629,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Precedence() {
+	public EReference getExplanationOfBenefit_PatientReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(33);
 	}
 
@@ -25016,7 +26638,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Coverage() {
+	public EReference getExplanationOfBenefit_Precedence() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(34);
 	}
 
@@ -25025,7 +26647,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_AccidentDate() {
+	public EReference getExplanationOfBenefit_Coverage() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(35);
 	}
 
@@ -25034,7 +26656,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_AccidentType() {
+	public EReference getExplanationOfBenefit_AccidentDate() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(36);
 	}
 
@@ -25043,7 +26665,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_AccidentLocationAddress() {
+	public EReference getExplanationOfBenefit_AccidentType() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(37);
 	}
 
@@ -25052,7 +26674,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_AccidentLocationReference() {
+	public EReference getExplanationOfBenefit_AccidentLocationAddress() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(38);
 	}
 
@@ -25061,7 +26683,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_InterventionException() {
+	public EReference getExplanationOfBenefit_AccidentLocationReference() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(39);
 	}
 
@@ -25070,7 +26692,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Onset() {
+	public EReference getExplanationOfBenefit_InterventionException() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(40);
 	}
 
@@ -25079,7 +26701,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_EmploymentImpacted() {
+	public EReference getExplanationOfBenefit_Onset() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(41);
 	}
 
@@ -25088,7 +26710,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Hospitalization() {
+	public EReference getExplanationOfBenefit_EmploymentImpacted() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(42);
 	}
 
@@ -25097,7 +26719,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Item() {
+	public EReference getExplanationOfBenefit_Hospitalization() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(43);
 	}
 
@@ -25106,7 +26728,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_AddItem() {
+	public EReference getExplanationOfBenefit_Item() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(44);
 	}
 
@@ -25115,7 +26737,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_MissingTeeth() {
+	public EReference getExplanationOfBenefit_AddItem() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(45);
 	}
 
@@ -25124,7 +26746,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_TotalCost() {
+	public EReference getExplanationOfBenefit_MissingTeeth() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(46);
 	}
 
@@ -25133,7 +26755,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_UnallocDeductable() {
+	public EReference getExplanationOfBenefit_TotalCost() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(47);
 	}
 
@@ -25142,7 +26764,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_TotalBenefit() {
+	public EReference getExplanationOfBenefit_UnallocDeductable() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(48);
 	}
 
@@ -25151,7 +26773,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PaymentAdjustment() {
+	public EReference getExplanationOfBenefit_TotalBenefit() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(49);
 	}
 
@@ -25160,7 +26782,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PaymentAdjustmentReason() {
+	public EReference getExplanationOfBenefit_PaymentAdjustment() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(50);
 	}
 
@@ -25169,7 +26791,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PaymentDate() {
+	public EReference getExplanationOfBenefit_PaymentAdjustmentReason() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(51);
 	}
 
@@ -25178,7 +26800,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PaymentAmount() {
+	public EReference getExplanationOfBenefit_PaymentDate() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(52);
 	}
 
@@ -25187,7 +26809,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_PaymentRef() {
+	public EReference getExplanationOfBenefit_PaymentAmount() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(53);
 	}
 
@@ -25196,7 +26818,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Reserved() {
+	public EReference getExplanationOfBenefit_PaymentRef() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(54);
 	}
 
@@ -25205,7 +26827,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Form() {
+	public EReference getExplanationOfBenefit_Reserved() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(55);
 	}
 
@@ -25214,7 +26836,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_Note() {
+	public EReference getExplanationOfBenefit_Form() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(56);
 	}
 
@@ -25223,8 +26845,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExplanationOfBenefit_BenefitBalance() {
+	public EReference getExplanationOfBenefit_Note() {
         return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(57);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExplanationOfBenefit_BenefitBalance() {
+        return (EReference)getExplanationOfBenefit().getEStructuralFeatures().get(58);
 	}
 
 	/**
@@ -25234,7 +26865,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAddItem() {
 		if (explanationOfBenefitAddItemEClass == null) {
-			explanationOfBenefitAddItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(352);
+			explanationOfBenefitAddItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(433);
 		}
 		return explanationOfBenefitAddItemEClass;
 	}
@@ -25300,7 +26931,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAdjudication() {
 		if (explanationOfBenefitAdjudicationEClass == null) {
-			explanationOfBenefitAdjudicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(353);
+			explanationOfBenefitAdjudicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(434);
 		}
 		return explanationOfBenefitAdjudicationEClass;
 	}
@@ -25348,7 +26979,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAdjudication1() {
 		if (explanationOfBenefitAdjudication1EClass == null) {
-			explanationOfBenefitAdjudication1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(354);
+			explanationOfBenefitAdjudication1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(435);
 		}
 		return explanationOfBenefitAdjudication1EClass;
 	}
@@ -25396,7 +27027,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAdjudication2() {
 		if (explanationOfBenefitAdjudication2EClass == null) {
-			explanationOfBenefitAdjudication2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(355);
+			explanationOfBenefitAdjudication2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(436);
 		}
 		return explanationOfBenefitAdjudication2EClass;
 	}
@@ -25444,7 +27075,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAdjudication3() {
 		if (explanationOfBenefitAdjudication3EClass == null) {
-			explanationOfBenefitAdjudication3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(356);
+			explanationOfBenefitAdjudication3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(437);
 		}
 		return explanationOfBenefitAdjudication3EClass;
 	}
@@ -25492,7 +27123,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitAdjudication4() {
 		if (explanationOfBenefitAdjudication4EClass == null) {
-			explanationOfBenefitAdjudication4EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(357);
+			explanationOfBenefitAdjudication4EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(438);
 		}
 		return explanationOfBenefitAdjudication4EClass;
 	}
@@ -25540,7 +27171,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitBenefitBalance() {
 		if (explanationOfBenefitBenefitBalanceEClass == null) {
-			explanationOfBenefitBenefitBalanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(358);
+			explanationOfBenefitBenefitBalanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(439);
 		}
 		return explanationOfBenefitBenefitBalanceEClass;
 	}
@@ -25606,7 +27237,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitCoverage() {
 		if (explanationOfBenefitCoverageEClass == null) {
-			explanationOfBenefitCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(359);
+			explanationOfBenefitCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(440);
 		}
 		return explanationOfBenefitCoverageEClass;
 	}
@@ -25645,7 +27276,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitDetail() {
 		if (explanationOfBenefitDetailEClass == null) {
-			explanationOfBenefitDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(360);
+			explanationOfBenefitDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(441);
 		}
 		return explanationOfBenefitDetailEClass;
 	}
@@ -25765,7 +27396,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitDetail1() {
 		if (explanationOfBenefitDetail1EClass == null) {
-			explanationOfBenefitDetail1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(361);
+			explanationOfBenefitDetail1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(442);
 		}
 		return explanationOfBenefitDetail1EClass;
 	}
@@ -25804,7 +27435,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitDiagnosis() {
 		if (explanationOfBenefitDiagnosisEClass == null) {
-			explanationOfBenefitDiagnosisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(362);
+			explanationOfBenefitDiagnosisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(443);
 		}
 		return explanationOfBenefitDiagnosisEClass;
 	}
@@ -25834,7 +27465,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitFinancial() {
 		if (explanationOfBenefitFinancialEClass == null) {
-			explanationOfBenefitFinancialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(363);
+			explanationOfBenefitFinancialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(444);
 		}
 		return explanationOfBenefitFinancialEClass;
 	}
@@ -25891,7 +27522,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitItem() {
 		if (explanationOfBenefitItemEClass == null) {
-			explanationOfBenefitItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(364);
+			explanationOfBenefitItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(445);
 		}
 		return explanationOfBenefitItemEClass;
 	}
@@ -26146,7 +27777,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitMissingTeeth() {
 		if (explanationOfBenefitMissingTeethEClass == null) {
-			explanationOfBenefitMissingTeethEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(365);
+			explanationOfBenefitMissingTeethEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(446);
 		}
 		return explanationOfBenefitMissingTeethEClass;
 	}
@@ -26185,7 +27816,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitNote() {
 		if (explanationOfBenefitNoteEClass == null) {
-			explanationOfBenefitNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(366);
+			explanationOfBenefitNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(447);
 		}
 		return explanationOfBenefitNoteEClass;
 	}
@@ -26224,7 +27855,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitOnset() {
 		if (explanationOfBenefitOnsetEClass == null) {
-			explanationOfBenefitOnsetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(367);
+			explanationOfBenefitOnsetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(448);
 		}
 		return explanationOfBenefitOnsetEClass;
 	}
@@ -26263,7 +27894,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitPayee() {
 		if (explanationOfBenefitPayeeEClass == null) {
-			explanationOfBenefitPayeeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(368);
+			explanationOfBenefitPayeeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(449);
 		}
 		return explanationOfBenefitPayeeEClass;
 	}
@@ -26302,7 +27933,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitProcedure() {
 		if (explanationOfBenefitProcedureEClass == null) {
-			explanationOfBenefitProcedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(369);
+			explanationOfBenefitProcedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(450);
 		}
 		return explanationOfBenefitProcedureEClass;
 	}
@@ -26350,7 +27981,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitProsthesis() {
 		if (explanationOfBenefitProsthesisEClass == null) {
-			explanationOfBenefitProsthesisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(370);
+			explanationOfBenefitProsthesisEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(451);
 		}
 		return explanationOfBenefitProsthesisEClass;
 	}
@@ -26389,7 +28020,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitRelated() {
 		if (explanationOfBenefitRelatedEClass == null) {
-			explanationOfBenefitRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(371);
+			explanationOfBenefitRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(452);
 		}
 		return explanationOfBenefitRelatedEClass;
 	}
@@ -26437,7 +28068,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExplanationOfBenefitSubDetail() {
 		if (explanationOfBenefitSubDetailEClass == null) {
-			explanationOfBenefitSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(372);
+			explanationOfBenefitSubDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(453);
 		}
 		return explanationOfBenefitSubDetailEClass;
 	}
@@ -26548,7 +28179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExtension() {
 		if (extensionEClass == null) {
-			extensionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(373);
+			extensionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(454);
 		}
 		return extensionEClass;
 	}
@@ -26875,7 +28506,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getExtensionContext() {
 		if (extensionContextEClass == null) {
-			extensionContextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(374);
+			extensionContextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(455);
 		}
 		return extensionContextEClass;
 	}
@@ -26896,7 +28527,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFamilyHistoryStatus() {
 		if (familyHistoryStatusEClass == null) {
-			familyHistoryStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(376);
+			familyHistoryStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(458);
 		}
 		return familyHistoryStatusEClass;
 	}
@@ -26917,7 +28548,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFamilyMemberHistory() {
 		if (familyMemberHistoryEClass == null) {
-			familyMemberHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(378);
+			familyMemberHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(461);
 		}
 		return familyMemberHistoryEClass;
 	}
@@ -27109,7 +28740,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFamilyMemberHistoryCondition() {
 		if (familyMemberHistoryConditionEClass == null) {
-			familyMemberHistoryConditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(379);
+			familyMemberHistoryConditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(462);
 		}
 		return familyMemberHistoryConditionEClass;
 	}
@@ -27184,7 +28815,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFilterOperator() {
 		if (filterOperatorEClass == null) {
-			filterOperatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(380);
+			filterOperatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(463);
 		}
 		return filterOperatorEClass;
 	}
@@ -27205,7 +28836,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFlag() {
 		if (flagEClass == null) {
-			flagEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(382);
+			flagEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(466);
 		}
 		return flagEClass;
 	}
@@ -27289,7 +28920,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getFlagStatus() {
 		if (flagStatusEClass == null) {
-			flagStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(383);
+			flagStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(467);
 		}
 		return flagStatusEClass;
 	}
@@ -27310,7 +28941,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGoal() {
 		if (goalEClass == null) {
-			goalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(385);
+			goalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(470);
 		}
 		return goalEClass;
 	}
@@ -27466,7 +29097,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGoalOutcome() {
 		if (goalOutcomeEClass == null) {
-			goalOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(386);
+			goalOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(471);
 		}
 		return goalOutcomeEClass;
 	}
@@ -27496,7 +29127,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGoalStatus() {
 		if (goalStatusEClass == null) {
-			goalStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(387);
+			goalStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(472);
 		}
 		return goalStatusEClass;
 	}
@@ -27517,7 +29148,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGroup() {
 		if (groupEClass == null) {
-			groupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(389);
+			groupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(475);
 		}
 		return groupEClass;
 	}
@@ -27610,7 +29241,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGroupCharacteristic() {
 		if (groupCharacteristicEClass == null) {
-			groupCharacteristicEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(390);
+			groupCharacteristicEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(476);
 		}
 		return groupCharacteristicEClass;
 	}
@@ -27685,7 +29316,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGroupMember() {
 		if (groupMemberEClass == null) {
-			groupMemberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(391);
+			groupMemberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(477);
 		}
 		return groupMemberEClass;
 	}
@@ -27724,7 +29355,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGroupType() {
 		if (groupTypeEClass == null) {
-			groupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(392);
+			groupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(478);
 		}
 		return groupTypeEClass;
 	}
@@ -27745,7 +29376,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidanceResponse() {
 		if (guidanceResponseEClass == null) {
-			guidanceResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(394);
+			guidanceResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(481);
 		}
 		return guidanceResponseEClass;
 	}
@@ -27820,7 +29451,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidanceResponseAction() {
 		if (guidanceResponseActionEClass == null) {
-			guidanceResponseActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(395);
+			guidanceResponseActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(482);
 		}
 		return guidanceResponseActionEClass;
 	}
@@ -27958,7 +29589,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidanceResponseBehavior() {
 		if (guidanceResponseBehaviorEClass == null) {
-			guidanceResponseBehaviorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(396);
+			guidanceResponseBehaviorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(483);
 		}
 		return guidanceResponseBehaviorEClass;
 	}
@@ -27988,7 +29619,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidanceResponseRelatedAction() {
 		if (guidanceResponseRelatedActionEClass == null) {
-			guidanceResponseRelatedActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(397);
+			guidanceResponseRelatedActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(484);
 		}
 		return guidanceResponseRelatedActionEClass;
 	}
@@ -28045,7 +29676,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidanceResponseStatus() {
 		if (guidanceResponseStatusEClass == null) {
-			guidanceResponseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(398);
+			guidanceResponseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(485);
 		}
 		return guidanceResponseStatusEClass;
 	}
@@ -28066,7 +29697,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuideDependencyType() {
 		if (guideDependencyTypeEClass == null) {
-			guideDependencyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(400);
+			guideDependencyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(488);
 		}
 		return guideDependencyTypeEClass;
 	}
@@ -28087,7 +29718,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getGuidePageKind() {
 		if (guidePageKindEClass == null) {
-			guidePageKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(402);
+			guidePageKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(491);
 		}
 		return guidePageKindEClass;
 	}
@@ -28108,7 +29739,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getHealthcareService() {
 		if (healthcareServiceEClass == null) {
-			healthcareServiceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(404);
+			healthcareServiceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(494);
 		}
 		return healthcareServiceEClass;
 	}
@@ -28327,7 +29958,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getHealthcareServiceAvailableTime() {
 		if (healthcareServiceAvailableTimeEClass == null) {
-			healthcareServiceAvailableTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(405);
+			healthcareServiceAvailableTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(495);
 		}
 		return healthcareServiceAvailableTimeEClass;
 	}
@@ -28375,7 +30006,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getHealthcareServiceNotAvailable() {
 		if (healthcareServiceNotAvailableEClass == null) {
-			healthcareServiceNotAvailableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(406);
+			healthcareServiceNotAvailableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(496);
 		}
 		return healthcareServiceNotAvailableEClass;
 	}
@@ -28405,7 +30036,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getHTTPVerb() {
 		if (httpVerbEClass == null) {
-			httpVerbEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(407);
+			httpVerbEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(497);
 		}
 		return httpVerbEClass;
 	}
@@ -28426,7 +30057,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getHumanName() {
 		if (humanNameEClass == null) {
-			humanNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(409);
+			humanNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(500);
 		}
 		return humanNameEClass;
 	}
@@ -28501,7 +30132,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getId() {
 		if (idEClass == null) {
-			idEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(410);
+			idEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(501);
 		}
 		return idEClass;
 	}
@@ -28522,7 +30153,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getIdentifier() {
 		if (identifierEClass == null) {
-			identifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(411);
+			identifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(502);
 		}
 		return identifierEClass;
 	}
@@ -28588,7 +30219,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getIdentifierUse() {
 		if (identifierUseEClass == null) {
-			identifierUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(412);
+			identifierUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(503);
 		}
 		return identifierUseEClass;
 	}
@@ -28609,7 +30240,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getIdentityAssuranceLevel() {
 		if (identityAssuranceLevelEClass == null) {
-			identityAssuranceLevelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(414);
+			identityAssuranceLevelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(506);
 		}
 		return identityAssuranceLevelEClass;
 	}
@@ -28630,7 +30261,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerpt() {
 		if (imagingExcerptEClass == null) {
-			imagingExcerptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(417);
+			imagingExcerptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(510);
 		}
 		return imagingExcerptEClass;
 	}
@@ -28705,7 +30336,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptDicom() {
 		if (imagingExcerptDicomEClass == null) {
-			imagingExcerptDicomEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(418);
+			imagingExcerptDicomEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(511);
 		}
 		return imagingExcerptDicomEClass;
 	}
@@ -28735,7 +30366,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptDicom1() {
 		if (imagingExcerptDicom1EClass == null) {
-			imagingExcerptDicom1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(419);
+			imagingExcerptDicom1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(512);
 		}
 		return imagingExcerptDicom1EClass;
 	}
@@ -28765,7 +30396,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptDicom2() {
 		if (imagingExcerptDicom2EClass == null) {
-			imagingExcerptDicom2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(420);
+			imagingExcerptDicom2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(513);
 		}
 		return imagingExcerptDicom2EClass;
 	}
@@ -28795,7 +30426,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptInstance() {
 		if (imagingExcerptInstanceEClass == null) {
-			imagingExcerptInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(421);
+			imagingExcerptInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(514);
 		}
 		return imagingExcerptInstanceEClass;
 	}
@@ -28843,7 +30474,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptSeries() {
 		if (imagingExcerptSeriesEClass == null) {
-			imagingExcerptSeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(422);
+			imagingExcerptSeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(515);
 		}
 		return imagingExcerptSeriesEClass;
 	}
@@ -28882,7 +30513,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptStudy() {
 		if (imagingExcerptStudyEClass == null) {
-			imagingExcerptStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(423);
+			imagingExcerptStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(516);
 		}
 		return imagingExcerptStudyEClass;
 	}
@@ -28939,7 +30570,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingExcerptViewable() {
 		if (imagingExcerptViewableEClass == null) {
-			imagingExcerptViewableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(424);
+			imagingExcerptViewableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(517);
 		}
 		return imagingExcerptViewableEClass;
 	}
@@ -29023,7 +30654,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingObjectSelection() {
 		if (imagingObjectSelectionEClass == null) {
-			imagingObjectSelectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(425);
+			imagingObjectSelectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(518);
 		}
 		return imagingObjectSelectionEClass;
 	}
@@ -29098,7 +30729,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingObjectSelectionFrame() {
 		if (imagingObjectSelectionFrameEClass == null) {
-			imagingObjectSelectionFrameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(426);
+			imagingObjectSelectionFrameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(519);
 		}
 		return imagingObjectSelectionFrameEClass;
 	}
@@ -29128,7 +30759,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingObjectSelectionInstance() {
 		if (imagingObjectSelectionInstanceEClass == null) {
-			imagingObjectSelectionInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(427);
+			imagingObjectSelectionInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(520);
 		}
 		return imagingObjectSelectionInstanceEClass;
 	}
@@ -29176,7 +30807,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingObjectSelectionSeries() {
 		if (imagingObjectSelectionSeriesEClass == null) {
-			imagingObjectSelectionSeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(428);
+			imagingObjectSelectionSeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(521);
 		}
 		return imagingObjectSelectionSeriesEClass;
 	}
@@ -29215,7 +30846,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingObjectSelectionStudy() {
 		if (imagingObjectSelectionStudyEClass == null) {
-			imagingObjectSelectionStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(429);
+			imagingObjectSelectionStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(522);
 		}
 		return imagingObjectSelectionStudyEClass;
 	}
@@ -29263,7 +30894,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingStudy() {
 		if (imagingStudyEClass == null) {
-			imagingStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(430);
+			imagingStudyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(523);
 		}
 		return imagingStudyEClass;
 	}
@@ -29419,7 +31050,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingStudyInstance() {
 		if (imagingStudyInstanceEClass == null) {
-			imagingStudyInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(431);
+			imagingStudyInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(524);
 		}
 		return imagingStudyInstanceEClass;
 	}
@@ -29485,7 +31116,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImagingStudySeries() {
 		if (imagingStudySeriesEClass == null) {
-			imagingStudySeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(432);
+			imagingStudySeriesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(525);
 		}
 		return imagingStudySeriesEClass;
 	}
@@ -29596,7 +31227,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunization() {
 		if (immunizationEClass == null) {
-			immunizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(433);
+			immunizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(526);
 		}
 		return immunizationEClass;
 	}
@@ -29797,7 +31428,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationExplanation() {
 		if (immunizationExplanationEClass == null) {
-			immunizationExplanationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(434);
+			immunizationExplanationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(527);
 		}
 		return immunizationExplanationEClass;
 	}
@@ -29827,7 +31458,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationReaction() {
 		if (immunizationReactionEClass == null) {
-			immunizationReactionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(435);
+			immunizationReactionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(528);
 		}
 		return immunizationReactionEClass;
 	}
@@ -29866,7 +31497,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationRecommendation() {
 		if (immunizationRecommendationEClass == null) {
-			immunizationRecommendationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(436);
+			immunizationRecommendationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(529);
 		}
 		return immunizationRecommendationEClass;
 	}
@@ -29905,7 +31536,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationRecommendationDateCriterion() {
 		if (immunizationRecommendationDateCriterionEClass == null) {
-			immunizationRecommendationDateCriterionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(437);
+			immunizationRecommendationDateCriterionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(530);
 		}
 		return immunizationRecommendationDateCriterionEClass;
 	}
@@ -29935,7 +31566,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationRecommendationProtocol() {
 		if (immunizationRecommendationProtocolEClass == null) {
-			immunizationRecommendationProtocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(438);
+			immunizationRecommendationProtocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(531);
 		}
 		return immunizationRecommendationProtocolEClass;
 	}
@@ -29983,7 +31614,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationRecommendationRecommendation() {
 		if (immunizationRecommendationRecommendationEClass == null) {
-			immunizationRecommendationRecommendationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(439);
+			immunizationRecommendationRecommendationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(532);
 		}
 		return immunizationRecommendationRecommendationEClass;
 	}
@@ -30067,7 +31698,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImmunizationVaccinationProtocol() {
 		if (immunizationVaccinationProtocolEClass == null) {
-			immunizationVaccinationProtocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(440);
+			immunizationVaccinationProtocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(533);
 		}
 		return immunizationVaccinationProtocolEClass;
 	}
@@ -30151,7 +31782,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuide() {
 		if (implementationGuideEClass == null) {
-			implementationGuideEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(441);
+			implementationGuideEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(534);
 		}
 		return implementationGuideEClass;
 	}
@@ -30316,7 +31947,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuideContact() {
 		if (implementationGuideContactEClass == null) {
-			implementationGuideContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(442);
+			implementationGuideContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(535);
 		}
 		return implementationGuideContactEClass;
 	}
@@ -30346,7 +31977,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuideDependency() {
 		if (implementationGuideDependencyEClass == null) {
-			implementationGuideDependencyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(443);
+			implementationGuideDependencyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(536);
 		}
 		return implementationGuideDependencyEClass;
 	}
@@ -30376,7 +32007,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuideGlobal() {
 		if (implementationGuideGlobalEClass == null) {
-			implementationGuideGlobalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(444);
+			implementationGuideGlobalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(537);
 		}
 		return implementationGuideGlobalEClass;
 	}
@@ -30406,7 +32037,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuidePackage() {
 		if (implementationGuidePackageEClass == null) {
-			implementationGuidePackageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(445);
+			implementationGuidePackageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(538);
 		}
 		return implementationGuidePackageEClass;
 	}
@@ -30445,7 +32076,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuidePage() {
 		if (implementationGuidePageEClass == null) {
-			implementationGuidePageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(446);
+			implementationGuidePageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(539);
 		}
 		return implementationGuidePageEClass;
 	}
@@ -30520,7 +32151,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getImplementationGuideResource() {
 		if (implementationGuideResourceEClass == null) {
-			implementationGuideResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(447);
+			implementationGuideResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(540);
 		}
 		return implementationGuideResourceEClass;
 	}
@@ -30595,7 +32226,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getInstanceAvailability() {
 		if (instanceAvailabilityEClass == null) {
-			instanceAvailabilityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(448);
+			instanceAvailabilityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(541);
 		}
 		return instanceAvailabilityEClass;
 	}
@@ -30616,7 +32247,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getInstant() {
 		if (instantEClass == null) {
-			instantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(451);
+			instantEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(544);
 		}
 		return instantEClass;
 	}
@@ -30637,7 +32268,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getInteger() {
 		if (integerEClass == null) {
-			integerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(453);
+			integerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(546);
 		}
 		return integerEClass;
 	}
@@ -30658,7 +32289,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getIssueSeverity() {
 		if (issueSeverityEClass == null) {
-			issueSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(456);
+			issueSeverityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(549);
 		}
 		return issueSeverityEClass;
 	}
@@ -30679,7 +32310,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getIssueType() {
 		if (issueTypeEClass == null) {
-			issueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(458);
+			issueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(552);
 		}
 		return issueTypeEClass;
 	}
@@ -30700,7 +32331,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLibrary() {
 		if (libraryEClass == null) {
-			libraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(460);
+			libraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(555);
 		}
 		return libraryEClass;
 	}
@@ -30784,7 +32415,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLibraryCodeSystem() {
 		if (libraryCodeSystemEClass == null) {
-			libraryCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(461);
+			libraryCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(556);
 		}
 		return libraryCodeSystemEClass;
 	}
@@ -30823,7 +32454,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLibraryLibrary() {
 		if (libraryLibraryEClass == null) {
-			libraryLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(462);
+			libraryLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(557);
 		}
 		return libraryLibraryEClass;
 	}
@@ -30880,7 +32511,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLibraryModel() {
 		if (libraryModelEClass == null) {
-			libraryModelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(463);
+			libraryModelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(558);
 		}
 		return libraryModelEClass;
 	}
@@ -30919,7 +32550,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLibraryValueSet() {
 		if (libraryValueSetEClass == null) {
-			libraryValueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(464);
+			libraryValueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(559);
 		}
 		return libraryValueSetEClass;
 	}
@@ -30967,7 +32598,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLinkage() {
 		if (linkageEClass == null) {
-			linkageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(465);
+			linkageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(560);
 		}
 		return linkageEClass;
 	}
@@ -30997,7 +32628,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLinkageItem() {
 		if (linkageItemEClass == null) {
-			linkageItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(466);
+			linkageItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(561);
 		}
 		return linkageItemEClass;
 	}
@@ -31027,7 +32658,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLinkageType() {
 		if (linkageTypeEClass == null) {
-			linkageTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(467);
+			linkageTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(562);
 		}
 		return linkageTypeEClass;
 	}
@@ -31048,7 +32679,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLinkType() {
 		if (linkTypeEClass == null) {
-			linkTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(469);
+			linkTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(565);
 		}
 		return linkTypeEClass;
 	}
@@ -31069,7 +32700,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getList() {
 		if (listEClass == null) {
-			listEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(471);
+			listEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(568);
 		}
 		return listEClass;
 	}
@@ -31198,7 +32829,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getListEntry() {
 		if (listEntryEClass == null) {
-			listEntryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(472);
+			listEntryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(569);
 		}
 		return listEntryEClass;
 	}
@@ -31246,7 +32877,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getListMode() {
 		if (listModeEClass == null) {
-			listModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(473);
+			listModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(570);
 		}
 		return listModeEClass;
 	}
@@ -31267,7 +32898,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getListStatus() {
 		if (listStatusEClass == null) {
-			listStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(475);
+			listStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(573);
 		}
 		return listStatusEClass;
 	}
@@ -31288,7 +32919,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLocation() {
 		if (locationEClass == null) {
-			locationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(477);
+			locationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(576);
 		}
 		return locationEClass;
 	}
@@ -31408,7 +33039,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLocationMode() {
 		if (locationModeEClass == null) {
-			locationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(478);
+			locationModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(577);
 		}
 		return locationModeEClass;
 	}
@@ -31429,7 +33060,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLocationPosition() {
 		if (locationPositionEClass == null) {
-			locationPositionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(480);
+			locationPositionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(580);
 		}
 		return locationPositionEClass;
 	}
@@ -31468,7 +33099,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getLocationStatus() {
 		if (locationStatusEClass == null) {
-			locationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(481);
+			locationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(581);
 		}
 		return locationStatusEClass;
 	}
@@ -31489,7 +33120,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMarkdown() {
 		if (markdownEClass == null) {
-			markdownEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(483);
+			markdownEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(584);
 		}
 		return markdownEClass;
 	}
@@ -31510,7 +33141,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasmntPrinciple() {
 		if (measmntPrincipleEClass == null) {
-			measmntPrincipleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(485);
+			measmntPrincipleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(586);
 		}
 		return measmntPrincipleEClass;
 	}
@@ -31531,7 +33162,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasure() {
 		if (measureEClass == null) {
-			measureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(487);
+			measureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(589);
 		}
 		return measureEClass;
 	}
@@ -31678,7 +33309,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureDataUsage() {
 		if (measureDataUsageEClass == null) {
-			measureDataUsageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(488);
+			measureDataUsageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(590);
 		}
 		return measureDataUsageEClass;
 	}
@@ -31699,7 +33330,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureGroup() {
 		if (measureGroupEClass == null) {
-			measureGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(490);
+			measureGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(593);
 		}
 		return measureGroupEClass;
 	}
@@ -31756,7 +33387,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasurePopulation() {
 		if (measurePopulationEClass == null) {
-			measurePopulationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(491);
+			measurePopulationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(594);
 		}
 		return measurePopulationEClass;
 	}
@@ -31813,7 +33444,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasurePopulationType() {
 		if (measurePopulationTypeEClass == null) {
-			measurePopulationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(492);
+			measurePopulationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(595);
 		}
 		return measurePopulationTypeEClass;
 	}
@@ -31834,7 +33465,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReport() {
 		if (measureReportEClass == null) {
-			measureReportEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(494);
+			measureReportEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(598);
 		}
 		return measureReportEClass;
 	}
@@ -31927,7 +33558,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportGroup() {
 		if (measureReportGroupEClass == null) {
-			measureReportGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(495);
+			measureReportGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(599);
 		}
 		return measureReportGroupEClass;
 	}
@@ -31984,7 +33615,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportGroup1() {
 		if (measureReportGroup1EClass == null) {
-			measureReportGroup1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(496);
+			measureReportGroup1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(600);
 		}
 		return measureReportGroup1EClass;
 	}
@@ -32023,7 +33654,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportGroup2() {
 		if (measureReportGroup2EClass == null) {
-			measureReportGroup2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(497);
+			measureReportGroup2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(601);
 		}
 		return measureReportGroup2EClass;
 	}
@@ -32062,7 +33693,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportPopulation() {
 		if (measureReportPopulationEClass == null) {
-			measureReportPopulationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(498);
+			measureReportPopulationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(602);
 		}
 		return measureReportPopulationEClass;
 	}
@@ -32101,7 +33732,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportPopulation1() {
 		if (measureReportPopulation1EClass == null) {
-			measureReportPopulation1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(499);
+			measureReportPopulation1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(603);
 		}
 		return measureReportPopulation1EClass;
 	}
@@ -32140,7 +33771,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportStatus() {
 		if (measureReportStatusEClass == null) {
-			measureReportStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(500);
+			measureReportStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(604);
 		}
 		return measureReportStatusEClass;
 	}
@@ -32161,7 +33792,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportStratifier() {
 		if (measureReportStratifierEClass == null) {
-			measureReportStratifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(502);
+			measureReportStratifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(607);
 		}
 		return measureReportStratifierEClass;
 	}
@@ -32191,7 +33822,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportSupplementalData() {
 		if (measureReportSupplementalDataEClass == null) {
-			measureReportSupplementalDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(503);
+			measureReportSupplementalDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(608);
 		}
 		return measureReportSupplementalDataEClass;
 	}
@@ -32221,7 +33852,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureReportType() {
 		if (measureReportTypeEClass == null) {
-			measureReportTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(504);
+			measureReportTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(609);
 		}
 		return measureReportTypeEClass;
 	}
@@ -32242,7 +33873,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureScoring() {
 		if (measureScoringEClass == null) {
-			measureScoringEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(506);
+			measureScoringEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(612);
 		}
 		return measureScoringEClass;
 	}
@@ -32263,7 +33894,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureStratifier() {
 		if (measureStratifierEClass == null) {
-			measureStratifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(508);
+			measureStratifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(615);
 		}
 		return measureStratifierEClass;
 	}
@@ -32302,7 +33933,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureSupplementalData() {
 		if (measureSupplementalDataEClass == null) {
-			measureSupplementalDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(509);
+			measureSupplementalDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(616);
 		}
 		return measureSupplementalDataEClass;
 	}
@@ -32350,7 +33981,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeasureType() {
 		if (measureTypeEClass == null) {
-			measureTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(510);
+			measureTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(617);
 		}
 		return measureTypeEClass;
 	}
@@ -32371,7 +34002,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedia() {
 		if (mediaEClass == null) {
-			mediaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(512);
+			mediaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(620);
 		}
 		return mediaEClass;
 	}
@@ -32491,7 +34122,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedication() {
 		if (medicationEClass == null) {
-			medicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(513);
+			medicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(621);
 		}
 		return medicationEClass;
 	}
@@ -32548,7 +34179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationAdministration() {
 		if (medicationAdministrationEClass == null) {
-			medicationAdministrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(514);
+			medicationAdministrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(622);
 		}
 		return medicationAdministrationEClass;
 	}
@@ -32630,7 +34261,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationAdministration_Practitioner() {
+	public EReference getMedicationAdministration_Performer() {
         return (EReference)getMedicationAdministration().getEStructuralFeatures().get(8);
 	}
 
@@ -32702,9 +34333,18 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMedicationAdministration_EventHistory() {
+        return (EReference)getMedicationAdministration().getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMedicationAdministrationDosage() {
 		if (medicationAdministrationDosageEClass == null) {
-			medicationAdministrationDosageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(515);
+			medicationAdministrationDosageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(623);
 		}
 		return medicationAdministrationDosageEClass;
 	}
@@ -32759,7 +34399,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationAdministrationDosage_Quantity() {
+	public EReference getMedicationAdministrationDosage_Dose() {
         return (EReference)getMedicationAdministrationDosage().getEStructuralFeatures().get(5);
 	}
 
@@ -32777,8 +34417,65 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationAdministrationDosage_RateRange() {
+	public EReference getMedicationAdministrationDosage_RateQuantity() {
         return (EReference)getMedicationAdministrationDosage().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMedicationAdministrationEventHistory() {
+		if (medicationAdministrationEventHistoryEClass == null) {
+			medicationAdministrationEventHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(624);
+		}
+		return medicationAdministrationEventHistoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationAdministrationEventHistory_Status() {
+        return (EReference)getMedicationAdministrationEventHistory().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationAdministrationEventHistory_Action() {
+        return (EReference)getMedicationAdministrationEventHistory().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationAdministrationEventHistory_DateTime() {
+        return (EReference)getMedicationAdministrationEventHistory().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationAdministrationEventHistory_Actor() {
+        return (EReference)getMedicationAdministrationEventHistory().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationAdministrationEventHistory_Reason() {
+        return (EReference)getMedicationAdministrationEventHistory().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -32788,7 +34485,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationAdministrationStatus() {
 		if (medicationAdministrationStatusEClass == null) {
-			medicationAdministrationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(516);
+			medicationAdministrationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(625);
 		}
 		return medicationAdministrationStatusEClass;
 	}
@@ -32809,7 +34506,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationBatch() {
 		if (medicationBatchEClass == null) {
-			medicationBatchEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(518);
+			medicationBatchEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(628);
 		}
 		return medicationBatchEClass;
 	}
@@ -32839,7 +34536,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationContent() {
 		if (medicationContentEClass == null) {
-			medicationContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(519);
+			medicationContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(629);
 		}
 		return medicationContentEClass;
 	}
@@ -32878,7 +34575,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationDispense() {
 		if (medicationDispenseEClass == null) {
-			medicationDispenseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(520);
+			medicationDispenseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(630);
 		}
 		return medicationDispenseEClass;
 	}
@@ -33041,9 +34738,18 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMedicationDispense_EventHistory() {
+        return (EReference)getMedicationDispense().getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMedicationDispenseDosageInstruction() {
 		if (medicationDispenseDosageInstructionEClass == null) {
-			medicationDispenseDosageInstructionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(521);
+			medicationDispenseDosageInstructionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(631);
 		}
 		return medicationDispenseDosageInstructionEClass;
 	}
@@ -33170,8 +34876,74 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationDispenseDosageInstruction_MaxDosePerPeriod() {
+	public EReference getMedicationDispenseDosageInstruction_RateQuantity() {
         return (EReference)getMedicationDispenseDosageInstruction().getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseDosageInstruction_MaxDosePerPeriod() {
+        return (EReference)getMedicationDispenseDosageInstruction().getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMedicationDispenseEventHistory() {
+		if (medicationDispenseEventHistoryEClass == null) {
+			medicationDispenseEventHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(632);
+		}
+		return medicationDispenseEventHistoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseEventHistory_Status() {
+        return (EReference)getMedicationDispenseEventHistory().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseEventHistory_Action() {
+        return (EReference)getMedicationDispenseEventHistory().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseEventHistory_DateTime() {
+        return (EReference)getMedicationDispenseEventHistory().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseEventHistory_Actor() {
+        return (EReference)getMedicationDispenseEventHistory().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationDispenseEventHistory_Reason() {
+        return (EReference)getMedicationDispenseEventHistory().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -33181,7 +34953,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationDispenseStatus() {
 		if (medicationDispenseStatusEClass == null) {
-			medicationDispenseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(522);
+			medicationDispenseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(633);
 		}
 		return medicationDispenseStatusEClass;
 	}
@@ -33202,7 +34974,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationDispenseSubstitution() {
 		if (medicationDispenseSubstitutionEClass == null) {
-			medicationDispenseSubstitutionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(524);
+			medicationDispenseSubstitutionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(636);
 		}
 		return medicationDispenseSubstitutionEClass;
 	}
@@ -33241,7 +35013,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationIngredient() {
 		if (medicationIngredientEClass == null) {
-			medicationIngredientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(525);
+			medicationIngredientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(637);
 		}
 		return medicationIngredientEClass;
 	}
@@ -33280,7 +35052,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationOrder() {
 		if (medicationOrderEClass == null) {
-			medicationOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(526);
+			medicationOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(638);
 		}
 		return medicationOrderEClass;
 	}
@@ -33380,7 +35152,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_DateEnded() {
+	public EReference getMedicationOrder_Note() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(10);
 	}
 
@@ -33389,7 +35161,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_ReasonEnded() {
+	public EReference getMedicationOrder_DosageInstruction() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(11);
 	}
 
@@ -33398,7 +35170,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_Note() {
+	public EReference getMedicationOrder_DispenseRequest() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(12);
 	}
 
@@ -33407,7 +35179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_DosageInstruction() {
+	public EReference getMedicationOrder_Substitution() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(13);
 	}
 
@@ -33416,7 +35188,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_DispenseRequest() {
+	public EReference getMedicationOrder_PriorPrescription() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(14);
 	}
 
@@ -33425,17 +35197,8 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrder_Substitution() {
+	public EReference getMedicationOrder_EventHistory() {
         return (EReference)getMedicationOrder().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMedicationOrder_PriorPrescription() {
-        return (EReference)getMedicationOrder().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -33445,7 +35208,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationOrderDispenseRequest() {
 		if (medicationOrderDispenseRequestEClass == null) {
-			medicationOrderDispenseRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(527);
+			medicationOrderDispenseRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(639);
 		}
 		return medicationOrderDispenseRequestEClass;
 	}
@@ -33455,7 +35218,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDispenseRequest_MedicationCodeableConcept() {
+	public EReference getMedicationOrderDispenseRequest_ValidityPeriod() {
         return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(0);
 	}
 
@@ -33464,7 +35227,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDispenseRequest_MedicationReference() {
+	public EReference getMedicationOrderDispenseRequest_NumberOfRepeatsAllowed() {
         return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(1);
 	}
 
@@ -33473,7 +35236,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDispenseRequest_ValidityPeriod() {
+	public EReference getMedicationOrderDispenseRequest_Quantity() {
         return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(2);
 	}
 
@@ -33482,26 +35245,8 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDispenseRequest_NumberOfRepeatsAllowed() {
-        return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMedicationOrderDispenseRequest_Quantity() {
-        return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMedicationOrderDispenseRequest_ExpectedSupplyDuration() {
-        return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(5);
+        return (EReference)getMedicationOrderDispenseRequest().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -33511,7 +35256,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationOrderDosageInstruction() {
 		if (medicationOrderDosageInstructionEClass == null) {
-			medicationOrderDosageInstructionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(528);
+			medicationOrderDosageInstructionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(640);
 		}
 		return medicationOrderDosageInstructionEClass;
 	}
@@ -33638,7 +35383,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDosageInstruction_RateRatio() {
+	public EReference getMedicationOrderDosageInstruction_MaxDosePerLifetime() {
         return (EReference)getMedicationOrderDosageInstruction().getEStructuralFeatures().get(13);
 	}
 
@@ -33647,7 +35392,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDosageInstruction_RateRange() {
+	public EReference getMedicationOrderDosageInstruction_RateRatio() {
         return (EReference)getMedicationOrderDosageInstruction().getEStructuralFeatures().get(14);
 	}
 
@@ -33656,8 +35401,74 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderDosageInstruction_RateQuantity() {
+	public EReference getMedicationOrderDosageInstruction_RateRange() {
         return (EReference)getMedicationOrderDosageInstruction().getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderDosageInstruction_RateQuantity() {
+        return (EReference)getMedicationOrderDosageInstruction().getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMedicationOrderEventHistory() {
+		if (medicationOrderEventHistoryEClass == null) {
+			medicationOrderEventHistoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(641);
+		}
+		return medicationOrderEventHistoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderEventHistory_Status() {
+        return (EReference)getMedicationOrderEventHistory().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderEventHistory_Action() {
+        return (EReference)getMedicationOrderEventHistory().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderEventHistory_DateTime() {
+        return (EReference)getMedicationOrderEventHistory().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderEventHistory_Actor() {
+        return (EReference)getMedicationOrderEventHistory().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationOrderEventHistory_Reason() {
+        return (EReference)getMedicationOrderEventHistory().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -33667,7 +35478,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationOrderStatus() {
 		if (medicationOrderStatusEClass == null) {
-			medicationOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(529);
+			medicationOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(642);
 		}
 		return medicationOrderStatusEClass;
 	}
@@ -33688,7 +35499,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationOrderSubstitution() {
 		if (medicationOrderSubstitutionEClass == null) {
-			medicationOrderSubstitutionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(531);
+			medicationOrderSubstitutionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(645);
 		}
 		return medicationOrderSubstitutionEClass;
 	}
@@ -33698,7 +35509,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationOrderSubstitution_Type() {
+	public EReference getMedicationOrderSubstitution_Allowed() {
         return (EReference)getMedicationOrderSubstitution().getEStructuralFeatures().get(0);
 	}
 
@@ -33718,7 +35529,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationPackage() {
 		if (medicationPackageEClass == null) {
-			medicationPackageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(532);
+			medicationPackageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(646);
 		}
 		return medicationPackageEClass;
 	}
@@ -33748,7 +35559,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationProduct() {
 		if (medicationProductEClass == null) {
-			medicationProductEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(533);
+			medicationProductEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(647);
 		}
 		return medicationProductEClass;
 	}
@@ -33787,7 +35598,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationStatement() {
 		if (medicationStatementEClass == null) {
-			medicationStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(534);
+			medicationStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(648);
 		}
 		return medicationStatementEClass;
 	}
@@ -33943,7 +35754,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationStatementDosage() {
 		if (medicationStatementDosageEClass == null) {
-			medicationStatementDosageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(535);
+			medicationStatementDosageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(649);
 		}
 		return medicationStatementDosageEClass;
 	}
@@ -33962,7 +35773,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_Timing() {
+	public EReference getMedicationStatementDosage_AdditionalInstructions() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(1);
 	}
 
@@ -33971,7 +35782,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_AsNeededBoolean() {
+	public EReference getMedicationStatementDosage_Timing() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(2);
 	}
 
@@ -33980,7 +35791,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_AsNeededCodeableConcept() {
+	public EReference getMedicationStatementDosage_AsNeededBoolean() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(3);
 	}
 
@@ -33989,7 +35800,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_SiteCodeableConcept() {
+	public EReference getMedicationStatementDosage_AsNeededCodeableConcept() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(4);
 	}
 
@@ -33998,7 +35809,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_SiteReference() {
+	public EReference getMedicationStatementDosage_SiteCodeableConcept() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(5);
 	}
 
@@ -34007,7 +35818,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_Route() {
+	public EReference getMedicationStatementDosage_SiteReference() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(6);
 	}
 
@@ -34016,7 +35827,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_Method() {
+	public EReference getMedicationStatementDosage_Route() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(7);
 	}
 
@@ -34025,7 +35836,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_QuantityQuantity() {
+	public EReference getMedicationStatementDosage_Method() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(8);
 	}
 
@@ -34034,7 +35845,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_QuantityRange() {
+	public EReference getMedicationStatementDosage_DoseQuantity() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(9);
 	}
 
@@ -34043,7 +35854,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_RateRatio() {
+	public EReference getMedicationStatementDosage_DoseRange() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(10);
 	}
 
@@ -34052,7 +35863,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_RateRange() {
+	public EReference getMedicationStatementDosage_RateRatio() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(11);
 	}
 
@@ -34061,8 +35872,26 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMedicationStatementDosage_MaxDosePerPeriod() {
+	public EReference getMedicationStatementDosage_RateRange() {
         return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationStatementDosage_RateQuantity() {
+        return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMedicationStatementDosage_MaxDosePerPeriod() {
+        return (EReference)getMedicationStatementDosage().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -34072,7 +35901,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMedicationStatementStatus() {
 		if (medicationStatementStatusEClass == null) {
-			medicationStatementStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(536);
+			medicationStatementStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(650);
 		}
 		return medicationStatementStatusEClass;
 	}
@@ -34093,7 +35922,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMessageHeader() {
 		if (messageHeaderEClass == null) {
-			messageHeaderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(538);
+			messageHeaderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(653);
 		}
 		return messageHeaderEClass;
 	}
@@ -34204,7 +36033,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMessageHeaderDestination() {
 		if (messageHeaderDestinationEClass == null) {
-			messageHeaderDestinationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(539);
+			messageHeaderDestinationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(654);
 		}
 		return messageHeaderDestinationEClass;
 	}
@@ -34243,7 +36072,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMessageHeaderResponse() {
 		if (messageHeaderResponseEClass == null) {
-			messageHeaderResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(540);
+			messageHeaderResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(655);
 		}
 		return messageHeaderResponseEClass;
 	}
@@ -34282,7 +36111,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMessageHeaderSource() {
 		if (messageHeaderSourceEClass == null) {
-			messageHeaderSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(541);
+			messageHeaderSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(656);
 		}
 		return messageHeaderSourceEClass;
 	}
@@ -34339,7 +36168,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMessageSignificanceCategory() {
 		if (messageSignificanceCategoryEClass == null) {
-			messageSignificanceCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(542);
+			messageSignificanceCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(657);
 		}
 		return messageSignificanceCategoryEClass;
 	}
@@ -34360,7 +36189,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMeta() {
 		if (metaEClass == null) {
-			metaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(544);
+			metaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(660);
 		}
 		return metaEClass;
 	}
@@ -34417,7 +36246,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinition() {
 		if (moduleDefinitionEClass == null) {
-			moduleDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(545);
+			moduleDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(661);
 		}
 		return moduleDefinitionEClass;
 	}
@@ -34501,7 +36330,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionCodeFilter() {
 		if (moduleDefinitionCodeFilterEClass == null) {
-			moduleDefinitionCodeFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(546);
+			moduleDefinitionCodeFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(662);
 		}
 		return moduleDefinitionCodeFilterEClass;
 	}
@@ -34549,7 +36378,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionCodeSystem() {
 		if (moduleDefinitionCodeSystemEClass == null) {
-			moduleDefinitionCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(547);
+			moduleDefinitionCodeSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(663);
 		}
 		return moduleDefinitionCodeSystemEClass;
 	}
@@ -34588,7 +36417,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionData() {
 		if (moduleDefinitionDataEClass == null) {
-			moduleDefinitionDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(548);
+			moduleDefinitionDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(664);
 		}
 		return moduleDefinitionDataEClass;
 	}
@@ -34645,7 +36474,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionDateFilter() {
 		if (moduleDefinitionDateFilterEClass == null) {
-			moduleDefinitionDateFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(549);
+			moduleDefinitionDateFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(665);
 		}
 		return moduleDefinitionDateFilterEClass;
 	}
@@ -34684,7 +36513,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionLibrary() {
 		if (moduleDefinitionLibraryEClass == null) {
-			moduleDefinitionLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(550);
+			moduleDefinitionLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(666);
 		}
 		return moduleDefinitionLibraryEClass;
 	}
@@ -34741,7 +36570,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionModel() {
 		if (moduleDefinitionModelEClass == null) {
-			moduleDefinitionModelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(551);
+			moduleDefinitionModelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(667);
 		}
 		return moduleDefinitionModelEClass;
 	}
@@ -34780,7 +36609,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionParameter() {
 		if (moduleDefinitionParameterEClass == null) {
-			moduleDefinitionParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(552);
+			moduleDefinitionParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(668);
 		}
 		return moduleDefinitionParameterEClass;
 	}
@@ -34837,7 +36666,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleDefinitionValueSet() {
 		if (moduleDefinitionValueSetEClass == null) {
-			moduleDefinitionValueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(553);
+			moduleDefinitionValueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(669);
 		}
 		return moduleDefinitionValueSetEClass;
 	}
@@ -34885,7 +36714,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadata() {
 		if (moduleMetadataEClass == null) {
-			moduleMetadataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(554);
+			moduleMetadataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(670);
 		}
 		return moduleMetadataEClass;
 	}
@@ -35086,7 +36915,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataContact() {
 		if (moduleMetadataContactEClass == null) {
-			moduleMetadataContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(555);
+			moduleMetadataContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(671);
 		}
 		return moduleMetadataContactEClass;
 	}
@@ -35116,7 +36945,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataContact1() {
 		if (moduleMetadataContact1EClass == null) {
-			moduleMetadataContact1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(556);
+			moduleMetadataContact1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(672);
 		}
 		return moduleMetadataContact1EClass;
 	}
@@ -35146,7 +36975,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataContributor() {
 		if (moduleMetadataContributorEClass == null) {
-			moduleMetadataContributorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(557);
+			moduleMetadataContributorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(673);
 		}
 		return moduleMetadataContributorEClass;
 	}
@@ -35185,7 +37014,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataContributorType() {
 		if (moduleMetadataContributorTypeEClass == null) {
-			moduleMetadataContributorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(558);
+			moduleMetadataContributorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(674);
 		}
 		return moduleMetadataContributorTypeEClass;
 	}
@@ -35206,7 +37035,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataCoverage() {
 		if (moduleMetadataCoverageEClass == null) {
-			moduleMetadataCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(560);
+			moduleMetadataCoverageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(677);
 		}
 		return moduleMetadataCoverageEClass;
 	}
@@ -35236,7 +37065,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataRelatedResource() {
 		if (moduleMetadataRelatedResourceEClass == null) {
-			moduleMetadataRelatedResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(561);
+			moduleMetadataRelatedResourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(678);
 		}
 		return moduleMetadataRelatedResourceEClass;
 	}
@@ -35275,7 +37104,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataResourceType() {
 		if (moduleMetadataResourceTypeEClass == null) {
-			moduleMetadataResourceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(562);
+			moduleMetadataResourceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(679);
 		}
 		return moduleMetadataResourceTypeEClass;
 	}
@@ -35296,7 +37125,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataStatus() {
 		if (moduleMetadataStatusEClass == null) {
-			moduleMetadataStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(564);
+			moduleMetadataStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(682);
 		}
 		return moduleMetadataStatusEClass;
 	}
@@ -35317,7 +37146,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getModuleMetadataType() {
 		if (moduleMetadataTypeEClass == null) {
-			moduleMetadataTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(566);
+			moduleMetadataTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(685);
 		}
 		return moduleMetadataTypeEClass;
 	}
@@ -35338,7 +37167,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getMoney() {
 		if (moneyEClass == null) {
-			moneyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(568);
+			moneyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(688);
 		}
 		return moneyEClass;
 	}
@@ -35350,7 +37179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNameUse() {
 		if (nameUseEClass == null) {
-			nameUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(569);
+			nameUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(689);
 		}
 		return nameUseEClass;
 	}
@@ -35371,7 +37200,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNamingSystem() {
 		if (namingSystemEClass == null) {
-			namingSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(571);
+			namingSystemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(692);
 		}
 		return namingSystemEClass;
 	}
@@ -35500,7 +37329,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNamingSystemContact() {
 		if (namingSystemContactEClass == null) {
-			namingSystemContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(572);
+			namingSystemContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(693);
 		}
 		return namingSystemContactEClass;
 	}
@@ -35530,7 +37359,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNamingSystemIdentifierType() {
 		if (namingSystemIdentifierTypeEClass == null) {
-			namingSystemIdentifierTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(573);
+			namingSystemIdentifierTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(694);
 		}
 		return namingSystemIdentifierTypeEClass;
 	}
@@ -35551,7 +37380,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNamingSystemType() {
 		if (namingSystemTypeEClass == null) {
-			namingSystemTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(575);
+			namingSystemTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(697);
 		}
 		return namingSystemTypeEClass;
 	}
@@ -35572,7 +37401,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNamingSystemUniqueId() {
 		if (namingSystemUniqueIdEClass == null) {
-			namingSystemUniqueIdEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(577);
+			namingSystemUniqueIdEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(700);
 		}
 		return namingSystemUniqueIdEClass;
 	}
@@ -35620,7 +37449,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNarrative() {
 		if (narrativeEClass == null) {
-			narrativeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(578);
+			narrativeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(701);
 		}
 		return narrativeEClass;
 	}
@@ -35650,7 +37479,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNarrativeStatus() {
 		if (narrativeStatusEClass == null) {
-			narrativeStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(579);
+			narrativeStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(702);
 		}
 		return narrativeStatusEClass;
 	}
@@ -35671,7 +37500,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNoteType() {
 		if (noteTypeEClass == null) {
-			noteTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(581);
+			noteTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(705);
 		}
 		return noteTypeEClass;
 	}
@@ -35692,7 +37521,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrder() {
 		if (nutritionOrderEClass == null) {
-			nutritionOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(583);
+			nutritionOrderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(708);
 		}
 		return nutritionOrderEClass;
 	}
@@ -35812,7 +37641,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderAdministration() {
 		if (nutritionOrderAdministrationEClass == null) {
-			nutritionOrderAdministrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(584);
+			nutritionOrderAdministrationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(709);
 		}
 		return nutritionOrderAdministrationEClass;
 	}
@@ -35860,7 +37689,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderEnteralFormula() {
 		if (nutritionOrderEnteralFormulaEClass == null) {
-			nutritionOrderEnteralFormulaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(585);
+			nutritionOrderEnteralFormulaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(710);
 		}
 		return nutritionOrderEnteralFormulaEClass;
 	}
@@ -35953,7 +37782,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderNutrient() {
 		if (nutritionOrderNutrientEClass == null) {
-			nutritionOrderNutrientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(586);
+			nutritionOrderNutrientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(711);
 		}
 		return nutritionOrderNutrientEClass;
 	}
@@ -35983,7 +37812,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderOralDiet() {
 		if (nutritionOrderOralDietEClass == null) {
-			nutritionOrderOralDietEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(587);
+			nutritionOrderOralDietEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(712);
 		}
 		return nutritionOrderOralDietEClass;
 	}
@@ -36049,7 +37878,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderStatus() {
 		if (nutritionOrderStatusEClass == null) {
-			nutritionOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(588);
+			nutritionOrderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(713);
 		}
 		return nutritionOrderStatusEClass;
 	}
@@ -36070,7 +37899,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderSupplement() {
 		if (nutritionOrderSupplementEClass == null) {
-			nutritionOrderSupplementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(590);
+			nutritionOrderSupplementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(716);
 		}
 		return nutritionOrderSupplementEClass;
 	}
@@ -36127,7 +37956,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getNutritionOrderTexture() {
 		if (nutritionOrderTextureEClass == null) {
-			nutritionOrderTextureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(591);
+			nutritionOrderTextureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(717);
 		}
 		return nutritionOrderTextureEClass;
 	}
@@ -36157,7 +37986,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservation() {
 		if (observationEClass == null) {
-			observationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(592);
+			observationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(718);
 		}
 		return observationEClass;
 	}
@@ -36439,7 +38268,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservationComponent() {
 		if (observationComponentEClass == null) {
-			observationComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(593);
+			observationComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(719);
 		}
 		return observationComponentEClass;
 	}
@@ -36557,8 +38386,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObservationComponent_ReferenceRange() {
+	public EReference getObservationComponent_Interpretation() {
         return (EReference)getObservationComponent().getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getObservationComponent_ReferenceRange() {
+        return (EReference)getObservationComponent().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -36568,7 +38406,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservationReferenceRange() {
 		if (observationReferenceRangeEClass == null) {
-			observationReferenceRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(594);
+			observationReferenceRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(720);
 		}
 		return observationReferenceRangeEClass;
 	}
@@ -36625,7 +38463,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservationRelated() {
 		if (observationRelatedEClass == null) {
-			observationRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(595);
+			observationRelatedEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(721);
 		}
 		return observationRelatedEClass;
 	}
@@ -36655,7 +38493,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservationRelationshipType() {
 		if (observationRelationshipTypeEClass == null) {
-			observationRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(596);
+			observationRelationshipTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(722);
 		}
 		return observationRelationshipTypeEClass;
 	}
@@ -36676,7 +38514,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getObservationStatus() {
 		if (observationStatusEClass == null) {
-			observationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(598);
+			observationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(725);
 		}
 		return observationStatusEClass;
 	}
@@ -36697,7 +38535,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOid() {
 		if (oidEClass == null) {
-			oidEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(600);
+			oidEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(728);
 		}
 		return oidEClass;
 	}
@@ -36718,7 +38556,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationDefinition() {
 		if (operationDefinitionEClass == null) {
-			operationDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(602);
+			operationDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(730);
 		}
 		return operationDefinitionEClass;
 	}
@@ -36910,7 +38748,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationDefinitionBinding() {
 		if (operationDefinitionBindingEClass == null) {
-			operationDefinitionBindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(603);
+			operationDefinitionBindingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(731);
 		}
 		return operationDefinitionBindingEClass;
 	}
@@ -36949,7 +38787,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationDefinitionContact() {
 		if (operationDefinitionContactEClass == null) {
-			operationDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(604);
+			operationDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(732);
 		}
 		return operationDefinitionContactEClass;
 	}
@@ -36979,7 +38817,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationDefinitionParameter() {
 		if (operationDefinitionParameterEClass == null) {
-			operationDefinitionParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(605);
+			operationDefinitionParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(733);
 		}
 		return operationDefinitionParameterEClass;
 	}
@@ -37081,7 +38919,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationKind() {
 		if (operationKindEClass == null) {
-			operationKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(606);
+			operationKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(734);
 		}
 		return operationKindEClass;
 	}
@@ -37102,7 +38940,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationOutcome() {
 		if (operationOutcomeEClass == null) {
-			operationOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(608);
+			operationOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(737);
 		}
 		return operationOutcomeEClass;
 	}
@@ -37123,7 +38961,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationOutcomeIssue() {
 		if (operationOutcomeIssueEClass == null) {
-			operationOutcomeIssueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(609);
+			operationOutcomeIssueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(738);
 		}
 		return operationOutcomeIssueEClass;
 	}
@@ -37189,7 +39027,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOperationParameterUse() {
 		if (operationParameterUseEClass == null) {
-			operationParameterUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(610);
+			operationParameterUseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(739);
 		}
 		return operationParameterUseEClass;
 	}
@@ -37210,7 +39048,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrder() {
 		if (orderEClass == null) {
-			orderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(612);
+			orderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(742);
 		}
 		return orderEClass;
 	}
@@ -37303,7 +39141,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrderResponse() {
 		if (orderResponseEClass == null) {
-			orderResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(613);
+			orderResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(743);
 		}
 		return orderResponseEClass;
 	}
@@ -37378,7 +39216,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrderSet() {
 		if (orderSetEClass == null) {
-			orderSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(614);
+			orderSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(744);
 		}
 		return orderSetEClass;
 	}
@@ -37417,7 +39255,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrderStatus() {
 		if (orderStatusEClass == null) {
-			orderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(615);
+			orderStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(745);
 		}
 		return orderStatusEClass;
 	}
@@ -37438,7 +39276,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrderWhen() {
 		if (orderWhenEClass == null) {
-			orderWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(617);
+			orderWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(748);
 		}
 		return orderWhenEClass;
 	}
@@ -37468,7 +39306,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrganization() {
 		if (organizationEClass == null) {
-			organizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(618);
+			organizationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(749);
 		}
 		return organizationEClass;
 	}
@@ -37552,7 +39390,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getOrganizationContact() {
 		if (organizationContactEClass == null) {
-			organizationContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(619);
+			organizationContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(750);
 		}
 		return organizationContactEClass;
 	}
@@ -37600,7 +39438,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParameterDefinition() {
 		if (parameterDefinitionEClass == null) {
-			parameterDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(620);
+			parameterDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(751);
 		}
 		return parameterDefinitionEClass;
 	}
@@ -37675,7 +39513,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParameters() {
 		if (parametersEClass == null) {
-			parametersEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(621);
+			parametersEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(752);
 		}
 		return parametersEClass;
 	}
@@ -37696,7 +39534,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParametersParameter() {
 		if (parametersParameterEClass == null) {
-			parametersParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(622);
+			parametersParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(753);
 		}
 		return parametersParameterEClass;
 	}
@@ -38095,7 +39933,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParticipantRequired() {
 		if (participantRequiredEClass == null) {
-			participantRequiredEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(623);
+			participantRequiredEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(754);
 		}
 		return participantRequiredEClass;
 	}
@@ -38116,7 +39954,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParticipantType() {
 		if (participantTypeEClass == null) {
-			participantTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(625);
+			participantTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(757);
 		}
 		return participantTypeEClass;
 	}
@@ -38137,7 +39975,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getParticipationStatus() {
 		if (participationStatusEClass == null) {
-			participationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(627);
+			participationStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(760);
 		}
 		return participationStatusEClass;
 	}
@@ -38158,7 +39996,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPatient() {
 		if (patientEClass == null) {
-			patientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(629);
+			patientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(763);
 		}
 		return patientEClass;
 	}
@@ -38341,7 +40179,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPatientAnimal() {
 		if (patientAnimalEClass == null) {
-			patientAnimalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(630);
+			patientAnimalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(764);
 		}
 		return patientAnimalEClass;
 	}
@@ -38380,7 +40218,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPatientCommunication() {
 		if (patientCommunicationEClass == null) {
-			patientCommunicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(631);
+			patientCommunicationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(765);
 		}
 		return patientCommunicationEClass;
 	}
@@ -38410,7 +40248,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPatientContact() {
 		if (patientContactEClass == null) {
-			patientContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(632);
+			patientContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(766);
 		}
 		return patientContactEClass;
 	}
@@ -38485,7 +40323,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPatientLink() {
 		if (patientLinkEClass == null) {
-			patientLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(633);
+			patientLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(767);
 		}
 		return patientLinkEClass;
 	}
@@ -38515,7 +40353,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPaymentNotice() {
 		if (paymentNoticeEClass == null) {
-			paymentNoticeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(634);
+			paymentNoticeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(768);
 		}
 		return paymentNoticeEClass;
 	}
@@ -38671,7 +40509,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPaymentReconciliation() {
 		if (paymentReconciliationEClass == null) {
-			paymentReconciliationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(635);
+			paymentReconciliationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(769);
 		}
 		return paymentReconciliationEClass;
 	}
@@ -38854,7 +40692,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPaymentReconciliationDetail() {
 		if (paymentReconciliationDetailEClass == null) {
-			paymentReconciliationDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(636);
+			paymentReconciliationDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(770);
 		}
 		return paymentReconciliationDetailEClass;
 	}
@@ -38965,7 +40803,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPaymentReconciliationNote() {
 		if (paymentReconciliationNoteEClass == null) {
-			paymentReconciliationNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(637);
+			paymentReconciliationNoteEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(771);
 		}
 		return paymentReconciliationNoteEClass;
 	}
@@ -38995,7 +40833,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPeriod() {
 		if (periodEClass == null) {
-			periodEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(638);
+			periodEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(772);
 		}
 		return periodEClass;
 	}
@@ -39025,7 +40863,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPerson() {
 		if (personEClass == null) {
-			personEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(639);
+			personEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(773);
 		}
 		return personEClass;
 	}
@@ -39127,7 +40965,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPersonLink() {
 		if (personLinkEClass == null) {
-			personLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(640);
+			personLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(774);
 		}
 		return personLinkEClass;
 	}
@@ -39157,7 +40995,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPositiveInt() {
 		if (positiveIntEClass == null) {
-			positiveIntEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(641);
+			positiveIntEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(775);
 		}
 		return positiveIntEClass;
 	}
@@ -39178,7 +41016,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitioner() {
 		if (practitionerEClass == null) {
-			practitionerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(643);
+			practitionerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(777);
 		}
 		return practitionerEClass;
 	}
@@ -39289,7 +41127,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitionerPractitionerRole() {
 		if (practitionerPractitionerRoleEClass == null) {
-			practitionerPractitionerRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(644);
+			practitionerPractitionerRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(778);
 		}
 		return practitionerPractitionerRoleEClass;
 	}
@@ -39373,7 +41211,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitionerQualification() {
 		if (practitionerQualificationEClass == null) {
-			practitionerQualificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(645);
+			practitionerQualificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(779);
 		}
 		return practitionerQualificationEClass;
 	}
@@ -39421,7 +41259,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitionerRole() {
 		if (practitionerRoleEClass == null) {
-			practitionerRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(646);
+			practitionerRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(780);
 		}
 		return practitionerRoleEClass;
 	}
@@ -39550,7 +41388,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitionerRoleAvailableTime() {
 		if (practitionerRoleAvailableTimeEClass == null) {
-			practitionerRoleAvailableTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(647);
+			practitionerRoleAvailableTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(781);
 		}
 		return practitionerRoleAvailableTimeEClass;
 	}
@@ -39598,7 +41436,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPractitionerRoleNotAvailable() {
 		if (practitionerRoleNotAvailableEClass == null) {
-			practitionerRoleNotAvailableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(648);
+			practitionerRoleNotAvailableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(782);
 		}
 		return practitionerRoleNotAvailableEClass;
 	}
@@ -39628,7 +41466,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedure() {
 		if (procedureEClass == null) {
-			procedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(649);
+			procedureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(783);
 		}
 		return procedureEClass;
 	}
@@ -39847,7 +41685,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedureFocalDevice() {
 		if (procedureFocalDeviceEClass == null) {
-			procedureFocalDeviceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(650);
+			procedureFocalDeviceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(784);
 		}
 		return procedureFocalDeviceEClass;
 	}
@@ -39877,7 +41715,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedurePerformer() {
 		if (procedurePerformerEClass == null) {
-			procedurePerformerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(651);
+			procedurePerformerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(785);
 		}
 		return procedurePerformerEClass;
 	}
@@ -39907,7 +41745,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedureRequest() {
 		if (procedureRequestEClass == null) {
-			procedureRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(652);
+			procedureRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(786);
 		}
 		return procedureRequestEClass;
 	}
@@ -40081,7 +41919,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedureRequestPriority() {
 		if (procedureRequestPriorityEClass == null) {
-			procedureRequestPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(653);
+			procedureRequestPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(787);
 		}
 		return procedureRequestPriorityEClass;
 	}
@@ -40102,7 +41940,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedureRequestStatus() {
 		if (procedureRequestStatusEClass == null) {
-			procedureRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(655);
+			procedureRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(790);
 		}
 		return procedureRequestStatusEClass;
 	}
@@ -40123,7 +41961,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcedureStatus() {
 		if (procedureStatusEClass == null) {
-			procedureStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(657);
+			procedureStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(793);
 		}
 		return procedureStatusEClass;
 	}
@@ -40144,7 +41982,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcessRequest() {
 		if (processRequestEClass == null) {
-			processRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(659);
+			processRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(796);
 		}
 		return processRequestEClass;
 	}
@@ -40345,7 +42183,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcessRequestItem() {
 		if (processRequestItemEClass == null) {
-			processRequestItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(660);
+			processRequestItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(797);
 		}
 		return processRequestItemEClass;
 	}
@@ -40366,7 +42204,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcessResponse() {
 		if (processResponseEClass == null) {
-			processResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(661);
+			processResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(798);
 		}
 		return processResponseEClass;
 	}
@@ -40531,7 +42369,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProcessResponseNotes() {
 		if (processResponseNotesEClass == null) {
-			processResponseNotesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(662);
+			processResponseNotesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(799);
 		}
 		return processResponseNotesEClass;
 	}
@@ -40561,7 +42399,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPropertyRepresentation() {
 		if (propertyRepresentationEClass == null) {
-			propertyRepresentationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(663);
+			propertyRepresentationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(800);
 		}
 		return propertyRepresentationEClass;
 	}
@@ -40582,7 +42420,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getPropertyType() {
 		if (propertyTypeEClass == null) {
-			propertyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(665);
+			propertyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(803);
 		}
 		return propertyTypeEClass;
 	}
@@ -40603,7 +42441,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocol() {
 		if (protocolEClass == null) {
-			protocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(667);
+			protocolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(806);
 		}
 		return protocolEClass;
 	}
@@ -40696,7 +42534,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolActivity() {
 		if (protocolActivityEClass == null) {
-			protocolActivityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(668);
+			protocolActivityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(807);
 		}
 		return protocolActivityEClass;
 	}
@@ -40753,7 +42591,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolComponent() {
 		if (protocolComponentEClass == null) {
-			protocolComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(669);
+			protocolComponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(808);
 		}
 		return protocolComponentEClass;
 	}
@@ -40783,7 +42621,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolCondition() {
 		if (protocolConditionEClass == null) {
-			protocolConditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(670);
+			protocolConditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(809);
 		}
 		return protocolConditionEClass;
 	}
@@ -40840,7 +42678,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolDetail() {
 		if (protocolDetailEClass == null) {
-			protocolDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(671);
+			protocolDetailEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(810);
 		}
 		return protocolDetailEClass;
 	}
@@ -40904,7 +42742,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtocolDetail_Product() {
+	public EReference getProtocolDetail_ProductReference() {
         return (EReference)getProtocolDetail().getEStructuralFeatures().get(6);
 	}
 
@@ -40913,7 +42751,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtocolDetail_Quantity() {
+	public EReference getProtocolDetail_ProductCodeableConcept() {
         return (EReference)getProtocolDetail().getEStructuralFeatures().get(7);
 	}
 
@@ -40922,8 +42760,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtocolDetail_Description() {
+	public EReference getProtocolDetail_Quantity() {
         return (EReference)getProtocolDetail().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProtocolDetail_Description() {
+        return (EReference)getProtocolDetail().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -40933,7 +42780,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolNext() {
 		if (protocolNextEClass == null) {
-			protocolNextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(672);
+			protocolNextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(811);
 		}
 		return protocolNextEClass;
 	}
@@ -40972,7 +42819,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolPrecondition() {
 		if (protocolPreconditionEClass == null) {
-			protocolPreconditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(673);
+			protocolPreconditionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(812);
 		}
 		return protocolPreconditionEClass;
 	}
@@ -41029,7 +42876,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolStatus() {
 		if (protocolStatusEClass == null) {
-			protocolStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(674);
+			protocolStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(813);
 		}
 		return protocolStatusEClass;
 	}
@@ -41050,7 +42897,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolStep() {
 		if (protocolStepEClass == null) {
-			protocolStepEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(676);
+			protocolStepEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(816);
 		}
 		return protocolStepEClass;
 	}
@@ -41134,7 +42981,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProtocolType() {
 		if (protocolTypeEClass == null) {
-			protocolTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(677);
+			protocolTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(817);
 		}
 		return protocolTypeEClass;
 	}
@@ -41155,7 +43002,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProvenance() {
 		if (provenanceEClass == null) {
-			provenanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(679);
+			provenanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(820);
 		}
 		return provenanceEClass;
 	}
@@ -41257,7 +43104,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProvenanceAgent() {
 		if (provenanceAgentEClass == null) {
-			provenanceAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(680);
+			provenanceAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(821);
 		}
 		return provenanceAgentEClass;
 	}
@@ -41305,7 +43152,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProvenanceEntity() {
 		if (provenanceEntityEClass == null) {
-			provenanceEntityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(681);
+			provenanceEntityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(822);
 		}
 		return provenanceEntityEClass;
 	}
@@ -41362,7 +43209,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProvenanceEntityRole() {
 		if (provenanceEntityRoleEClass == null) {
-			provenanceEntityRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(682);
+			provenanceEntityRoleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(823);
 		}
 		return provenanceEntityRoleEClass;
 	}
@@ -41383,7 +43230,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getProvenanceRelatedAgent() {
 		if (provenanceRelatedAgentEClass == null) {
-			provenanceRelatedAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(684);
+			provenanceRelatedAgentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(826);
 		}
 		return provenanceRelatedAgentEClass;
 	}
@@ -41413,7 +43260,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuantity() {
 		if (quantityEClass == null) {
-			quantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(685);
+			quantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(827);
 		}
 		return quantityEClass;
 	}
@@ -41470,7 +43317,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuantityComparator() {
 		if (quantityComparatorEClass == null) {
-			quantityComparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(686);
+			quantityComparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(828);
 		}
 		return quantityComparatorEClass;
 	}
@@ -41491,7 +43338,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaire() {
 		if (questionnaireEClass == null) {
-			questionnaireEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(688);
+			questionnaireEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(831);
 		}
 		return questionnaireEClass;
 	}
@@ -41611,7 +43458,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireEnableWhen() {
 		if (questionnaireEnableWhenEClass == null) {
-			questionnaireEnableWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(689);
+			questionnaireEnableWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(832);
 		}
 		return questionnaireEnableWhenEClass;
 	}
@@ -41758,7 +43605,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireItem() {
 		if (questionnaireItemEClass == null) {
-			questionnaireItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(690);
+			questionnaireItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(833);
 		}
 		return questionnaireItemEClass;
 	}
@@ -42004,7 +43851,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireItemType() {
 		if (questionnaireItemTypeEClass == null) {
-			questionnaireItemTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(691);
+			questionnaireItemTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(834);
 		}
 		return questionnaireItemTypeEClass;
 	}
@@ -42025,7 +43872,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireOption() {
 		if (questionnaireOptionEClass == null) {
-			questionnaireOptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(693);
+			questionnaireOptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(837);
 		}
 		return questionnaireOptionEClass;
 	}
@@ -42082,7 +43929,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireResponse() {
 		if (questionnaireResponseEClass == null) {
-			questionnaireResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(694);
+			questionnaireResponseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(838);
 		}
 		return questionnaireResponseEClass;
 	}
@@ -42175,7 +44022,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireResponseAnswer() {
 		if (questionnaireResponseAnswerEClass == null) {
-			questionnaireResponseAnswerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(695);
+			questionnaireResponseAnswerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(839);
 		}
 		return questionnaireResponseAnswerEClass;
 	}
@@ -42313,7 +44160,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireResponseItem() {
 		if (questionnaireResponseItemEClass == null) {
-			questionnaireResponseItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(696);
+			questionnaireResponseItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(840);
 		}
 		return questionnaireResponseItemEClass;
 	}
@@ -42370,7 +44217,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireResponseStatus() {
 		if (questionnaireResponseStatusEClass == null) {
-			questionnaireResponseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(697);
+			questionnaireResponseStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(841);
 		}
 		return questionnaireResponseStatusEClass;
 	}
@@ -42391,7 +44238,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getQuestionnaireStatus() {
 		if (questionnaireStatusEClass == null) {
-			questionnaireStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(699);
+			questionnaireStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(844);
 		}
 		return questionnaireStatusEClass;
 	}
@@ -42412,7 +44259,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRange() {
 		if (rangeEClass == null) {
-			rangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(701);
+			rangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(847);
 		}
 		return rangeEClass;
 	}
@@ -42442,7 +44289,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRatio() {
 		if (ratioEClass == null) {
-			ratioEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(702);
+			ratioEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(848);
 		}
 		return ratioEClass;
 	}
@@ -42472,7 +44319,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getReference() {
 		if (referenceEClass == null) {
-			referenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(703);
+			referenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(849);
 		}
 		return referenceEClass;
 	}
@@ -42502,7 +44349,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getReferenceVersionRules() {
 		if (referenceVersionRulesEClass == null) {
-			referenceVersionRulesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(704);
+			referenceVersionRulesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(850);
 		}
 		return referenceVersionRulesEClass;
 	}
@@ -42523,7 +44370,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getReferralCategory() {
 		if (referralCategoryEClass == null) {
-			referralCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(706);
+			referralCategoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(853);
 		}
 		return referralCategoryEClass;
 	}
@@ -42544,7 +44391,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getReferralRequest() {
 		if (referralRequestEClass == null) {
-			referralRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(708);
+			referralRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(856);
 		}
 		return referralRequestEClass;
 	}
@@ -42718,7 +44565,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getReferralStatus() {
 		if (referralStatusEClass == null) {
-			referralStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(709);
+			referralStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(857);
 		}
 		return referralStatusEClass;
 	}
@@ -42739,7 +44586,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRelatedPerson() {
 		if (relatedPersonEClass == null) {
-			relatedPersonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(711);
+			relatedPersonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(860);
 		}
 		return relatedPersonEClass;
 	}
@@ -42841,7 +44688,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRemittanceOutcome() {
 		if (remittanceOutcomeEClass == null) {
-			remittanceOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(712);
+			remittanceOutcomeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(861);
 		}
 		return remittanceOutcomeEClass;
 	}
@@ -42862,7 +44709,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getResource() {
 		if (resourceEClass == null) {
-			resourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(714);
+			resourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(864);
 		}
 		return resourceEClass;
 	}
@@ -42910,7 +44757,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getResourceContainer() {
 		if (resourceContainerEClass == null) {
-			resourceContainerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(715);
+			resourceContainerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(865);
 		}
 		return resourceContainerEClass;
 	}
@@ -43118,7 +44965,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Contract() {
+	public EReference getResourceContainer_Consent() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(22);
 	}
 
@@ -43127,7 +44974,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Coverage() {
+	public EReference getResourceContainer_Contract() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(23);
 	}
 
@@ -43136,7 +44983,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DataElement() {
+	public EReference getResourceContainer_Coverage() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(24);
 	}
 
@@ -43145,7 +44992,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DecisionSupportRule() {
+	public EReference getResourceContainer_DataElement() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(25);
 	}
 
@@ -43154,7 +45001,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DecisionSupportServiceModule() {
+	public EReference getResourceContainer_DecisionSupportRule() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(26);
 	}
 
@@ -43163,7 +45010,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DetectedIssue() {
+	public EReference getResourceContainer_DecisionSupportServiceModule() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(27);
 	}
 
@@ -43172,7 +45019,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Device() {
+	public EReference getResourceContainer_DetectedIssue() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(28);
 	}
 
@@ -43181,7 +45028,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DeviceComponent() {
+	public EReference getResourceContainer_Device() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(29);
 	}
 
@@ -43190,7 +45037,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DeviceMetric() {
+	public EReference getResourceContainer_DeviceComponent() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(30);
 	}
 
@@ -43199,7 +45046,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DeviceUseRequest() {
+	public EReference getResourceContainer_DeviceMetric() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(31);
 	}
 
@@ -43208,7 +45055,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DeviceUseStatement() {
+	public EReference getResourceContainer_DeviceUseRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(32);
 	}
 
@@ -43217,7 +45064,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DiagnosticOrder() {
+	public EReference getResourceContainer_DeviceUseStatement() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(33);
 	}
 
@@ -43226,7 +45073,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DiagnosticReport() {
+	public EReference getResourceContainer_DiagnosticOrder() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(34);
 	}
 
@@ -43235,7 +45082,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DocumentManifest() {
+	public EReference getResourceContainer_DiagnosticReport() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(35);
 	}
 
@@ -43244,7 +45091,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_DocumentReference() {
+	public EReference getResourceContainer_DocumentManifest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(36);
 	}
 
@@ -43253,7 +45100,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_EligibilityRequest() {
+	public EReference getResourceContainer_DocumentReference() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(37);
 	}
 
@@ -43262,7 +45109,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_EligibilityResponse() {
+	public EReference getResourceContainer_EligibilityRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(38);
 	}
 
@@ -43271,7 +45118,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Encounter() {
+	public EReference getResourceContainer_EligibilityResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(39);
 	}
 
@@ -43280,7 +45127,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Endpoint() {
+	public EReference getResourceContainer_Encounter() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(40);
 	}
 
@@ -43289,7 +45136,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_EnrollmentRequest() {
+	public EReference getResourceContainer_Endpoint() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(41);
 	}
 
@@ -43298,7 +45145,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_EnrollmentResponse() {
+	public EReference getResourceContainer_EnrollmentRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(42);
 	}
 
@@ -43307,7 +45154,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_EpisodeOfCare() {
+	public EReference getResourceContainer_EnrollmentResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(43);
 	}
 
@@ -43316,7 +45163,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ExpansionProfile() {
+	public EReference getResourceContainer_EpisodeOfCare() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(44);
 	}
 
@@ -43325,7 +45172,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ExplanationOfBenefit() {
+	public EReference getResourceContainer_ExpansionProfile() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(45);
 	}
 
@@ -43334,7 +45181,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_FamilyMemberHistory() {
+	public EReference getResourceContainer_ExplanationOfBenefit() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(46);
 	}
 
@@ -43343,7 +45190,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Flag() {
+	public EReference getResourceContainer_FamilyMemberHistory() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(47);
 	}
 
@@ -43352,7 +45199,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Goal() {
+	public EReference getResourceContainer_Flag() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(48);
 	}
 
@@ -43361,7 +45208,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Group() {
+	public EReference getResourceContainer_Goal() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(49);
 	}
 
@@ -43370,7 +45217,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_GuidanceResponse() {
+	public EReference getResourceContainer_Group() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(50);
 	}
 
@@ -43379,7 +45226,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_HealthcareService() {
+	public EReference getResourceContainer_GuidanceResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(51);
 	}
 
@@ -43388,7 +45235,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ImagingExcerpt() {
+	public EReference getResourceContainer_HealthcareService() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(52);
 	}
 
@@ -43397,7 +45244,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ImagingObjectSelection() {
+	public EReference getResourceContainer_ImagingExcerpt() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(53);
 	}
 
@@ -43406,7 +45253,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ImagingStudy() {
+	public EReference getResourceContainer_ImagingObjectSelection() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(54);
 	}
 
@@ -43415,7 +45262,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Immunization() {
+	public EReference getResourceContainer_ImagingStudy() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(55);
 	}
 
@@ -43424,7 +45271,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ImmunizationRecommendation() {
+	public EReference getResourceContainer_Immunization() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(56);
 	}
 
@@ -43433,7 +45280,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ImplementationGuide() {
+	public EReference getResourceContainer_ImmunizationRecommendation() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(57);
 	}
 
@@ -43442,7 +45289,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Library() {
+	public EReference getResourceContainer_ImplementationGuide() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(58);
 	}
 
@@ -43451,7 +45298,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Linkage() {
+	public EReference getResourceContainer_Library() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(59);
 	}
 
@@ -43460,7 +45307,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_List() {
+	public EReference getResourceContainer_Linkage() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(60);
 	}
 
@@ -43469,7 +45316,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Location() {
+	public EReference getResourceContainer_List() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(61);
 	}
 
@@ -43478,7 +45325,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Measure() {
+	public EReference getResourceContainer_Location() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(62);
 	}
 
@@ -43487,7 +45334,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MeasureReport() {
+	public EReference getResourceContainer_Measure() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(63);
 	}
 
@@ -43496,7 +45343,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Media() {
+	public EReference getResourceContainer_MeasureReport() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(64);
 	}
 
@@ -43505,7 +45352,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Medication() {
+	public EReference getResourceContainer_Media() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(65);
 	}
 
@@ -43514,7 +45361,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MedicationAdministration() {
+	public EReference getResourceContainer_Medication() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(66);
 	}
 
@@ -43523,7 +45370,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MedicationDispense() {
+	public EReference getResourceContainer_MedicationAdministration() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(67);
 	}
 
@@ -43532,7 +45379,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MedicationOrder() {
+	public EReference getResourceContainer_MedicationDispense() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(68);
 	}
 
@@ -43541,7 +45388,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MedicationStatement() {
+	public EReference getResourceContainer_MedicationOrder() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(69);
 	}
 
@@ -43550,7 +45397,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_MessageHeader() {
+	public EReference getResourceContainer_MedicationStatement() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(70);
 	}
 
@@ -43559,7 +45406,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ModuleDefinition() {
+	public EReference getResourceContainer_MessageHeader() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(71);
 	}
 
@@ -43568,7 +45415,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_NamingSystem() {
+	public EReference getResourceContainer_ModuleDefinition() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(72);
 	}
 
@@ -43577,7 +45424,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_NutritionOrder() {
+	public EReference getResourceContainer_NamingSystem() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(73);
 	}
 
@@ -43586,7 +45433,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Observation() {
+	public EReference getResourceContainer_NutritionOrder() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(74);
 	}
 
@@ -43595,7 +45442,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_OperationDefinition() {
+	public EReference getResourceContainer_Observation() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(75);
 	}
 
@@ -43604,7 +45451,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_OperationOutcome() {
+	public EReference getResourceContainer_OperationDefinition() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(76);
 	}
 
@@ -43613,7 +45460,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Order() {
+	public EReference getResourceContainer_OperationOutcome() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(77);
 	}
 
@@ -43622,7 +45469,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_OrderResponse() {
+	public EReference getResourceContainer_Order() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(78);
 	}
 
@@ -43631,7 +45478,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_OrderSet() {
+	public EReference getResourceContainer_OrderResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(79);
 	}
 
@@ -43640,7 +45487,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Organization() {
+	public EReference getResourceContainer_OrderSet() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(80);
 	}
 
@@ -43649,7 +45496,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Patient() {
+	public EReference getResourceContainer_Organization() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(81);
 	}
 
@@ -43658,7 +45505,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_PaymentNotice() {
+	public EReference getResourceContainer_Patient() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(82);
 	}
 
@@ -43667,7 +45514,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_PaymentReconciliation() {
+	public EReference getResourceContainer_PaymentNotice() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(83);
 	}
 
@@ -43676,7 +45523,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Person() {
+	public EReference getResourceContainer_PaymentReconciliation() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(84);
 	}
 
@@ -43685,7 +45532,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Practitioner() {
+	public EReference getResourceContainer_Person() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(85);
 	}
 
@@ -43694,7 +45541,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_PractitionerRole() {
+	public EReference getResourceContainer_Practitioner() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(86);
 	}
 
@@ -43703,7 +45550,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Procedure() {
+	public EReference getResourceContainer_PractitionerRole() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(87);
 	}
 
@@ -43712,7 +45559,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ProcedureRequest() {
+	public EReference getResourceContainer_Procedure() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(88);
 	}
 
@@ -43721,7 +45568,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ProcessRequest() {
+	public EReference getResourceContainer_ProcedureRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(89);
 	}
 
@@ -43730,7 +45577,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ProcessResponse() {
+	public EReference getResourceContainer_ProcessRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(90);
 	}
 
@@ -43739,7 +45586,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Protocol() {
+	public EReference getResourceContainer_ProcessResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(91);
 	}
 
@@ -43748,7 +45595,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Provenance() {
+	public EReference getResourceContainer_Protocol() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(92);
 	}
 
@@ -43757,7 +45604,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Questionnaire() {
+	public EReference getResourceContainer_Provenance() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(93);
 	}
 
@@ -43766,7 +45613,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_QuestionnaireResponse() {
+	public EReference getResourceContainer_Questionnaire() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(94);
 	}
 
@@ -43775,7 +45622,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ReferralRequest() {
+	public EReference getResourceContainer_QuestionnaireResponse() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(95);
 	}
 
@@ -43784,7 +45631,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_RelatedPerson() {
+	public EReference getResourceContainer_ReferralRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(96);
 	}
 
@@ -43793,7 +45640,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_RiskAssessment() {
+	public EReference getResourceContainer_RelatedPerson() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(97);
 	}
 
@@ -43802,7 +45649,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Schedule() {
+	public EReference getResourceContainer_RiskAssessment() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(98);
 	}
 
@@ -43811,7 +45658,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_SearchParameter() {
+	public EReference getResourceContainer_Schedule() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(99);
 	}
 
@@ -43820,7 +45667,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Sequence() {
+	public EReference getResourceContainer_SearchParameter() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(100);
 	}
 
@@ -43829,7 +45676,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Slot() {
+	public EReference getResourceContainer_Sequence() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(101);
 	}
 
@@ -43838,7 +45685,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Specimen() {
+	public EReference getResourceContainer_Slot() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(102);
 	}
 
@@ -43847,7 +45694,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_StructureDefinition() {
+	public EReference getResourceContainer_Specimen() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(103);
 	}
 
@@ -43856,7 +45703,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_StructureMap() {
+	public EReference getResourceContainer_StructureDefinition() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(104);
 	}
 
@@ -43865,7 +45712,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Subscription() {
+	public EReference getResourceContainer_StructureMap() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(105);
 	}
 
@@ -43874,7 +45721,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Substance() {
+	public EReference getResourceContainer_Subscription() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(106);
 	}
 
@@ -43883,7 +45730,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_SupplyDelivery() {
+	public EReference getResourceContainer_Substance() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(107);
 	}
 
@@ -43892,7 +45739,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_SupplyRequest() {
+	public EReference getResourceContainer_SupplyDelivery() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(108);
 	}
 
@@ -43901,7 +45748,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Task() {
+	public EReference getResourceContainer_SupplyRequest() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(109);
 	}
 
@@ -43910,7 +45757,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_TestScript() {
+	public EReference getResourceContainer_Task() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(110);
 	}
 
@@ -43919,7 +45766,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ValueSet() {
+	public EReference getResourceContainer_TestScript() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(111);
 	}
 
@@ -43928,7 +45775,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_VisionPrescription() {
+	public EReference getResourceContainer_ValueSet() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(112);
 	}
 
@@ -43937,8 +45784,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_Parameters() {
+	public EReference getResourceContainer_VisionPrescription() {
         return (EReference)getResourceContainer().getEStructuralFeatures().get(113);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceContainer_Parameters() {
+        return (EReference)getResourceContainer().getEStructuralFeatures().get(114);
 	}
 
 	/**
@@ -43948,7 +45804,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getResourceVersionPolicy() {
 		if (resourceVersionPolicyEClass == null) {
-			resourceVersionPolicyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(716);
+			resourceVersionPolicyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(866);
 		}
 		return resourceVersionPolicyEClass;
 	}
@@ -43969,7 +45825,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getResponseType() {
 		if (responseTypeEClass == null) {
-			responseTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(718);
+			responseTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(869);
 		}
 		return responseTypeEClass;
 	}
@@ -43990,7 +45846,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRestfulConformanceMode() {
 		if (restfulConformanceModeEClass == null) {
-			restfulConformanceModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(720);
+			restfulConformanceModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(872);
 		}
 		return restfulConformanceModeEClass;
 	}
@@ -44011,7 +45867,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRiskAssessment() {
 		if (riskAssessmentEClass == null) {
-			riskAssessmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(722);
+			riskAssessmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(875);
 		}
 		return riskAssessmentEClass;
 	}
@@ -44113,7 +45969,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getRiskAssessmentPrediction() {
 		if (riskAssessmentPredictionEClass == null) {
-			riskAssessmentPredictionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(723);
+			riskAssessmentPredictionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(876);
 		}
 		return riskAssessmentPredictionEClass;
 	}
@@ -44197,7 +46053,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSampledData() {
 		if (sampledDataEClass == null) {
-			sampledDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(724);
+			sampledDataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(877);
 		}
 		return sampledDataEClass;
 	}
@@ -44272,7 +46128,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSampledDataDataType() {
 		if (sampledDataDataTypeEClass == null) {
-			sampledDataDataTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(725);
+			sampledDataDataTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(878);
 		}
 		return sampledDataDataTypeEClass;
 	}
@@ -44293,7 +46149,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSchedule() {
 		if (scheduleEClass == null) {
-			scheduleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(727);
+			scheduleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(880);
 		}
 		return scheduleEClass;
 	}
@@ -44368,7 +46224,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSearchEntryMode() {
 		if (searchEntryModeEClass == null) {
-			searchEntryModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(728);
+			searchEntryModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(881);
 		}
 		return searchEntryModeEClass;
 	}
@@ -44389,7 +46245,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSearchModifierCode() {
 		if (searchModifierCodeEClass == null) {
-			searchModifierCodeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(730);
+			searchModifierCodeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(884);
 		}
 		return searchModifierCodeEClass;
 	}
@@ -44410,7 +46266,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSearchParameter() {
 		if (searchParameterEClass == null) {
-			searchParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(732);
+			searchParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(887);
 		}
 		return searchParameterEClass;
 	}
@@ -44575,7 +46431,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSearchParameterContact() {
 		if (searchParameterContactEClass == null) {
-			searchParameterContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(733);
+			searchParameterContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(888);
 		}
 		return searchParameterContactEClass;
 	}
@@ -44605,7 +46461,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSearchParamType() {
 		if (searchParamTypeEClass == null) {
-			searchParamTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(734);
+			searchParamTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(889);
 		}
 		return searchParamTypeEClass;
 	}
@@ -44626,7 +46482,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequence() {
 		if (sequenceEClass == null) {
-			sequenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(736);
+			sequenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(892);
 		}
 		return sequenceEClass;
 	}
@@ -44800,7 +46656,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceInner() {
 		if (sequenceInnerEClass == null) {
-			sequenceInnerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(737);
+			sequenceInnerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(893);
 		}
 		return sequenceInnerEClass;
 	}
@@ -44830,7 +46686,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceOuter() {
 		if (sequenceOuterEClass == null) {
-			sequenceOuterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(738);
+			sequenceOuterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(894);
 		}
 		return sequenceOuterEClass;
 	}
@@ -44860,7 +46716,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceQuality() {
 		if (sequenceQualityEClass == null) {
-			sequenceQualityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(739);
+			sequenceQualityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(895);
 		}
 		return sequenceQualityEClass;
 	}
@@ -44908,7 +46764,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceReferenceSeq() {
 		if (sequenceReferenceSeqEClass == null) {
-			sequenceReferenceSeqEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(740);
+			sequenceReferenceSeqEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(896);
 		}
 		return sequenceReferenceSeqEClass;
 	}
@@ -44983,7 +46839,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceRepository() {
 		if (sequenceRepositoryEClass == null) {
-			sequenceRepositoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(741);
+			sequenceRepositoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(897);
 		}
 		return sequenceRepositoryEClass;
 	}
@@ -45031,7 +46887,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceStructureVariation() {
 		if (sequenceStructureVariationEClass == null) {
-			sequenceStructureVariationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(742);
+			sequenceStructureVariationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(898);
 		}
 		return sequenceStructureVariationEClass;
 	}
@@ -45088,7 +46944,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceType() {
 		if (sequenceTypeEClass == null) {
-			sequenceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(743);
+			sequenceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(899);
 		}
 		return sequenceTypeEClass;
 	}
@@ -45109,7 +46965,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSequenceVariation() {
 		if (sequenceVariationEClass == null) {
-			sequenceVariationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(745);
+			sequenceVariationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(902);
 		}
 		return sequenceVariationEClass;
 	}
@@ -45166,7 +47022,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSignature() {
 		if (signatureEClass == null) {
-			signatureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(746);
+			signatureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(903);
 		}
 		return signatureEClass;
 	}
@@ -45232,7 +47088,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSimpleQuantity() {
 		if (simpleQuantityEClass == null) {
-			simpleQuantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(747);
+			simpleQuantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(904);
 		}
 		return simpleQuantityEClass;
 	}
@@ -45253,7 +47109,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSlicingRules() {
 		if (slicingRulesEClass == null) {
-			slicingRulesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(748);
+			slicingRulesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(905);
 		}
 		return slicingRulesEClass;
 	}
@@ -45274,7 +47130,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSlot() {
 		if (slotEClass == null) {
-			slotEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(750);
+			slotEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(908);
 		}
 		return slotEClass;
 	}
@@ -45385,7 +47241,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSlotStatus() {
 		if (slotStatusEClass == null) {
-			slotStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(751);
+			slotStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(909);
 		}
 		return slotStatusEClass;
 	}
@@ -45406,7 +47262,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSpecimen() {
 		if (specimenEClass == null) {
-			specimenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(753);
+			specimenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(912);
 		}
 		return specimenEClass;
 	}
@@ -45479,7 +47335,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecimen_Collection() {
+	public EReference getSpecimen_Request() {
         return (EReference)getSpecimen().getEStructuralFeatures().get(7);
 	}
 
@@ -45488,7 +47344,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecimen_Treatment() {
+	public EReference getSpecimen_Collection() {
         return (EReference)getSpecimen().getEStructuralFeatures().get(8);
 	}
 
@@ -45497,8 +47353,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecimen_Container() {
+	public EReference getSpecimen_Treatment() {
         return (EReference)getSpecimen().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecimen_Container() {
+        return (EReference)getSpecimen().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -45508,7 +47373,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSpecimenCollection() {
 		if (specimenCollectionEClass == null) {
-			specimenCollectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(754);
+			specimenCollectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(913);
 		}
 		return specimenCollectionEClass;
 	}
@@ -45583,7 +47448,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSpecimenContainer() {
 		if (specimenContainerEClass == null) {
-			specimenContainerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(755);
+			specimenContainerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(914);
 		}
 		return specimenContainerEClass;
 	}
@@ -45658,7 +47523,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSpecimenStatus() {
 		if (specimenStatusEClass == null) {
-			specimenStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(756);
+			specimenStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(915);
 		}
 		return specimenStatusEClass;
 	}
@@ -45679,7 +47544,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSpecimenTreatment() {
 		if (specimenTreatmentEClass == null) {
-			specimenTreatmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(758);
+			specimenTreatmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(918);
 		}
 		return specimenTreatmentEClass;
 	}
@@ -45718,7 +47583,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getString() {
 		if (stringEClass == null) {
-			stringEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(759);
+			stringEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(919);
 		}
 		return stringEClass;
 	}
@@ -45739,7 +47604,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinition() {
 		if (structureDefinitionEClass == null) {
-			structureDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(761);
+			structureDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(921);
 		}
 		return structureDefinitionEClass;
 	}
@@ -45985,7 +47850,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinitionContact() {
 		if (structureDefinitionContactEClass == null) {
-			structureDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(762);
+			structureDefinitionContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(922);
 		}
 		return structureDefinitionContactEClass;
 	}
@@ -46015,7 +47880,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinitionDifferential() {
 		if (structureDefinitionDifferentialEClass == null) {
-			structureDefinitionDifferentialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(763);
+			structureDefinitionDifferentialEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(923);
 		}
 		return structureDefinitionDifferentialEClass;
 	}
@@ -46036,7 +47901,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinitionKind() {
 		if (structureDefinitionKindEClass == null) {
-			structureDefinitionKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(764);
+			structureDefinitionKindEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(924);
 		}
 		return structureDefinitionKindEClass;
 	}
@@ -46057,7 +47922,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinitionMapping() {
 		if (structureDefinitionMappingEClass == null) {
-			structureDefinitionMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(766);
+			structureDefinitionMappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(927);
 		}
 		return structureDefinitionMappingEClass;
 	}
@@ -46105,7 +47970,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureDefinitionSnapshot() {
 		if (structureDefinitionSnapshotEClass == null) {
-			structureDefinitionSnapshotEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(767);
+			structureDefinitionSnapshotEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(928);
 		}
 		return structureDefinitionSnapshotEClass;
 	}
@@ -46126,7 +47991,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMap() {
 		if (structureMapEClass == null) {
-			structureMapEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(768);
+			structureMapEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(929);
 		}
 		return structureMapEClass;
 	}
@@ -46282,7 +48147,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapContact() {
 		if (structureMapContactEClass == null) {
-			structureMapContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(769);
+			structureMapContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(930);
 		}
 		return structureMapContactEClass;
 	}
@@ -46312,7 +48177,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapContextType() {
 		if (structureMapContextTypeEClass == null) {
-			structureMapContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(770);
+			structureMapContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(931);
 		}
 		return structureMapContextTypeEClass;
 	}
@@ -46333,7 +48198,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapDependent() {
 		if (structureMapDependentEClass == null) {
-			structureMapDependentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(772);
+			structureMapDependentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(934);
 		}
 		return structureMapDependentEClass;
 	}
@@ -46363,7 +48228,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapGroup() {
 		if (structureMapGroupEClass == null) {
-			structureMapGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(773);
+			structureMapGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(935);
 		}
 		return structureMapGroupEClass;
 	}
@@ -46420,7 +48285,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapInput() {
 		if (structureMapInputEClass == null) {
-			structureMapInputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(774);
+			structureMapInputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(936);
 		}
 		return structureMapInputEClass;
 	}
@@ -46468,7 +48333,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapInputMode() {
 		if (structureMapInputModeEClass == null) {
-			structureMapInputModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(775);
+			structureMapInputModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(937);
 		}
 		return structureMapInputModeEClass;
 	}
@@ -46489,7 +48354,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapListMode() {
 		if (structureMapListModeEClass == null) {
-			structureMapListModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(777);
+			structureMapListModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(940);
 		}
 		return structureMapListModeEClass;
 	}
@@ -46510,7 +48375,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapModelMode() {
 		if (structureMapModelModeEClass == null) {
-			structureMapModelModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(779);
+			structureMapModelModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(943);
 		}
 		return structureMapModelModeEClass;
 	}
@@ -46531,7 +48396,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapParameter() {
 		if (structureMapParameterEClass == null) {
-			structureMapParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(781);
+			structureMapParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(946);
 		}
 		return structureMapParameterEClass;
 	}
@@ -46588,7 +48453,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapRule() {
 		if (structureMapRuleEClass == null) {
-			structureMapRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(782);
+			structureMapRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(947);
 		}
 		return structureMapRuleEClass;
 	}
@@ -46654,7 +48519,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapSource() {
 		if (structureMapSourceEClass == null) {
-			structureMapSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(783);
+			structureMapSourceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(948);
 		}
 		return structureMapSourceEClass;
 	}
@@ -46738,7 +48603,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapStructure() {
 		if (structureMapStructureEClass == null) {
-			structureMapStructureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(784);
+			structureMapStructureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(949);
 		}
 		return structureMapStructureEClass;
 	}
@@ -46777,7 +48642,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapTarget() {
 		if (structureMapTargetEClass == null) {
-			structureMapTargetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(785);
+			structureMapTargetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(950);
 		}
 		return structureMapTargetEClass;
 	}
@@ -46861,7 +48726,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getStructureMapTransform() {
 		if (structureMapTransformEClass == null) {
-			structureMapTransformEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(786);
+			structureMapTransformEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(951);
 		}
 		return structureMapTransformEClass;
 	}
@@ -46882,7 +48747,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubscription() {
 		if (subscriptionEClass == null) {
-			subscriptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(788);
+			subscriptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(954);
 		}
 		return subscriptionEClass;
 	}
@@ -46966,7 +48831,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubscriptionChannel() {
 		if (subscriptionChannelEClass == null) {
-			subscriptionChannelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(789);
+			subscriptionChannelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(955);
 		}
 		return subscriptionChannelEClass;
 	}
@@ -47014,7 +48879,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubscriptionChannelType() {
 		if (subscriptionChannelTypeEClass == null) {
-			subscriptionChannelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(790);
+			subscriptionChannelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(956);
 		}
 		return subscriptionChannelTypeEClass;
 	}
@@ -47035,7 +48900,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubscriptionStatus() {
 		if (subscriptionStatusEClass == null) {
-			subscriptionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(792);
+			subscriptionStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(959);
 		}
 		return subscriptionStatusEClass;
 	}
@@ -47056,7 +48921,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubstance() {
 		if (substanceEClass == null) {
-			substanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(794);
+			substanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(962);
 		}
 		return substanceEClass;
 	}
@@ -47122,7 +48987,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubstanceIngredient() {
 		if (substanceIngredientEClass == null) {
-			substanceIngredientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(795);
+			substanceIngredientEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(963);
 		}
 		return substanceIngredientEClass;
 	}
@@ -47152,7 +49017,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSubstanceInstance() {
 		if (substanceInstanceEClass == null) {
-			substanceInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(796);
+			substanceInstanceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(964);
 		}
 		return substanceInstanceEClass;
 	}
@@ -47191,7 +49056,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSupplyDelivery() {
 		if (supplyDeliveryEClass == null) {
-			supplyDeliveryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(797);
+			supplyDeliveryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(965);
 		}
 		return supplyDeliveryEClass;
 	}
@@ -47246,7 +49111,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_SuppliedItem() {
+	public EReference getSupplyDelivery_SuppliedItemCodeableConcept() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(5);
 	}
 
@@ -47255,7 +49120,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_Supplier() {
+	public EReference getSupplyDelivery_SuppliedItemReference() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(6);
 	}
 
@@ -47264,7 +49129,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_WhenPrepared() {
+	public EReference getSupplyDelivery_Supplier() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(7);
 	}
 
@@ -47273,7 +49138,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_Time() {
+	public EReference getSupplyDelivery_WhenPrepared() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(8);
 	}
 
@@ -47282,7 +49147,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_Destination() {
+	public EReference getSupplyDelivery_Time() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(9);
 	}
 
@@ -47291,8 +49156,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyDelivery_Receiver() {
+	public EReference getSupplyDelivery_Destination() {
         return (EReference)getSupplyDelivery().getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSupplyDelivery_Receiver() {
+        return (EReference)getSupplyDelivery().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -47302,7 +49176,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSupplyDeliveryStatus() {
 		if (supplyDeliveryStatusEClass == null) {
-			supplyDeliveryStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(798);
+			supplyDeliveryStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(966);
 		}
 		return supplyDeliveryStatusEClass;
 	}
@@ -47323,7 +49197,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSupplyRequest() {
 		if (supplyRequestEClass == null) {
-			supplyRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(800);
+			supplyRequestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(969);
 		}
 		return supplyRequestEClass;
 	}
@@ -47387,7 +49261,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyRequest_OrderedItem() {
+	public EReference getSupplyRequest_OrderedItemCodeableConcept() {
         return (EReference)getSupplyRequest().getEStructuralFeatures().get(6);
 	}
 
@@ -47396,7 +49270,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyRequest_Supplier() {
+	public EReference getSupplyRequest_OrderedItemReference() {
         return (EReference)getSupplyRequest().getEStructuralFeatures().get(7);
 	}
 
@@ -47405,7 +49279,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyRequest_ReasonCodeableConcept() {
+	public EReference getSupplyRequest_Supplier() {
         return (EReference)getSupplyRequest().getEStructuralFeatures().get(8);
 	}
 
@@ -47414,7 +49288,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyRequest_ReasonReference() {
+	public EReference getSupplyRequest_ReasonCodeableConcept() {
         return (EReference)getSupplyRequest().getEStructuralFeatures().get(9);
 	}
 
@@ -47423,8 +49297,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyRequest_When() {
+	public EReference getSupplyRequest_ReasonReference() {
         return (EReference)getSupplyRequest().getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSupplyRequest_When() {
+        return (EReference)getSupplyRequest().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -47434,7 +49317,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSupplyRequestStatus() {
 		if (supplyRequestStatusEClass == null) {
-			supplyRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(801);
+			supplyRequestStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(970);
 		}
 		return supplyRequestStatusEClass;
 	}
@@ -47455,7 +49338,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSupplyRequestWhen() {
 		if (supplyRequestWhenEClass == null) {
-			supplyRequestWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(803);
+			supplyRequestWhenEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(973);
 		}
 		return supplyRequestWhenEClass;
 	}
@@ -47485,7 +49368,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getSystemRestfulInteraction() {
 		if (systemRestfulInteractionEClass == null) {
-			systemRestfulInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(804);
+			systemRestfulInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(974);
 		}
 		return systemRestfulInteractionEClass;
 	}
@@ -47506,7 +49389,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTask() {
 		if (taskEClass == null) {
-			taskEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(807);
+			taskEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(977);
 		}
 		return taskEClass;
 	}
@@ -47525,7 +49408,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Type() {
+	public EReference getTask_BasedOn() {
         return (EReference)getTask().getEStructuralFeatures().get(1);
 	}
 
@@ -47534,7 +49417,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Description() {
+	public EReference getTask_Requisition() {
         return (EReference)getTask().getEStructuralFeatures().get(2);
 	}
 
@@ -47543,7 +49426,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_PerformerType() {
+	public EReference getTask_Parent() {
         return (EReference)getTask().getEStructuralFeatures().get(3);
 	}
 
@@ -47552,7 +49435,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Priority() {
+	public EReference getTask_Status() {
         return (EReference)getTask().getEStructuralFeatures().get(4);
 	}
 
@@ -47561,7 +49444,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Status() {
+	public EReference getTask_StatusReason() {
         return (EReference)getTask().getEStructuralFeatures().get(5);
 	}
 
@@ -47570,7 +49453,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_FailureReason() {
+	public EReference getTask_BusinessStatus() {
         return (EReference)getTask().getEStructuralFeatures().get(6);
 	}
 
@@ -47579,7 +49462,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Subject() {
+	public EReference getTask_Stage() {
         return (EReference)getTask().getEStructuralFeatures().get(7);
 	}
 
@@ -47588,7 +49471,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_For() {
+	public EReference getTask_Code() {
         return (EReference)getTask().getEStructuralFeatures().get(8);
 	}
 
@@ -47597,7 +49480,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Definition() {
+	public EReference getTask_Priority() {
         return (EReference)getTask().getEStructuralFeatures().get(9);
 	}
 
@@ -47606,7 +49489,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Created() {
+	public EReference getTask_Description() {
         return (EReference)getTask().getEStructuralFeatures().get(10);
 	}
 
@@ -47615,7 +49498,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_LastModified() {
+	public EReference getTask_Focus() {
         return (EReference)getTask().getEStructuralFeatures().get(11);
 	}
 
@@ -47624,7 +49507,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Creator() {
+	public EReference getTask_For() {
         return (EReference)getTask().getEStructuralFeatures().get(12);
 	}
 
@@ -47633,7 +49516,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Owner() {
+	public EReference getTask_Context() {
         return (EReference)getTask().getEStructuralFeatures().get(13);
 	}
 
@@ -47642,7 +49525,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Parent() {
+	public EReference getTask_Created() {
         return (EReference)getTask().getEStructuralFeatures().get(14);
 	}
 
@@ -47651,7 +49534,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Input() {
+	public EReference getTask_LastModified() {
         return (EReference)getTask().getEStructuralFeatures().get(15);
 	}
 
@@ -47660,8 +49543,119 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Output() {
+	public EReference getTask_Requester() {
         return (EReference)getTask().getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Owner() {
+        return (EReference)getTask().getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_PerformerType() {
+        return (EReference)getTask().getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Reason() {
+        return (EReference)getTask().getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Note() {
+        return (EReference)getTask().getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Fulfillment() {
+        return (EReference)getTask().getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Definition() {
+        return (EReference)getTask().getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Input() {
+        return (EReference)getTask().getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Output() {
+        return (EReference)getTask().getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskFulfillment() {
+		if (taskFulfillmentEClass == null) {
+			taskFulfillmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(978);
+		}
+		return taskFulfillmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskFulfillment_Repetitions() {
+        return (EReference)getTaskFulfillment().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskFulfillment_Period() {
+        return (EReference)getTaskFulfillment().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskFulfillment_Recipients() {
+        return (EReference)getTaskFulfillment().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -47671,7 +49665,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTaskInput() {
 		if (taskInputEClass == null) {
-			taskInputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(808);
+			taskInputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(979);
 		}
 		return taskInputEClass;
 	}
@@ -48052,7 +50046,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTaskOutput() {
 		if (taskOutputEClass == null) {
-			taskOutputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(809);
+			taskOutputEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(980);
 		}
 		return taskOutputEClass;
 	}
@@ -48433,7 +50427,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTaskPriority() {
 		if (taskPriorityEClass == null) {
-			taskPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(810);
+			taskPriorityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(981);
 		}
 		return taskPriorityEClass;
 	}
@@ -48454,7 +50448,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTaskStatus() {
 		if (taskStatusEClass == null) {
-			taskStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(812);
+			taskStatusEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(984);
 		}
 		return taskStatusEClass;
 	}
@@ -48475,7 +50469,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScript() {
 		if (testScriptEClass == null) {
-			testScriptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(814);
+			testScriptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(987);
 		}
 		return testScriptEClass;
 	}
@@ -48703,7 +50697,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptAction() {
 		if (testScriptActionEClass == null) {
-			testScriptActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(815);
+			testScriptActionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(988);
 		}
 		return testScriptActionEClass;
 	}
@@ -48733,7 +50727,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptAction1() {
 		if (testScriptAction1EClass == null) {
-			testScriptAction1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(816);
+			testScriptAction1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(989);
 		}
 		return testScriptAction1EClass;
 	}
@@ -48763,7 +50757,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptAction2() {
 		if (testScriptAction2EClass == null) {
-			testScriptAction2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(817);
+			testScriptAction2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(990);
 		}
 		return testScriptAction2EClass;
 	}
@@ -48784,7 +50778,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptAssert() {
 		if (testScriptAssertEClass == null) {
-			testScriptAssertEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(818);
+			testScriptAssertEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(991);
 		}
 		return testScriptAssertEClass;
 	}
@@ -48976,7 +50970,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptCapability() {
 		if (testScriptCapabilityEClass == null) {
-			testScriptCapabilityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(819);
+			testScriptCapabilityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(992);
 		}
 		return testScriptCapabilityEClass;
 	}
@@ -49051,7 +51045,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptContact() {
 		if (testScriptContactEClass == null) {
-			testScriptContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(820);
+			testScriptContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(993);
 		}
 		return testScriptContactEClass;
 	}
@@ -49081,7 +51075,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptDestination() {
 		if (testScriptDestinationEClass == null) {
-			testScriptDestinationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(821);
+			testScriptDestinationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(994);
 		}
 		return testScriptDestinationEClass;
 	}
@@ -49111,7 +51105,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptFixture() {
 		if (testScriptFixtureEClass == null) {
-			testScriptFixtureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(822);
+			testScriptFixtureEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(995);
 		}
 		return testScriptFixtureEClass;
 	}
@@ -49150,7 +51144,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptLink() {
 		if (testScriptLinkEClass == null) {
-			testScriptLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(823);
+			testScriptLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(996);
 		}
 		return testScriptLinkEClass;
 	}
@@ -49180,7 +51174,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptMetadata() {
 		if (testScriptMetadataEClass == null) {
-			testScriptMetadataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(824);
+			testScriptMetadataEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(997);
 		}
 		return testScriptMetadataEClass;
 	}
@@ -49210,7 +51204,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptOperation() {
 		if (testScriptOperationEClass == null) {
-			testScriptOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(825);
+			testScriptOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(998);
 		}
 		return testScriptOperationEClass;
 	}
@@ -49357,7 +51351,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptOrigin() {
 		if (testScriptOriginEClass == null) {
-			testScriptOriginEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(826);
+			testScriptOriginEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(999);
 		}
 		return testScriptOriginEClass;
 	}
@@ -49387,7 +51381,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptParam() {
 		if (testScriptParamEClass == null) {
-			testScriptParamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(827);
+			testScriptParamEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1000);
 		}
 		return testScriptParamEClass;
 	}
@@ -49417,7 +51411,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptParam1() {
 		if (testScriptParam1EClass == null) {
-			testScriptParam1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(828);
+			testScriptParam1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1001);
 		}
 		return testScriptParam1EClass;
 	}
@@ -49447,7 +51441,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptParam2() {
 		if (testScriptParam2EClass == null) {
-			testScriptParam2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(829);
+			testScriptParam2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1002);
 		}
 		return testScriptParam2EClass;
 	}
@@ -49477,7 +51471,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptParam3() {
 		if (testScriptParam3EClass == null) {
-			testScriptParam3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(830);
+			testScriptParam3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1003);
 		}
 		return testScriptParam3EClass;
 	}
@@ -49507,7 +51501,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRequestHeader() {
 		if (testScriptRequestHeaderEClass == null) {
-			testScriptRequestHeaderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(831);
+			testScriptRequestHeaderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1004);
 		}
 		return testScriptRequestHeaderEClass;
 	}
@@ -49537,7 +51531,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRule() {
 		if (testScriptRuleEClass == null) {
-			testScriptRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(832);
+			testScriptRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1005);
 		}
 		return testScriptRuleEClass;
 	}
@@ -49567,7 +51561,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRule1() {
 		if (testScriptRule1EClass == null) {
-			testScriptRule1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(833);
+			testScriptRule1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1006);
 		}
 		return testScriptRule1EClass;
 	}
@@ -49577,8 +51571,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestScriptRule1_Param() {
+	public EReference getTestScriptRule1_RuleId() {
         return (EReference)getTestScriptRule1().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestScriptRule1_Param() {
+        return (EReference)getTestScriptRule1().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -49588,7 +51591,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRule2() {
 		if (testScriptRule2EClass == null) {
-			testScriptRule2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(834);
+			testScriptRule2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1007);
 		}
 		return testScriptRule2EClass;
 	}
@@ -49598,8 +51601,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestScriptRule2_Param() {
+	public EReference getTestScriptRule2_RuleId() {
         return (EReference)getTestScriptRule2().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestScriptRule2_Param() {
+        return (EReference)getTestScriptRule2().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -49609,7 +51621,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRule3() {
 		if (testScriptRule3EClass == null) {
-			testScriptRule3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(835);
+			testScriptRule3EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1008);
 		}
 		return testScriptRule3EClass;
 	}
@@ -49619,8 +51631,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestScriptRule3_Param() {
+	public EReference getTestScriptRule3_RuleId() {
         return (EReference)getTestScriptRule3().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestScriptRule3_Param() {
+        return (EReference)getTestScriptRule3().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -49630,7 +51651,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRuleset() {
 		if (testScriptRulesetEClass == null) {
-			testScriptRulesetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(836);
+			testScriptRulesetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1009);
 		}
 		return testScriptRulesetEClass;
 	}
@@ -49660,7 +51681,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptRuleset1() {
 		if (testScriptRuleset1EClass == null) {
-			testScriptRuleset1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(837);
+			testScriptRuleset1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1010);
 		}
 		return testScriptRuleset1EClass;
 	}
@@ -49670,8 +51691,17 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestScriptRuleset1_Rule() {
+	public EReference getTestScriptRuleset1_RulesetId() {
         return (EReference)getTestScriptRuleset1().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestScriptRuleset1_Rule() {
+        return (EReference)getTestScriptRuleset1().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -49681,7 +51711,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptSetup() {
 		if (testScriptSetupEClass == null) {
-			testScriptSetupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(838);
+			testScriptSetupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1011);
 		}
 		return testScriptSetupEClass;
 	}
@@ -49711,7 +51741,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptTeardown() {
 		if (testScriptTeardownEClass == null) {
-			testScriptTeardownEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(839);
+			testScriptTeardownEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1012);
 		}
 		return testScriptTeardownEClass;
 	}
@@ -49732,7 +51762,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptTest() {
 		if (testScriptTestEClass == null) {
-			testScriptTestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(840);
+			testScriptTestEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1013);
 		}
 		return testScriptTestEClass;
 	}
@@ -49780,7 +51810,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTestScriptVariable() {
 		if (testScriptVariableEClass == null) {
-			testScriptVariableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(841);
+			testScriptVariableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1014);
 		}
 		return testScriptVariableEClass;
 	}
@@ -49837,7 +51867,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTime() {
 		if (timeEClass == null) {
-			timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(842);
+			timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1015);
 		}
 		return timeEClass;
 	}
@@ -49858,7 +51888,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTiming() {
 		if (timingEClass == null) {
-			timingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(844);
+			timingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1017);
 		}
 		return timingEClass;
 	}
@@ -49897,7 +51927,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTimingRepeat() {
 		if (timingRepeatEClass == null) {
-			timingRepeatEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(845);
+			timingRepeatEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1018);
 		}
 		return timingRepeatEClass;
 	}
@@ -50044,7 +52074,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTransactionMode() {
 		if (transactionModeEClass == null) {
-			transactionModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(846);
+			transactionModeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1019);
 		}
 		return transactionModeEClass;
 	}
@@ -50065,7 +52095,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTriggerDefinition() {
 		if (triggerDefinitionEClass == null) {
-			triggerDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(848);
+			triggerDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1022);
 		}
 		return triggerDefinitionEClass;
 	}
@@ -50140,7 +52170,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTriggerType() {
 		if (triggerTypeEClass == null) {
-			triggerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(849);
+			triggerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1023);
 		}
 		return triggerTypeEClass;
 	}
@@ -50161,7 +52191,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTypeDerivationRule() {
 		if (typeDerivationRuleEClass == null) {
-			typeDerivationRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(851);
+			typeDerivationRuleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1026);
 		}
 		return typeDerivationRuleEClass;
 	}
@@ -50182,7 +52212,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getTypeRestfulInteraction() {
 		if (typeRestfulInteractionEClass == null) {
-			typeRestfulInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(853);
+			typeRestfulInteractionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1029);
 		}
 		return typeRestfulInteractionEClass;
 	}
@@ -50203,7 +52233,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUnitsOfTime() {
 		if (unitsOfTimeEClass == null) {
-			unitsOfTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(856);
+			unitsOfTimeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1032);
 		}
 		return unitsOfTimeEClass;
 	}
@@ -50224,7 +52254,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUnknownContentCode() {
 		if (unknownContentCodeEClass == null) {
-			unknownContentCodeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(859);
+			unknownContentCodeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1035);
 		}
 		return unknownContentCodeEClass;
 	}
@@ -50245,7 +52275,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUnsignedInt() {
 		if (unsignedIntEClass == null) {
-			unsignedIntEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(861);
+			unsignedIntEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1038);
 		}
 		return unsignedIntEClass;
 	}
@@ -50266,7 +52296,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUri() {
 		if (uriEClass == null) {
-			uriEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(863);
+			uriEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1040);
 		}
 		return uriEClass;
 	}
@@ -50287,7 +52317,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUse() {
 		if (useEClass == null) {
-			useEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(865);
+			useEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1042);
 		}
 		return useEClass;
 	}
@@ -50308,7 +52338,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getUuid() {
 		if (uuidEClass == null) {
-			uuidEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(867);
+			uuidEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1045);
 		}
 		return uuidEClass;
 	}
@@ -50329,7 +52359,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSet() {
 		if (valueSetEClass == null) {
-			valueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(869);
+			valueSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1047);
 		}
 		return valueSetEClass;
 	}
@@ -50503,7 +52533,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetCompose() {
 		if (valueSetComposeEClass == null) {
-			valueSetComposeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(870);
+			valueSetComposeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1048);
 		}
 		return valueSetComposeEClass;
 	}
@@ -50542,7 +52572,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetConcept() {
 		if (valueSetConceptEClass == null) {
-			valueSetConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(871);
+			valueSetConceptEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1049);
 		}
 		return valueSetConceptEClass;
 	}
@@ -50581,7 +52611,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetContact() {
 		if (valueSetContactEClass == null) {
-			valueSetContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(872);
+			valueSetContactEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1050);
 		}
 		return valueSetContactEClass;
 	}
@@ -50611,7 +52641,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetContains() {
 		if (valueSetContainsEClass == null) {
-			valueSetContainsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(873);
+			valueSetContainsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1051);
 		}
 		return valueSetContainsEClass;
 	}
@@ -50677,7 +52707,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetDesignation() {
 		if (valueSetDesignationEClass == null) {
-			valueSetDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(874);
+			valueSetDesignationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1052);
 		}
 		return valueSetDesignationEClass;
 	}
@@ -50716,7 +52746,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetExpansion() {
 		if (valueSetExpansionEClass == null) {
-			valueSetExpansionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(875);
+			valueSetExpansionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1053);
 		}
 		return valueSetExpansionEClass;
 	}
@@ -50782,7 +52812,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetFilter() {
 		if (valueSetFilterEClass == null) {
-			valueSetFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(876);
+			valueSetFilterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1054);
 		}
 		return valueSetFilterEClass;
 	}
@@ -50821,7 +52851,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetInclude() {
 		if (valueSetIncludeEClass == null) {
-			valueSetIncludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(877);
+			valueSetIncludeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1055);
 		}
 		return valueSetIncludeEClass;
 	}
@@ -50869,7 +52899,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getValueSetParameter() {
 		if (valueSetParameterEClass == null) {
-			valueSetParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(878);
+			valueSetParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1056);
 		}
 		return valueSetParameterEClass;
 	}
@@ -50944,7 +52974,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getVisionBase() {
 		if (visionBaseEClass == null) {
-			visionBaseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(879);
+			visionBaseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1057);
 		}
 		return visionBaseEClass;
 	}
@@ -50965,7 +52995,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getVisionEyes() {
 		if (visionEyesEClass == null) {
-			visionEyesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(881);
+			visionEyesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1060);
 		}
 		return visionEyesEClass;
 	}
@@ -50986,7 +53016,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getVisionPrescription() {
 		if (visionPrescriptionEClass == null) {
-			visionPrescriptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(883);
+			visionPrescriptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1063);
 		}
 		return visionPrescriptionEClass;
 	}
@@ -51070,7 +53100,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getVisionPrescriptionDispense() {
 		if (visionPrescriptionDispenseEClass == null) {
-			visionPrescriptionDispenseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(884);
+			visionPrescriptionDispenseEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1064);
 		}
 		return visionPrescriptionDispenseEClass;
 	}
@@ -51217,7 +53247,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EClass getXPathUsageType() {
 		if (xPathUsageTypeEClass == null) {
-			xPathUsageTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(885);
+			xPathUsageTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1065);
 		}
 		return xPathUsageTypeEClass;
 	}
@@ -51236,9 +53266,873 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getAccountStatusList() {
+		if (accountStatusListEEnum == null) {
+			accountStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(2);
+		}
+		return accountStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionListList() {
+		if (actionListListEEnum == null) {
+			actionListListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(9);
+		}
+		return actionListListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionRelationshipAnchorList() {
+		if (actionRelationshipAnchorListEEnum == null) {
+			actionRelationshipAnchorListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(12);
+		}
+		return actionRelationshipAnchorListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionRelationshipTypeList() {
+		if (actionRelationshipTypeListEEnum == null) {
+			actionRelationshipTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(15);
+		}
+		return actionRelationshipTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionTypeList() {
+		if (actionTypeListEEnum == null) {
+			actionTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(18);
+		}
+		return actionTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActivityDefinitionCategoryList() {
+		if (activityDefinitionCategoryListEEnum == null) {
+			activityDefinitionCategoryListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(21);
+		}
+		return activityDefinitionCategoryListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAddressTypeList() {
+		if (addressTypeListEEnum == null) {
+			addressTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(25);
+		}
+		return addressTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAddressUseList() {
+		if (addressUseListEEnum == null) {
+			addressUseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(28);
+		}
+		return addressUseListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAdministrativeGenderList() {
+		if (administrativeGenderListEEnum == null) {
+			administrativeGenderListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(31);
+		}
+		return administrativeGenderListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAggregationModeList() {
+		if (aggregationModeListEEnum == null) {
+			aggregationModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(35);
+		}
+		return aggregationModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceCategoryList() {
+		if (allergyIntoleranceCategoryListEEnum == null) {
+			allergyIntoleranceCategoryListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(39);
+		}
+		return allergyIntoleranceCategoryListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceCertaintyList() {
+		if (allergyIntoleranceCertaintyListEEnum == null) {
+			allergyIntoleranceCertaintyListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(42);
+		}
+		return allergyIntoleranceCertaintyListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceCriticalityList() {
+		if (allergyIntoleranceCriticalityListEEnum == null) {
+			allergyIntoleranceCriticalityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(45);
+		}
+		return allergyIntoleranceCriticalityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceSeverityList() {
+		if (allergyIntoleranceSeverityListEEnum == null) {
+			allergyIntoleranceSeverityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(49);
+		}
+		return allergyIntoleranceSeverityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceStatusList() {
+		if (allergyIntoleranceStatusListEEnum == null) {
+			allergyIntoleranceStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(52);
+		}
+		return allergyIntoleranceStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAllergyIntoleranceTypeList() {
+		if (allergyIntoleranceTypeListEEnum == null) {
+			allergyIntoleranceTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(55);
+		}
+		return allergyIntoleranceTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAppointmentStatusList() {
+		if (appointmentStatusListEEnum == null) {
+			appointmentStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(62);
+		}
+		return appointmentStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAssertionDirectionTypeList() {
+		if (assertionDirectionTypeListEEnum == null) {
+			assertionDirectionTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(65);
+		}
+		return assertionDirectionTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAssertionOperatorTypeList() {
+		if (assertionOperatorTypeListEEnum == null) {
+			assertionOperatorTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(68);
+		}
+		return assertionOperatorTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAssertionResponseTypesList() {
+		if (assertionResponseTypesListEEnum == null) {
+			assertionResponseTypesListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(71);
+		}
+		return assertionResponseTypesListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAuditEventActionList() {
+		if (auditEventActionListEEnum == null) {
+			auditEventActionListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(76);
+		}
+		return auditEventActionListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAuditEventOutcomeList() {
+		if (auditEventOutcomeListEEnum == null) {
+			auditEventOutcomeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(83);
+		}
+		return auditEventOutcomeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAuditEventParticipantNetworkTypeList() {
+		if (auditEventParticipantNetworkTypeListEEnum == null) {
+			auditEventParticipantNetworkTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(86);
+		}
+		return auditEventParticipantNetworkTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBindingStrengthList() {
+		if (bindingStrengthListEEnum == null) {
+			bindingStrengthListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(95);
+		}
+		return bindingStrengthListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBundleTypeList() {
+		if (bundleTypeListEEnum == null) {
+			bundleTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(108);
+		}
+		return bundleTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCarePlanActivityStatusList() {
+		if (carePlanActivityStatusListEEnum == null) {
+			carePlanActivityStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(113);
+		}
+		return carePlanActivityStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCarePlanRelationshipList() {
+		if (carePlanRelationshipListEEnum == null) {
+			carePlanRelationshipListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(118);
+		}
+		return carePlanRelationshipListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCarePlanStatusList() {
+		if (carePlanStatusListEEnum == null) {
+			carePlanStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(121);
+		}
+		return carePlanStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getClaimType2List() {
+		if (claimType2ListEEnum == null) {
+			claimType2ListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(153);
+		}
+		return claimType2ListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getClaimTypeList() {
+		if (claimTypeListEEnum == null) {
+			claimTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(155);
+		}
+		return claimTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getClinicalImpressionStatusList() {
+		if (clinicalImpressionStatusListEEnum == null) {
+			clinicalImpressionStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(162);
+		}
+		return clinicalImpressionStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCodeSystemContentModeList() {
+		if (codeSystemContentModeListEEnum == null) {
+			codeSystemContentModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(171);
+		}
+		return codeSystemContentModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCommunicationRequestStatusList() {
+		if (communicationRequestStatusListEEnum == null) {
+			communicationRequestStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(183);
+		}
+		return communicationRequestStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCommunicationStatusList() {
+		if (communicationStatusListEEnum == null) {
+			communicationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(186);
+		}
+		return communicationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCompartmentTypeList() {
+		if (compartmentTypeListEEnum == null) {
+			compartmentTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(192);
+		}
+		return compartmentTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCompositionAttestationModeList() {
+		if (compositionAttestationModeListEEnum == null) {
+			compositionAttestationModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(196);
+		}
+		return compositionAttestationModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCompositionStatusList() {
+		if (compositionStatusListEEnum == null) {
+			compositionStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(202);
+		}
+		return compositionStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConceptMapEquivalenceList() {
+		if (conceptMapEquivalenceListEEnum == null) {
+			conceptMapEquivalenceListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(209);
+		}
+		return conceptMapEquivalenceListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConditionalDeleteStatusList() {
+		if (conditionalDeleteStatusListEEnum == null) {
+			conditionalDeleteStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(214);
+		}
+		return conditionalDeleteStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConditionVerificationStatusList() {
+		if (conditionVerificationStatusListEEnum == null) {
+			conditionVerificationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(219);
+		}
+		return conditionVerificationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConformanceEventModeList() {
+		if (conformanceEventModeListEEnum == null) {
+			conformanceEventModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(228);
+		}
+		return conformanceEventModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConformanceResourceStatusList() {
+		if (conformanceResourceStatusListEEnum == null) {
+			conformanceResourceStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(237);
+		}
+		return conformanceResourceStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConformanceStatementKindList() {
+		if (conformanceStatementKindListEEnum == null) {
+			conformanceStatementKindListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(244);
+		}
+		return conformanceStatementKindListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConsentStatusList() {
+		if (consentStatusListEEnum == null) {
+			consentStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(253);
+		}
+		return consentStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getConstraintSeverityList() {
+		if (constraintSeverityListEEnum == null) {
+			constraintSeverityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(256);
+		}
+		return constraintSeverityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getContactPointSystemList() {
+		if (contactPointSystemListEEnum == null) {
+			contactPointSystemListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(260);
+		}
+		return contactPointSystemListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getContactPointUseList() {
+		if (contactPointUseListEEnum == null) {
+			contactPointUseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(263);
+		}
+		return contactPointUseListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getContentTypeList() {
+		if (contentTypeListEEnum == null) {
+			contentTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(266);
+		}
+		return contentTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDataElementStringencyList() {
+		if (dataElementStringencyListEEnum == null) {
+			dataElementStringencyListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(284);
+		}
+		return dataElementStringencyListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDaysOfWeekList() {
+		if (daysOfWeekListEEnum == null) {
+			daysOfWeekListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(296);
+		}
+		return daysOfWeekListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDetectedIssueSeverityList() {
+		if (detectedIssueSeverityListEEnum == null) {
+			detectedIssueSeverityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(305);
+		}
+		return detectedIssueSeverityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceMetricCalibrationStateList() {
+		if (deviceMetricCalibrationStateListEEnum == null) {
+			deviceMetricCalibrationStateListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(313);
+		}
+		return deviceMetricCalibrationStateListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceMetricCalibrationTypeList() {
+		if (deviceMetricCalibrationTypeListEEnum == null) {
+			deviceMetricCalibrationTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(316);
+		}
+		return deviceMetricCalibrationTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceMetricCategoryList() {
+		if (deviceMetricCategoryListEEnum == null) {
+			deviceMetricCategoryListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(319);
+		}
+		return deviceMetricCategoryListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceMetricColorList() {
+		if (deviceMetricColorListEEnum == null) {
+			deviceMetricColorListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(322);
+		}
+		return deviceMetricColorListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceMetricOperationalStatusList() {
+		if (deviceMetricOperationalStatusListEEnum == null) {
+			deviceMetricOperationalStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(325);
+		}
+		return deviceMetricOperationalStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceStatusList() {
+		if (deviceStatusListEEnum == null) {
+			deviceStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(328);
+		}
+		return deviceStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceUseRequestPriorityList() {
+		if (deviceUseRequestPriorityListEEnum == null) {
+			deviceUseRequestPriorityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(332);
+		}
+		return deviceUseRequestPriorityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDeviceUseRequestStatusList() {
+		if (deviceUseRequestStatusListEEnum == null) {
+			deviceUseRequestStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(335);
+		}
+		return deviceUseRequestStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDiagnosticOrderPriorityList() {
+		if (diagnosticOrderPriorityListEEnum == null) {
+			diagnosticOrderPriorityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(342);
+		}
+		return diagnosticOrderPriorityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDiagnosticOrderStatusList() {
+		if (diagnosticOrderStatusListEEnum == null) {
+			diagnosticOrderStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(345);
+		}
+		return diagnosticOrderStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDiagnosticReportStatusList() {
+		if (diagnosticReportStatusListEEnum == null) {
+			diagnosticReportStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(350);
+		}
+		return diagnosticReportStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDigitalMediaTypeList() {
+		if (digitalMediaTypeListEEnum == null) {
+			digitalMediaTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(353);
+		}
+		return digitalMediaTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDocumentModeList() {
+		if (documentModeListEEnum == null) {
+			documentModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(360);
+		}
+		return documentModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDocumentReferenceStatusList() {
+		if (documentReferenceStatusListEEnum == null) {
+			documentReferenceStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(368);
+		}
+		return documentReferenceStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDocumentRelationshipTypeList() {
+		if (documentRelationshipTypeListEEnum == null) {
+			documentRelationshipTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(371);
+		}
+		return documentRelationshipTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDWebTypeList() {
+		if (dWebTypeListEEnum == null) {
+			dWebTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(377);
+		}
+		return dWebTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEncounterClassList() {
+		if (encounterClassListEEnum == null) {
+			encounterClassListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(394);
+		}
+		return encounterClassListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEncounterLocationStatusList() {
+		if (encounterLocationStatusListEEnum == null) {
+			encounterLocationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(399);
+		}
+		return encounterLocationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEncounterStateList() {
+		if (encounterStateListEEnum == null) {
+			encounterStateListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(403);
+		}
+		return encounterStateListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEndpointStatusList() {
+		if (endpointStatusListEEnum == null) {
+			endpointStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(408);
+		}
+		return endpointStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEpisodeOfCareStatusList() {
+		if (episodeOfCareStatusListEEnum == null) {
+			episodeOfCareStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(415);
+		}
+		return episodeOfCareStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEventTimingList() {
 		if (eventTimingListEEnum == null) {
-			eventTimingListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(337);
+			eventTimingListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(418);
 		}
 		return eventTimingListEEnum;
 	}
@@ -51248,9 +54142,153 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getExtensionContextList() {
+		if (extensionContextListEEnum == null) {
+			extensionContextListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(456);
+		}
+		return extensionContextListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFamilyHistoryStatusList() {
+		if (familyHistoryStatusListEEnum == null) {
+			familyHistoryStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(459);
+		}
+		return familyHistoryStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFilterOperatorList() {
+		if (filterOperatorListEEnum == null) {
+			filterOperatorListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(464);
+		}
+		return filterOperatorListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFlagStatusList() {
+		if (flagStatusListEEnum == null) {
+			flagStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(468);
+		}
+		return flagStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGoalStatusList() {
+		if (goalStatusListEEnum == null) {
+			goalStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(473);
+		}
+		return goalStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGroupTypeList() {
+		if (groupTypeListEEnum == null) {
+			groupTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(479);
+		}
+		return groupTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGuidanceResponseStatusList() {
+		if (guidanceResponseStatusListEEnum == null) {
+			guidanceResponseStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(486);
+		}
+		return guidanceResponseStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGuideDependencyTypeList() {
+		if (guideDependencyTypeListEEnum == null) {
+			guideDependencyTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(489);
+		}
+		return guideDependencyTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGuidePageKindList() {
+		if (guidePageKindListEEnum == null) {
+			guidePageKindListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(492);
+		}
+		return guidePageKindListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getHTTPVerbList() {
+		if (httpVerbListEEnum == null) {
+			httpVerbListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(498);
+		}
+		return httpVerbListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIdentifierUseList() {
+		if (identifierUseListEEnum == null) {
+			identifierUseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(504);
+		}
+		return identifierUseListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIdentityAssuranceLevelList() {
+		if (identityAssuranceLevelListEEnum == null) {
+			identityAssuranceLevelListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(507);
+		}
+		return identityAssuranceLevelListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInstanceAvailabilityList() {
 		if (instanceAvailabilityListEEnum == null) {
-			instanceAvailabilityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(449);
+			instanceAvailabilityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(542);
 		}
 		return instanceAvailabilityListEEnum;
 	}
@@ -51260,9 +54298,897 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getIssueSeverityList() {
+		if (issueSeverityListEEnum == null) {
+			issueSeverityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(550);
+		}
+		return issueSeverityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIssueTypeList() {
+		if (issueTypeListEEnum == null) {
+			issueTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(553);
+		}
+		return issueTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLinkageTypeList() {
+		if (linkageTypeListEEnum == null) {
+			linkageTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(563);
+		}
+		return linkageTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLinkTypeList() {
+		if (linkTypeListEEnum == null) {
+			linkTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(566);
+		}
+		return linkTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getListModeList() {
+		if (listModeListEEnum == null) {
+			listModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(571);
+		}
+		return listModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getListStatusList() {
+		if (listStatusListEEnum == null) {
+			listStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(574);
+		}
+		return listStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLocationModeList() {
+		if (locationModeListEEnum == null) {
+			locationModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(578);
+		}
+		return locationModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLocationStatusList() {
+		if (locationStatusListEEnum == null) {
+			locationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(582);
+		}
+		return locationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasmntPrincipleList() {
+		if (measmntPrincipleListEEnum == null) {
+			measmntPrincipleListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(587);
+		}
+		return measmntPrincipleListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasureDataUsageList() {
+		if (measureDataUsageListEEnum == null) {
+			measureDataUsageListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(591);
+		}
+		return measureDataUsageListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasurePopulationTypeList() {
+		if (measurePopulationTypeListEEnum == null) {
+			measurePopulationTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(596);
+		}
+		return measurePopulationTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasureReportStatusList() {
+		if (measureReportStatusListEEnum == null) {
+			measureReportStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(605);
+		}
+		return measureReportStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasureReportTypeList() {
+		if (measureReportTypeListEEnum == null) {
+			measureReportTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(610);
+		}
+		return measureReportTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasureScoringList() {
+		if (measureScoringListEEnum == null) {
+			measureScoringListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(613);
+		}
+		return measureScoringListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMeasureTypeList() {
+		if (measureTypeListEEnum == null) {
+			measureTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(618);
+		}
+		return measureTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMedicationAdministrationStatusList() {
+		if (medicationAdministrationStatusListEEnum == null) {
+			medicationAdministrationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(626);
+		}
+		return medicationAdministrationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMedicationDispenseStatusList() {
+		if (medicationDispenseStatusListEEnum == null) {
+			medicationDispenseStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(634);
+		}
+		return medicationDispenseStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMedicationOrderStatusList() {
+		if (medicationOrderStatusListEEnum == null) {
+			medicationOrderStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(643);
+		}
+		return medicationOrderStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMedicationStatementStatusList() {
+		if (medicationStatementStatusListEEnum == null) {
+			medicationStatementStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(651);
+		}
+		return medicationStatementStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMessageSignificanceCategoryList() {
+		if (messageSignificanceCategoryListEEnum == null) {
+			messageSignificanceCategoryListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(658);
+		}
+		return messageSignificanceCategoryListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getModuleMetadataContributorTypeList() {
+		if (moduleMetadataContributorTypeListEEnum == null) {
+			moduleMetadataContributorTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(675);
+		}
+		return moduleMetadataContributorTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getModuleMetadataResourceTypeList() {
+		if (moduleMetadataResourceTypeListEEnum == null) {
+			moduleMetadataResourceTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(680);
+		}
+		return moduleMetadataResourceTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getModuleMetadataStatusList() {
+		if (moduleMetadataStatusListEEnum == null) {
+			moduleMetadataStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(683);
+		}
+		return moduleMetadataStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getModuleMetadataTypeList() {
+		if (moduleMetadataTypeListEEnum == null) {
+			moduleMetadataTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(686);
+		}
+		return moduleMetadataTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNameUseList() {
+		if (nameUseListEEnum == null) {
+			nameUseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(690);
+		}
+		return nameUseListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNamingSystemIdentifierTypeList() {
+		if (namingSystemIdentifierTypeListEEnum == null) {
+			namingSystemIdentifierTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(695);
+		}
+		return namingSystemIdentifierTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNamingSystemTypeList() {
+		if (namingSystemTypeListEEnum == null) {
+			namingSystemTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(698);
+		}
+		return namingSystemTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNarrativeStatusList() {
+		if (narrativeStatusListEEnum == null) {
+			narrativeStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(703);
+		}
+		return narrativeStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNoteTypeList() {
+		if (noteTypeListEEnum == null) {
+			noteTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(706);
+		}
+		return noteTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNutritionOrderStatusList() {
+		if (nutritionOrderStatusListEEnum == null) {
+			nutritionOrderStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(714);
+		}
+		return nutritionOrderStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getObservationRelationshipTypeList() {
+		if (observationRelationshipTypeListEEnum == null) {
+			observationRelationshipTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(723);
+		}
+		return observationRelationshipTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getObservationStatusList() {
+		if (observationStatusListEEnum == null) {
+			observationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(726);
+		}
+		return observationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperationKindList() {
+		if (operationKindListEEnum == null) {
+			operationKindListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(735);
+		}
+		return operationKindListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperationParameterUseList() {
+		if (operationParameterUseListEEnum == null) {
+			operationParameterUseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(740);
+		}
+		return operationParameterUseListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOrderStatusList() {
+		if (orderStatusListEEnum == null) {
+			orderStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(746);
+		}
+		return orderStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParticipantRequiredList() {
+		if (participantRequiredListEEnum == null) {
+			participantRequiredListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(755);
+		}
+		return participantRequiredListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParticipantTypeList() {
+		if (participantTypeListEEnum == null) {
+			participantTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(758);
+		}
+		return participantTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParticipationStatusList() {
+		if (participationStatusListEEnum == null) {
+			participationStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(761);
+		}
+		return participationStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProcedureRequestPriorityList() {
+		if (procedureRequestPriorityListEEnum == null) {
+			procedureRequestPriorityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(788);
+		}
+		return procedureRequestPriorityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProcedureRequestStatusList() {
+		if (procedureRequestStatusListEEnum == null) {
+			procedureRequestStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(791);
+		}
+		return procedureRequestStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProcedureStatusList() {
+		if (procedureStatusListEEnum == null) {
+			procedureStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(794);
+		}
+		return procedureStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPropertyRepresentationList() {
+		if (propertyRepresentationListEEnum == null) {
+			propertyRepresentationListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(801);
+		}
+		return propertyRepresentationListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPropertyTypeList() {
+		if (propertyTypeListEEnum == null) {
+			propertyTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(804);
+		}
+		return propertyTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocolStatusList() {
+		if (protocolStatusListEEnum == null) {
+			protocolStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(814);
+		}
+		return protocolStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocolTypeList() {
+		if (protocolTypeListEEnum == null) {
+			protocolTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(818);
+		}
+		return protocolTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProvenanceEntityRoleList() {
+		if (provenanceEntityRoleListEEnum == null) {
+			provenanceEntityRoleListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(824);
+		}
+		return provenanceEntityRoleListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQuantityComparatorList() {
+		if (quantityComparatorListEEnum == null) {
+			quantityComparatorListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(829);
+		}
+		return quantityComparatorListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQuestionnaireItemTypeList() {
+		if (questionnaireItemTypeListEEnum == null) {
+			questionnaireItemTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(835);
+		}
+		return questionnaireItemTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQuestionnaireResponseStatusList() {
+		if (questionnaireResponseStatusListEEnum == null) {
+			questionnaireResponseStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(842);
+		}
+		return questionnaireResponseStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQuestionnaireStatusList() {
+		if (questionnaireStatusListEEnum == null) {
+			questionnaireStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(845);
+		}
+		return questionnaireStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getReferenceVersionRulesList() {
+		if (referenceVersionRulesListEEnum == null) {
+			referenceVersionRulesListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(851);
+		}
+		return referenceVersionRulesListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getReferralCategoryList() {
+		if (referralCategoryListEEnum == null) {
+			referralCategoryListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(854);
+		}
+		return referralCategoryListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getReferralStatusList() {
+		if (referralStatusListEEnum == null) {
+			referralStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(858);
+		}
+		return referralStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRemittanceOutcomeList() {
+		if (remittanceOutcomeListEEnum == null) {
+			remittanceOutcomeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(862);
+		}
+		return remittanceOutcomeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getResourceVersionPolicyList() {
+		if (resourceVersionPolicyListEEnum == null) {
+			resourceVersionPolicyListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(867);
+		}
+		return resourceVersionPolicyListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getResponseTypeList() {
+		if (responseTypeListEEnum == null) {
+			responseTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(870);
+		}
+		return responseTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRestfulConformanceModeList() {
+		if (restfulConformanceModeListEEnum == null) {
+			restfulConformanceModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(873);
+		}
+		return restfulConformanceModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSearchEntryModeList() {
+		if (searchEntryModeListEEnum == null) {
+			searchEntryModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(882);
+		}
+		return searchEntryModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSearchModifierCodeList() {
+		if (searchModifierCodeListEEnum == null) {
+			searchModifierCodeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(885);
+		}
+		return searchModifierCodeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSearchParamTypeList() {
+		if (searchParamTypeListEEnum == null) {
+			searchParamTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(890);
+		}
+		return searchParamTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSequenceTypeList() {
+		if (sequenceTypeListEEnum == null) {
+			sequenceTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(900);
+		}
+		return sequenceTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSlicingRulesList() {
+		if (slicingRulesListEEnum == null) {
+			slicingRulesListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(906);
+		}
+		return slicingRulesListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSlotStatusList() {
+		if (slotStatusListEEnum == null) {
+			slotStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(910);
+		}
+		return slotStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSpecimenStatusList() {
+		if (specimenStatusListEEnum == null) {
+			specimenStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(916);
+		}
+		return specimenStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureDefinitionKindList() {
+		if (structureDefinitionKindListEEnum == null) {
+			structureDefinitionKindListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(925);
+		}
+		return structureDefinitionKindListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureMapContextTypeList() {
+		if (structureMapContextTypeListEEnum == null) {
+			structureMapContextTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(932);
+		}
+		return structureMapContextTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureMapInputModeList() {
+		if (structureMapInputModeListEEnum == null) {
+			structureMapInputModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(938);
+		}
+		return structureMapInputModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureMapListModeList() {
+		if (structureMapListModeListEEnum == null) {
+			structureMapListModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(941);
+		}
+		return structureMapListModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureMapModelModeList() {
+		if (structureMapModelModeListEEnum == null) {
+			structureMapModelModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(944);
+		}
+		return structureMapModelModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStructureMapTransformList() {
+		if (structureMapTransformListEEnum == null) {
+			structureMapTransformListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(952);
+		}
+		return structureMapTransformListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSubscriptionChannelTypeList() {
+		if (subscriptionChannelTypeListEEnum == null) {
+			subscriptionChannelTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(957);
+		}
+		return subscriptionChannelTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSubscriptionStatusList() {
+		if (subscriptionStatusListEEnum == null) {
+			subscriptionStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(960);
+		}
+		return subscriptionStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSupplyDeliveryStatusList() {
+		if (supplyDeliveryStatusListEEnum == null) {
+			supplyDeliveryStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(967);
+		}
+		return supplyDeliveryStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSupplyRequestStatusList() {
+		if (supplyRequestStatusListEEnum == null) {
+			supplyRequestStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(971);
+		}
+		return supplyRequestStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSystemRestfulInteractionList() {
 		if (systemRestfulInteractionListEEnum == null) {
-			systemRestfulInteractionListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(805);
+			systemRestfulInteractionListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(975);
 		}
 		return systemRestfulInteractionListEEnum;
 	}
@@ -51272,9 +55198,69 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTaskPriorityList() {
+		if (taskPriorityListEEnum == null) {
+			taskPriorityListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(982);
+		}
+		return taskPriorityListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTaskStatusList() {
+		if (taskStatusListEEnum == null) {
+			taskStatusListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(985);
+		}
+		return taskStatusListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTransactionModeList() {
+		if (transactionModeListEEnum == null) {
+			transactionModeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1020);
+		}
+		return transactionModeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTriggerTypeList() {
+		if (triggerTypeListEEnum == null) {
+			triggerTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1024);
+		}
+		return triggerTypeListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTypeDerivationRuleList() {
+		if (typeDerivationRuleListEEnum == null) {
+			typeDerivationRuleListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1027);
+		}
+		return typeDerivationRuleListEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTypeRestfulInteractionList() {
 		if (typeRestfulInteractionListEEnum == null) {
-			typeRestfulInteractionListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(854);
+			typeRestfulInteractionListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1030);
 		}
 		return typeRestfulInteractionListEEnum;
 	}
@@ -51286,7 +55272,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EEnum getUnitsOfTimeList() {
 		if (unitsOfTimeListEEnum == null) {
-			unitsOfTimeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(857);
+			unitsOfTimeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1033);
 		}
 		return unitsOfTimeListEEnum;
 	}
@@ -51296,11 +55282,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAccountStatusList() {
-		if (accountStatusListEDataType == null) {
-			accountStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(2);
+	public EEnum getUnknownContentCodeList() {
+		if (unknownContentCodeListEEnum == null) {
+			unknownContentCodeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1036);
 		}
-		return accountStatusListEDataType;
+		return unknownContentCodeListEEnum;
 	}
 
 	/**
@@ -51308,11 +55294,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getActionListList() {
-		if (actionListListEDataType == null) {
-			actionListListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(8);
+	public EEnum getUseList() {
+		if (useListEEnum == null) {
+			useListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1043);
 		}
-		return actionListListEDataType;
+		return useListEEnum;
 	}
 
 	/**
@@ -51320,11 +55306,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getActionRelationshipAnchorList() {
-		if (actionRelationshipAnchorListEDataType == null) {
-			actionRelationshipAnchorListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(10);
+	public EEnum getVisionBaseList() {
+		if (visionBaseListEEnum == null) {
+			visionBaseListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1058);
 		}
-		return actionRelationshipAnchorListEDataType;
+		return visionBaseListEEnum;
 	}
 
 	/**
@@ -51332,11 +55318,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getActionRelationshipTypeList() {
-		if (actionRelationshipTypeListEDataType == null) {
-			actionRelationshipTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(12);
+	public EEnum getVisionEyesList() {
+		if (visionEyesListEEnum == null) {
+			visionEyesListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1061);
 		}
-		return actionRelationshipTypeListEDataType;
+		return visionEyesListEEnum;
 	}
 
 	/**
@@ -51344,11 +55330,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getActionTypeList() {
-		if (actionTypeListEDataType == null) {
-			actionTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(14);
+	public EEnum getXPathUsageTypeList() {
+		if (xPathUsageTypeListEEnum == null) {
+			xPathUsageTypeListEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1066);
 		}
-		return actionTypeListEDataType;
+		return xPathUsageTypeListEEnum;
 	}
 
 	/**
@@ -51356,11 +55342,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getActivityDefinitionCategoryList() {
-		if (activityDefinitionCategoryListEDataType == null) {
-			activityDefinitionCategoryListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(16);
+	public EDataType getAccountStatusListObject() {
+		if (accountStatusListObjectEDataType == null) {
+			accountStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(3);
 		}
-		return activityDefinitionCategoryListEDataType;
+		return accountStatusListObjectEDataType;
 	}
 
 	/**
@@ -51368,11 +55354,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAddressTypeList() {
-		if (addressTypeListEDataType == null) {
-			addressTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(19);
+	public EDataType getActionListListObject() {
+		if (actionListListObjectEDataType == null) {
+			actionListListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(10);
 		}
-		return addressTypeListEDataType;
+		return actionListListObjectEDataType;
 	}
 
 	/**
@@ -51380,11 +55366,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAddressUseList() {
-		if (addressUseListEDataType == null) {
-			addressUseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(21);
+	public EDataType getActionRelationshipAnchorListObject() {
+		if (actionRelationshipAnchorListObjectEDataType == null) {
+			actionRelationshipAnchorListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(13);
 		}
-		return addressUseListEDataType;
+		return actionRelationshipAnchorListObjectEDataType;
 	}
 
 	/**
@@ -51392,11 +55378,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAdministrativeGenderList() {
-		if (administrativeGenderListEDataType == null) {
-			administrativeGenderListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(23);
+	public EDataType getActionRelationshipTypeListObject() {
+		if (actionRelationshipTypeListObjectEDataType == null) {
+			actionRelationshipTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(16);
 		}
-		return administrativeGenderListEDataType;
+		return actionRelationshipTypeListObjectEDataType;
 	}
 
 	/**
@@ -51404,11 +55390,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAggregationModeList() {
-		if (aggregationModeListEDataType == null) {
-			aggregationModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(26);
+	public EDataType getActionTypeListObject() {
+		if (actionTypeListObjectEDataType == null) {
+			actionTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(19);
 		}
-		return aggregationModeListEDataType;
+		return actionTypeListObjectEDataType;
 	}
 
 	/**
@@ -51416,11 +55402,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceCategoryList() {
-		if (allergyIntoleranceCategoryListEDataType == null) {
-			allergyIntoleranceCategoryListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(29);
+	public EDataType getActivityDefinitionCategoryListObject() {
+		if (activityDefinitionCategoryListObjectEDataType == null) {
+			activityDefinitionCategoryListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(22);
 		}
-		return allergyIntoleranceCategoryListEDataType;
+		return activityDefinitionCategoryListObjectEDataType;
 	}
 
 	/**
@@ -51428,11 +55414,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceCertaintyList() {
-		if (allergyIntoleranceCertaintyListEDataType == null) {
-			allergyIntoleranceCertaintyListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(31);
+	public EDataType getAddressTypeListObject() {
+		if (addressTypeListObjectEDataType == null) {
+			addressTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(26);
 		}
-		return allergyIntoleranceCertaintyListEDataType;
+		return addressTypeListObjectEDataType;
 	}
 
 	/**
@@ -51440,11 +55426,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceCriticalityList() {
-		if (allergyIntoleranceCriticalityListEDataType == null) {
-			allergyIntoleranceCriticalityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(33);
+	public EDataType getAddressUseListObject() {
+		if (addressUseListObjectEDataType == null) {
+			addressUseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(29);
 		}
-		return allergyIntoleranceCriticalityListEDataType;
+		return addressUseListObjectEDataType;
 	}
 
 	/**
@@ -51452,11 +55438,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceSeverityList() {
-		if (allergyIntoleranceSeverityListEDataType == null) {
-			allergyIntoleranceSeverityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(36);
+	public EDataType getAdministrativeGenderListObject() {
+		if (administrativeGenderListObjectEDataType == null) {
+			administrativeGenderListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(32);
 		}
-		return allergyIntoleranceSeverityListEDataType;
+		return administrativeGenderListObjectEDataType;
 	}
 
 	/**
@@ -51464,11 +55450,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceStatusList() {
-		if (allergyIntoleranceStatusListEDataType == null) {
-			allergyIntoleranceStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(38);
+	public EDataType getAggregationModeListObject() {
+		if (aggregationModeListObjectEDataType == null) {
+			aggregationModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(36);
 		}
-		return allergyIntoleranceStatusListEDataType;
+		return aggregationModeListObjectEDataType;
 	}
 
 	/**
@@ -51476,11 +55462,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAllergyIntoleranceTypeList() {
-		if (allergyIntoleranceTypeListEDataType == null) {
-			allergyIntoleranceTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(40);
+	public EDataType getAllergyIntoleranceCategoryListObject() {
+		if (allergyIntoleranceCategoryListObjectEDataType == null) {
+			allergyIntoleranceCategoryListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(40);
 		}
-		return allergyIntoleranceTypeListEDataType;
+		return allergyIntoleranceCategoryListObjectEDataType;
 	}
 
 	/**
@@ -51488,11 +55474,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAppointmentStatusList() {
-		if (appointmentStatusListEDataType == null) {
-			appointmentStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(46);
+	public EDataType getAllergyIntoleranceCertaintyListObject() {
+		if (allergyIntoleranceCertaintyListObjectEDataType == null) {
+			allergyIntoleranceCertaintyListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(43);
 		}
-		return appointmentStatusListEDataType;
+		return allergyIntoleranceCertaintyListObjectEDataType;
 	}
 
 	/**
@@ -51500,11 +55486,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAssertionDirectionTypeList() {
-		if (assertionDirectionTypeListEDataType == null) {
-			assertionDirectionTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(48);
+	public EDataType getAllergyIntoleranceCriticalityListObject() {
+		if (allergyIntoleranceCriticalityListObjectEDataType == null) {
+			allergyIntoleranceCriticalityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(46);
 		}
-		return assertionDirectionTypeListEDataType;
+		return allergyIntoleranceCriticalityListObjectEDataType;
 	}
 
 	/**
@@ -51512,11 +55498,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAssertionOperatorTypeList() {
-		if (assertionOperatorTypeListEDataType == null) {
-			assertionOperatorTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(50);
+	public EDataType getAllergyIntoleranceSeverityListObject() {
+		if (allergyIntoleranceSeverityListObjectEDataType == null) {
+			allergyIntoleranceSeverityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(50);
 		}
-		return assertionOperatorTypeListEDataType;
+		return allergyIntoleranceSeverityListObjectEDataType;
 	}
 
 	/**
@@ -51524,11 +55510,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAssertionResponseTypesList() {
-		if (assertionResponseTypesListEDataType == null) {
-			assertionResponseTypesListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(52);
+	public EDataType getAllergyIntoleranceStatusListObject() {
+		if (allergyIntoleranceStatusListObjectEDataType == null) {
+			allergyIntoleranceStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(53);
 		}
-		return assertionResponseTypesListEDataType;
+		return allergyIntoleranceStatusListObjectEDataType;
 	}
 
 	/**
@@ -51536,11 +55522,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAuditEventActionList() {
-		if (auditEventActionListEDataType == null) {
-			auditEventActionListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(56);
+	public EDataType getAllergyIntoleranceTypeListObject() {
+		if (allergyIntoleranceTypeListObjectEDataType == null) {
+			allergyIntoleranceTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(56);
 		}
-		return auditEventActionListEDataType;
+		return allergyIntoleranceTypeListObjectEDataType;
 	}
 
 	/**
@@ -51548,11 +55534,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAuditEventOutcomeList() {
-		if (auditEventOutcomeListEDataType == null) {
-			auditEventOutcomeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(62);
+	public EDataType getAppointmentStatusListObject() {
+		if (appointmentStatusListObjectEDataType == null) {
+			appointmentStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(63);
 		}
-		return auditEventOutcomeListEDataType;
+		return appointmentStatusListObjectEDataType;
 	}
 
 	/**
@@ -51560,11 +55546,71 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAuditEventParticipantNetworkTypeList() {
-		if (auditEventParticipantNetworkTypeListEDataType == null) {
-			auditEventParticipantNetworkTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(64);
+	public EDataType getAssertionDirectionTypeListObject() {
+		if (assertionDirectionTypeListObjectEDataType == null) {
+			assertionDirectionTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(66);
 		}
-		return auditEventParticipantNetworkTypeListEDataType;
+		return assertionDirectionTypeListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getAssertionOperatorTypeListObject() {
+		if (assertionOperatorTypeListObjectEDataType == null) {
+			assertionOperatorTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(69);
+		}
+		return assertionOperatorTypeListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getAssertionResponseTypesListObject() {
+		if (assertionResponseTypesListObjectEDataType == null) {
+			assertionResponseTypesListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(72);
+		}
+		return assertionResponseTypesListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getAuditEventActionListObject() {
+		if (auditEventActionListObjectEDataType == null) {
+			auditEventActionListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(77);
+		}
+		return auditEventActionListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getAuditEventOutcomeListObject() {
+		if (auditEventOutcomeListObjectEDataType == null) {
+			auditEventOutcomeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(84);
+		}
+		return auditEventOutcomeListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getAuditEventParticipantNetworkTypeListObject() {
+		if (auditEventParticipantNetworkTypeListObjectEDataType == null) {
+			auditEventParticipantNetworkTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(87);
+		}
+		return auditEventParticipantNetworkTypeListObjectEDataType;
 	}
 
 	/**
@@ -51574,7 +55620,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getBase64BinaryPrimitive() {
 		if (base64BinaryPrimitiveEDataType == null) {
-			base64BinaryPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(68);
+			base64BinaryPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(91);
 		}
 		return base64BinaryPrimitiveEDataType;
 	}
@@ -51584,11 +55630,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getBindingStrengthList() {
-		if (bindingStrengthListEDataType == null) {
-			bindingStrengthListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(72);
+	public EDataType getBindingStrengthListObject() {
+		if (bindingStrengthListObjectEDataType == null) {
+			bindingStrengthListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(96);
 		}
-		return bindingStrengthListEDataType;
+		return bindingStrengthListObjectEDataType;
 	}
 
 	/**
@@ -51598,7 +55644,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getBooleanPrimitive() {
 		if (booleanPrimitiveEDataType == null) {
-			booleanPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(75);
+			booleanPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(99);
 		}
 		return booleanPrimitiveEDataType;
 	}
@@ -51610,7 +55656,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getBooleanPrimitiveObject() {
 		if (booleanPrimitiveObjectEDataType == null) {
-			booleanPrimitiveObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(76);
+			booleanPrimitiveObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(100);
 		}
 		return booleanPrimitiveObjectEDataType;
 	}
@@ -51620,11 +55666,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getBundleTypeList() {
-		if (bundleTypeListEDataType == null) {
-			bundleTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(84);
+	public EDataType getBundleTypeListObject() {
+		if (bundleTypeListObjectEDataType == null) {
+			bundleTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(109);
 		}
-		return bundleTypeListEDataType;
+		return bundleTypeListObjectEDataType;
 	}
 
 	/**
@@ -51632,11 +55678,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCarePlanActivityStatusList() {
-		if (carePlanActivityStatusListEDataType == null) {
-			carePlanActivityStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(88);
+	public EDataType getCarePlanActivityStatusListObject() {
+		if (carePlanActivityStatusListObjectEDataType == null) {
+			carePlanActivityStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(114);
 		}
-		return carePlanActivityStatusListEDataType;
+		return carePlanActivityStatusListObjectEDataType;
 	}
 
 	/**
@@ -51644,11 +55690,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCarePlanRelationshipList() {
-		if (carePlanRelationshipListEDataType == null) {
-			carePlanRelationshipListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(93);
+	public EDataType getCarePlanRelationshipListObject() {
+		if (carePlanRelationshipListObjectEDataType == null) {
+			carePlanRelationshipListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(119);
 		}
-		return carePlanRelationshipListEDataType;
+		return carePlanRelationshipListObjectEDataType;
 	}
 
 	/**
@@ -51656,11 +55702,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCarePlanStatusList() {
-		if (carePlanStatusListEDataType == null) {
-			carePlanStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(95);
+	public EDataType getCarePlanStatusListObject() {
+		if (carePlanStatusListObjectEDataType == null) {
+			carePlanStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(122);
 		}
-		return carePlanStatusListEDataType;
+		return carePlanStatusListObjectEDataType;
 	}
 
 	/**
@@ -51668,11 +55714,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getClaimTypeList() {
-		if (claimTypeListEDataType == null) {
-			claimTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(125);
+	public EDataType getClaimType2ListObject() {
+		if (claimType2ListObjectEDataType == null) {
+			claimType2ListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(154);
 		}
-		return claimTypeListEDataType;
+		return claimType2ListObjectEDataType;
 	}
 
 	/**
@@ -51680,11 +55726,23 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getClinicalImpressionStatusList() {
-		if (clinicalImpressionStatusListEDataType == null) {
-			clinicalImpressionStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(131);
+	public EDataType getClaimTypeListObject() {
+		if (claimTypeListObjectEDataType == null) {
+			claimTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(156);
 		}
-		return clinicalImpressionStatusListEDataType;
+		return claimTypeListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getClinicalImpressionStatusListObject() {
+		if (clinicalImpressionStatusListObjectEDataType == null) {
+			clinicalImpressionStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(163);
+		}
+		return clinicalImpressionStatusListObjectEDataType;
 	}
 
 	/**
@@ -51694,7 +55752,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getCodePrimitive() {
 		if (codePrimitiveEDataType == null) {
-			codePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(134);
+			codePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(166);
 		}
 		return codePrimitiveEDataType;
 	}
@@ -51704,11 +55762,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCodeSystemContentModeList() {
-		if (codeSystemContentModeListEDataType == null) {
-			codeSystemContentModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(139);
+	public EDataType getCodeSystemContentModeListObject() {
+		if (codeSystemContentModeListObjectEDataType == null) {
+			codeSystemContentModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(172);
 		}
-		return codeSystemContentModeListEDataType;
+		return codeSystemContentModeListObjectEDataType;
 	}
 
 	/**
@@ -51716,11 +55774,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCommunicationRequestStatusList() {
-		if (communicationRequestStatusListEDataType == null) {
-			communicationRequestStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(150);
+	public EDataType getCommunicationRequestStatusListObject() {
+		if (communicationRequestStatusListObjectEDataType == null) {
+			communicationRequestStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(184);
 		}
-		return communicationRequestStatusListEDataType;
+		return communicationRequestStatusListObjectEDataType;
 	}
 
 	/**
@@ -51728,11 +55786,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCommunicationStatusList() {
-		if (communicationStatusListEDataType == null) {
-			communicationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(152);
+	public EDataType getCommunicationStatusListObject() {
+		if (communicationStatusListObjectEDataType == null) {
+			communicationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(187);
 		}
-		return communicationStatusListEDataType;
+		return communicationStatusListObjectEDataType;
 	}
 
 	/**
@@ -51740,11 +55798,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCompartmentTypeList() {
-		if (compartmentTypeListEDataType == null) {
-			compartmentTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(157);
+	public EDataType getCompartmentTypeListObject() {
+		if (compartmentTypeListObjectEDataType == null) {
+			compartmentTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(193);
 		}
-		return compartmentTypeListEDataType;
+		return compartmentTypeListObjectEDataType;
 	}
 
 	/**
@@ -51752,11 +55810,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCompositionAttestationModeList() {
-		if (compositionAttestationModeListEDataType == null) {
-			compositionAttestationModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(160);
+	public EDataType getCompositionAttestationModeListObject() {
+		if (compositionAttestationModeListObjectEDataType == null) {
+			compositionAttestationModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(197);
 		}
-		return compositionAttestationModeListEDataType;
+		return compositionAttestationModeListObjectEDataType;
 	}
 
 	/**
@@ -51764,11 +55822,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCompositionStatusList() {
-		if (compositionStatusListEDataType == null) {
-			compositionStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(165);
+	public EDataType getCompositionStatusListObject() {
+		if (compositionStatusListObjectEDataType == null) {
+			compositionStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(203);
 		}
-		return compositionStatusListEDataType;
+		return compositionStatusListObjectEDataType;
 	}
 
 	/**
@@ -51776,11 +55834,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConceptMapEquivalenceList() {
-		if (conceptMapEquivalenceListEDataType == null) {
-			conceptMapEquivalenceListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(171);
+	public EDataType getConceptMapEquivalenceListObject() {
+		if (conceptMapEquivalenceListObjectEDataType == null) {
+			conceptMapEquivalenceListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(210);
 		}
-		return conceptMapEquivalenceListEDataType;
+		return conceptMapEquivalenceListObjectEDataType;
 	}
 
 	/**
@@ -51788,11 +55846,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConditionalDeleteStatusList() {
-		if (conditionalDeleteStatusListEDataType == null) {
-			conditionalDeleteStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(175);
+	public EDataType getConditionalDeleteStatusListObject() {
+		if (conditionalDeleteStatusListObjectEDataType == null) {
+			conditionalDeleteStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(215);
 		}
-		return conditionalDeleteStatusListEDataType;
+		return conditionalDeleteStatusListObjectEDataType;
 	}
 
 	/**
@@ -51800,11 +55858,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConditionVerificationStatusList() {
-		if (conditionVerificationStatusListEDataType == null) {
-			conditionVerificationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(179);
+	public EDataType getConditionVerificationStatusListObject() {
+		if (conditionVerificationStatusListObjectEDataType == null) {
+			conditionVerificationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(220);
 		}
-		return conditionVerificationStatusListEDataType;
+		return conditionVerificationStatusListObjectEDataType;
 	}
 
 	/**
@@ -51812,11 +55870,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConformanceEventModeList() {
-		if (conformanceEventModeListEDataType == null) {
-			conformanceEventModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(187);
+	public EDataType getConformanceEventModeListObject() {
+		if (conformanceEventModeListObjectEDataType == null) {
+			conformanceEventModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(229);
 		}
-		return conformanceEventModeListEDataType;
+		return conformanceEventModeListObjectEDataType;
 	}
 
 	/**
@@ -51824,11 +55882,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConformanceResourceStatusList() {
-		if (conformanceResourceStatusListEDataType == null) {
-			conformanceResourceStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(195);
+	public EDataType getConformanceResourceStatusListObject() {
+		if (conformanceResourceStatusListObjectEDataType == null) {
+			conformanceResourceStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(238);
 		}
-		return conformanceResourceStatusListEDataType;
+		return conformanceResourceStatusListObjectEDataType;
 	}
 
 	/**
@@ -51836,11 +55894,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConformanceStatementKindList() {
-		if (conformanceStatementKindListEDataType == null) {
-			conformanceStatementKindListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(201);
+	public EDataType getConformanceStatementKindListObject() {
+		if (conformanceStatementKindListObjectEDataType == null) {
+			conformanceStatementKindListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(245);
 		}
-		return conformanceStatementKindListEDataType;
+		return conformanceStatementKindListObjectEDataType;
 	}
 
 	/**
@@ -51848,11 +55906,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getConstraintSeverityList() {
-		if (constraintSeverityListEDataType == null) {
-			constraintSeverityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(203);
+	public EDataType getConsentStatusListObject() {
+		if (consentStatusListObjectEDataType == null) {
+			consentStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(254);
 		}
-		return constraintSeverityListEDataType;
+		return consentStatusListObjectEDataType;
 	}
 
 	/**
@@ -51860,11 +55918,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getContactPointSystemList() {
-		if (contactPointSystemListEDataType == null) {
-			contactPointSystemListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(206);
+	public EDataType getConstraintSeverityListObject() {
+		if (constraintSeverityListObjectEDataType == null) {
+			constraintSeverityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(257);
 		}
-		return contactPointSystemListEDataType;
+		return constraintSeverityListObjectEDataType;
 	}
 
 	/**
@@ -51872,11 +55930,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getContactPointUseList() {
-		if (contactPointUseListEDataType == null) {
-			contactPointUseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(208);
+	public EDataType getContactPointSystemListObject() {
+		if (contactPointSystemListObjectEDataType == null) {
+			contactPointSystemListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(261);
 		}
-		return contactPointUseListEDataType;
+		return contactPointSystemListObjectEDataType;
 	}
 
 	/**
@@ -51884,11 +55942,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getContentTypeList() {
-		if (contentTypeListEDataType == null) {
-			contentTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(210);
+	public EDataType getContactPointUseListObject() {
+		if (contactPointUseListObjectEDataType == null) {
+			contactPointUseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(264);
 		}
-		return contentTypeListEDataType;
+		return contactPointUseListObjectEDataType;
 	}
 
 	/**
@@ -51896,11 +55954,23 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDataElementStringencyList() {
-		if (dataElementStringencyListEDataType == null) {
-			dataElementStringencyListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(227);
+	public EDataType getContentTypeListObject() {
+		if (contentTypeListObjectEDataType == null) {
+			contentTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(267);
 		}
-		return dataElementStringencyListEDataType;
+		return contentTypeListObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getDataElementStringencyListObject() {
+		if (dataElementStringencyListObjectEDataType == null) {
+			dataElementStringencyListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(285);
+		}
+		return dataElementStringencyListObjectEDataType;
 	}
 
 	/**
@@ -51910,7 +55980,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getDatePrimitive() {
 		if (datePrimitiveEDataType == null) {
-			datePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(232);
+			datePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(290);
 		}
 		return datePrimitiveEDataType;
 	}
@@ -51922,7 +55992,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getDatePrimitiveBase() {
 		if (datePrimitiveBaseEDataType == null) {
-			datePrimitiveBaseEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(233);
+			datePrimitiveBaseEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(291);
 		}
 		return datePrimitiveBaseEDataType;
 	}
@@ -51934,7 +56004,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getDateTimePrimitive() {
 		if (dateTimePrimitiveEDataType == null) {
-			dateTimePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(235);
+			dateTimePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(293);
 		}
 		return dateTimePrimitiveEDataType;
 	}
@@ -51946,7 +56016,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getDateTimePrimitiveBase() {
 		if (dateTimePrimitiveBaseEDataType == null) {
-			dateTimePrimitiveBaseEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(236);
+			dateTimePrimitiveBaseEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(294);
 		}
 		return dateTimePrimitiveBaseEDataType;
 	}
@@ -51956,11 +56026,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDaysOfWeekList() {
-		if (daysOfWeekListEDataType == null) {
-			daysOfWeekListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(238);
+	public EDataType getDaysOfWeekListObject() {
+		if (daysOfWeekListObjectEDataType == null) {
+			daysOfWeekListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(297);
 		}
-		return daysOfWeekListEDataType;
+		return daysOfWeekListObjectEDataType;
 	}
 
 	/**
@@ -51970,7 +56040,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getDecimalPrimitive() {
 		if (decimalPrimitiveEDataType == null) {
-			decimalPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(240);
+			decimalPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(299);
 		}
 		return decimalPrimitiveEDataType;
 	}
@@ -51980,11 +56050,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDetectedIssueSeverityList() {
-		if (detectedIssueSeverityListEDataType == null) {
-			detectedIssueSeverityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(246);
+	public EDataType getDetectedIssueSeverityListObject() {
+		if (detectedIssueSeverityListObjectEDataType == null) {
+			detectedIssueSeverityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(306);
 		}
-		return detectedIssueSeverityListEDataType;
+		return detectedIssueSeverityListObjectEDataType;
 	}
 
 	/**
@@ -51992,11 +56062,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceMetricCalibrationStateList() {
-		if (deviceMetricCalibrationStateListEDataType == null) {
-			deviceMetricCalibrationStateListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(253);
+	public EDataType getDeviceMetricCalibrationStateListObject() {
+		if (deviceMetricCalibrationStateListObjectEDataType == null) {
+			deviceMetricCalibrationStateListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(314);
 		}
-		return deviceMetricCalibrationStateListEDataType;
+		return deviceMetricCalibrationStateListObjectEDataType;
 	}
 
 	/**
@@ -52004,11 +56074,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceMetricCalibrationTypeList() {
-		if (deviceMetricCalibrationTypeListEDataType == null) {
-			deviceMetricCalibrationTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(255);
+	public EDataType getDeviceMetricCalibrationTypeListObject() {
+		if (deviceMetricCalibrationTypeListObjectEDataType == null) {
+			deviceMetricCalibrationTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(317);
 		}
-		return deviceMetricCalibrationTypeListEDataType;
+		return deviceMetricCalibrationTypeListObjectEDataType;
 	}
 
 	/**
@@ -52016,11 +56086,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceMetricCategoryList() {
-		if (deviceMetricCategoryListEDataType == null) {
-			deviceMetricCategoryListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(257);
+	public EDataType getDeviceMetricCategoryListObject() {
+		if (deviceMetricCategoryListObjectEDataType == null) {
+			deviceMetricCategoryListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(320);
 		}
-		return deviceMetricCategoryListEDataType;
+		return deviceMetricCategoryListObjectEDataType;
 	}
 
 	/**
@@ -52028,11 +56098,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceMetricColorList() {
-		if (deviceMetricColorListEDataType == null) {
-			deviceMetricColorListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(259);
+	public EDataType getDeviceMetricColorListObject() {
+		if (deviceMetricColorListObjectEDataType == null) {
+			deviceMetricColorListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(323);
 		}
-		return deviceMetricColorListEDataType;
+		return deviceMetricColorListObjectEDataType;
 	}
 
 	/**
@@ -52040,11 +56110,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceMetricOperationalStatusList() {
-		if (deviceMetricOperationalStatusListEDataType == null) {
-			deviceMetricOperationalStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(261);
+	public EDataType getDeviceMetricOperationalStatusListObject() {
+		if (deviceMetricOperationalStatusListObjectEDataType == null) {
+			deviceMetricOperationalStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(326);
 		}
-		return deviceMetricOperationalStatusListEDataType;
+		return deviceMetricOperationalStatusListObjectEDataType;
 	}
 
 	/**
@@ -52052,11 +56122,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceStatusList() {
-		if (deviceStatusListEDataType == null) {
-			deviceStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(263);
+	public EDataType getDeviceStatusListObject() {
+		if (deviceStatusListObjectEDataType == null) {
+			deviceStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(329);
 		}
-		return deviceStatusListEDataType;
+		return deviceStatusListObjectEDataType;
 	}
 
 	/**
@@ -52064,11 +56134,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceUseRequestPriorityList() {
-		if (deviceUseRequestPriorityListEDataType == null) {
-			deviceUseRequestPriorityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(266);
+	public EDataType getDeviceUseRequestPriorityListObject() {
+		if (deviceUseRequestPriorityListObjectEDataType == null) {
+			deviceUseRequestPriorityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(333);
 		}
-		return deviceUseRequestPriorityListEDataType;
+		return deviceUseRequestPriorityListObjectEDataType;
 	}
 
 	/**
@@ -52076,11 +56146,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeviceUseRequestStatusList() {
-		if (deviceUseRequestStatusListEDataType == null) {
-			deviceUseRequestStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(268);
+	public EDataType getDeviceUseRequestStatusListObject() {
+		if (deviceUseRequestStatusListObjectEDataType == null) {
+			deviceUseRequestStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(336);
 		}
-		return deviceUseRequestStatusListEDataType;
+		return deviceUseRequestStatusListObjectEDataType;
 	}
 
 	/**
@@ -52088,11 +56158,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDiagnosticOrderPriorityList() {
-		if (diagnosticOrderPriorityListEDataType == null) {
-			diagnosticOrderPriorityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(274);
+	public EDataType getDiagnosticOrderPriorityListObject() {
+		if (diagnosticOrderPriorityListObjectEDataType == null) {
+			diagnosticOrderPriorityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(343);
 		}
-		return diagnosticOrderPriorityListEDataType;
+		return diagnosticOrderPriorityListObjectEDataType;
 	}
 
 	/**
@@ -52100,11 +56170,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDiagnosticOrderStatusList() {
-		if (diagnosticOrderStatusListEDataType == null) {
-			diagnosticOrderStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(276);
+	public EDataType getDiagnosticOrderStatusListObject() {
+		if (diagnosticOrderStatusListObjectEDataType == null) {
+			diagnosticOrderStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(346);
 		}
-		return diagnosticOrderStatusListEDataType;
+		return diagnosticOrderStatusListObjectEDataType;
 	}
 
 	/**
@@ -52112,11 +56182,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDiagnosticReportStatusList() {
-		if (diagnosticReportStatusListEDataType == null) {
-			diagnosticReportStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(280);
+	public EDataType getDiagnosticReportStatusListObject() {
+		if (diagnosticReportStatusListObjectEDataType == null) {
+			diagnosticReportStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(351);
 		}
-		return diagnosticReportStatusListEDataType;
+		return diagnosticReportStatusListObjectEDataType;
 	}
 
 	/**
@@ -52124,11 +56194,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDigitalMediaTypeList() {
-		if (digitalMediaTypeListEDataType == null) {
-			digitalMediaTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(282);
+	public EDataType getDigitalMediaTypeListObject() {
+		if (digitalMediaTypeListObjectEDataType == null) {
+			digitalMediaTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(354);
 		}
-		return digitalMediaTypeListEDataType;
+		return digitalMediaTypeListObjectEDataType;
 	}
 
 	/**
@@ -52136,11 +56206,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDocumentModeList() {
-		if (documentModeListEDataType == null) {
-			documentModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(288);
+	public EDataType getDocumentModeListObject() {
+		if (documentModeListObjectEDataType == null) {
+			documentModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(361);
 		}
-		return documentModeListEDataType;
+		return documentModeListObjectEDataType;
 	}
 
 	/**
@@ -52148,11 +56218,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDocumentReferenceStatusList() {
-		if (documentReferenceStatusListEDataType == null) {
-			documentReferenceStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(295);
+	public EDataType getDocumentReferenceStatusListObject() {
+		if (documentReferenceStatusListObjectEDataType == null) {
+			documentReferenceStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(369);
 		}
-		return documentReferenceStatusListEDataType;
+		return documentReferenceStatusListObjectEDataType;
 	}
 
 	/**
@@ -52160,11 +56230,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDocumentRelationshipTypeList() {
-		if (documentRelationshipTypeListEDataType == null) {
-			documentRelationshipTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(297);
+	public EDataType getDocumentRelationshipTypeListObject() {
+		if (documentRelationshipTypeListObjectEDataType == null) {
+			documentRelationshipTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(372);
 		}
-		return documentRelationshipTypeListEDataType;
+		return documentRelationshipTypeListObjectEDataType;
 	}
 
 	/**
@@ -52172,11 +56242,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDWebTypeList() {
-		if (dWebTypeListEDataType == null) {
-			dWebTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(302);
+	public EDataType getDWebTypeListObject() {
+		if (dWebTypeListObjectEDataType == null) {
+			dWebTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(378);
 		}
-		return dWebTypeListEDataType;
+		return dWebTypeListObjectEDataType;
 	}
 
 	/**
@@ -52184,11 +56254,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEncounterClassList() {
-		if (encounterClassListEDataType == null) {
-			encounterClassListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(318);
+	public EDataType getEncounterClassListObject() {
+		if (encounterClassListObjectEDataType == null) {
+			encounterClassListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(395);
 		}
-		return encounterClassListEDataType;
+		return encounterClassListObjectEDataType;
 	}
 
 	/**
@@ -52196,11 +56266,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEncounterLocationStatusList() {
-		if (encounterLocationStatusListEDataType == null) {
-			encounterLocationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(322);
+	public EDataType getEncounterLocationStatusListObject() {
+		if (encounterLocationStatusListObjectEDataType == null) {
+			encounterLocationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(400);
 		}
-		return encounterLocationStatusListEDataType;
+		return encounterLocationStatusListObjectEDataType;
 	}
 
 	/**
@@ -52208,11 +56278,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEncounterStateList() {
-		if (encounterStateListEDataType == null) {
-			encounterStateListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(325);
+	public EDataType getEncounterStateListObject() {
+		if (encounterStateListObjectEDataType == null) {
+			encounterStateListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(404);
 		}
-		return encounterStateListEDataType;
+		return encounterStateListObjectEDataType;
 	}
 
 	/**
@@ -52220,11 +56290,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEndpointStatusList() {
-		if (endpointStatusListEDataType == null) {
-			endpointStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(329);
+	public EDataType getEndpointStatusListObject() {
+		if (endpointStatusListObjectEDataType == null) {
+			endpointStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(409);
 		}
-		return endpointStatusListEDataType;
+		return endpointStatusListObjectEDataType;
 	}
 
 	/**
@@ -52232,11 +56302,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEpisodeOfCareStatusList() {
-		if (episodeOfCareStatusListEDataType == null) {
-			episodeOfCareStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(335);
+	public EDataType getEpisodeOfCareStatusListObject() {
+		if (episodeOfCareStatusListObjectEDataType == null) {
+			episodeOfCareStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(416);
 		}
-		return episodeOfCareStatusListEDataType;
+		return episodeOfCareStatusListObjectEDataType;
 	}
 
 	/**
@@ -52246,7 +56316,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getEventTimingListObject() {
 		if (eventTimingListObjectEDataType == null) {
-			eventTimingListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(338);
+			eventTimingListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(419);
 		}
 		return eventTimingListObjectEDataType;
 	}
@@ -52256,11 +56326,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getExtensionContextList() {
-		if (extensionContextListEDataType == null) {
-			extensionContextListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(375);
+	public EDataType getExtensionContextListObject() {
+		if (extensionContextListObjectEDataType == null) {
+			extensionContextListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(457);
 		}
-		return extensionContextListEDataType;
+		return extensionContextListObjectEDataType;
 	}
 
 	/**
@@ -52268,11 +56338,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getFamilyHistoryStatusList() {
-		if (familyHistoryStatusListEDataType == null) {
-			familyHistoryStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(377);
+	public EDataType getFamilyHistoryStatusListObject() {
+		if (familyHistoryStatusListObjectEDataType == null) {
+			familyHistoryStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(460);
 		}
-		return familyHistoryStatusListEDataType;
+		return familyHistoryStatusListObjectEDataType;
 	}
 
 	/**
@@ -52280,11 +56350,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getFilterOperatorList() {
-		if (filterOperatorListEDataType == null) {
-			filterOperatorListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(381);
+	public EDataType getFilterOperatorListObject() {
+		if (filterOperatorListObjectEDataType == null) {
+			filterOperatorListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(465);
 		}
-		return filterOperatorListEDataType;
+		return filterOperatorListObjectEDataType;
 	}
 
 	/**
@@ -52292,11 +56362,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getFlagStatusList() {
-		if (flagStatusListEDataType == null) {
-			flagStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(384);
+	public EDataType getFlagStatusListObject() {
+		if (flagStatusListObjectEDataType == null) {
+			flagStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(469);
 		}
-		return flagStatusListEDataType;
+		return flagStatusListObjectEDataType;
 	}
 
 	/**
@@ -52304,11 +56374,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGoalStatusList() {
-		if (goalStatusListEDataType == null) {
-			goalStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(388);
+	public EDataType getGoalStatusListObject() {
+		if (goalStatusListObjectEDataType == null) {
+			goalStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(474);
 		}
-		return goalStatusListEDataType;
+		return goalStatusListObjectEDataType;
 	}
 
 	/**
@@ -52316,11 +56386,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGroupTypeList() {
-		if (groupTypeListEDataType == null) {
-			groupTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(393);
+	public EDataType getGroupTypeListObject() {
+		if (groupTypeListObjectEDataType == null) {
+			groupTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(480);
 		}
-		return groupTypeListEDataType;
+		return groupTypeListObjectEDataType;
 	}
 
 	/**
@@ -52328,11 +56398,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGuidanceResponseStatusList() {
-		if (guidanceResponseStatusListEDataType == null) {
-			guidanceResponseStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(399);
+	public EDataType getGuidanceResponseStatusListObject() {
+		if (guidanceResponseStatusListObjectEDataType == null) {
+			guidanceResponseStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(487);
 		}
-		return guidanceResponseStatusListEDataType;
+		return guidanceResponseStatusListObjectEDataType;
 	}
 
 	/**
@@ -52340,11 +56410,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGuideDependencyTypeList() {
-		if (guideDependencyTypeListEDataType == null) {
-			guideDependencyTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(401);
+	public EDataType getGuideDependencyTypeListObject() {
+		if (guideDependencyTypeListObjectEDataType == null) {
+			guideDependencyTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(490);
 		}
-		return guideDependencyTypeListEDataType;
+		return guideDependencyTypeListObjectEDataType;
 	}
 
 	/**
@@ -52352,11 +56422,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGuidePageKindList() {
-		if (guidePageKindListEDataType == null) {
-			guidePageKindListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(403);
+	public EDataType getGuidePageKindListObject() {
+		if (guidePageKindListObjectEDataType == null) {
+			guidePageKindListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(493);
 		}
-		return guidePageKindListEDataType;
+		return guidePageKindListObjectEDataType;
 	}
 
 	/**
@@ -52364,11 +56434,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getHTTPVerbList() {
-		if (httpVerbListEDataType == null) {
-			httpVerbListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(408);
+	public EDataType getHTTPVerbListObject() {
+		if (httpVerbListObjectEDataType == null) {
+			httpVerbListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(499);
 		}
-		return httpVerbListEDataType;
+		return httpVerbListObjectEDataType;
 	}
 
 	/**
@@ -52376,11 +56446,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIdentifierUseList() {
-		if (identifierUseListEDataType == null) {
-			identifierUseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(413);
+	public EDataType getIdentifierUseListObject() {
+		if (identifierUseListObjectEDataType == null) {
+			identifierUseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(505);
 		}
-		return identifierUseListEDataType;
+		return identifierUseListObjectEDataType;
 	}
 
 	/**
@@ -52388,11 +56458,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIdentityAssuranceLevelList() {
-		if (identityAssuranceLevelListEDataType == null) {
-			identityAssuranceLevelListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(415);
+	public EDataType getIdentityAssuranceLevelListObject() {
+		if (identityAssuranceLevelListObjectEDataType == null) {
+			identityAssuranceLevelListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(508);
 		}
-		return identityAssuranceLevelListEDataType;
+		return identityAssuranceLevelListObjectEDataType;
 	}
 
 	/**
@@ -52402,7 +56472,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getIdPrimitive() {
 		if (idPrimitiveEDataType == null) {
-			idPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(416);
+			idPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(509);
 		}
 		return idPrimitiveEDataType;
 	}
@@ -52414,7 +56484,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getInstanceAvailabilityListObject() {
 		if (instanceAvailabilityListObjectEDataType == null) {
-			instanceAvailabilityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(450);
+			instanceAvailabilityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(543);
 		}
 		return instanceAvailabilityListObjectEDataType;
 	}
@@ -52426,7 +56496,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getInstantPrimitive() {
 		if (instantPrimitiveEDataType == null) {
-			instantPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(452);
+			instantPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(545);
 		}
 		return instantPrimitiveEDataType;
 	}
@@ -52438,7 +56508,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getIntegerPrimitive() {
 		if (integerPrimitiveEDataType == null) {
-			integerPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(454);
+			integerPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(547);
 		}
 		return integerPrimitiveEDataType;
 	}
@@ -52450,7 +56520,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getIntegerPrimitiveObject() {
 		if (integerPrimitiveObjectEDataType == null) {
-			integerPrimitiveObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(455);
+			integerPrimitiveObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(548);
 		}
 		return integerPrimitiveObjectEDataType;
 	}
@@ -52460,11 +56530,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIssueSeverityList() {
-		if (issueSeverityListEDataType == null) {
-			issueSeverityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(457);
+	public EDataType getIssueSeverityListObject() {
+		if (issueSeverityListObjectEDataType == null) {
+			issueSeverityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(551);
 		}
-		return issueSeverityListEDataType;
+		return issueSeverityListObjectEDataType;
 	}
 
 	/**
@@ -52472,11 +56542,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIssueTypeList() {
-		if (issueTypeListEDataType == null) {
-			issueTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(459);
+	public EDataType getIssueTypeListObject() {
+		if (issueTypeListObjectEDataType == null) {
+			issueTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(554);
 		}
-		return issueTypeListEDataType;
+		return issueTypeListObjectEDataType;
 	}
 
 	/**
@@ -52484,11 +56554,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getLinkageTypeList() {
-		if (linkageTypeListEDataType == null) {
-			linkageTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(468);
+	public EDataType getLinkageTypeListObject() {
+		if (linkageTypeListObjectEDataType == null) {
+			linkageTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(564);
 		}
-		return linkageTypeListEDataType;
+		return linkageTypeListObjectEDataType;
 	}
 
 	/**
@@ -52496,11 +56566,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getLinkTypeList() {
-		if (linkTypeListEDataType == null) {
-			linkTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(470);
+	public EDataType getLinkTypeListObject() {
+		if (linkTypeListObjectEDataType == null) {
+			linkTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(567);
 		}
-		return linkTypeListEDataType;
+		return linkTypeListObjectEDataType;
 	}
 
 	/**
@@ -52508,11 +56578,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getListModeList() {
-		if (listModeListEDataType == null) {
-			listModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(474);
+	public EDataType getListModeListObject() {
+		if (listModeListObjectEDataType == null) {
+			listModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(572);
 		}
-		return listModeListEDataType;
+		return listModeListObjectEDataType;
 	}
 
 	/**
@@ -52520,11 +56590,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getListStatusList() {
-		if (listStatusListEDataType == null) {
-			listStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(476);
+	public EDataType getListStatusListObject() {
+		if (listStatusListObjectEDataType == null) {
+			listStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(575);
 		}
-		return listStatusListEDataType;
+		return listStatusListObjectEDataType;
 	}
 
 	/**
@@ -52532,11 +56602,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getLocationModeList() {
-		if (locationModeListEDataType == null) {
-			locationModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(479);
+	public EDataType getLocationModeListObject() {
+		if (locationModeListObjectEDataType == null) {
+			locationModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(579);
 		}
-		return locationModeListEDataType;
+		return locationModeListObjectEDataType;
 	}
 
 	/**
@@ -52544,11 +56614,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getLocationStatusList() {
-		if (locationStatusListEDataType == null) {
-			locationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(482);
+	public EDataType getLocationStatusListObject() {
+		if (locationStatusListObjectEDataType == null) {
+			locationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(583);
 		}
-		return locationStatusListEDataType;
+		return locationStatusListObjectEDataType;
 	}
 
 	/**
@@ -52558,7 +56628,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getMarkdownPrimitive() {
 		if (markdownPrimitiveEDataType == null) {
-			markdownPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(484);
+			markdownPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(585);
 		}
 		return markdownPrimitiveEDataType;
 	}
@@ -52568,11 +56638,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasmntPrincipleList() {
-		if (measmntPrincipleListEDataType == null) {
-			measmntPrincipleListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(486);
+	public EDataType getMeasmntPrincipleListObject() {
+		if (measmntPrincipleListObjectEDataType == null) {
+			measmntPrincipleListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(588);
 		}
-		return measmntPrincipleListEDataType;
+		return measmntPrincipleListObjectEDataType;
 	}
 
 	/**
@@ -52580,11 +56650,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasureDataUsageList() {
-		if (measureDataUsageListEDataType == null) {
-			measureDataUsageListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(489);
+	public EDataType getMeasureDataUsageListObject() {
+		if (measureDataUsageListObjectEDataType == null) {
+			measureDataUsageListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(592);
 		}
-		return measureDataUsageListEDataType;
+		return measureDataUsageListObjectEDataType;
 	}
 
 	/**
@@ -52592,11 +56662,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasurePopulationTypeList() {
-		if (measurePopulationTypeListEDataType == null) {
-			measurePopulationTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(493);
+	public EDataType getMeasurePopulationTypeListObject() {
+		if (measurePopulationTypeListObjectEDataType == null) {
+			measurePopulationTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(597);
 		}
-		return measurePopulationTypeListEDataType;
+		return measurePopulationTypeListObjectEDataType;
 	}
 
 	/**
@@ -52604,11 +56674,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasureReportStatusList() {
-		if (measureReportStatusListEDataType == null) {
-			measureReportStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(501);
+	public EDataType getMeasureReportStatusListObject() {
+		if (measureReportStatusListObjectEDataType == null) {
+			measureReportStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(606);
 		}
-		return measureReportStatusListEDataType;
+		return measureReportStatusListObjectEDataType;
 	}
 
 	/**
@@ -52616,11 +56686,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasureReportTypeList() {
-		if (measureReportTypeListEDataType == null) {
-			measureReportTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(505);
+	public EDataType getMeasureReportTypeListObject() {
+		if (measureReportTypeListObjectEDataType == null) {
+			measureReportTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(611);
 		}
-		return measureReportTypeListEDataType;
+		return measureReportTypeListObjectEDataType;
 	}
 
 	/**
@@ -52628,11 +56698,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasureScoringList() {
-		if (measureScoringListEDataType == null) {
-			measureScoringListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(507);
+	public EDataType getMeasureScoringListObject() {
+		if (measureScoringListObjectEDataType == null) {
+			measureScoringListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(614);
 		}
-		return measureScoringListEDataType;
+		return measureScoringListObjectEDataType;
 	}
 
 	/**
@@ -52640,11 +56710,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMeasureTypeList() {
-		if (measureTypeListEDataType == null) {
-			measureTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(511);
+	public EDataType getMeasureTypeListObject() {
+		if (measureTypeListObjectEDataType == null) {
+			measureTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(619);
 		}
-		return measureTypeListEDataType;
+		return measureTypeListObjectEDataType;
 	}
 
 	/**
@@ -52652,11 +56722,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMedicationAdministrationStatusList() {
-		if (medicationAdministrationStatusListEDataType == null) {
-			medicationAdministrationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(517);
+	public EDataType getMedicationAdministrationStatusListObject() {
+		if (medicationAdministrationStatusListObjectEDataType == null) {
+			medicationAdministrationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(627);
 		}
-		return medicationAdministrationStatusListEDataType;
+		return medicationAdministrationStatusListObjectEDataType;
 	}
 
 	/**
@@ -52664,11 +56734,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMedicationDispenseStatusList() {
-		if (medicationDispenseStatusListEDataType == null) {
-			medicationDispenseStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(523);
+	public EDataType getMedicationDispenseStatusListObject() {
+		if (medicationDispenseStatusListObjectEDataType == null) {
+			medicationDispenseStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(635);
 		}
-		return medicationDispenseStatusListEDataType;
+		return medicationDispenseStatusListObjectEDataType;
 	}
 
 	/**
@@ -52676,11 +56746,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMedicationOrderStatusList() {
-		if (medicationOrderStatusListEDataType == null) {
-			medicationOrderStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(530);
+	public EDataType getMedicationOrderStatusListObject() {
+		if (medicationOrderStatusListObjectEDataType == null) {
+			medicationOrderStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(644);
 		}
-		return medicationOrderStatusListEDataType;
+		return medicationOrderStatusListObjectEDataType;
 	}
 
 	/**
@@ -52688,11 +56758,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMedicationStatementStatusList() {
-		if (medicationStatementStatusListEDataType == null) {
-			medicationStatementStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(537);
+	public EDataType getMedicationStatementStatusListObject() {
+		if (medicationStatementStatusListObjectEDataType == null) {
+			medicationStatementStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(652);
 		}
-		return medicationStatementStatusListEDataType;
+		return medicationStatementStatusListObjectEDataType;
 	}
 
 	/**
@@ -52700,11 +56770,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMessageSignificanceCategoryList() {
-		if (messageSignificanceCategoryListEDataType == null) {
-			messageSignificanceCategoryListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(543);
+	public EDataType getMessageSignificanceCategoryListObject() {
+		if (messageSignificanceCategoryListObjectEDataType == null) {
+			messageSignificanceCategoryListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(659);
 		}
-		return messageSignificanceCategoryListEDataType;
+		return messageSignificanceCategoryListObjectEDataType;
 	}
 
 	/**
@@ -52712,11 +56782,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getModuleMetadataContributorTypeList() {
-		if (moduleMetadataContributorTypeListEDataType == null) {
-			moduleMetadataContributorTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(559);
+	public EDataType getModuleMetadataContributorTypeListObject() {
+		if (moduleMetadataContributorTypeListObjectEDataType == null) {
+			moduleMetadataContributorTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(676);
 		}
-		return moduleMetadataContributorTypeListEDataType;
+		return moduleMetadataContributorTypeListObjectEDataType;
 	}
 
 	/**
@@ -52724,11 +56794,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getModuleMetadataResourceTypeList() {
-		if (moduleMetadataResourceTypeListEDataType == null) {
-			moduleMetadataResourceTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(563);
+	public EDataType getModuleMetadataResourceTypeListObject() {
+		if (moduleMetadataResourceTypeListObjectEDataType == null) {
+			moduleMetadataResourceTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(681);
 		}
-		return moduleMetadataResourceTypeListEDataType;
+		return moduleMetadataResourceTypeListObjectEDataType;
 	}
 
 	/**
@@ -52736,11 +56806,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getModuleMetadataStatusList() {
-		if (moduleMetadataStatusListEDataType == null) {
-			moduleMetadataStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(565);
+	public EDataType getModuleMetadataStatusListObject() {
+		if (moduleMetadataStatusListObjectEDataType == null) {
+			moduleMetadataStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(684);
 		}
-		return moduleMetadataStatusListEDataType;
+		return moduleMetadataStatusListObjectEDataType;
 	}
 
 	/**
@@ -52748,11 +56818,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getModuleMetadataTypeList() {
-		if (moduleMetadataTypeListEDataType == null) {
-			moduleMetadataTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(567);
+	public EDataType getModuleMetadataTypeListObject() {
+		if (moduleMetadataTypeListObjectEDataType == null) {
+			moduleMetadataTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(687);
 		}
-		return moduleMetadataTypeListEDataType;
+		return moduleMetadataTypeListObjectEDataType;
 	}
 
 	/**
@@ -52760,11 +56830,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNameUseList() {
-		if (nameUseListEDataType == null) {
-			nameUseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(570);
+	public EDataType getNameUseListObject() {
+		if (nameUseListObjectEDataType == null) {
+			nameUseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(691);
 		}
-		return nameUseListEDataType;
+		return nameUseListObjectEDataType;
 	}
 
 	/**
@@ -52772,11 +56842,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNamingSystemIdentifierTypeList() {
-		if (namingSystemIdentifierTypeListEDataType == null) {
-			namingSystemIdentifierTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(574);
+	public EDataType getNamingSystemIdentifierTypeListObject() {
+		if (namingSystemIdentifierTypeListObjectEDataType == null) {
+			namingSystemIdentifierTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(696);
 		}
-		return namingSystemIdentifierTypeListEDataType;
+		return namingSystemIdentifierTypeListObjectEDataType;
 	}
 
 	/**
@@ -52784,11 +56854,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNamingSystemTypeList() {
-		if (namingSystemTypeListEDataType == null) {
-			namingSystemTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(576);
+	public EDataType getNamingSystemTypeListObject() {
+		if (namingSystemTypeListObjectEDataType == null) {
+			namingSystemTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(699);
 		}
-		return namingSystemTypeListEDataType;
+		return namingSystemTypeListObjectEDataType;
 	}
 
 	/**
@@ -52796,11 +56866,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNarrativeStatusList() {
-		if (narrativeStatusListEDataType == null) {
-			narrativeStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(580);
+	public EDataType getNarrativeStatusListObject() {
+		if (narrativeStatusListObjectEDataType == null) {
+			narrativeStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(704);
 		}
-		return narrativeStatusListEDataType;
+		return narrativeStatusListObjectEDataType;
 	}
 
 	/**
@@ -52808,11 +56878,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNoteTypeList() {
-		if (noteTypeListEDataType == null) {
-			noteTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(582);
+	public EDataType getNoteTypeListObject() {
+		if (noteTypeListObjectEDataType == null) {
+			noteTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(707);
 		}
-		return noteTypeListEDataType;
+		return noteTypeListObjectEDataType;
 	}
 
 	/**
@@ -52820,11 +56890,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getNutritionOrderStatusList() {
-		if (nutritionOrderStatusListEDataType == null) {
-			nutritionOrderStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(589);
+	public EDataType getNutritionOrderStatusListObject() {
+		if (nutritionOrderStatusListObjectEDataType == null) {
+			nutritionOrderStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(715);
 		}
-		return nutritionOrderStatusListEDataType;
+		return nutritionOrderStatusListObjectEDataType;
 	}
 
 	/**
@@ -52832,11 +56902,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getObservationRelationshipTypeList() {
-		if (observationRelationshipTypeListEDataType == null) {
-			observationRelationshipTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(597);
+	public EDataType getObservationRelationshipTypeListObject() {
+		if (observationRelationshipTypeListObjectEDataType == null) {
+			observationRelationshipTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(724);
 		}
-		return observationRelationshipTypeListEDataType;
+		return observationRelationshipTypeListObjectEDataType;
 	}
 
 	/**
@@ -52844,11 +56914,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getObservationStatusList() {
-		if (observationStatusListEDataType == null) {
-			observationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(599);
+	public EDataType getObservationStatusListObject() {
+		if (observationStatusListObjectEDataType == null) {
+			observationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(727);
 		}
-		return observationStatusListEDataType;
+		return observationStatusListObjectEDataType;
 	}
 
 	/**
@@ -52858,7 +56928,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getOidPrimitive() {
 		if (oidPrimitiveEDataType == null) {
-			oidPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(601);
+			oidPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(729);
 		}
 		return oidPrimitiveEDataType;
 	}
@@ -52868,11 +56938,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getOperationKindList() {
-		if (operationKindListEDataType == null) {
-			operationKindListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(607);
+	public EDataType getOperationKindListObject() {
+		if (operationKindListObjectEDataType == null) {
+			operationKindListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(736);
 		}
-		return operationKindListEDataType;
+		return operationKindListObjectEDataType;
 	}
 
 	/**
@@ -52880,11 +56950,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getOperationParameterUseList() {
-		if (operationParameterUseListEDataType == null) {
-			operationParameterUseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(611);
+	public EDataType getOperationParameterUseListObject() {
+		if (operationParameterUseListObjectEDataType == null) {
+			operationParameterUseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(741);
 		}
-		return operationParameterUseListEDataType;
+		return operationParameterUseListObjectEDataType;
 	}
 
 	/**
@@ -52892,11 +56962,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getOrderStatusList() {
-		if (orderStatusListEDataType == null) {
-			orderStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(616);
+	public EDataType getOrderStatusListObject() {
+		if (orderStatusListObjectEDataType == null) {
+			orderStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(747);
 		}
-		return orderStatusListEDataType;
+		return orderStatusListObjectEDataType;
 	}
 
 	/**
@@ -52904,11 +56974,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getParticipantRequiredList() {
-		if (participantRequiredListEDataType == null) {
-			participantRequiredListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(624);
+	public EDataType getParticipantRequiredListObject() {
+		if (participantRequiredListObjectEDataType == null) {
+			participantRequiredListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(756);
 		}
-		return participantRequiredListEDataType;
+		return participantRequiredListObjectEDataType;
 	}
 
 	/**
@@ -52916,11 +56986,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getParticipantTypeList() {
-		if (participantTypeListEDataType == null) {
-			participantTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(626);
+	public EDataType getParticipantTypeListObject() {
+		if (participantTypeListObjectEDataType == null) {
+			participantTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(759);
 		}
-		return participantTypeListEDataType;
+		return participantTypeListObjectEDataType;
 	}
 
 	/**
@@ -52928,11 +56998,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getParticipationStatusList() {
-		if (participationStatusListEDataType == null) {
-			participationStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(628);
+	public EDataType getParticipationStatusListObject() {
+		if (participationStatusListObjectEDataType == null) {
+			participationStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(762);
 		}
-		return participationStatusListEDataType;
+		return participationStatusListObjectEDataType;
 	}
 
 	/**
@@ -52942,7 +57012,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getPositiveIntPrimitive() {
 		if (positiveIntPrimitiveEDataType == null) {
-			positiveIntPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(642);
+			positiveIntPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(776);
 		}
 		return positiveIntPrimitiveEDataType;
 	}
@@ -52952,11 +57022,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProcedureRequestPriorityList() {
-		if (procedureRequestPriorityListEDataType == null) {
-			procedureRequestPriorityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(654);
+	public EDataType getProcedureRequestPriorityListObject() {
+		if (procedureRequestPriorityListObjectEDataType == null) {
+			procedureRequestPriorityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(789);
 		}
-		return procedureRequestPriorityListEDataType;
+		return procedureRequestPriorityListObjectEDataType;
 	}
 
 	/**
@@ -52964,11 +57034,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProcedureRequestStatusList() {
-		if (procedureRequestStatusListEDataType == null) {
-			procedureRequestStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(656);
+	public EDataType getProcedureRequestStatusListObject() {
+		if (procedureRequestStatusListObjectEDataType == null) {
+			procedureRequestStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(792);
 		}
-		return procedureRequestStatusListEDataType;
+		return procedureRequestStatusListObjectEDataType;
 	}
 
 	/**
@@ -52976,11 +57046,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProcedureStatusList() {
-		if (procedureStatusListEDataType == null) {
-			procedureStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(658);
+	public EDataType getProcedureStatusListObject() {
+		if (procedureStatusListObjectEDataType == null) {
+			procedureStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(795);
 		}
-		return procedureStatusListEDataType;
+		return procedureStatusListObjectEDataType;
 	}
 
 	/**
@@ -52988,11 +57058,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getPropertyRepresentationList() {
-		if (propertyRepresentationListEDataType == null) {
-			propertyRepresentationListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(664);
+	public EDataType getPropertyRepresentationListObject() {
+		if (propertyRepresentationListObjectEDataType == null) {
+			propertyRepresentationListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(802);
 		}
-		return propertyRepresentationListEDataType;
+		return propertyRepresentationListObjectEDataType;
 	}
 
 	/**
@@ -53000,11 +57070,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getPropertyTypeList() {
-		if (propertyTypeListEDataType == null) {
-			propertyTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(666);
+	public EDataType getPropertyTypeListObject() {
+		if (propertyTypeListObjectEDataType == null) {
+			propertyTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(805);
 		}
-		return propertyTypeListEDataType;
+		return propertyTypeListObjectEDataType;
 	}
 
 	/**
@@ -53012,11 +57082,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProtocolStatusList() {
-		if (protocolStatusListEDataType == null) {
-			protocolStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(675);
+	public EDataType getProtocolStatusListObject() {
+		if (protocolStatusListObjectEDataType == null) {
+			protocolStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(815);
 		}
-		return protocolStatusListEDataType;
+		return protocolStatusListObjectEDataType;
 	}
 
 	/**
@@ -53024,11 +57094,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProtocolTypeList() {
-		if (protocolTypeListEDataType == null) {
-			protocolTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(678);
+	public EDataType getProtocolTypeListObject() {
+		if (protocolTypeListObjectEDataType == null) {
+			protocolTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(819);
 		}
-		return protocolTypeListEDataType;
+		return protocolTypeListObjectEDataType;
 	}
 
 	/**
@@ -53036,11 +57106,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getProvenanceEntityRoleList() {
-		if (provenanceEntityRoleListEDataType == null) {
-			provenanceEntityRoleListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(683);
+	public EDataType getProvenanceEntityRoleListObject() {
+		if (provenanceEntityRoleListObjectEDataType == null) {
+			provenanceEntityRoleListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(825);
 		}
-		return provenanceEntityRoleListEDataType;
+		return provenanceEntityRoleListObjectEDataType;
 	}
 
 	/**
@@ -53048,11 +57118,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getQuantityComparatorList() {
-		if (quantityComparatorListEDataType == null) {
-			quantityComparatorListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(687);
+	public EDataType getQuantityComparatorListObject() {
+		if (quantityComparatorListObjectEDataType == null) {
+			quantityComparatorListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(830);
 		}
-		return quantityComparatorListEDataType;
+		return quantityComparatorListObjectEDataType;
 	}
 
 	/**
@@ -53060,11 +57130,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getQuestionnaireItemTypeList() {
-		if (questionnaireItemTypeListEDataType == null) {
-			questionnaireItemTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(692);
+	public EDataType getQuestionnaireItemTypeListObject() {
+		if (questionnaireItemTypeListObjectEDataType == null) {
+			questionnaireItemTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(836);
 		}
-		return questionnaireItemTypeListEDataType;
+		return questionnaireItemTypeListObjectEDataType;
 	}
 
 	/**
@@ -53072,11 +57142,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getQuestionnaireResponseStatusList() {
-		if (questionnaireResponseStatusListEDataType == null) {
-			questionnaireResponseStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(698);
+	public EDataType getQuestionnaireResponseStatusListObject() {
+		if (questionnaireResponseStatusListObjectEDataType == null) {
+			questionnaireResponseStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(843);
 		}
-		return questionnaireResponseStatusListEDataType;
+		return questionnaireResponseStatusListObjectEDataType;
 	}
 
 	/**
@@ -53084,11 +57154,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getQuestionnaireStatusList() {
-		if (questionnaireStatusListEDataType == null) {
-			questionnaireStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(700);
+	public EDataType getQuestionnaireStatusListObject() {
+		if (questionnaireStatusListObjectEDataType == null) {
+			questionnaireStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(846);
 		}
-		return questionnaireStatusListEDataType;
+		return questionnaireStatusListObjectEDataType;
 	}
 
 	/**
@@ -53096,11 +57166,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getReferenceVersionRulesList() {
-		if (referenceVersionRulesListEDataType == null) {
-			referenceVersionRulesListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(705);
+	public EDataType getReferenceVersionRulesListObject() {
+		if (referenceVersionRulesListObjectEDataType == null) {
+			referenceVersionRulesListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(852);
 		}
-		return referenceVersionRulesListEDataType;
+		return referenceVersionRulesListObjectEDataType;
 	}
 
 	/**
@@ -53108,11 +57178,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getReferralCategoryList() {
-		if (referralCategoryListEDataType == null) {
-			referralCategoryListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(707);
+	public EDataType getReferralCategoryListObject() {
+		if (referralCategoryListObjectEDataType == null) {
+			referralCategoryListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(855);
 		}
-		return referralCategoryListEDataType;
+		return referralCategoryListObjectEDataType;
 	}
 
 	/**
@@ -53120,11 +57190,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getReferralStatusList() {
-		if (referralStatusListEDataType == null) {
-			referralStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(710);
+	public EDataType getReferralStatusListObject() {
+		if (referralStatusListObjectEDataType == null) {
+			referralStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(859);
 		}
-		return referralStatusListEDataType;
+		return referralStatusListObjectEDataType;
 	}
 
 	/**
@@ -53132,11 +57202,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getRemittanceOutcomeList() {
-		if (remittanceOutcomeListEDataType == null) {
-			remittanceOutcomeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(713);
+	public EDataType getRemittanceOutcomeListObject() {
+		if (remittanceOutcomeListObjectEDataType == null) {
+			remittanceOutcomeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(863);
 		}
-		return remittanceOutcomeListEDataType;
+		return remittanceOutcomeListObjectEDataType;
 	}
 
 	/**
@@ -53144,11 +57214,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getResourceVersionPolicyList() {
-		if (resourceVersionPolicyListEDataType == null) {
-			resourceVersionPolicyListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(717);
+	public EDataType getResourceVersionPolicyListObject() {
+		if (resourceVersionPolicyListObjectEDataType == null) {
+			resourceVersionPolicyListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(868);
 		}
-		return resourceVersionPolicyListEDataType;
+		return resourceVersionPolicyListObjectEDataType;
 	}
 
 	/**
@@ -53156,11 +57226,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getResponseTypeList() {
-		if (responseTypeListEDataType == null) {
-			responseTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(719);
+	public EDataType getResponseTypeListObject() {
+		if (responseTypeListObjectEDataType == null) {
+			responseTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(871);
 		}
-		return responseTypeListEDataType;
+		return responseTypeListObjectEDataType;
 	}
 
 	/**
@@ -53168,11 +57238,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getRestfulConformanceModeList() {
-		if (restfulConformanceModeListEDataType == null) {
-			restfulConformanceModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(721);
+	public EDataType getRestfulConformanceModeListObject() {
+		if (restfulConformanceModeListObjectEDataType == null) {
+			restfulConformanceModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(874);
 		}
-		return restfulConformanceModeListEDataType;
+		return restfulConformanceModeListObjectEDataType;
 	}
 
 	/**
@@ -53182,7 +57252,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getSampledDataDataTypePrimitive() {
 		if (sampledDataDataTypePrimitiveEDataType == null) {
-			sampledDataDataTypePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(726);
+			sampledDataDataTypePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(879);
 		}
 		return sampledDataDataTypePrimitiveEDataType;
 	}
@@ -53192,11 +57262,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSearchEntryModeList() {
-		if (searchEntryModeListEDataType == null) {
-			searchEntryModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(729);
+	public EDataType getSearchEntryModeListObject() {
+		if (searchEntryModeListObjectEDataType == null) {
+			searchEntryModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(883);
 		}
-		return searchEntryModeListEDataType;
+		return searchEntryModeListObjectEDataType;
 	}
 
 	/**
@@ -53204,11 +57274,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSearchModifierCodeList() {
-		if (searchModifierCodeListEDataType == null) {
-			searchModifierCodeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(731);
+	public EDataType getSearchModifierCodeListObject() {
+		if (searchModifierCodeListObjectEDataType == null) {
+			searchModifierCodeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(886);
 		}
-		return searchModifierCodeListEDataType;
+		return searchModifierCodeListObjectEDataType;
 	}
 
 	/**
@@ -53216,11 +57286,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSearchParamTypeList() {
-		if (searchParamTypeListEDataType == null) {
-			searchParamTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(735);
+	public EDataType getSearchParamTypeListObject() {
+		if (searchParamTypeListObjectEDataType == null) {
+			searchParamTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(891);
 		}
-		return searchParamTypeListEDataType;
+		return searchParamTypeListObjectEDataType;
 	}
 
 	/**
@@ -53228,11 +57298,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSequenceTypeList() {
-		if (sequenceTypeListEDataType == null) {
-			sequenceTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(744);
+	public EDataType getSequenceTypeListObject() {
+		if (sequenceTypeListObjectEDataType == null) {
+			sequenceTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(901);
 		}
-		return sequenceTypeListEDataType;
+		return sequenceTypeListObjectEDataType;
 	}
 
 	/**
@@ -53240,11 +57310,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSlicingRulesList() {
-		if (slicingRulesListEDataType == null) {
-			slicingRulesListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(749);
+	public EDataType getSlicingRulesListObject() {
+		if (slicingRulesListObjectEDataType == null) {
+			slicingRulesListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(907);
 		}
-		return slicingRulesListEDataType;
+		return slicingRulesListObjectEDataType;
 	}
 
 	/**
@@ -53252,11 +57322,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSlotStatusList() {
-		if (slotStatusListEDataType == null) {
-			slotStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(752);
+	public EDataType getSlotStatusListObject() {
+		if (slotStatusListObjectEDataType == null) {
+			slotStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(911);
 		}
-		return slotStatusListEDataType;
+		return slotStatusListObjectEDataType;
 	}
 
 	/**
@@ -53264,11 +57334,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSpecimenStatusList() {
-		if (specimenStatusListEDataType == null) {
-			specimenStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(757);
+	public EDataType getSpecimenStatusListObject() {
+		if (specimenStatusListObjectEDataType == null) {
+			specimenStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(917);
 		}
-		return specimenStatusListEDataType;
+		return specimenStatusListObjectEDataType;
 	}
 
 	/**
@@ -53278,7 +57348,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getStringPrimitive() {
 		if (stringPrimitiveEDataType == null) {
-			stringPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(760);
+			stringPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(920);
 		}
 		return stringPrimitiveEDataType;
 	}
@@ -53288,11 +57358,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureDefinitionKindList() {
-		if (structureDefinitionKindListEDataType == null) {
-			structureDefinitionKindListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(765);
+	public EDataType getStructureDefinitionKindListObject() {
+		if (structureDefinitionKindListObjectEDataType == null) {
+			structureDefinitionKindListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(926);
 		}
-		return structureDefinitionKindListEDataType;
+		return structureDefinitionKindListObjectEDataType;
 	}
 
 	/**
@@ -53300,11 +57370,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureMapContextTypeList() {
-		if (structureMapContextTypeListEDataType == null) {
-			structureMapContextTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(771);
+	public EDataType getStructureMapContextTypeListObject() {
+		if (structureMapContextTypeListObjectEDataType == null) {
+			structureMapContextTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(933);
 		}
-		return structureMapContextTypeListEDataType;
+		return structureMapContextTypeListObjectEDataType;
 	}
 
 	/**
@@ -53312,11 +57382,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureMapInputModeList() {
-		if (structureMapInputModeListEDataType == null) {
-			structureMapInputModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(776);
+	public EDataType getStructureMapInputModeListObject() {
+		if (structureMapInputModeListObjectEDataType == null) {
+			structureMapInputModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(939);
 		}
-		return structureMapInputModeListEDataType;
+		return structureMapInputModeListObjectEDataType;
 	}
 
 	/**
@@ -53324,11 +57394,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureMapListModeList() {
-		if (structureMapListModeListEDataType == null) {
-			structureMapListModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(778);
+	public EDataType getStructureMapListModeListObject() {
+		if (structureMapListModeListObjectEDataType == null) {
+			structureMapListModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(942);
 		}
-		return structureMapListModeListEDataType;
+		return structureMapListModeListObjectEDataType;
 	}
 
 	/**
@@ -53336,11 +57406,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureMapModelModeList() {
-		if (structureMapModelModeListEDataType == null) {
-			structureMapModelModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(780);
+	public EDataType getStructureMapModelModeListObject() {
+		if (structureMapModelModeListObjectEDataType == null) {
+			structureMapModelModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(945);
 		}
-		return structureMapModelModeListEDataType;
+		return structureMapModelModeListObjectEDataType;
 	}
 
 	/**
@@ -53348,11 +57418,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getStructureMapTransformList() {
-		if (structureMapTransformListEDataType == null) {
-			structureMapTransformListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(787);
+	public EDataType getStructureMapTransformListObject() {
+		if (structureMapTransformListObjectEDataType == null) {
+			structureMapTransformListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(953);
 		}
-		return structureMapTransformListEDataType;
+		return structureMapTransformListObjectEDataType;
 	}
 
 	/**
@@ -53360,11 +57430,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSubscriptionChannelTypeList() {
-		if (subscriptionChannelTypeListEDataType == null) {
-			subscriptionChannelTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(791);
+	public EDataType getSubscriptionChannelTypeListObject() {
+		if (subscriptionChannelTypeListObjectEDataType == null) {
+			subscriptionChannelTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(958);
 		}
-		return subscriptionChannelTypeListEDataType;
+		return subscriptionChannelTypeListObjectEDataType;
 	}
 
 	/**
@@ -53372,11 +57442,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSubscriptionStatusList() {
-		if (subscriptionStatusListEDataType == null) {
-			subscriptionStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(793);
+	public EDataType getSubscriptionStatusListObject() {
+		if (subscriptionStatusListObjectEDataType == null) {
+			subscriptionStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(961);
 		}
-		return subscriptionStatusListEDataType;
+		return subscriptionStatusListObjectEDataType;
 	}
 
 	/**
@@ -53384,11 +57454,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSupplyDeliveryStatusList() {
-		if (supplyDeliveryStatusListEDataType == null) {
-			supplyDeliveryStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(799);
+	public EDataType getSupplyDeliveryStatusListObject() {
+		if (supplyDeliveryStatusListObjectEDataType == null) {
+			supplyDeliveryStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(968);
 		}
-		return supplyDeliveryStatusListEDataType;
+		return supplyDeliveryStatusListObjectEDataType;
 	}
 
 	/**
@@ -53396,11 +57466,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSupplyRequestStatusList() {
-		if (supplyRequestStatusListEDataType == null) {
-			supplyRequestStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(802);
+	public EDataType getSupplyRequestStatusListObject() {
+		if (supplyRequestStatusListObjectEDataType == null) {
+			supplyRequestStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(972);
 		}
-		return supplyRequestStatusListEDataType;
+		return supplyRequestStatusListObjectEDataType;
 	}
 
 	/**
@@ -53410,7 +57480,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getSystemRestfulInteractionListObject() {
 		if (systemRestfulInteractionListObjectEDataType == null) {
-			systemRestfulInteractionListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(806);
+			systemRestfulInteractionListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(976);
 		}
 		return systemRestfulInteractionListObjectEDataType;
 	}
@@ -53420,11 +57490,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTaskPriorityList() {
-		if (taskPriorityListEDataType == null) {
-			taskPriorityListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(811);
+	public EDataType getTaskPriorityListObject() {
+		if (taskPriorityListObjectEDataType == null) {
+			taskPriorityListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(983);
 		}
-		return taskPriorityListEDataType;
+		return taskPriorityListObjectEDataType;
 	}
 
 	/**
@@ -53432,11 +57502,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTaskStatusList() {
-		if (taskStatusListEDataType == null) {
-			taskStatusListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(813);
+	public EDataType getTaskStatusListObject() {
+		if (taskStatusListObjectEDataType == null) {
+			taskStatusListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(986);
 		}
-		return taskStatusListEDataType;
+		return taskStatusListObjectEDataType;
 	}
 
 	/**
@@ -53446,7 +57516,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getTimePrimitive() {
 		if (timePrimitiveEDataType == null) {
-			timePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(843);
+			timePrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1016);
 		}
 		return timePrimitiveEDataType;
 	}
@@ -53456,11 +57526,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTransactionModeList() {
-		if (transactionModeListEDataType == null) {
-			transactionModeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(847);
+	public EDataType getTransactionModeListObject() {
+		if (transactionModeListObjectEDataType == null) {
+			transactionModeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1021);
 		}
-		return transactionModeListEDataType;
+		return transactionModeListObjectEDataType;
 	}
 
 	/**
@@ -53468,11 +57538,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTriggerTypeList() {
-		if (triggerTypeListEDataType == null) {
-			triggerTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(850);
+	public EDataType getTriggerTypeListObject() {
+		if (triggerTypeListObjectEDataType == null) {
+			triggerTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1025);
 		}
-		return triggerTypeListEDataType;
+		return triggerTypeListObjectEDataType;
 	}
 
 	/**
@@ -53480,11 +57550,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTypeDerivationRuleList() {
-		if (typeDerivationRuleListEDataType == null) {
-			typeDerivationRuleListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(852);
+	public EDataType getTypeDerivationRuleListObject() {
+		if (typeDerivationRuleListObjectEDataType == null) {
+			typeDerivationRuleListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1028);
 		}
-		return typeDerivationRuleListEDataType;
+		return typeDerivationRuleListObjectEDataType;
 	}
 
 	/**
@@ -53494,7 +57564,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getTypeRestfulInteractionListObject() {
 		if (typeRestfulInteractionListObjectEDataType == null) {
-			typeRestfulInteractionListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(855);
+			typeRestfulInteractionListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1031);
 		}
 		return typeRestfulInteractionListObjectEDataType;
 	}
@@ -53506,7 +57576,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getUnitsOfTimeListObject() {
 		if (unitsOfTimeListObjectEDataType == null) {
-			unitsOfTimeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(858);
+			unitsOfTimeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1034);
 		}
 		return unitsOfTimeListObjectEDataType;
 	}
@@ -53516,11 +57586,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getUnknownContentCodeList() {
-		if (unknownContentCodeListEDataType == null) {
-			unknownContentCodeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(860);
+	public EDataType getUnknownContentCodeListObject() {
+		if (unknownContentCodeListObjectEDataType == null) {
+			unknownContentCodeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1037);
 		}
-		return unknownContentCodeListEDataType;
+		return unknownContentCodeListObjectEDataType;
 	}
 
 	/**
@@ -53530,7 +57600,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getUnsignedIntPrimitive() {
 		if (unsignedIntPrimitiveEDataType == null) {
-			unsignedIntPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(862);
+			unsignedIntPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1039);
 		}
 		return unsignedIntPrimitiveEDataType;
 	}
@@ -53542,7 +57612,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getUriPrimitive() {
 		if (uriPrimitiveEDataType == null) {
-			uriPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(864);
+			uriPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1041);
 		}
 		return uriPrimitiveEDataType;
 	}
@@ -53552,11 +57622,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getUseList() {
-		if (useListEDataType == null) {
-			useListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(866);
+	public EDataType getUseListObject() {
+		if (useListObjectEDataType == null) {
+			useListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1044);
 		}
-		return useListEDataType;
+		return useListObjectEDataType;
 	}
 
 	/**
@@ -53566,7 +57636,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EDataType getUuidPrimitive() {
 		if (uuidPrimitiveEDataType == null) {
-			uuidPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(868);
+			uuidPrimitiveEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1046);
 		}
 		return uuidPrimitiveEDataType;
 	}
@@ -53576,11 +57646,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getVisionBaseList() {
-		if (visionBaseListEDataType == null) {
-			visionBaseListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(880);
+	public EDataType getVisionBaseListObject() {
+		if (visionBaseListObjectEDataType == null) {
+			visionBaseListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1059);
 		}
-		return visionBaseListEDataType;
+		return visionBaseListObjectEDataType;
 	}
 
 	/**
@@ -53588,11 +57658,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getVisionEyesList() {
-		if (visionEyesListEDataType == null) {
-			visionEyesListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(882);
+	public EDataType getVisionEyesListObject() {
+		if (visionEyesListObjectEDataType == null) {
+			visionEyesListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1062);
 		}
-		return visionEyesListEDataType;
+		return visionEyesListObjectEDataType;
 	}
 
 	/**
@@ -53600,11 +57670,11 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getXPathUsageTypeList() {
-		if (xPathUsageTypeListEDataType == null) {
-			xPathUsageTypeListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(886);
+	public EDataType getXPathUsageTypeListObject() {
+		if (xPathUsageTypeListObjectEDataType == null) {
+			xPathUsageTypeListObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(FhirPackage.eNS_URI).getEClassifiers().get(1067);
 		}
-		return xPathUsageTypeListEDataType;
+		return xPathUsageTypeListObjectEDataType;
 	}
 
 	/**

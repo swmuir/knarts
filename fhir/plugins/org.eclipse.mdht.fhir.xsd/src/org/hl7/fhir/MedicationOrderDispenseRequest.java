@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -16,8 +26,6 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicationOrderDispenseRequest#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrderDispenseRequest#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDispenseRequest#getValidityPeriod <em>Validity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDispenseRequest#getNumberOfRepeatsAllowed <em>Number Of Repeats Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDispenseRequest#getQuantity <em>Quantity</em>}</li>
@@ -29,60 +37,6 @@ package org.hl7.fhir;
  * @generated
  */
 public interface MedicationOrderDispenseRequest extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #setMedicationCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDispenseRequest_MedicationCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getMedicationCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDispenseRequest#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Codeable Concept</em>' containment reference.
-	 * @see #getMedicationCodeableConcept()
-	 * @generated
-	 */
-	void setMedicationCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Medication Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Medication Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #setMedicationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDispenseRequest_MedicationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='medicationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getMedicationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDispenseRequest#getMedicationReference <em>Medication Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Reference</em>' containment reference.
-	 * @see #getMedicationReference()
-	 * @generated
-	 */
-	void setMedicationReference(Reference value);
-
 	/**
 	 * Returns the value of the '<em><b>Validity Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

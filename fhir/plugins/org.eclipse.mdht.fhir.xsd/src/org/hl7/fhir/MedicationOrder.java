@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,13 +38,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationOrder#getPrescriber <em>Prescriber</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getDispenseRequest <em>Dispense Request</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getSubstitution <em>Substitution</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrder#getPriorPrescription <em>Prior Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrder#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationOrder()
@@ -195,7 +204,7 @@ public interface MedicationOrder extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date (and perhaps time) when the prescription was written.
+	 * The date (and perhaps time) when the prescription was initially written.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date Written</em>' containment reference.
 	 * @see #setDateWritten(DateTime)
@@ -221,7 +230,7 @@ public interface MedicationOrder extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The healthcare professional responsible for authorizing the prescription.
+	 * The healthcare professional responsible for authorizing the initial prescription.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prescriber</em>' containment reference.
 	 * @see #setPrescriber(Reference)
@@ -273,58 +282,6 @@ public interface MedicationOrder extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getReasonReference();
-
-	/**
-	 * Returns the value of the '<em><b>Date Ended</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date (and perhaps time) when the prescription was stopped.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Ended</em>' containment reference.
-	 * @see #setDateEnded(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_DateEnded()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dateEnded' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDateEnded();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getDateEnded <em>Date Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Ended</em>' containment reference.
-	 * @see #getDateEnded()
-	 * @generated
-	 */
-	void setDateEnded(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Ended</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The reason why the prescription was stopped, if it was.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Ended</em>' containment reference.
-	 * @see #setReasonEnded(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_ReasonEnded()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonEnded' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getReasonEnded();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrder#getReasonEnded <em>Reason Ended</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Ended</em>' containment reference.
-	 * @see #getReasonEnded()
-	 * @generated
-	 */
-	void setReasonEnded(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
@@ -435,5 +392,21 @@ public interface MedicationOrder extends DomainResource {
 	 * @generated
 	 */
 	void setPriorPrescription(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationOrderEventHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Event History</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrder_EventHistory()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='eventHistory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MedicationOrderEventHistory> getEventHistory();
 
 } // MedicationOrder

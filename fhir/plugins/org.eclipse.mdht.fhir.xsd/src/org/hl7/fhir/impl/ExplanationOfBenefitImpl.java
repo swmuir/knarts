@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -18,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Address;
+import org.hl7.fhir.ClaimType2;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
@@ -53,6 +64,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimReference <em>Claim Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimResponseIdentifier <em>Claim Response Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getClaimResponseReference <em>Claim Response Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
@@ -160,6 +172,16 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * @ordered
 	 */
 	protected Reference claimResponseReference;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ClaimType2 type;
 
 	/**
 	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference list.
@@ -892,6 +914,49 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE, newClaimResponseReference, newClaimResponseReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimType2 getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(ClaimType2 newType, NotificationChain msgs) {
+		ClaimType2 oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(ClaimType2 newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__TYPE, newType, newType));
 	}
 
 	/**
@@ -2726,6 +2791,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return basicSetClaimResponseIdentifier(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
 				return basicSetClaimResponseReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
 				return ((InternalEList<?>)getSubType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
@@ -2854,6 +2921,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return getClaimResponseIdentifier();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
 				return getClaimResponseReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TYPE:
+				return getType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
 				return getSubType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:
@@ -2988,6 +3057,9 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
 				setClaimResponseReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TYPE:
+				setType((ClaimType2)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
 				getSubType().clear();
@@ -3190,6 +3262,9 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
 				setClaimResponseReference((Reference)null);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TYPE:
+				setType((ClaimType2)null);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
 				getSubType().clear();
 				return;
@@ -3371,6 +3446,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return claimResponseIdentifier != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__CLAIM_RESPONSE_REFERENCE:
 				return claimResponseReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT__TYPE:
+				return type != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE:
 				return subType != null && !subType.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__RULESET:

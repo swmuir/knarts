@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,7 +40,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CarePlan#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getSupport <em>Support</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getRelatedPlan <em>Related Plan</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getActivity <em>Activity</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getNote <em>Note</em>}</li>
@@ -294,20 +304,30 @@ public interface CarePlan extends DomainResource {
 	EList<CarePlanRelatedPlan> getRelatedPlan();
 
 	/**
-	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CarePlanParticipant}.
+	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Participant</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Participant()
+	 * @return the value of the '<em>Care Team</em>' containment reference.
+	 * @see #setCareTeam(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_CareTeam()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='participant' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeam' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CarePlanParticipant> getParticipant();
+	Reference getCareTeam();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getCareTeam <em>Care Team</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Care Team</em>' containment reference.
+	 * @see #getCareTeam()
+	 * @generated
+	 */
+	void setCareTeam(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Goal</b></em>' containment reference list.

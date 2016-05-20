@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -165,7 +175,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * HS
 	 * <!-- end-model-doc -->
 	 * @see #HS
 	 * @model
@@ -179,7 +189,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * WAKE
 	 * <!-- end-model-doc -->
 	 * @see #WAKE
 	 * @model
@@ -193,7 +203,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * C
 	 * <!-- end-model-doc -->
 	 * @see #C
 	 * @model
@@ -207,7 +217,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * CM
 	 * <!-- end-model-doc -->
 	 * @see #CM
 	 * @model
@@ -221,7 +231,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * CD
 	 * <!-- end-model-doc -->
 	 * @see #CD
 	 * @model
@@ -235,7 +245,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * CV
 	 * <!-- end-model-doc -->
 	 * @see #CV
 	 * @model
@@ -249,7 +259,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * AC
 	 * <!-- end-model-doc -->
 	 * @see #AC
 	 * @model
@@ -263,7 +273,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * ACM
 	 * <!-- end-model-doc -->
 	 * @see #ACM
 	 * @model
@@ -277,7 +287,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * ACD
 	 * <!-- end-model-doc -->
 	 * @see #ACD
 	 * @model
@@ -291,7 +301,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * ACV
 	 * <!-- end-model-doc -->
 	 * @see #ACV
 	 * @model
@@ -305,7 +315,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * PC
 	 * <!-- end-model-doc -->
 	 * @see #PC
 	 * @model
@@ -319,7 +329,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * PCM
 	 * <!-- end-model-doc -->
 	 * @see #PCM
 	 * @model
@@ -333,7 +343,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * PCD
 	 * <!-- end-model-doc -->
 	 * @see #PCD
 	 * @model
@@ -347,7 +357,7 @@ public enum EventTimingList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * PCV
 	 * <!-- end-model-doc -->
 	 * @see #PCV
 	 * @model

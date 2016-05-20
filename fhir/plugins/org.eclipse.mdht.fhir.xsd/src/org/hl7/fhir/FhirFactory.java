@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -571,15 +581,6 @@ public interface FhirFactory extends EFactory {
 	CarePlanDetail createCarePlanDetail();
 
 	/**
-	 * Returns a new object of class '<em>Care Plan Participant</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Care Plan Participant</em>'.
-	 * @generated
-	 */
-	CarePlanParticipant createCarePlanParticipant();
-
-	/**
 	 * Returns a new object of class '<em>Care Plan Related Plan</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -866,6 +867,15 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	ClaimType createClaimType();
+
+	/**
+	 * Returns a new object of class '<em>Claim Type2</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Claim Type2</em>'.
+	 * @generated
+	 */
+	ClaimType2 createClaimType2();
 
 	/**
 	 * Returns a new object of class '<em>Clinical Impression</em>'.
@@ -1424,6 +1434,69 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	ConformanceStatementKind createConformanceStatementKind();
+
+	/**
+	 * Returns a new object of class '<em>Consent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent</em>'.
+	 * @generated
+	 */
+	Consent createConsent();
+
+	/**
+	 * Returns a new object of class '<em>Consent Agent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Agent</em>'.
+	 * @generated
+	 */
+	ConsentAgent createConsentAgent();
+
+	/**
+	 * Returns a new object of class '<em>Consent Agent1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Agent1</em>'.
+	 * @generated
+	 */
+	ConsentAgent1 createConsentAgent1();
+
+	/**
+	 * Returns a new object of class '<em>Consent Except</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Except</em>'.
+	 * @generated
+	 */
+	ConsentExcept createConsentExcept();
+
+	/**
+	 * Returns a new object of class '<em>Consent Friendly</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Friendly</em>'.
+	 * @generated
+	 */
+	ConsentFriendly createConsentFriendly();
+
+	/**
+	 * Returns a new object of class '<em>Consent Legal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Legal</em>'.
+	 * @generated
+	 */
+	ConsentLegal createConsentLegal();
+
+	/**
+	 * Returns a new object of class '<em>Consent Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consent Status</em>'.
+	 * @generated
+	 */
+	ConsentStatus createConsentStatus();
 
 	/**
 	 * Returns a new object of class '<em>Constraint Severity</em>'.
@@ -3631,6 +3704,15 @@ public interface FhirFactory extends EFactory {
 	MedicationAdministrationDosage createMedicationAdministrationDosage();
 
 	/**
+	 * Returns a new object of class '<em>Medication Administration Event History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Administration Event History</em>'.
+	 * @generated
+	 */
+	MedicationAdministrationEventHistory createMedicationAdministrationEventHistory();
+
+	/**
 	 * Returns a new object of class '<em>Medication Administration Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3674,6 +3756,15 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	MedicationDispenseDosageInstruction createMedicationDispenseDosageInstruction();
+
+	/**
+	 * Returns a new object of class '<em>Medication Dispense Event History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Dispense Event History</em>'.
+	 * @generated
+	 */
+	MedicationDispenseEventHistory createMedicationDispenseEventHistory();
 
 	/**
 	 * Returns a new object of class '<em>Medication Dispense Status</em>'.
@@ -3728,6 +3819,15 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	MedicationOrderDosageInstruction createMedicationOrderDosageInstruction();
+
+	/**
+	 * Returns a new object of class '<em>Medication Order Event History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Medication Order Event History</em>'.
+	 * @generated
+	 */
+	MedicationOrderEventHistory createMedicationOrderEventHistory();
 
 	/**
 	 * Returns a new object of class '<em>Medication Order Status</em>'.
@@ -5672,6 +5772,15 @@ public interface FhirFactory extends EFactory {
 	 * @generated
 	 */
 	Task createTask();
+
+	/**
+	 * Returns a new object of class '<em>Task Fulfillment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Fulfillment</em>'.
+	 * @generated
+	 */
+	TaskFulfillment createTaskFulfillment();
 
 	/**
 	 * Returns a new object of class '<em>Task Input</em>'.

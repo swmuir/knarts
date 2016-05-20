@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -44,7 +54,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getOrderer <em>Orderer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSupportingInformation <em>Supporting Information</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticOrderImpl#getNote <em>Note</em>}</li>
@@ -132,16 +141,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	 * @ordered
 	 */
 	protected EList<Reference> supportingInformation;
-
-	/**
-	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecimen()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> specimen;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
@@ -448,18 +447,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getSpecimen() {
-		if (specimen == null) {
-			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN);
-		}
-		return specimen;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<DiagnosticOrderEvent> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<DiagnosticOrderEvent>(DiagnosticOrderEvent.class, this, FhirPackage.DIAGNOSTIC_ORDER__EVENT);
@@ -515,8 +502,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return ((InternalEList<?>)getSupportingInformation()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
-				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:
@@ -551,8 +536,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 				return getReason();
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return getSupportingInformation();
-			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
-				return getSpecimen();
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return getEvent();
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:
@@ -598,10 +581,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				getSupportingInformation().clear();
 				getSupportingInformation().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
-				getSpecimen().clear();
-				getSpecimen().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				getEvent().clear();
@@ -651,9 +630,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				getSupportingInformation().clear();
 				return;
-			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
-				getSpecimen().clear();
-				return;
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				getEvent().clear();
 				return;
@@ -691,8 +667,6 @@ public class DiagnosticOrderImpl extends DomainResourceImpl implements Diagnosti
 				return reason != null && !reason.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__SUPPORTING_INFORMATION:
 				return supportingInformation != null && !supportingInformation.isEmpty();
-			case FhirPackage.DIAGNOSTIC_ORDER__SPECIMEN:
-				return specimen != null && !specimen.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__EVENT:
 				return event != null && !event.isEmpty();
 			case FhirPackage.DIAGNOSTIC_ORDER__ITEM:

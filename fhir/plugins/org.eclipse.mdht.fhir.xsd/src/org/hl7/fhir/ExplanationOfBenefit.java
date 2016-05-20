@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -23,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimReference <em>Claim Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseIdentifier <em>Claim Response Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseReference <em>Claim Response Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalRuleset <em>Original Ruleset</em>}</li>
@@ -206,6 +217,32 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * @generated
 	 */
 	void setClaimResponseReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The category of claim.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(ClaimType2)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ClaimType2 getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(ClaimType2 value);
 
 	/**
 	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference list.

@@ -604,7 +604,7 @@ public class ModelImporter implements ModelConstants {
 		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
 		PrimitiveType primitiveType = null;
 		
-		StructureDefinitionKind structureKind = StructureDefinitionKind.valueOf(structureDef.getKind().getValue());
+		StructureDefinitionKind structureKind = StructureDefinitionKind.valueOf(structureDef.getKind().getValue().getName());
 		boolean isLogicalType = StructureDefinitionKind.logical == structureKind;
 
 		// Default is 'Profiles' package
@@ -673,7 +673,7 @@ public class ModelImporter implements ModelConstants {
 				structureDefStereotype.setCopyright(structureDef.getCopyright().getValue());
 			}
 			if (structureDef.getContextType() != null) {
-				structureDefStereotype.setContextType(structureDef.getContextType().getValue());
+				structureDefStereotype.setContextType(structureDef.getContextType().getValue().getName());
 			}
 			if (structureDef.getContext() != null) {
 				for (org.hl7.fhir.String fhirString : structureDef.getContext()) {
@@ -683,7 +683,7 @@ public class ModelImporter implements ModelConstants {
 			
 			structureDefStereotype.setIsLogical(isLogicalType);
 			if (structureDef.getDerivation() != null) {
-				DerivationKind derivation = DerivationKind.get(structureDef.getDerivation().getValue());
+				DerivationKind derivation = DerivationKind.get(structureDef.getDerivation().getValue().getName());
 				if (derivation != null) {
 					structureDefStereotype.setDerivation(derivation);
 				}
@@ -1014,13 +1014,13 @@ public class ModelImporter implements ModelConstants {
 				}
 				if (!elementDef.getRepresentation().isEmpty()) {
 					for (PropertyRepresentation rep : elementDef.getRepresentation()) {
-						PropertyRepresentationKind umlRep = PropertyRepresentationKind.get(rep.getValue());
+						PropertyRepresentationKind umlRep = PropertyRepresentationKind.get(rep.getValue().getName());
 						if (umlRep != null) {
 							elementDefStereotype.getRepresentations().add(umlRep);
 						}
 						
 						// Set Ecore::EAttribute to XML attribute
-						if (PropertyRepresentationEnum.xmlAttr == PropertyRepresentationEnum.valueOf(rep.getValue())) {
+						if (PropertyRepresentationEnum.xmlAttr == PropertyRepresentationEnum.valueOf(rep.getValue().getName())) {
 							Stereotype stereotype = property.getApplicableStereotype("Ecore::EAttribute");
 							if (stereotype != null) {
 								UMLUtil.safeApplyStereotype(property, stereotype);
@@ -1079,7 +1079,7 @@ public class ModelImporter implements ModelConstants {
 				if (elementDef.getBinding() != null) {
 					ElementDefinitionBinding binding = elementDef.getBinding();
 					ValueSetBinding valueSetBinding = (ValueSetBinding) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getValueSetBinding().getName()));
-					valueSetBinding.setStrength(BindingStrengthKind.get(binding.getStrength().getValue()));
+					valueSetBinding.setStrength(BindingStrengthKind.get(binding.getStrength().getValue().getName()));
 					if (binding.getDescription() != null) {
 						valueSetBinding.setDescription(binding.getDescription().getValue());
 					}
@@ -1120,7 +1120,7 @@ public class ModelImporter implements ModelConstants {
 						umlSlicing.setOrdered(fhirSlicing.getOrdered().isValue());
 					}
 					if (fhirSlicing.getRules() != null) {
-						SlicingRulesKind kind = SlicingRulesKind.get(fhirSlicing.getRules().getValue());
+						SlicingRulesKind kind = SlicingRulesKind.get(fhirSlicing.getRules().getValue().getName());
 						if (kind != null) {
 							umlSlicing.setRules(kind);
 						}
@@ -1523,7 +1523,7 @@ public class ModelImporter implements ModelConstants {
 				umlConstraint.getStereotypeApplications(), ValidationPackage.Literals.DIAGNOSTIC);
 			if (diagnostic != null) {
 				if (fhirConstraint.getSeverity() != null) {
-					if (ConstraintSeverityEnum.warning == ConstraintSeverityEnum.valueOf(fhirConstraint.getSeverity().getValue())) {
+					if (ConstraintSeverityEnum.warning == ConstraintSeverityEnum.valueOf(fhirConstraint.getSeverity().getValue().getName())) {
 						diagnostic.setSeverity(SeverityKind.WARNING);
 					}
 					else {

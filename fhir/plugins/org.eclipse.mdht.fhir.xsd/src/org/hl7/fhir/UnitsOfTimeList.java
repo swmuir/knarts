@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -95,7 +105,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * second
 	 * <!-- end-model-doc -->
 	 * @see #S
 	 * @model name="s"
@@ -109,7 +119,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * minute
 	 * <!-- end-model-doc -->
 	 * @see #MIN
 	 * @model name="min"
@@ -123,7 +133,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * hour
 	 * <!-- end-model-doc -->
 	 * @see #H
 	 * @model name="h"
@@ -137,7 +147,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * day
 	 * <!-- end-model-doc -->
 	 * @see #D
 	 * @model name="d"
@@ -151,7 +161,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * week
 	 * <!-- end-model-doc -->
 	 * @see #WK
 	 * @model name="wk"
@@ -165,7 +175,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * month
 	 * <!-- end-model-doc -->
 	 * @see #MO
 	 * @model name="mo"
@@ -179,7 +189,7 @@ public enum UnitsOfTimeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * year
 	 * <!-- end-model-doc -->
 	 * @see #A
 	 * @model name="a"
