@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -21,9 +31,9 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getSiteReference <em>Site Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getMethod <em>Method</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getDose <em>Dose</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getRateRatio <em>Rate Ratio</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getRateRange <em>Rate Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getRateQuantity <em>Rate Quantity</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage()
@@ -164,30 +174,30 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	void setMethod(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(SimpleQuantity)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_Quantity()
+	 * @return the value of the '<em>Dose</em>' containment reference.
+	 * @see #setDose(SimpleQuantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_Dose()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='dose' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getQuantity();
+	SimpleQuantity getDose();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getQuantity <em>Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getDose <em>Dose</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantity</em>' containment reference.
-	 * @see #getQuantity()
+	 * @param value the new value of the '<em>Dose</em>' containment reference.
+	 * @see #getDose()
 	 * @generated
 	 */
-	void setQuantity(SimpleQuantity value);
+	void setDose(SimpleQuantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Rate Ratio</b></em>' containment reference.
@@ -217,30 +227,30 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	void setRateRatio(Ratio value);
 
 	/**
-	 * Returns the value of the '<em><b>Rate Range</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rate Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rate Range</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Rate Quantity</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rate Range</em>' containment reference.
-	 * @see #setRateRange(Range)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_RateRange()
+	 * @return the value of the '<em>Rate Quantity</em>' containment reference.
+	 * @see #setRateQuantity(SimpleQuantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_RateQuantity()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rateRange' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='rateQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Range getRateRange();
+	SimpleQuantity getRateQuantity();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getRateRange <em>Rate Range</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getRateQuantity <em>Rate Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rate Range</em>' containment reference.
-	 * @see #getRateRange()
+	 * @param value the new value of the '<em>Rate Quantity</em>' containment reference.
+	 * @see #getRateQuantity()
 	 * @generated
 	 */
-	void setRateRange(Range value);
+	void setRateQuantity(SimpleQuantity value);
 
 } // MedicationAdministrationDosage

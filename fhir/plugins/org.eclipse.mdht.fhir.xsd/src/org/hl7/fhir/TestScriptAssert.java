@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -412,7 +422,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The TestScript.rule id value this assert will evaluate.
+	 * The TestScript.rule this assert will evaluate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rule</em>' containment reference.
 	 * @see #setRule(TestScriptRule2)
@@ -438,7 +448,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The TestScript.ruleset id value this assert will evaluate.
+	 * The TestScript.ruleset this assert will evaluate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ruleset</em>' containment reference.
 	 * @see #setRuleset(TestScriptRuleset1)

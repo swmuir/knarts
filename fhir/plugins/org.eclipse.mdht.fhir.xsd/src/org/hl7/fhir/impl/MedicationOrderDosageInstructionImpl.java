@@ -1,14 +1,31 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
@@ -40,6 +57,7 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getDoseQuantity <em>Dose Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getMaxDosePerLifetime <em>Max Dose Per Lifetime</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateRatio <em>Rate Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateRange <em>Rate Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderDosageInstructionImpl#getRateQuantity <em>Rate Quantity</em>}</li>
@@ -59,14 +77,14 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	protected org.hl7.fhir.String text;
 
 	/**
-	 * The cached value of the '{@link #getAdditionalInstructions() <em>Additional Instructions</em>}' containment reference.
+	 * The cached value of the '{@link #getAdditionalInstructions() <em>Additional Instructions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAdditionalInstructions()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept additionalInstructions;
+	protected EList<CodeableConcept> additionalInstructions;
 
 	/**
 	 * The cached value of the '{@link #getTiming() <em>Timing</em>}' containment reference.
@@ -179,6 +197,16 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	protected SimpleQuantity maxDosePerAdministration;
 
 	/**
+	 * The cached value of the '{@link #getMaxDosePerLifetime() <em>Max Dose Per Lifetime</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxDosePerLifetime()
+	 * @generated
+	 * @ordered
+	 */
+	protected SimpleQuantity maxDosePerLifetime;
+
+	/**
 	 * The cached value of the '{@link #getRateRatio() <em>Rate Ratio</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,42 +303,11 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getAdditionalInstructions() {
+	public EList<CodeableConcept> getAdditionalInstructions() {
+		if (additionalInstructions == null) {
+			additionalInstructions = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS);
+		}
 		return additionalInstructions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAdditionalInstructions(CodeableConcept newAdditionalInstructions, NotificationChain msgs) {
-		CodeableConcept oldAdditionalInstructions = additionalInstructions;
-		additionalInstructions = newAdditionalInstructions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS, oldAdditionalInstructions, newAdditionalInstructions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAdditionalInstructions(CodeableConcept newAdditionalInstructions) {
-		if (newAdditionalInstructions != additionalInstructions) {
-			NotificationChain msgs = null;
-			if (additionalInstructions != null)
-				msgs = ((InternalEObject)additionalInstructions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS, null, msgs);
-			if (newAdditionalInstructions != null)
-				msgs = ((InternalEObject)newAdditionalInstructions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS, null, msgs);
-			msgs = basicSetAdditionalInstructions(newAdditionalInstructions, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS, newAdditionalInstructions, newAdditionalInstructions));
 	}
 
 	/**
@@ -791,6 +788,49 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SimpleQuantity getMaxDosePerLifetime() {
+		return maxDosePerLifetime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMaxDosePerLifetime(SimpleQuantity newMaxDosePerLifetime, NotificationChain msgs) {
+		SimpleQuantity oldMaxDosePerLifetime = maxDosePerLifetime;
+		maxDosePerLifetime = newMaxDosePerLifetime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME, oldMaxDosePerLifetime, newMaxDosePerLifetime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxDosePerLifetime(SimpleQuantity newMaxDosePerLifetime) {
+		if (newMaxDosePerLifetime != maxDosePerLifetime) {
+			NotificationChain msgs = null;
+			if (maxDosePerLifetime != null)
+				msgs = ((InternalEObject)maxDosePerLifetime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME, null, msgs);
+			if (newMaxDosePerLifetime != null)
+				msgs = ((InternalEObject)newMaxDosePerLifetime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME, null, msgs);
+			msgs = basicSetMaxDosePerLifetime(newMaxDosePerLifetime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME, newMaxDosePerLifetime, newMaxDosePerLifetime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Ratio getRateRatio() {
 		return rateRatio;
 	}
@@ -926,7 +966,7 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TEXT:
 				return basicSetText(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS:
-				return basicSetAdditionalInstructions(null, msgs);
+				return ((InternalEList<?>)getAdditionalInstructions()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TIMING:
 				return basicSetTiming(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__AS_NEEDED_BOOLEAN:
@@ -949,6 +989,8 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return basicSetMaxDosePerPeriod(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
 				return basicSetMaxDosePerAdministration(null, msgs);
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME:
+				return basicSetMaxDosePerLifetime(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return basicSetRateRatio(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
@@ -993,6 +1035,8 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return getMaxDosePerPeriod();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
 				return getMaxDosePerAdministration();
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME:
+				return getMaxDosePerLifetime();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return getRateRatio();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:
@@ -1008,6 +1052,7 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -1015,7 +1060,8 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				setText((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS:
-				setAdditionalInstructions((CodeableConcept)newValue);
+				getAdditionalInstructions().clear();
+				getAdditionalInstructions().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TIMING:
 				setTiming((Timing)newValue);
@@ -1050,6 +1096,9 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
 				setMaxDosePerAdministration((SimpleQuantity)newValue);
 				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME:
+				setMaxDosePerLifetime((SimpleQuantity)newValue);
+				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				setRateRatio((Ratio)newValue);
 				return;
@@ -1075,7 +1124,7 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				setText((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS:
-				setAdditionalInstructions((CodeableConcept)null);
+				getAdditionalInstructions().clear();
 				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TIMING:
 				setTiming((Timing)null);
@@ -1110,6 +1159,9 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
 				setMaxDosePerAdministration((SimpleQuantity)null);
 				return;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME:
+				setMaxDosePerLifetime((SimpleQuantity)null);
+				return;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				setRateRatio((Ratio)null);
 				return;
@@ -1134,7 +1186,7 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TEXT:
 				return text != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__ADDITIONAL_INSTRUCTIONS:
-				return additionalInstructions != null;
+				return additionalInstructions != null && !additionalInstructions.isEmpty();
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__TIMING:
 				return timing != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__AS_NEEDED_BOOLEAN:
@@ -1157,6 +1209,8 @@ public class MedicationOrderDosageInstructionImpl extends BackboneElementImpl im
 				return maxDosePerPeriod != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_ADMINISTRATION:
 				return maxDosePerAdministration != null;
+			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__MAX_DOSE_PER_LIFETIME:
+				return maxDosePerLifetime != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RATIO:
 				return rateRatio != null;
 			case FhirPackage.MEDICATION_ORDER_DOSAGE_INSTRUCTION__RATE_RANGE:

@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -39,7 +49,8 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getProductReference <em>Product Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProtocolDetailImpl#getDescription <em>Description</em>}</li>
  * </ul>
@@ -108,14 +119,24 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 	protected EList<Reference> performer;
 
 	/**
-	 * The cached value of the '{@link #getProduct() <em>Product</em>}' containment reference.
+	 * The cached value of the '{@link #getProductReference() <em>Product Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProduct()
+	 * @see #getProductReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference product;
+	protected Reference productReference;
+
+	/**
+	 * The cached value of the '{@link #getProductCodeableConcept() <em>Product Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept productCodeableConcept;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -388,8 +409,8 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProduct() {
-		return product;
+	public Reference getProductReference() {
+		return productReference;
 	}
 
 	/**
@@ -397,11 +418,11 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProduct(Reference newProduct, NotificationChain msgs) {
-		Reference oldProduct = product;
-		product = newProduct;
+	public NotificationChain basicSetProductReference(Reference newProductReference, NotificationChain msgs) {
+		Reference oldProductReference = productReference;
+		productReference = newProductReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT, oldProduct, newProduct);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE, oldProductReference, newProductReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -412,18 +433,61 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProduct(Reference newProduct) {
-		if (newProduct != product) {
+	public void setProductReference(Reference newProductReference) {
+		if (newProductReference != productReference) {
 			NotificationChain msgs = null;
-			if (product != null)
-				msgs = ((InternalEObject)product).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT, null, msgs);
-			if (newProduct != null)
-				msgs = ((InternalEObject)newProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT, null, msgs);
-			msgs = basicSetProduct(newProduct, msgs);
+			if (productReference != null)
+				msgs = ((InternalEObject)productReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE, null, msgs);
+			if (newProductReference != null)
+				msgs = ((InternalEObject)newProductReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE, null, msgs);
+			msgs = basicSetProductReference(newProductReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT, newProduct, newProduct));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE, newProductReference, newProductReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getProductCodeableConcept() {
+		return productCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProductCodeableConcept(CodeableConcept newProductCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldProductCodeableConcept = productCodeableConcept;
+		productCodeableConcept = newProductCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT, oldProductCodeableConcept, newProductCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProductCodeableConcept(CodeableConcept newProductCodeableConcept) {
+		if (newProductCodeableConcept != productCodeableConcept) {
+			NotificationChain msgs = null;
+			if (productCodeableConcept != null)
+				msgs = ((InternalEObject)productCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT, null, msgs);
+			if (newProductCodeableConcept != null)
+				msgs = ((InternalEObject)newProductCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetProductCodeableConcept(newProductCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT, newProductCodeableConcept, newProductCodeableConcept));
 	}
 
 	/**
@@ -532,8 +596,10 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 				return basicSetLocation(null, msgs);
 			case FhirPackage.PROTOCOL_DETAIL__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROTOCOL_DETAIL__PRODUCT:
-				return basicSetProduct(null, msgs);
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE:
+				return basicSetProductReference(null, msgs);
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT:
+				return basicSetProductCodeableConcept(null, msgs);
 			case FhirPackage.PROTOCOL_DETAIL__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.PROTOCOL_DETAIL__DESCRIPTION:
@@ -562,8 +628,10 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 				return getLocation();
 			case FhirPackage.PROTOCOL_DETAIL__PERFORMER:
 				return getPerformer();
-			case FhirPackage.PROTOCOL_DETAIL__PRODUCT:
-				return getProduct();
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE:
+				return getProductReference();
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT:
+				return getProductCodeableConcept();
 			case FhirPackage.PROTOCOL_DETAIL__QUANTITY:
 				return getQuantity();
 			case FhirPackage.PROTOCOL_DETAIL__DESCRIPTION:
@@ -600,8 +668,11 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 				getPerformer().clear();
 				getPerformer().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.PROTOCOL_DETAIL__PRODUCT:
-				setProduct((Reference)newValue);
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE:
+				setProductReference((Reference)newValue);
+				return;
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT:
+				setProductCodeableConcept((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PROTOCOL_DETAIL__QUANTITY:
 				setQuantity((SimpleQuantity)newValue);
@@ -639,8 +710,11 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 			case FhirPackage.PROTOCOL_DETAIL__PERFORMER:
 				getPerformer().clear();
 				return;
-			case FhirPackage.PROTOCOL_DETAIL__PRODUCT:
-				setProduct((Reference)null);
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE:
+				setProductReference((Reference)null);
+				return;
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT:
+				setProductCodeableConcept((CodeableConcept)null);
 				return;
 			case FhirPackage.PROTOCOL_DETAIL__QUANTITY:
 				setQuantity((SimpleQuantity)null);
@@ -672,8 +746,10 @@ public class ProtocolDetailImpl extends BackboneElementImpl implements ProtocolD
 				return location != null;
 			case FhirPackage.PROTOCOL_DETAIL__PERFORMER:
 				return performer != null && !performer.isEmpty();
-			case FhirPackage.PROTOCOL_DETAIL__PRODUCT:
-				return product != null;
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_REFERENCE:
+				return productReference != null;
+			case FhirPackage.PROTOCOL_DETAIL__PRODUCT_CODEABLE_CONCEPT:
+				return productCodeableConcept != null;
 			case FhirPackage.PROTOCOL_DETAIL__QUANTITY:
 				return quantity != null;
 			case FhirPackage.PROTOCOL_DETAIL__DESCRIPTION:

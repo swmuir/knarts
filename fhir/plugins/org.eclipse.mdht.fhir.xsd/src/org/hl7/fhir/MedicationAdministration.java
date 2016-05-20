@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -26,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimeDateTime <em>Effective Time Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectiveTimePeriod <em>Effective Time Period</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getPractitioner <em>Practitioner</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPrescription <em>Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getWasNotGiven <em>Was Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonNotGiven <em>Reason Not Given</em>}</li>
@@ -34,6 +44,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getDosage <em>Dosage</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationAdministration()
@@ -244,30 +255,30 @@ public interface MedicationAdministration extends DomainResource {
 	void setEffectiveTimePeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The individual who was responsible for giving the medication to the patient.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Practitioner</em>' containment reference.
-	 * @see #setPractitioner(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Practitioner()
+	 * @return the value of the '<em>Performer</em>' containment reference.
+	 * @see #setPerformer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Performer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='practitioner' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPractitioner();
+	Reference getPerformer();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getPractitioner <em>Practitioner</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getPerformer <em>Performer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Practitioner</em>' containment reference.
-	 * @see #getPractitioner()
+	 * @param value the new value of the '<em>Performer</em>' containment reference.
+	 * @see #getPerformer()
 	 * @generated
 	 */
-	void setPractitioner(Reference value);
+	void setPerformer(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.
@@ -410,5 +421,21 @@ public interface MedicationAdministration extends DomainResource {
 	 * @generated
 	 */
 	void setDosage(MedicationAdministrationDosage value);
+
+	/**
+	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationAdministrationEventHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A summary of the events of interest that have occurred, such as when the administration was verified.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Event History</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_EventHistory()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='eventHistory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MedicationAdministrationEventHistory> getEventHistory();
 
 } // MedicationAdministration

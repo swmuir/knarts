@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -17,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.TestScriptRuleset1#getRulesetId <em>Ruleset Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptRuleset1#getRule <em>Rule</em>}</li>
  * </ul>
  *
@@ -26,16 +37,42 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface TestScriptRuleset1 extends BackboneElement {
 	/**
+	 * Returns the value of the '<em><b>Ruleset Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The TestScript.ruleset id value this assert will evaluate.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Ruleset Id</em>' containment reference.
+	 * @see #setRulesetId(Id)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptRuleset1_RulesetId()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='rulesetId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Id getRulesetId();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptRuleset1#getRulesetId <em>Ruleset Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ruleset Id</em>' containment reference.
+	 * @see #getRulesetId()
+	 * @generated
+	 */
+	void setRulesetId(Id value);
+
+	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.TestScriptRule3}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Id of the referenced rule within the external ruleset template.
+	 * The referenced rule within the external ruleset template.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rule</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptRuleset1_Rule()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
 	 * @generated
 	 */

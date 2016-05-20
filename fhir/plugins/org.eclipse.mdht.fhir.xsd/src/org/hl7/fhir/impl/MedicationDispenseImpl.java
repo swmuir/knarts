@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -24,6 +34,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationDispenseDosageInstruction;
+import org.hl7.fhir.MedicationDispenseEventHistory;
 import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.Reference;
@@ -54,6 +65,7 @@ import org.hl7.fhir.SimpleQuantity;
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getSubstitution <em>Substitution</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
  * @generated
@@ -228,6 +240,16 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * @ordered
 	 */
 	protected MedicationDispenseSubstitution substitution;
+
+	/**
+	 * The cached value of the '{@link #getEventHistory() <em>Event History</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventHistory()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicationDispenseEventHistory> eventHistory;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -860,6 +882,18 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MedicationDispenseEventHistory> getEventHistory() {
+		if (eventHistory == null) {
+			eventHistory = new EObjectContainmentEList<MedicationDispenseEventHistory>(MedicationDispenseEventHistory.class, this, FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY);
+		}
+		return eventHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -897,6 +931,8 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return ((InternalEList<?>)getDosageInstruction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				return basicSetSubstitution(null, msgs);
+			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
+				return ((InternalEList<?>)getEventHistory()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -943,6 +979,8 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return getDosageInstruction();
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				return getSubstitution();
+			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
+				return getEventHistory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1011,6 +1049,10 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				setSubstitution((MedicationDispenseSubstitution)newValue);
 				return;
+			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
+				getEventHistory().clear();
+				getEventHistory().addAll((Collection<? extends MedicationDispenseEventHistory>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1074,6 +1116,9 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				setSubstitution((MedicationDispenseSubstitution)null);
 				return;
+			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
+				getEventHistory().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1120,6 +1165,8 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return dosageInstruction != null && !dosageInstruction.isEmpty();
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				return substitution != null;
+			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
+				return eventHistory != null && !eventHistory.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

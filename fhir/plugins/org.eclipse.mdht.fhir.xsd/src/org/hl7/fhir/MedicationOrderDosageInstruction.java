@@ -1,7 +1,18 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +40,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getDoseQuantity <em>Dose Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerLifetime <em>Max Dose Per Lifetime</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateRatio <em>Rate Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateRange <em>Rate Range</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderDosageInstruction#getRateQuantity <em>Rate Quantity</em>}</li>
@@ -66,37 +78,27 @@ public interface MedicationOrderDosageInstruction extends BackboneElement {
 	void setText(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Additional Instructions</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Additional Instructions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Additional Instructions</em>' containment reference.
-	 * @see #setAdditionalInstructions(CodeableConcept)
+	 * @return the value of the '<em>Additional Instructions</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_AdditionalInstructions()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='additionalInstructions' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getAdditionalInstructions();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getAdditionalInstructions <em>Additional Instructions</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Additional Instructions</em>' containment reference.
-	 * @see #getAdditionalInstructions()
-	 * @generated
-	 */
-	void setAdditionalInstructions(CodeableConcept value);
+	EList<CodeableConcept> getAdditionalInstructions();
 
 	/**
 	 * Returns the value of the '<em><b>Timing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
+	 * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Timing</em>' containment reference.
 	 * @see #setTiming(Timing)
@@ -382,6 +384,32 @@ public interface MedicationOrderDosageInstruction extends BackboneElement {
 	 * @generated
 	 */
 	void setMaxDosePerAdministration(SimpleQuantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Max Dose Per Lifetime</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Dose Per Lifetime</em>' containment reference.
+	 * @see #setMaxDosePerLifetime(SimpleQuantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderDosageInstruction_MaxDosePerLifetime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='maxDosePerLifetime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	SimpleQuantity getMaxDosePerLifetime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderDosageInstruction#getMaxDosePerLifetime <em>Max Dose Per Lifetime</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Dose Per Lifetime</em>' containment reference.
+	 * @see #getMaxDosePerLifetime()
+	 * @generated
+	 */
+	void setMaxDosePerLifetime(SimpleQuantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Rate Ratio</b></em>' containment reference.

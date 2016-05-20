@@ -2254,6 +2254,493 @@
   </genPackages>
   <genPackages prefix="Fhir" basePackage="org.hl7" resource="XML" disposableProviderFactory="true"
       loadInitialization="true" literalsInterface="false" ecorePackage="fhir.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AccountStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AccountStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AccountStatusList/inactive"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActionListList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/cancel"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/poll"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/reprocess"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionListList/status"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActionRelationshipAnchorList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionRelationshipAnchorList/start"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionRelationshipAnchorList/end"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActionRelationshipTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionRelationshipTypeList/before"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionRelationshipTypeList/after"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActionTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionTypeList/create"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionTypeList/update"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionTypeList/remove"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActionTypeList/fireEvent"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ActivityDefinitionCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/diet"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/drug"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/encounter"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/observation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/procedure"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/supply"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ActivityDefinitionCategoryList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AddressTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressTypeList/postal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressTypeList/physical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressTypeList/both"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AddressUseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressUseList/home"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressUseList/work"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressUseList/temp"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AddressUseList/old"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AdministrativeGenderList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AdministrativeGenderList/male"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AdministrativeGenderList/female"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AdministrativeGenderList/other"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AdministrativeGenderList/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AggregationModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AggregationModeList/contained"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AggregationModeList/referenced"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AggregationModeList/bundled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCategoryList/food"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCategoryList/medication"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCategoryList/environment"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCategoryList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceCertaintyList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCertaintyList/unlikely"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCertaintyList/likely"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCertaintyList/confirmed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceCriticalityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/low"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/high"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceCriticalityList/unableToAssess"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceSeverityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceSeverityList/mild"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceSeverityList/moderate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceSeverityList/severe"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/unconfirmed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/confirmed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/inactive"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/resolved"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/refuted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AllergyIntoleranceTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceTypeList/allergy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AllergyIntoleranceTypeList/intolerance"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AppointmentStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/pending"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/booked"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/arrived"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/fulfilled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AppointmentStatusList/noshow"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AssertionDirectionTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionDirectionTypeList/response"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionDirectionTypeList/request"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AssertionOperatorTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/equals"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/notEquals"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/in"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/notIn"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/greaterThan"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/lessThan"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/empty"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/notEmpty"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/contains"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionOperatorTypeList/notContains"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AssertionResponseTypesList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/okay"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/created"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/noContent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/notModified"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/bad"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/forbidden"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/notFound"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/methodNotAllowed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/conflict"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/gone"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/preconditionFailed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AssertionResponseTypesList/unprocessable"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AuditEventActionList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventActionList/C"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventActionList/R"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventActionList/U"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventActionList/D"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventActionList/E"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AuditEventOutcomeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventOutcomeList/_0"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventOutcomeList/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventOutcomeList/_8"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventOutcomeList/_12"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//AuditEventParticipantNetworkTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventParticipantNetworkTypeList/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventParticipantNetworkTypeList/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventParticipantNetworkTypeList/_3"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventParticipantNetworkTypeList/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//AuditEventParticipantNetworkTypeList/_5"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//BindingStrengthList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BindingStrengthList/required"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BindingStrengthList/extensible"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BindingStrengthList/preferred"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BindingStrengthList/example"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//BundleTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/document"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/message"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/transaction"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/transactionResponse"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/batch"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/batchResponse"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/history"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/searchset"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//BundleTypeList/collection"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CarePlanActivityStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/notStarted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/scheduled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanActivityStatusList/cancelled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CarePlanRelationshipList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanRelationshipList/includes"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanRelationshipList/replaces"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanRelationshipList/fulfills"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CarePlanStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CarePlanStatusList/cancelled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ClaimType2List">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimType2List/institutional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimType2List/oral"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimType2List/pharmacy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimType2List/professional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimType2List/vision"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ClaimTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimTypeList/institutional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimTypeList/oral"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimTypeList/pharmacy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimTypeList/professional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClaimTypeList/vision"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ClinicalImpressionStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ClinicalImpressionStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CodeSystemContentModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/notPresent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/examplar"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/fragment"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CodeSystemContentModeList/complete"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CommunicationRequestStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/received"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationRequestStatusList/failed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CommunicationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CommunicationStatusList/failed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CompartmentTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompartmentTypeList/Patient"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompartmentTypeList/Encounter"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompartmentTypeList/RelatedPerson"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompartmentTypeList/Practitioner"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompartmentTypeList/Device"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CompositionAttestationModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionAttestationModeList/personal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionAttestationModeList/professional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionAttestationModeList/legal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionAttestationModeList/official"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//CompositionStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionStatusList/preliminary"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionStatusList/final"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionStatusList/amended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//CompositionStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConceptMapEquivalenceList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/equivalent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/wider"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/subsumes"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/narrower"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/specializes"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/inexact"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/unmatched"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConceptMapEquivalenceList/disjoint"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConditionalDeleteStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionalDeleteStatusList/notSupported"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionalDeleteStatusList/single"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionalDeleteStatusList/multiple"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConditionVerificationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/provisional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/differential"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/confirmed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/refuted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConditionVerificationStatusList/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConformanceEventModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceEventModeList/sender"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceEventModeList/receiver"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConformanceResourceStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceResourceStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceResourceStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceResourceStatusList/retired"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConformanceStatementKindList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceStatementKindList/instance"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceStatementKindList/capability"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConformanceStatementKindList/requirements"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConsentStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConsentStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConsentStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConsentStatusList/inactive"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ConstraintSeverityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConstraintSeverityList/error"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ConstraintSeverityList/warning"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ContactPointSystemList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointSystemList/phone"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointSystemList/fax"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointSystemList/email"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointSystemList/pager"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointSystemList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ContactPointUseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointUseList/home"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointUseList/work"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointUseList/temp"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointUseList/old"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContactPointUseList/mobile"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ContentTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContentTypeList/xml"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ContentTypeList/json"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DataElementStringencyList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/comparable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/fullySpecified"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/equivalent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/convertable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/scaleable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DataElementStringencyList/flexible"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DaysOfWeekList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/mon"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/tue"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/wed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/thu"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/fri"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/sat"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DaysOfWeekList/sun"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DetectedIssueSeverityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DetectedIssueSeverityList/high"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DetectedIssueSeverityList/moderate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DetectedIssueSeverityList/low"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceMetricCalibrationStateList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationStateList/notCalibrated"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationStateList/calibrationRequired"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationStateList/calibrated"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationStateList/unspecified"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceMetricCalibrationTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationTypeList/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationTypeList/offset"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationTypeList/gain"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCalibrationTypeList/twoPoint"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceMetricCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCategoryList/measurement"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCategoryList/setting"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCategoryList/calculation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricCategoryList/unspecified"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceMetricColorList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/black"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/red"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/green"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/yellow"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/blue"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/magenta"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/cyan"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricColorList/white"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceMetricOperationalStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricOperationalStatusList/on"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricOperationalStatusList/off"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceMetricOperationalStatusList/standby"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceStatusList/available"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceStatusList/notAvailable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceUseRequestPriorityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestPriorityList/routine"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestPriorityList/urgent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestPriorityList/stat"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestPriorityList/asap"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DeviceUseRequestStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/received"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DeviceUseRequestStatusList/aborted"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DiagnosticOrderPriorityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderPriorityList/routine"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderPriorityList/urgent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderPriorityList/stat"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderPriorityList/asap"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DiagnosticOrderStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/received"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/review"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/failed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticOrderStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DiagnosticReportStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/registered"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/partial"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/final"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/corrected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/appended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DiagnosticReportStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DigitalMediaTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DigitalMediaTypeList/photo"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DigitalMediaTypeList/video"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DigitalMediaTypeList/audio"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DocumentModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentModeList/producer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentModeList/consumer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DocumentReferenceStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentReferenceStatusList/current"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentReferenceStatusList/superseded"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentReferenceStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DocumentRelationshipTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentRelationshipTypeList/replaces"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentRelationshipTypeList/transforms"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentRelationshipTypeList/signs"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DocumentRelationshipTypeList/appends"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DWebTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DWebTypeList/WADORS"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DWebTypeList/WADOURI"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DWebTypeList/IID"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//DWebTypeList/WADOWS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EncounterClassList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/inpatient"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/outpatient"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/ambulatory"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/emergency"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/home"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/field"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/daytime"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/virtual"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterClassList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EncounterLocationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterLocationStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterLocationStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterLocationStatusList/reserved"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterLocationStatusList/completed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EncounterStateList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/arrived"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/onleave"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/finished"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EncounterStateList/cancelled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EndpointStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EndpointStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EndpointStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EndpointStatusList/error"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EndpointStatusList/off"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EpisodeOfCareStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/waitlist"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/onhold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/finished"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EpisodeOfCareStatusList/cancelled"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//EventTimingList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EventTimingList/HS"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EventTimingList/WAKE"/>
@@ -2270,16 +2757,641 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EventTimingList/PCD"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//EventTimingList/PCV"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ExtensionContextList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ExtensionContextList/resource"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ExtensionContextList/datatype"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ExtensionContextList/extension"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//FamilyHistoryStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FamilyHistoryStatusList/partial"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FamilyHistoryStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FamilyHistoryStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FamilyHistoryStatusList/healthUnknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//FilterOperatorList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/_"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/isA"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/isNotA"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/regex"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/in"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FilterOperatorList/notIn"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//FlagStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FlagStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FlagStatusList/inactive"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//FlagStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//GoalStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/achieved"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/sustaining"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GoalStatusList/cancelled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//GroupTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/person"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/animal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/practitioner"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/device"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/medication"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GroupTypeList/substance"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//GuidanceResponseStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidanceResponseStatusList/success"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidanceResponseStatusList/dataRequested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidanceResponseStatusList/dataRequired"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidanceResponseStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidanceResponseStatusList/failure"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//GuideDependencyTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuideDependencyTypeList/reference"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuideDependencyTypeList/inclusion"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//GuidePageKindList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/page"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/example"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/list"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/include"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/directory"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/dictionary"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/toc"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//GuidePageKindList/resource"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//HTTPVerbList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//HTTPVerbList/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//HTTPVerbList/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//HTTPVerbList/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//HTTPVerbList/DELETE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//IdentifierUseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentifierUseList/usual"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentifierUseList/official"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentifierUseList/temp"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentifierUseList/secondary"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//IdentityAssuranceLevelList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentityAssuranceLevelList/level1"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentityAssuranceLevelList/level2"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentityAssuranceLevelList/level3"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IdentityAssuranceLevelList/level4"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//InstanceAvailabilityList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//InstanceAvailabilityList/ONLINE"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//InstanceAvailabilityList/OFFLINE"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//InstanceAvailabilityList/NEARLINE"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//InstanceAvailabilityList/UNAVAILABLE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//IssueSeverityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueSeverityList/fatal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueSeverityList/error"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueSeverityList/warning"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueSeverityList/information"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//IssueTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/invalid"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/structure"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/required"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/value"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/invariant"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/security"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/login"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/expired"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/forbidden"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/suppressed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/processing"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/notSupported"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/duplicate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/notFound"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/tooLong"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/codeInvalid"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/extension"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/tooCostly"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/businessRule"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/conflict"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/incomplete"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/transient"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/lockError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/noStore"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/exception"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/timeout"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/throttled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//IssueTypeList/informational"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LinkageTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/alternate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkageTypeList/historical"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LinkTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkTypeList/replace"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkTypeList/refer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LinkTypeList/seealso"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ListModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListModeList/working"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListModeList/snapshot"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListModeList/changes"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ListStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListStatusList/current"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListStatusList/retired"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ListStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LocationModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LocationModeList/instance"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LocationModeList/kind"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//LocationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LocationStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LocationStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//LocationStatusList/inactive"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasmntPrincipleList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/other"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/chemical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/electrical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/impedance"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/nuclear"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/optical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/thermal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/biological"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/mechanical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/acoustical"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasmntPrincipleList/manual"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasureDataUsageList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureDataUsageList/supplementalData"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureDataUsageList/riskAdjustmentFactor"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasurePopulationTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/initialPopulation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/numerator"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/numeratorExclusion"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/denominator"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/denominatorExclusion"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/denominatorException"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/measurePopulation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/measurePopulationExclusion"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasurePopulationTypeList/measureScore"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasureReportStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportStatusList/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportStatusList/pending"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportStatusList/error"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasureReportTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportTypeList/individual"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportTypeList/patientList"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureReportTypeList/summary"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasureScoringList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureScoringList/proportion"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureScoringList/ratio"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureScoringList/continuousVariable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureScoringList/cohort"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MeasureTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureTypeList/process"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MeasureTypeList/outcome"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MedicationAdministrationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationAdministrationStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationAdministrationStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationAdministrationStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationAdministrationStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationAdministrationStatusList/stopped"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MedicationDispenseStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationDispenseStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationDispenseStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationDispenseStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationDispenseStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationDispenseStatusList/stopped"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MedicationOrderStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/stopped"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationOrderStatusList/draft"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MedicationStatementStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationStatementStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationStatementStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationStatementStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MedicationStatementStatusList/intended"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//MessageSignificanceCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MessageSignificanceCategoryList/Consequence"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MessageSignificanceCategoryList/Currency"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//MessageSignificanceCategoryList/Notification"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataContributorTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/author"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/editor"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/reviewer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataContributorTypeList/endorser"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataResourceTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/documentation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/justification"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/citation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/predecessor"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/successor"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataResourceTypeList/derivedFrom"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataStatusList/inactive"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ModuleMetadataTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataTypeList/module"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataTypeList/library"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataTypeList/decisionSupportRule"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataTypeList/documentationTemplate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ModuleMetadataTypeList/orderSet"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NameUseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/usual"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/official"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/temp"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/nickname"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/anonymous"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/old"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NameUseList/maiden"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NamingSystemIdentifierTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemIdentifierTypeList/oid"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemIdentifierTypeList/uuid"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemIdentifierTypeList/uri"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemIdentifierTypeList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NamingSystemTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemTypeList/codesystem"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemTypeList/identifier"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NamingSystemTypeList/root"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NarrativeStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NarrativeStatusList/generated"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NarrativeStatusList/extensions"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NarrativeStatusList/additional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NarrativeStatusList/empty"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NoteTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NoteTypeList/display"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NoteTypeList/print"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NoteTypeList/printoper"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//NutritionOrderStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//NutritionOrderStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ObservationRelationshipTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/hasMember"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/derivedFrom"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/sequelTo"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/replaces"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/qualifiedBy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationRelationshipTypeList/interferedBy"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ObservationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/registered"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/preliminary"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/final"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/amended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/enteredInError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ObservationStatusList/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//OperationKindList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OperationKindList/operation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OperationKindList/query"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//OperationParameterUseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OperationParameterUseList/in"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OperationParameterUseList/out"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//OrderStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/pending"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/review"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/error"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/replaced"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/aborted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//OrderStatusList/completed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ParticipantRequiredList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantRequiredList/required"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantRequiredList/optional"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantRequiredList/informationOnly"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ParticipantTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantTypeList/patient"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantTypeList/practitioner"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipantTypeList/relatedPerson"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ParticipationStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipationStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipationStatusList/declined"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipationStatusList/tentative"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ParticipationStatusList/needsAction"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProcedureRequestPriorityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestPriorityList/routine"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestPriorityList/urgent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestPriorityList/stat"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestPriorityList/asap"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProcedureRequestStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/received"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/suspended"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureRequestStatusList/aborted"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProcedureStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureStatusList/aborted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProcedureStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//PropertyRepresentationList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationList/xmlAttr"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationList/xmlText"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationList/typeAttr"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationList/cdaText"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//PropertyTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/code"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/Coding"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/string"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//PropertyTypeList/dateTime"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProtocolStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/testing"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/review"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/withdrawn"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolStatusList/superseded"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProtocolTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/condition"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/device"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/drug"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProtocolTypeList/study"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ProvenanceEntityRoleList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/derivation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/revision"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/quotation"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ProvenanceEntityRoleList/removal"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//QuantityComparatorList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuantityComparatorList/_"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuantityComparatorList/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuantityComparatorList/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuantityComparatorList/_3"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//QuestionnaireItemTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/group"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/display"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/decimal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/date"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/dateTime"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/instant"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/time"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/string"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/text"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/url"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/choice"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/openChoice"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/attachment"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/reference"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireItemTypeList/quantity"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//QuestionnaireResponseStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireResponseStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireResponseStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireResponseStatusList/amended"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//QuestionnaireStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireStatusList/published"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//QuestionnaireStatusList/retired"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ReferenceVersionRulesList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferenceVersionRulesList/either"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferenceVersionRulesList/independent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferenceVersionRulesList/specific"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ReferralCategoryList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralCategoryList/proposal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralCategoryList/plan"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralCategoryList/request"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ReferralStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralStatusList/cancelled"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ReferralStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//RemittanceOutcomeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//RemittanceOutcomeList/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//RemittanceOutcomeList/error"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ResourceVersionPolicyList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResourceVersionPolicyList/noVersion"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResourceVersionPolicyList/versioned"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResourceVersionPolicyList/versionedUpdate"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//ResponseTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResponseTypeList/ok"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResponseTypeList/transientError"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//ResponseTypeList/fatalError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//RestfulConformanceModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//RestfulConformanceModeList/client"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//RestfulConformanceModeList/server"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SearchEntryModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchEntryModeList/match"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchEntryModeList/include"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchEntryModeList/outcome"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SearchModifierCodeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/missing"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/exact"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/contains"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/not"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/text"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/in"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/notIn"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/below"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/above"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchModifierCodeList/type"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SearchParamTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/number"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/date"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/string"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/token"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/reference"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/composite"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/quantity"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SearchParamTypeList/uri"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SequenceTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SequenceTypeList/AA"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SequenceTypeList/DNA"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SequenceTypeList/RNA"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SlicingRulesList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlicingRulesList/closed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlicingRulesList/open"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlicingRulesList/openAtEnd"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SlotStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlotStatusList/busy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlotStatusList/free"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlotStatusList/busyUnavailable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SlotStatusList/busyTentative"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SpecimenStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SpecimenStatusList/available"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SpecimenStatusList/unavailable"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SpecimenStatusList/unsatisfactory"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SpecimenStatusList/enteredInError"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureDefinitionKindList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureDefinitionKindList/datatype"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureDefinitionKindList/resource"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureDefinitionKindList/logical"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureMapContextTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapContextTypeList/type"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapContextTypeList/variable"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureMapInputModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapInputModeList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapInputModeList/target"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureMapListModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapListModeList/first"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapListModeList/share"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapListModeList/last"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureMapModelModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapModelModeList/source"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapModelModeList/queried"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapModelModeList/target"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapModelModeList/produced"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//StructureMapTransformList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/create"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/copy"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/truncate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/escape"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/cast"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/append"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/translate"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/reference"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/dateOp"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/uuid"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/pointer"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//StructureMapTransformList/evaluate"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SubscriptionChannelTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionChannelTypeList/restHook"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionChannelTypeList/websocket"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionChannelTypeList/email"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionChannelTypeList/sms"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionChannelTypeList/message"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SubscriptionStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionStatusList/active"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionStatusList/error"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SubscriptionStatusList/off"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SupplyDeliveryStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyDeliveryStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyDeliveryStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyDeliveryStatusList/abandoned"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SupplyRequestStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyRequestStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyRequestStatusList/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyRequestStatusList/failed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SupplyRequestStatusList/cancelled"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//SystemRestfulInteractionList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SystemRestfulInteractionList/transaction"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SystemRestfulInteractionList/searchSystem"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//SystemRestfulInteractionList/historySystem"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TaskPriorityList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskPriorityList/low"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskPriorityList/normal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskPriorityList/high"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TaskStatusList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/draft"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/requested"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/received"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/accepted"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/ready"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/onHold"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/failed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TaskStatusList/completed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TransactionModeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TransactionModeList/notSupported"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TransactionModeList/batch"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TransactionModeList/transaction"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TransactionModeList/both"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TriggerTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/namedEvent"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/periodic"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/dataAdded"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/dataModified"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/dataRemoved"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/dataAccessed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TriggerTypeList/dataAccessEnded"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TypeDerivationRuleList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TypeDerivationRuleList/specialization"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TypeDerivationRuleList/constraint"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//TypeRestfulInteractionList">
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//TypeRestfulInteractionList/read"/>
@@ -2300,199 +3412,230 @@
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnitsOfTimeList/mo"/>
       <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnitsOfTimeList/a"/>
     </genEnums>
-    <genDataTypes ecoreDataType="fhir.ecore#//AccountStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ActionListList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ActionRelationshipAnchorList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ActionRelationshipTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ActionTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ActivityDefinitionCategoryList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AddressTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AddressUseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AdministrativeGenderList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AggregationModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCategoryList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCertaintyList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCriticalityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceSeverityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AppointmentStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AssertionDirectionTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AssertionOperatorTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AssertionResponseTypesList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventActionList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventOutcomeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventParticipantNetworkTypeList"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//UnknownContentCodeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnknownContentCodeList/no"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnknownContentCodeList/extensions"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnknownContentCodeList/elements"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UnknownContentCodeList/both"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//UseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UseList/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UseList/proposed"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UseList/exploratory"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//UseList/other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//VisionBaseList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionBaseList/up"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionBaseList/down"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionBaseList/in"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionBaseList/out"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//VisionEyesList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionEyesList/right"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//VisionEyesList/left"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//XPathUsageTypeList">
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//XPathUsageTypeList/normal"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//XPathUsageTypeList/phonetic"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//XPathUsageTypeList/nearby"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//XPathUsageTypeList/distance"/>
+      <genEnumLiterals ecoreEnumLiteral="fhir.ecore#//XPathUsageTypeList/other"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="fhir.ecore#//AccountStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActionListListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActionRelationshipAnchorListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActionRelationshipTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActionTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ActivityDefinitionCategoryListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AddressTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AddressUseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AdministrativeGenderListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AggregationModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCategoryListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCertaintyListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceCriticalityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceSeverityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AllergyIntoleranceTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AppointmentStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AssertionDirectionTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AssertionOperatorTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AssertionResponseTypesListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventActionListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventOutcomeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//AuditEventParticipantNetworkTypeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//Base64BinaryPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//BindingStrengthList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//BindingStrengthListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//BooleanPrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//BooleanPrimitiveObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//BundleTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanActivityStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanRelationshipList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ClaimTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ClinicalImpressionStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//BundleTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanActivityStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanRelationshipListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CarePlanStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ClaimType2ListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ClaimTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ClinicalImpressionStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//CodePrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CodeSystemContentModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CommunicationRequestStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CommunicationStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CompartmentTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CompositionAttestationModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//CompositionStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConceptMapEquivalenceList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConditionalDeleteStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConditionVerificationStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceEventModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceResourceStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceStatementKindList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ConstraintSeverityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ContactPointSystemList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ContactPointUseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ContentTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DataElementStringencyList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CodeSystemContentModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CommunicationRequestStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CommunicationStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CompartmentTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CompositionAttestationModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//CompositionStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConceptMapEquivalenceListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConditionalDeleteStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConditionVerificationStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceEventModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceResourceStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConformanceStatementKindListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConsentStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ConstraintSeverityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ContactPointSystemListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ContactPointUseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ContentTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DataElementStringencyListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//DatePrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//DatePrimitiveBase"/>
     <genDataTypes ecoreDataType="fhir.ecore#//DateTimePrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//DateTimePrimitiveBase"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DaysOfWeekList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DaysOfWeekListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//DecimalPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DetectedIssueSeverityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCalibrationStateList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCalibrationTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCategoryList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricColorList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricOperationalStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceUseRequestPriorityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DeviceUseRequestStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticOrderPriorityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticOrderStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticReportStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DigitalMediaTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DocumentModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DocumentReferenceStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DocumentRelationshipTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//DWebTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//EncounterClassList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//EncounterLocationStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//EncounterStateList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//EndpointStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//EpisodeOfCareStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DetectedIssueSeverityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCalibrationStateListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCalibrationTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricCategoryListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricColorListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceMetricOperationalStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceUseRequestPriorityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DeviceUseRequestStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticOrderPriorityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticOrderStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DiagnosticReportStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DigitalMediaTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DocumentModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DocumentReferenceStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DocumentRelationshipTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//DWebTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//EncounterClassListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//EncounterLocationStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//EncounterStateListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//EndpointStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//EpisodeOfCareStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//EventTimingListObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ExtensionContextList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//FamilyHistoryStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//FilterOperatorList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//FlagStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//GoalStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//GroupTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//GuidanceResponseStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//GuideDependencyTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//GuidePageKindList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//HTTPVerbList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//IdentifierUseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//IdentityAssuranceLevelList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ExtensionContextListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//FamilyHistoryStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//FilterOperatorListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//FlagStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//GoalStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//GroupTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//GuidanceResponseStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//GuideDependencyTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//GuidePageKindListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//HTTPVerbListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//IdentifierUseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//IdentityAssuranceLevelListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//IdPrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//InstanceAvailabilityListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//InstantPrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//IntegerPrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//IntegerPrimitiveObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//IssueSeverityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//IssueTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//LinkageTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//LinkTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ListModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ListStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//LocationModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//LocationStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//IssueSeverityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//IssueTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//LinkageTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//LinkTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ListModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ListStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//LocationModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//LocationStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//MarkdownPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasmntPrincipleList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasureDataUsageList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasurePopulationTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasureReportStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasureReportTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasureScoringList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MeasureTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MedicationAdministrationStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MedicationDispenseStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MedicationOrderStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MedicationStatementStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//MessageSignificanceCategoryList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataContributorTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataResourceTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NameUseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NamingSystemIdentifierTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NamingSystemTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NarrativeStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NoteTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//NutritionOrderStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ObservationRelationshipTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ObservationStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasmntPrincipleListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasureDataUsageListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasurePopulationTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasureReportStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasureReportTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasureScoringListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MeasureTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MedicationAdministrationStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MedicationDispenseStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MedicationOrderStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MedicationStatementStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//MessageSignificanceCategoryListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataContributorTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataResourceTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ModuleMetadataTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NameUseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NamingSystemIdentifierTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NamingSystemTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NarrativeStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NoteTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//NutritionOrderStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ObservationRelationshipTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ObservationStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//OidPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//OperationKindList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//OperationParameterUseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//OrderStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ParticipantRequiredList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ParticipantTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ParticipationStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//OperationKindListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//OperationParameterUseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//OrderStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ParticipantRequiredListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ParticipantTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ParticipationStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//PositiveIntPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureRequestPriorityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureRequestStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//PropertyRepresentationList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//PropertyTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ProvenanceEntityRoleList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//QuantityComparatorList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireItemTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireResponseStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ReferenceVersionRulesList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ReferralCategoryList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ReferralStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//RemittanceOutcomeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ResourceVersionPolicyList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//ResponseTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//RestfulConformanceModeList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureRequestPriorityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureRequestStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProcedureStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//PropertyRepresentationListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//PropertyTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProtocolTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ProvenanceEntityRoleListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//QuantityComparatorListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireItemTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireResponseStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//QuestionnaireStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ReferenceVersionRulesListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ReferralCategoryListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ReferralStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//RemittanceOutcomeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ResourceVersionPolicyListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//ResponseTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//RestfulConformanceModeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//SampledDataDataTypePrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SearchEntryModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SearchModifierCodeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SearchParamTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SequenceTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SlicingRulesList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SlotStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SpecimenStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SearchEntryModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SearchModifierCodeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SearchParamTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SequenceTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SlicingRulesListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SlotStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SpecimenStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//StringPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureDefinitionKindList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapContextTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapInputModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapListModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapModelModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapTransformList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SubscriptionChannelTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SubscriptionStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SupplyDeliveryStatusList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//SupplyRequestStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureDefinitionKindListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapContextTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapInputModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapListModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapModelModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//StructureMapTransformListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SubscriptionChannelTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SubscriptionStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SupplyDeliveryStatusListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//SupplyRequestStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//SystemRestfulInteractionListObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//TaskPriorityList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//TaskStatusList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//TaskPriorityListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//TaskStatusListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//TimePrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//TransactionModeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//TriggerTypeList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//TypeDerivationRuleList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//TransactionModeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//TriggerTypeListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//TypeDerivationRuleListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//TypeRestfulInteractionListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//UnitsOfTimeListObject"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//UnknownContentCodeList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//UnknownContentCodeListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//UnsignedIntPrimitive"/>
     <genDataTypes ecoreDataType="fhir.ecore#//UriPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//UseList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//UseListObject"/>
     <genDataTypes ecoreDataType="fhir.ecore#//UuidPrimitive"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//VisionBaseList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//VisionEyesList"/>
-    <genDataTypes ecoreDataType="fhir.ecore#//XPathUsageTypeList"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//VisionBaseListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//VisionEyesListObject"/>
+    <genDataTypes ecoreDataType="fhir.ecore#//XPathUsageTypeListObject"/>
     <genClasses ecoreClass="fhir.ecore#//Account">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Account/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Account/name"/>
@@ -2830,7 +3973,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/addresses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/support"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/relatedPlan"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/participant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/careTeam"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/goal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/activity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlan/note"/>
@@ -2863,10 +4006,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanDetail/dailyAmount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanDetail/quantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanDetail/description"/>
-    </genClasses>
-    <genClasses ecoreClass="fhir.ecore#//CarePlanParticipant">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanParticipant/role"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanParticipant/member"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//CarePlanRelatedPlan">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//CarePlanRelatedPlan/code"/>
@@ -3154,6 +4293,9 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ClaimType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ClaimType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ClaimType2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ClaimType2/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ClinicalImpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ClinicalImpression/patient"/>
@@ -3598,6 +4740,51 @@
     <genClasses ecoreClass="fhir.ecore#//ConformanceStatementKind">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceStatementKind/value"/>
     </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//Consent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/issued"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/applies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/topic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/patient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/authority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/agent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/except"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/friendly"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/legal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Consent/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentAgent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentAgent/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentAgent/role"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentAgent1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentAgent1/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentAgent1/role"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentExcept">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/applies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/subType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/topic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/agent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentExcept/text"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentFriendly">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentFriendly/contentAttachment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentFriendly/contentReference"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentLegal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentLegal/contentAttachment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConsentLegal/contentReference"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//ConsentStatus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConsentStatus/value"/>
+    </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ConstraintSeverity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConstraintSeverity/value"/>
     </genClasses>
@@ -3934,7 +5121,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/orderer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/reason"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/supportingInformation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/specimen"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/event"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/item"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrder/note"/>
@@ -3947,7 +5133,6 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//DiagnosticOrderItem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrderItem/code"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrderItem/specimen"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrderItem/bodySite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrderItem/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DiagnosticOrderItem/event"/>
@@ -4086,6 +5271,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/conceptMap"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/conformance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/consent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/contract"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/coverage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//DocumentRoot/dataElement"/>
@@ -4716,6 +5902,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/claimReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/claimResponseIdentifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/claimResponseReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/subType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/ruleset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ExplanationOfBenefit/originalRuleset"/>
@@ -5677,7 +6864,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/encounter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimeDateTime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/effectiveTimePeriod"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/practitioner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/performer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/prescription"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/wasNotGiven"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/reasonNotGiven"/>
@@ -5685,6 +6872,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/device"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/dosage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministration/eventHistory"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationAdministrationDosage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/text"/>
@@ -5692,9 +6880,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/siteReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/route"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/method"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/quantity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/dose"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/rateRatio"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/rateRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationDosage/rateQuantity"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//MedicationAdministrationEventHistory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationEventHistory/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationEventHistory/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationEventHistory/dateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationEventHistory/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationAdministrationEventHistory/reason"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationAdministrationStatus">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//MedicationAdministrationStatus/value"/>
@@ -5726,6 +6921,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/dosageInstruction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/substitution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispense/eventHistory"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationDispenseDosageInstruction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/text"/>
@@ -5741,7 +6937,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/doseQuantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/rateRatio"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/rateRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/rateQuantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseDosageInstruction/maxDosePerPeriod"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//MedicationDispenseEventHistory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseEventHistory/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseEventHistory/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseEventHistory/dateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseEventHistory/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationDispenseEventHistory/reason"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationDispenseStatus">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//MedicationDispenseStatus/value"/>
@@ -5767,17 +6971,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/prescriber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonCode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonReference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dateEnded"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/reasonEnded"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dosageInstruction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/dispenseRequest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/substitution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/priorPrescription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrder/eventHistory"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationOrderDispenseRequest">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDispenseRequest/medicationCodeableConcept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDispenseRequest/medicationReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDispenseRequest/validityPeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDispenseRequest/numberOfRepeatsAllowed"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDispenseRequest/quantity"/>
@@ -5797,15 +6998,23 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/doseQuantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/maxDosePerPeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/maxDosePerAdministration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/maxDosePerLifetime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/rateRatio"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/rateRange"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderDosageInstruction/rateQuantity"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//MedicationOrderEventHistory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderEventHistory/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderEventHistory/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderEventHistory/dateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderEventHistory/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderEventHistory/reason"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationOrderStatus">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//MedicationOrderStatus/value"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationOrderSubstitution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderSubstitution/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderSubstitution/allowed"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationOrderSubstitution/reason"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationPackage">
@@ -5837,6 +7046,7 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationStatementDosage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/additionalInstructions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/timing"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/asNeededBoolean"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/asNeededCodeableConcept"/>
@@ -5844,10 +7054,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/siteReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/route"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/method"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/quantityQuantity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/quantityRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/doseQuantity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/doseRange"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/rateRatio"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/rateRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/rateQuantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//MedicationStatementDosage/maxDosePerPeriod"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//MedicationStatementStatus">
@@ -6155,6 +7366,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ObservationComponent/valueDateTime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ObservationComponent/valuePeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ObservationComponent/dataAbsentReason"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ObservationComponent/interpretation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ObservationComponent/referenceRange"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//ObservationReferenceRange">
@@ -6680,7 +7892,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/timingTiming"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/performer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/product"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/productReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/productCodeableConcept"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/quantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ProtocolDetail/description"/>
     </genClasses>
@@ -6948,6 +8161,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/conceptMap"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/conformance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/consent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/contract"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/coverage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ResourceContainer/dataElement"/>
@@ -7229,6 +8443,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/subject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/receivedTime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/request"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/collection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/treatment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Specimen/container"/>
@@ -7448,7 +8663,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/patient"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/quantity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/suppliedItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/suppliedItemCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/suppliedItemReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/supplier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/whenPrepared"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyDelivery/time"/>
@@ -7465,7 +8681,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/identifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/kind"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/orderedItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/orderedItemCodeableConcept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/orderedItemReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/supplier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/reasonCodeableConcept"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SupplyRequest/reasonReference"/>
@@ -7483,22 +8700,35 @@
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//Task">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/performerType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/basedOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/requisition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/status"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/failureReason"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/statusReason"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/businessStatus"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/stage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/focus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/for"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/context"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/created"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/lastModified"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/creator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/requester"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/owner"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/performerType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/reason"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/note"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/fulfillment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/definition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//Task/output"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir.ecore#//TaskFulfillment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TaskFulfillment/repetitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TaskFulfillment/period"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TaskFulfillment/recipients"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TaskInput">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TaskInput/name"/>
@@ -7727,12 +8957,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule/param"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptRule1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule1/ruleId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule1/param"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptRule2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule2/ruleId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule2/param"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptRule3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule3/ruleId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRule3/param"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptRuleset">
@@ -7740,6 +8973,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRuleset/rule"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptRuleset1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRuleset1/rulesetId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//TestScriptRuleset1/rule"/>
     </genClasses>
     <genClasses ecoreClass="fhir.ecore#//TestScriptSetup">

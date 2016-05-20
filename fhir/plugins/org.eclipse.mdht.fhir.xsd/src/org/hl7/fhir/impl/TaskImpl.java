@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -17,13 +27,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Task;
+import org.hl7.fhir.TaskFulfillment;
 import org.hl7.fhir.TaskInput;
 import org.hl7.fhir.TaskOutput;
 import org.hl7.fhir.TaskPriority;
@@ -39,20 +50,28 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPerformerType <em>Performer Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getRequisition <em>Requisition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFailureReason <em>Failure Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getStatusReason <em>Status Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getBusinessStatus <em>Business Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getStage <em>Stage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFor <em>For</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getLastModified <em>Last Modified</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getCreator <em>Creator</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPerformerType <em>Performer Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFulfillment <em>Fulfillment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getOutput <em>Output</em>}</li>
  * </ul>
@@ -71,44 +90,34 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected Identifier identifier;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getBasedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected EList<Reference> basedOn;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * The cached value of the '{@link #getRequisition() <em>Requisition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getRequisition()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Identifier requisition;
 
 	/**
-	 * The cached value of the '{@link #getPerformerType() <em>Performer Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPerformerType()
+	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> performerType;
-
-	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected TaskPriority priority;
+	protected EList<Reference> parent;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -121,24 +130,74 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected TaskStatus status;
 
 	/**
-	 * The cached value of the '{@link #getFailureReason() <em>Failure Reason</em>}' containment reference.
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFailureReason()
+	 * @see #getStatusReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept failureReason;
+	protected CodeableConcept statusReason;
 
 	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * The cached value of the '{@link #getBusinessStatus() <em>Business Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubject()
+	 * @see #getBusinessStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subject;
+	protected CodeableConcept businessStatus;
+
+	/**
+	 * The cached value of the '{@link #getStage() <em>Stage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStage()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept stage;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept code;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskPriority priority;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String description;
+
+	/**
+	 * The cached value of the '{@link #getFocus() <em>Focus</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFocus()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference focus;
 
 	/**
 	 * The cached value of the '{@link #getFor() <em>For</em>}' containment reference.
@@ -151,14 +210,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected Reference for_;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri definition;
+	protected Reference context;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -181,14 +240,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected DateTime lastModified;
 
 	/**
-	 * The cached value of the '{@link #getCreator() <em>Creator</em>}' containment reference.
+	 * The cached value of the '{@link #getRequester() <em>Requester</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreator()
+	 * @see #getRequester()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference creator;
+	protected Reference requester;
 
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' containment reference.
@@ -201,14 +260,54 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected Reference owner;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
+	 * The cached value of the '{@link #getPerformerType() <em>Performer Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParent()
+	 * @see #getPerformerType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference parent;
+	protected EList<CodeableConcept> performerType;
+
+	/**
+	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept reason;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
+
+	/**
+	 * The cached value of the '{@link #getFulfillment() <em>Fulfillment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFulfillment()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskFulfillment fulfillment;
+
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri definition;
 
 	/**
 	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
@@ -297,8 +396,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__BASED_ON);
+		}
+		return basedOn;
 	}
 
 	/**
@@ -306,11 +408,20 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public Identifier getRequisition() {
+		return requisition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequisition(Identifier newRequisition, NotificationChain msgs) {
+		Identifier oldRequisition = requisition;
+		requisition = newRequisition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REQUISITION, oldRequisition, newRequisition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -321,18 +432,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setRequisition(Identifier newRequisition) {
+		if (newRequisition != requisition) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (requisition != null)
+				msgs = ((InternalEObject)requisition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REQUISITION, null, msgs);
+			if (newRequisition != null)
+				msgs = ((InternalEObject)newRequisition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REQUISITION, null, msgs);
+			msgs = basicSetRequisition(newRequisition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REQUISITION, newRequisition, newRequisition));
 	}
 
 	/**
@@ -340,97 +451,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Reference> getParent() {
+		if (parent == null) {
+			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__PARENT);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Coding> getPerformerType() {
-		if (performerType == null) {
-			performerType = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.TASK__PERFORMER_TYPE);
-		}
-		return performerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskPriority getPriority() {
-		return priority;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPriority(TaskPriority newPriority, NotificationChain msgs) {
-		TaskPriority oldPriority = priority;
-		priority = newPriority;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PRIORITY, oldPriority, newPriority);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPriority(TaskPriority newPriority) {
-		if (newPriority != priority) {
-			NotificationChain msgs = null;
-			if (priority != null)
-				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PRIORITY, null, msgs);
-			if (newPriority != null)
-				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PRIORITY, null, msgs);
-			msgs = basicSetPriority(newPriority, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PRIORITY, newPriority, newPriority));
+		return parent;
 	}
 
 	/**
@@ -481,8 +506,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getFailureReason() {
-		return failureReason;
+	public CodeableConcept getStatusReason() {
+		return statusReason;
 	}
 
 	/**
@@ -490,11 +515,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFailureReason(CodeableConcept newFailureReason, NotificationChain msgs) {
-		CodeableConcept oldFailureReason = failureReason;
-		failureReason = newFailureReason;
+	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
+		CodeableConcept oldStatusReason = statusReason;
+		statusReason = newStatusReason;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FAILURE_REASON, oldFailureReason, newFailureReason);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__STATUS_REASON, oldStatusReason, newStatusReason);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -505,18 +530,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFailureReason(CodeableConcept newFailureReason) {
-		if (newFailureReason != failureReason) {
+	public void setStatusReason(CodeableConcept newStatusReason) {
+		if (newStatusReason != statusReason) {
 			NotificationChain msgs = null;
-			if (failureReason != null)
-				msgs = ((InternalEObject)failureReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FAILURE_REASON, null, msgs);
-			if (newFailureReason != null)
-				msgs = ((InternalEObject)newFailureReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FAILURE_REASON, null, msgs);
-			msgs = basicSetFailureReason(newFailureReason, msgs);
+			if (statusReason != null)
+				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__STATUS_REASON, null, msgs);
+			if (newStatusReason != null)
+				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__STATUS_REASON, null, msgs);
+			msgs = basicSetStatusReason(newStatusReason, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FAILURE_REASON, newFailureReason, newFailureReason));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__STATUS_REASON, newStatusReason, newStatusReason));
 	}
 
 	/**
@@ -524,8 +549,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
+	public CodeableConcept getBusinessStatus() {
+		return businessStatus;
 	}
 
 	/**
@@ -533,11 +558,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
+	public NotificationChain basicSetBusinessStatus(CodeableConcept newBusinessStatus, NotificationChain msgs) {
+		CodeableConcept oldBusinessStatus = businessStatus;
+		businessStatus = newBusinessStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__SUBJECT, oldSubject, newSubject);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__BUSINESS_STATUS, oldBusinessStatus, newBusinessStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -548,18 +573,233 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
+	public void setBusinessStatus(CodeableConcept newBusinessStatus) {
+		if (newBusinessStatus != businessStatus) {
 			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
+			if (businessStatus != null)
+				msgs = ((InternalEObject)businessStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__BUSINESS_STATUS, null, msgs);
+			if (newBusinessStatus != null)
+				msgs = ((InternalEObject)newBusinessStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__BUSINESS_STATUS, null, msgs);
+			msgs = basicSetBusinessStatus(newBusinessStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__SUBJECT, newSubject, newSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__BUSINESS_STATUS, newBusinessStatus, newBusinessStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getStage() {
+		return stage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStage(CodeableConcept newStage, NotificationChain msgs) {
+		CodeableConcept oldStage = stage;
+		stage = newStage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__STAGE, oldStage, newStage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStage(CodeableConcept newStage) {
+		if (newStage != stage) {
+			NotificationChain msgs = null;
+			if (stage != null)
+				msgs = ((InternalEObject)stage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__STAGE, null, msgs);
+			if (newStage != null)
+				msgs = ((InternalEObject)newStage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__STAGE, null, msgs);
+			msgs = basicSetStage(newStage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__STAGE, newStage, newStage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
+			NotificationChain msgs = null;
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CODE, newCode, newCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskPriority getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(TaskPriority newPriority, NotificationChain msgs) {
+		TaskPriority oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(TaskPriority newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
+		org.hl7.fhir.String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(org.hl7.fhir.String newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getFocus() {
+		return focus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFocus(Reference newFocus, NotificationChain msgs) {
+		Reference oldFocus = focus;
+		focus = newFocus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FOCUS, oldFocus, newFocus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFocus(Reference newFocus) {
+		if (newFocus != focus) {
+			NotificationChain msgs = null;
+			if (focus != null)
+				msgs = ((InternalEObject)focus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FOCUS, null, msgs);
+			if (newFocus != null)
+				msgs = ((InternalEObject)newFocus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FOCUS, null, msgs);
+			msgs = basicSetFocus(newFocus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FOCUS, newFocus, newFocus));
 	}
 
 	/**
@@ -610,8 +850,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getDefinition() {
-		return definition;
+	public Reference getContext() {
+		return context;
 	}
 
 	/**
@@ -619,11 +859,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
-		Uri oldDefinition = definition;
-		definition = newDefinition;
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DEFINITION, oldDefinition, newDefinition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -634,18 +874,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Uri newDefinition) {
-		if (newDefinition != definition) {
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (definition != null)
-				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DEFINITION, null, msgs);
-			if (newDefinition != null)
-				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DEFINITION, null, msgs);
-			msgs = basicSetDefinition(newDefinition, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DEFINITION, newDefinition, newDefinition));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -739,8 +979,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getCreator() {
-		return creator;
+	public Reference getRequester() {
+		return requester;
 	}
 
 	/**
@@ -748,11 +988,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCreator(Reference newCreator, NotificationChain msgs) {
-		Reference oldCreator = creator;
-		creator = newCreator;
+	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
+		Reference oldRequester = requester;
+		requester = newRequester;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CREATOR, oldCreator, newCreator);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REQUESTER, oldRequester, newRequester);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -763,18 +1003,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreator(Reference newCreator) {
-		if (newCreator != creator) {
+	public void setRequester(Reference newRequester) {
+		if (newRequester != requester) {
 			NotificationChain msgs = null;
-			if (creator != null)
-				msgs = ((InternalEObject)creator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CREATOR, null, msgs);
-			if (newCreator != null)
-				msgs = ((InternalEObject)newCreator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CREATOR, null, msgs);
-			msgs = basicSetCreator(newCreator, msgs);
+			if (requester != null)
+				msgs = ((InternalEObject)requester).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REQUESTER, null, msgs);
+			if (newRequester != null)
+				msgs = ((InternalEObject)newRequester).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REQUESTER, null, msgs);
+			msgs = basicSetRequester(newRequester, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CREATOR, newCreator, newCreator));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REQUESTER, newRequester, newRequester));
 	}
 
 	/**
@@ -825,8 +1065,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getParent() {
-		return parent;
+	public EList<CodeableConcept> getPerformerType() {
+		if (performerType == null) {
+			performerType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.TASK__PERFORMER_TYPE);
+		}
+		return performerType;
 	}
 
 	/**
@@ -834,11 +1077,20 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParent(Reference newParent, NotificationChain msgs) {
-		Reference oldParent = parent;
-		parent = newParent;
+	public CodeableConcept getReason() {
+		return reason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReason(CodeableConcept newReason, NotificationChain msgs) {
+		CodeableConcept oldReason = reason;
+		reason = newReason;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PARENT, oldParent, newParent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REASON, oldReason, newReason);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -849,18 +1101,116 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParent(Reference newParent) {
-		if (newParent != parent) {
+	public void setReason(CodeableConcept newReason) {
+		if (newReason != reason) {
 			NotificationChain msgs = null;
-			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PARENT, null, msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__PARENT, null, msgs);
-			msgs = basicSetParent(newParent, msgs);
+			if (reason != null)
+				msgs = ((InternalEObject)reason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REASON, null, msgs);
+			if (newReason != null)
+				msgs = ((InternalEObject)newReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__REASON, null, msgs);
+			msgs = basicSetReason(newReason, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PARENT, newParent, newParent));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REASON, newReason, newReason));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.TASK__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskFulfillment getFulfillment() {
+		return fulfillment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFulfillment(TaskFulfillment newFulfillment, NotificationChain msgs) {
+		TaskFulfillment oldFulfillment = fulfillment;
+		fulfillment = newFulfillment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FULFILLMENT, oldFulfillment, newFulfillment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFulfillment(TaskFulfillment newFulfillment) {
+		if (newFulfillment != fulfillment) {
+			NotificationChain msgs = null;
+			if (fulfillment != null)
+				msgs = ((InternalEObject)fulfillment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FULFILLMENT, null, msgs);
+			if (newFulfillment != null)
+				msgs = ((InternalEObject)newFulfillment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__FULFILLMENT, null, msgs);
+			msgs = basicSetFulfillment(newFulfillment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__FULFILLMENT, newFulfillment, newFulfillment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
+		Uri oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(Uri newDefinition) {
+		if (newDefinition != definition) {
+			NotificationChain msgs = null;
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -897,34 +1247,50 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
-			case FhirPackage.TASK__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.TASK__DESCRIPTION:
-				return basicSetDescription(null, msgs);
-			case FhirPackage.TASK__PERFORMER_TYPE:
-				return ((InternalEList<?>)getPerformerType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TASK__PRIORITY:
-				return basicSetPriority(null, msgs);
+			case FhirPackage.TASK__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TASK__REQUISITION:
+				return basicSetRequisition(null, msgs);
+			case FhirPackage.TASK__PARENT:
+				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.TASK__FAILURE_REASON:
-				return basicSetFailureReason(null, msgs);
-			case FhirPackage.TASK__SUBJECT:
-				return basicSetSubject(null, msgs);
+			case FhirPackage.TASK__STATUS_REASON:
+				return basicSetStatusReason(null, msgs);
+			case FhirPackage.TASK__BUSINESS_STATUS:
+				return basicSetBusinessStatus(null, msgs);
+			case FhirPackage.TASK__STAGE:
+				return basicSetStage(null, msgs);
+			case FhirPackage.TASK__CODE:
+				return basicSetCode(null, msgs);
+			case FhirPackage.TASK__PRIORITY:
+				return basicSetPriority(null, msgs);
+			case FhirPackage.TASK__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case FhirPackage.TASK__FOCUS:
+				return basicSetFocus(null, msgs);
 			case FhirPackage.TASK__FOR:
 				return basicSetFor(null, msgs);
-			case FhirPackage.TASK__DEFINITION:
-				return basicSetDefinition(null, msgs);
+			case FhirPackage.TASK__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.TASK__CREATED:
 				return basicSetCreated(null, msgs);
 			case FhirPackage.TASK__LAST_MODIFIED:
 				return basicSetLastModified(null, msgs);
-			case FhirPackage.TASK__CREATOR:
-				return basicSetCreator(null, msgs);
+			case FhirPackage.TASK__REQUESTER:
+				return basicSetRequester(null, msgs);
 			case FhirPackage.TASK__OWNER:
 				return basicSetOwner(null, msgs);
-			case FhirPackage.TASK__PARENT:
-				return basicSetParent(null, msgs);
+			case FhirPackage.TASK__PERFORMER_TYPE:
+				return ((InternalEList<?>)getPerformerType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TASK__REASON:
+				return basicSetReason(null, msgs);
+			case FhirPackage.TASK__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TASK__FULFILLMENT:
+				return basicSetFulfillment(null, msgs);
+			case FhirPackage.TASK__DEFINITION:
+				return basicSetDefinition(null, msgs);
 			case FhirPackage.TASK__INPUT:
 				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__OUTPUT:
@@ -943,34 +1309,50 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.TASK__TYPE:
-				return getType();
-			case FhirPackage.TASK__DESCRIPTION:
-				return getDescription();
-			case FhirPackage.TASK__PERFORMER_TYPE:
-				return getPerformerType();
-			case FhirPackage.TASK__PRIORITY:
-				return getPriority();
+			case FhirPackage.TASK__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.TASK__REQUISITION:
+				return getRequisition();
+			case FhirPackage.TASK__PARENT:
+				return getParent();
 			case FhirPackage.TASK__STATUS:
 				return getStatus();
-			case FhirPackage.TASK__FAILURE_REASON:
-				return getFailureReason();
-			case FhirPackage.TASK__SUBJECT:
-				return getSubject();
+			case FhirPackage.TASK__STATUS_REASON:
+				return getStatusReason();
+			case FhirPackage.TASK__BUSINESS_STATUS:
+				return getBusinessStatus();
+			case FhirPackage.TASK__STAGE:
+				return getStage();
+			case FhirPackage.TASK__CODE:
+				return getCode();
+			case FhirPackage.TASK__PRIORITY:
+				return getPriority();
+			case FhirPackage.TASK__DESCRIPTION:
+				return getDescription();
+			case FhirPackage.TASK__FOCUS:
+				return getFocus();
 			case FhirPackage.TASK__FOR:
 				return getFor();
-			case FhirPackage.TASK__DEFINITION:
-				return getDefinition();
+			case FhirPackage.TASK__CONTEXT:
+				return getContext();
 			case FhirPackage.TASK__CREATED:
 				return getCreated();
 			case FhirPackage.TASK__LAST_MODIFIED:
 				return getLastModified();
-			case FhirPackage.TASK__CREATOR:
-				return getCreator();
+			case FhirPackage.TASK__REQUESTER:
+				return getRequester();
 			case FhirPackage.TASK__OWNER:
 				return getOwner();
-			case FhirPackage.TASK__PARENT:
-				return getParent();
+			case FhirPackage.TASK__PERFORMER_TYPE:
+				return getPerformerType();
+			case FhirPackage.TASK__REASON:
+				return getReason();
+			case FhirPackage.TASK__NOTE:
+				return getNote();
+			case FhirPackage.TASK__FULFILLMENT:
+				return getFulfillment();
+			case FhirPackage.TASK__DEFINITION:
+				return getDefinition();
 			case FhirPackage.TASK__INPUT:
 				return getInput();
 			case FhirPackage.TASK__OUTPUT:
@@ -991,33 +1373,46 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.TASK__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.TASK__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.TASK__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+			case FhirPackage.TASK__REQUISITION:
+				setRequisition((Identifier)newValue);
 				return;
-			case FhirPackage.TASK__PERFORMER_TYPE:
-				getPerformerType().clear();
-				getPerformerType().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.TASK__PRIORITY:
-				setPriority((TaskPriority)newValue);
+			case FhirPackage.TASK__PARENT:
+				getParent().clear();
+				getParent().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.TASK__STATUS:
 				setStatus((TaskStatus)newValue);
 				return;
-			case FhirPackage.TASK__FAILURE_REASON:
-				setFailureReason((CodeableConcept)newValue);
+			case FhirPackage.TASK__STATUS_REASON:
+				setStatusReason((CodeableConcept)newValue);
 				return;
-			case FhirPackage.TASK__SUBJECT:
-				setSubject((Reference)newValue);
+			case FhirPackage.TASK__BUSINESS_STATUS:
+				setBusinessStatus((CodeableConcept)newValue);
+				return;
+			case FhirPackage.TASK__STAGE:
+				setStage((CodeableConcept)newValue);
+				return;
+			case FhirPackage.TASK__CODE:
+				setCode((CodeableConcept)newValue);
+				return;
+			case FhirPackage.TASK__PRIORITY:
+				setPriority((TaskPriority)newValue);
+				return;
+			case FhirPackage.TASK__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.TASK__FOCUS:
+				setFocus((Reference)newValue);
 				return;
 			case FhirPackage.TASK__FOR:
 				setFor((Reference)newValue);
 				return;
-			case FhirPackage.TASK__DEFINITION:
-				setDefinition((Uri)newValue);
+			case FhirPackage.TASK__CONTEXT:
+				setContext((Reference)newValue);
 				return;
 			case FhirPackage.TASK__CREATED:
 				setCreated((DateTime)newValue);
@@ -1025,14 +1420,28 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__LAST_MODIFIED:
 				setLastModified((DateTime)newValue);
 				return;
-			case FhirPackage.TASK__CREATOR:
-				setCreator((Reference)newValue);
+			case FhirPackage.TASK__REQUESTER:
+				setRequester((Reference)newValue);
 				return;
 			case FhirPackage.TASK__OWNER:
 				setOwner((Reference)newValue);
 				return;
-			case FhirPackage.TASK__PARENT:
-				setParent((Reference)newValue);
+			case FhirPackage.TASK__PERFORMER_TYPE:
+				getPerformerType().clear();
+				getPerformerType().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.TASK__REASON:
+				setReason((CodeableConcept)newValue);
+				return;
+			case FhirPackage.TASK__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
+				return;
+			case FhirPackage.TASK__FULFILLMENT:
+				setFulfillment((TaskFulfillment)newValue);
+				return;
+			case FhirPackage.TASK__DEFINITION:
+				setDefinition((Uri)newValue);
 				return;
 			case FhirPackage.TASK__INPUT:
 				getInput().clear();
@@ -1057,32 +1466,44 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
-			case FhirPackage.TASK__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.TASK__BASED_ON:
+				getBasedOn().clear();
 				return;
-			case FhirPackage.TASK__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+			case FhirPackage.TASK__REQUISITION:
+				setRequisition((Identifier)null);
 				return;
-			case FhirPackage.TASK__PERFORMER_TYPE:
-				getPerformerType().clear();
-				return;
-			case FhirPackage.TASK__PRIORITY:
-				setPriority((TaskPriority)null);
+			case FhirPackage.TASK__PARENT:
+				getParent().clear();
 				return;
 			case FhirPackage.TASK__STATUS:
 				setStatus((TaskStatus)null);
 				return;
-			case FhirPackage.TASK__FAILURE_REASON:
-				setFailureReason((CodeableConcept)null);
+			case FhirPackage.TASK__STATUS_REASON:
+				setStatusReason((CodeableConcept)null);
 				return;
-			case FhirPackage.TASK__SUBJECT:
-				setSubject((Reference)null);
+			case FhirPackage.TASK__BUSINESS_STATUS:
+				setBusinessStatus((CodeableConcept)null);
+				return;
+			case FhirPackage.TASK__STAGE:
+				setStage((CodeableConcept)null);
+				return;
+			case FhirPackage.TASK__CODE:
+				setCode((CodeableConcept)null);
+				return;
+			case FhirPackage.TASK__PRIORITY:
+				setPriority((TaskPriority)null);
+				return;
+			case FhirPackage.TASK__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.TASK__FOCUS:
+				setFocus((Reference)null);
 				return;
 			case FhirPackage.TASK__FOR:
 				setFor((Reference)null);
 				return;
-			case FhirPackage.TASK__DEFINITION:
-				setDefinition((Uri)null);
+			case FhirPackage.TASK__CONTEXT:
+				setContext((Reference)null);
 				return;
 			case FhirPackage.TASK__CREATED:
 				setCreated((DateTime)null);
@@ -1090,14 +1511,26 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__LAST_MODIFIED:
 				setLastModified((DateTime)null);
 				return;
-			case FhirPackage.TASK__CREATOR:
-				setCreator((Reference)null);
+			case FhirPackage.TASK__REQUESTER:
+				setRequester((Reference)null);
 				return;
 			case FhirPackage.TASK__OWNER:
 				setOwner((Reference)null);
 				return;
-			case FhirPackage.TASK__PARENT:
-				setParent((Reference)null);
+			case FhirPackage.TASK__PERFORMER_TYPE:
+				getPerformerType().clear();
+				return;
+			case FhirPackage.TASK__REASON:
+				setReason((CodeableConcept)null);
+				return;
+			case FhirPackage.TASK__NOTE:
+				getNote().clear();
+				return;
+			case FhirPackage.TASK__FULFILLMENT:
+				setFulfillment((TaskFulfillment)null);
+				return;
+			case FhirPackage.TASK__DEFINITION:
+				setDefinition((Uri)null);
 				return;
 			case FhirPackage.TASK__INPUT:
 				getInput().clear();
@@ -1119,34 +1552,50 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return identifier != null;
-			case FhirPackage.TASK__TYPE:
-				return type != null;
-			case FhirPackage.TASK__DESCRIPTION:
-				return description != null;
-			case FhirPackage.TASK__PERFORMER_TYPE:
-				return performerType != null && !performerType.isEmpty();
-			case FhirPackage.TASK__PRIORITY:
-				return priority != null;
+			case FhirPackage.TASK__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.TASK__REQUISITION:
+				return requisition != null;
+			case FhirPackage.TASK__PARENT:
+				return parent != null && !parent.isEmpty();
 			case FhirPackage.TASK__STATUS:
 				return status != null;
-			case FhirPackage.TASK__FAILURE_REASON:
-				return failureReason != null;
-			case FhirPackage.TASK__SUBJECT:
-				return subject != null;
+			case FhirPackage.TASK__STATUS_REASON:
+				return statusReason != null;
+			case FhirPackage.TASK__BUSINESS_STATUS:
+				return businessStatus != null;
+			case FhirPackage.TASK__STAGE:
+				return stage != null;
+			case FhirPackage.TASK__CODE:
+				return code != null;
+			case FhirPackage.TASK__PRIORITY:
+				return priority != null;
+			case FhirPackage.TASK__DESCRIPTION:
+				return description != null;
+			case FhirPackage.TASK__FOCUS:
+				return focus != null;
 			case FhirPackage.TASK__FOR:
 				return for_ != null;
-			case FhirPackage.TASK__DEFINITION:
-				return definition != null;
+			case FhirPackage.TASK__CONTEXT:
+				return context != null;
 			case FhirPackage.TASK__CREATED:
 				return created != null;
 			case FhirPackage.TASK__LAST_MODIFIED:
 				return lastModified != null;
-			case FhirPackage.TASK__CREATOR:
-				return creator != null;
+			case FhirPackage.TASK__REQUESTER:
+				return requester != null;
 			case FhirPackage.TASK__OWNER:
 				return owner != null;
-			case FhirPackage.TASK__PARENT:
-				return parent != null;
+			case FhirPackage.TASK__PERFORMER_TYPE:
+				return performerType != null && !performerType.isEmpty();
+			case FhirPackage.TASK__REASON:
+				return reason != null;
+			case FhirPackage.TASK__NOTE:
+				return note != null && !note.isEmpty();
+			case FhirPackage.TASK__FULFILLMENT:
+				return fulfillment != null;
+			case FhirPackage.TASK__DEFINITION:
+				return definition != null;
 			case FhirPackage.TASK__INPUT:
 				return input != null && !input.isEmpty();
 			case FhirPackage.TASK__OUTPUT:

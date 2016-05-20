@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -55,7 +65,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * transaction
 	 * <!-- end-model-doc -->
 	 * @see #TRANSACTION
 	 * @model name="transaction"
@@ -69,7 +79,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * search-system
 	 * <!-- end-model-doc -->
 	 * @see #SEARCH_SYSTEM
 	 * @model name="searchSystem" literal="search-system"
@@ -83,7 +93,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * history-system
 	 * <!-- end-model-doc -->
 	 * @see #HISTORY_SYSTEM
 	 * @model name="historySystem" literal="history-system"

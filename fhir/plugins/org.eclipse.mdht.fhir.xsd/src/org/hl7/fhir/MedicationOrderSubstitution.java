@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -16,7 +26,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicationOrderSubstitution#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationOrderSubstitution#getAllowed <em>Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationOrderSubstitution#getReason <em>Reason</em>}</li>
  * </ul>
  *
@@ -26,30 +36,30 @@ package org.hl7.fhir;
  */
 public interface MedicationOrderSubstitution extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Allowed</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code signifying whether a different drug should be dispensed from what was prescribed.
+	 * True if the prescriber allows a different drug to be dispensed from what was prescribed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderSubstitution_Type()
+	 * @return the value of the '<em>Allowed</em>' containment reference.
+	 * @see #setAllowed(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationOrderSubstitution_Allowed()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='allowed' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	org.hl7.fhir.Boolean getAllowed();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderSubstitution#getType <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationOrderSubstitution#getAllowed <em>Allowed</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * @param value the new value of the '<em>Allowed</em>' containment reference.
+	 * @see #getAllowed()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setAllowed(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.

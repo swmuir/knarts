@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -22,7 +32,7 @@ import org.hl7.fhir.MedicationOrderSubstitution;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicationOrderSubstitutionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationOrderSubstitutionImpl#getAllowed <em>Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationOrderSubstitutionImpl#getReason <em>Reason</em>}</li>
  * </ul>
  *
@@ -30,14 +40,14 @@ import org.hl7.fhir.MedicationOrderSubstitution;
  */
 public class MedicationOrderSubstitutionImpl extends BackboneElementImpl implements MedicationOrderSubstitution {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getAllowed() <em>Allowed</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getAllowed()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected org.hl7.fhir.Boolean allowed;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
@@ -73,8 +83,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public org.hl7.fhir.Boolean getAllowed() {
+		return allowed;
 	}
 
 	/**
@@ -82,11 +92,11 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public NotificationChain basicSetAllowed(org.hl7.fhir.Boolean newAllowed, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldAllowed = allowed;
+		allowed = newAllowed;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED, oldAllowed, newAllowed);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -97,18 +107,18 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setAllowed(org.hl7.fhir.Boolean newAllowed) {
+		if (newAllowed != allowed) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (allowed != null)
+				msgs = ((InternalEObject)allowed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED, null, msgs);
+			if (newAllowed != null)
+				msgs = ((InternalEObject)newAllowed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED, null, msgs);
+			msgs = basicSetAllowed(newAllowed, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED, newAllowed, newAllowed));
 	}
 
 	/**
@@ -162,8 +172,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE:
-				return basicSetType(null, msgs);
+			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED:
+				return basicSetAllowed(null, msgs);
 			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__REASON:
 				return basicSetReason(null, msgs);
 		}
@@ -178,8 +188,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE:
-				return getType();
+			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED:
+				return getAllowed();
 			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__REASON:
 				return getReason();
 		}
@@ -194,8 +204,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED:
+				setAllowed((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__REASON:
 				setReason((CodeableConcept)newValue);
@@ -212,8 +222,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED:
+				setAllowed((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__REASON:
 				setReason((CodeableConcept)null);
@@ -230,8 +240,8 @@ public class MedicationOrderSubstitutionImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__TYPE:
-				return type != null;
+			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__ALLOWED:
+				return allowed != null;
 			case FhirPackage.MEDICATION_ORDER_SUBSTITUTION__REASON:
 				return reason != null;
 		}

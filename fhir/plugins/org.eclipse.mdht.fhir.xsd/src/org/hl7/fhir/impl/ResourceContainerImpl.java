@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -33,6 +43,7 @@ import org.hl7.fhir.Composition;
 import org.hl7.fhir.ConceptMap;
 import org.hl7.fhir.Condition;
 import org.hl7.fhir.Conformance;
+import org.hl7.fhir.Consent;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.DataElement;
@@ -158,6 +169,7 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getConceptMap <em>Concept Map</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getConformance <em>Conformance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getConsent <em>Consent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResourceContainerImpl#getDataElement <em>Data Element</em>}</li>
@@ -474,6 +486,16 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected Conformance conformance;
+
+	/**
+	 * The cached value of the '{@link #getConsent() <em>Consent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConsent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Consent consent;
 
 	/**
 	 * The cached value of the '{@link #getContract() <em>Contract</em>}' containment reference.
@@ -2358,6 +2380,49 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__CONFORMANCE, newConformance, newConformance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Consent getConsent() {
+		return consent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConsent(Consent newConsent, NotificationChain msgs) {
+		Consent oldConsent = consent;
+		consent = newConsent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__CONSENT, oldConsent, newConsent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConsent(Consent newConsent) {
+		if (newConsent != consent) {
+			NotificationChain msgs = null;
+			if (consent != null)
+				msgs = ((InternalEObject)consent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__CONSENT, null, msgs);
+			if (newConsent != null)
+				msgs = ((InternalEObject)newConsent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESOURCE_CONTAINER__CONSENT, null, msgs);
+			msgs = basicSetConsent(newConsent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_CONTAINER__CONSENT, newConsent, newConsent));
 	}
 
 	/**
@@ -6368,6 +6433,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetCondition(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__CONFORMANCE:
 				return basicSetConformance(null, msgs);
+			case FhirPackage.RESOURCE_CONTAINER__CONSENT:
+				return basicSetConsent(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__CONTRACT:
 				return basicSetContract(null, msgs);
 			case FhirPackage.RESOURCE_CONTAINER__COVERAGE:
@@ -6608,6 +6675,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return getCondition();
 			case FhirPackage.RESOURCE_CONTAINER__CONFORMANCE:
 				return getConformance();
+			case FhirPackage.RESOURCE_CONTAINER__CONSENT:
+				return getConsent();
 			case FhirPackage.RESOURCE_CONTAINER__CONTRACT:
 				return getContract();
 			case FhirPackage.RESOURCE_CONTAINER__COVERAGE:
@@ -6869,6 +6938,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__CONFORMANCE:
 				setConformance((Conformance)newValue);
+				return;
+			case FhirPackage.RESOURCE_CONTAINER__CONSENT:
+				setConsent((Consent)newValue);
 				return;
 			case FhirPackage.RESOURCE_CONTAINER__CONTRACT:
 				setContract((Contract)newValue);
@@ -7224,6 +7296,9 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 			case FhirPackage.RESOURCE_CONTAINER__CONFORMANCE:
 				setConformance((Conformance)null);
 				return;
+			case FhirPackage.RESOURCE_CONTAINER__CONSENT:
+				setConsent((Consent)null);
+				return;
 			case FhirPackage.RESOURCE_CONTAINER__CONTRACT:
 				setContract((Contract)null);
 				return;
@@ -7556,6 +7631,8 @@ public class ResourceContainerImpl extends MinimalEObjectImpl.Container implemen
 				return condition != null;
 			case FhirPackage.RESOURCE_CONTAINER__CONFORMANCE:
 				return conformance != null;
+			case FhirPackage.RESOURCE_CONTAINER__CONSENT:
+				return consent != null;
 			case FhirPackage.RESOURCE_CONTAINER__CONTRACT:
 				return contract != null;
 			case FhirPackage.RESOURCE_CONTAINER__COVERAGE:

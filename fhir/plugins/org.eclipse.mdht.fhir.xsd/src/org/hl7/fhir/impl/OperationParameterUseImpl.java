@@ -1,8 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
-
-import java.lang.String;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -12,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.OperationParameterUse;
+import org.hl7.fhir.OperationParameterUseList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +44,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final OperationParameterUseList VALUE_EDEFAULT = OperationParameterUseList.IN;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +54,16 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected OperationParameterUseList value = VALUE_EDEFAULT;
+
+	/**
+	 * This is true if the Value attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean valueESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +89,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public OperationParameterUseList getValue() {
 		return value;
 	}
 
@@ -80,11 +98,36 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
+	public void setValue(OperationParameterUseList newValue) {
+		OperationParameterUseList oldValue = value;
+		value = newValue == null ? VALUE_EDEFAULT : newValue;
+		boolean oldValueESet = valueESet;
+		valueESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_PARAMETER_USE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_PARAMETER_USE__VALUE, oldValue, value, !oldValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetValue() {
+		OperationParameterUseList oldValue = value;
+		boolean oldValueESet = valueESet;
+		value = VALUE_EDEFAULT;
+		valueESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, FhirPackage.OPERATION_PARAMETER_USE__VALUE, oldValue, VALUE_EDEFAULT, oldValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetValue() {
+		return valueESet;
 	}
 
 	/**
@@ -110,7 +153,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.OPERATION_PARAMETER_USE__VALUE:
-				setValue((String)newValue);
+				setValue((OperationParameterUseList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,7 +168,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OPERATION_PARAMETER_USE__VALUE:
-				setValue(VALUE_EDEFAULT);
+				unsetValue();
 				return;
 		}
 		super.eUnset(featureID);
@@ -140,7 +183,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OPERATION_PARAMETER_USE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return isSetValue();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,7 +199,7 @@ public class OperationParameterUseImpl extends ElementImpl implements OperationP
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
-		result.append(value);
+		if (valueESet) result.append(value); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

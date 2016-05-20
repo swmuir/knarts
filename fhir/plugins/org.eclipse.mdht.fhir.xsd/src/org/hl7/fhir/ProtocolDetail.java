@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016 David Carlson and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -23,7 +33,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ProtocolDetail#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.ProtocolDetail#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.ProtocolDetail#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.ProtocolDetail#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProtocolDetail#getProductReference <em>Product Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProtocolDetail#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ProtocolDetail#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ProtocolDetail#getDescription <em>Description</em>}</li>
  * </ul>
@@ -182,30 +193,58 @@ public interface ProtocolDetail extends BackboneElement {
 	EList<Reference> getPerformer();
 
 	/**
-	 * Returns the value of the '<em><b>Product</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Product Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Product Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the food, drug or other product being consumed or supplied in the activity.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Product</em>' containment reference.
-	 * @see #setProduct(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProtocolDetail_Product()
+	 * @return the value of the '<em>Product Reference</em>' containment reference.
+	 * @see #setProductReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProtocolDetail_ProductReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='product' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='productReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProduct();
+	Reference getProductReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProtocolDetail#getProduct <em>Product</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProtocolDetail#getProductReference <em>Product Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Product</em>' containment reference.
-	 * @see #getProduct()
+	 * @param value the new value of the '<em>Product Reference</em>' containment reference.
+	 * @see #getProductReference()
 	 * @generated
 	 */
-	void setProduct(Reference value);
+	void setProductReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Product Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Product Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Product Codeable Concept</em>' containment reference.
+	 * @see #setProductCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getProtocolDetail_ProductCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='productCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getProductCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ProtocolDetail#getProductCodeableConcept <em>Product Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Product Codeable Concept</em>' containment reference.
+	 * @see #getProductCodeableConcept()
+	 * @generated
+	 */
+	void setProductCodeableConcept(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
