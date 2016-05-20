@@ -41,6 +41,7 @@ import org.eclipse.mdht.uml.fhir.types.Contact;
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getContacts <em>Contact</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getUseContexts <em>Use Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl#getCopyright <em>Copyright</em>}</li>
  * </ul>
  *
  * @generated
@@ -205,6 +206,26 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> useContexts;
+
+	/**
+	 * The default value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COPYRIGHT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected String copyright = COPYRIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -401,6 +422,27 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCopyright(String newCopyright) {
+		String oldCopyright = copyright;
+		copyright = newCopyright;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT, oldCopyright, copyright));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -438,6 +480,8 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 				return getDate();
 			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				return getUseContexts();
+			case FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT:
+				return getCopyright();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -480,6 +524,9 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 				getUseContexts().clear();
 				getUseContexts().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT:
+				setCopyright((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -519,6 +566,9 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				getUseContexts().clear();
 				return;
+			case FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT:
+				setCopyright(COPYRIGHT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -549,6 +599,8 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 			case FHIRPackage.CONFORMANCE_RESOURCE__USE_CONTEXT:
 				return useContexts != null && !useContexts.isEmpty();
+			case FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT:
+				return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -577,6 +629,8 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 		result.append(publisher);
 		result.append(", date: ");
 		result.append(date);
+		result.append(", copyright: ");
+		result.append(copyright);
 		result.append(')');
 		return result.toString();
 	}

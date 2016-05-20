@@ -25,6 +25,7 @@ import org.eclipse.mdht.uml.fhir.Comments;
 import org.eclipse.mdht.uml.fhir.ConformanceResource;
 import org.eclipse.mdht.uml.fhir.DataElement;
 import org.eclipse.mdht.uml.fhir.Definition;
+import org.eclipse.mdht.uml.fhir.DerivationKind;
 import org.eclipse.mdht.uml.fhir.Description;
 import org.eclipse.mdht.uml.fhir.Element;
 import org.eclipse.mdht.uml.fhir.ElementDefinition;
@@ -160,6 +161,13 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * @generated
 	 */
 	private EClass elementSlicingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum derivationKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -328,6 +336,24 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStructureDefinition_IsLogical() {
+		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructureDefinition_Derivation() {
+		return (EAttribute)structureDefinitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConformanceResource() {
 		return conformanceResourceEClass;
 	}
@@ -411,6 +437,15 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 */
 	public EReference getConformanceResource_UseContext() {
 		return (EReference)conformanceResourceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConformanceResource_Copyright() {
+		return (EAttribute)conformanceResourceEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -859,6 +894,15 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getDerivationKind() {
+		return derivationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPropertyRepresentationKind() {
 		return propertyRepresentationKindEEnum;
 	}
@@ -918,6 +962,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__DISPLAY);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT_TYPE);
 		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__CONTEXT);
+		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__IS_LOGICAL);
+		createEAttribute(structureDefinitionEClass, STRUCTURE_DEFINITION__DERIVATION);
 
 		conformanceResourceEClass = createEClass(CONFORMANCE_RESOURCE);
 		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__URI);
@@ -929,6 +975,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEReference(conformanceResourceEClass, CONFORMANCE_RESOURCE__CONTACT);
 		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__DATE);
 		createEReference(conformanceResourceEClass, CONFORMANCE_RESOURCE__USE_CONTEXT);
+		createEAttribute(conformanceResourceEClass, CONFORMANCE_RESOURCE__COPYRIGHT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__ID);
@@ -992,6 +1039,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEReference(elementSlicingEClass, ELEMENT_SLICING__BASE_PROPERTY);
 
 		// Create enums
+		derivationKindEEnum = createEEnum(DERIVATION_KIND);
 		propertyRepresentationKindEEnum = createEEnum(PROPERTY_REPRESENTATION_KIND);
 		bindingStrengthKindEEnum = createEEnum(BINDING_STRENGTH_KIND);
 		slicingRulesKindEEnum = createEEnum(SLICING_RULES_KIND);
@@ -1049,6 +1097,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getStructureDefinition_Display(), theTypesPackage.getString(), "display", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_ContextType(), theTypesPackage.getString(), "contextType", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStructureDefinition_Context(), theTypesPackage.getString(), "context", null, 0, -1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStructureDefinition_IsLogical(), ecorePackage.getEBooleanObject(), "isLogical", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStructureDefinition_Derivation(), this.getDerivationKind(), "derivation", null, 0, 1, StructureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(conformanceResourceEClass, ConformanceResource.class, "ConformanceResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConformanceResource_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1060,6 +1110,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEReference(getConformanceResource_Contact(), theFHIRTypesPackage.getContact(), null, "contact", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getConformanceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConformanceResource_Copyright(), theTypesPackage.getString(), "copyright", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Id(), theTypesPackage.getString(), "id", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1123,6 +1174,10 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEReference(getElementSlicing_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(derivationKindEEnum, DerivationKind.class, "DerivationKind");
+		addEEnumLiteral(derivationKindEEnum, DerivationKind.CONSTRAINT);
+		addEEnumLiteral(derivationKindEEnum, DerivationKind.SPECIALIZATION);
+
 		initEEnum(propertyRepresentationKindEEnum, PropertyRepresentationKind.class, "PropertyRepresentationKind");
 		addEEnumLiteral(propertyRepresentationKindEEnum, PropertyRepresentationKind.XML_ATTR);
 

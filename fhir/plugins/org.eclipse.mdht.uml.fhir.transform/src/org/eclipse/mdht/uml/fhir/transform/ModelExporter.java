@@ -24,7 +24,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.uml.common.util.UMLUtil;
+import org.eclipse.mdht.uml.fhir.DerivationKind;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
 import org.eclipse.mdht.uml.fhir.common.util.FhirModelUtil;
@@ -47,11 +50,15 @@ import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
+import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
+import org.hl7.fhir.ExtensionContext;
 import org.hl7.fhir.FhirFactory;
+import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.SlicingRules;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
@@ -90,6 +97,9 @@ public class ModelExporter implements ModelConstants {
 		resourceStatus.setValue(status);
 		String publisher = structureDefStereotype.getPublisher() != null 
 								? structureDefStereotype.getPublisher() : "Model Driven Health Tools (MDHT)";
+		if (structureDefStereotype.getCopyright() != null) {
+			structureDef.setCopyright(createFhirString(structureDefStereotype.getCopyright()));
+		}
 		
 		structureDef.setId(createFhirId(id));
 		structureDef.setUrl(createFhirUri(uri));
@@ -103,10 +113,7 @@ public class ModelExporter implements ModelConstants {
 		if (structureDefStereotype.getDisplay() != null) {
 			structureDef.setDisplay(createFhirString(structureDefStereotype.getDisplay()));
 		}
-		
-		// TODO get isLogical() from stereotype, or always 'logical' if no StructureDefintion stereotype
-		
-		
+
 		for (Classifier parent : umlClass.getGenerals()) {
 			Uri baseUri = getStructureDefinitionUri(parent);
 			if (baseUri != null) {
@@ -125,26 +132,45 @@ public class ModelExporter implements ModelConstants {
 		}
 		
 		// Set 'kind'
-		String kindValue = "logical";
-		if (modelIndexer.isKindOfDataType(umlClass)) {
+		String kindValue;
+		if (structureDefStereotype.getIsLogical() != null && structureDefStereotype.getIsLogical()) {
+			kindValue = "logical";
+		}
+		else if (modelIndexer.isKindOfDataType(umlClass)) {
 			kindValue = "datatype";
 		}
 		else if (modelIndexer.isKindOfResource(umlClass)) {
 			kindValue = "resource";
 		}
+		else {
+			kindValue = "logical";
+		}
+		
 		StructureDefinitionKind kind = FhirFactory.eINSTANCE.createStructureDefinitionKind();
 		kind.setValue(kindValue);
 		structureDef.setKind(kind);
 		
-		// TODO derivation: constraint, specialization
-		// unless is 'logical', then only core types may use 'specialization'
-		 TypeDerivationRule derivationRule = FhirFactory.eINSTANCE.createTypeDerivationRule();
-		derivationRule.setValue("constraint");
-		structureDef.setDerivation(derivationRule);
+		// derivation (optional): constraint, specialization
+		// unless is kind='logical', then only core types may use 'specialization'
+		DerivationKind derivation = structureDefStereotype.getDerivation();
+		if (derivation != null) {
+			TypeDerivationRule derivationRule = FhirFactory.eINSTANCE.createTypeDerivationRule();
+			derivationRule.setValue(derivation.getName());
+			structureDef.setDerivation(derivationRule);
+		}
 		
 		// Add 'contextType' and 'context'
 		if (modelIndexer.isExtension(umlClass)) {
+			if (structureDefStereotype.getContextType() != null) {
+				ExtensionContext contextType = FhirFactory.eINSTANCE.createExtensionContext();
+				contextType.setValue(structureDefStereotype.getContextType());
+				structureDef.setContextType(contextType);
+			}
+			for (String context : structureDefStereotype.getContexts()) {
+				structureDef.getContext().add(createFhirString(context));
+			}
 			
+			//TODO can I infer contextType and/or context from model structure, if not defined in stereotype?
 		}
 
 		String description = getComment(umlClass, FHIRPackage.eINSTANCE.getDescription());
@@ -191,6 +217,8 @@ public class ModelExporter implements ModelConstants {
 			differential.getElement().add(elementDef);
 			elementMap.put(property, elementDef);
 			
+			// TODO if this is first ElementDefinition, add 'definition' and 'short' from Class comments
+			
 			// Recursive, only if type is nested in this class, not nested class inherited from superclass.
 			if (FhirModelUtil.hasNestedType(property) && property.getType().getOwner() == umlClass) {
 				addElementDefinitions((Class) property.getType(), differential, elementMap);
@@ -203,12 +231,35 @@ public class ModelExporter implements ModelConstants {
 				(org.eclipse.mdht.uml.fhir.ElementDefinition) EcoreUtil.getObjectByType(
 						property.getStereotypeApplications(), FHIRPackage.eINSTANCE.getElementDefinition());
 		ElementDefinition elementDef = FhirFactory.eINSTANCE.createElementDefinition();
+		
+		Property inheritedProperty = UMLUtil.getInheritedProperty(property);
 
 		String path = getPath(property);
 		elementDef.setPath(createFhirString(path));
-		elementDef.setMin(createFhirInteger(property.getLower()));
-		elementDef.setMax(createFhirString(property.getUpper() == -1 ? "*" : Integer.toString(property.getUpper())));
-
+		
+		// Add cardinality
+		Integer minOccurs = null;
+		Integer maxOccurs = null;
+		if (inheritedProperty == null) {
+			minOccurs = property.getLower();
+			maxOccurs = property.getUpper();
+		}
+		else {
+			if (inheritedProperty.getLower() != property.getLower()) {
+				minOccurs = property.getLower();
+			}
+			if (inheritedProperty.getUpper() != property.getUpper()) {
+				maxOccurs = property.getUpper();
+			}
+		}
+		
+		if (minOccurs != null) {
+			elementDef.setMin(createFhirInteger(minOccurs));
+		}
+		if (maxOccurs != null) {
+			elementDef.setMax(createFhirString(maxOccurs == -1 ? "*" : Integer.toString(maxOccurs)));
+		}
+		
 		// Add type(s)
 		if (property.getType() != null && !FhirModelUtil.hasNestedType(property)) {
 			TypeChoice typeChoice = (TypeChoice) EcoreUtil.getObjectByType(
@@ -224,6 +275,33 @@ public class ModelExporter implements ModelConstants {
 				elementDef.getType().add(elementType);
 			}
 		}
+		
+		// Add slicing
+		ElementDefinitionSlicing slicing = createSlicing(property);
+		if (slicing != null) {
+			elementDef.setSlicing(slicing);
+		}
+		
+		// Add default or fixed values
+		if (property.getDefault() != null && property.getDefault().length() > 0 && property.getType() != null) {
+			String typeName = upperCaseName(property.getType());
+			
+			String elementNamePrefix = property.isReadOnly() ? "fixed" : "default";
+			String elementName = elementNamePrefix + typeName;
+			EStructuralFeature feature = elementDef.eClass().getEStructuralFeature(elementName);
+			if (feature != null) {
+				EObject valueObject = FhirFactory.eINSTANCE.create((EClass)FhirPackage.eINSTANCE.getEClassifier(typeName));
+				EStructuralFeature valueFeature = valueObject.eClass().getEStructuralFeature("value");
+				valueObject.eSet(valueFeature, property.getDefault());
+				elementDef.eSet(feature, valueObject);
+			}
+			else {
+				System.err.println(property.getQualifiedName() + " -- Cannot find feature name: " 
+						+ elementName + " for type: " + typeName);
+			}
+		}
+		
+		// TODO pattern, example, minValue, maxValue
 		
 		// Add value set binding
 		ElementDefinitionBinding binding = createBinding(property);
@@ -346,30 +424,49 @@ public class ModelExporter implements ModelConstants {
 		String[] pathNames = new String[pathSegments.size()];
 		for (int i = 0; i < pathSegments.size(); i++) {
 			NamedElement pathSegment = pathSegments.get(i);
-//			NamedElement nextSegment = (i == pathSegments.size() -1)  ? null : pathSegments.get(i+1);
+			
+			// Add root ElementDefinition
 			if (i == 0) {
-				// This must be a Class
+				// This must be a Class for top-level classifier
 				Classifier constrainedType = getCoreBaseType((Classifier)pathSegment);
 				pathNames[i] = constrainedType.getName();
+				continue;
 			}
+
+			/*
+			 * Add path for all properties, including nested classes.
+			 */
+			Property pathSegmentProperty = null;
+			Property constrainedProperty = null;
+			
+			String pathSegmentName = null;
 			if (pathSegment instanceof Classifier && ((Classifier)pathSegment).getOwner() instanceof Class) {
 				// Nested class. Find property from containing class that has this class as its type.
 				Classifier nestedClass = (Classifier) pathSegment;
 				Class nestingClass = (Class) nestedClass.getOwner();
 				Property referencingProperty = nestingClass.getAttribute(null, nestedClass);
-				if (referencingProperty != null) {
-					pathNames[i] = referencingProperty.getName();
-				}
+				
+				pathSegmentProperty = referencingProperty;
+				constrainedProperty = getConstrainedProperty(referencingProperty);
+				
 			}
 			else if (pathSegment instanceof Property) {
-				Property constrainedProperty = getConstrainedProperty(((Property)pathSegment));
-				if (constrainedProperty != null) {
-					pathNames[i] = constrainedProperty.getName();
+				pathSegmentProperty = (Property) pathSegment;
+				constrainedProperty = getConstrainedProperty(((Property)pathSegment));
+			}
+
+			if (constrainedProperty != null) {
+				if (constrainedProperty.getName().endsWith("[x]")) {
+					pathSegmentName = getWildcardPropertyName(pathSegmentProperty, constrainedProperty.getName());
 				}
 				else {
-					pathNames[i] = ((Property)pathSegment).getName();
+					pathSegmentName = constrainedProperty.getName();
 				}
 			}
+			else {
+				pathSegmentName = pathSegmentProperty.getName();
+			}
+			pathNames[i] = pathSegmentName;
 		}
 
 		StringBuffer path = new StringBuffer();
@@ -428,15 +525,53 @@ public class ModelExporter implements ModelConstants {
 		if (baseProperty == null) {
 			for (Property redefined : property.getRedefinedProperties()) {
 				baseProperty = getConstrainedProperty(redefined);
+				break;
 			}
 		}
 		if (baseProperty == null) {
 			for (Property subsetted : property.getSubsettedProperties()) {
 				baseProperty = getConstrainedProperty(subsetted);
+				break;
 			}
 		}
 		
 		return baseProperty;
+	}
+
+	/**
+	 * 
+	 * - baseProperty is wildcard
+	 * - does NOT have TypeChoice, or only one member
+	 * - get core data type for property.getType() (not for constrained type)
+	 * - strip [x] and append upper case core data type name
+	 */
+	private String getWildcardPropertyName(Property property, String wildcardName) {
+		boolean singleType = true;
+		TypeChoice typeChoice = (TypeChoice) EcoreUtil.getObjectByType(
+				property.getStereotypeApplications(), FHIRPackage.eINSTANCE.getTypeChoice());
+		if (typeChoice != null && typeChoice.getTypes().size() > 1) {
+			singleType = false;
+		}
+		Classifier coreDataType = modelIndexer.getCoreBaseType((Classifier)property.getType());
+		
+		if (wildcardName == null || coreDataType != null || !singleType) {
+			return property.getName();
+		}
+		
+		String name = wildcardName.endsWith("[x]") ? wildcardName.substring(0, wildcardName.length()-2) : wildcardName;
+		String typeName = upperCaseName(property.getType());
+		name += typeName;
+		
+		return name;
+	}
+	
+	private String upperCaseName(NamedElement element) {
+		String typeName = element.getName();
+		StringBuffer camelCaseNameBuffer = new StringBuffer();
+		camelCaseNameBuffer.append(typeName.substring(0, 1).toUpperCase());
+		camelCaseNameBuffer.append(typeName.substring(1));
+		typeName = camelCaseNameBuffer.toString();
+		return typeName;
 	}
 
 	private ElementDefinitionBinding createBinding(Property property) {
@@ -469,6 +604,34 @@ public class ModelExporter implements ModelConstants {
 		}
 		
 		return binding;
+	}
+
+	private ElementDefinitionSlicing createSlicing(Property property) {
+		ElementDefinitionSlicing slicing = null;
+		
+		org.eclipse.mdht.uml.fhir.ElementSlicing slicingStereotype = 
+				(org.eclipse.mdht.uml.fhir.ElementSlicing) EcoreUtil.getObjectByType(
+						property.getStereotypeApplications(), FHIRPackage.eINSTANCE.getElementSlicing());
+		if (slicingStereotype != null) {
+			slicing = FhirFactory.eINSTANCE.createElementDefinitionSlicing();
+			
+			for (String discriminator : slicingStereotype.getDiscriminators()) {
+				slicing.getDiscriminator().add(createFhirString(discriminator));
+			}
+			if (slicingStereotype.getRules() != null) {
+				SlicingRules slicingRules = FhirFactory.eINSTANCE.createSlicingRules();
+				slicingRules.setValue(slicingStereotype.getRules().getName());
+				slicing.setRules(slicingRules);
+			}
+			if (slicingStereotype.getOrdered() != null) {
+				slicing.setOrdered(createFhirBoolean(slicingStereotype.getOrdered()));
+			}
+			if (slicingStereotype.getDescription() != null) {
+				slicing.setDescription(createFhirString(slicingStereotype.getDescription()));
+			}
+		}
+		
+		return slicing;
 	}
 
 	private String getComment(Element element, EClass eClass) {

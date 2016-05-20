@@ -55,6 +55,7 @@ public class ConformanceResourceItemProvider extends ElementItemProvider {
 			addExperimentalPropertyDescriptor(object);
 			addPublisherPropertyDescriptor(object);
 			addDatePropertyDescriptor(object);
+			addCopyrightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -214,6 +215,28 @@ public class ConformanceResourceItemProvider extends ElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Copyright feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCopyrightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConformanceResource_copyright_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConformanceResource_copyright_feature", "_UI_ConformanceResource_type"),
+				 FHIRPackage.Literals.CONFORMANCE_RESOURCE__COPYRIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -292,6 +315,7 @@ public class ConformanceResourceItemProvider extends ElementItemProvider {
 			case FHIRPackage.CONFORMANCE_RESOURCE__EXPERIMENTAL:
 			case FHIRPackage.CONFORMANCE_RESOURCE__PUBLISHER:
 			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
+			case FHIRPackage.CONFORMANCE_RESOURCE__COPYRIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:

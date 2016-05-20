@@ -93,6 +93,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case FHIRPackage.DERIVATION_KIND:
+				return createDerivationKindFromString(eDataType, initialValue);
 			case FHIRPackage.PROPERTY_REPRESENTATION_KIND:
 				return createPropertyRepresentationKindFromString(eDataType, initialValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
@@ -112,6 +114,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case FHIRPackage.DERIVATION_KIND:
+				return convertDerivationKindToString(eDataType, instanceValue);
 			case FHIRPackage.PROPERTY_REPRESENTATION_KIND:
 				return convertPropertyRepresentationKindToString(eDataType, instanceValue);
 			case FHIRPackage.BINDING_STRENGTH_KIND:
@@ -251,6 +255,26 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	public ElementSlicing createElementSlicing() {
 		ElementSlicingImpl elementSlicing = new ElementSlicingImpl();
 		return elementSlicing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DerivationKind createDerivationKindFromString(EDataType eDataType, String initialValue) {
+		DerivationKind result = DerivationKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDerivationKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -1,6 +1,20 @@
 Import/Export FHIR
 =========================================================
 
+FHA Project TODO:
+
+- generalize import of string-derived fixed values
+x export fixed values (e.g. extension uri)
+- format for exporting StructureDefinition <date>
+- cardinality on first ElementDefinition (needed for extension definitions)
+- re-evaluate how attributes on first elementDefinition are saved on Class, e.g. short, definition, min/max
+
+x on export, omit cardinality if not restricted
+- import/export fluentpath constraints
+
+** create example IPO allergy profile, constrains DAF
+
+--------------------
 BUGS and ISSUES:
 - Slicing property name must be unique
   -- e.g. LipidProfile.result -> derive property name as lowerCamelCase from type name (extension name)
@@ -13,6 +27,10 @@ BUGS and ISSUES:
   -- a nameReference may have "child components" that further constraint referenced element structure
      --- e.g. may subclass the referenced nested class?
 
+- StructureDefinition.fhirVersion: import and export??
+
+- import: resolve references using #
+
 --------------------
 - HSPC Profile bugs:
   -- stdqty ReferenceRange constraint do not have <type>, missing nested subclass with ReferenceRange constraints
@@ -23,12 +41,6 @@ BUGS and ISSUES:
         <profile value="http://hl7.org/fhir/StructureDefinition/hspc-Specimen"/>
         <aggregation value="contained"/>
       </type>
-
---------------------
-PROJECT MANAGEMENT
-
-- Add feature project
-- Configure Maven build
 
 --------------------
 API

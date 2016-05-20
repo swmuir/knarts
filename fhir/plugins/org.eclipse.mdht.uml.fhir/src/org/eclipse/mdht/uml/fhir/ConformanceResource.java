@@ -27,6 +27,7 @@ import org.eclipse.mdht.uml.fhir.types.Contact;
  *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getContacts <em>Contact</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getUseContexts <em>Use Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getCopyright <em>Copyright</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource()
@@ -247,5 +248,31 @@ public interface ConformanceResource extends Element {
 	 * @generated
 	 */
 	EList<CodeableConcept> getUseContexts();
+
+	/**
+	 * Returns the value of the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Copyright</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Copyright</em>' attribute.
+	 * @see #setCopyright(String)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_Copyright()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getCopyright();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getCopyright <em>Copyright</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Copyright</em>' attribute.
+	 * @see #getCopyright()
+	 * @generated
+	 */
+	void setCopyright(String value);
 
 } // ConformanceResource
