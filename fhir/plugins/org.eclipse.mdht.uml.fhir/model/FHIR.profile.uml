@@ -92,6 +92,13 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zZhqYUXFEeWmu5xZhyCitA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4dxnYEXFEeWmu5xZhyCitA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_sWf2gA2JEeai5sTp20RF5Q" name="isLogical">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBooleanObject"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sWf2gQ2JEeai5sTp20RF5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_uZ4_sA2LEeai5sTp20RF5Q" name="derivation" type="_eSCyYA2LEeai5sTp20RF5Q">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vd_hAA2LEeai5sTp20RF5Q"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_LrBh4DDqEeWn6bT0Ftydnw" name="Class_StructureDef" memberEnd="_LrCI8DDqEeWn6bT0Ftydnw _LrCI8TDqEeWn6bT0Ftydnw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_LrCI8DDqEeWn6bT0Ftydnw" name="extension_StructureDef" type="_GGVKQDDqEeWn6bT0Ftydnw" aggregation="composite" association="_LrBh4DDqEeWn6bT0Ftydnw"/>
@@ -276,6 +283,10 @@
       <ownedAttribute xmi:id="_fLNMUKgwEeWi07cNSG-Iag" name="useContext" type="_ujKMIKE9EeWNlunrJFMayg" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMkAEKgwEeWi07cNSG-Iag" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_wGVogA2NEeai5sTp20RF5Q" name="copyright">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wGVogQ2NEeai5sTp20RF5Q"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_lwgXQKguEeWi07cNSG-Iag" name="DataElement">
       <generalization xmi:id="_pT_FEKguEeWi07cNSG-Iag" general="_RspZoKgpEeWX4p5_Z95Ffw"/>
@@ -343,6 +354,10 @@
       <ownedLiteral xmi:id="_sis1wAjDEeaxpZh-b1zEhw" name="open"/>
       <ownedLiteral xmi:id="_s3EjQAjDEeaxpZh-b1zEhw" name="openAtEnd"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_eSCyYA2LEeai5sTp20RF5Q" name="DerivationKind">
+      <ownedLiteral xmi:id="_hUvuYA2LEeai5sTp20RF5Q" name="constraint"/>
+      <ownedLiteral xmi:id="_kURakA2LEeai5sTp20RF5Q" name="specialization"/>
+    </packagedElement>
     <profileApplication xmi:id="_qHMGMDDmEeWn6bT0Ftydnw">
       <eAnnotations xmi:id="_qHQXoDDmEeWn6bT0Ftydnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
@@ -357,4 +372,5 @@
   <Ecore:EReference xmi:id="_lTf8cKEuEeWY1vgP8fLKAA" base_Property="_9GOHoKBmEeWY1vgP8fLKAA"/>
   <Ecore:EReference xmi:id="_mxXooKEuEeWY1vgP8fLKAA" base_Property="_ACXIoKBnEeWY1vgP8fLKAA"/>
   <Ecore:EPackage xmi:id="_b_h44KE9EeWNlunrJFMayg" base_Package="_R_eJMKE9EeWNlunrJFMayg" packageName="types" nsPrefix="fhirtypes" nsURI="http://www.eclipse.org/mdht/schema/profile/fhir/types/1.0.0" basePackage="" prefix="FHIRTypes"/>
+  <Ecore:EAttribute xmi:id="_F0fo8A2MEeai5sTp20RF5Q" isUnsettable="true" base_Property="_uZ4_sA2LEeai5sTp20RF5Q"/>
 </xmi:XMI>

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.mdht.uml.fhir.DerivationKind;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 
@@ -40,6 +41,8 @@ import org.eclipse.mdht.uml.fhir.StructureDefinition;
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl#getContextType <em>Context Type</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl#getContexts <em>Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl#getIsLogical <em>Is Logical</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.StructureDefinitionImpl#getDerivation <em>Derivation</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +107,55 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 	 * @ordered
 	 */
 	protected EList<String> contexts;
+
+	/**
+	 * The default value of the '{@link #getIsLogical() <em>Is Logical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsLogical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_LOGICAL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIsLogical() <em>Is Logical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsLogical()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isLogical = IS_LOGICAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDerivation() <em>Derivation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDerivation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DerivationKind DERIVATION_EDEFAULT = DerivationKind.CONSTRAINT;
+
+	/**
+	 * The cached value of the '{@link #getDerivation() <em>Derivation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDerivation()
+	 * @generated
+	 * @ordered
+	 */
+	protected DerivationKind derivation = DERIVATION_EDEFAULT;
+
+	/**
+	 * This is true if the Derivation attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean derivationESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,6 +273,73 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsLogical() {
+		return isLogical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsLogical(Boolean newIsLogical) {
+		Boolean oldIsLogical = isLogical;
+		isLogical = newIsLogical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL, oldIsLogical, isLogical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DerivationKind getDerivation() {
+		return derivation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDerivation(DerivationKind newDerivation) {
+		DerivationKind oldDerivation = derivation;
+		derivation = newDerivation == null ? DERIVATION_EDEFAULT : newDerivation;
+		boolean oldDerivationESet = derivationESet;
+		derivationESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.STRUCTURE_DEFINITION__DERIVATION, oldDerivation, derivation, !oldDerivationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetDerivation() {
+		DerivationKind oldDerivation = derivation;
+		boolean oldDerivationESet = derivationESet;
+		derivation = DERIVATION_EDEFAULT;
+		derivationESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, FHIRPackage.STRUCTURE_DEFINITION__DERIVATION, oldDerivation, DERIVATION_EDEFAULT, oldDerivationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDerivation() {
+		return derivationESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,6 +352,10 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 				return getContextType();
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT:
 				return getContexts();
+			case FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL:
+				return getIsLogical();
+			case FHIRPackage.STRUCTURE_DEFINITION__DERIVATION:
+				return getDerivation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,6 +382,12 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 				getContexts().clear();
 				getContexts().addAll((Collection<? extends String>)newValue);
 				return;
+			case FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL:
+				setIsLogical((Boolean)newValue);
+				return;
+			case FHIRPackage.STRUCTURE_DEFINITION__DERIVATION:
+				setDerivation((DerivationKind)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -283,6 +412,12 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT:
 				getContexts().clear();
 				return;
+			case FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL:
+				setIsLogical(IS_LOGICAL_EDEFAULT);
+				return;
+			case FHIRPackage.STRUCTURE_DEFINITION__DERIVATION:
+				unsetDerivation();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +438,10 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 				return CONTEXT_TYPE_EDEFAULT == null ? contextType != null : !CONTEXT_TYPE_EDEFAULT.equals(contextType);
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT:
 				return contexts != null && !contexts.isEmpty();
+			case FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL:
+				return IS_LOGICAL_EDEFAULT == null ? isLogical != null : !IS_LOGICAL_EDEFAULT.equals(isLogical);
+			case FHIRPackage.STRUCTURE_DEFINITION__DERIVATION:
+				return isSetDerivation();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,6 +462,10 @@ public class StructureDefinitionImpl extends ConformanceResourceImpl implements 
 		result.append(contextType);
 		result.append(", context: ");
 		result.append(contexts);
+		result.append(", isLogical: ");
+		result.append(isLogical);
+		result.append(", derivation: ");
+		if (derivationESet) result.append(derivation); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

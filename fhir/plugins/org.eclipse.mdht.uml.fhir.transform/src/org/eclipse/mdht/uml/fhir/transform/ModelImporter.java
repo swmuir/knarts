@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
+import org.eclipse.mdht.uml.fhir.DerivationKind;
 import org.eclipse.mdht.uml.fhir.ElementSlicing;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.SlicingRulesKind;
@@ -605,7 +606,6 @@ public class ModelImporter implements ModelConstants {
 		
 		StructureDefinitionKind structureKind = StructureDefinitionKind.valueOf(structureDef.getKind().getValue());
 		boolean isLogicalType = StructureDefinitionKind.logical == structureKind;
-		// TODO set StructureDefinition.isLogical(true) on stereotype
 
 		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
@@ -669,12 +669,23 @@ public class ModelImporter implements ModelConstants {
 			if (structureDef.getPublisher() != null) {
 				structureDefStereotype.setPublisher(structureDef.getPublisher().getValue());
 			}
+			if (structureDef.getCopyright() != null) {
+				structureDefStereotype.setCopyright(structureDef.getCopyright().getValue());
+			}
 			if (structureDef.getContextType() != null) {
 				structureDefStereotype.setContextType(structureDef.getContextType().getValue());
 			}
 			if (structureDef.getContext() != null) {
 				for (org.hl7.fhir.String fhirString : structureDef.getContext()) {
 					structureDefStereotype.getContexts().add(fhirString.getValue());
+				}
+			}
+			
+			structureDefStereotype.setIsLogical(isLogicalType);
+			if (structureDef.getDerivation() != null) {
+				DerivationKind derivation = DerivationKind.get(structureDef.getDerivation().getValue());
+				if (derivation != null) {
+					structureDefStereotype.setDerivation(derivation);
 				}
 			}
 			
@@ -975,7 +986,7 @@ public class ModelImporter implements ModelConstants {
 			
 			Property property = ownerClass.createOwnedAttribute(propertyName, propertyType);
 			elementPathMap.put(path, property);
-			assignMultiplicity(property, elementDef);
+			assignMultiplicity(property, inheritedProperty, elementDef);
 			
 			if (fhirUmlProfile != null) {
 				org.eclipse.mdht.uml.fhir.ElementDefinition elementDefStereotype = (org.eclipse.mdht.uml.fhir.ElementDefinition) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getElementDefinition().getName()));
@@ -1409,9 +1420,14 @@ public class ModelImporter implements ModelConstants {
 		return targetProp;
 	}
 	
-	private void assignMultiplicity(Property property, ElementDefinition elementDef) {
+	private void assignMultiplicity(Property property, Property inheritedProperty, ElementDefinition elementDef) {
 		int lower = 0;
 		int upper = 1;
+		
+		if (inheritedProperty != null) {
+			lower = inheritedProperty.getLower();
+			upper = inheritedProperty.getUpper();
+		}
 		
 		if (elementDef.getMin() != null) {
 			lower = elementDef.getMin().getValue();

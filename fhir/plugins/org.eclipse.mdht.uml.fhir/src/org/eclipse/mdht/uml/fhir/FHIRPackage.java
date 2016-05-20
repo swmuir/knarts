@@ -270,13 +270,22 @@ public interface FHIRPackage extends EPackage {
 	int CONFORMANCE_RESOURCE__USE_CONTEXT = ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFORMANCE_RESOURCE__COPYRIGHT = ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Conformance Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFORMANCE_RESOURCE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 9;
+	int CONFORMANCE_RESOURCE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Conformance Resource</em>' class.
@@ -397,6 +406,15 @@ public interface FHIRPackage extends EPackage {
 	int STRUCTURE_DEFINITION__USE_CONTEXT = CONFORMANCE_RESOURCE__USE_CONTEXT;
 
 	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__COPYRIGHT = CONFORMANCE_RESOURCE__COPYRIGHT;
+
+	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,13 +451,31 @@ public interface FHIRPackage extends EPackage {
 	int STRUCTURE_DEFINITION__CONTEXT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Is Logical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__IS_LOGICAL = CONFORMANCE_RESOURCE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Derivation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURE_DEFINITION__DERIVATION = CONFORMANCE_RESOURCE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Structure Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_DEFINITION_FEATURE_COUNT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 4;
+	int STRUCTURE_DEFINITION_FEATURE_COUNT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Structure Definition</em>' class.
@@ -972,6 +1008,15 @@ public interface FHIRPackage extends EPackage {
 	int VALUE_SET__USE_CONTEXT = CONFORMANCE_RESOURCE__USE_CONTEXT;
 
 	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__COPYRIGHT = CONFORMANCE_RESOURCE__COPYRIGHT;
+
+	/**
 	 * The feature id for the '<em><b>Base Enumeration</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1106,6 +1151,15 @@ public interface FHIRPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_ELEMENT__USE_CONTEXT = CONFORMANCE_RESOURCE__USE_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__COPYRIGHT = CONFORMANCE_RESOURCE__COPYRIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1290,6 +1344,16 @@ public interface FHIRPackage extends EPackage {
 	int ELEMENT_SLICING_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.DerivationKind
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getDerivationKind()
+	 * @generated
+	 */
+	int DERIVATION_KIND = 15;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1297,7 +1361,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getPropertyRepresentationKind()
 	 * @generated
 	 */
-	int PROPERTY_REPRESENTATION_KIND = 15;
+	int PROPERTY_REPRESENTATION_KIND = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}' enum.
@@ -1307,7 +1371,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getBindingStrengthKind()
 	 * @generated
 	 */
-	int BINDING_STRENGTH_KIND = 16;
+	int BINDING_STRENGTH_KIND = 17;
 
 
 	/**
@@ -1318,7 +1382,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSlicingRulesKind()
 	 * @generated
 	 */
-	int SLICING_RULES_KIND = 17;
+	int SLICING_RULES_KIND = 18;
 
 
 	/**
@@ -1406,6 +1470,28 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStructureDefinition_Context();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getIsLogical <em>Is Logical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Logical</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getIsLogical()
+	 * @see #getStructureDefinition()
+	 * @generated
+	 */
+	EAttribute getStructureDefinition_IsLogical();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation <em>Derivation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Derivation</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation()
+	 * @see #getStructureDefinition()
+	 * @generated
+	 */
+	EAttribute getStructureDefinition_Derivation();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ConformanceResource <em>Conformance Resource</em>}'.
@@ -1515,6 +1601,17 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConformanceResource_UseContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ConformanceResource#getCopyright <em>Copyright</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Copyright</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ConformanceResource#getCopyright()
+	 * @see #getConformanceResource()
+	 * @generated
+	 */
+	EAttribute getConformanceResource_Copyright();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.Element <em>Element</em>}'.
@@ -2044,6 +2141,16 @@ public interface FHIRPackage extends EPackage {
 	EReference getElementSlicing_Base_Property();
 
 	/**
+	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Derivation Kind</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.DerivationKind
+	 * @generated
+	 */
+	EEnum getDerivationKind();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2165,6 +2272,22 @@ public interface FHIRPackage extends EPackage {
 		EAttribute STRUCTURE_DEFINITION__CONTEXT = eINSTANCE.getStructureDefinition_Context();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Logical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE_DEFINITION__IS_LOGICAL = eINSTANCE.getStructureDefinition_IsLogical();
+
+		/**
+		 * The meta object literal for the '<em><b>Derivation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURE_DEFINITION__DERIVATION = eINSTANCE.getStructureDefinition_Derivation();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ConformanceResourceImpl <em>Conformance Resource</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2245,6 +2368,14 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONFORMANCE_RESOURCE__USE_CONTEXT = eINSTANCE.getConformanceResource_UseContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Copyright</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFORMANCE_RESOURCE__COPYRIGHT = eINSTANCE.getConformanceResource_Copyright();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ElementImpl <em>Element</em>}' class.
@@ -2661,6 +2792,16 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_SLICING__BASE_PROPERTY = eINSTANCE.getElementSlicing_Base_Property();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.DerivationKind
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getDerivationKind()
+		 * @generated
+		 */
+		EEnum DERIVATION_KIND = eINSTANCE.getDerivationKind();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.

@@ -34,6 +34,10 @@
   <foreignModel>FHIR.profile.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="FHIR" basePackage="org.eclipse.mdht.uml"
       disposableProviderFactory="true" ecorePackage="fhir.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//DerivationKind">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//DerivationKind/constraint"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//DerivationKind/specialization"/>
+    </genEnums>
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="fhir.ecore#//PropertyRepresentationKind">
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="fhir.ecore#//PropertyRepresentationKind/xmlAttr"/>
     </genEnums>
@@ -60,6 +64,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/display"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/contextType"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/context"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/isLogical"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//StructureDefinition/derivation"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="fhir.ecore#//ConformanceResource">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/uri"/>
@@ -73,6 +79,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/date"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//ConformanceResource/useContext"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ConformanceResource/copyright"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="fhir.ecore#//Element">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//Element/id"/>

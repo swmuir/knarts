@@ -64,6 +64,8 @@ public class StructureDefinitionItemProvider extends ConformanceResourceItemProv
 			addDisplayPropertyDescriptor(object);
 			addContextTypePropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
+			addIsLogicalPropertyDescriptor(object);
+			addDerivationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -148,6 +150,50 @@ public class StructureDefinitionItemProvider extends ConformanceResourceItemProv
 				 getString("_UI_StructureDefinition_context_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_context_feature", "_UI_StructureDefinition_type"),
 				 FHIRPackage.Literals.STRUCTURE_DEFINITION__CONTEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Logical feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsLogicalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StructureDefinition_isLogical_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_isLogical_feature", "_UI_StructureDefinition_type"),
+				 FHIRPackage.Literals.STRUCTURE_DEFINITION__IS_LOGICAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Derivation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDerivationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StructureDefinition_derivation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StructureDefinition_derivation_feature", "_UI_StructureDefinition_type"),
+				 FHIRPackage.Literals.STRUCTURE_DEFINITION__DERIVATION,
 				 true,
 				 false,
 				 false,
@@ -278,6 +324,8 @@ public class StructureDefinitionItemProvider extends ConformanceResourceItemProv
 			case FHIRPackage.STRUCTURE_DEFINITION__DISPLAY:
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT_TYPE:
 			case FHIRPackage.STRUCTURE_DEFINITION__CONTEXT:
+			case FHIRPackage.STRUCTURE_DEFINITION__IS_LOGICAL:
+			case FHIRPackage.STRUCTURE_DEFINITION__DERIVATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

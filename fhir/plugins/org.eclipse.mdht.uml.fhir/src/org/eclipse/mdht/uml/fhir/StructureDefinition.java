@@ -27,6 +27,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getContextType <em>Context Type</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getContexts <em>Context</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getIsLogical <em>Is Logical</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation <em>Derivation</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getStructureDefinition()
@@ -127,5 +129,87 @@ public interface StructureDefinition extends ConformanceResource {
 	 * @generated
 	 */
 	EList<String> getContexts();
+
+	/**
+	 * Returns the value of the '<em><b>Is Logical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Logical</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Logical</em>' attribute.
+	 * @see #setIsLogical(Boolean)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getStructureDefinition_IsLogical()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	Boolean getIsLogical();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getIsLogical <em>Is Logical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Logical</em>' attribute.
+	 * @see #getIsLogical()
+	 * @generated
+	 */
+	void setIsLogical(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Derivation</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.mdht.uml.fhir.DerivationKind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Derivation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Derivation</em>' attribute.
+	 * @see org.eclipse.mdht.uml.fhir.DerivationKind
+	 * @see #isSetDerivation()
+	 * @see #unsetDerivation()
+	 * @see #setDerivation(DerivationKind)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getStructureDefinition_Derivation()
+	 * @model unsettable="true" ordered="false"
+	 * @generated
+	 */
+	DerivationKind getDerivation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation <em>Derivation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Derivation</em>' attribute.
+	 * @see org.eclipse.mdht.uml.fhir.DerivationKind
+	 * @see #isSetDerivation()
+	 * @see #unsetDerivation()
+	 * @see #getDerivation()
+	 * @generated
+	 */
+	void setDerivation(DerivationKind value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation <em>Derivation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDerivation()
+	 * @see #getDerivation()
+	 * @see #setDerivation(DerivationKind)
+	 * @generated
+	 */
+	void unsetDerivation();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.mdht.uml.fhir.StructureDefinition#getDerivation <em>Derivation</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Derivation</em>' attribute is set.
+	 * @see #unsetDerivation()
+	 * @see #getDerivation()
+	 * @see #setDerivation(DerivationKind)
+	 * @generated
+	 */
+	boolean isSetDerivation();
 
 } // StructureDefinition
