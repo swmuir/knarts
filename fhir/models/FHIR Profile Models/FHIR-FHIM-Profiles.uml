@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fhir="http://www.eclipse.org/mdht/schema/profile/fhir/1.0.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_fO7eECP_EeW3155CxDza7Q" name="FHIM Profiles">
+    <packageImport xmi:id="_5qaTsIcuEeWQR6LmUoLc9w">
+      <importedPackage href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_fO7eECP_EeW3155CxDza7Q"/>
+    </packageImport>
+    <packageImport xmi:id="_1pyIoKWzEeWdnq7z45q_aw">
+      <importedPackage href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_fO7eECP_EeW3155CxDza7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_od03cCDzEeaJQvR9E9gggQ" name="IPO Allergy Intolerance">
+      <generalization xmi:id="_prRiACDzEeaJQvR9E9gggQ">
+        <general xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np4Q2B6jEeas6bilMI5U3Q"/>
+      </generalization>
+      <ownedAttribute xmi:id="_r3obMCK8Eea52oPDYcvlWQ" name="category" isOrdered="true">
+        <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_ctvHAR6iEeaiz9nt1M5Xsw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ufM6YSK8Eea52oPDYcvlWQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ufM6YCK8Eea52oPDYcvlWQ" value="1"/>
+        <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np6GBR6jEeas6bilMI5U3Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_w-5goCDzEeaJQvR9E9gggQ" name="substance" isOrdered="true">
+        <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_c9y8RB6iEeaiz9nt1M5Xsw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-5goSDzEeaJQvR9E9gggQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-5goiDzEeaJQvR9E9gggQ" value="1"/>
+        <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np7UIB6jEeas6bilMI5U3Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_w-784CDzEeaJQvR9E9gggQ" name="reaction" type="_nfHXACD0EeaJQvR9E9gggQ" isOrdered="true" aggregation="composite" association="_w--ZICDzEeaJQvR9E9gggQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-784SDzEeaJQvR9E9gggQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-784iDzEeaJQvR9E9gggQ" value="*"/>
+        <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqAMoB6jEeas6bilMI5U3Q"/>
+      </ownedAttribute>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_nfHXACD0EeaJQvR9E9gggQ" name="IPOReaction">
+        <generalization xmi:id="_nfH-ECD0EeaJQvR9E9gggQ">
+          <general xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqAMqB6jEeas6bilMI5U3Q"/>
+        </generalization>
+        <ownedAttribute xmi:id="_5iSokCD0EeaJQvR9E9gggQ" name="substance" isOrdered="true">
+          <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_c9y8RB6iEeaiz9nt1M5Xsw"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5iSokSD0EeaJQvR9E9gggQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5iSokiD0EeaJQvR9E9gggQ" value="1"/>
+          <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqAzsB6jEeas6bilMI5U3Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_5iWS8CD0EeaJQvR9E9gggQ" name="manifestation1" isOrdered="true">
+          <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_c9y8RB6iEeaiz9nt1M5Xsw"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5iWS8SD0EeaJQvR9E9gggQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5iWS8iD0EeaJQvR9E9gggQ" value="*"/>
+          <subsettedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqBawR6jEeas6bilMI5U3Q"/>
+        </ownedAttribute>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_w--ZICDzEeaJQvR9E9gggQ" memberEnd="_w-784CDzEeaJQvR9E9gggQ _w--ZISDzEeaJQvR9E9gggQ">
+      <ownedEnd xmi:id="_w--ZISDzEeaJQvR9E9gggQ" type="_od03cCDzEeaJQvR9E9gggQ" association="_w--ZICDzEeaJQvR9E9gggQ"/>
+    </packagedElement>
+    <profileApplication xmi:id="_uxtyMC9SEeWIBNXd-hwrzA">
+      <eAnnotations xmi:id="_uxvnYC9SEeWIBNXd-hwrzA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.openhealthtools.org/mdht/schema/profile/validation/1.0.0#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_VALIDATION/Validation.profile.uml#profile"/>
+    </profileApplication>
+    <profileApplication xmi:id="_5Y4JIGIeEeWnPYecKg0Ttw">
+      <eAnnotations xmi:id="_5Y-20GIeEeWnPYecKg0Ttw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/mdht/schema/profile/fhir/1.0.0#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_FHIR/FHIR.profile.uml#_dtdbUDDkEeWn6bT0Ftydnw"/>
+    </profileApplication>
+  </uml:Package>
+  <fhir:ElementDefinition xmi:id="_w-6HsCDzEeaJQvR9E9gggQ" base_Property="_w-5goCDzEeaJQvR9E9gggQ" representation=""/>
+  <fhir:ValueSetBinding xmi:id="_w-7V0CDzEeaJQvR9E9gggQ" base_Property="_w-5goCDzEeaJQvR9E9gggQ" strength="extensible">
+    <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np77MB6jEeas6bilMI5U3Q"/>
+  </fhir:ValueSetBinding>
+  <fhir:ElementDefinition xmi:id="_w-8j8CDzEeaJQvR9E9gggQ" base_Property="_w-784CDzEeaJQvR9E9gggQ" mustSupport="true" representation=""/>
+  <fhir:StructureDefinition xmi:id="_w--ZIiDzEeaJQvR9E9gggQ" name="IPO Allergy Intolerance" base_Class="_od03cCDzEeaJQvR9E9gggQ"/>
+  <fhir:ElementDefinition xmi:id="_5iTPoCD0EeaJQvR9E9gggQ" base_Property="_5iSokCD0EeaJQvR9E9gggQ" representation=""/>
+  <fhir:ValueSetBinding xmi:id="_5iVE0CD0EeaJQvR9E9gggQ" base_Property="_5iSokCD0EeaJQvR9E9gggQ" strength="extensible">
+    <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np77MB6jEeas6bilMI5U3Q"/>
+  </fhir:ValueSetBinding>
+  <fhir:ElementDefinition xmi:id="_5iWS8yD0EeaJQvR9E9gggQ" base_Property="_5iWS8CD0EeaJQvR9E9gggQ" representation=""/>
+  <fhir:ValueSetBinding xmi:id="_5iXhECD0EeaJQvR9E9gggQ" base_Property="_5iWS8CD0EeaJQvR9E9gggQ" strength="extensible" description="Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event">
+    <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqCB0h6jEeas6bilMI5U3Q"/>
+  </fhir:ValueSetBinding>
+  <fhir:ElementDefinition xmi:id="_r5OWoCK8Eea52oPDYcvlWQ" base_Property="_r3obMCK8Eea52oPDYcvlWQ" representation=""/>
+</xmi:XMI>
