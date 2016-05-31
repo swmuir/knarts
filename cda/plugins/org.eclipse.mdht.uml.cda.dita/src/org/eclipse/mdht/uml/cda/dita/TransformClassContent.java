@@ -404,6 +404,10 @@ public class TransformClassContent extends TransformAbstract {
 			for (Element element : constraint.getConstrainedElements()) {
 				if (CDAProfileUtil.getLogicalConstraint(constraint) == null) {
 					if (element instanceof Property) {
+						if (!CDAModelUtil.hasOwnPDFSection((Property) element)) {
+							unprocessedConstraints.remove(constraint);
+							continue;
+						}
 						String name = ((Property) element).getName();
 						List<Constraint> rules = constraintMap.get(name);
 						if (rules == null) {
@@ -462,6 +466,9 @@ public class TransformClassContent extends TransformAbstract {
 		// XML attributes
 
 		for (Property property : allAttributes) {
+			if (!CDAModelUtil.hasOwnPDFSection(property)) {
+				continue;
+			}
 			hasRules = true;
 			writer.println("<li>" + CDAModelUtil.computeConformanceMessage(property, true));
 			appendPropertyComments(writer, property);
@@ -473,6 +480,9 @@ public class TransformClassContent extends TransformAbstract {
 		// XML elements
 
 		for (Property property : allProperties) {
+			if (!CDAModelUtil.hasOwnPDFSection(property)) {
+				continue;
+			}
 			hasRules = true;
 			writer.println("<li>");
 			String extendedConformanceMessage = CDAModelUtil.computeConformanceMessage(property, true);
