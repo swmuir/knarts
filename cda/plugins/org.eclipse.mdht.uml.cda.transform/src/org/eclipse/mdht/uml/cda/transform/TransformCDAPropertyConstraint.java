@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.mdht.uml.cda.core.profile.Validation;
+import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
 import org.eclipse.mdht.uml.cda.core.util.ICDAProfileConstants;
 import org.eclipse.mdht.uml.cda.transform.internal.Logger;
 import org.eclipse.mdht.uml.common.util.UMLUtil;
@@ -39,7 +41,7 @@ import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.LiteralUnlimitedNatural;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
@@ -292,6 +294,11 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 			}
 
 			// Have we changed the property cardinality
+			String qname = ICDAProfileConstants.CDA_PROFILE_NAME + NamedElement.SEPARATOR +
+					ICDAProfileConstants.PROPERTY_VALIDATION;
+			Stereotype stereotype = property.getApplicableStereotype(qname);
+
+			Validation validation = (Validation) property.getStereotypeApplication(stereotype);
 
 			if (property.getLower() != inheritedProperty.getLower() ||
 					property.getUpper() != inheritedProperty.getUpper()) {
@@ -313,20 +320,19 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 						}
 					}
 				} else {
+					if (property.getLower() == property.getUpper()) {
+						body.append(selfName).append("->size() =  ").append(property.getLower());
 
-					// Keep this for some level of backwards compatibility else check size for upper and lower
-					if (property.getLower() == 1 && property.getUpper() == 1) {
-						body.append(selfName + "->size() = 1");
-					} else {
-						if (property.getLower() != 0) {
-							// "..->size() >= 0" is an unnecessary tautology, so skip this case
-							body.append(selfName + "->size() >= " + property.getLower());
-						}
-						if (property.getUpper() != LiteralUnlimitedNatural.UNLIMITED) {
-							if (body.length() > 0) {
-								body.append(" and ");
-							}
+						if (validation.getKind().equals(ValidationKind.OPEN)) {
+							body.append("( not " + selfName + "->isEmpty()) ");
+						} else {
+							body.append(" ( ");
+							body.append(selfName + "->size() >= " + (property.getLower() == 0
+									? "1"
+									: property.getLower()));
+							body.append(" and ");
 							body.append(selfName + "->size() <= " + property.getUpper());
+							body.append(" ) ");
 						}
 					}
 				}
