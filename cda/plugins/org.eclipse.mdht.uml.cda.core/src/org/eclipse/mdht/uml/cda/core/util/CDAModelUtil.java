@@ -1022,9 +1022,21 @@ public class CDAModelUtil {
 			// if the datatype is not different from the immediate parent, then the xsi:type shouldn't be printed
 			if (propertyCdaType != null && cdaPropertyType != null && propertyCdaType != cdaPropertyType &&
 					propertyCdaType.getName() != null && !propertyCdaType.getName().isEmpty()) {
-				message.append(" with " + "@xsi:type=\"");
+				message.append(" with ");
+				message.append(markup
+						? "<tt><b>"
+						: "");
+				message.append("@xsi:type");
+				message.append(markup
+						? "</b>"
+						: "");
+				message.append("=\"");
+
 				message.append(propertyCdaType.getName());
 				message.append("\"");
+				message.append(markup
+						? "</tt>"
+						: "");
 			}
 		}
 
