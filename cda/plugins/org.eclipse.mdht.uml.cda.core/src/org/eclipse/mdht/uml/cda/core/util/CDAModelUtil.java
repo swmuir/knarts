@@ -778,9 +778,7 @@ public class CDAModelUtil {
 					: " ");
 			message.append("Conforms to ");
 
-			String prefix = !UMLUtil.isSameModel(xrefSource, endType)
-					? getModelPrefix(endType) + " "
-					: "";
+			String prefix = "";
 			String xref = computeXref(xrefSource, endType);
 			boolean showXref = markup && (xref != null);
 			String format = showXref && xref.endsWith(".html")
@@ -814,6 +812,10 @@ public class CDAModelUtil {
 						? "</tt>"
 						: "");
 				message.append(")");
+			}
+
+			if (!UMLUtil.isSameModel(xrefSource, endType)) {
+				message.append(" from " + getModelPrefix(endType));
 			}
 
 			message.append(markup
