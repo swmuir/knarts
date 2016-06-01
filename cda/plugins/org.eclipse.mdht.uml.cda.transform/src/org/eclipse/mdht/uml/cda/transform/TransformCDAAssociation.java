@@ -129,63 +129,56 @@ public class TransformCDAAssociation extends TransformAssociation {
 				(CDAModelUtil.isClinicalStatement(targetClass) || CDAModelUtil.isEntry(targetClass))) {
 			associationEndOut[0] = "entry";
 			variableDeclarationOut[0] = "entry : cda::Entry";
-			result = true;
 		} else if (CDAModelUtil.isOrganizer(sourceClass) && CDAModelUtil.isClinicalStatement(targetClass)) {
 			associationEndOut[0] = "component";
 			variableDeclarationOut[0] = "component : cda::Component4";
-			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) && CDAModelUtil.isClinicalStatement(targetClass)) {
 			associationEndOut[0] = "entryRelationship";
 			variableDeclarationOut[0] = "entryRelationship : cda::EntryRelationship";
-			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&
 				"ParticipantRole".equals(baseTargetClass.getName())) {
 			associationEndOut[0] = "participant";
 			variableDeclarationOut[0] = "participant : cda::Participant2";
-			result = true;
 		} else if (CDAModelUtil.isClinicalStatement(sourceClass) &&
 				"AssignedEntity".equals(baseTargetClass.getName())) {
 			associationEndOut[0] = "performer";
 			variableDeclarationOut[0] = "performer : cda::Performer2";
-			result = true;
 		}
 
-		if (!result) {
-			// See if we have a property with the same class type
-			Property property = CDAModelUtil.getCDAProperty(sourceProperty);
-			if (property == null) {
-				property = baseSourceClass.getOwnedAttribute(null, baseTargetClass, true, null, false);
-			}
-			// Property
-			// If not - walk the hierarchy and check for properties
-			if (property == null) {
-				for (Classifier c : targetClass.allParents()) {
+		// See if we have a property with the same class type
+		Property property = CDAModelUtil.getCDAProperty(sourceProperty);
+		if (property == null) {
+			property = baseSourceClass.getOwnedAttribute(null, baseTargetClass, true, null, false);
+		}
+		// Property
+		// If not - walk the hierarchy and check for properties
+		if (property == null) {
+			for (Classifier c : targetClass.allParents()) {
 
-					property = baseSourceClass.getOwnedAttribute(null, c, true, null, false);
+				property = baseSourceClass.getOwnedAttribute(null, c, true, null, false);
 
-					if (property != null || isBaseModel(targetClass, c)) {
-						break;
-					}
-
+				if (property != null || isBaseModel(targetClass, c)) {
+					break;
 				}
+
 			}
+		}
 
-			// If we still can not find - use the name - this is not optimal but CDA has some hop scotch hierarchies such as consumable and
-			// manufactured product
-			if (property == null) {
-				property = baseSourceClass.getOwnedAttribute(sourceProperty.getName(), null, true, null, false);
-			}
+		// If we still can not find - use the name - this is not optimal but CDA has some hop scotch hierarchies such as consumable and
+		// manufactured product
+		if (property == null) {
+			property = baseSourceClass.getOwnedAttribute(sourceProperty.getName(), null, true, null, false);
+		}
 
-			// If we found it, process it
-			if (property != null) {
-				associationEndOut[0] = property.getName();
+		// If we found it, process it
+		if (property != null) {
+			associationEndOut[0] = property.getName();
 
-				// CHANGE6: don't hard-code "cda::" as it could be in a sub-package, so use getQualifiedName instead
-				variableDeclarationOut[0] = property.getName() + " : " + property.getType().getQualifiedName();
+			// CHANGE6: don't hard-code "cda::" as it could be in a sub-package, so use getQualifiedName instead
+			variableDeclarationOut[0] = property.getName() + " : " + property.getType().getQualifiedName();
 
-				// do not generate a getter already there
-				result = true;
-			}
+			// do not generate a getter already there
+			result = true;
 		}
 
 		return result;
