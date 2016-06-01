@@ -323,7 +323,7 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 					if (property.getLower() == property.getUpper()) {
 						body.append(selfName).append("->size() =  ").append(property.getLower());
 
-						if (validation.getKind().equals(ValidationKind.OPEN)) {
+						if (validation!= null && validation.getKind().equals(ValidationKind.OPEN)) {
 							body.append("( not " + selfName + "->isEmpty()) ");
 						} else {
 							body.append(" ( ");
