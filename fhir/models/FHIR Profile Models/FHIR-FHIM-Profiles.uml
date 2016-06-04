@@ -38,11 +38,11 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5iSokiD0EeaJQvR9E9gggQ" value="1"/>
           <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqAzsB6jEeas6bilMI5U3Q"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_5iWS8CD0EeaJQvR9E9gggQ" name="manifestation1" isOrdered="true">
+        <ownedAttribute xmi:id="_5iWS8CD0EeaJQvR9E9gggQ" name="manifestation" isOrdered="true">
           <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_c9y8RB6iEeaiz9nt1M5Xsw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5iWS8SD0EeaJQvR9E9gggQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5iWS8iD0EeaJQvR9E9gggQ" value="*"/>
-          <subsettedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqBawR6jEeas6bilMI5U3Q"/>
+          <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_NqBawR6jEeas6bilMI5U3Q"/>
         </ownedAttribute>
       </nestedClassifier>
     </packagedElement>
@@ -66,8 +66,8 @@
   <fhir:ValueSetBinding xmi:id="_w-7V0CDzEeaJQvR9E9gggQ" base_Property="_w-5goCDzEeaJQvR9E9gggQ" strength="extensible">
     <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np77MB6jEeas6bilMI5U3Q"/>
   </fhir:ValueSetBinding>
-  <fhir:ElementDefinition xmi:id="_w-8j8CDzEeaJQvR9E9gggQ" base_Property="_w-784CDzEeaJQvR9E9gggQ" mustSupport="true" representation=""/>
-  <fhir:StructureDefinition xmi:id="_w--ZIiDzEeaJQvR9E9gggQ" name="IPO Allergy Intolerance" base_Class="_od03cCDzEeaJQvR9E9gggQ"/>
+  <fhir:ElementDefinition xmi:id="_w-8j8CDzEeaJQvR9E9gggQ" base_Property="_w-784CDzEeaJQvR9E9gggQ" representation=""/>
+  <fhir:StructureDefinition xmi:id="_w--ZIiDzEeaJQvR9E9gggQ" id="ipo-allergy-intolerance" name="IPO Allergy Intolerance" base_Class="_od03cCDzEeaJQvR9E9gggQ"/>
   <fhir:ElementDefinition xmi:id="_5iTPoCD0EeaJQvR9E9gggQ" base_Property="_5iSokCD0EeaJQvR9E9gggQ" representation=""/>
   <fhir:ValueSetBinding xmi:id="_5iVE0CD0EeaJQvR9E9gggQ" base_Property="_5iSokCD0EeaJQvR9E9gggQ" strength="extensible">
     <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_Np77MB6jEeas6bilMI5U3Q"/>
