@@ -56,12 +56,19 @@
       <constraintProvider
             cache="false"
             class="org.eclipse.mdht.uml.validation.internal.provider.ProfileConstraintProvider">
+                  
          <package
                namespaceUri="http://www.eclipse.org/uml2/2.0.0/UML"/>
          <package
                namespaceUri="http://www.eclipse.org/uml2/2.1.0/UML"/>
          <package
                namespaceUri="http://www.eclipse.org/uml2/3.0.0/UML"/>
+               
+          <package
+               namespaceUri="http://www.eclipse.org/uml2/4.0.0/UML"/>
+               
+           <package
+               namespaceUri="http://www.eclipse.org/uml2/5.0.0/UML"/>    
       </constraintProvider>
    </extension>
    
@@ -69,7 +76,7 @@
          point="org.eclipse.emf.validation.constraintBindings">
       <clientContext
             id="org.eclipse.mdht.uml.validation.context">
-         <selector
+         <selector default="false"
                class="org.eclipse.mdht.uml.validation.internal.provider.ProfileClientSelector" />
       </clientContext>
       <binding
