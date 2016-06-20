@@ -29,8 +29,8 @@ import org.eclipse.uml2.uml.Constraint;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConstraintValidationImpl#getBase_Constraint <em>Base Constraint</em>}</li>
- * <li>{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConstraintValidationImpl#isEnabledDitaForConstraints <em>Enabled Dita For Constraints</em>}
- * </li>
+ * <li>{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConstraintValidationImpl#isEnabledDitaForConstraints <em>Enabled Dita For
+ * Constraints</em>}</li>
  * </ul>
  *
  * @generated

@@ -80,8 +80,8 @@ public interface ConstraintValidation extends Validation {
 	boolean isEnabledDitaForConstraints();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints
-	 * <em>Enabled Dita For Constraints</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#isEnabledDitaForConstraints <em>Enabled Dita For
+	 * Constraints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

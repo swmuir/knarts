@@ -1339,19 +1339,17 @@ public class CDACommonUtils {
 					// retrieve values from terminology tab and put them into new attributes
 					String codeSystem = null;
 					String codeSystemName = null;
-					@SuppressWarnings("unused")
-					String codeSystemVersion = null;
 					String code = null;
 					String displayName = null;
 
 					if (codeSystemConstraint.getReference() != null) {
 						codeSystem = codeSystemConstraint.getReference().getIdentifier();
 						codeSystemName = codeSystemConstraint.getReference().getEnumerationName();
-						codeSystemVersion = codeSystemConstraint.getReference().getVersion();
+						codeSystemConstraint.getReference().getVersion();
 					} else {
 						codeSystem = codeSystemConstraint.getIdentifier();
 						codeSystemName = codeSystemConstraint.getName();
-						codeSystemVersion = codeSystemConstraint.getVersion();
+						codeSystemConstraint.getVersion();
 					}
 					code = codeSystemConstraint.getCode();
 					displayName = codeSystemConstraint.getDisplayName();

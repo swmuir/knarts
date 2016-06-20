@@ -31,16 +31,17 @@ import org.eclipse.mdht.uml.term.core.profile.TermPackage;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * org.openhealthtools.mdht.uml.cda.validation.internal.classifiers.OCLConstraintConstraints
- * org.openhealthtools.mdht.uml.cda.validation.internal.classifiers.OCLConstraintConstraints
+ * org.eclipse.mdht.uml.cda.validation.internal.classifiers.OCLConstraintConstraints
+ * org.eclipse.mdht.uml.cda.validation.internal.classifiers.OCLConstraintConstraints
  * (memberEnd->size() = 2) and
  * -- check for non-null name detects an unresolved proxy
  * memberEnd->forAll(type.oclIsKindOf(uml::Class) and not type.name.oclIsUndefined())
- * org.openhealthtools.mdht.uml.cda.validation.internal.packages.PackageImportConstraints
- * org.openhealthtools.mdht.uml.cda.validation.internal.packages.PackageImportConstraints
- * org.openhealthtools.mdht.uml.cda.validation.internal.classifiers.PropertyConstraints
- * org.openhealthtools.mdht.uml.cda.validation.internal.properties.SeverityAndCardinalityConstraint
- * org.openhealthtools.mdht.uml.cda.validation.internal.properties.PropertyValidation
+ * org.eclipse.mdht.uml.cda.validation.internal.packages.PackageImportConstraints
+ * org.eclipse.mdht.uml.cda.validation.internal.packages.PackageImportConstraints
+ * org.eclipse.mdht.uml.cda.validation.internal.classifiers.PropertyConstraints
+ * org.eclipse.mdht.uml.cda.validation.internal.properties.SeverityAndCardinalityConstraint
+ * org.eclipse.mdht.uml.cda.validation.internal.properties.PropertyValidation
+ * org.eclipse.mdht.uml.cda.validation.internal.properties.TerminologyValidation
  * <!-- end-model-doc -->
  * 
  * @see org.eclipse.mdht.uml.cda.core.profile.CDAFactory
@@ -84,8 +85,8 @@ public interface CDAPackage extends EPackage {
 		EAttribute ENTRY__TYPE_CODE = eINSTANCE.getEntry_TypeCode();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.AssociationValidationImpl
-		 * <em>Association Validation</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.AssociationValidationImpl <em>Association
+		 * Validation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -468,8 +469,8 @@ public interface CDAPackage extends EPackage {
 		EAttribute CDA_TEMPLATE__TEMPLATE_MULTIPLICITY = eINSTANCE.getCDATemplate_TemplateMultiplicity();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConstraintValidationImpl <em>Constraint Validation</em>}
-		 * ' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConstraintValidationImpl <em>Constraint
+		 * Validation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -527,8 +528,8 @@ public interface CDAPackage extends EPackage {
 		EAttribute CONFORMS_TO__REQUIRES_PARENT_ID = eINSTANCE.getConformsTo_RequiresParentId();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConceptDomainConstraintImpl
-		 * <em>Concept Domain Constraint</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.ConceptDomainConstraintImpl <em>Concept Domain
+		 * Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -539,8 +540,8 @@ public interface CDAPackage extends EPackage {
 		EClass CONCEPT_DOMAIN_CONSTRAINT = eINSTANCE.getConceptDomainConstraint();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.CodeSystemConstraintImpl <em>Code System Constraint</em>
-		 * }' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.CodeSystemConstraintImpl <em>Code System
+		 * Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -3123,8 +3124,8 @@ public interface CDAPackage extends EPackage {
 	EClass getActRelationship();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ActRelationship#getAssociationType
-	 * <em>Association Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ActRelationship#getAssociationType <em>Association
+	 * Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3136,8 +3137,8 @@ public interface CDAPackage extends EPackage {
 	EReference getActRelationship_AssociationType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ActRelationship#getBase_Association
-	 * <em>Base Association</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ActRelationship#getBase_Association <em>Base
+	 * Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3172,8 +3173,8 @@ public interface CDAPackage extends EPackage {
 	EClass getAssociationValidation();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.AssociationValidation#getBase_Association
-	 * <em>Base Association</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.AssociationValidation#getBase_Association <em>Base
+	 * Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3206,8 +3207,8 @@ public interface CDAPackage extends EPackage {
 	EClass getCDATemplate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getAssigningAuthorityName
-	 * <em>Assigning Authority Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getAssigningAuthorityName <em>Assigning
+	 * Authority Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3219,8 +3220,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getCDATemplate_AssigningAuthorityName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#isContextDependent
-	 * <em>Context Dependent</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#isContextDependent <em>Context
+	 * Dependent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3232,8 +3233,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getCDATemplate_ContextDependent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateVersion
-	 * <em>Template Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateVersion <em>Template
+	 * Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3245,8 +3246,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getCDATemplate_TemplateVersion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateMultiplicity
-	 * <em>Template Multiplicity</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.CDATemplate#getTemplateMultiplicity <em>Template
+	 * Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3304,8 +3305,8 @@ public interface CDAPackage extends EPackage {
 	EClass getCodegenSupport();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getBase_Namespace
-	 * <em>Base Namespace</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.CodegenSupport#getBase_Namespace <em>Base
+	 * Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3410,8 +3411,8 @@ public interface CDAPackage extends EPackage {
 	EClass getConformsTo();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ConformsTo#getBase_Generalization
-	 * <em>Base Generalization</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ConformsTo#getBase_Generalization <em>Base
+	 * Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3423,8 +3424,8 @@ public interface CDAPackage extends EPackage {
 	EReference getConformsTo_Base_Generalization();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.ConformsTo#isRequiresParentId
-	 * <em>Requires Parent Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.ConformsTo#isRequiresParentId <em>Requires Parent
+	 * Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3447,8 +3448,8 @@ public interface CDAPackage extends EPackage {
 	EClass getConstraintValidation();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint
-	 * <em>Base Constraint</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation#getBase_Constraint <em>Base
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3608,8 +3609,8 @@ public interface CDAPackage extends EPackage {
 	EClass getParticipation();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Participation#getAssociationType
-	 * <em>Association Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Participation#getAssociationType <em>Association
+	 * Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3621,8 +3622,8 @@ public interface CDAPackage extends EPackage {
 	EReference getParticipation_AssociationType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Participation#getBase_Association
-	 * <em>Base Association</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Participation#getBase_Association <em>Base
+	 * Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3704,8 +3705,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getInline_Filter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.Inline#isPublishSeperately <em>Publish Seperately</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.Inline#isPublishSeperately <em>Publish
+	 * Seperately</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3728,8 +3729,8 @@ public interface CDAPackage extends EPackage {
 	EClass getUnimplementable();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Unimplementable#getBase_Constraint
-	 * <em>Base Constraint</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.Unimplementable#getBase_Constraint <em>Base
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3752,8 +3753,8 @@ public interface CDAPackage extends EPackage {
 	EClass getPropertyValidation();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.PropertyValidation#getBase_Property
-	 * <em>Base Property</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.cda.core.profile.PropertyValidation#getBase_Property <em>Base
+	 * Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3858,8 +3859,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getValidation_Strict();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#isNegationIndicator
-	 * <em>Negation Indicator</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.Validation#isNegationIndicator <em>Negation
+	 * Indicator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3941,8 +3942,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getVocabSpecification_Code();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystem <em>Code System</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystem <em>Code
+	 * System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3954,8 +3955,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getVocabSpecification_CodeSystem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystemName
-	 * <em>Code System Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystemName <em>Code System
+	 * Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3967,8 +3968,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getVocabSpecification_CodeSystemName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystemVersion
-	 * <em>Code System Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getCodeSystemVersion <em>Code System
+	 * Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3980,8 +3981,8 @@ public interface CDAPackage extends EPackage {
 	EAttribute getVocabSpecification_CodeSystemVersion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getDisplayName <em>Display Name</em>
-	 * }'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.core.profile.VocabSpecification#getDisplayName <em>Display
+	 * Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

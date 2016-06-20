@@ -217,8 +217,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.AssociationValidation
-	 * <em>Association Validation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.AssociationValidation <em>Association
+	 * Validation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -278,8 +278,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.CodeSystemConstraint <em>Code System Constraint</em>
-	 * }'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.CodeSystemConstraint <em>Code System
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -294,8 +294,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.ConceptDomainConstraint
-	 * <em>Concept Domain Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.ConceptDomainConstraint <em>Concept Domain
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -325,8 +325,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation <em>Constraint Validation</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.core.profile.ConstraintValidation <em>Constraint
+	 * Validation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -459,8 +459,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint
-	 * <em>Concept Domain Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint <em>Concept Domain
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -475,8 +475,8 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint
-	 * <em>Code System Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint <em>Code System
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
