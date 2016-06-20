@@ -113,25 +113,28 @@ public class CodeSystemConstraintUtil {
 			final String enumTypeName = property.getType().getQualifiedName();
 
 			final Enumeration base = codeSystemConstraint.getReference().getBase_Enumeration();
-			final Iterable<EnumerationLiteral> literals = getSmallEnumeration(base);
 
-			if (literals != null) {
-				boolean needsOr = false;
-				for (EnumerationLiteral next : base.getOwnedLiterals()) {
-					// only consider literals that represent value-set codes
-					ValueSetCode code = TermProfileUtil.getValueSetCode(next);
+			if (base != null) {
+				final Iterable<EnumerationLiteral> literals = getSmallEnumeration(base);
 
-					if (code != null) {
-						if (needsOr) {
-							result.append(" or ");
+				if (literals != null) {
+					boolean needsOr = false;
+					for (EnumerationLiteral next : base.getOwnedLiterals()) {
+						// only consider literals that represent value-set codes
+						ValueSetCode code = TermProfileUtil.getValueSetCode(next);
+
+						if (code != null) {
+							if (needsOr) {
+								result.append(" or ");
+							}
+							result.append("value = ");
+
+							// the enumeration to compare against is in the namespace of the
+							// property type, not the value-set constraint
+							result.append(enumTypeName).append(NamedElement.SEPARATOR).append(next.getName());
+
+							needsOr = true;
 						}
-						result.append("value = ");
-
-						// the enumeration to compare against is in the namespace of the
-						// property type, not the value-set constraint
-						result.append(enumTypeName).append(NamedElement.SEPARATOR).append(next.getName());
-
-						needsOr = true;
 					}
 				}
 			}
