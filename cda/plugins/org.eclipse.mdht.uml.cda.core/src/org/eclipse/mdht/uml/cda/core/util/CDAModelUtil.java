@@ -560,6 +560,10 @@ public class CDAModelUtil {
 			message.append(getPrefixedSplitName(property.getClass_())).append(" ");
 		}
 
+		if (getTemplateId(property.getClass_()) != null) {
+			appendNullflavorSectionMessage(property, message);
+		}
+
 		String keyword = getValidationKeywordWithPropertyRange(association, property);
 		if (keyword != null) {
 			message.append(markup
@@ -663,14 +667,7 @@ public class CDAModelUtil {
 			message.append(getPrefixedSplitName(property.getClass_())).append(" ");
 		}
 
-		// errata 384 message support: if the class owner is a section, and it has an association
-		// to either a clinical statement or an Entry (Act, Observation, etc.), append the message
-		for (Property p : association.getMemberEnds()) {
-			if ((p.getName() != null && !p.getName().isEmpty()) && (p.getOwner() != null && p.getType() != null) &&
-					(isSection((Class) p.getOwner()) && isClinicalStatement(p.getType()) || isEntry(p.getType()))) {
-				message.append(NULLFLAVOR_SECTION_MESSAGE);
-			}
-		}
+		appendNullflavorSectionMessage(property, message);
 
 		String keyword = getValidationKeyword(association);
 		if (keyword != null) {
@@ -725,6 +722,34 @@ public class CDAModelUtil {
 		}
 
 		return message.toString();
+	}
+
+	/**
+	 * Adds a null flavor condition message under certain circumstances
+	 *
+	 * @param property
+	 * @param message
+	 */
+	private static void appendNullflavorSectionMessage(Property property, StringBuffer message) {
+
+		Association association = property.getAssociation();
+
+		// errata 384 message support: if the class owner is a section, and it has an association
+		// to either a clinical statement or an Entry (Act, Observation, etc.), append the message
+		for (Property p : association.getMemberEnds()) {
+			if ((p.getName() != null && !p.getName().isEmpty()) && (p.getOwner() != null && p.getType() != null) &&
+					(isSection((Class) p.getOwner()) && isClinicalStatement(p.getType()) || isEntry(p.getType()))) {
+				if (property.eContainer() instanceof Class) {
+					Class class1 = (Class) property.eContainer();
+					Property nullFlavor = CDACommonUtils.findAttribute(class1, "nullFlavor");
+					if (nullFlavor != null && nullFlavor.upperBound() == 0) {
+						// if nullFlavor is forbidden, don't print this message
+						continue;
+					}
+				}
+				message.append(NULLFLAVOR_SECTION_MESSAGE);
+			}
+		}
 	}
 
 	public static String computeAssociationConstraints(Property property, boolean markup) {
