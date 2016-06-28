@@ -41,6 +41,7 @@ import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
+import org.eclipse.uml2.uml.LiteralUnlimitedNatural;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
@@ -324,14 +325,20 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 						body.append(selfName).append("->size() =  ").append(property.getLower());
 					} else {
 						if (validation != null && validation.getKind().equals(ValidationKind.OPEN)) {
-							body.append("( not " + selfName + "->isEmpty()) ");
+							if (!enableVariation_UseOriginalLowerbound()) {
+								body.append("( not " + selfName + "->isEmpty()) ");
+							}
 						} else {
 							body.append(" ( ");
-							body.append(selfName + "->size() >= " + (property.getLower() == 0
-									? "1"
-									: property.getLower()));
-							body.append(" and ");
-							body.append(selfName + "->size() <= " + property.getUpper());
+							int lower = property.getLower();
+							if (property.getLower() == 0 && !enableVariation_UseOriginalLowerbound()) {
+								lower = 1;
+							}
+							body.append(selfName + "->size() >= " + lower);
+							if (property.getUpper() != LiteralUnlimitedNatural.UNLIMITED) {
+								body.append(" and ");
+								body.append(selfName + "->size() <= " + property.getUpper());
+							}
 							body.append(" ) ");
 						}
 					}
