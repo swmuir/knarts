@@ -22,7 +22,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -95,7 +94,7 @@ public class PublishDitaHandler extends AbstractHandler {
 	}
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		if (event.getParameter("org.eclipse.mdht.dita.ui.parameter.target") != null) {
+		if (event.getParameter("org.eclipse.dita.ui.parameter.target") != null) {
 			try {
 				if (event.getApplicationContext() instanceof IEvaluationContext) {
 					IEvaluationContext evaluationContext = (IEvaluationContext) event.getApplicationContext();
@@ -106,7 +105,7 @@ public class PublishDitaHandler extends AbstractHandler {
 							IProgressService iProgressService = PlatformUI.getWorkbench().getProgressService();
 
 							PublishThread publishThread = new PublishThread(
-								(IFile) selection, event.getParameter("org.eclipse.mdht.dita.ui.parameter.target"));
+								(IFile) selection, event.getParameter("org.eclipse.dita.ui.parameter.target"));
 							iProgressService.busyCursorWhile(publishThread);
 
 						}

@@ -648,18 +648,22 @@ public class ClinicalDocumentCreator {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private <T> T setOrAdd(EObject eObject, EStructuralFeature feature, T value) {
-		if (eObject.eGet(feature) instanceof FeatureMap && value instanceof String) {
-			FeatureMap featureMap = (FeatureMap) eObject.eGet(feature);
-			FeatureMapUtil.addText(featureMap, (String) value);
-		} else if (feature.isMany()) {
-			List list = (List) eObject.eGet(feature);
-			if (value instanceof List) {
-				list.addAll((List) value);
+		try {
+			if (eObject.eGet(feature) instanceof FeatureMap && value instanceof String) {
+				FeatureMap featureMap = (FeatureMap) eObject.eGet(feature);
+				FeatureMapUtil.addText(featureMap, (String) value);
+			} else if (feature.isMany()) {
+				List list = (List) eObject.eGet(feature);
+				if (value instanceof List) {
+					list.addAll((List) value);
+				} else {
+					list.add(value);
+				}
 			} else {
-				list.add(value);
+				eObject.eSet(feature, value);
 			}
-		} else {
-			eObject.eSet(feature, value);
+		} catch (ClassCastException cce) {
+			// Ignore error - this is the result of modeling issue
 		}
 		return value;
 	}

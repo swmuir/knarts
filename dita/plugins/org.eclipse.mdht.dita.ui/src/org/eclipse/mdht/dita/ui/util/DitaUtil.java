@@ -149,7 +149,7 @@ public class DitaUtil {
 
 		String ditaMapFileRoot = segments[0];
 
-		Bundle bundle = Platform.getBundle("org.eclipse.mdht.dita.ui");
+		Bundle bundle = Platform.getBundle("org.dita.dost");
 
 		Path path = new Path("META-INF/MANIFEST.MF");
 
@@ -202,6 +202,7 @@ public class DitaUtil {
 				classpath.add(pluginEntry.getMemento());
 			} else {
 				URL url = FileLocator.find(bundle, new Path(classPath), null);
+				System.out.println(url);
 				url = FileLocator.toFileURL(url);
 				IRuntimeClasspathEntry toolsEntry = JavaRuntime.newArchiveRuntimeClasspathEntry(
 					new Path(url.getPath()));
