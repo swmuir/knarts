@@ -40,11 +40,11 @@ import org.w3c.dom.NodeList;
  */
 public class CDAXSITypeProvider implements XSITypeProvider {
 
-	private static final String CDA_ANNOTATION_SOURCE = "http://www.openhealthtools.org/mdht/uml/cda/annotation";
+	protected static final String CDA_ANNOTATION_SOURCE = "http://www.openhealthtools.org/mdht/uml/cda/annotation";
 
-	private static final String TEMPLATE_ID_ROOT = "templateId.root";
+	protected static final String TEMPLATE_ID_ROOT = "templateId.root";
 
-	private static final String TEMPLATE_ID_EXTENSION = "templateId.extension";
+	protected static final String TEMPLATE_ID_EXTENSION = "templateId.extension";
 
 	private static final String CONTEXT_DEPENDENT = "contextDependent";
 
@@ -133,7 +133,7 @@ public class CDAXSITypeProvider implements XSITypeProvider {
 		return result;
 	}
 
-	private EClass getType(Element element) {
+	protected EClass getType(Element element) {
 		EClass eClass = CDAPackage.Literals.DOCUMENT_ROOT;
 		List<String> path = getPath(element);
 		for (String component : path) {
@@ -156,7 +156,7 @@ public class CDAXSITypeProvider implements XSITypeProvider {
 		return null;
 	}
 
-	private boolean conformsTo(EClass eClass, EClass type) {
+	protected boolean conformsTo(EClass eClass, EClass type) {
 		if (eClass == null || type == null) {
 			return false;
 		}
@@ -171,7 +171,7 @@ public class CDAXSITypeProvider implements XSITypeProvider {
 		return eNamedElement.getName();
 	}
 
-	private EClass getEClass(String templateId, String versionId, Object context) {
+	protected EClass getEClass(String templateId, String versionId, Object context) {
 		if (documentClass != null && context instanceof Element &&
 				((Element) context).getLocalName().equals("ClinicalDocument")) {
 			return documentClass;
@@ -203,7 +203,7 @@ public class CDAXSITypeProvider implements XSITypeProvider {
 	}
 
 	// lifted from string utils
-	private static boolean isEmpty(String str) {
+	protected static boolean isEmpty(String str) {
 		return str == null || str.length() == 0;
 	}
 
