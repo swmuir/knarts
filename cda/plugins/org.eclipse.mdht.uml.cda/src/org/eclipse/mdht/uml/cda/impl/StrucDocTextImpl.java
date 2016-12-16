@@ -10,15 +10,21 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.impl;
 
+import java.util.HashMap;
+import java.util.ListIterator;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.StrucDocText;
 import org.eclipse.mdht.uml.cda.operations.StrucDocTextOperations;
@@ -126,9 +132,8 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public void setID(String newID) {
 		String oldID = iD;
 		iD = newID;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.STRUC_DOC_TEXT__ID, oldID, iD));
-		}
 	}
 
 	/**
@@ -138,6 +143,7 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	 */
 	public void addText(String text) {
 		StrucDocTextOperations.addText(this, text);
+		parsed = false;
 	}
 
 	/**
@@ -150,12 +156,53 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	}
 
 	/**
+	 * @generated NOT;
+	 */
+	private HashMap<String, AnyType> textHash = new HashMap<String, AnyType>();
+
+	/**
+	 * @generated NOT;
+	 */
+	boolean parsed = false;
+
+	/**
+	 * @generated NOT;
+	 */
+	private void parse() {
+
+		ListIterator<Entry> contens = getMixed().listIterator();
+		while (contens.hasNext()) {
+			Entry entry = contens.next();
+			if (entry.getEStructuralFeature() instanceof EReference) {
+				AnyType anyType = (AnyType) entry.getValue();
+				String x = StrucDocTextOperations.getAttributeValue(anyType.getAnyAttribute(), "ID");
+
+				if (x != null) {
+					textHash.put(x, anyType);
+				}
+
+			}
+
+		}
+
+		parsed = true;
+
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getText(String id) {
-		return StrucDocTextOperations.getText(this, id);
+		if (!parsed) {
+			parse();
+		}
+		if (textHash.containsKey(id)) {
+			return StrucDocTextOperations.getText(textHash.get(id).getMixed());
+		}
+
+		return null;
 	}
 
 	/**
@@ -181,14 +228,12 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CDAPackage.STRUC_DOC_TEXT__MIXED:
-				if (coreType) {
+				if (coreType)
 					return getMixed();
-				}
 				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case CDAPackage.STRUC_DOC_TEXT__ANY:
-				if (coreType) {
+				if (coreType)
 					return getAny();
-				}
 				return ((FeatureMap.Internal) getAny()).getWrapper();
 			case CDAPackage.STRUC_DOC_TEXT__ID:
 				return getID();
@@ -265,9 +310,8 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
+		if (eIsProxy())
 			return super.toString();
-		}
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
