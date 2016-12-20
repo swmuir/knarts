@@ -60,17 +60,16 @@ public class <%=UML2GenModelUtil.getOperationsClassName(genClass)%><%=UML2GenMod
 	public static final <%=genModel.getImportedName("java.lang.String")%> copyright = "<%=genModel.getCopyrightFieldLiteral()%>";<%=genModel.getNonNLS()%>
 
 <%}%>
-<%if (UML2GenModelUtil.hasOCLOperationBodies(genClass) && (!UML2GenModelUtil.hasOCLOperationBodies(genClass.getClassExtendsGenClass()) || !UML2GenModelUtil.isOperationsClasses(genClass.getClassExtendsGenClass().getGenPackage()))) {%>
-	/**
-	 * The cached environment for evaluating OCL expressions.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%> EOCL_ENV = <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.newInstance();
+ 
+	protected static final <%=genModel.getImportedName("java.lang.ThreadLocal")%>< <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%> > EOCL_ENV = new <%=genModel.getImportedName("java.lang.ThreadLocal")%>< <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%> >() {
+		@Override
+		public <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%> initialValue() {
+			return <%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.newInstance();
+		}
+	};
+	
+	
 
-<%}%>
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,9 +117,14 @@ if (!genOperation.hasBody()) {%>
 	 * @ordered
 	 */
 	<%if (isQueryConstraint) {%>
-	protected static <%=genModel.getImportedName("org.eclipse.ocl.Query")%><?, ?, ?> <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_QRY;
+	
+	
+	
+	
+	
+	protected static <%=genModel.getImportedName("java.lang.ThreadLocal")%>< <%=genModel.getImportedName("org.eclipse.ocl.Query")%><?, ?, ?> > <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_QRY= new <%=genModel.getImportedName("java.lang.ThreadLocal")%>< <%=genModel.getImportedName("org.eclipse.ocl.Query")%><?, ?, ?> >();
 	<%} else {%>
-	protected static <%=genModel.getImportedName("org.eclipse.ocl.ecore.Constraint")%> <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_INV;
+	protected static <%=genModel.getImportedName("java.lang.ThreadLocal")%><  <%=genModel.getImportedName("org.eclipse.ocl.ecore.Constraint")%>> <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_INV=new  <%=genModel.getImportedName("java.lang.ThreadLocal")%><  <%=genModel.getImportedName("org.eclipse.ocl.ecore.Constraint")%>>();
 	<%}%>
 
   <%} else {%>
@@ -162,6 +166,9 @@ if (!genOperation.hasBody()) {%>
 	<%if (isQueryConstraint) {%>@SuppressWarnings("unchecked")<%}%>
 	public static <%=genClass.getTypeParameters().length() > 0 && genOperation.getTypeParameters(genClass).length() > 0 ? genClass.getTypeParameters().substring(0, genClass.getTypeParameters().length() - 2) + ", " + genOperation.getTypeParameters(genClass).trim().substring(1) : genClass.getTypeParameters().trim() + genOperation.getTypeParameters(genClass).trim()%> <%=genOperation.getImportedType(genClass)%> <%=genOperation.getName()%>(<%=genClass.getImportedInterfaceName()%><%=genClass.getTypeParameters().trim()%> <%=genClass.safeName(genClass.getUncapName())%><%if (!genOperation.getGenParameters().isEmpty()) {%>, <%}%><%=genOperation.getParameters(genClass)%>)<%=genOperation.getThrows(genClass)%>
 	{
+	
+	
+	
   <%if (genOperation.hasBody()) {%>
 		<%=genOperation.getBody(genModel.getIndentation(stringBuffer))%>
   <%} else if (genOperation.isInvariant()) {
@@ -176,27 +183,34 @@ if (!genOperation.hasBody()) {%>
 			return true;
 		}
   	  <%}%>
+  	  
+   
+  	  
+  	  
       <%if (UML2GenModelUtil.hasOCLBody(genOperation)) {
       	String oclInv = UML2GenModelUtil.getUpperName(genOperation.getName()) + (genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))) + "__EOCL_INV";
       	if (isQueryConstraint) {
        		oclInv = UML2GenModelUtil.getUpperName(genOperation.getName()) + (genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))) + "__EOCL_QRY";
        	}%>
-		if (<%=oclInv%> == null) {
-			<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Helper helper = EOCL_ENV.createOCLHelper();
+		if (<%=oclInv%>.get() == null) {
+		
+	 
+			<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Helper helper = EOCL_ENV.get().createOCLHelper();
 			helper.setContext(<%=opClass.getQualifiedClassifierAccessor()%>);
 			try
 			{<%if (isQueryConstraint) {%>
 				<%=genModel.getImportedName("org.eclipse.ocl.expressions.OCLExpression") %><<%=genModel.getImportedName("org.eclipse.emf.ecore.EClassifier") %>> oclExpression = helper.createQuery(<%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_EXP);
-				<%=oclInv%> = EOCL_ENV.createQuery(oclExpression);<%} else {%>
-				<%=oclInv%> = helper.createInvariant(<%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_EXP);<%}%>
+				<%=oclInv%>.set(EOCL_ENV.get().createQuery(oclExpression));<%} else {%>
+				<%=oclInv%>.set(helper.createInvariant(<%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_EXP));<%}%>
 			}
 			catch (<%=genModel.getImportedName("org.eclipse.ocl.ParserException")%> pe)
 			{
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
-		}
+			}
+		 
         <%if (isQueryConstraint) {%>
-		Object oclResult = <%=oclInv%>.evaluate(<%=genClass.safeName(genClass.getUncapName())%>);		
+		Object oclResult = <%=oclInv%>.get().evaluate(<%=genClass.safeName(genClass.getUncapName())%>);		
 		if (oclResult != null && oclResult instanceof <%=genModel.getImportedName("java.util.Collection") %>) {
 			<%=genModel.getImportedName("java.util.Collection")%><? extends EObject> oclResultSet = (<%=genModel.getImportedName("java.util.Collection")%><? extends EObject>) oclResult;
   			<%if (dependency != null) {%>
@@ -226,7 +240,7 @@ if (!genOperation.hasBody()) {%>
 			}
 			return oclResultSet.isEmpty();
 		}<%} else {%>
-		if (!EOCL_ENV.createQuery(<%=oclInv%>).check(<%=genClass.safeName(genClass.getUncapName())%>))
+		if (!EOCL_ENV.get().createQuery(<%=oclInv%>.get()).check(<%=genClass.safeName(genClass.getUncapName())%>))
 		{
 			if (<%=diagnostics%> != null)
 			{
@@ -274,7 +288,9 @@ if (!genOperation.hasBody()) {%>
 		int index = genOperation.getGenClass().getAllGenOperations().indexOf(redefinedGenOperation);%>
 		if (<%=oclQry%> == null)
 		{
-			<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Helper helper = EOCL_ENV.createOCLHelper();
+		
+	 
+			<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Helper helper = EOCL_ENV.get().createOCLHelper();
 			helper.setOperationContext(<%=genOperation.getGenClass().getQualifiedClassifierAccessor()%>, <%=genOperation.getGenClass().getQualifiedClassifierAccessor()%>.getEAllOperations().get(<%=index%>));
 			try
 			{
@@ -284,8 +300,9 @@ if (!genOperation.hasBody()) {%>
 			{
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
-		}
-		<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Query query = EOCL_ENV.createQuery(<%=oclQry%>);
+			}
+		 
+		<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Query query = EOCL_ENV.get().createQuery(<%=oclQry%>);
       <%if (!genOperation.getGenParameters().isEmpty()) {%>
 		<%=genModel.getImportedName("org.eclipse.ocl.EvaluationEnvironment")%><%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {%><?, ?, ?, ?, ?><%}%> environment = query.getEvaluationEnvironment();
         <%for (GenParameter genParameter : genOperation.getGenParameters()) {%>
