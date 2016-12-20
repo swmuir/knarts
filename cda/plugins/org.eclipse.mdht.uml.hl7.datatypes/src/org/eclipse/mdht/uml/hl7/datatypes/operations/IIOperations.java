@@ -44,7 +44,12 @@ public class IIOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +78,7 @@ public class IIOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,17 +91,20 @@ public class IIOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateII(II ii, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.II);
-			try {
-				VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.II);
+				try {
+					VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ii)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_II__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ii)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(

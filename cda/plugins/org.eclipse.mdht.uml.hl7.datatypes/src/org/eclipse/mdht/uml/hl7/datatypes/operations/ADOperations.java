@@ -103,7 +103,12 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,7 +137,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,17 +150,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateDelimiter(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -190,7 +198,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,17 +211,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateCountry(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_COUNTRY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -248,7 +259,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,17 +272,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateState(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_STATE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -306,7 +320,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,17 +333,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateCounty(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_COUNTY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -364,7 +381,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -377,17 +394,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateCity(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CITY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -422,7 +442,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -435,17 +455,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validatePostalCode(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_POSTAL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -480,7 +503,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -493,17 +516,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateStreetAddressLine(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_STREET_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -539,7 +565,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -552,17 +578,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateHouseNumber(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_HOUSE_NUMBER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -597,7 +626,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -610,17 +639,21 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateHouseNumberNumeric(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_HOUSE_NUMBER_NUMERIC__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -656,7 +689,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -669,17 +702,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateDirection(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DIRECTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -714,7 +750,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -727,17 +763,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateStreetName(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_STREET_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -772,7 +811,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -785,17 +824,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateStreetNameBase(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_STREET_NAME_BASE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -830,7 +872,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -843,17 +885,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateStreetNameType(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_STREET_NAME_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -888,7 +933,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -901,17 +946,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateAdditionalLocator(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_ADDITIONAL_LOCATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -947,7 +995,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -960,17 +1008,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateUnitID(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_UNIT_ID__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1005,7 +1056,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1018,17 +1069,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateUnitType(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_UNIT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1063,7 +1117,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1076,17 +1130,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateCareOf(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CARE_OF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1121,7 +1178,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1134,17 +1191,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateCensusTract(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CENSUS_TRACT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1179,7 +1239,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1192,17 +1252,21 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateDeliveryAddressLine(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DELIVERY_ADDRESS_LINE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1238,7 +1302,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1252,17 +1316,21 @@ public class ADOperations extends ANYOperations {
 	 */
 	public static boolean validateDeliveryInstallationType(AD ad, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(
+			VALIDATE_DELIVERY_INSTALLATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1298,7 +1366,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1312,17 +1380,21 @@ public class ADOperations extends ANYOperations {
 	 */
 	public static boolean validateDeliveryInstallationArea(AD ad, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(
+			VALIDATE_DELIVERY_INSTALLATION_AREA__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1358,7 +1430,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1372,17 +1444,22 @@ public class ADOperations extends ANYOperations {
 	 */
 	public static boolean validateDeliveryInstallationQualifier(AD ad, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(
+							VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(
+			VALIDATE_DELIVERY_INSTALLATION_QUALIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1418,7 +1495,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1431,17 +1508,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateDeliveryMode(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DELIVERY_MODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1476,7 +1556,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1490,17 +1570,21 @@ public class ADOperations extends ANYOperations {
 	 */
 	public static boolean validateDeliveryModeIdentifier(AD ad, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DELIVERY_MODE_IDENTIFIER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1536,7 +1620,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1550,17 +1634,21 @@ public class ADOperations extends ANYOperations {
 	 */
 	public static boolean validateBuildingNumberSuffix(AD ad, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_BUILDING_NUMBER_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1596,7 +1684,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1609,17 +1697,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validatePostBox(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_POST_BOX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -1654,7 +1745,7 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1667,17 +1758,20 @@ public class ADOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validatePrecinct(AD ad, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.AD);
-			try {
-				VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.AD);
+				try {
+					VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(ad)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_PRECINCT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(ad)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(

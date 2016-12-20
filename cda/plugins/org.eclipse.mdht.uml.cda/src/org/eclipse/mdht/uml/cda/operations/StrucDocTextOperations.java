@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.mdht.uml.cda.StrucDocText;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,20 @@ import org.eclipse.mdht.uml.cda.StrucDocText;
  * @generated
  */
 public class StrucDocTextOperations {
+	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,7 +116,7 @@ public class StrucDocTextOperations {
 		return null;
 	}
 
-	private static String getAttributeValue(FeatureMap featureMap, String name) {
+	public static String getAttributeValue(FeatureMap featureMap, String name) {
 		for (FeatureMap.Entry entry : featureMap) {
 			EStructuralFeature feature = entry.getEStructuralFeature();
 			if (feature instanceof EAttribute && feature.getName().equals(name)) {
@@ -111,7 +126,7 @@ public class StrucDocTextOperations {
 		return null;
 	}
 
-	private static String getText(FeatureMap featureMap) {
+	public static String getText(FeatureMap featureMap) {
 		StringBuffer buffer = new StringBuffer("");
 		for (FeatureMap.Entry entry : featureMap) {
 			if (FeatureMapUtil.isText(entry)) {

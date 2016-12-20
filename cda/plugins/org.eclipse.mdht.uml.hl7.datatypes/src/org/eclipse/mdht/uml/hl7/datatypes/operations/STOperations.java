@@ -49,6 +49,20 @@ import org.eclipse.ocl.expressions.OCLExpression;
  */
 public class STOperations extends EDOperations {
 	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -75,7 +89,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,17 +102,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateThumbnail(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_THUMBNAIL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -133,7 +150,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,17 +163,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateReference(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -191,7 +211,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,17 +224,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateIntegrityCheck(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_INTEGRITY_CHECK__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -249,7 +272,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * The cached OCL expression body for the '{@link #validateCompression(ST, org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate Compression</em>}' operation.
@@ -269,7 +292,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -282,17 +305,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateCompression(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_COMPRESSION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -327,7 +353,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -340,17 +366,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateRepresentation(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_REPRESENTATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -385,7 +414,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -398,17 +427,20 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean validateST(ST st, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_ST__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
@@ -443,7 +475,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> IS_COMPRESSION_DEFINED__EOCL_QRY;
+	protected static ThreadLocal<OCLExpression<EClassifier>> IS_COMPRESSION_DEFINED__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -452,16 +484,18 @@ public class STOperations extends EDOperations {
 	 */
 	public static boolean isCompressionDefined(ST st) {
 		if (IS_COMPRESSION_DEFINED__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(18));
-			try {
-				IS_COMPRESSION_DEFINED__EOCL_QRY = helper.createQuery(IS_COMPRESSION_DEFINED__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setOperationContext(
+					DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(18));
+				try {
+					IS_COMPRESSION_DEFINED__EOCL_QRY.set(helper.createQuery(IS_COMPRESSION_DEFINED__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(IS_COMPRESSION_DEFINED__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(IS_COMPRESSION_DEFINED__EOCL_QRY.get());
 		return ((Boolean) query.evaluate(st)).booleanValue();
 	}
 
@@ -483,7 +517,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY;
+	protected static ThreadLocal<OCLExpression<EClassifier>> IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -492,17 +526,19 @@ public class STOperations extends EDOperations {
 	 */
 	public static boolean isIntegrityCheckAlgorithmDefined(ST st) {
 		if (IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(19));
-			try {
-				IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY = helper.createQuery(
-					IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setOperationContext(
+					DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(19));
+				try {
+					IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY.set(
+						helper.createQuery(IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY.get());
 		return ((Boolean) query.evaluate(st)).booleanValue();
 	}
 
@@ -524,7 +560,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> IS_REPRESENTATION_DEFINED__EOCL_QRY;
+	protected static ThreadLocal<OCLExpression<EClassifier>> IS_REPRESENTATION_DEFINED__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -533,16 +569,18 @@ public class STOperations extends EDOperations {
 	 */
 	public static boolean isRepresentationDefined(ST st) {
 		if (IS_REPRESENTATION_DEFINED__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(20));
-			try {
-				IS_REPRESENTATION_DEFINED__EOCL_QRY = helper.createQuery(IS_REPRESENTATION_DEFINED__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setOperationContext(
+					DatatypesPackage.Literals.ST, DatatypesPackage.Literals.ST.getEAllOperations().get(20));
+				try {
+					IS_REPRESENTATION_DEFINED__EOCL_QRY.set(helper.createQuery(IS_REPRESENTATION_DEFINED__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(IS_REPRESENTATION_DEFINED__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(IS_REPRESENTATION_DEFINED__EOCL_QRY.get());
 		return ((Boolean) query.evaluate(st)).booleanValue();
 	}
 
@@ -558,17 +596,21 @@ public class STOperations extends EDOperations {
 	 */
 	public static boolean validateIntegrityCheckAlgorithm(ST st, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.ST);
-			try {
-				VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.ST);
+				try {
+					VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(st)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_INTEGRITY_CHECK_ALGORITHM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			st)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(

@@ -28,6 +28,7 @@ import org.eclipse.mdht.uml.cda.RegionOfInterest;
 import org.eclipse.mdht.uml.cda.SubstanceAdministration;
 import org.eclipse.mdht.uml.cda.Supply;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +64,20 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
  * @generated
  */
 public class OrganizerOperations extends ClinicalStatementOperations {
+	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

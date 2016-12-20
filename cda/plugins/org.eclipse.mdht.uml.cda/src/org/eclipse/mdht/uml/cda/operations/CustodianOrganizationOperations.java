@@ -51,6 +51,20 @@ import org.eclipse.ocl.expressions.OCLExpression;
  */
 public class CustodianOrganizationOperations extends EntityOperations {
 	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -77,7 +91,7 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal< Constraint > VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,28 +105,28 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 */
 	public static boolean validateClassCode(CustodianOrganization custodianOrganization, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 			helper.setContext(CDAPackage.Literals.CUSTODIAN_ORGANIZATION);
 			try {
-				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
+				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
+			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(custodianOrganization)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(custodianOrganization)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE,
-						CDAValidator.CUSTODIAN_ORGANIZATION__CLASS_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										custodianOrganization, context) }),
-						new Object[] { custodianOrganization }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.CUSTODIAN_ORGANIZATION__CLASS_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(custodianOrganization, context) }),
+						 new Object [] { custodianOrganization }));
 			}
 			return false;
 		}
@@ -137,7 +151,7 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal< Constraint > VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,30 +165,28 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 */
 	public static boolean validateDeterminerCode(CustodianOrganization custodianOrganization,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+		if (VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 			helper.setContext(CDAPackage.Literals.CUSTODIAN_ORGANIZATION);
 			try {
-				VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
+				VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
+			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
-			custodianOrganization)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(custodianOrganization)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE,
-						CDAValidator.CUSTODIAN_ORGANIZATION__DETERMINER_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateDeterminerCode",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										custodianOrganization, context) }),
-						new Object[] { custodianOrganization }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.CUSTODIAN_ORGANIZATION__DETERMINER_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateDeterminerCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(custodianOrganization, context) }),
+						 new Object [] { custodianOrganization }));
 			}
 			return false;
 		}
@@ -199,7 +211,7 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> GET_NAMES__EOCL_QRY;
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_NAMES__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,17 +220,18 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 */
 	public static EList<EN> getNames(CustodianOrganization custodianOrganization) {
 		if (GET_NAMES__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION,
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(16));
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CUSTODIAN_ORGANIZATION, CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(16));
 			try {
-				GET_NAMES__EOCL_QRY = helper.createQuery(GET_NAMES__EOCL_EXP);
-			} catch (ParserException pe) {
+				GET_NAMES__EOCL_QRY.set(helper.createQuery(GET_NAMES__EOCL_EXP));
+			}
+			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
+			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(GET_NAMES__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(GET_NAMES__EOCL_QRY.get());
 		@SuppressWarnings("unchecked")
 		Collection<EN> result = (Collection<EN>) query.evaluate(custodianOrganization);
 		return new BasicEList.UnmodifiableEList<EN>(result.size(), result.toArray());
@@ -242,7 +255,7 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> GET_TELECOMS__EOCL_QRY;
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_TELECOMS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,17 +264,18 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 */
 	public static EList<TEL> getTelecoms(CustodianOrganization custodianOrganization) {
 		if (GET_TELECOMS__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION,
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(17));
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CUSTODIAN_ORGANIZATION, CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(17));
 			try {
-				GET_TELECOMS__EOCL_QRY = helper.createQuery(GET_TELECOMS__EOCL_EXP);
-			} catch (ParserException pe) {
+				GET_TELECOMS__EOCL_QRY.set(helper.createQuery(GET_TELECOMS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
+			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(GET_TELECOMS__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(GET_TELECOMS__EOCL_QRY.get());
 		@SuppressWarnings("unchecked")
 		Collection<TEL> result = (Collection<TEL>) query.evaluate(custodianOrganization);
 		return new BasicEList.UnmodifiableEList<TEL>(result.size(), result.toArray());
@@ -285,7 +299,7 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> GET_ADDRS__EOCL_QRY;
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_ADDRS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -294,17 +308,18 @@ public class CustodianOrganizationOperations extends EntityOperations {
 	 */
 	public static EList<AD> getAddrs(CustodianOrganization custodianOrganization) {
 		if (GET_ADDRS__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION,
-				CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(18));
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CUSTODIAN_ORGANIZATION, CDAPackage.Literals.CUSTODIAN_ORGANIZATION.getEAllOperations().get(18));
 			try {
-				GET_ADDRS__EOCL_QRY = helper.createQuery(GET_ADDRS__EOCL_EXP);
-			} catch (ParserException pe) {
+				GET_ADDRS__EOCL_QRY.set(helper.createQuery(GET_ADDRS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
+			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(GET_ADDRS__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(GET_ADDRS__EOCL_QRY.get());
 		@SuppressWarnings("unchecked")
 		Collection<AD> result = (Collection<AD>) query.evaluate(custodianOrganization);
 		return new BasicEList.UnmodifiableEList<AD>(result.size(), result.toArray());

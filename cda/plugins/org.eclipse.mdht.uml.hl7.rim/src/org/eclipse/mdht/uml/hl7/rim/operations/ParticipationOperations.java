@@ -46,7 +46,12 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,7 +113,7 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> IS_TYPE_CODE_DEFINED__EOCL_QRY;
+	protected static ThreadLocal<OCLExpression<EClassifier>> IS_TYPE_CODE_DEFINED__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,16 +122,18 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 	 */
 	public static boolean isTypeCodeDefined(Participation participation) {
 		if (IS_TYPE_CODE_DEFINED__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				RIMPackage.Literals.PARTICIPATION, RIMPackage.Literals.PARTICIPATION.getEAllOperations().get(11));
-			try {
-				IS_TYPE_CODE_DEFINED__EOCL_QRY = helper.createQuery(IS_TYPE_CODE_DEFINED__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setOperationContext(
+					RIMPackage.Literals.PARTICIPATION, RIMPackage.Literals.PARTICIPATION.getEAllOperations().get(11));
+				try {
+					IS_TYPE_CODE_DEFINED__EOCL_QRY.set(helper.createQuery(IS_TYPE_CODE_DEFINED__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(IS_TYPE_CODE_DEFINED__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(IS_TYPE_CODE_DEFINED__EOCL_QRY.get());
 		return ((Boolean) query.evaluate(participation)).booleanValue();
 	}
 
@@ -148,7 +155,7 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static OCLExpression<EClassifier> IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY;
+	protected static ThreadLocal<OCLExpression<EClassifier>> IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,17 +164,19 @@ public class ParticipationOperations extends InfrastructureRootOperations {
 	 */
 	public static boolean isContextControlCodeDefined(Participation participation) {
 		if (IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(
-				RIMPackage.Literals.PARTICIPATION, RIMPackage.Literals.PARTICIPATION.getEAllOperations().get(12));
-			try {
-				IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY = helper.createQuery(
-					IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setOperationContext(
+					RIMPackage.Literals.PARTICIPATION, RIMPackage.Literals.PARTICIPATION.getEAllOperations().get(12));
+				try {
+					IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY.set(
+						helper.createQuery(IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		OCL.Query query = EOCL_ENV.createQuery(IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY);
+		OCL.Query query = EOCL_ENV.get().createQuery(IS_CONTEXT_CONTROL_CODE_DEFINED__EOCL_QRY.get());
 		return ((Boolean) query.evaluate(participation)).booleanValue();
 	}
 

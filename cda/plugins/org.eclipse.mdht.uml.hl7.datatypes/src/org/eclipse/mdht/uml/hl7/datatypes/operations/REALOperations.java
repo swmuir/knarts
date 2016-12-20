@@ -46,7 +46,12 @@ public class REALOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +80,7 @@ public class REALOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static ThreadLocal<Constraint> VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,17 +93,20 @@ public class REALOperations extends ANYOperations {
 	 * @generated
 	 */
 	public static boolean validateREAL(REAL real, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(DatatypesPackage.Literals.REAL);
-			try {
-				VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(
-					VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			} catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+		if (VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(DatatypesPackage.Literals.REAL);
+				try {
+					VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.createQuery(VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(real)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_REAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(real)) {
 			if (diagnostics != null) {
 				diagnostics.add(
 					new BasicDiagnostic(
