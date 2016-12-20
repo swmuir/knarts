@@ -483,7 +483,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean isCompressionDefined(ST st) {
-		if (IS_COMPRESSION_DEFINED__EOCL_QRY == null) {
+		if (IS_COMPRESSION_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(
@@ -525,7 +525,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean isIntegrityCheckAlgorithmDefined(ST st) {
-		if (IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY == null) {
+		if (IS_INTEGRITY_CHECK_ALGORITHM_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(
@@ -568,7 +568,7 @@ public class STOperations extends EDOperations {
 	 * @generated
 	 */
 	public static boolean isRepresentationDefined(ST st) {
-		if (IS_REPRESENTATION_DEFINED__EOCL_QRY == null) {
+		if (IS_REPRESENTATION_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(

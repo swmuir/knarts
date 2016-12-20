@@ -133,7 +133,7 @@ public class EntityOperations extends InfrastructureRootOperations {
 	 * @generated
 	 */
 	public static boolean isClassCodeDefined(Entity entity) {
-		if (IS_CLASS_CODE_DEFINED__EOCL_QRY == null) {
+		if (IS_CLASS_CODE_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(
@@ -175,7 +175,7 @@ public class EntityOperations extends InfrastructureRootOperations {
 	 * @generated
 	 */
 	public static boolean isDeterminerCodeDefined(Entity entity) {
-		if (IS_DETERMINER_CODE_DEFINED__EOCL_QRY == null) {
+		if (IS_DETERMINER_CODE_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(

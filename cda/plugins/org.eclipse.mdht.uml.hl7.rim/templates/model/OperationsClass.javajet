@@ -198,7 +198,7 @@ public class <%=UML2GenModelUtil.getOperationsClassName(genClass)%><%=UML2GenMod
 			}
 		}
 		int index = genOperation.getGenClass().getAllGenOperations().indexOf(redefinedGenOperation);%>
-		if (<%=oclQry%> == null)
+		if (<%=oclQry%>.get() == null)
 		{
 		synchronized (EOCL_ENV) {
 			<%=genModel.getImportedName("org.eclipse.ocl.ecore.OCL")%>.Helper helper = EOCL_ENV.get().createOCLHelper();

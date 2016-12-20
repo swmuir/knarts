@@ -46,7 +46,7 @@ public class PersonOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -80,7 +80,7 @@ public class PersonOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal< Constraint > VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
+	protected static ThreadLocal<Constraint> VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,27 +94,29 @@ public class PersonOperations extends EntityOperations {
 	 */
 	public static boolean validateClassCode(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-		
-		synchronized (EOCL_ENV) {
-			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-			helper.setContext(CDAPackage.Literals.PERSON);
-			try {
-				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(CDAPackage.Literals.PERSON);
+				try {
+					VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(person)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CDAValidator.DIAGNOSTIC_SOURCE,
-						 CDAValidator.PERSON__CLASS_CODE,
-						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(person, context) }),
-						 new Object [] { person }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.PERSON__CLASS_CODE,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateClassCode",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(person, context) }),
+						new Object[] { person }));
 			}
 			return false;
 		}
@@ -139,7 +141,7 @@ public class PersonOperations extends EntityOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal< Constraint > VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
+	protected static ThreadLocal<Constraint> VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,27 +156,29 @@ public class PersonOperations extends EntityOperations {
 	public static boolean validateDeterminerCode(Person person, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-		
-		synchronized (EOCL_ENV) {
-			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-			helper.setContext(CDAPackage.Literals.PERSON);
-			try {
-				VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(CDAPackage.Literals.PERSON);
+				try {
+					VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(person)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CDAValidator.DIAGNOSTIC_SOURCE,
-						 CDAValidator.PERSON__DETERMINER_CODE,
-						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateDeterminerCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(person, context) }),
-						 new Object [] { person }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.PERSON__DETERMINER_CODE,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateDeterminerCode",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(person, context) }),
+						new Object[] { person }));
 			}
 			return false;
 		}

@@ -47,7 +47,7 @@ public class Informant12Operations extends ParticipationOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -81,7 +81,7 @@ public class Informant12Operations extends ParticipationOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal< Constraint > VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
+	protected static ThreadLocal<Constraint> VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,27 +96,30 @@ public class Informant12Operations extends ParticipationOperations {
 	public static boolean validateInformantChoice(Informant12 informant12, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-		
-		synchronized (EOCL_ENV) {
-			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-			helper.setContext(CDAPackage.Literals.INFORMANT12);
-			try {
-				VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(CDAPackage.Literals.INFORMANT12);
+				try {
+					VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(informant12)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_INFORMANT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			informant12)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CDAValidator.DIAGNOSTIC_SOURCE,
-						 CDAValidator.INFORMANT12__INFORMANT_CHOICE,
-						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateInformantChoice", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
-						 new Object [] { informant12 }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.INFORMANT12__INFORMANT_CHOICE,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateInformantChoice",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
+						new Object[] { informant12 }));
 			}
 			return false;
 		}
@@ -141,7 +144,7 @@ public class Informant12Operations extends ParticipationOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal< Constraint > VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
+	protected static ThreadLocal<Constraint> VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,27 +159,29 @@ public class Informant12Operations extends ParticipationOperations {
 	public static boolean validateTypeCode(Informant12 informant12, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-		
-		synchronized (EOCL_ENV) {
-			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-			helper.setContext(CDAPackage.Literals.INFORMANT12);
-			try {
-				VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(CDAPackage.Literals.INFORMANT12);
+				try {
+					VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_TYPE_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(informant12)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CDAValidator.DIAGNOSTIC_SOURCE,
-						 CDAValidator.INFORMANT12__TYPE_CODE,
-						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateTypeCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
-						 new Object [] { informant12 }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.INFORMANT12__TYPE_CODE,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateTypeCode",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
+						new Object[] { informant12 }));
 			}
 			return false;
 		}
@@ -201,7 +206,7 @@ public class Informant12Operations extends ParticipationOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal< Constraint > VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
+	protected static ThreadLocal<Constraint> VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,27 +221,31 @@ public class Informant12Operations extends ParticipationOperations {
 	public static boolean validateContextControlCode(Informant12 informant12, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-		
-		synchronized (EOCL_ENV) {
-			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-			helper.setContext(CDAPackage.Literals.INFORMANT12);
-			try {
-				VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
+
+			synchronized (EOCL_ENV) {
+				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+				helper.setContext(CDAPackage.Literals.INFORMANT12);
+				try {
+					VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
+						helper.createInvariant(VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+				} catch (ParserException pe) {
+					throw new UnsupportedOperationException(pe.getLocalizedMessage());
+				}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(informant12)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CONTEXT_CONTROL_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
+			informant12)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CDAValidator.DIAGNOSTIC_SOURCE,
-						 CDAValidator.INFORMANT12__CONTEXT_CONTROL_CODE,
-						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateContextControlCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
-						 new Object [] { informant12 }));
+				diagnostics.add(
+					new BasicDiagnostic(
+						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE,
+						CDAValidator.INFORMANT12__CONTEXT_CONTROL_CODE,
+						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] {
+									"validateContextControlCode",
+									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(informant12, context) }),
+						new Object[] { informant12 }));
 			}
 			return false;
 		}

@@ -158,7 +158,7 @@ public class RoleOperations extends InfrastructureRootOperations {
 	 * @generated
 	 */
 	public static boolean isClassCodeDefined(Role role) {
-		if (IS_CLASS_CODE_DEFINED__EOCL_QRY == null) {
+		if (IS_CLASS_CODE_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(

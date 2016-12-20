@@ -119,7 +119,7 @@ public class ActRelationshipOperations extends InfrastructureRootOperations {
 	 * @generated
 	 */
 	public static boolean isTypeCodeDefined(ActRelationship actRelationship) {
-		if (IS_TYPE_CODE_DEFINED__EOCL_QRY == null) {
+		if (IS_TYPE_CODE_DEFINED__EOCL_QRY.get() == null) {
 			synchronized (EOCL_ENV) {
 				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
 				helper.setOperationContext(
