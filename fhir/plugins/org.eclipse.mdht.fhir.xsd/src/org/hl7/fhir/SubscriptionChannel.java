@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -94,12 +84,12 @@ public interface SubscriptionChannel extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
+	 * The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the payload is not present, then there is no payload in the notification, just a notification.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Payload</em>' containment reference.
 	 * @see #setPayload(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getSubscriptionChannel_Payload()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='payload' namespace='##targetNamespace'"
 	 * @generated
 	 */

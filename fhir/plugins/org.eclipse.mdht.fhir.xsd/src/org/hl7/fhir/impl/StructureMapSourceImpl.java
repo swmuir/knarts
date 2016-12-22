@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -37,6 +27,9 @@ import org.hl7.fhir.StructureMapSource;
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getContextType <em>Context Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getListMode <em>List Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getVariable <em>Variable</em>}</li>
@@ -76,6 +69,36 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * @ordered
 	 */
 	protected StructureMapContextType contextType;
+
+	/**
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMin()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Integer min;
+
+	/**
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMax()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String max;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String type;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
@@ -273,6 +296,135 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE, newContextType, newContextType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Integer getMin() {
+		return min;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMin(org.hl7.fhir.Integer newMin, NotificationChain msgs) {
+		org.hl7.fhir.Integer oldMin = min;
+		min = newMin;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__MIN, oldMin, newMin);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMin(org.hl7.fhir.Integer newMin) {
+		if (newMin != min) {
+			NotificationChain msgs = null;
+			if (min != null)
+				msgs = ((InternalEObject)min).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__MIN, null, msgs);
+			if (newMin != null)
+				msgs = ((InternalEObject)newMin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__MIN, null, msgs);
+			msgs = basicSetMin(newMin, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__MIN, newMin, newMin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getMax() {
+		return max;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMax(org.hl7.fhir.String newMax, NotificationChain msgs) {
+		org.hl7.fhir.String oldMax = max;
+		max = newMax;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__MAX, oldMax, newMax);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMax(org.hl7.fhir.String newMax) {
+		if (newMax != max) {
+			NotificationChain msgs = null;
+			if (max != null)
+				msgs = ((InternalEObject)max).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__MAX, null, msgs);
+			if (newMax != null)
+				msgs = ((InternalEObject)newMax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__MAX, null, msgs);
+			msgs = basicSetMax(newMax, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__MAX, newMax, newMax));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(org.hl7.fhir.String newType, NotificationChain msgs) {
+		org.hl7.fhir.String oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(org.hl7.fhir.String newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__TYPE, newType, newType));
 	}
 
 	/**
@@ -504,6 +656,12 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return basicSetContext(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE:
 				return basicSetContextType(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MIN:
+				return basicSetMin(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MAX:
+				return basicSetMax(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
 				return basicSetElement(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__LIST_MODE:
@@ -532,6 +690,12 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return getContext();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE:
 				return getContextType();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MIN:
+				return getMin();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MAX:
+				return getMax();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__TYPE:
+				return getType();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
 				return getElement();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__LIST_MODE:
@@ -562,6 +726,15 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE:
 				setContextType((StructureMapContextType)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MIN:
+				setMin((org.hl7.fhir.Integer)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MAX:
+				setMax((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__TYPE:
+				setType((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
 				setElement((org.hl7.fhir.String)newValue);
@@ -599,6 +772,15 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 			case FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE:
 				setContextType((StructureMapContextType)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MIN:
+				setMin((org.hl7.fhir.Integer)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MAX:
+				setMax((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__TYPE:
+				setType((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
 				setElement((org.hl7.fhir.String)null);
 				return;
@@ -632,6 +814,12 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return context != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__CONTEXT_TYPE:
 				return contextType != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MIN:
+				return min != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__MAX:
+				return max != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__TYPE:
+				return type != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
 				return element != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__LIST_MODE:

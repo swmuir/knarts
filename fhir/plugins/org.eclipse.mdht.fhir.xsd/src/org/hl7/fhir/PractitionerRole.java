@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -32,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PractitionerRole#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.PractitionerRole#getRole <em>Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerRole#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -41,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PractitionerRole#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerRole#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getPractitionerRole()
@@ -143,20 +134,20 @@ public interface PractitionerRole extends DomainResource {
 	void setOrganization(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Roles which this practitioner is authorized to perform for the organization.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_Role()
+	 * @return the value of the '<em>Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getRole();
+	EList<CodeableConcept> getCode();
 
 	/**
 	 * Returns the value of the '<em><b>Specialty</b></em>' containment reference list.
@@ -305,5 +296,21 @@ public interface PractitionerRole extends DomainResource {
 	 * @generated
 	 */
 	void setAvailabilityExceptions(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technical endpoints providing access to services operated for the practitioner with this role.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_Endpoint()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getEndpoint();
 
 } // PractitionerRole

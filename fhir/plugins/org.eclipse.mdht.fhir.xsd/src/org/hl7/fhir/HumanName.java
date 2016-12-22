@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -95,20 +85,30 @@ public interface HumanName extends Element {
 	void setText(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Family</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * Returns the value of the '<em><b>Family</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Family</em>' containment reference list.
+	 * @return the value of the '<em>Family</em>' containment reference.
+	 * @see #setFamily(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getHumanName_Family()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='family' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<org.hl7.fhir.String> getFamily();
+	org.hl7.fhir.String getFamily();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.HumanName#getFamily <em>Family</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Family</em>' containment reference.
+	 * @see #getFamily()
+	 * @generated
+	 */
+	void setFamily(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Given</b></em>' containment reference list.

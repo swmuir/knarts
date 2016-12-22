@@ -1,19 +1,10 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,11 +12,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetInclude;
 
@@ -37,7 +30,8 @@ import org.hl7.fhir.ValueSetInclude;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ValueSetComposeImpl#getImport <em>Import</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetComposeImpl#getLockedDate <em>Locked Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetComposeImpl#getInactive <em>Inactive</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetComposeImpl#getInclude <em>Include</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetComposeImpl#getExclude <em>Exclude</em>}</li>
  * </ul>
@@ -46,14 +40,24 @@ import org.hl7.fhir.ValueSetInclude;
  */
 public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSetCompose {
 	/**
-	 * The cached value of the '{@link #getImport() <em>Import</em>}' containment reference list.
+	 * The cached value of the '{@link #getLockedDate() <em>Locked Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImport()
+	 * @see #getLockedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> import_;
+	protected Date lockedDate;
+
+	/**
+	 * The cached value of the '{@link #getInactive() <em>Inactive</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInactive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean inactive;
 
 	/**
 	 * The cached value of the '{@link #getInclude() <em>Include</em>}' containment reference list.
@@ -99,11 +103,85 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getImport() {
-		if (import_ == null) {
-			import_ = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.VALUE_SET_COMPOSE__IMPORT);
+	public Date getLockedDate() {
+		return lockedDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLockedDate(Date newLockedDate, NotificationChain msgs) {
+		Date oldLockedDate = lockedDate;
+		lockedDate = newLockedDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE, oldLockedDate, newLockedDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return import_;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLockedDate(Date newLockedDate) {
+		if (newLockedDate != lockedDate) {
+			NotificationChain msgs = null;
+			if (lockedDate != null)
+				msgs = ((InternalEObject)lockedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE, null, msgs);
+			if (newLockedDate != null)
+				msgs = ((InternalEObject)newLockedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE, null, msgs);
+			msgs = basicSetLockedDate(newLockedDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE, newLockedDate, newLockedDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getInactive() {
+		return inactive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInactive(org.hl7.fhir.Boolean newInactive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldInactive = inactive;
+		inactive = newInactive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_COMPOSE__INACTIVE, oldInactive, newInactive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInactive(org.hl7.fhir.Boolean newInactive) {
+		if (newInactive != inactive) {
+			NotificationChain msgs = null;
+			if (inactive != null)
+				msgs = ((InternalEObject)inactive).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_COMPOSE__INACTIVE, null, msgs);
+			if (newInactive != null)
+				msgs = ((InternalEObject)newInactive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_COMPOSE__INACTIVE, null, msgs);
+			msgs = basicSetInactive(newInactive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_COMPOSE__INACTIVE, newInactive, newInactive));
 	}
 
 	/**
@@ -138,8 +216,10 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.VALUE_SET_COMPOSE__IMPORT:
-				return ((InternalEList<?>)getImport()).basicRemove(otherEnd, msgs);
+			case FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE:
+				return basicSetLockedDate(null, msgs);
+			case FhirPackage.VALUE_SET_COMPOSE__INACTIVE:
+				return basicSetInactive(null, msgs);
 			case FhirPackage.VALUE_SET_COMPOSE__INCLUDE:
 				return ((InternalEList<?>)getInclude()).basicRemove(otherEnd, msgs);
 			case FhirPackage.VALUE_SET_COMPOSE__EXCLUDE:
@@ -156,8 +236,10 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.VALUE_SET_COMPOSE__IMPORT:
-				return getImport();
+			case FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE:
+				return getLockedDate();
+			case FhirPackage.VALUE_SET_COMPOSE__INACTIVE:
+				return getInactive();
 			case FhirPackage.VALUE_SET_COMPOSE__INCLUDE:
 				return getInclude();
 			case FhirPackage.VALUE_SET_COMPOSE__EXCLUDE:
@@ -175,9 +257,11 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.VALUE_SET_COMPOSE__IMPORT:
-				getImport().clear();
-				getImport().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE:
+				setLockedDate((Date)newValue);
+				return;
+			case FhirPackage.VALUE_SET_COMPOSE__INACTIVE:
+				setInactive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.VALUE_SET_COMPOSE__INCLUDE:
 				getInclude().clear();
@@ -199,8 +283,11 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VALUE_SET_COMPOSE__IMPORT:
-				getImport().clear();
+			case FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE:
+				setLockedDate((Date)null);
+				return;
+			case FhirPackage.VALUE_SET_COMPOSE__INACTIVE:
+				setInactive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.VALUE_SET_COMPOSE__INCLUDE:
 				getInclude().clear();
@@ -220,8 +307,10 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VALUE_SET_COMPOSE__IMPORT:
-				return import_ != null && !import_.isEmpty();
+			case FhirPackage.VALUE_SET_COMPOSE__LOCKED_DATE:
+				return lockedDate != null;
+			case FhirPackage.VALUE_SET_COMPOSE__INACTIVE:
+				return inactive != null;
 			case FhirPackage.VALUE_SET_COMPOSE__INCLUDE:
 				return include != null && !include.isEmpty();
 			case FhirPackage.VALUE_SET_COMPOSE__EXCLUDE:

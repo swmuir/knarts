@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitNote;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
@@ -36,6 +26,7 @@ import org.hl7.fhir.PositiveInt;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitNoteImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitNoteImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitNoteImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitNoteImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,7 +50,7 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -70,6 +61,16 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String text;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept language;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,7 +139,7 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -147,8 +148,8 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TYPE, oldType, newType);
@@ -162,7 +163,7 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -224,6 +225,49 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLanguage(CodeableConcept newLanguage, NotificationChain msgs) {
+		CodeableConcept oldLanguage = language;
+		language = newLanguage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE, oldLanguage, newLanguage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLanguage(CodeableConcept newLanguage) {
+		if (newLanguage != language) {
+			NotificationChain msgs = null;
+			if (language != null)
+				msgs = ((InternalEObject)language).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE, null, msgs);
+			if (newLanguage != null)
+				msgs = ((InternalEObject)newLanguage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE, null, msgs);
+			msgs = basicSetLanguage(newLanguage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE, newLanguage, newLanguage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -233,6 +277,8 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 				return basicSetType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TEXT:
 				return basicSetText(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE:
+				return basicSetLanguage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -251,6 +297,8 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 				return getType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TEXT:
 				return getText();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,10 +315,13 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 				setNumber((PositiveInt)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TEXT:
 				setText((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE:
+				setLanguage((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,10 +339,13 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 				setNumber((PositiveInt)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TEXT:
 				setText((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE:
+				setLanguage((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,6 +365,8 @@ public class ExplanationOfBenefitNoteImpl extends BackboneElementImpl implements
 				return type != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__TEXT:
 				return text != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE__LANGUAGE:
+				return language != null;
 		}
 		return super.eIsSet(featureID);
 	}

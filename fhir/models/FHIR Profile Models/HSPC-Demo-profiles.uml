@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fhir="http://www.eclipse.org/mdht/schema/profile/fhir/1.0.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_fO7eECP_EeW3155CxDza7Q" name="FHIR Profile Model">
+    <packageImport xmi:id="_5qaTsIcuEeWQR6LmUoLc9w">
+      <importedPackage href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_fO7eECP_EeW3155CxDza7Q"/>
+    </packageImport>
+    <packageImport xmi:id="_1pyIoKWzEeWdnq7z45q_aw">
+      <importedPackage href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_fO7eECP_EeW3155CxDza7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_GnesgMFvEear_pLn-5BNiw" name="Profiles">
+      <packagedElement xmi:type="uml:Class" xmi:id="_GNBusMF7Eear_pLn-5BNiw" name="PGHD-Observation">
+        <generalization xmi:id="_IemvwMF7Eear_pLn-5BNiw">
+          <general xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_lmm6I8FOEeaNCoznY2JI5Q"/>
+        </generalization>
+        <ownedAttribute xmi:id="_WEaeIMF7Eear_pLn-5BNiw" name="code" isOrdered="true">
+          <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4ckleMFMEea5pdrFDq-m2g"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WEaeIcF7Eear_pLn-5BNiw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WEaeIsF7Eear_pLn-5BNiw" value="1"/>
+          <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_lmtn0MFOEeaNCoznY2JI5Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_WEevkMF7Eear_pLn-5BNiw" name="performer" isOrdered="true" association="_WEhL0MF7Eear_pLn-5BNiw">
+          <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4a-C9MFMEea5pdrFDq-m2g"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WEevkcF7Eear_pLn-5BNiw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WEevksF7Eear_pLn-5BNiw" value="*"/>
+          <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_47pHG8FMEea5pdrFDq-m2g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_YVfv8MF7Eear_pLn-5BNiw" name="device" isOrdered="true" association="_YViMMMF7Eear_pLn-5BNiw">
+          <type xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4a-C9MFMEea5pdrFDq-m2g"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_awE8AcF7Eear_pLn-5BNiw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_awE8AMF7Eear_pLn-5BNiw" value="1"/>
+          <redefinedProperty href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_48zkuMFMEea5pdrFDq-m2g"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_WEhL0MF7Eear_pLn-5BNiw" memberEnd="_WEevkMF7Eear_pLn-5BNiw _WEhy4MF7Eear_pLn-5BNiw">
+        <ownedEnd xmi:id="_WEhy4MF7Eear_pLn-5BNiw" type="_GNBusMF7Eear_pLn-5BNiw" association="_WEhL0MF7Eear_pLn-5BNiw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_YViMMMF7Eear_pLn-5BNiw" memberEnd="_YVfv8MF7Eear_pLn-5BNiw _YViMMcF7Eear_pLn-5BNiw">
+        <ownedEnd xmi:id="_YViMMcF7Eear_pLn-5BNiw" type="_GNBusMF7Eear_pLn-5BNiw" association="_YViMMMF7Eear_pLn-5BNiw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JzbrIMFvEear_pLn-5BNiw" name="ValueSets">
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_kaZ20MF8Eear_pLn-5BNiw" name="test"/>
+    </packagedElement>
+    <profileApplication xmi:id="_uxtyMC9SEeWIBNXd-hwrzA">
+      <eAnnotations xmi:id="_uxvnYC9SEeWIBNXd-hwrzA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.openhealthtools.org/mdht/schema/profile/validation/1.0.0#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_VALIDATION/Validation.profile.uml#profile"/>
+    </profileApplication>
+    <profileApplication xmi:id="_5Y4JIGIeEeWnPYecKg0Ttw">
+      <eAnnotations xmi:id="_5Y-20GIeEeWnPYecKg0Ttw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/mdht/schema/profile/fhir/1.0.0#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://MDHT_FHIR/FHIR.profile.uml#_dtdbUDDkEeWn6bT0Ftydnw"/>
+    </profileApplication>
+  </uml:Package>
+  <fhir:ElementDefinition xmi:id="_WEbFMMF7Eear_pLn-5BNiw" id="Observation:vitalsigns.code" base_Property="_WEaeIMF7Eear_pLn-5BNiw" name="Observation:vitalsigns.code" mustSupport="true" representation=""/>
+  <fhir:ValueSetBinding xmi:id="_WEdhcMF7Eear_pLn-5BNiw" base_Property="_WEaeIMF7Eear_pLn-5BNiw" strength="extensible" description="This identifies the vital sign result type.">
+    <valueSetReference href="pathmap://FHIR_CORE_MODEL///FHIR-HL7-Profiles.uml#_lmuO4cFOEeaNCoznY2JI5Q"/>
+  </fhir:ValueSetBinding>
+  <fhir:ElementDefinition xmi:id="_WEfWoMF7Eear_pLn-5BNiw" id="Observation.performer" base_Property="_WEevkMF7Eear_pLn-5BNiw" name="Observation.performer" isSummary="true" representation=""/>
+  <fhir:TypeChoice xmi:id="_WEgkwMF7Eear_pLn-5BNiw" base_Property="_WEevkMF7Eear_pLn-5BNiw">
+    <types xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4eScuMFMEea5pdrFDq-m2g"/>
+    <types xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4kWocMFMEea5pdrFDq-m2g"/>
+  </fhir:TypeChoice>
+  <fhir:StructureDefinition xmi:id="_WEhy4cF7Eear_pLn-5BNiw" name="PGHD-Observation" base_Class="_GNBusMF7Eear_pLn-5BNiw"/>
+  <fhir:ElementDefinition xmi:id="_YVgXAMF7Eear_pLn-5BNiw" id="Observation.device" base_Property="_YVfv8MF7Eear_pLn-5BNiw" name="Observation.device" representation=""/>
+  <fhir:TypeChoice xmi:id="_YVhlIMF7Eear_pLn-5BNiw" base_Property="_YVfv8MF7Eear_pLn-5BNiw">
+    <types xmi:type="uml:Class" href="pathmap://FHIR_CORE_MODEL///FHIR-Core.uml#_4lLH2sFMEea5pdrFDq-m2g"/>
+  </fhir:TypeChoice>
+  <fhir:ValueSet xmi:id="_kaad4MF8Eear_pLn-5BNiw" uri="http://eclipse.org/mdht/fhir/ValueSet/test" name="test" base_Enumeration="_kaZ20MF8Eear_pLn-5BNiw"/>
+</xmi:XMI>

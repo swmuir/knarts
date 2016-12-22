@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.AggregationMode;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ReferenceVersionRules;
@@ -44,6 +33,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionTypeImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionTypeImpl#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionTypeImpl#getTargetProfile <em>Target Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionTypeImpl#getAggregation <em>Aggregation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionTypeImpl#getVersioning <em>Versioning</em>}</li>
  * </ul>
@@ -59,17 +49,27 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * @generated
 	 * @ordered
 	 */
-	protected Code code;
+	protected Uri code;
 
 	/**
-	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
+	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProfile()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> profile;
+	protected Uri profile;
+
+	/**
+	 * The cached value of the '{@link #getTargetProfile() <em>Target Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri targetProfile;
 
 	/**
 	 * The cached value of the '{@link #getAggregation() <em>Aggregation</em>}' containment reference list.
@@ -115,7 +115,7 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getCode() {
+	public Uri getCode() {
 		return code;
 	}
 
@@ -124,8 +124,8 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Code newCode, NotificationChain msgs) {
-		Code oldCode = code;
+	public NotificationChain basicSetCode(Uri newCode, NotificationChain msgs) {
+		Uri oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_TYPE__CODE, oldCode, newCode);
@@ -139,7 +139,7 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Code newCode) {
+	public void setCode(Uri newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null)
@@ -158,11 +158,85 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getProfile() {
-		if (profile == null) {
-			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE);
-		}
+	public Uri getProfile() {
 		return profile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProfile(Uri newProfile, NotificationChain msgs) {
+		Uri oldProfile = profile;
+		profile = newProfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE, oldProfile, newProfile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProfile(Uri newProfile) {
+		if (newProfile != profile) {
+			NotificationChain msgs = null;
+			if (profile != null)
+				msgs = ((InternalEObject)profile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE, null, msgs);
+			if (newProfile != null)
+				msgs = ((InternalEObject)newProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE, null, msgs);
+			msgs = basicSetProfile(newProfile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE, newProfile, newProfile));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getTargetProfile() {
+		return targetProfile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetProfile(Uri newTargetProfile, NotificationChain msgs) {
+		Uri oldTargetProfile = targetProfile;
+		targetProfile = newTargetProfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE, oldTargetProfile, newTargetProfile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetProfile(Uri newTargetProfile) {
+		if (newTargetProfile != targetProfile) {
+			NotificationChain msgs = null;
+			if (targetProfile != null)
+				msgs = ((InternalEObject)targetProfile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE, null, msgs);
+			if (newTargetProfile != null)
+				msgs = ((InternalEObject)newTargetProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE, null, msgs);
+			msgs = basicSetTargetProfile(newTargetProfile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE, newTargetProfile, newTargetProfile));
 	}
 
 	/**
@@ -231,7 +305,9 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE:
-				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
+				return basicSetProfile(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE:
+				return basicSetTargetProfile(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION:
 				return ((InternalEList<?>)getAggregation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__VERSIONING:
@@ -252,6 +328,8 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 				return getCode();
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE:
 				return getProfile();
+			case FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE:
+				return getTargetProfile();
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION:
 				return getAggregation();
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__VERSIONING:
@@ -270,11 +348,13 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__CODE:
-				setCode((Code)newValue);
+				setCode((Uri)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE:
-				getProfile().clear();
-				getProfile().addAll((Collection<? extends Uri>)newValue);
+				setProfile((Uri)newValue);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE:
+				setTargetProfile((Uri)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION:
 				getAggregation().clear();
@@ -296,10 +376,13 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__CODE:
-				setCode((Code)null);
+				setCode((Uri)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE:
-				getProfile().clear();
+				setProfile((Uri)null);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE:
+				setTargetProfile((Uri)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION:
 				getAggregation().clear();
@@ -322,7 +405,9 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__CODE:
 				return code != null;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__PROFILE:
-				return profile != null && !profile.isEmpty();
+				return profile != null;
+			case FhirPackage.ELEMENT_DEFINITION_TYPE__TARGET_PROFILE:
+				return targetProfile != null;
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION:
 				return aggregation != null && !aggregation.isEmpty();
 			case FhirPackage.ELEMENT_DEFINITION_TYPE__VERSIONING:

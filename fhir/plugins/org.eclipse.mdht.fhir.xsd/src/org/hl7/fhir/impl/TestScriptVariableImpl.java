@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -34,7 +24,10 @@ import org.hl7.fhir.TestScriptVariable;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getHeaderField <em>Header Field</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getHint <em>Hint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptVariableImpl#getSourceId <em>Source Id</em>}</li>
  * </ul>
@@ -63,6 +56,26 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 	protected org.hl7.fhir.String defaultValue;
 
 	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String description;
+
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String expression;
+
+	/**
 	 * The cached value of the '{@link #getHeaderField() <em>Header Field</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,6 +84,16 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String headerField;
+
+	/**
+	 * The cached value of the '{@link #getHint() <em>Hint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHint()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String hint;
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -202,6 +225,92 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
+		org.hl7.fhir.String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(org.hl7.fhir.String newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getExpression() {
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpression(org.hl7.fhir.String newExpression, NotificationChain msgs) {
+		org.hl7.fhir.String oldExpression = expression;
+		expression = newExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION, oldExpression, newExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpression(org.hl7.fhir.String newExpression) {
+		if (newExpression != expression) {
+			NotificationChain msgs = null;
+			if (expression != null)
+				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION, null, msgs);
+			if (newExpression != null)
+				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION, null, msgs);
+			msgs = basicSetExpression(newExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION, newExpression, newExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getHeaderField() {
 		return headerField;
 	}
@@ -238,6 +347,49 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD, newHeaderField, newHeaderField));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getHint() {
+		return hint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHint(org.hl7.fhir.String newHint, NotificationChain msgs) {
+		org.hl7.fhir.String oldHint = hint;
+		hint = newHint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__HINT, oldHint, newHint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHint(org.hl7.fhir.String newHint) {
+		if (newHint != hint) {
+			NotificationChain msgs = null;
+			if (hint != null)
+				msgs = ((InternalEObject)hint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__HINT, null, msgs);
+			if (newHint != null)
+				msgs = ((InternalEObject)newHint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_VARIABLE__HINT, null, msgs);
+			msgs = basicSetHint(newHint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_VARIABLE__HINT, newHint, newHint));
 	}
 
 	/**
@@ -338,8 +490,14 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 				return basicSetName(null, msgs);
 			case FhirPackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
 				return basicSetDefaultValue(null, msgs);
+			case FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION:
+				return basicSetExpression(null, msgs);
 			case FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				return basicSetHeaderField(null, msgs);
+			case FhirPackage.TEST_SCRIPT_VARIABLE__HINT:
+				return basicSetHint(null, msgs);
 			case FhirPackage.TEST_SCRIPT_VARIABLE__PATH:
 				return basicSetPath(null, msgs);
 			case FhirPackage.TEST_SCRIPT_VARIABLE__SOURCE_ID:
@@ -360,8 +518,14 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 				return getName();
 			case FhirPackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
 				return getDefaultValue();
+			case FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION:
+				return getDescription();
+			case FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION:
+				return getExpression();
 			case FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				return getHeaderField();
+			case FhirPackage.TEST_SCRIPT_VARIABLE__HINT:
+				return getHint();
 			case FhirPackage.TEST_SCRIPT_VARIABLE__PATH:
 				return getPath();
 			case FhirPackage.TEST_SCRIPT_VARIABLE__SOURCE_ID:
@@ -384,8 +548,17 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 			case FhirPackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
 				setDefaultValue((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION:
+				setExpression((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				setHeaderField((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__HINT:
+				setHint((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__PATH:
 				setPath((org.hl7.fhir.String)newValue);
@@ -411,8 +584,17 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 			case FhirPackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
 				setDefaultValue((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION:
+				setExpression((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				setHeaderField((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__HINT:
+				setHint((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__PATH:
 				setPath((org.hl7.fhir.String)null);
@@ -436,8 +618,14 @@ public class TestScriptVariableImpl extends BackboneElementImpl implements TestS
 				return name != null;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__DEFAULT_VALUE:
 				return defaultValue != null;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__DESCRIPTION:
+				return description != null;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__EXPRESSION:
+				return expression != null;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__HEADER_FIELD:
 				return headerField != null;
+			case FhirPackage.TEST_SCRIPT_VARIABLE__HINT:
+				return hint != null;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__PATH:
 				return path != null;
 			case FhirPackage.TEST_SCRIPT_VARIABLE__SOURCE_ID:

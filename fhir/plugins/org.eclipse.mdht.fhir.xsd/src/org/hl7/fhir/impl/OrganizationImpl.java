@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -48,10 +38,12 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OrganizationImpl#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +90,16 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	protected org.hl7.fhir.String name;
 
 	/**
+	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<org.hl7.fhir.String> alias;
+
+	/**
 	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +138,16 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * @ordered
 	 */
 	protected EList<OrganizationContact> contact;
+
+	/**
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> endpoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,6 +314,18 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<org.hl7.fhir.String> getAlias() {
+		if (alias == null) {
+			alias = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ORGANIZATION__ALIAS);
+		}
+		return alias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.ORGANIZATION__TELECOM);
@@ -381,6 +405,18 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ORGANIZATION__ENDPOINT);
+		}
+		return endpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -392,6 +428,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return basicSetType(null, msgs);
 			case FhirPackage.ORGANIZATION__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.ORGANIZATION__ALIAS:
+				return ((InternalEList<?>)getAlias()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ORGANIZATION__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ORGANIZATION__ADDRESS:
@@ -400,6 +438,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return basicSetPartOf(null, msgs);
 			case FhirPackage.ORGANIZATION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ORGANIZATION__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -420,6 +460,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return getType();
 			case FhirPackage.ORGANIZATION__NAME:
 				return getName();
+			case FhirPackage.ORGANIZATION__ALIAS:
+				return getAlias();
 			case FhirPackage.ORGANIZATION__TELECOM:
 				return getTelecom();
 			case FhirPackage.ORGANIZATION__ADDRESS:
@@ -428,6 +470,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return getPartOf();
 			case FhirPackage.ORGANIZATION__CONTACT:
 				return getContact();
+			case FhirPackage.ORGANIZATION__ENDPOINT:
+				return getEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,6 +498,10 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 			case FhirPackage.ORGANIZATION__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.ORGANIZATION__ALIAS:
+				getAlias().clear();
+				getAlias().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				return;
 			case FhirPackage.ORGANIZATION__TELECOM:
 				getTelecom().clear();
 				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
@@ -468,6 +516,10 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 			case FhirPackage.ORGANIZATION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends OrganizationContact>)newValue);
+				return;
+			case FhirPackage.ORGANIZATION__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -493,6 +545,9 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 			case FhirPackage.ORGANIZATION__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.ORGANIZATION__ALIAS:
+				getAlias().clear();
+				return;
 			case FhirPackage.ORGANIZATION__TELECOM:
 				getTelecom().clear();
 				return;
@@ -504,6 +559,9 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return;
 			case FhirPackage.ORGANIZATION__CONTACT:
 				getContact().clear();
+				return;
+			case FhirPackage.ORGANIZATION__ENDPOINT:
+				getEndpoint().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -525,6 +583,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return type != null;
 			case FhirPackage.ORGANIZATION__NAME:
 				return name != null;
+			case FhirPackage.ORGANIZATION__ALIAS:
+				return alias != null && !alias.isEmpty();
 			case FhirPackage.ORGANIZATION__TELECOM:
 				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.ORGANIZATION__ADDRESS:
@@ -533,6 +593,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				return partOf != null;
 			case FhirPackage.ORGANIZATION__CONTACT:
 				return contact != null && !contact.isEmpty();
+			case FhirPackage.ORGANIZATION__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

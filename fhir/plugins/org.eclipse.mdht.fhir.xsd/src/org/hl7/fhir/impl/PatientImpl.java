@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -68,7 +58,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getAnimal <em>Animal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getCommunication <em>Communication</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PatientImpl#getCareProvider <em>Care Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PatientImpl#getGeneralPractitioner <em>General Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getLink <em>Link</em>}</li>
  * </ul>
@@ -237,14 +227,14 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	protected EList<PatientCommunication> communication;
 
 	/**
-	 * The cached value of the '{@link #getCareProvider() <em>Care Provider</em>}' containment reference list.
+	 * The cached value of the '{@link #getGeneralPractitioner() <em>General Practitioner</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCareProvider()
+	 * @see #getGeneralPractitioner()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> careProvider;
+	protected EList<Reference> generalPractitioner;
 
 	/**
 	 * The cached value of the '{@link #getManagingOrganization() <em>Managing Organization</em>}' containment reference.
@@ -761,11 +751,11 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getCareProvider() {
-		if (careProvider == null) {
-			careProvider = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PATIENT__CARE_PROVIDER);
+	public EList<Reference> getGeneralPractitioner() {
+		if (generalPractitioner == null) {
+			generalPractitioner = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PATIENT__GENERAL_PRACTITIONER);
 		}
-		return careProvider;
+		return generalPractitioner;
 	}
 
 	/**
@@ -863,8 +853,8 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return basicSetAnimal(null, msgs);
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return ((InternalEList<?>)getCommunication()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PATIENT__CARE_PROVIDER:
-				return ((InternalEList<?>)getCareProvider()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
+				return ((InternalEList<?>)getGeneralPractitioner()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PATIENT__MANAGING_ORGANIZATION:
 				return basicSetManagingOrganization(null, msgs);
 			case FhirPackage.PATIENT__LINK:
@@ -913,8 +903,8 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return getAnimal();
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return getCommunication();
-			case FhirPackage.PATIENT__CARE_PROVIDER:
-				return getCareProvider();
+			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
+				return getGeneralPractitioner();
 			case FhirPackage.PATIENT__MANAGING_ORGANIZATION:
 				return getManagingOrganization();
 			case FhirPackage.PATIENT__LINK:
@@ -987,9 +977,9 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				getCommunication().clear();
 				getCommunication().addAll((Collection<? extends PatientCommunication>)newValue);
 				return;
-			case FhirPackage.PATIENT__CARE_PROVIDER:
-				getCareProvider().clear();
-				getCareProvider().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
+				getGeneralPractitioner().clear();
+				getGeneralPractitioner().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.PATIENT__MANAGING_ORGANIZATION:
 				setManagingOrganization((Reference)newValue);
@@ -1058,8 +1048,8 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 			case FhirPackage.PATIENT__COMMUNICATION:
 				getCommunication().clear();
 				return;
-			case FhirPackage.PATIENT__CARE_PROVIDER:
-				getCareProvider().clear();
+			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
+				getGeneralPractitioner().clear();
 				return;
 			case FhirPackage.PATIENT__MANAGING_ORGANIZATION:
 				setManagingOrganization((Reference)null);
@@ -1111,8 +1101,8 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return animal != null;
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return communication != null && !communication.isEmpty();
-			case FhirPackage.PATIENT__CARE_PROVIDER:
-				return careProvider != null && !careProvider.isEmpty();
+			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
+				return generalPractitioner != null && !generalPractitioner.isEmpty();
 			case FhirPackage.PATIENT__MANAGING_ORGANIZATION:
 				return managingOrganization != null;
 			case FhirPackage.PATIENT__LINK:

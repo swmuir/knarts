@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -49,13 +39,13 @@ public interface SampledData extends Element {
 	 * The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Origin</em>' containment reference.
-	 * @see #setOrigin(SimpleQuantity)
+	 * @see #setOrigin(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getSampledData_Origin()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getOrigin();
+	Quantity getOrigin();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SampledData#getOrigin <em>Origin</em>}' containment reference.
@@ -65,7 +55,7 @@ public interface SampledData extends Element {
 	 * @see #getOrigin()
 	 * @generated
 	 */
-	void setOrigin(SimpleQuantity value);
+	void setOrigin(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.

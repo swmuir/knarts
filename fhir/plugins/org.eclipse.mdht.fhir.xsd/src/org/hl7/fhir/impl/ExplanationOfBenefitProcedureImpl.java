@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.ExplanationOfBenefitProcedure;
 import org.hl7.fhir.FhirPackage;
@@ -37,7 +27,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitProcedureImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitProcedureImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitProcedureImpl#getProcedureCoding <em>Procedure Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitProcedureImpl#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitProcedureImpl#getProcedureReference <em>Procedure Reference</em>}</li>
  * </ul>
  *
@@ -65,14 +55,14 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 	protected DateTime date;
 
 	/**
-	 * The cached value of the '{@link #getProcedureCoding() <em>Procedure Coding</em>}' containment reference.
+	 * The cached value of the '{@link #getProcedureCodeableConcept() <em>Procedure Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcedureCoding()
+	 * @see #getProcedureCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding procedureCoding;
+	protected CodeableConcept procedureCodeableConcept;
 
 	/**
 	 * The cached value of the '{@link #getProcedureReference() <em>Procedure Reference</em>}' containment reference.
@@ -194,8 +184,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getProcedureCoding() {
-		return procedureCoding;
+	public CodeableConcept getProcedureCodeableConcept() {
+		return procedureCodeableConcept;
 	}
 
 	/**
@@ -203,11 +193,11 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProcedureCoding(Coding newProcedureCoding, NotificationChain msgs) {
-		Coding oldProcedureCoding = procedureCoding;
-		procedureCoding = newProcedureCoding;
+	public NotificationChain basicSetProcedureCodeableConcept(CodeableConcept newProcedureCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldProcedureCodeableConcept = procedureCodeableConcept;
+		procedureCodeableConcept = newProcedureCodeableConcept;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING, oldProcedureCoding, newProcedureCoding);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT, oldProcedureCodeableConcept, newProcedureCodeableConcept);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -218,18 +208,18 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcedureCoding(Coding newProcedureCoding) {
-		if (newProcedureCoding != procedureCoding) {
+	public void setProcedureCodeableConcept(CodeableConcept newProcedureCodeableConcept) {
+		if (newProcedureCodeableConcept != procedureCodeableConcept) {
 			NotificationChain msgs = null;
-			if (procedureCoding != null)
-				msgs = ((InternalEObject)procedureCoding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING, null, msgs);
-			if (newProcedureCoding != null)
-				msgs = ((InternalEObject)newProcedureCoding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING, null, msgs);
-			msgs = basicSetProcedureCoding(newProcedureCoding, msgs);
+			if (procedureCodeableConcept != null)
+				msgs = ((InternalEObject)procedureCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT, null, msgs);
+			if (newProcedureCodeableConcept != null)
+				msgs = ((InternalEObject)newProcedureCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetProcedureCodeableConcept(newProcedureCodeableConcept, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING, newProcedureCoding, newProcedureCoding));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT, newProcedureCodeableConcept, newProcedureCodeableConcept));
 	}
 
 	/**
@@ -287,8 +277,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 				return basicSetSequence(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__DATE:
 				return basicSetDate(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING:
-				return basicSetProcedureCoding(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
+				return basicSetProcedureCodeableConcept(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_REFERENCE:
 				return basicSetProcedureReference(null, msgs);
 		}
@@ -307,8 +297,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 				return getSequence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__DATE:
 				return getDate();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING:
-				return getProcedureCoding();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
+				return getProcedureCodeableConcept();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_REFERENCE:
 				return getProcedureReference();
 		}
@@ -329,8 +319,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__DATE:
 				setDate((DateTime)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING:
-				setProcedureCoding((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
+				setProcedureCodeableConcept((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_REFERENCE:
 				setProcedureReference((Reference)newValue);
@@ -353,8 +343,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__DATE:
 				setDate((DateTime)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING:
-				setProcedureCoding((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
+				setProcedureCodeableConcept((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_REFERENCE:
 				setProcedureReference((Reference)null);
@@ -375,8 +365,8 @@ public class ExplanationOfBenefitProcedureImpl extends BackboneElementImpl imple
 				return sequence != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__DATE:
 				return date != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODING:
-				return procedureCoding != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
+				return procedureCodeableConcept != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE__PROCEDURE_REFERENCE:
 				return procedureReference != null;
 		}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -43,13 +33,13 @@ public interface ExpansionProfileDesignation extends BackboneElement {
 	 * Designations to be included.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Include</em>' containment reference.
-	 * @see #setInclude(ExpansionProfileInclude1)
+	 * @see #setInclude(ExpansionProfileInclude)
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfileDesignation_Include()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='include' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExpansionProfileInclude1 getInclude();
+	ExpansionProfileInclude getInclude();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfileDesignation#getInclude <em>Include</em>}' containment reference.
@@ -59,7 +49,7 @@ public interface ExpansionProfileDesignation extends BackboneElement {
 	 * @see #getInclude()
 	 * @generated
 	 */
-	void setInclude(ExpansionProfileInclude1 value);
+	void setInclude(ExpansionProfileInclude value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude</b></em>' containment reference.
@@ -69,13 +59,13 @@ public interface ExpansionProfileDesignation extends BackboneElement {
 	 * Designations to be excluded.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude</em>' containment reference.
-	 * @see #setExclude(ExpansionProfileExclude1)
+	 * @see #setExclude(ExpansionProfileExclude)
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfileDesignation_Exclude()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='exclude' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExpansionProfileExclude1 getExclude();
+	ExpansionProfileExclude getExclude();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfileDesignation#getExclude <em>Exclude</em>}' containment reference.
@@ -85,6 +75,6 @@ public interface ExpansionProfileDesignation extends BackboneElement {
 	 * @see #getExclude()
 	 * @generated
 	 */
-	void setExclude(ExpansionProfileExclude1 value);
+	void setExclude(ExpansionProfileExclude value);
 
 } // ExpansionProfileDesignation

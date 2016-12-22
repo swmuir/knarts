@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,13 +20,16 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompartmentDefinition#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.CompartmentDefinition#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompartmentDefinition#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompartmentDefinition#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompartmentDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getSearch <em>Search</em>}</li>
  *   <li>{@link org.hl7.fhir.CompartmentDefinition#getResource <em>Resource</em>}</li>
@@ -52,7 +45,7 @@ public interface CompartmentDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this compartment definition is (or will be) published.
+	 * An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this compartment definition is (or will be) published. The URL SHOULD include the major version of the compartment definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -78,7 +71,7 @@ public interface CompartmentDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language name identifying the compartment definition.
+	 * A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -100,20 +93,46 @@ public interface CompartmentDefinition extends DomainResource {
 	void setName(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A short, descriptive, user-friendly title for the compartment definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Title</em>' containment reference.
+	 * @see #setTitle(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Title()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinition#getTitle <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' containment reference.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of this compartment definition definition.
+	 * The status of this compartment definition. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinition#getStatus <em>Status</em>}' containment reference.
@@ -123,14 +142,14 @@ public interface CompartmentDefinition extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -179,11 +198,11 @@ public interface CompartmentDefinition extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CompartmentDefinitionContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Contact()
@@ -191,14 +210,14 @@ public interface CompartmentDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CompartmentDefinitionContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the compartment definition definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.
+	 * The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -224,16 +243,16 @@ public interface CompartmentDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the CompartmentDefinition and its use.
+	 * A free text natural language description of the compartment definition from the consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinition#getDescription <em>Description</em>}' containment reference.
@@ -243,33 +262,65 @@ public interface CompartmentDefinition extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Scope and Usage that this compartment definition was created to meet.
+	 * Explains why this compartment definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requirements</em>' containment reference.
-	 * @see #setRequirements(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Requirements()
+	 * @return the value of the '<em>Purpose</em>' containment reference.
+	 * @see #setPurpose(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Purpose()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requirements' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='purpose' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getRequirements();
+	Markdown getPurpose();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinition#getRequirements <em>Requirements</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinition#getPurpose <em>Purpose</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requirements</em>' containment reference.
-	 * @see #getRequirements()
+	 * @param value the new value of the '<em>Purpose</em>' containment reference.
+	 * @see #getPurpose()
 	 * @generated
 	 */
-	void setRequirements(org.hl7.fhir.String value);
+	void setPurpose(Markdown value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Use Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_UseContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<UsageContext> getUseContext();
+
+	/**
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A jurisdiction in which the compartment definition is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinition_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

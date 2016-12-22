@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -35,6 +25,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitPayeeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitPayeeImpl#getResourceType <em>Resource Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitPayeeImpl#getPartyIdentifier <em>Party Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitPayeeImpl#getPartyReference <em>Party Reference</em>}</li>
  * </ul>
@@ -50,7 +41,17 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
+
+	/**
+	 * The cached value of the '{@link #getResourceType() <em>Resource Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept resourceType;
 
 	/**
 	 * The cached value of the '{@link #getPartyIdentifier() <em>Party Identifier</em>}' containment reference.
@@ -96,7 +97,7 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -105,8 +106,8 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE, oldType, newType);
@@ -120,7 +121,7 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -132,6 +133,49 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getResourceType() {
+		return resourceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResourceType(CodeableConcept newResourceType, NotificationChain msgs) {
+		CodeableConcept oldResourceType = resourceType;
+		resourceType = newResourceType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE, oldResourceType, newResourceType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourceType(CodeableConcept newResourceType) {
+		if (newResourceType != resourceType) {
+			NotificationChain msgs = null;
+			if (resourceType != null)
+				msgs = ((InternalEObject)resourceType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE, null, msgs);
+			if (newResourceType != null)
+				msgs = ((InternalEObject)newResourceType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE, null, msgs);
+			msgs = basicSetResourceType(newResourceType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE, newResourceType, newResourceType));
 	}
 
 	/**
@@ -230,6 +274,8 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE:
+				return basicSetResourceType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_IDENTIFIER:
 				return basicSetPartyIdentifier(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_REFERENCE:
@@ -248,6 +294,8 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE:
 				return getType();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE:
+				return getResourceType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_IDENTIFIER:
 				return getPartyIdentifier();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_REFERENCE:
@@ -265,7 +313,10 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE:
+				setResourceType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_IDENTIFIER:
 				setPartyIdentifier((Identifier)newValue);
@@ -286,7 +337,10 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE:
+				setResourceType((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_IDENTIFIER:
 				setPartyIdentifier((Identifier)null);
@@ -308,6 +362,8 @@ public class ExplanationOfBenefitPayeeImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__TYPE:
 				return type != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__RESOURCE_TYPE:
+				return resourceType != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_IDENTIFIER:
 				return partyIdentifier != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE__PARTY_REFERENCE:

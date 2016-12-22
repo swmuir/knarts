@@ -1,17 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +18,10 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosis <em>Diagnosis</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisCodeableConcept <em>Diagnosis Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisReference <em>Diagnosis Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getPackageCode <em>Package Code</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis()
@@ -62,29 +56,99 @@ public interface ClaimDiagnosis extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Diagnosis Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Diagnosis Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diagnosis Codeable Concept</em>' containment reference.
+	 * @see #setDiagnosisCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_DiagnosisCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='diagnosisCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getDiagnosisCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisCodeableConcept <em>Diagnosis Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagnosis Codeable Concept</em>' containment reference.
+	 * @see #getDiagnosisCodeableConcept()
+	 * @generated
+	 */
+	void setDiagnosisCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Diagnosis Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Diagnosis Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diagnosis Reference</em>' containment reference.
+	 * @see #setDiagnosisReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_DiagnosisReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='diagnosisReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDiagnosisReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisReference <em>Diagnosis Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagnosis Reference</em>' containment reference.
+	 * @see #getDiagnosisReference()
+	 * @generated
+	 */
+	void setDiagnosisReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The diagnosis.
+	 * The type of the Diagnosis, for example: admitting,.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Diagnosis</em>' containment reference.
-	 * @see #setDiagnosis(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_Diagnosis()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='diagnosis' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getDiagnosis();
+	EList<CodeableConcept> getType();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosis <em>Diagnosis</em>}' containment reference.
+	 * Returns the value of the '<em><b>Package Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Diagnosis</em>' containment reference.
-	 * @see #getDiagnosis()
+	 * <!-- begin-model-doc -->
+	 * The package billing code, for example DRG, based on the assigned grouping code system.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Package Code</em>' containment reference.
+	 * @see #setPackageCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_PackageCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='packageCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setDiagnosis(Coding value);
+	CodeableConcept getPackageCode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimDiagnosis#getPackageCode <em>Package Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Package Code</em>' containment reference.
+	 * @see #getPackageCode()
+	 * @generated
+	 */
+	void setPackageCode(CodeableConcept value);
 
 } // ClaimDiagnosis

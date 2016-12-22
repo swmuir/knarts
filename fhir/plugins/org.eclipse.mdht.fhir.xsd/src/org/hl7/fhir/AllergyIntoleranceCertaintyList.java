@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -58,7 +48,17 @@ public enum AllergyIntoleranceCertaintyList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONFIRMED(2, "confirmed", "confirmed");
+	CONFIRMED(2, "confirmed", "confirmed"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(3, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Unlikely</b></em>' literal value.
@@ -103,6 +103,20 @@ public enum AllergyIntoleranceCertaintyList implements Enumerator {
 	public static final int CONFIRMED_VALUE = 2;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Allergy Intolerance Certainty List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +127,7 @@ public enum AllergyIntoleranceCertaintyList implements Enumerator {
 			UNLIKELY,
 			LIKELY,
 			CONFIRMED,
+			UNKNOWN,
 		};
 
 	/**
@@ -172,6 +187,7 @@ public enum AllergyIntoleranceCertaintyList implements Enumerator {
 			case UNLIKELY_VALUE: return UNLIKELY;
 			case LIKELY_VALUE: return LIKELY;
 			case CONFIRMED_VALUE: return CONFIRMED;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

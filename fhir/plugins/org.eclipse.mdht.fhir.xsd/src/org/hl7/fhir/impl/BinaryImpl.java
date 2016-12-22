@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -24,6 +14,7 @@ import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.Binary;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +25,7 @@ import org.hl7.fhir.FhirPackage;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getSecurityContext <em>Security Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
@@ -49,6 +41,16 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * @ordered
 	 */
 	protected Code contentType;
+
+	/**
+	 * The cached value of the '{@link #getSecurityContext() <em>Security Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference securityContext;
 
 	/**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
@@ -127,6 +129,49 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getSecurityContext() {
+		return securityContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSecurityContext(Reference newSecurityContext, NotificationChain msgs) {
+		Reference oldSecurityContext = securityContext;
+		securityContext = newSecurityContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__SECURITY_CONTEXT, oldSecurityContext, newSecurityContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityContext(Reference newSecurityContext) {
+		if (newSecurityContext != securityContext) {
+			NotificationChain msgs = null;
+			if (securityContext != null)
+				msgs = ((InternalEObject)securityContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__SECURITY_CONTEXT, null, msgs);
+			if (newSecurityContext != null)
+				msgs = ((InternalEObject)newSecurityContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__SECURITY_CONTEXT, null, msgs);
+			msgs = basicSetSecurityContext(newSecurityContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__SECURITY_CONTEXT, newSecurityContext, newSecurityContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Base64Binary getContent() {
 		return content;
 	}
@@ -175,6 +220,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 		switch (featureID) {
 			case FhirPackage.BINARY__CONTENT_TYPE:
 				return basicSetContentType(null, msgs);
+			case FhirPackage.BINARY__SECURITY_CONTEXT:
+				return basicSetSecurityContext(null, msgs);
 			case FhirPackage.BINARY__CONTENT:
 				return basicSetContent(null, msgs);
 		}
@@ -191,6 +238,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 		switch (featureID) {
 			case FhirPackage.BINARY__CONTENT_TYPE:
 				return getContentType();
+			case FhirPackage.BINARY__SECURITY_CONTEXT:
+				return getSecurityContext();
 			case FhirPackage.BINARY__CONTENT:
 				return getContent();
 		}
@@ -207,6 +256,9 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 		switch (featureID) {
 			case FhirPackage.BINARY__CONTENT_TYPE:
 				setContentType((Code)newValue);
+				return;
+			case FhirPackage.BINARY__SECURITY_CONTEXT:
+				setSecurityContext((Reference)newValue);
 				return;
 			case FhirPackage.BINARY__CONTENT:
 				setContent((Base64Binary)newValue);
@@ -226,6 +278,9 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 			case FhirPackage.BINARY__CONTENT_TYPE:
 				setContentType((Code)null);
 				return;
+			case FhirPackage.BINARY__SECURITY_CONTEXT:
+				setSecurityContext((Reference)null);
+				return;
 			case FhirPackage.BINARY__CONTENT:
 				setContent((Base64Binary)null);
 				return;
@@ -243,6 +298,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 		switch (featureID) {
 			case FhirPackage.BINARY__CONTENT_TYPE:
 				return contentType != null;
+			case FhirPackage.BINARY__SECURITY_CONTEXT:
+				return securityContext != null;
 			case FhirPackage.BINARY__CONTENT:
 				return content != null;
 		}

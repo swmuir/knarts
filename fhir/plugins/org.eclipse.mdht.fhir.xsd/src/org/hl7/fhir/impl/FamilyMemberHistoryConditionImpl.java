@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -38,7 +28,7 @@ import org.hl7.fhir.Range;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOutcome <em>Outcome</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetQuantity <em>Onset Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetPeriod <em>Onset Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetString <em>Onset String</em>}</li>
@@ -69,14 +59,14 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	protected CodeableConcept outcome;
 
 	/**
-	 * The cached value of the '{@link #getOnsetQuantity() <em>Onset Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getOnsetAge() <em>Onset Age</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOnsetQuantity()
+	 * @see #getOnsetAge()
 	 * @generated
 	 * @ordered
 	 */
-	protected Age onsetQuantity;
+	protected Age onsetAge;
 
 	/**
 	 * The cached value of the '{@link #getOnsetRange() <em>Onset Range</em>}' containment reference.
@@ -228,8 +218,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Age getOnsetQuantity() {
-		return onsetQuantity;
+	public Age getOnsetAge() {
+		return onsetAge;
 	}
 
 	/**
@@ -237,11 +227,11 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOnsetQuantity(Age newOnsetQuantity, NotificationChain msgs) {
-		Age oldOnsetQuantity = onsetQuantity;
-		onsetQuantity = newOnsetQuantity;
+	public NotificationChain basicSetOnsetAge(Age newOnsetAge, NotificationChain msgs) {
+		Age oldOnsetAge = onsetAge;
+		onsetAge = newOnsetAge;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY, oldOnsetQuantity, newOnsetQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE, oldOnsetAge, newOnsetAge);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -252,18 +242,18 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOnsetQuantity(Age newOnsetQuantity) {
-		if (newOnsetQuantity != onsetQuantity) {
+	public void setOnsetAge(Age newOnsetAge) {
+		if (newOnsetAge != onsetAge) {
 			NotificationChain msgs = null;
-			if (onsetQuantity != null)
-				msgs = ((InternalEObject)onsetQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY, null, msgs);
-			if (newOnsetQuantity != null)
-				msgs = ((InternalEObject)newOnsetQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY, null, msgs);
-			msgs = basicSetOnsetQuantity(newOnsetQuantity, msgs);
+			if (onsetAge != null)
+				msgs = ((InternalEObject)onsetAge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE, null, msgs);
+			if (newOnsetAge != null)
+				msgs = ((InternalEObject)newOnsetAge).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE, null, msgs);
+			msgs = basicSetOnsetAge(newOnsetAge, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY, newOnsetQuantity, newOnsetQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE, newOnsetAge, newOnsetAge));
 	}
 
 	/**
@@ -450,8 +440,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return basicSetCode(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return basicSetOutcome(null, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY:
-				return basicSetOnsetQuantity(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
+				return basicSetOnsetAge(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
 				return basicSetOnsetRange(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_PERIOD:
@@ -476,8 +466,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return getCode();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return getOutcome();
-			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY:
-				return getOnsetQuantity();
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
+				return getOnsetAge();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
 				return getOnsetRange();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_PERIOD:
@@ -504,8 +494,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				setOutcome((CodeableConcept)newValue);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY:
-				setOnsetQuantity((Age)newValue);
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
+				setOnsetAge((Age)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
 				setOnsetRange((Range)newValue);
@@ -537,8 +527,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				setOutcome((CodeableConcept)null);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY:
-				setOnsetQuantity((Age)null);
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
+				setOnsetAge((Age)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
 				setOnsetRange((Range)null);
@@ -568,8 +558,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return code != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return outcome != null;
-			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_QUANTITY:
-				return onsetQuantity != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
+				return onsetAge != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
 				return onsetRange != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_PERIOD:

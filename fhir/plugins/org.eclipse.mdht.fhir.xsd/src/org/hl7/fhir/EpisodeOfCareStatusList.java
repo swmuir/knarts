@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -88,7 +78,17 @@ public enum EpisodeOfCareStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(5, "cancelled", "cancelled");
+	CANCELLED(5, "cancelled", "cancelled"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(6, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Planned</b></em>' literal value.
@@ -175,6 +175,20 @@ public enum EpisodeOfCareStatusList implements Enumerator {
 	public static final int CANCELLED_VALUE = 5;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Episode Of Care Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,6 +202,7 @@ public enum EpisodeOfCareStatusList implements Enumerator {
 			ONHOLD,
 			FINISHED,
 			CANCELLED,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -250,6 +265,7 @@ public enum EpisodeOfCareStatusList implements Enumerator {
 			case ONHOLD_VALUE: return ONHOLD;
 			case FINISHED_VALUE: return FINISHED;
 			case CANCELLED_VALUE: return CANCELLED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -36,7 +26,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getScheduledDateTime <em>Scheduled Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getScheduledPeriod <em>Scheduled Period</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getReason <em>Reason</em>}</li>
@@ -219,30 +210,46 @@ public interface CommunicationRequest extends DomainResource {
 	void setStatus(CommunicationRequestStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter within which the communication request was created.
+	 * The resources which were related to producing this communication request.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Encounter()
+	 * @return the value of the '<em>Topic</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Topic()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='topic' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEncounter();
+	EList<Reference> getTopic();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getEncounter <em>Encounter</em>}' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
+	 * <!-- begin-model-doc -->
+	 * The encounter or episode of care within which the communication request was created.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setEncounter(Reference value);
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Scheduled Date Time</b></em>' containment reference.

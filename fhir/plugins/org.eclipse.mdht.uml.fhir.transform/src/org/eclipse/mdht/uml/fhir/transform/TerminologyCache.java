@@ -40,7 +40,8 @@ public class TerminologyCache {
 	private boolean licenseAgreement = false;
 
 //	private static String SERVICE_URL = "http://fhir2.healthintersections.com.au/open/";
-	private static String SERVICE_URL = "http://54.226.90.249/open/";
+//	private static String SERVICE_URL = "http://54.226.90.249/open/";
+	private static String SERVICE_URL = "http://fhir3.healthintersections.com.au/open/";
 	
 //	private String codeSystem = "http://snomed.info/sct";
 	private  CodeSystem snomedCodeSystem;
@@ -149,8 +150,9 @@ public class TerminologyCache {
 			return concept;
 		}
 
-			String serviceURL = getBaseURL() + "ValueSet/$lookup?_format=xml&system=" + codeSystem.getUri() + "&code=" + conceptId;
-
+			String serviceURL = getBaseURL() + "CodeSystem/$lookup?_format=xml&system=" + codeSystem.getUri() + "&code=" + conceptId;
+			System.out.println(serviceURL);
+			
 			// create Ecore URI and load resource
 			InputStream inputStream = getInputStream(serviceURL);
 
@@ -281,11 +283,49 @@ public class TerminologyCache {
 
 		return results;
 	}
-	
-	public Enumeration expandValueSet(String valueSetURI) throws IOException {
+
+	public Enumeration expandValueSetWithId(String valueSetId) throws IOException {
 		Enumeration umlEnumeration = null;
 
-		String serviceURL = getBaseURL() + "ValueSet/$expand?_format=xml&";
+		String serviceURL = getBaseURL() + "ValueSet/" + valueSetId + "/$expand?_format=xml&limitedExpansion=true";
+
+		// create Ecore URI and load resource
+		InputStream inputStream = getInputStream(serviceURL);
+
+		URI resourceURI = URI.createURI(serviceURL);
+		ResourceFactoryImpl resourceFactory = new FhirResourceFactoryImpl();
+		Resource resource = resourceFactory.createResource(resourceURI);
+	
+		resource.load(inputStream, new HashMap<String,String>());
+		inputStream.close();
+
+		// returns a ValueSet with expansion
+		TreeIterator<?> iterator = EcoreUtil.getAllContents(Collections.singletonList(resource));
+		while (iterator != null && iterator.hasNext()) {
+			Object element = iterator.next();
+			if (element instanceof ValueSet && ((ValueSet) element).getExpansion() != null) {
+				ValueSet fhirValueSet = (ValueSet) element;
+				Package umlPackage = FHIRModelFactory.createFHIRModel();
+				
+				ModelImporter modelImporter = new ModelImporter(umlPackage);
+				umlEnumeration = modelImporter.importValueSet(fhirValueSet);
+				
+//				umlEnumeration = umlPackage.createOwnedEnumeration(fhirValueSet.getName().getValue());
+//				for (ValueSetContains contains : fhirValueSet.getExpansion().getContains()) {
+//					if (contains.getCode() != null) {
+//						EnumerationLiteral member = umlEnumeration.createOwnedLiteral(contains.getCode().getValue());
+//					}
+//				}
+			}
+		}
+		
+		return umlEnumeration;
+	}
+
+	public Enumeration expandValueSetWithUri(String valueSetURI) throws IOException {
+		Enumeration umlEnumeration = null;
+
+		String serviceURL = getBaseURL() + "ValueSet/$expand?_format=xml&limitedExpansion=true&";
 		String expandArgs = "identifier=" + encodeURL(valueSetURI);
 		serviceURL += expandArgs;
 

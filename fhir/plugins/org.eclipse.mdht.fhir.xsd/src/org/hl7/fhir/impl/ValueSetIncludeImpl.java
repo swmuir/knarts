@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -45,6 +35,7 @@ import org.hl7.fhir.ValueSetInclude;
  *   <li>{@link org.hl7.fhir.impl.ValueSetIncludeImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetIncludeImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetIncludeImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetIncludeImpl#getValueSet <em>Value Set</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +80,16 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * @ordered
 	 */
 	protected EList<ValueSetFilter> filter;
+
+	/**
+	 * The cached value of the '{@link #getValueSet() <em>Value Set</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> valueSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +225,18 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Uri> getValueSet() {
+		if (valueSet == null) {
+			valueSet = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.VALUE_SET_INCLUDE__VALUE_SET);
+		}
+		return valueSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -235,6 +248,8 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 				return ((InternalEList<?>)getConcept()).basicRemove(otherEnd, msgs);
 			case FhirPackage.VALUE_SET_INCLUDE__FILTER:
 				return ((InternalEList<?>)getFilter()).basicRemove(otherEnd, msgs);
+			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
+				return ((InternalEList<?>)getValueSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -255,6 +270,8 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 				return getConcept();
 			case FhirPackage.VALUE_SET_INCLUDE__FILTER:
 				return getFilter();
+			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
+				return getValueSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,6 +299,10 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 				getFilter().clear();
 				getFilter().addAll((Collection<? extends ValueSetFilter>)newValue);
 				return;
+			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
+				getValueSet().clear();
+				getValueSet().addAll((Collection<? extends Uri>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -306,6 +327,9 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 			case FhirPackage.VALUE_SET_INCLUDE__FILTER:
 				getFilter().clear();
 				return;
+			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
+				getValueSet().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,6 +350,8 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 				return concept != null && !concept.isEmpty();
 			case FhirPackage.VALUE_SET_INCLUDE__FILTER:
 				return filter != null && !filter.isEmpty();
+			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
+				return valueSet != null && !valueSet.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

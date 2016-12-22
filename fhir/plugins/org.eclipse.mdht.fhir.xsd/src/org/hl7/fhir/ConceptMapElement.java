@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,8 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ConceptMapElement#getSystem <em>System</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMapElement#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapElement#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapElement#getTarget <em>Target</em>}</li>
  * </ul>
@@ -38,58 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ConceptMapElement extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>System</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>System</em>' containment reference.
-	 * @see #setSystem(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapElement_System()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Uri getSystem();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapElement#getSystem <em>System</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System</em>' containment reference.
-	 * @see #getSystem()
-	 * @generated
-	 */
-	void setSystem(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The specific version of the code system, as determined by the code system authority.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Version</em>' containment reference.
-	 * @see #setVersion(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapElement_Version()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getVersion();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapElement#getVersion <em>Version</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' containment reference.
-	 * @see #getVersion()
-	 * @generated
-	 */
-	void setVersion(org.hl7.fhir.String value);
-
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

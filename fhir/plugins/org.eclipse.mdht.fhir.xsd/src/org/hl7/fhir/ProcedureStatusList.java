@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,17 @@ public enum ProcedureStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(4, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -127,6 +127,20 @@ public enum ProcedureStatusList implements Enumerator {
 	public static final int ENTERED_IN_ERROR_VALUE = 3;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Procedure Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +152,7 @@ public enum ProcedureStatusList implements Enumerator {
 			ABORTED,
 			COMPLETED,
 			ENTERED_IN_ERROR,
+			UNKNOWN,
 		};
 
 	/**
@@ -198,6 +213,7 @@ public enum ProcedureStatusList implements Enumerator {
 			case ABORTED_VALUE: return ABORTED;
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -86,15 +76,6 @@ public interface XhtmlFactory extends EFactory {
 	AType createAType();
 
 	/**
-	 * Returns a new object of class '<em>Base Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Base Type</em>'.
-	 * @generated
-	 */
-	BaseType createBaseType();
-
-	/**
 	 * Returns a new object of class '<em>Bdo Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,15 +112,6 @@ public interface XhtmlFactory extends EFactory {
 	BlockquoteType createBlockquoteType();
 
 	/**
-	 * Returns a new object of class '<em>Body Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Body Type</em>'.
-	 * @generated
-	 */
-	BodyType createBodyType();
-
-	/**
 	 * Returns a new object of class '<em>Br Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,24 +128,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	BType createBType();
-
-	/**
-	 * Returns a new object of class '<em>Button Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Button Content</em>'.
-	 * @generated
-	 */
-	ButtonContent createButtonContent();
-
-	/**
-	 * Returns a new object of class '<em>Button Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Button Type</em>'.
-	 * @generated
-	 */
-	ButtonType createButtonType();
 
 	/**
 	 * Returns a new object of class '<em>Caption Type</em>'.
@@ -230,15 +184,6 @@ public interface XhtmlFactory extends EFactory {
 	DdType createDdType();
 
 	/**
-	 * Returns a new object of class '<em>Del Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Del Type</em>'.
-	 * @generated
-	 */
-	DelType createDelType();
-
-	/**
 	 * Returns a new object of class '<em>Dfn Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,15 +238,6 @@ public interface XhtmlFactory extends EFactory {
 	EmType createEmType();
 
 	/**
-	 * Returns a new object of class '<em>Fieldset Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Fieldset Type</em>'.
-	 * @generated
-	 */
-	FieldsetType createFieldsetType();
-
-	/**
 	 * Returns a new object of class '<em>Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,24 +245,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	Flow createFlow();
-
-	/**
-	 * Returns a new object of class '<em>Form Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Form Content</em>'.
-	 * @generated
-	 */
-	FormContent createFormContent();
-
-	/**
-	 * Returns a new object of class '<em>Form Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Form Type</em>'.
-	 * @generated
-	 */
-	FormType createFormType();
 
 	/**
 	 * Returns a new object of class '<em>H1 Type</em>'.
@@ -383,15 +301,6 @@ public interface XhtmlFactory extends EFactory {
 	H6Type createH6Type();
 
 	/**
-	 * Returns a new object of class '<em>Head Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Head Type</em>'.
-	 * @generated
-	 */
-	HeadType createHeadType();
-
-	/**
 	 * Returns a new object of class '<em>Hr Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,15 +308,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	HrType createHrType();
-
-	/**
-	 * Returns a new object of class '<em>Html Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Html Type</em>'.
-	 * @generated
-	 */
-	HtmlType createHtmlType();
 
 	/**
 	 * Returns a new object of class '<em>Img Type</em>'.
@@ -428,24 +328,6 @@ public interface XhtmlFactory extends EFactory {
 	Inline createInline();
 
 	/**
-	 * Returns a new object of class '<em>Input Type1</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Type1</em>'.
-	 * @generated
-	 */
-	InputType1 createInputType1();
-
-	/**
-	 * Returns a new object of class '<em>Ins Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ins Type</em>'.
-	 * @generated
-	 */
-	InsType createInsType();
-
-	/**
 	 * Returns a new object of class '<em>IType</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,33 +344,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	KbdType createKbdType();
-
-	/**
-	 * Returns a new object of class '<em>Label Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Label Type</em>'.
-	 * @generated
-	 */
-	LabelType createLabelType();
-
-	/**
-	 * Returns a new object of class '<em>Legend Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Legend Type</em>'.
-	 * @generated
-	 */
-	LegendType createLegendType();
-
-	/**
-	 * Returns a new object of class '<em>Link Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Link Type</em>'.
-	 * @generated
-	 */
-	LinkType createLinkType();
 
 	/**
 	 * Returns a new object of class '<em>Li Type</em>'.
@@ -509,33 +364,6 @@ public interface XhtmlFactory extends EFactory {
 	MapType createMapType();
 
 	/**
-	 * Returns a new object of class '<em>Meta Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Meta Type</em>'.
-	 * @generated
-	 */
-	MetaType createMetaType();
-
-	/**
-	 * Returns a new object of class '<em>Noscript Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Noscript Type</em>'.
-	 * @generated
-	 */
-	NoscriptType createNoscriptType();
-
-	/**
-	 * Returns a new object of class '<em>Object Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Type</em>'.
-	 * @generated
-	 */
-	ObjectType createObjectType();
-
-	/**
 	 * Returns a new object of class '<em>Ol Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,33 +371,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	OlType createOlType();
-
-	/**
-	 * Returns a new object of class '<em>Optgroup Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Optgroup Type</em>'.
-	 * @generated
-	 */
-	OptgroupType createOptgroupType();
-
-	/**
-	 * Returns a new object of class '<em>Option Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Option Type</em>'.
-	 * @generated
-	 */
-	OptionType createOptionType();
-
-	/**
-	 * Returns a new object of class '<em>Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Param Type</em>'.
-	 * @generated
-	 */
-	ParamType createParamType();
 
 	/**
 	 * Returns a new object of class '<em>Pre Content</em>'.
@@ -617,24 +418,6 @@ public interface XhtmlFactory extends EFactory {
 	SampType createSampType();
 
 	/**
-	 * Returns a new object of class '<em>Script Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Script Type</em>'.
-	 * @generated
-	 */
-	ScriptType createScriptType();
-
-	/**
-	 * Returns a new object of class '<em>Select Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Select Type</em>'.
-	 * @generated
-	 */
-	SelectType createSelectType();
-
-	/**
 	 * Returns a new object of class '<em>Small Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,15 +443,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	StrongType createStrongType();
-
-	/**
-	 * Returns a new object of class '<em>Style Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Style Type</em>'.
-	 * @generated
-	 */
-	StyleType createStyleType();
 
 	/**
 	 * Returns a new object of class '<em>Sub Type</em>'.
@@ -716,15 +490,6 @@ public interface XhtmlFactory extends EFactory {
 	TdType createTdType();
 
 	/**
-	 * Returns a new object of class '<em>Textarea Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textarea Type</em>'.
-	 * @generated
-	 */
-	TextareaType createTextareaType();
-
-	/**
 	 * Returns a new object of class '<em>Tfoot Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -750,15 +515,6 @@ public interface XhtmlFactory extends EFactory {
 	 * @generated
 	 */
 	ThType createThType();
-
-	/**
-	 * Returns a new object of class '<em>Title Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Title Type</em>'.
-	 * @generated
-	 */
-	TitleType createTitleType();
 
 	/**
 	 * Returns a new object of class '<em>Tr Type</em>'.

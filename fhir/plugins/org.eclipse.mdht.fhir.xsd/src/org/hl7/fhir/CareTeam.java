@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.CareTeam#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.CareTeam#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getPeriod <em>Period</em>}</li>
@@ -86,27 +76,27 @@ public interface CareTeam extends DomainResource {
 	void setStatus(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Type()
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getType();
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Name of the care team.
+	 * A label for human use intended to distinguish like teams.  E.g. the "red" vs. "green" trauma teams.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -196,29 +186,19 @@ public interface CareTeam extends DomainResource {
 	EList<CareTeamParticipant> getParticipant();
 
 	/**
-	 * Returns the value of the '<em><b>Managing Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Managing Organization</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The organization responsible for the care team.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Managing Organization</em>' containment reference.
-	 * @see #setManagingOrganization(Reference)
+	 * @return the value of the '<em>Managing Organization</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCareTeam_ManagingOrganization()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='managingOrganization' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getManagingOrganization();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CareTeam#getManagingOrganization <em>Managing Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Managing Organization</em>' containment reference.
-	 * @see #getManagingOrganization()
-	 * @generated
-	 */
-	void setManagingOrganization(Reference value);
+	EList<Reference> getManagingOrganization();
 
 } // CareTeam

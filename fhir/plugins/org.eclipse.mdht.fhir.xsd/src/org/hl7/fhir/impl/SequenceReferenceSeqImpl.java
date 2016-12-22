@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -38,6 +28,7 @@ import org.hl7.fhir.SequenceReferenceSeq;
  *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getReferenceSeqId <em>Reference Seq Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getReferenceSeqPointer <em>Reference Seq Pointer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getReferenceSeqString <em>Reference Seq String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getStrand <em>Strand</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getWindowStart <em>Window Start</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceReferenceSeqImpl#getWindowEnd <em>Window End</em>}</li>
  * </ul>
@@ -94,6 +85,16 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String referenceSeqString;
+
+	/**
+	 * The cached value of the '{@link #getStrand() <em>Strand</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStrand()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Integer strand;
 
 	/**
 	 * The cached value of the '{@link #getWindowStart() <em>Window Start</em>}' containment reference.
@@ -354,6 +355,49 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Integer getStrand() {
+		return strand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStrand(org.hl7.fhir.Integer newStrand, NotificationChain msgs) {
+		org.hl7.fhir.Integer oldStrand = strand;
+		strand = newStrand;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND, oldStrand, newStrand);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStrand(org.hl7.fhir.Integer newStrand) {
+		if (newStrand != strand) {
+			NotificationChain msgs = null;
+			if (strand != null)
+				msgs = ((InternalEObject)strand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND, null, msgs);
+			if (newStrand != null)
+				msgs = ((InternalEObject)newStrand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND, null, msgs);
+			msgs = basicSetStrand(newStrand, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND, newStrand, newStrand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Integer getWindowStart() {
 		return windowStart;
 	}
@@ -453,6 +497,8 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 				return basicSetReferenceSeqPointer(null, msgs);
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__REFERENCE_SEQ_STRING:
 				return basicSetReferenceSeqString(null, msgs);
+			case FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND:
+				return basicSetStrand(null, msgs);
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_START:
 				return basicSetWindowStart(null, msgs);
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_END:
@@ -479,6 +525,8 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 				return getReferenceSeqPointer();
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__REFERENCE_SEQ_STRING:
 				return getReferenceSeqString();
+			case FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND:
+				return getStrand();
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_START:
 				return getWindowStart();
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_END:
@@ -509,6 +557,9 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 				return;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__REFERENCE_SEQ_STRING:
 				setReferenceSeqString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND:
+				setStrand((org.hl7.fhir.Integer)newValue);
 				return;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_START:
 				setWindowStart((org.hl7.fhir.Integer)newValue);
@@ -543,6 +594,9 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__REFERENCE_SEQ_STRING:
 				setReferenceSeqString((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND:
+				setStrand((org.hl7.fhir.Integer)null);
+				return;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_START:
 				setWindowStart((org.hl7.fhir.Integer)null);
 				return;
@@ -571,6 +625,8 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 				return referenceSeqPointer != null;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__REFERENCE_SEQ_STRING:
 				return referenceSeqString != null;
+			case FhirPackage.SEQUENCE_REFERENCE_SEQ__STRAND:
+				return strand != null;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_START:
 				return windowStart != null;
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ__WINDOW_END:

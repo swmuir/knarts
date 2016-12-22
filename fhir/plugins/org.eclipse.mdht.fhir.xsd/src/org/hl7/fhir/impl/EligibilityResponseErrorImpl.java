@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.FhirPackage;
 
@@ -46,7 +36,7 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding code;
+	protected CodeableConcept code;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,7 +62,7 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCode() {
+	public CodeableConcept getCode() {
 		return code;
 	}
 
@@ -81,8 +71,8 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Coding newCode, NotificationChain msgs) {
-		Coding oldCode = code;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_ERROR__CODE, oldCode, newCode);
@@ -96,7 +86,7 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Coding newCode) {
+	public void setCode(CodeableConcept newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null)
@@ -147,7 +137,7 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE_ERROR__CODE:
-				setCode((Coding)newValue);
+				setCode((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,7 +152,7 @@ public class EligibilityResponseErrorImpl extends BackboneElementImpl implements
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE_ERROR__CODE:
-				setCode((Coding)null);
+				setCode((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);

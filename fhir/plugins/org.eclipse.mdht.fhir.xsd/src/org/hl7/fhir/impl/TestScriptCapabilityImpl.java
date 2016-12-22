@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -46,7 +36,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.TestScriptCapabilityImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptCapabilityImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptCapabilityImpl#getLink <em>Link</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptCapabilityImpl#getConformance <em>Conformance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptCapabilityImpl#getCapabilities <em>Capabilities</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,14 +103,14 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	protected EList<Uri> link;
 
 	/**
-	 * The cached value of the '{@link #getConformance() <em>Conformance</em>}' containment reference.
+	 * The cached value of the '{@link #getCapabilities() <em>Capabilities</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConformance()
+	 * @see #getCapabilities()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference conformance;
+	protected Reference capabilities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -342,8 +332,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getConformance() {
-		return conformance;
+	public Reference getCapabilities() {
+		return capabilities;
 	}
 
 	/**
@@ -351,11 +341,11 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConformance(Reference newConformance, NotificationChain msgs) {
-		Reference oldConformance = conformance;
-		conformance = newConformance;
+	public NotificationChain basicSetCapabilities(Reference newCapabilities, NotificationChain msgs) {
+		Reference oldCapabilities = capabilities;
+		capabilities = newCapabilities;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE, oldConformance, newConformance);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES, oldCapabilities, newCapabilities);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -366,18 +356,18 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConformance(Reference newConformance) {
-		if (newConformance != conformance) {
+	public void setCapabilities(Reference newCapabilities) {
+		if (newCapabilities != capabilities) {
 			NotificationChain msgs = null;
-			if (conformance != null)
-				msgs = ((InternalEObject)conformance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE, null, msgs);
-			if (newConformance != null)
-				msgs = ((InternalEObject)newConformance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE, null, msgs);
-			msgs = basicSetConformance(newConformance, msgs);
+			if (capabilities != null)
+				msgs = ((InternalEObject)capabilities).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES, null, msgs);
+			if (newCapabilities != null)
+				msgs = ((InternalEObject)newCapabilities).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES, null, msgs);
+			msgs = basicSetCapabilities(newCapabilities, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE, newConformance, newConformance));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES, newCapabilities, newCapabilities));
 	}
 
 	/**
@@ -400,8 +390,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				return basicSetDestination(null, msgs);
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__LINK:
 				return ((InternalEList<?>)getLink()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE:
-				return basicSetConformance(null, msgs);
+			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
+				return basicSetCapabilities(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -426,8 +416,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				return getDestination();
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__LINK:
 				return getLink();
-			case FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE:
-				return getConformance();
+			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
+				return getCapabilities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -461,8 +451,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				getLink().clear();
 				getLink().addAll((Collection<? extends Uri>)newValue);
 				return;
-			case FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE:
-				setConformance((Reference)newValue);
+			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
+				setCapabilities((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -494,8 +484,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__LINK:
 				getLink().clear();
 				return;
-			case FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE:
-				setConformance((Reference)null);
+			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
+				setCapabilities((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -521,8 +511,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				return destination != null;
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__LINK:
 				return link != null && !link.isEmpty();
-			case FhirPackage.TEST_SCRIPT_CAPABILITY__CONFORMANCE:
-				return conformance != null;
+			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
+				return capabilities != null;
 		}
 		return super.eIsSet(featureID);
 	}

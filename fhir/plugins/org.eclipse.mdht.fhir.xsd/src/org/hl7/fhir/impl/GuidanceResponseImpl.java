@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,11 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DataRequirement;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuidanceResponse;
-import org.hl7.fhir.GuidanceResponseAction;
 import org.hl7.fhir.GuidanceResponseStatus;
+import org.hl7.fhir.Id;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
 /**
@@ -43,11 +37,19 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getRequestId <em>Request Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getModule <em>Module</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getEvaluationMessage <em>Evaluation Message</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getOutputParameters <em>Output Parameters</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GuidanceResponseImpl#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
@@ -62,7 +64,17 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String requestId;
+	protected Id requestId;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getModule() <em>Module</em>}' containment reference.
@@ -85,6 +97,76 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	protected GuidanceResponseStatus status;
 
 	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subject;
+
+	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference context;
+
+	/**
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime occurrenceDateTime;
+
+	/**
+	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPerformer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference performer;
+
+	/**
+	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept reasonCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
+
+	/**
 	 * The cached value of the '{@link #getEvaluationMessage() <em>Evaluation Message</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,14 +187,14 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	protected Reference outputParameters;
 
 	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAction()
+	 * @see #getResult()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GuidanceResponseAction> action;
+	protected Reference result;
 
 	/**
 	 * The cached value of the '{@link #getDataRequirement() <em>Data Requirement</em>}' containment reference list.
@@ -148,7 +230,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getRequestId() {
+	public Id getRequestId() {
 		return requestId;
 	}
 
@@ -157,8 +239,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestId(org.hl7.fhir.String newRequestId, NotificationChain msgs) {
-		org.hl7.fhir.String oldRequestId = requestId;
+	public NotificationChain basicSetRequestId(Id newRequestId, NotificationChain msgs) {
+		Id oldRequestId = requestId;
 		requestId = newRequestId;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID, oldRequestId, newRequestId);
@@ -172,7 +254,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestId(org.hl7.fhir.String newRequestId) {
+	public void setRequestId(Id newRequestId) {
 		if (newRequestId != requestId) {
 			NotificationChain msgs = null;
 			if (requestId != null)
@@ -184,6 +266,49 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID, newRequestId, newRequestId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -277,6 +402,276 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
+			NotificationChain msgs = null;
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
+			NotificationChain msgs = null;
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPerformer() {
+		return performer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPerformer(Reference newPerformer, NotificationChain msgs) {
+		Reference oldPerformer = performer;
+		performer = newPerformer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__PERFORMER, oldPerformer, newPerformer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPerformer(Reference newPerformer) {
+		if (newPerformer != performer) {
+			NotificationChain msgs = null;
+			if (performer != null)
+				msgs = ((InternalEObject)performer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__PERFORMER, null, msgs);
+			if (newPerformer != null)
+				msgs = ((InternalEObject)newPerformer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__PERFORMER, null, msgs);
+			msgs = basicSetPerformer(newPerformer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__PERFORMER, newPerformer, newPerformer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getReasonCodeableConcept() {
+		return reasonCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReasonCodeableConcept(CodeableConcept newReasonCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldReasonCodeableConcept = reasonCodeableConcept;
+		reasonCodeableConcept = newReasonCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT, oldReasonCodeableConcept, newReasonCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReasonCodeableConcept(CodeableConcept newReasonCodeableConcept) {
+		if (newReasonCodeableConcept != reasonCodeableConcept) {
+			NotificationChain msgs = null;
+			if (reasonCodeableConcept != null)
+				msgs = ((InternalEObject)reasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT, null, msgs);
+			if (newReasonCodeableConcept != null)
+				msgs = ((InternalEObject)newReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetReasonCodeableConcept(newReasonCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT, newReasonCodeableConcept, newReasonCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getReasonReference() {
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReasonReference(Reference newReasonReference, NotificationChain msgs) {
+		Reference oldReasonReference = reasonReference;
+		reasonReference = newReasonReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE, oldReasonReference, newReasonReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReasonReference(Reference newReasonReference) {
+		if (newReasonReference != reasonReference) {
+			NotificationChain msgs = null;
+			if (reasonReference != null)
+				msgs = ((InternalEObject)reasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE, null, msgs);
+			if (newReasonReference != null)
+				msgs = ((InternalEObject)newReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE, null, msgs);
+			msgs = basicSetReasonReference(newReasonReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE, newReasonReference, newReasonReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.GUIDANCE_RESPONSE__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getEvaluationMessage() {
 		if (evaluationMessage == null) {
 			evaluationMessage = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE);
@@ -332,11 +727,42 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GuidanceResponseAction> getAction() {
-		if (action == null) {
-			action = new EObjectContainmentEList<GuidanceResponseAction>(GuidanceResponseAction.class, this, FhirPackage.GUIDANCE_RESPONSE__ACTION);
+	public Reference getResult() {
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResult(Reference newResult, NotificationChain msgs) {
+		Reference oldResult = result;
+		result = newResult;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__RESULT, oldResult, newResult);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return action;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResult(Reference newResult) {
+		if (newResult != result) {
+			NotificationChain msgs = null;
+			if (result != null)
+				msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__RESULT, null, msgs);
+			if (newResult != null)
+				msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GUIDANCE_RESPONSE__RESULT, null, msgs);
+			msgs = basicSetResult(newResult, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GUIDANCE_RESPONSE__RESULT, newResult, newResult));
 	}
 
 	/**
@@ -361,16 +787,32 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID:
 				return basicSetRequestId(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__MODULE:
 				return basicSetModule(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__SUBJECT:
+				return basicSetSubject(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__CONTEXT:
+				return basicSetContext(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__PERFORMER:
+				return basicSetPerformer(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT:
+				return basicSetReasonCodeableConcept(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE:
+				return basicSetReasonReference(null, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE:
 				return ((InternalEList<?>)getEvaluationMessage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__OUTPUT_PARAMETERS:
 				return basicSetOutputParameters(null, msgs);
-			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
-				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GUIDANCE_RESPONSE__RESULT:
+				return basicSetResult(null, msgs);
 			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
 				return ((InternalEList<?>)getDataRequirement()).basicRemove(otherEnd, msgs);
 		}
@@ -387,16 +829,32 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID:
 				return getRequestId();
+			case FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.GUIDANCE_RESPONSE__MODULE:
 				return getModule();
 			case FhirPackage.GUIDANCE_RESPONSE__STATUS:
 				return getStatus();
+			case FhirPackage.GUIDANCE_RESPONSE__SUBJECT:
+				return getSubject();
+			case FhirPackage.GUIDANCE_RESPONSE__CONTEXT:
+				return getContext();
+			case FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.GUIDANCE_RESPONSE__PERFORMER:
+				return getPerformer();
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT:
+				return getReasonCodeableConcept();
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE:
+				return getReasonReference();
+			case FhirPackage.GUIDANCE_RESPONSE__NOTE:
+				return getNote();
 			case FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE:
 				return getEvaluationMessage();
 			case FhirPackage.GUIDANCE_RESPONSE__OUTPUT_PARAMETERS:
 				return getOutputParameters();
-			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
-				return getAction();
+			case FhirPackage.GUIDANCE_RESPONSE__RESULT:
+				return getResult();
 			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
 				return getDataRequirement();
 		}
@@ -413,13 +871,38 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID:
-				setRequestId((org.hl7.fhir.String)newValue);
+				setRequestId((Id)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__MODULE:
 				setModule((Reference)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__STATUS:
 				setStatus((GuidanceResponseStatus)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__SUBJECT:
+				setSubject((Reference)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__CONTEXT:
+				setContext((Reference)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__PERFORMER:
+				setPerformer((Reference)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT:
+				setReasonCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE:
+				setReasonReference((Reference)newValue);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE:
 				getEvaluationMessage().clear();
@@ -428,9 +911,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 			case FhirPackage.GUIDANCE_RESPONSE__OUTPUT_PARAMETERS:
 				setOutputParameters((Reference)newValue);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
-				getAction().clear();
-				getAction().addAll((Collection<? extends GuidanceResponseAction>)newValue);
+			case FhirPackage.GUIDANCE_RESPONSE__RESULT:
+				setResult((Reference)newValue);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
 				getDataRequirement().clear();
@@ -449,7 +931,10 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID:
-				setRequestId((org.hl7.fhir.String)null);
+				setRequestId((Id)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER:
+				setIdentifier((Identifier)null);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__MODULE:
 				setModule((Reference)null);
@@ -457,14 +942,35 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 			case FhirPackage.GUIDANCE_RESPONSE__STATUS:
 				setStatus((GuidanceResponseStatus)null);
 				return;
+			case FhirPackage.GUIDANCE_RESPONSE__SUBJECT:
+				setSubject((Reference)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__CONTEXT:
+				setContext((Reference)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__PERFORMER:
+				setPerformer((Reference)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT:
+				setReasonCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE:
+				setReasonReference((Reference)null);
+				return;
+			case FhirPackage.GUIDANCE_RESPONSE__NOTE:
+				getNote().clear();
+				return;
 			case FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE:
 				getEvaluationMessage().clear();
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__OUTPUT_PARAMETERS:
 				setOutputParameters((Reference)null);
 				return;
-			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
-				getAction().clear();
+			case FhirPackage.GUIDANCE_RESPONSE__RESULT:
+				setResult((Reference)null);
 				return;
 			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
 				getDataRequirement().clear();
@@ -483,16 +989,32 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 		switch (featureID) {
 			case FhirPackage.GUIDANCE_RESPONSE__REQUEST_ID:
 				return requestId != null;
+			case FhirPackage.GUIDANCE_RESPONSE__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.GUIDANCE_RESPONSE__MODULE:
 				return module != null;
 			case FhirPackage.GUIDANCE_RESPONSE__STATUS:
 				return status != null;
+			case FhirPackage.GUIDANCE_RESPONSE__SUBJECT:
+				return subject != null;
+			case FhirPackage.GUIDANCE_RESPONSE__CONTEXT:
+				return context != null;
+			case FhirPackage.GUIDANCE_RESPONSE__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.GUIDANCE_RESPONSE__PERFORMER:
+				return performer != null;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_CODEABLE_CONCEPT:
+				return reasonCodeableConcept != null;
+			case FhirPackage.GUIDANCE_RESPONSE__REASON_REFERENCE:
+				return reasonReference != null;
+			case FhirPackage.GUIDANCE_RESPONSE__NOTE:
+				return note != null && !note.isEmpty();
 			case FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE:
 				return evaluationMessage != null && !evaluationMessage.isEmpty();
 			case FhirPackage.GUIDANCE_RESPONSE__OUTPUT_PARAMETERS:
 				return outputParameters != null;
-			case FhirPackage.GUIDANCE_RESPONSE__ACTION:
-				return action != null && !action.isEmpty();
+			case FhirPackage.GUIDANCE_RESPONSE__RESULT:
+				return result != null;
 			case FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT:
 				return dataRequirement != null && !dataRequirement.isEmpty();
 		}

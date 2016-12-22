@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,55 +18,36 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.Claim#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOriginalRuleset <em>Original Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getBillablePeriod <em>Billable Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getTargetIdentifier <em>Target Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getTargetReference <em>Target Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOrganizationReference <em>Organization Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getUse <em>Use</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getBillablePeriod <em>Billable Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getEnterer <em>Enterer</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getInsurer <em>Insurer</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getFundsReserve <em>Funds Reserve</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getEntererIdentifier <em>Enterer Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getEntererReference <em>Enterer Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getFacilityIdentifier <em>Facility Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getFacilityReference <em>Facility Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getRelated <em>Related</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getPrescriptionIdentifier <em>Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getPrescriptionReference <em>Prescription Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getPrescription <em>Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getOriginalPrescription <em>Original Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getPayee <em>Payee</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getReferralIdentifier <em>Referral Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getReferralReference <em>Referral Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOccurrenceCode <em>Occurrence Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOccurenceSpanCode <em>Occurence Span Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getValueCode <em>Value Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getReferral <em>Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getCareTeam <em>Care Team</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getInformation <em>Information</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getSpecialCondition <em>Special Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getPatientIdentifier <em>Patient Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getPatientReference <em>Patient Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getAccidentDate <em>Accident Date</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getAccidentType <em>Accident Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getAccidentLocationAddress <em>Accident Location Address</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getAccidentLocationReference <em>Accident Location Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getInterventionException <em>Intervention Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOnset <em>Onset</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getInsurance <em>Insurance</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getAccident <em>Accident</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getEmploymentImpacted <em>Employment Impacted</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getTotal <em>Total</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getAdditionalMaterial <em>Additional Material</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getMissingTeeth <em>Missing Teeth</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getClaim()
@@ -84,48 +55,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Claim extends DomainResource {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The category of claim.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(ClaimType)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ClaimType getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(ClaimType value);
-
-	/**
-	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sub Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_SubType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getSubType();
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
@@ -143,270 +72,72 @@ public interface Claim extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the specification on which this instance relies.
+	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ruleset</em>' containment reference.
-	 * @see #setRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Ruleset()
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(Code)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Status()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getRuleset();
+	Code getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getRuleset <em>Ruleset</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ruleset</em>' containment reference.
-	 * @see #getRuleset()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setRuleset(Coding value);
+	void setStatus(Code value);
 
 	/**
-	 * Returns the value of the '<em><b>Original Ruleset</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the specification from which the original instance was created.
+	 * The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #setOriginalRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OriginalRuleset()
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Type()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalRuleset' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getOriginalRuleset();
+	CodeableConcept getType();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOriginalRuleset <em>Original Ruleset</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #getOriginalRuleset()
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
 	 * @generated
 	 */
-	void setOriginalRuleset(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date when the enclosed suite of services were performed or completed.
+	 * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Created</em>' containment reference.
-	 * @see #setCreated(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Created()
+	 * @return the value of the '<em>Sub Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaim_SubType()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getCreated();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getCreated <em>Created</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' containment reference.
-	 * @see #getCreated()
-	 * @generated
-	 */
-	void setCreated(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Billable Period</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The billable period for which charges are being submitted.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Billable Period</em>' containment reference.
-	 * @see #setBillablePeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_BillablePeriod()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='billablePeriod' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getBillablePeriod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getBillablePeriod <em>Billable Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Billable Period</em>' containment reference.
-	 * @see #getBillablePeriod()
-	 * @generated
-	 */
-	void setBillablePeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Target Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Identifier</em>' containment reference.
-	 * @see #setTargetIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_TargetIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='targetIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getTargetIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getTargetIdentifier <em>Target Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Identifier</em>' containment reference.
-	 * @see #getTargetIdentifier()
-	 * @generated
-	 */
-	void setTargetIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Target Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Reference</em>' containment reference.
-	 * @see #setTargetReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_TargetReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='targetReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getTargetReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getTargetReference <em>Target Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Reference</em>' containment reference.
-	 * @see #getTargetReference()
-	 * @generated
-	 */
-	void setTargetReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #setProviderIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_ProviderIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getProviderIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getProviderIdentifier <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 */
-	void setProviderIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #setProviderReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_ProviderReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getProviderReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getProviderReference <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #getProviderReference()
-	 * @generated
-	 */
-	void setProviderReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Organization Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Organization Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Organization Identifier</em>' containment reference.
-	 * @see #setOrganizationIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OrganizationIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organizationIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getOrganizationIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOrganizationIdentifier <em>Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization Identifier</em>' containment reference.
-	 * @see #getOrganizationIdentifier()
-	 * @generated
-	 */
-	void setOrganizationIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Organization Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Organization Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Organization Reference</em>' containment reference.
-	 * @see #setOrganizationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OrganizationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organizationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrganizationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOrganizationReference <em>Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization Reference</em>' containment reference.
-	 * @see #getOrganizationReference()
-	 * @generated
-	 */
-	void setOrganizationReference(Reference value);
+	EList<CodeableConcept> getSubType();
 
 	/**
 	 * Returns the value of the '<em><b>Use</b></em>' containment reference.
@@ -435,6 +166,188 @@ public interface Claim extends DomainResource {
 	void setUse(Use value);
 
 	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Patient Resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Patient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Billable Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The billable period for which charges are being submitted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Billable Period</em>' containment reference.
+	 * @see #setBillablePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_BillablePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='billablePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getBillablePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getBillablePeriod <em>Billable Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Billable Period</em>' containment reference.
+	 * @see #getBillablePeriod()
+	 * @generated
+	 */
+	void setBillablePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date when the enclosed suite of services were performed or completed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Created</em>' containment reference.
+	 * @see #setCreated(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Created()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getCreated();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getCreated <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created</em>' containment reference.
+	 * @see #getCreated()
+	 * @generated
+	 */
+	void setCreated(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Enterer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Person who created the invoice/claim/pre-determination or pre-authorization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Enterer</em>' containment reference.
+	 * @see #setEnterer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Enterer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='enterer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEnterer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getEnterer <em>Enterer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enterer</em>' containment reference.
+	 * @see #getEnterer()
+	 * @generated
+	 */
+	void setEnterer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Insurer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Insurer who is target of the request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Insurer</em>' containment reference.
+	 * @see #setInsurer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Insurer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getInsurer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getInsurer <em>Insurer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Insurer</em>' containment reference.
+	 * @see #getInsurer()
+	 * @generated
+	 */
+	void setInsurer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The provider which is responsible for the bill, claim pre-determination, pre-authorization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Provider</em>' containment reference.
+	 * @see #setProvider(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Provider()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='provider' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getProvider();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getProvider <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provider</em>' containment reference.
+	 * @see #getProvider()
+	 * @generated
+	 */
+	void setProvider(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Organization</em>' containment reference.
+	 * @see #setOrganization(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Organization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOrganization();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOrganization <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization</em>' containment reference.
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	void setOrganization(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,13 +355,13 @@ public interface Claim extends DomainResource {
 	 * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(Coding)
+	 * @see #setPriority(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getPriority();
+	CodeableConcept getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPriority <em>Priority</em>}' containment reference.
@@ -458,7 +371,7 @@ public interface Claim extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(Coding value);
+	void setPriority(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Funds Reserve</b></em>' containment reference.
@@ -468,13 +381,13 @@ public interface Claim extends DomainResource {
 	 * In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Funds Reserve</em>' containment reference.
-	 * @see #setFundsReserve(Coding)
+	 * @see #setFundsReserve(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_FundsReserve()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='fundsReserve' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getFundsReserve();
+	CodeableConcept getFundsReserve();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Claim#getFundsReserve <em>Funds Reserve</em>}' containment reference.
@@ -484,115 +397,7 @@ public interface Claim extends DomainResource {
 	 * @see #getFundsReserve()
 	 * @generated
 	 */
-	void setFundsReserve(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Enterer Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Enterer Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enterer Identifier</em>' containment reference.
-	 * @see #setEntererIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_EntererIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='entererIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getEntererIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getEntererIdentifier <em>Enterer Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enterer Identifier</em>' containment reference.
-	 * @see #getEntererIdentifier()
-	 * @generated
-	 */
-	void setEntererIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Enterer Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Enterer Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enterer Reference</em>' containment reference.
-	 * @see #setEntererReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_EntererReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='entererReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEntererReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getEntererReference <em>Enterer Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enterer Reference</em>' containment reference.
-	 * @see #getEntererReference()
-	 * @generated
-	 */
-	void setEntererReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Facility Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Facility Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facility Identifier</em>' containment reference.
-	 * @see #setFacilityIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_FacilityIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='facilityIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getFacilityIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getFacilityIdentifier <em>Facility Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Facility Identifier</em>' containment reference.
-	 * @see #getFacilityIdentifier()
-	 * @generated
-	 */
-	void setFacilityIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Facility Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Facility Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facility Reference</em>' containment reference.
-	 * @see #setFacilityReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_FacilityReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='facilityReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getFacilityReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getFacilityReference <em>Facility Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Facility Reference</em>' containment reference.
-	 * @see #getFacilityReference()
-	 * @generated
-	 */
-	void setFacilityReference(Reference value);
+	void setFundsReserve(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Related</b></em>' containment reference list.
@@ -611,112 +416,56 @@ public interface Claim extends DomainResource {
 	EList<ClaimRelated> getRelated();
 
 	/**
-	 * Returns the value of the '<em><b>Prescription Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Prescription Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prescription Identifier</em>' containment reference.
-	 * @see #setPrescriptionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_PrescriptionIdentifier()
+	 * <!-- begin-model-doc -->
+	 * Prescription to support the dispensing of Pharmacy or Vision products.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Prescription</em>' containment reference.
+	 * @see #setPrescription(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Prescription()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescriptionIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='prescription' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getPrescriptionIdentifier();
+	Reference getPrescription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPrescriptionIdentifier <em>Prescription Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPrescription <em>Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescription Identifier</em>' containment reference.
-	 * @see #getPrescriptionIdentifier()
+	 * @param value the new value of the '<em>Prescription</em>' containment reference.
+	 * @see #getPrescription()
 	 * @generated
 	 */
-	void setPrescriptionIdentifier(Identifier value);
+	void setPrescription(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Prescription Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Original Prescription</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Prescription Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prescription Reference</em>' containment reference.
-	 * @see #setPrescriptionReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_PrescriptionReference()
+	 * <!-- begin-model-doc -->
+	 * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Original Prescription</em>' containment reference.
+	 * @see #setOriginalPrescription(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_OriginalPrescription()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescriptionReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='originalPrescription' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPrescriptionReference();
+	Reference getOriginalPrescription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPrescriptionReference <em>Prescription Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOriginalPrescription <em>Original Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescription Reference</em>' containment reference.
-	 * @see #getPrescriptionReference()
+	 * @param value the new value of the '<em>Original Prescription</em>' containment reference.
+	 * @see #getOriginalPrescription()
 	 * @generated
 	 */
-	void setPrescriptionReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Prescription Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Original Prescription Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Original Prescription Identifier</em>' containment reference.
-	 * @see #setOriginalPrescriptionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OriginalPrescriptionIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalPrescriptionIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getOriginalPrescriptionIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Prescription Identifier</em>' containment reference.
-	 * @see #getOriginalPrescriptionIdentifier()
-	 * @generated
-	 */
-	void setOriginalPrescriptionIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Prescription Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Original Prescription Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Original Prescription Reference</em>' containment reference.
-	 * @see #setOriginalPrescriptionReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OriginalPrescriptionReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalPrescriptionReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOriginalPrescriptionReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Prescription Reference</em>' containment reference.
-	 * @see #getOriginalPrescriptionReference()
-	 * @generated
-	 */
-	void setOriginalPrescriptionReference(Reference value);
+	void setOriginalPrescription(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
@@ -745,106 +494,88 @@ public interface Claim extends DomainResource {
 	void setPayee(ClaimPayee value);
 
 	/**
-	 * Returns the value of the '<em><b>Referral Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Referral Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referral Identifier</em>' containment reference.
-	 * @see #setReferralIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_ReferralIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referralIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getReferralIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getReferralIdentifier <em>Referral Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referral Identifier</em>' containment reference.
-	 * @see #getReferralIdentifier()
-	 * @generated
-	 */
-	void setReferralIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Referral Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Referral Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referral Reference</em>' containment reference.
-	 * @see #setReferralReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_ReferralReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referralReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReferralReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getReferralReference <em>Referral Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referral Reference</em>' containment reference.
-	 * @see #getReferralReference()
-	 * @generated
-	 */
-	void setReferralReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Occurrence Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Referral</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * **Insert definition of Occurrence codes.
+	 * The referral resource which lists the date, practitioner, reason and other supporting information.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Occurrence Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OccurrenceCode()
+	 * @return the value of the '<em>Referral</em>' containment reference.
+	 * @see #setReferral(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Referral()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurrenceCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='referral' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getOccurrenceCode();
+	Reference getReferral();
 
 	/**
-	 * Returns the value of the '<em><b>Occurence Span Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getReferral <em>Referral</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Referral</em>' containment reference.
+	 * @see #getReferral()
+	 * @generated
+	 */
+	void setReferral(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Facility</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * **Insert definition of Occurrence Span codes.
+	 * Facility where the services were provided.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Occurence Span Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_OccurenceSpanCode()
+	 * @return the value of the '<em>Facility</em>' containment reference.
+	 * @see #setFacility(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Facility()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurenceSpanCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='facility' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getOccurenceSpanCode();
+	Reference getFacility();
 
 	/**
-	 * Returns the value of the '<em><b>Value Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getFacility <em>Facility</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Facility</em>' containment reference.
+	 * @see #getFacility()
+	 * @generated
+	 */
+	void setFacility(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimCareTeam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * **Insert definition of Value codes.
+	 * The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_ValueCode()
+	 * @return the value of the '<em>Care Team</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaim_CareTeam()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeam' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getValueCode();
+	EList<ClaimCareTeam> getCareTeam();
+
+	/**
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimInformation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Information</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Information()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='information' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ClaimInformation> getInformation();
 
 	/**
 	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
@@ -879,228 +610,46 @@ public interface Claim extends DomainResource {
 	EList<ClaimProcedure> getProcedure();
 
 	/**
-	 * Returns the value of the '<em><b>Special Condition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Special Condition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_SpecialCondition()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specialCondition' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getSpecialCondition();
-
-	/**
-	 * Returns the value of the '<em><b>Patient Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Patient Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patient Identifier</em>' containment reference.
-	 * @see #setPatientIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_PatientIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patientIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getPatientIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPatientIdentifier <em>Patient Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient Identifier</em>' containment reference.
-	 * @see #getPatientIdentifier()
-	 * @generated
-	 */
-	void setPatientIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Patient Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Patient Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patient Reference</em>' containment reference.
-	 * @see #setPatientReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_PatientReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patientReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatientReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getPatientReference <em>Patient Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient Reference</em>' containment reference.
-	 * @see #getPatientReference()
-	 * @generated
-	 */
-	void setPatientReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimCoverage}.
+	 * Returns the value of the '<em><b>Insurance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimInsurance}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Financial instrument by which payment information for health care.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Coverage</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Coverage()
+	 * @return the value of the '<em>Insurance</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Insurance()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='coverage' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ClaimCoverage> getCoverage();
+	EList<ClaimInsurance> getInsurance();
 
 	/**
-	 * Returns the value of the '<em><b>Accident Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Accident</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date of an accident which these services are addressing.
+	 * An accident which resulted in the need for healthcare services.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accident Date</em>' containment reference.
-	 * @see #setAccidentDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_AccidentDate()
+	 * @return the value of the '<em>Accident</em>' containment reference.
+	 * @see #setAccident(ClaimAccident)
+	 * @see org.hl7.fhir.FhirPackage#getClaim_Accident()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='accident' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getAccidentDate();
+	ClaimAccident getAccident();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getAccidentDate <em>Accident Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getAccident <em>Accident</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Date</em>' containment reference.
-	 * @see #getAccidentDate()
+	 * @param value the new value of the '<em>Accident</em>' containment reference.
+	 * @see #getAccident()
 	 * @generated
 	 */
-	void setAccidentDate(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Type of accident: work, auto, etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accident Type</em>' containment reference.
-	 * @see #setAccidentType(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_AccidentType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getAccidentType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getAccidentType <em>Accident Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Type</em>' containment reference.
-	 * @see #getAccidentType()
-	 * @generated
-	 */
-	void setAccidentType(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Location Address</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Accident Location Address</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accident Location Address</em>' containment reference.
-	 * @see #setAccidentLocationAddress(Address)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_AccidentLocationAddress()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentLocationAddress' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Address getAccidentLocationAddress();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getAccidentLocationAddress <em>Accident Location Address</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Location Address</em>' containment reference.
-	 * @see #getAccidentLocationAddress()
-	 * @generated
-	 */
-	void setAccidentLocationAddress(Address value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Location Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Accident Location Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accident Location Reference</em>' containment reference.
-	 * @see #setAccidentLocationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_AccidentLocationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentLocationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getAccidentLocationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getAccidentLocationReference <em>Accident Location Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Location Reference</em>' containment reference.
-	 * @see #getAccidentLocationReference()
-	 * @generated
-	 */
-	void setAccidentLocationReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Intervention Exception</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of intervention and exception codes which may influence the adjudication of the claim.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Intervention Exception</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_InterventionException()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='interventionException' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getInterventionException();
-
-	/**
-	 * Returns the value of the '<em><b>Onset</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimOnset}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Period, start and last dates of aspects of the Condition or related services.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Onset</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Onset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ClaimOnset> getOnset();
+	void setAccident(ClaimAccident value);
 
 	/**
 	 * Returns the value of the '<em><b>Employment Impacted</b></em>' containment reference.
@@ -1195,37 +744,5 @@ public interface Claim extends DomainResource {
 	 * @generated
 	 */
 	void setTotal(Money value);
-
-	/**
-	 * Returns the value of the '<em><b>Additional Material</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Additional Material</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_AdditionalMaterial()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='additionalMaterial' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getAdditionalMaterial();
-
-	/**
-	 * Returns the value of the '<em><b>Missing Teeth</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimMissingTeeth}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Missing Teeth</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_MissingTeeth()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='missingTeeth' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ClaimMissingTeeth> getMissingTeeth();
 
 } // Claim

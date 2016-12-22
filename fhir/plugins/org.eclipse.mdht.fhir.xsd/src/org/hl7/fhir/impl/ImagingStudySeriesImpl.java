@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -30,12 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.ImagingStudyBaseLocation1;
 import org.hl7.fhir.ImagingStudyInstance;
 import org.hl7.fhir.ImagingStudySeries;
 import org.hl7.fhir.InstanceAvailability;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +41,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getBaseLocation <em>Base Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getLaterality <em>Laterality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getStarted <em>Started</em>}</li>
@@ -122,14 +112,14 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	protected InstanceAvailability availability;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
+	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUrl()
+	 * @see #getBaseLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri url;
+	protected EList<ImagingStudyBaseLocation1> baseLocation;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
@@ -453,42 +443,11 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUrl() {
-		return url;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
-		Uri oldUrl = url;
-		url = newUrl;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__URL, oldUrl, newUrl);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ImagingStudyBaseLocation1> getBaseLocation() {
+		if (baseLocation == null) {
+			baseLocation = new EObjectContainmentEList<ImagingStudyBaseLocation1>(ImagingStudyBaseLocation1.class, this, FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUrl(Uri newUrl) {
-		if (newUrl != url) {
-			NotificationChain msgs = null;
-			if (url != null)
-				msgs = ((InternalEObject)url).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__URL, null, msgs);
-			if (newUrl != null)
-				msgs = ((InternalEObject)newUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__URL, null, msgs);
-			msgs = basicSetUrl(newUrl, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__URL, newUrl, newUrl));
+		return baseLocation;
 	}
 
 	/**
@@ -652,8 +611,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return basicSetNumberOfInstances(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
 				return basicSetAvailability(null, msgs);
-			case FhirPackage.IMAGING_STUDY_SERIES__URL:
-				return basicSetUrl(null, msgs);
+			case FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION:
+				return ((InternalEList<?>)getBaseLocation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
@@ -686,8 +645,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return getNumberOfInstances();
 			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
 				return getAvailability();
-			case FhirPackage.IMAGING_STUDY_SERIES__URL:
-				return getUrl();
+			case FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION:
+				return getBaseLocation();
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
 				return getBodySite();
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
@@ -727,8 +686,9 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
 				setAvailability((InstanceAvailability)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__URL:
-				setUrl((Uri)newValue);
+			case FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION:
+				getBaseLocation().clear();
+				getBaseLocation().addAll((Collection<? extends ImagingStudyBaseLocation1>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
 				setBodySite((Coding)newValue);
@@ -773,8 +733,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
 				setAvailability((InstanceAvailability)null);
 				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__URL:
-				setUrl((Uri)null);
+			case FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION:
+				getBaseLocation().clear();
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
 				setBodySite((Coding)null);
@@ -812,8 +772,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return numberOfInstances != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
 				return availability != null;
-			case FhirPackage.IMAGING_STUDY_SERIES__URL:
-				return url != null;
+			case FhirPackage.IMAGING_STUDY_SERIES__BASE_LOCATION:
+				return baseLocation != null && !baseLocation.isEmpty();
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
 				return bodySite != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:

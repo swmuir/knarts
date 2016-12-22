@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitFinancial;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
@@ -36,9 +26,10 @@ import org.hl7.fhir.UnsignedInt;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitUnsignedInt <em>Benefit Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitQuantity <em>Benefit Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitString <em>Benefit String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitMoney <em>Benefit Money</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitUsedUnsignedInt <em>Benefit Used Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitUsedQuantity <em>Benefit Used Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitFinancialImpl#getBenefitUsedMoney <em>Benefit Used Money</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,7 +43,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getBenefitUnsignedInt() <em>Benefit Unsigned Int</em>}' containment reference.
@@ -65,14 +56,24 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	protected UnsignedInt benefitUnsignedInt;
 
 	/**
-	 * The cached value of the '{@link #getBenefitQuantity() <em>Benefit Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getBenefitString() <em>Benefit String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitQuantity()
+	 * @see #getBenefitString()
 	 * @generated
 	 * @ordered
 	 */
-	protected Money benefitQuantity;
+	protected org.hl7.fhir.String benefitString;
+
+	/**
+	 * The cached value of the '{@link #getBenefitMoney() <em>Benefit Money</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBenefitMoney()
+	 * @generated
+	 * @ordered
+	 */
+	protected Money benefitMoney;
 
 	/**
 	 * The cached value of the '{@link #getBenefitUsedUnsignedInt() <em>Benefit Used Unsigned Int</em>}' containment reference.
@@ -85,14 +86,14 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	protected UnsignedInt benefitUsedUnsignedInt;
 
 	/**
-	 * The cached value of the '{@link #getBenefitUsedQuantity() <em>Benefit Used Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getBenefitUsedMoney() <em>Benefit Used Money</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitUsedQuantity()
+	 * @see #getBenefitUsedMoney()
 	 * @generated
 	 * @ordered
 	 */
-	protected Money benefitUsedQuantity;
+	protected Money benefitUsedMoney;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +119,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -127,8 +128,8 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__TYPE, oldType, newType);
@@ -142,7 +143,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -204,8 +205,8 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getBenefitQuantity() {
-		return benefitQuantity;
+	public org.hl7.fhir.String getBenefitString() {
+		return benefitString;
 	}
 
 	/**
@@ -213,11 +214,11 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitQuantity(Money newBenefitQuantity, NotificationChain msgs) {
-		Money oldBenefitQuantity = benefitQuantity;
-		benefitQuantity = newBenefitQuantity;
+	public NotificationChain basicSetBenefitString(org.hl7.fhir.String newBenefitString, NotificationChain msgs) {
+		org.hl7.fhir.String oldBenefitString = benefitString;
+		benefitString = newBenefitString;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY, oldBenefitQuantity, newBenefitQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING, oldBenefitString, newBenefitString);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -228,18 +229,61 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitQuantity(Money newBenefitQuantity) {
-		if (newBenefitQuantity != benefitQuantity) {
+	public void setBenefitString(org.hl7.fhir.String newBenefitString) {
+		if (newBenefitString != benefitString) {
 			NotificationChain msgs = null;
-			if (benefitQuantity != null)
-				msgs = ((InternalEObject)benefitQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY, null, msgs);
-			if (newBenefitQuantity != null)
-				msgs = ((InternalEObject)newBenefitQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY, null, msgs);
-			msgs = basicSetBenefitQuantity(newBenefitQuantity, msgs);
+			if (benefitString != null)
+				msgs = ((InternalEObject)benefitString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING, null, msgs);
+			if (newBenefitString != null)
+				msgs = ((InternalEObject)newBenefitString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING, null, msgs);
+			msgs = basicSetBenefitString(newBenefitString, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY, newBenefitQuantity, newBenefitQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING, newBenefitString, newBenefitString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Money getBenefitMoney() {
+		return benefitMoney;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBenefitMoney(Money newBenefitMoney, NotificationChain msgs) {
+		Money oldBenefitMoney = benefitMoney;
+		benefitMoney = newBenefitMoney;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY, oldBenefitMoney, newBenefitMoney);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBenefitMoney(Money newBenefitMoney) {
+		if (newBenefitMoney != benefitMoney) {
+			NotificationChain msgs = null;
+			if (benefitMoney != null)
+				msgs = ((InternalEObject)benefitMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY, null, msgs);
+			if (newBenefitMoney != null)
+				msgs = ((InternalEObject)newBenefitMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY, null, msgs);
+			msgs = basicSetBenefitMoney(newBenefitMoney, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY, newBenefitMoney, newBenefitMoney));
 	}
 
 	/**
@@ -290,8 +334,8 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getBenefitUsedQuantity() {
-		return benefitUsedQuantity;
+	public Money getBenefitUsedMoney() {
+		return benefitUsedMoney;
 	}
 
 	/**
@@ -299,11 +343,11 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitUsedQuantity(Money newBenefitUsedQuantity, NotificationChain msgs) {
-		Money oldBenefitUsedQuantity = benefitUsedQuantity;
-		benefitUsedQuantity = newBenefitUsedQuantity;
+	public NotificationChain basicSetBenefitUsedMoney(Money newBenefitUsedMoney, NotificationChain msgs) {
+		Money oldBenefitUsedMoney = benefitUsedMoney;
+		benefitUsedMoney = newBenefitUsedMoney;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY, oldBenefitUsedQuantity, newBenefitUsedQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY, oldBenefitUsedMoney, newBenefitUsedMoney);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,18 +358,18 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitUsedQuantity(Money newBenefitUsedQuantity) {
-		if (newBenefitUsedQuantity != benefitUsedQuantity) {
+	public void setBenefitUsedMoney(Money newBenefitUsedMoney) {
+		if (newBenefitUsedMoney != benefitUsedMoney) {
 			NotificationChain msgs = null;
-			if (benefitUsedQuantity != null)
-				msgs = ((InternalEObject)benefitUsedQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY, null, msgs);
-			if (newBenefitUsedQuantity != null)
-				msgs = ((InternalEObject)newBenefitUsedQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY, null, msgs);
-			msgs = basicSetBenefitUsedQuantity(newBenefitUsedQuantity, msgs);
+			if (benefitUsedMoney != null)
+				msgs = ((InternalEObject)benefitUsedMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY, null, msgs);
+			if (newBenefitUsedMoney != null)
+				msgs = ((InternalEObject)newBenefitUsedMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY, null, msgs);
+			msgs = basicSetBenefitUsedMoney(newBenefitUsedMoney, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY, newBenefitUsedQuantity, newBenefitUsedQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY, newBenefitUsedMoney, newBenefitUsedMoney));
 	}
 
 	/**
@@ -340,12 +384,14 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 				return basicSetType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_UNSIGNED_INT:
 				return basicSetBenefitUnsignedInt(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY:
-				return basicSetBenefitQuantity(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING:
+				return basicSetBenefitString(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY:
+				return basicSetBenefitMoney(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
 				return basicSetBenefitUsedUnsignedInt(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY:
-				return basicSetBenefitUsedQuantity(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY:
+				return basicSetBenefitUsedMoney(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -362,12 +408,14 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 				return getType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_UNSIGNED_INT:
 				return getBenefitUnsignedInt();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY:
-				return getBenefitQuantity();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING:
+				return getBenefitString();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY:
+				return getBenefitMoney();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
 				return getBenefitUsedUnsignedInt();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY:
-				return getBenefitUsedQuantity();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY:
+				return getBenefitUsedMoney();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,19 +429,22 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_UNSIGNED_INT:
 				setBenefitUnsignedInt((UnsignedInt)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY:
-				setBenefitQuantity((Money)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING:
+				setBenefitString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY:
+				setBenefitMoney((Money)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
 				setBenefitUsedUnsignedInt((UnsignedInt)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY:
-				setBenefitUsedQuantity((Money)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY:
+				setBenefitUsedMoney((Money)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -408,19 +459,22 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_UNSIGNED_INT:
 				setBenefitUnsignedInt((UnsignedInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY:
-				setBenefitQuantity((Money)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING:
+				setBenefitString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY:
+				setBenefitMoney((Money)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
 				setBenefitUsedUnsignedInt((UnsignedInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY:
-				setBenefitUsedQuantity((Money)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY:
+				setBenefitUsedMoney((Money)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -438,12 +492,14 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 				return type != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_UNSIGNED_INT:
 				return benefitUnsignedInt != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_QUANTITY:
-				return benefitQuantity != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_STRING:
+				return benefitString != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_MONEY:
+				return benefitMoney != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
 				return benefitUsedUnsignedInt != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_QUANTITY:
-				return benefitUsedQuantity != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL__BENEFIT_USED_MONEY:
+				return benefitUsedMoney != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -51,7 +41,7 @@ public interface AuditEventAgent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
+	 * Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_Role()
@@ -287,7 +277,7 @@ public interface AuditEventAgent extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Purpose Of Use</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -299,6 +289,6 @@ public interface AuditEventAgent extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='purposeOfUse' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getPurposeOfUse();
+	EList<CodeableConcept> getPurposeOfUse();
 
 } // AuditEventAgent

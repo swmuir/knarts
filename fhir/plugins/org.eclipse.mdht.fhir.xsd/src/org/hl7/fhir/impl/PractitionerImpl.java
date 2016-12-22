@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -37,8 +27,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Practitioner;
-import org.hl7.fhir.PractitionerPractitionerRole;
 import org.hl7.fhir.PractitionerQualification;
+import org.hl7.fhir.PractitionerRole1;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +46,7 @@ import org.hl7.fhir.PractitionerQualification;
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getBirthDate <em>Birth Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getPhoto <em>Photo</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getPractitionerRole <em>Practitioner Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getQualification <em>Qualification</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getCommunication <em>Communication</em>}</li>
  * </ul>
@@ -145,14 +135,14 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	protected EList<Attachment> photo;
 
 	/**
-	 * The cached value of the '{@link #getPractitionerRole() <em>Practitioner Role</em>}' containment reference list.
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPractitionerRole()
+	 * @see #getRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PractitionerPractitionerRole> practitionerRole;
+	protected EList<PractitionerRole1> role;
 
 	/**
 	 * The cached value of the '{@link #getQualification() <em>Qualification</em>}' containment reference list.
@@ -387,11 +377,11 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PractitionerPractitionerRole> getPractitionerRole() {
-		if (practitionerRole == null) {
-			practitionerRole = new EObjectContainmentEList<PractitionerPractitionerRole>(PractitionerPractitionerRole.class, this, FhirPackage.PRACTITIONER__PRACTITIONER_ROLE);
+	public EList<PractitionerRole1> getRole() {
+		if (role == null) {
+			role = new EObjectContainmentEList<PractitionerRole1>(PractitionerRole1.class, this, FhirPackage.PRACTITIONER__ROLE);
 		}
-		return practitionerRole;
+		return role;
 	}
 
 	/**
@@ -442,8 +432,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return basicSetBirthDate(null, msgs);
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return ((InternalEList<?>)getPhoto()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PRACTITIONER__PRACTITIONER_ROLE:
-				return ((InternalEList<?>)getPractitionerRole()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PRACTITIONER__ROLE:
+				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return ((InternalEList<?>)getQualification()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__COMMUNICATION:
@@ -476,8 +466,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return getBirthDate();
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return getPhoto();
-			case FhirPackage.PRACTITIONER__PRACTITIONER_ROLE:
-				return getPractitionerRole();
+			case FhirPackage.PRACTITIONER__ROLE:
+				return getRole();
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return getQualification();
 			case FhirPackage.PRACTITIONER__COMMUNICATION:
@@ -524,9 +514,9 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				getPhoto().clear();
 				getPhoto().addAll((Collection<? extends Attachment>)newValue);
 				return;
-			case FhirPackage.PRACTITIONER__PRACTITIONER_ROLE:
-				getPractitionerRole().clear();
-				getPractitionerRole().addAll((Collection<? extends PractitionerPractitionerRole>)newValue);
+			case FhirPackage.PRACTITIONER__ROLE:
+				getRole().clear();
+				getRole().addAll((Collection<? extends PractitionerRole1>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				getQualification().clear();
@@ -572,8 +562,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 			case FhirPackage.PRACTITIONER__PHOTO:
 				getPhoto().clear();
 				return;
-			case FhirPackage.PRACTITIONER__PRACTITIONER_ROLE:
-				getPractitionerRole().clear();
+			case FhirPackage.PRACTITIONER__ROLE:
+				getRole().clear();
 				return;
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				getQualification().clear();
@@ -609,8 +599,8 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return birthDate != null;
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return photo != null && !photo.isEmpty();
-			case FhirPackage.PRACTITIONER__PRACTITIONER_ROLE:
-				return practitionerRole != null && !practitionerRole.isEmpty();
+			case FhirPackage.PRACTITIONER__ROLE:
+				return role != null && !role.isEmpty();
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return qualification != null && !qualification.isEmpty();
 			case FhirPackage.PRACTITIONER__COMMUNICATION:

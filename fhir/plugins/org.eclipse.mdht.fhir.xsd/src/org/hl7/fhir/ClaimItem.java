@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,24 +18,23 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimItem#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getSupervisorIdentifier <em>Supervisor Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getSupervisorReference <em>Supervisor Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getProviderQualification <em>Provider Qualification</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getCareTeamLinkId <em>Care Team Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getProcedureLinkId <em>Procedure Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getInformationLinkId <em>Information Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getRevenue <em>Revenue</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getService <em>Service</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getServiceModifier <em>Service Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getServicedDate <em>Serviced Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getServicedPeriod <em>Serviced Period</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getPlace <em>Place</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getLocationCodeableConcept <em>Location Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getLocationAddress <em>Location Address</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getLocationReference <em>Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getFactor <em>Factor</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimItem#getPoints <em>Points</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getNet <em>Net</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getBodySite <em>Body Site</em>}</li>
@@ -86,164 +75,20 @@ public interface ClaimItem extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Care Team Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of product or service.
+	 * CareTeam applicable for this service or product line.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #setProviderIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ProviderIdentifier()
+	 * @return the value of the '<em>Care Team Link Id</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_CareTeamLinkId()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeamLinkId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getProviderIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getProviderIdentifier <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 */
-	void setProviderIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #setProviderReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ProviderReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getProviderReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getProviderReference <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #getProviderReference()
-	 * @generated
-	 */
-	void setProviderReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Supervisor Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supervisor Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supervisor Identifier</em>' containment reference.
-	 * @see #setSupervisorIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_SupervisorIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='supervisorIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getSupervisorIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getSupervisorIdentifier <em>Supervisor Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supervisor Identifier</em>' containment reference.
-	 * @see #getSupervisorIdentifier()
-	 * @generated
-	 */
-	void setSupervisorIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Supervisor Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supervisor Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supervisor Reference</em>' containment reference.
-	 * @see #setSupervisorReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_SupervisorReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='supervisorReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSupervisorReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getSupervisorReference <em>Supervisor Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supervisor Reference</em>' containment reference.
-	 * @see #getSupervisorReference()
-	 * @generated
-	 */
-	void setSupervisorReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Qualification</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The qualification which is applicable for this service.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Provider Qualification</em>' containment reference.
-	 * @see #setProviderQualification(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ProviderQualification()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerQualification' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getProviderQualification();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getProviderQualification <em>Provider Qualification</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Qualification</em>' containment reference.
-	 * @see #getProviderQualification()
-	 * @generated
-	 */
-	void setProviderQualification(Coding value);
+	EList<PositiveInt> getCareTeamLinkId();
 
 	/**
 	 * Returns the value of the '<em><b>Diagnosis Link Id</b></em>' containment reference list.
@@ -262,20 +107,104 @@ public interface ClaimItem extends BackboneElement {
 	EList<PositiveInt> getDiagnosisLinkId();
 
 	/**
+	 * Returns the value of the '<em><b>Procedure Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Procedures applicable for this service or product line.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Procedure Link Id</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ProcedureLinkId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='procedureLinkId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<PositiveInt> getProcedureLinkId();
+
+	/**
+	 * Returns the value of the '<em><b>Information Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Exceptions, special conditions and supporting information pplicable for this service or product line.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Information Link Id</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_InformationLinkId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='informationLinkId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<PositiveInt> getInformationLinkId();
+
+	/**
+	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of reveneu or cost center providing the product and/or service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Revenue</em>' containment reference.
+	 * @see #setRevenue(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Revenue()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='revenue' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getRevenue();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getRevenue <em>Revenue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Revenue</em>' containment reference.
+	 * @see #getRevenue()
+	 * @generated
+	 */
+	void setRevenue(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCategory();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getCategory <em>Category</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
+	 * @generated
+	 */
+	void setCategory(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
+	 * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(Coding)
+	 * @see #setService(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Service()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getService();
+	CodeableConcept getService();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getService <em>Service</em>}' containment reference.
@@ -285,31 +214,15 @@ public interface ClaimItem extends BackboneElement {
 	 * @see #getService()
 	 * @generated
 	 */
-	void setService(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Service Modifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Unusual circumstances which may influence adjudication.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Modifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ServiceModifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='serviceModifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getServiceModifier();
+	void setService(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Modifier()
@@ -317,15 +230,15 @@ public interface ClaimItem extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='modifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getModifier();
+	EList<CodeableConcept> getModifier();
 
 	/**
 	 * Returns the value of the '<em><b>Program Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+	 * For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Program Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_ProgramCode()
@@ -333,7 +246,7 @@ public interface ClaimItem extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='programCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getProgramCode();
+	EList<CodeableConcept> getProgramCode();
 
 	/**
 	 * Returns the value of the '<em><b>Serviced Date</b></em>' containment reference.
@@ -390,30 +303,85 @@ public interface ClaimItem extends BackboneElement {
 	void setServicedPeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Place</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Location Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Location Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Where the service was provided.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Place</em>' containment reference.
-	 * @see #setPlace(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Place()
+	 * @return the value of the '<em>Location Codeable Concept</em>' containment reference.
+	 * @see #setLocationCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_LocationCodeableConcept()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='place' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='locationCodeableConcept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getPlace();
+	CodeableConcept getLocationCodeableConcept();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getPlace <em>Place</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getLocationCodeableConcept <em>Location Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Place</em>' containment reference.
-	 * @see #getPlace()
+	 * @param value the new value of the '<em>Location Codeable Concept</em>' containment reference.
+	 * @see #getLocationCodeableConcept()
 	 * @generated
 	 */
-	void setPlace(Coding value);
+	void setLocationCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Location Address</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Location Address</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location Address</em>' containment reference.
+	 * @see #setLocationAddress(Address)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_LocationAddress()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='locationAddress' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Address getLocationAddress();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getLocationAddress <em>Location Address</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location Address</em>' containment reference.
+	 * @see #getLocationAddress()
+	 * @generated
+	 */
+	void setLocationAddress(Address value);
+
+	/**
+	 * Returns the value of the '<em><b>Location Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Location Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location Reference</em>' containment reference.
+	 * @see #setLocationReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_LocationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='locationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getLocationReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getLocationReference <em>Location Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location Reference</em>' containment reference.
+	 * @see #getLocationReference()
+	 * @generated
+	 */
+	void setLocationReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -423,13 +391,13 @@ public interface ClaimItem extends BackboneElement {
 	 * The number of repetitions of a service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(SimpleQuantity)
+	 * @see #setQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Quantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getQuantity();
+	Quantity getQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getQuantity <em>Quantity</em>}' containment reference.
@@ -439,7 +407,7 @@ public interface ClaimItem extends BackboneElement {
 	 * @see #getQuantity()
 	 * @generated
 	 */
-	void setQuantity(SimpleQuantity value);
+	void setQuantity(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Unit Price</b></em>' containment reference.
@@ -494,32 +462,6 @@ public interface ClaimItem extends BackboneElement {
 	void setFactor(Decimal value);
 
 	/**
-	 * Returns the value of the '<em><b>Points</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Points</em>' containment reference.
-	 * @see #setPoints(Decimal)
-	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Points()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='points' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Decimal getPoints();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getPoints <em>Points</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Points</em>' containment reference.
-	 * @see #getPoints()
-	 * @generated
-	 */
-	void setPoints(Decimal value);
-
-	/**
 	 * Returns the value of the '<em><b>Net</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -569,13 +511,13 @@ public interface ClaimItem extends BackboneElement {
 	 * Physical service site on the patient (limb, tooth, etc).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
-	 * @see #setBodySite(Coding)
+	 * @see #setBodySite(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaimItem_BodySite()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='bodySite' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getBodySite();
+	CodeableConcept getBodySite();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimItem#getBodySite <em>Body Site</em>}' containment reference.
@@ -585,11 +527,11 @@ public interface ClaimItem extends BackboneElement {
 	 * @see #getBodySite()
 	 * @generated
 	 */
-	void setBodySite(Coding value);
+	void setBodySite(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Sub Site</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -601,7 +543,7 @@ public interface ClaimItem extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='subSite' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getSubSite();
+	EList<CodeableConcept> getSubSite();
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.

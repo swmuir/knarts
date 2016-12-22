@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ExpansionProfileDesignation;
-import org.hl7.fhir.ExpansionProfileExclude1;
-import org.hl7.fhir.ExpansionProfileInclude1;
+import org.hl7.fhir.ExpansionProfileExclude;
+import org.hl7.fhir.ExpansionProfileInclude;
 import org.hl7.fhir.FhirPackage;
 
 /**
@@ -48,7 +38,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected ExpansionProfileInclude1 include;
+	protected ExpansionProfileInclude include;
 
 	/**
 	 * The cached value of the '{@link #getExclude() <em>Exclude</em>}' containment reference.
@@ -58,7 +48,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected ExpansionProfileExclude1 exclude;
+	protected ExpansionProfileExclude exclude;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,7 +74,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExpansionProfileInclude1 getInclude() {
+	public ExpansionProfileInclude getInclude() {
 		return include;
 	}
 
@@ -93,8 +83,8 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInclude(ExpansionProfileInclude1 newInclude, NotificationChain msgs) {
-		ExpansionProfileInclude1 oldInclude = include;
+	public NotificationChain basicSetInclude(ExpansionProfileInclude newInclude, NotificationChain msgs) {
+		ExpansionProfileInclude oldInclude = include;
 		include = newInclude;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE_DESIGNATION__INCLUDE, oldInclude, newInclude);
@@ -108,7 +98,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInclude(ExpansionProfileInclude1 newInclude) {
+	public void setInclude(ExpansionProfileInclude newInclude) {
 		if (newInclude != include) {
 			NotificationChain msgs = null;
 			if (include != null)
@@ -127,7 +117,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExpansionProfileExclude1 getExclude() {
+	public ExpansionProfileExclude getExclude() {
 		return exclude;
 	}
 
@@ -136,8 +126,8 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExclude(ExpansionProfileExclude1 newExclude, NotificationChain msgs) {
-		ExpansionProfileExclude1 oldExclude = exclude;
+	public NotificationChain basicSetExclude(ExpansionProfileExclude newExclude, NotificationChain msgs) {
+		ExpansionProfileExclude oldExclude = exclude;
 		exclude = newExclude;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE_DESIGNATION__EXCLUDE, oldExclude, newExclude);
@@ -151,7 +141,7 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExclude(ExpansionProfileExclude1 newExclude) {
+	public void setExclude(ExpansionProfileExclude newExclude) {
 		if (newExclude != exclude) {
 			NotificationChain msgs = null;
 			if (exclude != null)
@@ -206,10 +196,10 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.EXPANSION_PROFILE_DESIGNATION__INCLUDE:
-				setInclude((ExpansionProfileInclude1)newValue);
+				setInclude((ExpansionProfileInclude)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE_DESIGNATION__EXCLUDE:
-				setExclude((ExpansionProfileExclude1)newValue);
+				setExclude((ExpansionProfileExclude)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,10 +214,10 @@ public class ExpansionProfileDesignationImpl extends BackboneElementImpl impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.EXPANSION_PROFILE_DESIGNATION__INCLUDE:
-				setInclude((ExpansionProfileInclude1)null);
+				setInclude((ExpansionProfileInclude)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE_DESIGNATION__EXCLUDE:
-				setExclude((ExpansionProfileExclude1)null);
+				setExclude((ExpansionProfileExclude)null);
 				return;
 		}
 		super.eUnset(featureID);

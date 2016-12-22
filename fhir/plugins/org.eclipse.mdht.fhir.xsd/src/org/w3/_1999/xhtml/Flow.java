@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -25,8 +15,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <!-- begin-model-doc -->
  * 
- * 				"Flow" mixes block and inline and is used for list items etc.
- * 			
+ *       "Flow" mixes block and inline and is used for list items etc.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
@@ -50,15 +40,12 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.Flow#getHr <em>Hr</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getBlockquote <em>Blockquote</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getAddress <em>Address</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getFieldset <em>Fieldset</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getTable <em>Table</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getForm <em>Form</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getA <em>A</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getBr <em>Br</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getObject <em>Object</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getImg <em>Img</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getTt <em>Tt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getI <em>I</em>}</li>
@@ -78,15 +65,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.Flow#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getSub <em>Sub</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.Flow#getSup <em>Sup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getSelect <em>Select</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getTextarea <em>Textarea</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getButton <em>Button</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getNoscript <em>Noscript</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.Flow#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @see org.w3._1999.xhtml.XhtmlPackage#getFlow()
@@ -254,8 +232,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container      
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Div</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Div()
@@ -272,8 +250,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Unordered list
-	 * 			
+	 *       Unordered list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ul</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Ul()
@@ -290,8 +268,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Ordered (numbered) list
-	 * 			
+	 *       Ordered (numbered) list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ol</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Ol()
@@ -325,8 +303,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				content is "Inline" excluding "img|object|big|small|sub|sup"
-	 * 			
+	 *       content is "Inline" excluding "img|object|big|small|sub|sup"
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pre</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Pre()
@@ -377,8 +355,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				information on author
-	 * 			
+	 *       information on author
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Address()
@@ -387,29 +365,6 @@ public interface Flow extends EObject {
 	 * @generated
 	 */
 	EList<AddressType> getAddress();
-
-	/**
-	 * Returns the value of the '<em><b>Fieldset</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.FieldsetType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				The fieldset element is used to group form fields.
-	 * 				Only one legend element should occur in the content
-	 * 				and if present should only be preceded by whitespace.
-	 * 
-	 * 				NOTE: this content model is different from the XHTML 1.0 DTD,
-	 * 				closer to the intended content model in HTML4 DTD
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Fieldset</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Fieldset()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='fieldset' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<FieldsetType> getFieldset();
 
 	/**
 	 * Returns the value of the '<em><b>Table</b></em>' containment reference list.
@@ -429,31 +384,14 @@ public interface Flow extends EObject {
 	EList<TableType> getTable();
 
 	/**
-	 * Returns the value of the '<em><b>Form</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.FormType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Form</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Form</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Form()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<FormType> getForm();
-
-	/**
 	 * Returns the value of the '<em><b>A</b></em>' containment reference list.
 	 * The list contents are of type {@link org.w3._1999.xhtml.AType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				content is "Inline" except that anchors shouldn't be nested
-	 * 			
+	 *       content is "Inline" except that anchors shouldn't be nested
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>A</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_A()
@@ -470,8 +408,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				forced line break
-	 * 			
+	 *       forced line break
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Br</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Br()
@@ -488,8 +426,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Span</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Span()
@@ -506,8 +444,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				I18N BiDi over-ride
-	 * 			
+	 *       I18N BiDi over-ride
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bdo</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Bdo()
@@ -535,23 +473,6 @@ public interface Flow extends EObject {
 	EList<MapType> getMap();
 
 	/**
-	 * Returns the value of the '<em><b>Object</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ObjectType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Object</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Object()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='object' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ObjectType> getObject();
-
-	/**
 	 * Returns the value of the '<em><b>Img</b></em>' containment reference list.
 	 * The list contents are of type {@link org.w3._1999.xhtml.ImgType}.
 	 * <!-- begin-user-doc -->
@@ -575,8 +496,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				fixed pitch font
-	 * 			
+	 *       fixed pitch font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tt</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Tt()
@@ -593,8 +514,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				italic font
-	 * 			
+	 *       italic font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>I</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_I()
@@ -611,8 +532,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bold font
-	 * 			
+	 *       bold font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>B</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_B()
@@ -629,8 +550,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bigger font
-	 * 			
+	 *       bigger font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Big</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Big()
@@ -647,8 +568,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				smaller font
-	 * 			
+	 *       smaller font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Small</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Small()
@@ -665,8 +586,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				emphasis
-	 * 			
+	 *       emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Em</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Em()
@@ -683,8 +604,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				strong emphasis
-	 * 			
+	 *       strong emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strong</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Strong()
@@ -701,8 +622,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				definitional
-	 * 			
+	 *       definitional
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dfn</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Dfn()
@@ -719,8 +640,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				program code
-	 * 			
+	 *       program code
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Code()
@@ -737,8 +658,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				inlined quote
-	 * 			
+	 *       inlined quote
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Q</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Q()
@@ -755,8 +676,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				sample
-	 * 			
+	 *       sample
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Samp</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Samp()
@@ -773,8 +694,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				something user would type
-	 * 			
+	 *       something user would type
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kbd</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Kbd()
@@ -791,8 +712,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				variable
-	 * 			
+	 *       variable
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Var</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Var()
@@ -809,8 +730,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				citation
-	 * 			
+	 *       citation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cite</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Cite()
@@ -827,8 +748,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				abbreviation
-	 * 			
+	 *       abbreviation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abbr</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Abbr()
@@ -845,8 +766,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				acronym
-	 * 			
+	 *       acronym
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Acronym</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Acronym()
@@ -863,8 +784,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				subscript
-	 * 			
+	 *       subscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Sub()
@@ -881,8 +802,8 @@ public interface Flow extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				superscript
-	 * 			
+	 *       superscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sup</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Sup()
@@ -891,166 +812,5 @@ public interface Flow extends EObject {
 	 * @generated
 	 */
 	EList<SupType> getSup();
-
-	/**
-	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.InputType1}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				form control
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Input</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Input()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='input' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<InputType1> getInput();
-
-	/**
-	 * Returns the value of the '<em><b>Select</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.SelectType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				option selector
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Select</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Select()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='select' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<SelectType> getSelect();
-
-	/**
-	 * Returns the value of the '<em><b>Textarea</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.TextareaType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				multi-line text field
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Textarea</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Textarea()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='textarea' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<TextareaType> getTextarea();
-
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.LabelType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Each label must not contain more than ONE field
-	 * 				Label elements shouldn't be nested.
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Label</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Label()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<LabelType> getLabel();
-
-	/**
-	 * Returns the value of the '<em><b>Button</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ButtonType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Content is "Flow" excluding a, form and form controls
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Button</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Button()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='button' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ButtonType> getButton();
-
-	/**
-	 * Returns the value of the '<em><b>Noscript</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.NoscriptType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				alternate content container for non script-based rendering
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Noscript</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Noscript()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='noscript' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<NoscriptType> getNoscript();
-
-	/**
-	 * Returns the value of the '<em><b>Ins</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.InsType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ins</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ins</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Ins()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ins' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<InsType> getIns();
-
-	/**
-	 * Returns the value of the '<em><b>Del</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.DelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Del</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Del</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Del()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='del' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<DelType> getDel();
-
-	/**
-	 * Returns the value of the '<em><b>Script</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ScriptType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				script statements, which may include CDATA sections
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Script</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getFlow_Script()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='script' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ScriptType> getScript();
 
 } // Flow

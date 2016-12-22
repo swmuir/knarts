@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -93,16 +83,16 @@ public interface ExplanationOfBenefitProsthesis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Material of the prior denture or bridge prosthesis. (Oral).
+	 * Material of the prior denture or bridge prosthesis (Oral).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prior Material</em>' containment reference.
-	 * @see #setPriorMaterial(Coding)
+	 * @see #setPriorMaterial(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProsthesis_PriorMaterial()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priorMaterial' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getPriorMaterial();
+	CodeableConcept getPriorMaterial();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitProsthesis#getPriorMaterial <em>Prior Material</em>}' containment reference.
@@ -112,6 +102,6 @@ public interface ExplanationOfBenefitProsthesis extends BackboneElement {
 	 * @see #getPriorMaterial()
 	 * @generated
 	 */
-	void setPriorMaterial(Coding value);
+	void setPriorMaterial(CodeableConcept value);
 
 } // ExplanationOfBenefitProsthesis

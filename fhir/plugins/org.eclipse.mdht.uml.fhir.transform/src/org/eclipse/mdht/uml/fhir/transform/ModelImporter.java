@@ -74,7 +74,6 @@ import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
 import org.hl7.fhir.PropertyRepresentation;
 import org.hl7.fhir.StructureDefinition;
-import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetConcept;
 import org.hl7.fhir.ValueSetContains;
@@ -84,7 +83,8 @@ import org.hl7.fhir.util.FhirResourceFactoryImpl;
 public class ModelImporter implements ModelConstants {
 	
 	enum StructureDefinitionKind {
-		datatype,
+		primitiveType,
+		complexType,
 		resource,
 		logical
 	}
@@ -93,7 +93,8 @@ public class ModelImporter implements ModelConstants {
 		xmlAttr,
 		xmlText,
 		typeAttr,
-		cdaText
+		cdaText,
+		xhtml
 	}
 
 	enum BindingStrengthEnum {
@@ -604,8 +605,16 @@ public class ModelImporter implements ModelConstants {
 		boolean isFhirDefinedType = modelIndexer.isDefinedType(structureDef.getId().getValue());
 		PrimitiveType primitiveType = null;
 		
-		StructureDefinitionKind structureKind = StructureDefinitionKind.valueOf(structureDef.getKind().getValue().getName());
+		StructureDefinitionKind structureKind;
+		String kind = structureDef.getKind().getValue().getName();
+		try {
+			structureKind = StructureDefinitionKind.valueOf(kind);
+		} catch (IllegalArgumentException e) {
+			System.err.println("Invalid StructureDefinition kind '" + kind + "' for " + structureDef.getUrl().getValue());
+			return null;
+		}
 		boolean isLogicalType = StructureDefinitionKind.logical == structureKind;
+		boolean isDataType = StructureDefinitionKind.primitiveType == structureKind || StructureDefinitionKind.complexType == structureKind;
 
 		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
@@ -613,7 +622,7 @@ public class ModelImporter implements ModelConstants {
 		if (structureDef.getContextType() != null) {
 			packageName = PACKAGE_NAME_EXTENSIONS;
 		}
-		else if (StructureDefinitionKind.datatype == structureKind) {
+		else if (isDataType) {
 			if (modelIndexer.isCoreDataType(structureDef.getId().getValue())) {
 				packageName = PACKAGE_NAME_DATATYPES;
 				primitiveType = getPrimitiveType(structureDef.getName().getValue());
@@ -660,8 +669,8 @@ public class ModelImporter implements ModelConstants {
 			if (structureDef.getName() != null) {
 				structureDefStereotype.setName(structureDef.getName().getValue());
 			}
-			if (structureDef.getDisplay() != null) {
-				structureDefStereotype.setDisplay(structureDef.getDisplay().getValue());
+			if (structureDef.getTitle() != null) {
+				structureDefStereotype.setDisplay(structureDef.getTitle().getValue());
 			}
 			if (structureDef.getVersion() != null) {
 				structureDefStereotype.setVersion(structureDef.getVersion().getValue());
@@ -698,9 +707,9 @@ public class ModelImporter implements ModelConstants {
 			description.setBody(structureDef.getDescription().getValue());
 			UMLUtil.safeApplyStereotype(description, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDescription().getName()));
 		}
-		if (structureDef.getRequirements() != null) {
+		if (structureDef.getPurpose() != null) {
 			Comment requirements = profileClass.createOwnedComment();
-			requirements.setBody(structureDef.getRequirements().getValue());
+			requirements.setBody(structureDef.getPurpose().getValue());
 			UMLUtil.safeApplyStereotype(requirements, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getRequirements().getName()));
 		}
 
@@ -733,8 +742,7 @@ public class ModelImporter implements ModelConstants {
 			
 			if (baseProfileClass != null) {
 				// Add "DataType" abstract superclass for all data types
-				if (StructureDefinitionKind.datatype == structureKind
-						&& ELEMENT_CLASS_NAME.equals(baseProfileClass.getName())) {
+				if (isDataType && ELEMENT_CLASS_NAME.equals(baseProfileClass.getName())) {
 					baseProfileClass = dataTypeClass;
 				}
 				
@@ -802,8 +810,8 @@ public class ModelImporter implements ModelConstants {
 					}
 				}
 				
-				if (elementDef.getName() != null && elementDef.getName().getValue() != null) {
-					profileClass.setName(elementDef.getName().getValue());
+				if (elementDef.getSliceName() != null && elementDef.getSliceName().getValue() != null) {
+					profileClass.setName(elementDef.getSliceName().getValue());
 				}
 
 				// create generalization only if not created from 'base' profile
@@ -813,8 +821,7 @@ public class ModelImporter implements ModelConstants {
 					//TODO Element has type Element, expand check for circular generalization references
 					if (!baseType.equals(profileClass)) {
 						// Add "DataType" abstract superclass for all data types
-						if (StructureDefinitionKind.datatype == structureKind
-								&& ELEMENT_CLASS_NAME.equals(baseType.getName())) {
+						if (isDataType && ELEMENT_CLASS_NAME.equals(baseType.getName())) {
 							baseType = dataTypeClass;
 						}
 						
@@ -941,9 +948,12 @@ public class ModelImporter implements ModelConstants {
 			}
 			else if (elementDef.getContentReference() != null) {
 				String referencedName = elementDef.getContentReference().getValue();
+				if (referencedName.startsWith("#")) {
+					referencedName = referencedName.substring(1);
+				}
 				propertyType = nameReferenceMap.get(referencedName);
 				if (propertyType == null) {
-					System.err.println("Cannot find referencedName: " + referencedName + " from owner class " 
+					System.err.println("Cannot find content reference: " + referencedName + " from owner class " 
 							+ownerClass.getName() + " at path: "+ path);
 				}
 			}
@@ -979,9 +989,9 @@ public class ModelImporter implements ModelConstants {
 			}
 			
 			// Create the UML Property
-			if (isSliced && elementDef.getName() != null) {
+			if (isSliced && elementDef.getSliceName() != null) {
 				// Sliced elements must have a unique name
-				propertyName = elementDef.getName().getValue();
+				propertyName = elementDef.getSliceName().getValue();
 			}
 			
 			Property property = ownerClass.createOwnedAttribute(propertyName, propertyType);
@@ -992,10 +1002,7 @@ public class ModelImporter implements ModelConstants {
 				org.eclipse.mdht.uml.fhir.ElementDefinition elementDefStereotype = (org.eclipse.mdht.uml.fhir.ElementDefinition) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getElementDefinition().getName()));
 				if (elementDef.getId() != null) {
 					elementDefStereotype.setId(elementDef.getId());
-				}
-				if (elementDef.getName() != null) {
-					elementDefStereotype.setName(elementDef.getName().getValue());
-					nameReferenceMap.put(elementDef.getName().getValue(), propertyType);
+					nameReferenceMap.put(elementDef.getId(), propertyType);
 				}
 				if (elementDef.getContentReference() != null) {
 					elementDefStereotype.setName(elementDef.getContentReference().getValue());
@@ -1120,9 +1127,9 @@ public class ModelImporter implements ModelConstants {
 						umlSlicing.setOrdered(fhirSlicing.getOrdered().isValue());
 					}
 					if (fhirSlicing.getRules() != null) {
-						SlicingRulesKind kind = SlicingRulesKind.get(fhirSlicing.getRules().getValue().getName());
-						if (kind != null) {
-							umlSlicing.setRules(kind);
+						SlicingRulesKind slicingKind = SlicingRulesKind.get(fhirSlicing.getRules().getValue().getName());
+						if (slicingKind != null) {
+							umlSlicing.setRules(slicingKind);
 						}
 					}
 				}
@@ -1229,16 +1236,8 @@ public class ModelImporter implements ModelConstants {
 		}
 		
 		if (name == null) {
-//			if (elementDef.getName() != null && elementDef.getName().getValue() != null) {
-			// TODO added name != path as workaround for Grahame's FHIR CDA logical def naming
-			if (elementDef.getName() != null && elementDef.getName().getValue() != null
-					&& !elementDef.getName().getValue().equals(elementDef.getPath().getValue())) {
-				name = elementDef.getName().getValue();
-			}
-			else {
-				String[] path = elementDef.getPath().getValue().split("\\.");
-				name = path[path.length - 1];
-			}
+			String[] path = elementDef.getPath().getValue().split("\\.");
+			name = path[path.length - 1];
 			
 			//TODO toUpperCamelCase, remove "-" etc.
 			StringBuffer camelCaseNameBuffer = new StringBuffer();
@@ -1315,16 +1314,13 @@ public class ModelImporter implements ModelConstants {
 		
 		for (ElementDefinitionType elementDefType : elementDef.getType()) {
 			Classifier typeClass = null;
-			if (!elementDefType.getProfile().isEmpty()) {
-				for (Uri profileURI : elementDefType.getProfile()) {
-					typeClass = importProfileForURI(profileURI.getValue());
-
-					//TODO for now, use only first profile type
-					if (typeClass != null) {
-						break;
-					}
-				}
+			if (elementDefType.getTargetProfile() != null) {
+				typeClass = importProfileForURI(elementDefType.getTargetProfile().getValue());
 			}
+			else if (elementDefType.getProfile() != null) {
+				typeClass = importProfileForURI(elementDefType.getProfile().getValue());
+			}
+			
 			if (typeClass == null && elementDefType.getCode() != null && elementDefType.getCode().getValue() != null) {
 				String typeName = elementDefType.getCode().getValue();
 				if ("*".equals(typeName)) {

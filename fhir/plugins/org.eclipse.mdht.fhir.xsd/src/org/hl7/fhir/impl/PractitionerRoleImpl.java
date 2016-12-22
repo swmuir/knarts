@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -49,7 +39,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -58,6 +48,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,14 +95,14 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	protected Reference organization;
 
 	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRole()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> role;
+	protected EList<CodeableConcept> code;
 
 	/**
 	 * The cached value of the '{@link #getSpecialty() <em>Specialty</em>}' containment reference list.
@@ -192,6 +183,16 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String availabilityExceptions;
+
+	/**
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> endpoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -358,11 +359,11 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getRole() {
-		if (role == null) {
-			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER_ROLE__ROLE);
+	public EList<CodeableConcept> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER_ROLE__CODE);
 		}
-		return role;
+		return code;
 	}
 
 	/**
@@ -528,6 +529,18 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PRACTITIONER_ROLE__ENDPOINT);
+		}
+		return endpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -539,8 +552,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return basicSetPractitioner(null, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
 				return basicSetOrganization(null, msgs);
-			case FhirPackage.PRACTITIONER_ROLE__ROLE:
-				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PRACTITIONER_ROLE__CODE:
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__SPECIALTY:
 				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__LOCATION:
@@ -557,6 +570,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return ((InternalEList<?>)getNotAvailable()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABILITY_EXCEPTIONS:
 				return basicSetAvailabilityExceptions(null, msgs);
+			case FhirPackage.PRACTITIONER_ROLE__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -577,8 +592,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return getPractitioner();
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
 				return getOrganization();
-			case FhirPackage.PRACTITIONER_ROLE__ROLE:
-				return getRole();
+			case FhirPackage.PRACTITIONER_ROLE__CODE:
+				return getCode();
 			case FhirPackage.PRACTITIONER_ROLE__SPECIALTY:
 				return getSpecialty();
 			case FhirPackage.PRACTITIONER_ROLE__LOCATION:
@@ -595,6 +610,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return getNotAvailable();
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABILITY_EXCEPTIONS:
 				return getAvailabilityExceptions();
+			case FhirPackage.PRACTITIONER_ROLE__ENDPOINT:
+				return getEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -621,9 +638,9 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
 				setOrganization((Reference)newValue);
 				return;
-			case FhirPackage.PRACTITIONER_ROLE__ROLE:
-				getRole().clear();
-				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.PRACTITIONER_ROLE__CODE:
+				getCode().clear();
+				getCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER_ROLE__SPECIALTY:
 				getSpecialty().clear();
@@ -655,6 +672,10 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABILITY_EXCEPTIONS:
 				setAvailabilityExceptions((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.PRACTITIONER_ROLE__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -679,8 +700,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
 				setOrganization((Reference)null);
 				return;
-			case FhirPackage.PRACTITIONER_ROLE__ROLE:
-				getRole().clear();
+			case FhirPackage.PRACTITIONER_ROLE__CODE:
+				getCode().clear();
 				return;
 			case FhirPackage.PRACTITIONER_ROLE__SPECIALTY:
 				getSpecialty().clear();
@@ -706,6 +727,9 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABILITY_EXCEPTIONS:
 				setAvailabilityExceptions((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.PRACTITIONER_ROLE__ENDPOINT:
+				getEndpoint().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -726,8 +750,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return practitioner != null;
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
 				return organization != null;
-			case FhirPackage.PRACTITIONER_ROLE__ROLE:
-				return role != null && !role.isEmpty();
+			case FhirPackage.PRACTITIONER_ROLE__CODE:
+				return code != null && !code.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__SPECIALTY:
 				return specialty != null && !specialty.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__LOCATION:
@@ -744,6 +768,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return notAvailable != null && !notAvailable.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABILITY_EXCEPTIONS:
 				return availabilityExceptions != null;
+			case FhirPackage.PRACTITIONER_ROLE__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

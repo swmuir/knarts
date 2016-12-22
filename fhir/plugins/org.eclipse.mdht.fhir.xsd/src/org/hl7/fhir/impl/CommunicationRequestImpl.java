@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -53,7 +43,8 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getScheduledDateTime <em>Scheduled Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getScheduledPeriod <em>Scheduled Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getReason <em>Reason</em>}</li>
@@ -146,14 +137,24 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	protected CommunicationRequestStatus status;
 
 	/**
-	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEncounter()
+	 * @see #getTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference encounter;
+	protected EList<Reference> topic;
+
+	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference context;
 
 	/**
 	 * The cached value of the '{@link #getScheduledDateTime() <em>Scheduled Date Time</em>}' containment reference.
@@ -459,8 +460,11 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEncounter() {
-		return encounter;
+	public EList<Reference> getTopic() {
+		if (topic == null) {
+			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__TOPIC);
+		}
+		return topic;
 	}
 
 	/**
@@ -468,11 +472,20 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
+	public Reference getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER, oldEncounter, newEncounter);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -483,18 +496,18 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER, newEncounter, newEncounter));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -748,8 +761,10 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return basicSetRequester(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__TOPIC:
+				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
 				return basicSetScheduledDateTime(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
@@ -790,8 +805,10 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return getRequester();
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return getStatus();
-			case FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER:
-				return getEncounter();
+			case FhirPackage.COMMUNICATION_REQUEST__TOPIC:
+				return getTopic();
+			case FhirPackage.COMMUNICATION_REQUEST__CONTEXT:
+				return getContext();
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
 				return getScheduledDateTime();
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
@@ -845,8 +862,12 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				setStatus((CommunicationRequestStatus)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER:
-				setEncounter((Reference)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__TOPIC:
+				getTopic().clear();
+				getTopic().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__CONTEXT:
+				setContext((Reference)newValue);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
 				setScheduledDateTime((DateTime)newValue);
@@ -903,8 +924,11 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				setStatus((CommunicationRequestStatus)null);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER:
-				setEncounter((Reference)null);
+			case FhirPackage.COMMUNICATION_REQUEST__TOPIC:
+				getTopic().clear();
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__CONTEXT:
+				setContext((Reference)null);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
 				setScheduledDateTime((DateTime)null);
@@ -952,8 +976,10 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return requester != null;
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return status != null;
-			case FhirPackage.COMMUNICATION_REQUEST__ENCOUNTER:
-				return encounter != null;
+			case FhirPackage.COMMUNICATION_REQUEST__TOPIC:
+				return topic != null && !topic.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__CONTEXT:
+				return context != null;
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
 				return scheduledDateTime != null;
 			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:

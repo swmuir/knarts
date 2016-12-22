@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,6 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.CodeSystemProperty#getUri <em>Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty#getType <em>Type</em>}</li>
  * </ul>
@@ -63,6 +54,32 @@ public interface CodeSystemProperty extends BackboneElement {
 	void setCode(Code value);
 
 	/**
+	 * Returns the value of the '<em><b>Uri</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Uri</em>' containment reference.
+	 * @see #setUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty_Uri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='uri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getUri();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CodeSystemProperty#getUri <em>Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uri</em>' containment reference.
+	 * @see #getUri()
+	 * @generated
+	 */
+	void setUri(Uri value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,7 +110,7 @@ public interface CodeSystemProperty extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the property value.
+	 * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(PropertyType)

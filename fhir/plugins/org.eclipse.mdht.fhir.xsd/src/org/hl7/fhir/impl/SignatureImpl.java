@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -48,6 +38,8 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhen <em>When</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhoUri <em>Who Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhoReference <em>Who Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getBlob <em>Blob</em>}</li>
  * </ul>
@@ -94,6 +86,26 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * @ordered
 	 */
 	protected Reference whoReference;
+
+	/**
+	 * The cached value of the '{@link #getOnBehalfOfUri() <em>On Behalf Of Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnBehalfOfUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri onBehalfOfUri;
+
+	/**
+	 * The cached value of the '{@link #getOnBehalfOfReference() <em>On Behalf Of Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnBehalfOfReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference onBehalfOfReference;
 
 	/**
 	 * The cached value of the '{@link #getContentType() <em>Content Type</em>}' containment reference.
@@ -280,6 +292,92 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Uri getOnBehalfOfUri() {
+		return onBehalfOfUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnBehalfOfUri(Uri newOnBehalfOfUri, NotificationChain msgs) {
+		Uri oldOnBehalfOfUri = onBehalfOfUri;
+		onBehalfOfUri = newOnBehalfOfUri;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, oldOnBehalfOfUri, newOnBehalfOfUri);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnBehalfOfUri(Uri newOnBehalfOfUri) {
+		if (newOnBehalfOfUri != onBehalfOfUri) {
+			NotificationChain msgs = null;
+			if (onBehalfOfUri != null)
+				msgs = ((InternalEObject)onBehalfOfUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, null, msgs);
+			if (newOnBehalfOfUri != null)
+				msgs = ((InternalEObject)newOnBehalfOfUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, null, msgs);
+			msgs = basicSetOnBehalfOfUri(newOnBehalfOfUri, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, newOnBehalfOfUri, newOnBehalfOfUri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getOnBehalfOfReference() {
+		return onBehalfOfReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnBehalfOfReference(Reference newOnBehalfOfReference, NotificationChain msgs) {
+		Reference oldOnBehalfOfReference = onBehalfOfReference;
+		onBehalfOfReference = newOnBehalfOfReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, oldOnBehalfOfReference, newOnBehalfOfReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnBehalfOfReference(Reference newOnBehalfOfReference) {
+		if (newOnBehalfOfReference != onBehalfOfReference) {
+			NotificationChain msgs = null;
+			if (onBehalfOfReference != null)
+				msgs = ((InternalEObject)onBehalfOfReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, null, msgs);
+			if (newOnBehalfOfReference != null)
+				msgs = ((InternalEObject)newOnBehalfOfReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, null, msgs);
+			msgs = basicSetOnBehalfOfReference(newOnBehalfOfReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, newOnBehalfOfReference, newOnBehalfOfReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Code getContentType() {
 		return contentType;
 	}
@@ -377,6 +475,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return basicSetWhoUri(null, msgs);
 			case FhirPackage.SIGNATURE__WHO_REFERENCE:
 				return basicSetWhoReference(null, msgs);
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
+				return basicSetOnBehalfOfUri(null, msgs);
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
+				return basicSetOnBehalfOfReference(null, msgs);
 			case FhirPackage.SIGNATURE__CONTENT_TYPE:
 				return basicSetContentType(null, msgs);
 			case FhirPackage.SIGNATURE__BLOB:
@@ -401,6 +503,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return getWhoUri();
 			case FhirPackage.SIGNATURE__WHO_REFERENCE:
 				return getWhoReference();
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
+				return getOnBehalfOfUri();
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
+				return getOnBehalfOfReference();
 			case FhirPackage.SIGNATURE__CONTENT_TYPE:
 				return getContentType();
 			case FhirPackage.SIGNATURE__BLOB:
@@ -430,6 +536,12 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return;
 			case FhirPackage.SIGNATURE__WHO_REFERENCE:
 				setWhoReference((Reference)newValue);
+				return;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
+				setOnBehalfOfUri((Uri)newValue);
+				return;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
+				setOnBehalfOfReference((Reference)newValue);
 				return;
 			case FhirPackage.SIGNATURE__CONTENT_TYPE:
 				setContentType((Code)newValue);
@@ -461,6 +573,12 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__WHO_REFERENCE:
 				setWhoReference((Reference)null);
 				return;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
+				setOnBehalfOfUri((Uri)null);
+				return;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
+				setOnBehalfOfReference((Reference)null);
+				return;
 			case FhirPackage.SIGNATURE__CONTENT_TYPE:
 				setContentType((Code)null);
 				return;
@@ -487,6 +605,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return whoUri != null;
 			case FhirPackage.SIGNATURE__WHO_REFERENCE:
 				return whoReference != null;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
+				return onBehalfOfUri != null;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
+				return onBehalfOfReference != null;
 			case FhirPackage.SIGNATURE__CONTENT_TYPE:
 				return contentType != null;
 			case FhirPackage.SIGNATURE__BLOB:

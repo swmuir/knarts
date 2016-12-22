@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,6 +20,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValuePeriod <em>Value Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValueDuration <em>Value Duration</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDataRequirementDateFilter()
@@ -116,5 +107,32 @@ public interface DataRequirementDateFilter extends Element {
 	 * @generated
 	 */
 	void setValuePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Duration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Duration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Duration</em>' containment reference.
+	 * @see #setValueDuration(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getDataRequirementDateFilter_ValueDuration()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDuration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Duration getValueDuration();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementDateFilter#getValueDuration <em>Value Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Duration</em>' containment reference.
+	 * @see #getValueDuration()
+	 * @generated
+	 */
+	void setValueDuration(Duration value);
 
 } // DataRequirementDateFilter

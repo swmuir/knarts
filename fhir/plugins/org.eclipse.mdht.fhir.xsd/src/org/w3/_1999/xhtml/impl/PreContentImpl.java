@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -34,29 +24,21 @@ import org.w3._1999.xhtml.BType;
 import org.w3._1999.xhtml.BdoType;
 import org.w3._1999.xhtml.BigType;
 import org.w3._1999.xhtml.BrType;
-import org.w3._1999.xhtml.ButtonType;
 import org.w3._1999.xhtml.CiteType;
 import org.w3._1999.xhtml.CodeType;
-import org.w3._1999.xhtml.DelType;
 import org.w3._1999.xhtml.DfnType;
 import org.w3._1999.xhtml.EmType;
 import org.w3._1999.xhtml.IType;
-import org.w3._1999.xhtml.InputType1;
-import org.w3._1999.xhtml.InsType;
 import org.w3._1999.xhtml.KbdType;
-import org.w3._1999.xhtml.LabelType;
 import org.w3._1999.xhtml.MapType;
 import org.w3._1999.xhtml.PreContent;
 import org.w3._1999.xhtml.QType;
 import org.w3._1999.xhtml.SampType;
-import org.w3._1999.xhtml.ScriptType;
-import org.w3._1999.xhtml.SelectType;
 import org.w3._1999.xhtml.SmallType;
 import org.w3._1999.xhtml.SpanType;
 import org.w3._1999.xhtml.StrongType;
 import org.w3._1999.xhtml.SubType;
 import org.w3._1999.xhtml.SupType;
-import org.w3._1999.xhtml.TextareaType;
 import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.VarType;
 import org.w3._1999.xhtml.XhtmlPackage;
@@ -94,14 +76,6 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getScript <em>Script</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getSelect <em>Select</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getTextarea <em>Textarea</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.PreContentImpl#getButton <em>Button</em>}</li>
  * </ul>
  *
  * @generated
@@ -369,78 +343,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InsType> getIns() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Ins());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DelType> getDel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Del());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ScriptType> getScript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Script());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InputType1> getInput() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Input());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SelectType> getSelect() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Select());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TextareaType> getTextarea() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Textarea());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<LabelType> getLabel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Label());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ButtonType> getButton() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getPreContent_Button());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -494,22 +396,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 				return ((InternalEList<?>)getBdo()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.PRE_CONTENT__MAP:
 				return ((InternalEList<?>)getMap()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__INS:
-				return ((InternalEList<?>)getIns()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__DEL:
-				return ((InternalEList<?>)getDel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__SCRIPT:
-				return ((InternalEList<?>)getScript()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__INPUT:
-				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__SELECT:
-				return ((InternalEList<?>)getSelect()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__TEXTAREA:
-				return ((InternalEList<?>)getTextarea()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__LABEL:
-				return ((InternalEList<?>)getLabel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.PRE_CONTENT__BUTTON:
-				return ((InternalEList<?>)getButton()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -574,22 +460,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 				return getBdo();
 			case XhtmlPackage.PRE_CONTENT__MAP:
 				return getMap();
-			case XhtmlPackage.PRE_CONTENT__INS:
-				return getIns();
-			case XhtmlPackage.PRE_CONTENT__DEL:
-				return getDel();
-			case XhtmlPackage.PRE_CONTENT__SCRIPT:
-				return getScript();
-			case XhtmlPackage.PRE_CONTENT__INPUT:
-				return getInput();
-			case XhtmlPackage.PRE_CONTENT__SELECT:
-				return getSelect();
-			case XhtmlPackage.PRE_CONTENT__TEXTAREA:
-				return getTextarea();
-			case XhtmlPackage.PRE_CONTENT__LABEL:
-				return getLabel();
-			case XhtmlPackage.PRE_CONTENT__BUTTON:
-				return getButton();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -701,38 +571,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 				getMap().clear();
 				getMap().addAll((Collection<? extends MapType>)newValue);
 				return;
-			case XhtmlPackage.PRE_CONTENT__INS:
-				getIns().clear();
-				getIns().addAll((Collection<? extends InsType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__DEL:
-				getDel().clear();
-				getDel().addAll((Collection<? extends DelType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__SCRIPT:
-				getScript().clear();
-				getScript().addAll((Collection<? extends ScriptType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__INPUT:
-				getInput().clear();
-				getInput().addAll((Collection<? extends InputType1>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__SELECT:
-				getSelect().clear();
-				getSelect().addAll((Collection<? extends SelectType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__TEXTAREA:
-				getTextarea().clear();
-				getTextarea().addAll((Collection<? extends TextareaType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__LABEL:
-				getLabel().clear();
-				getLabel().addAll((Collection<? extends LabelType>)newValue);
-				return;
-			case XhtmlPackage.PRE_CONTENT__BUTTON:
-				getButton().clear();
-				getButton().addAll((Collection<? extends ButtonType>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -820,30 +658,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 			case XhtmlPackage.PRE_CONTENT__MAP:
 				getMap().clear();
 				return;
-			case XhtmlPackage.PRE_CONTENT__INS:
-				getIns().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__DEL:
-				getDel().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__SCRIPT:
-				getScript().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__INPUT:
-				getInput().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__SELECT:
-				getSelect().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__TEXTAREA:
-				getTextarea().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__LABEL:
-				getLabel().clear();
-				return;
-			case XhtmlPackage.PRE_CONTENT__BUTTON:
-				getButton().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -906,22 +720,6 @@ public class PreContentImpl extends MinimalEObjectImpl.Container implements PreC
 				return !getBdo().isEmpty();
 			case XhtmlPackage.PRE_CONTENT__MAP:
 				return !getMap().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__INS:
-				return !getIns().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__DEL:
-				return !getDel().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__SCRIPT:
-				return !getScript().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__INPUT:
-				return !getInput().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__SELECT:
-				return !getSelect().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__TEXTAREA:
-				return !getTextarea().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__LABEL:
-				return !getLabel().isEmpty();
-			case XhtmlPackage.PRE_CONTENT__BUTTON:
-				return !getButton().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

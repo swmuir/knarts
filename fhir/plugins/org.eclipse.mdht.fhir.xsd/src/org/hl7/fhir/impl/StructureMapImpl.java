@@ -18,15 +18,17 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.StructureMap;
-import org.hl7.fhir.StructureMapContact;
 import org.hl7.fhir.StructureMapGroup;
 import org.hl7.fhir.StructureMapStructure;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +42,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getPublisher <em>Publisher</em>}</li>
@@ -47,7 +50,8 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getStructure <em>Structure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getImport <em>Import</em>}</li>
@@ -98,6 +102,16 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	protected org.hl7.fhir.String name;
 
 	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,7 +119,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -135,7 +149,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<StructureMapContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -155,7 +169,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
 	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
@@ -165,17 +179,27 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> useContext;
+	protected EList<UsageContext> useContext;
 
 	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference.
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
+	 * @see #getJurisdiction()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String requirements;
+	protected EList<CodeableConcept> jurisdiction;
+
+	/**
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected Markdown purpose;
 
 	/**
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
@@ -185,7 +209,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String copyright;
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getStructure() <em>Structure</em>}' containment reference list.
@@ -382,7 +406,50 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -391,8 +458,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__STATUS, oldStatus, newStatus);
@@ -406,7 +473,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -511,9 +578,9 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StructureMapContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<StructureMapContact>(StructureMapContact.class, this, FhirPackage.STRUCTURE_MAP__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.STRUCTURE_MAP__CONTACT);
 		}
 		return contact;
 	}
@@ -566,7 +633,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -575,8 +642,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__DESCRIPTION, oldDescription, newDescription);
@@ -590,7 +657,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -609,9 +676,9 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getUseContext() {
+	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
-			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.STRUCTURE_MAP__USE_CONTEXT);
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.STRUCTURE_MAP__USE_CONTEXT);
 		}
 		return useContext;
 	}
@@ -621,8 +688,11 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getRequirements() {
-		return requirements;
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.STRUCTURE_MAP__JURISDICTION);
+		}
+		return jurisdiction;
 	}
 
 	/**
@@ -630,11 +700,20 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequirements(org.hl7.fhir.String newRequirements, NotificationChain msgs) {
-		org.hl7.fhir.String oldRequirements = requirements;
-		requirements = newRequirements;
+	public Markdown getPurpose() {
+		return purpose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPurpose(Markdown newPurpose, NotificationChain msgs) {
+		Markdown oldPurpose = purpose;
+		purpose = newPurpose;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__REQUIREMENTS, oldRequirements, newRequirements);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__PURPOSE, oldPurpose, newPurpose);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -645,18 +724,18 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequirements(org.hl7.fhir.String newRequirements) {
-		if (newRequirements != requirements) {
+	public void setPurpose(Markdown newPurpose) {
+		if (newPurpose != purpose) {
 			NotificationChain msgs = null;
-			if (requirements != null)
-				msgs = ((InternalEObject)requirements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__REQUIREMENTS, null, msgs);
-			if (newRequirements != null)
-				msgs = ((InternalEObject)newRequirements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__REQUIREMENTS, null, msgs);
-			msgs = basicSetRequirements(newRequirements, msgs);
+			if (purpose != null)
+				msgs = ((InternalEObject)purpose).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__PURPOSE, null, msgs);
+			if (newPurpose != null)
+				msgs = ((InternalEObject)newPurpose).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__PURPOSE, null, msgs);
+			msgs = basicSetPurpose(newPurpose, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__REQUIREMENTS, newRequirements, newRequirements));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__PURPOSE, newPurpose, newPurpose));
 	}
 
 	/**
@@ -664,7 +743,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCopyright() {
+	public Markdown getCopyright() {
 		return copyright;
 	}
 
@@ -673,8 +752,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyright(org.hl7.fhir.String newCopyright, NotificationChain msgs) {
-		org.hl7.fhir.String oldCopyright = copyright;
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__COPYRIGHT, oldCopyright, newCopyright);
@@ -688,7 +767,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCopyright(org.hl7.fhir.String newCopyright) {
+	public void setCopyright(Markdown newCopyright) {
 		if (newCopyright != copyright) {
 			NotificationChain msgs = null;
 			if (copyright != null)
@@ -754,6 +833,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return basicSetVersion(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.STRUCTURE_MAP__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
@@ -768,8 +849,10 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return basicSetDescription(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
-			case FhirPackage.STRUCTURE_MAP__REQUIREMENTS:
-				return basicSetRequirements(null, msgs);
+			case FhirPackage.STRUCTURE_MAP__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.STRUCTURE_MAP__PURPOSE:
+				return basicSetPurpose(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__STRUCTURE:
@@ -798,6 +881,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return getVersion();
 			case FhirPackage.STRUCTURE_MAP__NAME:
 				return getName();
+			case FhirPackage.STRUCTURE_MAP__TITLE:
+				return getTitle();
 			case FhirPackage.STRUCTURE_MAP__STATUS:
 				return getStatus();
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
@@ -812,8 +897,10 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return getDescription();
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
 				return getUseContext();
-			case FhirPackage.STRUCTURE_MAP__REQUIREMENTS:
-				return getRequirements();
+			case FhirPackage.STRUCTURE_MAP__JURISDICTION:
+				return getJurisdiction();
+			case FhirPackage.STRUCTURE_MAP__PURPOSE:
+				return getPurpose();
 			case FhirPackage.STRUCTURE_MAP__COPYRIGHT:
 				return getCopyright();
 			case FhirPackage.STRUCTURE_MAP__STRUCTURE:
@@ -848,8 +935,11 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 			case FhirPackage.STRUCTURE_MAP__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.STRUCTURE_MAP__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.STRUCTURE_MAP__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -859,23 +949,27 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return;
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends StructureMapContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__DATE:
 				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
 				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
 				return;
-			case FhirPackage.STRUCTURE_MAP__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)newValue);
+			case FhirPackage.STRUCTURE_MAP__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP__PURPOSE:
+				setPurpose((Markdown)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)newValue);
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__STRUCTURE:
 				getStructure().clear();
@@ -913,8 +1007,11 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 			case FhirPackage.STRUCTURE_MAP__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP__TITLE:
+				setTitle((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -929,16 +1026,19 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				setDate((DateTime)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
 				getUseContext().clear();
 				return;
-			case FhirPackage.STRUCTURE_MAP__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)null);
+			case FhirPackage.STRUCTURE_MAP__JURISDICTION:
+				getJurisdiction().clear();
+				return;
+			case FhirPackage.STRUCTURE_MAP__PURPOSE:
+				setPurpose((Markdown)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)null);
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__STRUCTURE:
 				getStructure().clear();
@@ -969,6 +1069,8 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return version != null;
 			case FhirPackage.STRUCTURE_MAP__NAME:
 				return name != null;
+			case FhirPackage.STRUCTURE_MAP__TITLE:
+				return title != null;
 			case FhirPackage.STRUCTURE_MAP__STATUS:
 				return status != null;
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
@@ -983,8 +1085,10 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return description != null;
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
 				return useContext != null && !useContext.isEmpty();
-			case FhirPackage.STRUCTURE_MAP__REQUIREMENTS:
-				return requirements != null;
+			case FhirPackage.STRUCTURE_MAP__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
+			case FhirPackage.STRUCTURE_MAP__PURPOSE:
+				return purpose != null;
 			case FhirPackage.STRUCTURE_MAP__COPYRIGHT:
 				return copyright != null;
 			case FhirPackage.STRUCTURE_MAP__STRUCTURE:

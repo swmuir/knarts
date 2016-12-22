@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -42,13 +32,13 @@ public interface EligibilityResponseError extends BackboneElement {
 	 * An error code,from a specified code system, which details why the eligibility check could not be performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Coding)
+	 * @see #setCode(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponseError_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCode();
+	CodeableConcept getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponseError#getCode <em>Code</em>}' containment reference.
@@ -58,6 +48,6 @@ public interface EligibilityResponseError extends BackboneElement {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(Coding value);
+	void setCode(CodeableConcept value);
 
 } // EligibilityResponseError

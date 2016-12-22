@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -61,6 +51,16 @@ public enum CarePlanStatusList implements Enumerator {
 	ACTIVE(2, "active", "active"),
 
 	/**
+	 * The '<em><b>Suspended</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUSPENDED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUSPENDED(3, "suspended", "suspended"),
+
+	/**
 	 * The '<em><b>Completed</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +68,17 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(3, "completed", "completed"),
+	COMPLETED(4, "completed", "completed"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
@@ -78,7 +88,17 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(4, "cancelled", "cancelled");
+	CANCELLED(6, "cancelled", "cancelled"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(7, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Proposed</b></em>' literal value.
@@ -123,6 +143,20 @@ public enum CarePlanStatusList implements Enumerator {
 	public static final int ACTIVE_VALUE = 2;
 
 	/**
+	 * The '<em><b>Suspended</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Suspended
+	 * <!-- end-model-doc -->
+	 * @see #SUSPENDED
+	 * @model name="suspended"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUSPENDED_VALUE = 3;
+
+	/**
 	 * The '<em><b>Completed</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,7 +168,21 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 3;
+	public static final int COMPLETED_VALUE = 4;
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 5;
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
@@ -148,7 +196,21 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 4;
+	public static final int CANCELLED_VALUE = 6;
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Care Plan Status List</b></em>' enumerators.
@@ -161,8 +223,11 @@ public enum CarePlanStatusList implements Enumerator {
 			PROPOSED,
 			DRAFT,
 			ACTIVE,
+			SUSPENDED,
 			COMPLETED,
+			ENTERED_IN_ERROR,
 			CANCELLED,
+			UNKNOWN,
 		};
 
 	/**
@@ -222,8 +287,11 @@ public enum CarePlanStatusList implements Enumerator {
 			case PROPOSED_VALUE: return PROPOSED;
 			case DRAFT_VALUE: return DRAFT;
 			case ACTIVE_VALUE: return ACTIVE;
+			case SUSPENDED_VALUE: return SUSPENDED;
 			case COMPLETED_VALUE: return COMPLETED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case CANCELLED_VALUE: return CANCELLED;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.QuestionnaireItem#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireItem#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireItem#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireItem#getText <em>Text</em>}</li>
@@ -70,7 +61,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * @return the value of the '<em>Link Id</em>' containment reference.
 	 * @see #setLinkId(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_LinkId()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='linkId' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -87,12 +78,47 @@ public interface QuestionnaireItem extends BackboneElement {
 	void setLinkId(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: 
+	 * 
+	 * * concept (ElementDefinition.code)
+	 * * type (ElementDefinition.type)
+	 * * required (ElementDefinition.min)
+	 * * repeats (ElementDefinition.max)
+	 * * maxLength (ElementDefinition.maxLength)
+	 * * options (ElementDefinition.binding)
+	 * 
+	 * Any information provided in these elements overrides the information from the definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference.
+	 * @see #setDefinition(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireItem#getDefinition <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' containment reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(Uri value);
+
+	/**
 	 * Returns the value of the '<em><b>Concept</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Coding}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a how this group of questions is known in a particular terminology such as LOINC.
+	 * Terminology code that corresponds to this group or question (e.g. LOINC).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Concept</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Concept()
@@ -164,7 +190,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(QuestionnaireItemType)
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Type()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -25,8 +15,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <!-- begin-model-doc -->
  * 
- * 				a elements use "Inline" excluding a
- * 			
+ *       a elements use "Inline" excluding a
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
@@ -39,7 +29,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.AContent#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getObject <em>Object</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getImg <em>Img</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getTt <em>Tt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getI <em>I</em>}</li>
@@ -59,14 +48,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.AContent#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getSub <em>Sub</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.AContent#getSup <em>Sup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getSelect <em>Select</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getTextarea <em>Textarea</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getButton <em>Button</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.AContent#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @see org.w3._1999.xhtml.XhtmlPackage#getAContent()
@@ -115,8 +96,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				forced line break
-	 * 			
+	 *       forced line break
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Br</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Br()
@@ -133,8 +114,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Span</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Span()
@@ -151,8 +132,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				I18N BiDi over-ride
-	 * 			
+	 *       I18N BiDi over-ride
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bdo</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Bdo()
@@ -180,23 +161,6 @@ public interface AContent extends EObject {
 	EList<MapType> getMap();
 
 	/**
-	 * Returns the value of the '<em><b>Object</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ObjectType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Object</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Object()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='object' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ObjectType> getObject();
-
-	/**
 	 * Returns the value of the '<em><b>Img</b></em>' containment reference list.
 	 * The list contents are of type {@link org.w3._1999.xhtml.ImgType}.
 	 * <!-- begin-user-doc -->
@@ -220,8 +184,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				fixed pitch font
-	 * 			
+	 *       fixed pitch font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tt</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Tt()
@@ -238,8 +202,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				italic font
-	 * 			
+	 *       italic font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>I</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_I()
@@ -256,8 +220,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bold font
-	 * 			
+	 *       bold font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>B</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_B()
@@ -274,8 +238,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bigger font
-	 * 			
+	 *       bigger font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Big</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Big()
@@ -292,8 +256,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				smaller font
-	 * 			
+	 *       smaller font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Small</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Small()
@@ -310,8 +274,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				emphasis
-	 * 			
+	 *       emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Em</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Em()
@@ -328,8 +292,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				strong emphasis
-	 * 			
+	 *       strong emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strong</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Strong()
@@ -346,8 +310,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				definitional
-	 * 			
+	 *       definitional
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dfn</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Dfn()
@@ -364,8 +328,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				program code
-	 * 			
+	 *       program code
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Code()
@@ -382,8 +346,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				inlined quote
-	 * 			
+	 *       inlined quote
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Q</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Q()
@@ -400,8 +364,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				sample
-	 * 			
+	 *       sample
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Samp</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Samp()
@@ -418,8 +382,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				something user would type
-	 * 			
+	 *       something user would type
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kbd</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Kbd()
@@ -436,8 +400,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				variable
-	 * 			
+	 *       variable
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Var</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Var()
@@ -454,8 +418,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				citation
-	 * 			
+	 *       citation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cite</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Cite()
@@ -472,8 +436,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				abbreviation
-	 * 			
+	 *       abbreviation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abbr</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Abbr()
@@ -490,8 +454,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				acronym
-	 * 			
+	 *       acronym
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Acronym</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Acronym()
@@ -508,8 +472,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				subscript
-	 * 			
+	 *       subscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Sub()
@@ -526,8 +490,8 @@ public interface AContent extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				superscript
-	 * 			
+	 *       superscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sup</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Sup()
@@ -536,148 +500,5 @@ public interface AContent extends EObject {
 	 * @generated
 	 */
 	EList<SupType> getSup();
-
-	/**
-	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.InputType1}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				form control
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Input</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Input()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='input' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<InputType1> getInput();
-
-	/**
-	 * Returns the value of the '<em><b>Select</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.SelectType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				option selector
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Select</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Select()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='select' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<SelectType> getSelect();
-
-	/**
-	 * Returns the value of the '<em><b>Textarea</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.TextareaType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				multi-line text field
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Textarea</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Textarea()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='textarea' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<TextareaType> getTextarea();
-
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.LabelType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Each label must not contain more than ONE field
-	 * 				Label elements shouldn't be nested.
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Label</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Label()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<LabelType> getLabel();
-
-	/**
-	 * Returns the value of the '<em><b>Button</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ButtonType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Content is "Flow" excluding a, form and form controls
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Button</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Button()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='button' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ButtonType> getButton();
-
-	/**
-	 * Returns the value of the '<em><b>Ins</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.InsType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ins</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ins</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Ins()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ins' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<InsType> getIns();
-
-	/**
-	 * Returns the value of the '<em><b>Del</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.DelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Del</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Del</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Del()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='del' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<DelType> getDel();
-
-	/**
-	 * Returns the value of the '<em><b>Script</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ScriptType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				script statements, which may include CDATA sections
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Script</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getAContent_Script()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='script' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<ScriptType> getScript();
 
 } // AContent

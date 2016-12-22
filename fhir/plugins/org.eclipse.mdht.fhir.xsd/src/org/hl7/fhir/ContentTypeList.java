@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -48,7 +38,27 @@ public enum ContentTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JSON(1, "json", "json");
+	JSON(1, "json", "json"),
+
+	/**
+	 * The '<em><b>Ttl</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TTL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TTL(2, "ttl", "ttl"),
+
+	/**
+	 * The '<em><b>None</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(3, "none", "none");
 
 	/**
 	 * The '<em><b>Xml</b></em>' literal value.
@@ -79,6 +89,34 @@ public enum ContentTypeList implements Enumerator {
 	public static final int JSON_VALUE = 1;
 
 	/**
+	 * The '<em><b>Ttl</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * ttl
+	 * <!-- end-model-doc -->
+	 * @see #TTL
+	 * @model name="ttl"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TTL_VALUE = 2;
+
+	/**
+	 * The '<em><b>None</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * none
+	 * <!-- end-model-doc -->
+	 * @see #NONE
+	 * @model name="none"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Content Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +126,8 @@ public enum ContentTypeList implements Enumerator {
 		new ContentTypeList[] {
 			XML,
 			JSON,
+			TTL,
+			NONE,
 		};
 
 	/**
@@ -146,6 +186,8 @@ public enum ContentTypeList implements Enumerator {
 		switch (value) {
 			case XML_VALUE: return XML;
 			case JSON_VALUE: return JSON;
+			case TTL_VALUE: return TTL;
+			case NONE_VALUE: return NONE;
 		}
 		return null;
 	}

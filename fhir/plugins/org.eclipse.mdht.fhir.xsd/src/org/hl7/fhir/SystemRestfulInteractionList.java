@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -41,6 +31,16 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	TRANSACTION(0, "transaction", "transaction"),
 
 	/**
+	 * The '<em><b>Batch</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BATCH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BATCH(1, "batch", "batch"),
+
+	/**
 	 * The '<em><b>Search System</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +48,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEARCH_SYSTEM(1, "searchSystem", "search-system"),
+	SEARCH_SYSTEM(2, "searchSystem", "search-system"),
 
 	/**
 	 * The '<em><b>History System</b></em>' literal object.
@@ -58,7 +58,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HISTORY_SYSTEM(2, "historySystem", "history-system");
+	HISTORY_SYSTEM(3, "historySystem", "history-system");
 
 	/**
 	 * The '<em><b>Transaction</b></em>' literal value.
@@ -75,6 +75,20 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	public static final int TRANSACTION_VALUE = 0;
 
 	/**
+	 * The '<em><b>Batch</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * batch
+	 * <!-- end-model-doc -->
+	 * @see #BATCH
+	 * @model name="batch"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BATCH_VALUE = 1;
+
+	/**
 	 * The '<em><b>Search System</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +100,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEARCH_SYSTEM_VALUE = 1;
+	public static final int SEARCH_SYSTEM_VALUE = 2;
 
 	/**
 	 * The '<em><b>History System</b></em>' literal value.
@@ -100,7 +114,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HISTORY_SYSTEM_VALUE = 2;
+	public static final int HISTORY_SYSTEM_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>System Restful Interaction List</b></em>' enumerators.
@@ -111,6 +125,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	private static final SystemRestfulInteractionList[] VALUES_ARRAY =
 		new SystemRestfulInteractionList[] {
 			TRANSACTION,
+			BATCH,
 			SEARCH_SYSTEM,
 			HISTORY_SYSTEM,
 		};
@@ -170,6 +185,7 @@ public enum SystemRestfulInteractionList implements Enumerator {
 	public static SystemRestfulInteractionList get(int value) {
 		switch (value) {
 			case TRANSACTION_VALUE: return TRANSACTION;
+			case BATCH_VALUE: return BATCH;
 			case SEARCH_SYSTEM_VALUE: return SEARCH_SYSTEM;
 			case HISTORY_SYSTEM_VALUE: return HISTORY_SYSTEM;
 		}

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimResponseSubDetail#getSequenceLinkId <em>Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseSubDetail#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseSubDetail#getAdjudication <em>Adjudication</em>}</li>
  * </ul>
  *
@@ -63,8 +54,24 @@ public interface ClaimResponseSubDetail extends BackboneElement {
 	void setSequenceLinkId(PositiveInt value);
 
 	/**
+	 * Returns the value of the '<em><b>Note Number</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of note references to the notes provided below.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note Number</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseSubDetail_NoteNumber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='noteNumber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<PositiveInt> getNoteNumber();
+
+	/**
 	 * Returns the value of the '<em><b>Adjudication</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimResponseAdjudication2}.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimResponseAdjudication}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -76,6 +83,6 @@ public interface ClaimResponseSubDetail extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='adjudication' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ClaimResponseAdjudication2> getAdjudication();
+	EList<ClaimResponseAdjudication> getAdjudication();
 
 } // ClaimResponseSubDetail

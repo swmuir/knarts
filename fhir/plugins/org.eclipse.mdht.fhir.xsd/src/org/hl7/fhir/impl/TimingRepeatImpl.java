@@ -1,31 +1,30 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.hl7.fhir.Code;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.EventTiming;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
+import org.hl7.fhir.Time;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.UnitsOfTime;
 import org.hl7.fhir.UnsignedInt;
@@ -38,7 +37,7 @@ import org.hl7.fhir.UnsignedInt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsQuantity <em>Bounds Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsDuration <em>Bounds Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsRange <em>Bounds Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getBoundsPeriod <em>Bounds Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getCount <em>Count</em>}</li>
@@ -51,6 +50,8 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriodMax <em>Period Max</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getPeriodUnit <em>Period Unit</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getDayOfWeek <em>Day Of Week</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getTimeOfDay <em>Time Of Day</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getWhen <em>When</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TimingRepeatImpl#getOffset <em>Offset</em>}</li>
  * </ul>
@@ -59,14 +60,14 @@ import org.hl7.fhir.UnsignedInt;
  */
 public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	/**
-	 * The cached value of the '{@link #getBoundsQuantity() <em>Bounds Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getBoundsDuration() <em>Bounds Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBoundsQuantity()
+	 * @see #getBoundsDuration()
 	 * @generated
 	 * @ordered
 	 */
-	protected Duration boundsQuantity;
+	protected Duration boundsDuration;
 
 	/**
 	 * The cached value of the '{@link #getBoundsRange() <em>Bounds Range</em>}' containment reference.
@@ -189,6 +190,26 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	protected UnitsOfTime periodUnit;
 
 	/**
+	 * The cached value of the '{@link #getDayOfWeek() <em>Day Of Week</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDayOfWeek()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Code> dayOfWeek;
+
+	/**
+	 * The cached value of the '{@link #getTimeOfDay() <em>Time Of Day</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeOfDay()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Time> timeOfDay;
+
+	/**
 	 * The cached value of the '{@link #getWhen() <em>When</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,8 +253,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Duration getBoundsQuantity() {
-		return boundsQuantity;
+	public Duration getBoundsDuration() {
+		return boundsDuration;
 	}
 
 	/**
@@ -241,11 +262,11 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBoundsQuantity(Duration newBoundsQuantity, NotificationChain msgs) {
-		Duration oldBoundsQuantity = boundsQuantity;
-		boundsQuantity = newBoundsQuantity;
+	public NotificationChain basicSetBoundsDuration(Duration newBoundsDuration, NotificationChain msgs) {
+		Duration oldBoundsDuration = boundsDuration;
+		boundsDuration = newBoundsDuration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY, oldBoundsQuantity, newBoundsQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__BOUNDS_DURATION, oldBoundsDuration, newBoundsDuration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,18 +277,18 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBoundsQuantity(Duration newBoundsQuantity) {
-		if (newBoundsQuantity != boundsQuantity) {
+	public void setBoundsDuration(Duration newBoundsDuration) {
+		if (newBoundsDuration != boundsDuration) {
 			NotificationChain msgs = null;
-			if (boundsQuantity != null)
-				msgs = ((InternalEObject)boundsQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY, null, msgs);
-			if (newBoundsQuantity != null)
-				msgs = ((InternalEObject)newBoundsQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY, null, msgs);
-			msgs = basicSetBoundsQuantity(newBoundsQuantity, msgs);
+			if (boundsDuration != null)
+				msgs = ((InternalEObject)boundsDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__BOUNDS_DURATION, null, msgs);
+			if (newBoundsDuration != null)
+				msgs = ((InternalEObject)newBoundsDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__BOUNDS_DURATION, null, msgs);
+			msgs = basicSetBoundsDuration(newBoundsDuration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY, newBoundsQuantity, newBoundsQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__BOUNDS_DURATION, newBoundsDuration, newBoundsDuration));
 	}
 
 	/**
@@ -791,6 +812,30 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Code> getDayOfWeek() {
+		if (dayOfWeek == null) {
+			dayOfWeek = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.TIMING_REPEAT__DAY_OF_WEEK);
+		}
+		return dayOfWeek;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Time> getTimeOfDay() {
+		if (timeOfDay == null) {
+			timeOfDay = new EObjectContainmentEList<Time>(Time.class, this, FhirPackage.TIMING_REPEAT__TIME_OF_DAY);
+		}
+		return timeOfDay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EventTiming getWhen() {
 		return when;
 	}
@@ -880,8 +925,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY:
-				return basicSetBoundsQuantity(null, msgs);
+			case FhirPackage.TIMING_REPEAT__BOUNDS_DURATION:
+				return basicSetBoundsDuration(null, msgs);
 			case FhirPackage.TIMING_REPEAT__BOUNDS_RANGE:
 				return basicSetBoundsRange(null, msgs);
 			case FhirPackage.TIMING_REPEAT__BOUNDS_PERIOD:
@@ -906,6 +951,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return basicSetPeriodMax(null, msgs);
 			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
 				return basicSetPeriodUnit(null, msgs);
+			case FhirPackage.TIMING_REPEAT__DAY_OF_WEEK:
+				return ((InternalEList<?>)getDayOfWeek()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
+				return ((InternalEList<?>)getTimeOfDay()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return basicSetWhen(null, msgs);
 			case FhirPackage.TIMING_REPEAT__OFFSET:
@@ -922,8 +971,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY:
-				return getBoundsQuantity();
+			case FhirPackage.TIMING_REPEAT__BOUNDS_DURATION:
+				return getBoundsDuration();
 			case FhirPackage.TIMING_REPEAT__BOUNDS_RANGE:
 				return getBoundsRange();
 			case FhirPackage.TIMING_REPEAT__BOUNDS_PERIOD:
@@ -948,6 +997,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return getPeriodMax();
 			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
 				return getPeriodUnit();
+			case FhirPackage.TIMING_REPEAT__DAY_OF_WEEK:
+				return getDayOfWeek();
+			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
+				return getTimeOfDay();
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return getWhen();
 			case FhirPackage.TIMING_REPEAT__OFFSET:
@@ -961,11 +1014,12 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY:
-				setBoundsQuantity((Duration)newValue);
+			case FhirPackage.TIMING_REPEAT__BOUNDS_DURATION:
+				setBoundsDuration((Duration)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__BOUNDS_RANGE:
 				setBoundsRange((Range)newValue);
@@ -1003,6 +1057,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
 				setPeriodUnit((UnitsOfTime)newValue);
 				return;
+			case FhirPackage.TIMING_REPEAT__DAY_OF_WEEK:
+				getDayOfWeek().clear();
+				getDayOfWeek().addAll((Collection<? extends Code>)newValue);
+				return;
+			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
+				getTimeOfDay().clear();
+				getTimeOfDay().addAll((Collection<? extends Time>)newValue);
+				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				setWhen((EventTiming)newValue);
 				return;
@@ -1021,8 +1083,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY:
-				setBoundsQuantity((Duration)null);
+			case FhirPackage.TIMING_REPEAT__BOUNDS_DURATION:
+				setBoundsDuration((Duration)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__BOUNDS_RANGE:
 				setBoundsRange((Range)null);
@@ -1060,6 +1122,12 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
 				setPeriodUnit((UnitsOfTime)null);
 				return;
+			case FhirPackage.TIMING_REPEAT__DAY_OF_WEEK:
+				getDayOfWeek().clear();
+				return;
+			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
+				getTimeOfDay().clear();
+				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				setWhen((EventTiming)null);
 				return;
@@ -1078,8 +1146,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.TIMING_REPEAT__BOUNDS_QUANTITY:
-				return boundsQuantity != null;
+			case FhirPackage.TIMING_REPEAT__BOUNDS_DURATION:
+				return boundsDuration != null;
 			case FhirPackage.TIMING_REPEAT__BOUNDS_RANGE:
 				return boundsRange != null;
 			case FhirPackage.TIMING_REPEAT__BOUNDS_PERIOD:
@@ -1104,6 +1172,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				return periodMax != null;
 			case FhirPackage.TIMING_REPEAT__PERIOD_UNIT:
 				return periodUnit != null;
+			case FhirPackage.TIMING_REPEAT__DAY_OF_WEEK:
+				return dayOfWeek != null && !dayOfWeek.isEmpty();
+			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
+				return timeOfDay != null && !timeOfDay.isEmpty();
 			case FhirPackage.TIMING_REPEAT__WHEN:
 				return when != null;
 			case FhirPackage.TIMING_REPEAT__OFFSET:

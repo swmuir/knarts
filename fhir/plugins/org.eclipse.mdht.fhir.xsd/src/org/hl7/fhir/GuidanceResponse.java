@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,11 +19,19 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getRequestId <em>Request Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getModule <em>Module</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getEvaluationMessage <em>Evaluation Message</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getOutputParameters <em>Output Parameters</em>}</li>
- *   <li>{@link org.hl7.fhir.GuidanceResponse#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.GuidanceResponse#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.GuidanceResponse#getDataRequirement <em>Data Requirement</em>}</li>
  * </ul>
  *
@@ -50,13 +48,13 @@ public interface GuidanceResponse extends DomainResource {
 	 * The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request Id</em>' containment reference.
-	 * @see #setRequestId(org.hl7.fhir.String)
+	 * @see #setRequestId(Id)
 	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_RequestId()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requestId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getRequestId();
+	Id getRequestId();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getRequestId <em>Request Id</em>}' containment reference.
@@ -66,7 +64,33 @@ public interface GuidanceResponse extends DomainResource {
 	 * @see #getRequestId()
 	 * @generated
 	 */
-	void setRequestId(org.hl7.fhir.String value);
+	void setRequestId(Id value);
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Allows a service to provide a unique, business identifier for the response.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getIdentifier <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Module</b></em>' containment reference.
@@ -121,6 +145,180 @@ public interface GuidanceResponse extends DomainResource {
 	void setStatus(GuidanceResponseStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The patient for which the request was processed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Subject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates when the guidance response was processed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_OccurrenceDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getOccurrenceDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 */
+	void setOccurrenceDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Provides a reference to the device that performed the guidance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Performer</em>' containment reference.
+	 * @see #setPerformer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Performer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPerformer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getPerformer <em>Performer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Performer</em>' containment reference.
+	 * @see #getPerformer()
+	 * @generated
+	 */
+	void setPerformer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reason Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference.
+	 * @see #setReasonCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_ReasonCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getReasonCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getReasonCodeableConcept <em>Reason Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reason Codeable Concept</em>' containment reference.
+	 * @see #getReasonCodeableConcept()
+	 * @generated
+	 */
+	void setReasonCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reason Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference.
+	 * @see #setReasonReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getReasonReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getReasonReference <em>Reason Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
+	 * @see #getReasonReference()
+	 * @generated
+	 */
+	void setReasonReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Provides a mechanism to communicate additional information about the response.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Annotation> getNote();
+
+	/**
 	 * Returns the value of the '<em><b>Evaluation Message</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -163,20 +361,30 @@ public interface GuidanceResponse extends DomainResource {
 	void setOutputParameters(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.GuidanceResponseAction}.
+	 * Returns the value of the '<em><b>Result</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The actions, if any, produced by the evaluation of the artifact.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Action()
+	 * @return the value of the '<em>Result</em>' containment reference.
+	 * @see #setResult(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGuidanceResponse_Result()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='result' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<GuidanceResponseAction> getAction();
+	Reference getResult();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GuidanceResponse#getResult <em>Result</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Result</em>' containment reference.
+	 * @see #getResult()
+	 * @generated
+	 */
+	void setResult(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Requirement</b></em>' containment reference list.

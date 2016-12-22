@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Bundle#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Bundle#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getLink <em>Link</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getEntry <em>Entry</em>}</li>
@@ -65,6 +56,32 @@ public interface Bundle extends Resource {
 	 * @generated
 	 */
 	void setType(BundleType value);
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A persistent identifier for the batch that won't change as a batch is copied from server to server.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getBundle_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Bundle#getIdentifier <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Total</b></em>' containment reference.

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -57,6 +48,7 @@ import org.hl7.fhir.SpecimenTreatment;
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -171,6 +163,16 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * @ordered
 	 */
 	protected EList<SpecimenContainer> container;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -514,6 +516,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.SPECIMEN__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -539,6 +553,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return ((InternalEList<?>)getTreatment()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return ((InternalEList<?>)getContainer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -573,6 +589,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return getTreatment();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return getContainer();
+			case FhirPackage.SPECIMEN__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -624,6 +642,10 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				getContainer().clear();
 				getContainer().addAll((Collection<? extends SpecimenContainer>)newValue);
 				return;
+			case FhirPackage.SPECIMEN__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -669,6 +691,9 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__CONTAINER:
 				getContainer().clear();
 				return;
+			case FhirPackage.SPECIMEN__NOTE:
+				getNote().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -703,6 +728,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return treatment != null && !treatment.isEmpty();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return container != null && !container.isEmpty();
+			case FhirPackage.SPECIMEN__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

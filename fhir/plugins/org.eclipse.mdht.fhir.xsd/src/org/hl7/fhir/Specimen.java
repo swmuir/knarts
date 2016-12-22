@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -39,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Specimen#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getTreatment <em>Treatment</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSpecimen()
@@ -281,5 +272,21 @@ public interface Specimen extends DomainResource {
 	 * @generated
 	 */
 	EList<SpecimenContainer> getContainer();
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Annotation> getNote();
 
 } // Specimen

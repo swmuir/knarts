@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -73,14 +63,14 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	protected org.hl7.fhir.String text;
 
 	/**
-	 * The cached value of the '{@link #getFamily() <em>Family</em>}' containment reference list.
+	 * The cached value of the '{@link #getFamily() <em>Family</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFamily()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.hl7.fhir.String> family;
+	protected org.hl7.fhir.String family;
 
 	/**
 	 * The cached value of the '{@link #getGiven() <em>Given</em>}' containment reference list.
@@ -232,11 +222,42 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getFamily() {
-		if (family == null) {
-			family = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.HUMAN_NAME__FAMILY);
-		}
+	public org.hl7.fhir.String getFamily() {
 		return family;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFamily(org.hl7.fhir.String newFamily, NotificationChain msgs) {
+		org.hl7.fhir.String oldFamily = family;
+		family = newFamily;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HUMAN_NAME__FAMILY, oldFamily, newFamily);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFamily(org.hl7.fhir.String newFamily) {
+		if (newFamily != family) {
+			NotificationChain msgs = null;
+			if (family != null)
+				msgs = ((InternalEObject)family).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HUMAN_NAME__FAMILY, null, msgs);
+			if (newFamily != null)
+				msgs = ((InternalEObject)newFamily).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HUMAN_NAME__FAMILY, null, msgs);
+			msgs = basicSetFamily(newFamily, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HUMAN_NAME__FAMILY, newFamily, newFamily));
 	}
 
 	/**
@@ -331,7 +352,7 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 			case FhirPackage.HUMAN_NAME__TEXT:
 				return basicSetText(null, msgs);
 			case FhirPackage.HUMAN_NAME__FAMILY:
-				return ((InternalEList<?>)getFamily()).basicRemove(otherEnd, msgs);
+				return basicSetFamily(null, msgs);
 			case FhirPackage.HUMAN_NAME__GIVEN:
 				return ((InternalEList<?>)getGiven()).basicRemove(otherEnd, msgs);
 			case FhirPackage.HUMAN_NAME__PREFIX:
@@ -386,8 +407,7 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 				setText((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.HUMAN_NAME__FAMILY:
-				getFamily().clear();
-				getFamily().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				setFamily((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.HUMAN_NAME__GIVEN:
 				getGiven().clear();
@@ -423,7 +443,7 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 				setText((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.HUMAN_NAME__FAMILY:
-				getFamily().clear();
+				setFamily((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.HUMAN_NAME__GIVEN:
 				getGiven().clear();
@@ -454,7 +474,7 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 			case FhirPackage.HUMAN_NAME__TEXT:
 				return text != null;
 			case FhirPackage.HUMAN_NAME__FAMILY:
-				return family != null && !family.isEmpty();
+				return family != null;
 			case FhirPackage.HUMAN_NAME__GIVEN:
 				return given != null && !given.isEmpty();
 			case FhirPackage.HUMAN_NAME__PREFIX:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -24,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getAccount <em>Account</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getAllergyIntolerance <em>Allergy Intolerance</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getAppointment <em>Appointment</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getAppointmentResponse <em>Appointment Response</em>}</li>
@@ -32,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.ResourceContainer#getBinary <em>Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getBundle <em>Bundle</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getCarePlan <em>Care Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getClaim <em>Claim</em>}</li>
@@ -44,21 +36,18 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.ResourceContainer#getComposition <em>Composition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getConceptMap <em>Concept Map</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getConformance <em>Conformance</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getConsent <em>Consent</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getContract <em>Contract</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDataElement <em>Data Element</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getDecisionSupportRule <em>Decision Support Rule</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getDecisionSupportServiceModule <em>Decision Support Service Module</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDetectedIssue <em>Detected Issue</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceComponent <em>Device Component</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceMetric <em>Device Metric</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceUseRequest <em>Device Use Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceUseStatement <em>Device Use Statement</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getDiagnosticOrder <em>Diagnostic Order</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDiagnosticReport <em>Diagnostic Report</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDiagnosticRequest <em>Diagnostic Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDocumentManifest <em>Document Manifest</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getDocumentReference <em>Document Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getEligibilityRequest <em>Eligibility Request</em>}</li>
@@ -76,8 +65,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.ResourceContainer#getGroup <em>Group</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getHealthcareService <em>Healthcare Service</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingExcerpt <em>Imaging Excerpt</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingObjectSelection <em>Imaging Object Selection</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getImmunization <em>Immunization</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
@@ -92,39 +80,40 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.ResourceContainer#getMedication <em>Medication</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationAdministration <em>Medication Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationDispense <em>Medication Dispense</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationOrder <em>Medication Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationStatement <em>Medication Statement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getMessageHeader <em>Message Header</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getModuleDefinition <em>Module Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getNamingSystem <em>Naming System</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getNutritionRequest <em>Nutrition Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getObservation <em>Observation</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getOperationDefinition <em>Operation Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getOperationOutcome <em>Operation Outcome</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getOrder <em>Order</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getOrderResponse <em>Order Response</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getOrderSet <em>Order Set</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPaymentNotice <em>Payment Notice</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPaymentReconciliation <em>Payment Reconciliation</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPerson <em>Person</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getPractitionerRole <em>Practitioner Role</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getProcedureRequest <em>Procedure Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getProcessRequest <em>Process Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getProcessResponse <em>Process Response</em>}</li>
- *   <li>{@link org.hl7.fhir.ResourceContainer#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getProvenance <em>Provenance</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaireResponse <em>Questionnaire Response</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getReferralRequest <em>Referral Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getRelatedPerson <em>Related Person</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getRiskAssessment <em>Risk Assessment</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSchedule <em>Schedule</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSearchParameter <em>Search Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getStructureDefinition <em>Structure Definition</em>}</li>
@@ -134,6 +123,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSupplyDelivery <em>Supply Delivery</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getSupplyRequest <em>Supply Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getTask <em>Task</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getTestScript <em>Test Script</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getValueSet <em>Value Set</em>}</li>
  *   <li>{@link org.hl7.fhir.ResourceContainer#getVisionPrescription <em>Vision Prescription</em>}</li>
@@ -150,7 +140,7 @@ public interface ResourceContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
+	 * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Account</em>' containment reference.
 	 * @see #setAccount(Account)
@@ -170,6 +160,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setAccount(Account value);
+
+	/**
+	 * Returns the value of the '<em><b>Activity Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Activity Definition</em>' containment reference.
+	 * @see #setActivityDefinition(ActivityDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ActivityDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ActivityDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ActivityDefinition getActivityDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Activity Definition</em>' containment reference.
+	 * @see #getActivityDefinition()
+	 * @generated
+	 */
+	void setActivityDefinition(ActivityDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Allergy Intolerance</b></em>' containment reference.
@@ -378,6 +394,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setBundle(Bundle value);
+
+	/**
+	 * Returns the value of the '<em><b>Capability Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Capability Statement</em>' containment reference.
+	 * @see #setCapabilityStatement(CapabilityStatement)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CapabilityStatement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CapabilityStatement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CapabilityStatement getCapabilityStatement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Capability Statement</em>' containment reference.
+	 * @see #getCapabilityStatement()
+	 * @generated
+	 */
+	void setCapabilityStatement(CapabilityStatement value);
 
 	/**
 	 * Returns the value of the '<em><b>Care Plan</b></em>' containment reference.
@@ -692,37 +734,11 @@ public interface ResourceContainer extends EObject {
 	void setCondition(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Conformance</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Conformance</em>' containment reference.
-	 * @see #setConformance(Conformance)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Conformance()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='Conformance' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Conformance getConformance();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getConformance <em>Conformance</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Conformance</em>' containment reference.
-	 * @see #getConformance()
-	 * @generated
-	 */
-	void setConformance(Conformance value);
-
-	/**
 	 * Returns the value of the '<em><b>Consent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+	 * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Consent</em>' containment reference.
 	 * @see #setConsent(Consent)
@@ -820,58 +836,6 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setDataElement(DataElement value);
-
-	/**
-	 * Returns the value of the '<em><b>Decision Support Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This resource defines a decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of a actions that should be taken whenever some condition is met in response to a particular event or events.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Decision Support Rule</em>' containment reference.
-	 * @see #setDecisionSupportRule(DecisionSupportRule)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DecisionSupportRule()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='DecisionSupportRule' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DecisionSupportRule getDecisionSupportRule();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDecisionSupportRule <em>Decision Support Rule</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Decision Support Rule</em>' containment reference.
-	 * @see #getDecisionSupportRule()
-	 * @generated
-	 */
-	void setDecisionSupportRule(DecisionSupportRule value);
-
-	/**
-	 * Returns the value of the '<em><b>Decision Support Service Module</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The DecisionSupportServiceModule describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Decision Support Service Module</em>' containment reference.
-	 * @see #setDecisionSupportServiceModule(DecisionSupportServiceModule)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DecisionSupportServiceModule()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='DecisionSupportServiceModule' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DecisionSupportServiceModule getDecisionSupportServiceModule();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDecisionSupportServiceModule <em>Decision Support Service Module</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Decision Support Service Module</em>' containment reference.
-	 * @see #getDecisionSupportServiceModule()
-	 * @generated
-	 */
-	void setDecisionSupportServiceModule(DecisionSupportServiceModule value);
 
 	/**
 	 * Returns the value of the '<em><b>Detected Issue</b></em>' containment reference.
@@ -1030,32 +994,6 @@ public interface ResourceContainer extends EObject {
 	void setDeviceUseStatement(DeviceUseStatement value);
 
 	/**
-	 * Returns the value of the '<em><b>Diagnostic Order</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A record of a request for a diagnostic investigation service to be performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Diagnostic Order</em>' containment reference.
-	 * @see #setDiagnosticOrder(DiagnosticOrder)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DiagnosticOrder()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='DiagnosticOrder' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DiagnosticOrder getDiagnosticOrder();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDiagnosticOrder <em>Diagnostic Order</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Diagnostic Order</em>' containment reference.
-	 * @see #getDiagnosticOrder()
-	 * @generated
-	 */
-	void setDiagnosticOrder(DiagnosticOrder value);
-
-	/**
 	 * Returns the value of the '<em><b>Diagnostic Report</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,6 +1018,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setDiagnosticReport(DiagnosticReport value);
+
+	/**
+	 * Returns the value of the '<em><b>Diagnostic Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A record of a request for a diagnostic investigation service to be performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Diagnostic Request</em>' containment reference.
+	 * @see #setDiagnosticRequest(DiagnosticRequest)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DiagnosticRequest()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DiagnosticRequest' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DiagnosticRequest getDiagnosticRequest();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDiagnosticRequest <em>Diagnostic Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagnostic Request</em>' containment reference.
+	 * @see #getDiagnosticRequest()
+	 * @generated
+	 */
+	void setDiagnosticRequest(DiagnosticRequest value);
 
 	/**
 	 * Returns the value of the '<em><b>Document Manifest</b></em>' containment reference.
@@ -1138,7 +1102,7 @@ public interface ResourceContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+	 * This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Eligibility Request</em>' containment reference.
 	 * @see #setEligibilityRequest(EligibilityRequest)
@@ -1524,56 +1488,30 @@ public interface ResourceContainer extends EObject {
 	void setHealthcareService(HealthcareService value);
 
 	/**
-	 * Returns the value of the '<em><b>Imaging Excerpt</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Imaging Manifest</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+	 * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Imaging Excerpt</em>' containment reference.
-	 * @see #setImagingExcerpt(ImagingExcerpt)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImagingExcerpt()
+	 * @return the value of the '<em>Imaging Manifest</em>' containment reference.
+	 * @see #setImagingManifest(ImagingManifest)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImagingManifest()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ImagingExcerpt' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='ImagingManifest' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ImagingExcerpt getImagingExcerpt();
+	ImagingManifest getImagingManifest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingExcerpt <em>Imaging Excerpt</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Imaging Excerpt</em>' containment reference.
-	 * @see #getImagingExcerpt()
+	 * @param value the new value of the '<em>Imaging Manifest</em>' containment reference.
+	 * @see #getImagingManifest()
 	 * @generated
 	 */
-	void setImagingExcerpt(ImagingExcerpt value);
-
-	/**
-	 * Returns the value of the '<em><b>Imaging Object Selection</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Imaging Object Selection</em>' containment reference.
-	 * @see #setImagingObjectSelection(ImagingObjectSelection)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImagingObjectSelection()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ImagingObjectSelection' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ImagingObjectSelection getImagingObjectSelection();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingObjectSelection <em>Imaging Object Selection</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Imaging Object Selection</em>' containment reference.
-	 * @see #getImagingObjectSelection()
-	 * @generated
-	 */
-	void setImagingObjectSelection(ImagingObjectSelection value);
+	void setImagingManifest(ImagingManifest value);
 
 	/**
 	 * Returns the value of the '<em><b>Imaging Study</b></em>' containment reference.
@@ -1684,7 +1622,7 @@ public interface ResourceContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+	 * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Library</em>' containment reference.
 	 * @see #setLibrary(Library)
@@ -1940,30 +1878,30 @@ public interface ResourceContainer extends EObject {
 	void setMedicationDispense(MedicationDispense value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Order</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Medication Request</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationOrder" rather than "MedicationPrescription" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
+	 * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Medication Order</em>' containment reference.
-	 * @see #setMedicationOrder(MedicationOrder)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationOrder()
+	 * @return the value of the '<em>Medication Request</em>' containment reference.
+	 * @see #setMedicationRequest(MedicationRequest)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationRequest()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='MedicationOrder' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='MedicationRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationOrder getMedicationOrder();
+	MedicationRequest getMedicationRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationOrder <em>Medication Order</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Medication Order</em>' containment reference.
-	 * @see #getMedicationOrder()
+	 * @param value the new value of the '<em>Medication Request</em>' containment reference.
+	 * @see #getMedicationRequest()
 	 * @generated
 	 */
-	void setMedicationOrder(MedicationOrder value);
+	void setMedicationRequest(MedicationRequest value);
 
 	/**
 	 * Returns the value of the '<em><b>Medication Statement</b></em>' containment reference.
@@ -1994,6 +1932,32 @@ public interface ResourceContainer extends EObject {
 	void setMedicationStatement(MedicationStatement value);
 
 	/**
+	 * Returns the value of the '<em><b>Message Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Message Definition</em>' containment reference.
+	 * @see #setMessageDefinition(MessageDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MessageDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MessageDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	MessageDefinition getMessageDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message Definition</em>' containment reference.
+	 * @see #getMessageDefinition()
+	 * @generated
+	 */
+	void setMessageDefinition(MessageDefinition value);
+
+	/**
 	 * Returns the value of the '<em><b>Message Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2018,32 +1982,6 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setMessageHeader(MessageHeader value);
-
-	/**
-	 * Returns the value of the '<em><b>Module Definition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The ModuleDefinition resource defines the data requirements for a quality artifact.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Module Definition</em>' containment reference.
-	 * @see #setModuleDefinition(ModuleDefinition)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ModuleDefinition()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ModuleDefinition' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ModuleDefinition getModuleDefinition();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getModuleDefinition <em>Module Definition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Module Definition</em>' containment reference.
-	 * @see #getModuleDefinition()
-	 * @generated
-	 */
-	void setModuleDefinition(ModuleDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Naming System</b></em>' containment reference.
@@ -2072,30 +2010,30 @@ public interface ResourceContainer extends EObject {
 	void setNamingSystem(NamingSystem value);
 
 	/**
-	 * Returns the value of the '<em><b>Nutrition Order</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Nutrition Request</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Nutrition Order</em>' containment reference.
-	 * @see #setNutritionOrder(NutritionOrder)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_NutritionOrder()
+	 * @return the value of the '<em>Nutrition Request</em>' containment reference.
+	 * @see #setNutritionRequest(NutritionRequest)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_NutritionRequest()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='NutritionOrder' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='NutritionRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	NutritionOrder getNutritionOrder();
+	NutritionRequest getNutritionRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNutritionRequest <em>Nutrition Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nutrition Order</em>' containment reference.
-	 * @see #getNutritionOrder()
+	 * @param value the new value of the '<em>Nutrition Request</em>' containment reference.
+	 * @see #getNutritionRequest()
 	 * @generated
 	 */
-	void setNutritionOrder(NutritionOrder value);
+	void setNutritionRequest(NutritionRequest value);
 
 	/**
 	 * Returns the value of the '<em><b>Observation</b></em>' containment reference.
@@ -2174,84 +2112,6 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setOperationOutcome(OperationOutcome value);
-
-	/**
-	 * Returns the value of the '<em><b>Order</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A request to perform an action.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Order</em>' containment reference.
-	 * @see #setOrder(Order)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Order()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='Order' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Order getOrder();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOrder <em>Order</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Order</em>' containment reference.
-	 * @see #getOrder()
-	 * @generated
-	 */
-	void setOrder(Order value);
-
-	/**
-	 * Returns the value of the '<em><b>Order Response</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A response to an order.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Order Response</em>' containment reference.
-	 * @see #setOrderResponse(OrderResponse)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_OrderResponse()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='OrderResponse' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	OrderResponse getOrderResponse();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOrderResponse <em>Order Response</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Order Response</em>' containment reference.
-	 * @see #getOrderResponse()
-	 * @generated
-	 */
-	void setOrderResponse(OrderResponse value);
-
-	/**
-	 * Returns the value of the '<em><b>Order Set</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Order Set</em>' containment reference.
-	 * @see #setOrderSet(OrderSet)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_OrderSet()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='OrderSet' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	OrderSet getOrderSet();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOrderSet <em>Order Set</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Order Set</em>' containment reference.
-	 * @see #getOrderSet()
-	 * @generated
-	 */
-	void setOrderSet(OrderSet value);
 
 	/**
 	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
@@ -2382,6 +2242,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setPerson(Person value);
+
+	/**
+	 * Returns the value of the '<em><b>Plan Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Plan Definition</em>' containment reference.
+	 * @see #setPlanDefinition(PlanDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_PlanDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PlanDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	PlanDefinition getPlanDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plan Definition</em>' containment reference.
+	 * @see #getPlanDefinition()
+	 * @generated
+	 */
+	void setPlanDefinition(PlanDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
@@ -2540,32 +2426,6 @@ public interface ResourceContainer extends EObject {
 	void setProcessResponse(ProcessResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Protocol</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Protocol</em>' containment reference.
-	 * @see #setProtocol(Protocol)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Protocol()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='Protocol' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Protocol getProtocol();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProtocol <em>Protocol</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protocol</em>' containment reference.
-	 * @see #getProtocol()
-	 * @generated
-	 */
-	void setProtocol(Protocol value);
-
-	/**
 	 * Returns the value of the '<em><b>Provenance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2696,6 +2556,84 @@ public interface ResourceContainer extends EObject {
 	void setRelatedPerson(RelatedPerson value);
 
 	/**
+	 * Returns the value of the '<em><b>Request Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request Group</em>' containment reference.
+	 * @see #setRequestGroup(RequestGroup)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_RequestGroup()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RequestGroup' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestGroup getRequestGroup();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Group</em>' containment reference.
+	 * @see #getRequestGroup()
+	 * @generated
+	 */
+	void setRequestGroup(RequestGroup value);
+
+	/**
+	 * Returns the value of the '<em><b>Research Study</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Research Study</em>' containment reference.
+	 * @see #setResearchStudy(ResearchStudy)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ResearchStudy()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ResearchStudy' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ResearchStudy getResearchStudy();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Research Study</em>' containment reference.
+	 * @see #getResearchStudy()
+	 * @generated
+	 */
+	void setResearchStudy(ResearchStudy value);
+
+	/**
+	 * Returns the value of the '<em><b>Research Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Research Subject</em>' containment reference.
+	 * @see #setResearchSubject(ResearchSubject)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ResearchSubject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ResearchSubject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ResearchSubject getResearchSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Research Subject</em>' containment reference.
+	 * @see #getResearchSubject()
+	 * @generated
+	 */
+	void setResearchSubject(ResearchSubject value);
+
+	/**
 	 * Returns the value of the '<em><b>Risk Assessment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2778,7 +2716,7 @@ public interface ResourceContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Variation and Sequence data.
+	 * Raw data describing a biological sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(Sequence)
@@ -2798,6 +2736,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setSequence(Sequence value);
+
+	/**
+	 * Returns the value of the '<em><b>Service Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Service Definition</em>' containment reference.
+	 * @see #setServiceDefinition(ServiceDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ServiceDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ServiceDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ServiceDefinition getServiceDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service Definition</em>' containment reference.
+	 * @see #getServiceDefinition()
+	 * @generated
+	 */
+	void setServiceDefinition(ServiceDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Slot</b></em>' containment reference.
@@ -3032,6 +2996,32 @@ public interface ResourceContainer extends EObject {
 	 * @generated
 	 */
 	void setTask(Task value);
+
+	/**
+	 * Returns the value of the '<em><b>Test Report</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * TestReport is a resource that includes summary information on the results of executing a TestScript.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Test Report</em>' containment reference.
+	 * @see #setTestReport(TestReport)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_TestReport()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='TestReport' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestReport getTestReport();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test Report</em>' containment reference.
+	 * @see #getTestReport()
+	 * @generated
+	 */
+	void setTestReport(TestReport value);
 
 	/**
 	 * Returns the value of the '<em><b>Test Script</b></em>' containment reference.

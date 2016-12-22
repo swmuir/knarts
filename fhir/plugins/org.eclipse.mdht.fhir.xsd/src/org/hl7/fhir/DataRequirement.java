@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -67,30 +57,20 @@ public interface DataRequirement extends Element {
 	void setType(Code value);
 
 	/**
-	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The profile of the required data, specified as the uri of the profile definition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @return the value of the '<em>Profile</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDataRequirement_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DataRequirement#getProfile <em>Profile</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Profile</em>' containment reference.
-	 * @see #getProfile()
-	 * @generated
-	 */
-	void setProfile(Reference value);
+	EList<Uri> getProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Must Support</b></em>' containment reference list.

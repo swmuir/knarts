@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -26,7 +16,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getElement <em>Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getCode <em>Code</em>}</li>
  * </ul>
@@ -37,30 +27,30 @@ package org.hl7.fhir;
  */
 public interface ConceptMapDependsOn extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
+	 * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Element</em>' containment reference.
-	 * @see #setElement(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_Element()
+	 * @return the value of the '<em>Property</em>' containment reference.
+	 * @see #setProperty(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_Property()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='element' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='property' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getElement();
+	Uri getProperty();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getElement <em>Element</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getProperty <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' containment reference.
-	 * @see #getElement()
+	 * @param value the new value of the '<em>Property</em>' containment reference.
+	 * @see #getProperty()
 	 * @generated
 	 */
-	void setElement(Uri value);
+	void setProperty(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
@@ -72,7 +62,7 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * @return the value of the '<em>System</em>' containment reference.
 	 * @see #setSystem(Uri)
 	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_System()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
 	 * @generated
 	 */

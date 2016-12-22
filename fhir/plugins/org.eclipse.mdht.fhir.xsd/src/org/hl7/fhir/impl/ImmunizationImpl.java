@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -38,8 +28,8 @@ import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationExplanation;
 import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationVaccinationProtocol;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +45,8 @@ import org.hl7.fhir.SimpleQuantity;
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getWasNotGiven <em>Was Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReported <em>Reported</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPrimarySource <em>Primary Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReportOrigin <em>Report Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getEncounter <em>Encounter</em>}</li>
@@ -136,14 +127,24 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected org.hl7.fhir.Boolean wasNotGiven;
 
 	/**
-	 * The cached value of the '{@link #getReported() <em>Reported</em>}' containment reference.
+	 * The cached value of the '{@link #getPrimarySource() <em>Primary Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReported()
+	 * @see #getPrimarySource()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean reported;
+	protected org.hl7.fhir.Boolean primarySource;
+
+	/**
+	 * The cached value of the '{@link #getReportOrigin() <em>Report Origin</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReportOrigin()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept reportOrigin;
 
 	/**
 	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
@@ -243,7 +244,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity doseQuantity;
+	protected Quantity doseQuantity;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -536,8 +537,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getReported() {
-		return reported;
+	public org.hl7.fhir.Boolean getPrimarySource() {
+		return primarySource;
 	}
 
 	/**
@@ -545,11 +546,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReported(org.hl7.fhir.Boolean newReported, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldReported = reported;
-		reported = newReported;
+	public NotificationChain basicSetPrimarySource(org.hl7.fhir.Boolean newPrimarySource, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldPrimarySource = primarySource;
+		primarySource = newPrimarySource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REPORTED, oldReported, newReported);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__PRIMARY_SOURCE, oldPrimarySource, newPrimarySource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -560,18 +561,61 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReported(org.hl7.fhir.Boolean newReported) {
-		if (newReported != reported) {
+	public void setPrimarySource(org.hl7.fhir.Boolean newPrimarySource) {
+		if (newPrimarySource != primarySource) {
 			NotificationChain msgs = null;
-			if (reported != null)
-				msgs = ((InternalEObject)reported).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REPORTED, null, msgs);
-			if (newReported != null)
-				msgs = ((InternalEObject)newReported).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REPORTED, null, msgs);
-			msgs = basicSetReported(newReported, msgs);
+			if (primarySource != null)
+				msgs = ((InternalEObject)primarySource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__PRIMARY_SOURCE, null, msgs);
+			if (newPrimarySource != null)
+				msgs = ((InternalEObject)newPrimarySource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__PRIMARY_SOURCE, null, msgs);
+			msgs = basicSetPrimarySource(newPrimarySource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REPORTED, newReported, newReported));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__PRIMARY_SOURCE, newPrimarySource, newPrimarySource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getReportOrigin() {
+		return reportOrigin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReportOrigin(CodeableConcept newReportOrigin, NotificationChain msgs) {
+		CodeableConcept oldReportOrigin = reportOrigin;
+		reportOrigin = newReportOrigin;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REPORT_ORIGIN, oldReportOrigin, newReportOrigin);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReportOrigin(CodeableConcept newReportOrigin) {
+		if (newReportOrigin != reportOrigin) {
+			NotificationChain msgs = null;
+			if (reportOrigin != null)
+				msgs = ((InternalEObject)reportOrigin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REPORT_ORIGIN, null, msgs);
+			if (newReportOrigin != null)
+				msgs = ((InternalEObject)newReportOrigin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REPORT_ORIGIN, null, msgs);
+			msgs = basicSetReportOrigin(newReportOrigin, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REPORT_ORIGIN, newReportOrigin, newReportOrigin));
 	}
 
 	/**
@@ -966,7 +1010,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getDoseQuantity() {
+	public Quantity getDoseQuantity() {
 		return doseQuantity;
 	}
 
@@ -975,8 +1019,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDoseQuantity(SimpleQuantity newDoseQuantity, NotificationChain msgs) {
-		SimpleQuantity oldDoseQuantity = doseQuantity;
+	public NotificationChain basicSetDoseQuantity(Quantity newDoseQuantity, NotificationChain msgs) {
+		Quantity oldDoseQuantity = doseQuantity;
 		doseQuantity = newDoseQuantity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DOSE_QUANTITY, oldDoseQuantity, newDoseQuantity);
@@ -990,7 +1034,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDoseQuantity(SimpleQuantity newDoseQuantity) {
+	public void setDoseQuantity(Quantity newDoseQuantity) {
 		if (newDoseQuantity != doseQuantity) {
 			NotificationChain msgs = null;
 			if (doseQuantity != null)
@@ -1103,8 +1147,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return basicSetPatient(null, msgs);
 			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
 				return basicSetWasNotGiven(null, msgs);
-			case FhirPackage.IMMUNIZATION__REPORTED:
-				return basicSetReported(null, msgs);
+			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
+				return basicSetPrimarySource(null, msgs);
+			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
+				return basicSetReportOrigin(null, msgs);
 			case FhirPackage.IMMUNIZATION__PERFORMER:
 				return basicSetPerformer(null, msgs);
 			case FhirPackage.IMMUNIZATION__REQUESTER:
@@ -1157,8 +1203,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return getPatient();
 			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
 				return getWasNotGiven();
-			case FhirPackage.IMMUNIZATION__REPORTED:
-				return getReported();
+			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
+				return getPrimarySource();
+			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
+				return getReportOrigin();
 			case FhirPackage.IMMUNIZATION__PERFORMER:
 				return getPerformer();
 			case FhirPackage.IMMUNIZATION__REQUESTER:
@@ -1219,8 +1267,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
 				setWasNotGiven((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__REPORTED:
-				setReported((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
+				setPrimarySource((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
+				setReportOrigin((CodeableConcept)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__PERFORMER:
 				setPerformer((Reference)newValue);
@@ -1250,7 +1301,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				setRoute((CodeableConcept)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
-				setDoseQuantity((SimpleQuantity)newValue);
+				setDoseQuantity((Quantity)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
@@ -1297,8 +1348,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
 				setWasNotGiven((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.IMMUNIZATION__REPORTED:
-				setReported((org.hl7.fhir.Boolean)null);
+			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
+				setPrimarySource((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
+				setReportOrigin((CodeableConcept)null);
 				return;
 			case FhirPackage.IMMUNIZATION__PERFORMER:
 				setPerformer((Reference)null);
@@ -1328,7 +1382,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				setRoute((CodeableConcept)null);
 				return;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
-				setDoseQuantity((SimpleQuantity)null);
+				setDoseQuantity((Quantity)null);
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
@@ -1366,8 +1420,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return patient != null;
 			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
 				return wasNotGiven != null;
-			case FhirPackage.IMMUNIZATION__REPORTED:
-				return reported != null;
+			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
+				return primarySource != null;
+			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
+				return reportOrigin != null;
 			case FhirPackage.IMMUNIZATION__PERFORMER:
 				return performer != null;
 			case FhirPackage.IMMUNIZATION__REQUESTER:

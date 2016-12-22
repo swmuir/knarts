@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -24,6 +14,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemProperty;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PropertyType;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +25,7 @@ import org.hl7.fhir.PropertyType;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemPropertyImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemPropertyImpl#getUri <em>Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemPropertyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemPropertyImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -50,6 +42,16 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 	 * @ordered
 	 */
 	protected Code code;
+
+	/**
+	 * The cached value of the '{@link #getUri() <em>Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri uri;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -131,6 +133,49 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY__CODE, newCode, newCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getUri() {
+		return uri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUri(Uri newUri, NotificationChain msgs) {
+		Uri oldUri = uri;
+		uri = newUri;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY__URI, oldUri, newUri);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUri(Uri newUri) {
+		if (newUri != uri) {
+			NotificationChain msgs = null;
+			if (uri != null)
+				msgs = ((InternalEObject)uri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY__URI, null, msgs);
+			if (newUri != null)
+				msgs = ((InternalEObject)newUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY__URI, null, msgs);
+			msgs = basicSetUri(newUri, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY__URI, newUri, newUri));
 	}
 
 	/**
@@ -229,6 +274,8 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 		switch (featureID) {
 			case FhirPackage.CODE_SYSTEM_PROPERTY__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.CODE_SYSTEM_PROPERTY__URI:
+				return basicSetUri(null, msgs);
 			case FhirPackage.CODE_SYSTEM_PROPERTY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CODE_SYSTEM_PROPERTY__TYPE:
@@ -247,6 +294,8 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 		switch (featureID) {
 			case FhirPackage.CODE_SYSTEM_PROPERTY__CODE:
 				return getCode();
+			case FhirPackage.CODE_SYSTEM_PROPERTY__URI:
+				return getUri();
 			case FhirPackage.CODE_SYSTEM_PROPERTY__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CODE_SYSTEM_PROPERTY__TYPE:
@@ -265,6 +314,9 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 		switch (featureID) {
 			case FhirPackage.CODE_SYSTEM_PROPERTY__CODE:
 				setCode((Code)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY__URI:
+				setUri((Uri)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM_PROPERTY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -287,6 +339,9 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 			case FhirPackage.CODE_SYSTEM_PROPERTY__CODE:
 				setCode((Code)null);
 				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY__URI:
+				setUri((Uri)null);
+				return;
 			case FhirPackage.CODE_SYSTEM_PROPERTY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
 				return;
@@ -307,6 +362,8 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 		switch (featureID) {
 			case FhirPackage.CODE_SYSTEM_PROPERTY__CODE:
 				return code != null;
+			case FhirPackage.CODE_SYSTEM_PROPERTY__URI:
+				return uri != null;
 			case FhirPackage.CODE_SYSTEM_PROPERTY__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CODE_SYSTEM_PROPERTY__TYPE:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,7 @@ public interface Element extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.hl7.fhir.FhirPackage#getElement_Id()
-	 * @model dataType="org.hl7.fhir.IdPrimitive"
+	 * @model dataType="org.hl7.fhir.StringPrimitive"
 	 *        extendedMetaData="kind='attribute' name='id'"
 	 * @generated
 	 */

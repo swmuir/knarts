@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -118,7 +108,47 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(8, "cancelled", "cancelled");
+	CANCELLED(8, "cancelled", "cancelled"),
+
+	/**
+	 * The '<em><b>On Target</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_TARGET_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_TARGET(9, "onTarget", "on-target"),
+
+	/**
+	 * The '<em><b>Ahead Of Target</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AHEAD_OF_TARGET_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	AHEAD_OF_TARGET(10, "aheadOfTarget", "ahead-of-target"),
+
+	/**
+	 * The '<em><b>Behind Target</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BEHIND_TARGET_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BEHIND_TARGET(11, "behindTarget", "behind-target"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(12, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Proposed</b></em>' literal value.
@@ -247,6 +277,62 @@ public enum GoalStatusList implements Enumerator {
 	public static final int CANCELLED_VALUE = 8;
 
 	/**
+	 * The '<em><b>On Target</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On Target
+	 * <!-- end-model-doc -->
+	 * @see #ON_TARGET
+	 * @model name="onTarget" literal="on-target"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_TARGET_VALUE = 9;
+
+	/**
+	 * The '<em><b>Ahead Of Target</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Ahead of Target
+	 * <!-- end-model-doc -->
+	 * @see #AHEAD_OF_TARGET
+	 * @model name="aheadOfTarget" literal="ahead-of-target"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AHEAD_OF_TARGET_VALUE = 10;
+
+	/**
+	 * The '<em><b>Behind Target</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Behind Target
+	 * <!-- end-model-doc -->
+	 * @see #BEHIND_TARGET
+	 * @model name="behindTarget" literal="behind-target"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BEHIND_TARGET_VALUE = 11;
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 12;
+
+	/**
 	 * An array of all the '<em><b>Goal Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +349,10 @@ public enum GoalStatusList implements Enumerator {
 			SUSTAINING,
 			ON_HOLD,
 			CANCELLED,
+			ON_TARGET,
+			AHEAD_OF_TARGET,
+			BEHIND_TARGET,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -328,6 +418,10 @@ public enum GoalStatusList implements Enumerator {
 			case SUSTAINING_VALUE: return SUSTAINING;
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case CANCELLED_VALUE: return CANCELLED;
+			case ON_TARGET_VALUE: return ON_TARGET;
+			case AHEAD_OF_TARGET_VALUE: return AHEAD_OF_TARGET;
+			case BEHIND_TARGET_VALUE: return BEHIND_TARGET;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

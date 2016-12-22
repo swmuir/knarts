@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,6 +18,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Binary#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Binary#getSecurityContext <em>Security Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Binary#getContent <em>Content</em>}</li>
  * </ul>
  *
@@ -61,6 +52,32 @@ public interface Binary extends Resource {
 	 * @generated
 	 */
 	void setContentType(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Treat this binary as if it was this other resource for access control purposes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Context</em>' containment reference.
+	 * @see #setSecurityContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getBinary_SecurityContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSecurityContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Binary#getSecurityContext <em>Security Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Context</em>' containment reference.
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	void setSecurityContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference.

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,13 +20,16 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getDirection <em>Direction</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getCompareToSourceId <em>Compare To Source Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getCompareToSourceExpression <em>Compare To Source Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getCompareToSourcePath <em>Compare To Source Path</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getHeaderField <em>Header Field</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getMinimumId <em>Minimum Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getNavigationLinks <em>Navigation Links</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getRequestURL <em>Request URL</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponseCode <em>Response Code</em>}</li>
@@ -136,7 +129,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Id of fixture used to compare the "sourceId/path" evaluations to.
+	 * Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compare To Source Id</em>' containment reference.
 	 * @see #setCompareToSourceId(org.hl7.fhir.String)
@@ -158,11 +151,37 @@ public interface TestScriptAssert extends BackboneElement {
 	void setCompareToSourceId(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Compare To Source Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Compare To Source Expression</em>' containment reference.
+	 * @see #setCompareToSourceExpression(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_CompareToSourceExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='compareToSourceExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getCompareToSourceExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getCompareToSourceExpression <em>Compare To Source Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Compare To Source Expression</em>' containment reference.
+	 * @see #getCompareToSourceExpression()
+	 * @generated
+	 */
+	void setCompareToSourceExpression(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Compare To Source Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
+	 * XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compare To Source Path</em>' containment reference.
 	 * @see #setCompareToSourcePath(org.hl7.fhir.String)
@@ -208,6 +227,32 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @generated
 	 */
 	void setContentType(ContentType value);
+
+	/**
+	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expression</em>' containment reference.
+	 * @see #setExpression(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Expression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getExpression <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Header Field</b></em>' containment reference.
@@ -292,7 +337,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The operator type.
+	 * The operator type defines the conditional behavior of the assert. If not defined, the default is equals.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operator</em>' containment reference.
 	 * @see #setOperator(AssertionOperatorType)
@@ -340,11 +385,37 @@ public interface TestScriptAssert extends BackboneElement {
 	void setPath(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Request URL</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The value to use in a comparison against the request URL path string.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request URL</em>' containment reference.
+	 * @see #setRequestURL(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_RequestURL()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestURL' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getRequestURL();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRequestURL <em>Request URL</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request URL</em>' containment reference.
+	 * @see #getRequestURL()
+	 * @generated
+	 */
+	void setRequestURL(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
+	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
 	 * @see #setResource(Code)

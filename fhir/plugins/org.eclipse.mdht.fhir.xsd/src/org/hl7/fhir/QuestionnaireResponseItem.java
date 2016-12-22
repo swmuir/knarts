@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getAnswer <em>Answer</em>}</li>
@@ -49,7 +40,7 @@ public interface QuestionnaireResponseItem extends BackboneElement {
 	 * @return the value of the '<em>Link Id</em>' containment reference.
 	 * @see #setLinkId(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponseItem_LinkId()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='linkId' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -64,6 +55,32 @@ public interface QuestionnaireResponseItem extends BackboneElement {
 	 * @generated
 	 */
 	void setLinkId(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to an [[[ElementDefinition]]] that provides the details for the item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference.
+	 * @see #setDefinition(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponseItem_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponseItem#getDefinition <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' containment reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

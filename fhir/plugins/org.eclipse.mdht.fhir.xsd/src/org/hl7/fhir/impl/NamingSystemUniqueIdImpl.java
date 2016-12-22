@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -36,6 +26,7 @@ import org.hl7.fhir.Period;
  *   <li>{@link org.hl7.fhir.impl.NamingSystemUniqueIdImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemUniqueIdImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemUniqueIdImpl#getPreferred <em>Preferred</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NamingSystemUniqueIdImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemUniqueIdImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  *
@@ -71,6 +62,16 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean preferred;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String comment;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -235,6 +236,49 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
+		org.hl7.fhir.String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT, oldComment, newComment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(org.hl7.fhir.String newComment) {
+		if (newComment != comment) {
+			NotificationChain msgs = null;
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT, newComment, newComment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Period getPeriod() {
 		return period;
 	}
@@ -287,6 +331,8 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 				return basicSetValue(null, msgs);
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PREFERRED:
 				return basicSetPreferred(null, msgs);
+			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT:
+				return basicSetComment(null, msgs);
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PERIOD:
 				return basicSetPeriod(null, msgs);
 		}
@@ -307,6 +353,8 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 				return getValue();
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PREFERRED:
 				return getPreferred();
+			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT:
+				return getComment();
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PERIOD:
 				return getPeriod();
 		}
@@ -329,6 +377,9 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 				return;
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PREFERRED:
 				setPreferred((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT:
+				setComment((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PERIOD:
 				setPeriod((Period)newValue);
@@ -354,6 +405,9 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PREFERRED:
 				setPreferred((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT:
+				setComment((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PERIOD:
 				setPeriod((Period)null);
 				return;
@@ -375,6 +429,8 @@ public class NamingSystemUniqueIdImpl extends BackboneElementImpl implements Nam
 				return value != null;
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PREFERRED:
 				return preferred != null;
+			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__COMMENT:
+				return comment != null;
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID__PERIOD:
 				return period != null;
 		}

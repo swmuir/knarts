@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,8 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getText <em>Text</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getSiteCodeableConcept <em>Site Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getSiteReference <em>Site Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationDosage#getDose <em>Dose</em>}</li>
@@ -46,7 +35,9 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+	 * Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+	 * 
+	 * The dosage instructions should reflect the dosage of the medication that was administered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
 	 * @see #setText(org.hl7.fhir.String)
@@ -68,58 +59,30 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	void setText(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Site Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Site</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Site Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Site Codeable Concept</em>' containment reference.
-	 * @see #setSiteCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_SiteCodeableConcept()
+	 * <!-- begin-model-doc -->
+	 * A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Site</em>' containment reference.
+	 * @see #setSite(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_Site()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='siteCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='site' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getSiteCodeableConcept();
+	CodeableConcept getSite();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getSiteCodeableConcept <em>Site Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getSite <em>Site</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Site Codeable Concept</em>' containment reference.
-	 * @see #getSiteCodeableConcept()
+	 * @param value the new value of the '<em>Site</em>' containment reference.
+	 * @see #getSite()
 	 * @generated
 	 */
-	void setSiteCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Site Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Site Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Site Reference</em>' containment reference.
-	 * @see #setSiteReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_SiteReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='siteReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSiteReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getSiteReference <em>Site Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Site Reference</em>' containment reference.
-	 * @see #getSiteReference()
-	 * @generated
-	 */
-	void setSiteReference(Reference value);
+	void setSite(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Route</b></em>' containment reference.
@@ -181,13 +144,13 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	 * The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dose</em>' containment reference.
-	 * @see #setDose(SimpleQuantity)
+	 * @see #setDose(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_Dose()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='dose' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getDose();
+	Quantity getDose();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getDose <em>Dose</em>}' containment reference.
@@ -197,7 +160,7 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	 * @see #getDose()
 	 * @generated
 	 */
-	void setDose(SimpleQuantity value);
+	void setDose(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Rate Ratio</b></em>' containment reference.
@@ -235,13 +198,13 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rate Quantity</em>' containment reference.
-	 * @see #setRateQuantity(SimpleQuantity)
+	 * @see #setRateQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationDosage_RateQuantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='rateQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getRateQuantity();
+	Quantity getRateQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationDosage#getRateQuantity <em>Rate Quantity</em>}' containment reference.
@@ -251,6 +214,6 @@ public interface MedicationAdministrationDosage extends BackboneElement {
 	 * @see #getRateQuantity()
 	 * @generated
 	 */
-	void setRateQuantity(SimpleQuantity value);
+	void setRateQuantity(Quantity value);
 
 } // MedicationAdministrationDosage

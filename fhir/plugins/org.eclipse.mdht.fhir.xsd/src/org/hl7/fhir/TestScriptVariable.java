@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,7 +18,10 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.TestScriptVariable#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptVariable#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptVariable#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptVariable#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptVariable#getHeaderField <em>Header Field</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptVariable#getHint <em>Hint</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptVariable#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptVariable#getSourceId <em>Source Id</em>}</li>
  * </ul>
@@ -91,6 +84,58 @@ public interface TestScriptVariable extends BackboneElement {
 	void setDefaultValue(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A free text natural language description of the variable and its purpose.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptVariable_Description()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptVariable#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expression</em>' containment reference.
+	 * @see #setExpression(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptVariable_Expression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptVariable#getExpression <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Header Field</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,11 +162,37 @@ public interface TestScriptVariable extends BackboneElement {
 	void setHeaderField(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Hint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Displayable text string with hint help information to the user when entering a default value.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Hint</em>' containment reference.
+	 * @see #setHint(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptVariable_Hint()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='hint' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getHint();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptVariable#getHint <em>Hint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hint</em>' containment reference.
+	 * @see #getHint()
+	 * @generated
+	 */
+	void setHint(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
+	 * XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(org.hl7.fhir.String)

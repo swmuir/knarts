@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,17 @@ public enum SlotStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUSY_TENTATIVE(3, "busyTentative", "busy-tentative");
+	BUSY_TENTATIVE(3, "busyTentative", "busy-tentative"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Busy</b></em>' literal value.
@@ -127,6 +127,20 @@ public enum SlotStatusList implements Enumerator {
 	public static final int BUSY_TENTATIVE_VALUE = 3;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Slot Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +152,7 @@ public enum SlotStatusList implements Enumerator {
 			FREE,
 			BUSY_UNAVAILABLE,
 			BUSY_TENTATIVE,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -198,6 +213,7 @@ public enum SlotStatusList implements Enumerator {
 			case FREE_VALUE: return FREE;
 			case BUSY_UNAVAILABLE_VALUE: return BUSY_UNAVAILABLE;
 			case BUSY_TENTATIVE_VALUE: return BUSY_TENTATIVE;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

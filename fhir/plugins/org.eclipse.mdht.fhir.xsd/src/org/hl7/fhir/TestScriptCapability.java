@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -33,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScriptCapability#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptCapability#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptCapability#getLink <em>Link</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScriptCapability#getConformance <em>Conformance</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptCapability#getCapabilities <em>Capabilities</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getTestScriptCapability()
@@ -178,29 +168,29 @@ public interface TestScriptCapability extends BackboneElement {
 	EList<Uri> getLink();
 
 	/**
-	 * Returns the value of the '<em><b>Conformance</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Capabilities</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
+	 * Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Conformance</em>' containment reference.
-	 * @see #setConformance(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTestScriptCapability_Conformance()
+	 * @return the value of the '<em>Capabilities</em>' containment reference.
+	 * @see #setCapabilities(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptCapability_Capabilities()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='conformance' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='capabilities' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getConformance();
+	Reference getCapabilities();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestScriptCapability#getConformance <em>Conformance</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptCapability#getCapabilities <em>Capabilities</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Conformance</em>' containment reference.
-	 * @see #getConformance()
+	 * @param value the new value of the '<em>Capabilities</em>' containment reference.
+	 * @see #getCapabilities()
 	 * @generated
 	 */
-	void setConformance(Reference value);
+	void setCapabilities(Reference value);
 
 } // TestScriptCapability

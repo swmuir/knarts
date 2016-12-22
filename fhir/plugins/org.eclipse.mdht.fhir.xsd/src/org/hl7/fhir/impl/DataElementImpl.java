@@ -18,16 +18,18 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DataElement;
-import org.hl7.fhir.DataElementContact;
 import org.hl7.fhir.DataElementMapping;
 import org.hl7.fhir.DataElementStringency;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,8 +47,10 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getStringency <em>Stringency</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getMapping <em>Mapping</em>}</li>
@@ -94,7 +98,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -137,6 +141,16 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	protected org.hl7.fhir.String name;
 
 	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
+
+	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,7 +158,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DataElementContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
@@ -154,7 +168,17 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> useContext;
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
@@ -164,7 +188,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String copyright;
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getStringency() <em>Stringency</em>}' containment reference.
@@ -318,7 +342,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -327,8 +351,8 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__STATUS, oldStatus, newStatus);
@@ -342,7 +366,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -533,9 +557,52 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DataElementContact> getContact() {
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<DataElementContact>(DataElementContact.class, this, FhirPackage.DATA_ELEMENT__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.DATA_ELEMENT__CONTACT);
 		}
 		return contact;
 	}
@@ -545,9 +612,9 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getUseContext() {
+	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
-			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DATA_ELEMENT__USE_CONTEXT);
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.DATA_ELEMENT__USE_CONTEXT);
 		}
 		return useContext;
 	}
@@ -557,7 +624,19 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCopyright() {
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DATA_ELEMENT__JURISDICTION);
+		}
+		return jurisdiction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Markdown getCopyright() {
 		return copyright;
 	}
 
@@ -566,8 +645,8 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyright(org.hl7.fhir.String newCopyright, NotificationChain msgs) {
-		org.hl7.fhir.String oldCopyright = copyright;
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__COPYRIGHT, oldCopyright, newCopyright);
@@ -581,7 +660,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCopyright(org.hl7.fhir.String newCopyright) {
+	public void setCopyright(Markdown newCopyright) {
 		if (newCopyright != copyright) {
 			NotificationChain msgs = null;
 			if (copyright != null)
@@ -686,10 +765,14 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return basicSetDate(null, msgs);
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.DATA_ELEMENT__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.DATA_ELEMENT__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_ELEMENT__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DATA_ELEMENT__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_ELEMENT__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.DATA_ELEMENT__STRINGENCY:
@@ -726,10 +809,14 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return getDate();
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return getName();
+			case FhirPackage.DATA_ELEMENT__TITLE:
+				return getTitle();
 			case FhirPackage.DATA_ELEMENT__CONTACT:
 				return getContact();
 			case FhirPackage.DATA_ELEMENT__USE_CONTEXT:
 				return getUseContext();
+			case FhirPackage.DATA_ELEMENT__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.DATA_ELEMENT__COPYRIGHT:
 				return getCopyright();
 			case FhirPackage.DATA_ELEMENT__STRINGENCY:
@@ -762,7 +849,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				setVersion((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -776,16 +863,23 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 			case FhirPackage.DATA_ELEMENT__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.DATA_ELEMENT__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.DATA_ELEMENT__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends DataElementContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__USE_CONTEXT:
 				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.DATA_ELEMENT__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)newValue);
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__STRINGENCY:
 				setStringency((DataElementStringency)newValue);
@@ -820,7 +914,7 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				setVersion((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -834,14 +928,20 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 			case FhirPackage.DATA_ELEMENT__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.DATA_ELEMENT__TITLE:
+				setTitle((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.DATA_ELEMENT__CONTACT:
 				getContact().clear();
 				return;
 			case FhirPackage.DATA_ELEMENT__USE_CONTEXT:
 				getUseContext().clear();
 				return;
+			case FhirPackage.DATA_ELEMENT__JURISDICTION:
+				getJurisdiction().clear();
+				return;
 			case FhirPackage.DATA_ELEMENT__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)null);
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__STRINGENCY:
 				setStringency((DataElementStringency)null);
@@ -880,10 +980,14 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return date != null;
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return name != null;
+			case FhirPackage.DATA_ELEMENT__TITLE:
+				return title != null;
 			case FhirPackage.DATA_ELEMENT__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.DATA_ELEMENT__USE_CONTEXT:
 				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.DATA_ELEMENT__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.DATA_ELEMENT__COPYRIGHT:
 				return copyright != null;
 			case FhirPackage.DATA_ELEMENT__STRINGENCY:

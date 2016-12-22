@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -61,6 +51,16 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	UPDATE(2, "update", "update"),
 
 	/**
+	 * The '<em><b>Patch</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATCH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PATCH(3, "patch", "patch"),
+
+	/**
 	 * The '<em><b>Delete</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +68,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE(3, "delete", "delete"),
+	DELETE(4, "delete", "delete"),
 
 	/**
 	 * The '<em><b>History Instance</b></em>' literal object.
@@ -78,7 +78,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HISTORY_INSTANCE(4, "historyInstance", "history-instance"),
+	HISTORY_INSTANCE(5, "historyInstance", "history-instance"),
 
 	/**
 	 * The '<em><b>History Type</b></em>' literal object.
@@ -88,7 +88,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HISTORY_TYPE(5, "historyType", "history-type"),
+	HISTORY_TYPE(6, "historyType", "history-type"),
 
 	/**
 	 * The '<em><b>Create</b></em>' literal object.
@@ -98,7 +98,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CREATE(6, "create", "create"),
+	CREATE(7, "create", "create"),
 
 	/**
 	 * The '<em><b>Search Type</b></em>' literal object.
@@ -108,7 +108,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEARCH_TYPE(7, "searchType", "search-type");
+	SEARCH_TYPE(8, "searchType", "search-type");
 
 	/**
 	 * The '<em><b>Read</b></em>' literal value.
@@ -153,6 +153,20 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	public static final int UPDATE_VALUE = 2;
 
 	/**
+	 * The '<em><b>Patch</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * patch
+	 * <!-- end-model-doc -->
+	 * @see #PATCH
+	 * @model name="patch"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PATCH_VALUE = 3;
+
+	/**
 	 * The '<em><b>Delete</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,7 +178,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DELETE_VALUE = 3;
+	public static final int DELETE_VALUE = 4;
 
 	/**
 	 * The '<em><b>History Instance</b></em>' literal value.
@@ -178,7 +192,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HISTORY_INSTANCE_VALUE = 4;
+	public static final int HISTORY_INSTANCE_VALUE = 5;
 
 	/**
 	 * The '<em><b>History Type</b></em>' literal value.
@@ -192,7 +206,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HISTORY_TYPE_VALUE = 5;
+	public static final int HISTORY_TYPE_VALUE = 6;
 
 	/**
 	 * The '<em><b>Create</b></em>' literal value.
@@ -206,7 +220,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CREATE_VALUE = 6;
+	public static final int CREATE_VALUE = 7;
 
 	/**
 	 * The '<em><b>Search Type</b></em>' literal value.
@@ -220,7 +234,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEARCH_TYPE_VALUE = 7;
+	public static final int SEARCH_TYPE_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Type Restful Interaction List</b></em>' enumerators.
@@ -233,6 +247,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 			READ,
 			VREAD,
 			UPDATE,
+			PATCH,
 			DELETE,
 			HISTORY_INSTANCE,
 			HISTORY_TYPE,
@@ -297,6 +312,7 @@ public enum TypeRestfulInteractionList implements Enumerator {
 			case READ_VALUE: return READ;
 			case VREAD_VALUE: return VREAD;
 			case UPDATE_VALUE: return UPDATE;
+			case PATCH_VALUE: return PATCH;
 			case DELETE_VALUE: return DELETE;
 			case HISTORY_INSTANCE_VALUE: return HISTORY_INSTANCE;
 			case HISTORY_TYPE_VALUE: return HISTORY_TYPE;

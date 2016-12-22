@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonReference <em>Reason Reference</em>}</li>
@@ -79,6 +70,32 @@ public interface CarePlanDetail extends BackboneElement {
 	void setCategory(CodeableConcept value);
 
 	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference.
+	 * @see #setDefinition(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getDefinition <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' containment reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,7 +127,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Provides the rationale that drove the inclusion of this particular activity as part of the plan.
+	 * Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_ReasonCode()
@@ -162,7 +179,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(CarePlanActivityStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -209,12 +226,12 @@ public interface CarePlanDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
+	 * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prohibited</em>' containment reference.
 	 * @see #setProhibited(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Prohibited()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='prohibited' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -415,13 +432,13 @@ public interface CarePlanDetail extends BackboneElement {
 	 * Identifies the quantity expected to be consumed in a given day.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Daily Amount</em>' containment reference.
-	 * @see #setDailyAmount(SimpleQuantity)
+	 * @see #setDailyAmount(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_DailyAmount()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='dailyAmount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getDailyAmount();
+	Quantity getDailyAmount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getDailyAmount <em>Daily Amount</em>}' containment reference.
@@ -431,7 +448,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * @see #getDailyAmount()
 	 * @generated
 	 */
-	void setDailyAmount(SimpleQuantity value);
+	void setDailyAmount(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -441,13 +458,13 @@ public interface CarePlanDetail extends BackboneElement {
 	 * Identifies the quantity expected to be supplied, administered or consumed by the subject.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(SimpleQuantity)
+	 * @see #setQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Quantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getQuantity();
+	Quantity getQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getQuantity <em>Quantity</em>}' containment reference.
@@ -457,7 +474,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * @see #getQuantity()
 	 * @generated
 	 */
-	void setQuantity(SimpleQuantity value);
+	void setQuantity(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

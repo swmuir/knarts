@@ -1,29 +1,27 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +32,10 @@ import org.hl7.fhir.PositiveInt;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getDiagnosis <em>Diagnosis</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getDiagnosisCodeableConcept <em>Diagnosis Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getDiagnosisReference <em>Diagnosis Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitDiagnosisImpl#getPackageCode <em>Package Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +52,44 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	protected PositiveInt sequence;
 
 	/**
-	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference.
+	 * The cached value of the '{@link #getDiagnosisCodeableConcept() <em>Diagnosis Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDiagnosis()
+	 * @see #getDiagnosisCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding diagnosis;
+	protected CodeableConcept diagnosisCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getDiagnosisReference() <em>Diagnosis Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiagnosisReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference diagnosisReference;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> type;
+
+	/**
+	 * The cached value of the '{@link #getPackageCode() <em>Package Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept packageCode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,8 +158,8 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getDiagnosis() {
-		return diagnosis;
+	public CodeableConcept getDiagnosisCodeableConcept() {
+		return diagnosisCodeableConcept;
 	}
 
 	/**
@@ -136,11 +167,11 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDiagnosis(Coding newDiagnosis, NotificationChain msgs) {
-		Coding oldDiagnosis = diagnosis;
-		diagnosis = newDiagnosis;
+	public NotificationChain basicSetDiagnosisCodeableConcept(CodeableConcept newDiagnosisCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldDiagnosisCodeableConcept = diagnosisCodeableConcept;
+		diagnosisCodeableConcept = newDiagnosisCodeableConcept;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS, oldDiagnosis, newDiagnosis);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT, oldDiagnosisCodeableConcept, newDiagnosisCodeableConcept);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -151,18 +182,116 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDiagnosis(Coding newDiagnosis) {
-		if (newDiagnosis != diagnosis) {
+	public void setDiagnosisCodeableConcept(CodeableConcept newDiagnosisCodeableConcept) {
+		if (newDiagnosisCodeableConcept != diagnosisCodeableConcept) {
 			NotificationChain msgs = null;
-			if (diagnosis != null)
-				msgs = ((InternalEObject)diagnosis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS, null, msgs);
-			if (newDiagnosis != null)
-				msgs = ((InternalEObject)newDiagnosis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS, null, msgs);
-			msgs = basicSetDiagnosis(newDiagnosis, msgs);
+			if (diagnosisCodeableConcept != null)
+				msgs = ((InternalEObject)diagnosisCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT, null, msgs);
+			if (newDiagnosisCodeableConcept != null)
+				msgs = ((InternalEObject)newDiagnosisCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetDiagnosisCodeableConcept(newDiagnosisCodeableConcept, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS, newDiagnosis, newDiagnosis));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT, newDiagnosisCodeableConcept, newDiagnosisCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getDiagnosisReference() {
+		return diagnosisReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDiagnosisReference(Reference newDiagnosisReference, NotificationChain msgs) {
+		Reference oldDiagnosisReference = diagnosisReference;
+		diagnosisReference = newDiagnosisReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE, oldDiagnosisReference, newDiagnosisReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDiagnosisReference(Reference newDiagnosisReference) {
+		if (newDiagnosisReference != diagnosisReference) {
+			NotificationChain msgs = null;
+			if (diagnosisReference != null)
+				msgs = ((InternalEObject)diagnosisReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE, null, msgs);
+			if (newDiagnosisReference != null)
+				msgs = ((InternalEObject)newDiagnosisReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE, null, msgs);
+			msgs = basicSetDiagnosisReference(newDiagnosisReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE, newDiagnosisReference, newDiagnosisReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE);
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getPackageCode() {
+		return packageCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPackageCode(CodeableConcept newPackageCode, NotificationChain msgs) {
+		CodeableConcept oldPackageCode = packageCode;
+		packageCode = newPackageCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE, oldPackageCode, newPackageCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackageCode(CodeableConcept newPackageCode) {
+		if (newPackageCode != packageCode) {
+			NotificationChain msgs = null;
+			if (packageCode != null)
+				msgs = ((InternalEObject)packageCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE, null, msgs);
+			if (newPackageCode != null)
+				msgs = ((InternalEObject)newPackageCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE, null, msgs);
+			msgs = basicSetPackageCode(newPackageCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE, newPackageCode, newPackageCode));
 	}
 
 	/**
@@ -175,8 +304,14 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS:
-				return basicSetDiagnosis(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT:
+				return basicSetDiagnosisCodeableConcept(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE:
+				return basicSetDiagnosisReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE:
+				return basicSetPackageCode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -191,8 +326,14 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__SEQUENCE:
 				return getSequence();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS:
-				return getDiagnosis();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT:
+				return getDiagnosisCodeableConcept();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE:
+				return getDiagnosisReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE:
+				return getType();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE:
+				return getPackageCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,14 +343,25 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__SEQUENCE:
 				setSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS:
-				setDiagnosis((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT:
+				setDiagnosisCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE:
+				setDiagnosisReference((Reference)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE:
+				setPackageCode((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,8 +378,17 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS:
-				setDiagnosis((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT:
+				setDiagnosisCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE:
+				setDiagnosisReference((Reference)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE:
+				getType().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE:
+				setPackageCode((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -243,8 +404,14 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS:
-				return diagnosis != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_CODEABLE_CONCEPT:
+				return diagnosisCodeableConcept != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__DIAGNOSIS_REFERENCE:
+				return diagnosisReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE:
+				return type != null && !type.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__PACKAGE_CODE:
+				return packageCode != null;
 		}
 		return super.eIsSet(featureID);
 	}

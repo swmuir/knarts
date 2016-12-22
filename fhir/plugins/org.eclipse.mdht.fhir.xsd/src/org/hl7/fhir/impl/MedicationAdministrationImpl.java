@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -34,7 +24,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationAdministration;
 import org.hl7.fhir.MedicationAdministrationDosage;
-import org.hl7.fhir.MedicationAdministrationEventHistory;
 import org.hl7.fhir.MedicationAdministrationStatus;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
@@ -53,11 +42,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectiveTimeDateTime <em>Effective Time Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectiveTimePeriod <em>Effective Time Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getSupportingInformation <em>Supporting Information</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPrescription <em>Prescription</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getWasNotGiven <em>Was Not Given</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getNotGiven <em>Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonNotGiven <em>Reason Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonGiven <em>Reason Given</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getDevice <em>Device</em>}</li>
@@ -130,24 +121,34 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected Reference encounter;
 
 	/**
-	 * The cached value of the '{@link #getEffectiveTimeDateTime() <em>Effective Time Date Time</em>}' containment reference.
+	 * The cached value of the '{@link #getSupportingInformation() <em>Supporting Information</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEffectiveTimeDateTime()
+	 * @see #getSupportingInformation()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime effectiveTimeDateTime;
+	protected EList<Reference> supportingInformation;
 
 	/**
-	 * The cached value of the '{@link #getEffectiveTimePeriod() <em>Effective Time Period</em>}' containment reference.
+	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEffectiveTimePeriod()
+	 * @see #getEffectiveDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period effectiveTimePeriod;
+	protected DateTime effectiveDateTime;
+
+	/**
+	 * The cached value of the '{@link #getEffectivePeriod() <em>Effective Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectivePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period effectivePeriod;
 
 	/**
 	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
@@ -160,6 +161,16 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected Reference performer;
 
 	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
 	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,14 +181,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected Reference prescription;
 
 	/**
-	 * The cached value of the '{@link #getWasNotGiven() <em>Was Not Given</em>}' containment reference.
+	 * The cached value of the '{@link #getNotGiven() <em>Not Given</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWasNotGiven()
+	 * @see #getNotGiven()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean wasNotGiven;
+	protected org.hl7.fhir.Boolean notGiven;
 
 	/**
 	 * The cached value of the '{@link #getReasonNotGiven() <em>Reason Not Given</em>}' containment reference list.
@@ -237,7 +248,7 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MedicationAdministrationEventHistory> eventHistory;
+	protected EList<Reference> eventHistory;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -490,8 +501,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getEffectiveTimeDateTime() {
-		return effectiveTimeDateTime;
+	public EList<Reference> getSupportingInformation() {
+		if (supportingInformation == null) {
+			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION);
+		}
+		return supportingInformation;
 	}
 
 	/**
@@ -499,11 +513,20 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEffectiveTimeDateTime(DateTime newEffectiveTimeDateTime, NotificationChain msgs) {
-		DateTime oldEffectiveTimeDateTime = effectiveTimeDateTime;
-		effectiveTimeDateTime = newEffectiveTimeDateTime;
+	public DateTime getEffectiveDateTime() {
+		return effectiveDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEffectiveDateTime(DateTime newEffectiveDateTime, NotificationChain msgs) {
+		DateTime oldEffectiveDateTime = effectiveDateTime;
+		effectiveDateTime = newEffectiveDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME, oldEffectiveTimeDateTime, newEffectiveTimeDateTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME, oldEffectiveDateTime, newEffectiveDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -514,18 +537,18 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEffectiveTimeDateTime(DateTime newEffectiveTimeDateTime) {
-		if (newEffectiveTimeDateTime != effectiveTimeDateTime) {
+	public void setEffectiveDateTime(DateTime newEffectiveDateTime) {
+		if (newEffectiveDateTime != effectiveDateTime) {
 			NotificationChain msgs = null;
-			if (effectiveTimeDateTime != null)
-				msgs = ((InternalEObject)effectiveTimeDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME, null, msgs);
-			if (newEffectiveTimeDateTime != null)
-				msgs = ((InternalEObject)newEffectiveTimeDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME, null, msgs);
-			msgs = basicSetEffectiveTimeDateTime(newEffectiveTimeDateTime, msgs);
+			if (effectiveDateTime != null)
+				msgs = ((InternalEObject)effectiveDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME, null, msgs);
+			if (newEffectiveDateTime != null)
+				msgs = ((InternalEObject)newEffectiveDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME, null, msgs);
+			msgs = basicSetEffectiveDateTime(newEffectiveDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME, newEffectiveTimeDateTime, newEffectiveTimeDateTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME, newEffectiveDateTime, newEffectiveDateTime));
 	}
 
 	/**
@@ -533,8 +556,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getEffectiveTimePeriod() {
-		return effectiveTimePeriod;
+	public Period getEffectivePeriod() {
+		return effectivePeriod;
 	}
 
 	/**
@@ -542,11 +565,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEffectiveTimePeriod(Period newEffectiveTimePeriod, NotificationChain msgs) {
-		Period oldEffectiveTimePeriod = effectiveTimePeriod;
-		effectiveTimePeriod = newEffectiveTimePeriod;
+	public NotificationChain basicSetEffectivePeriod(Period newEffectivePeriod, NotificationChain msgs) {
+		Period oldEffectivePeriod = effectivePeriod;
+		effectivePeriod = newEffectivePeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD, oldEffectiveTimePeriod, newEffectiveTimePeriod);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD, oldEffectivePeriod, newEffectivePeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -557,18 +580,18 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEffectiveTimePeriod(Period newEffectiveTimePeriod) {
-		if (newEffectiveTimePeriod != effectiveTimePeriod) {
+	public void setEffectivePeriod(Period newEffectivePeriod) {
+		if (newEffectivePeriod != effectivePeriod) {
 			NotificationChain msgs = null;
-			if (effectiveTimePeriod != null)
-				msgs = ((InternalEObject)effectiveTimePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD, null, msgs);
-			if (newEffectiveTimePeriod != null)
-				msgs = ((InternalEObject)newEffectiveTimePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD, null, msgs);
-			msgs = basicSetEffectiveTimePeriod(newEffectiveTimePeriod, msgs);
+			if (effectivePeriod != null)
+				msgs = ((InternalEObject)effectivePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD, null, msgs);
+			if (newEffectivePeriod != null)
+				msgs = ((InternalEObject)newEffectivePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD, null, msgs);
+			msgs = basicSetEffectivePeriod(newEffectivePeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD, newEffectiveTimePeriod, newEffectiveTimePeriod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD, newEffectivePeriod, newEffectivePeriod));
 	}
 
 	/**
@@ -619,6 +642,18 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getPrescription() {
 		return prescription;
 	}
@@ -662,8 +697,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getWasNotGiven() {
-		return wasNotGiven;
+	public org.hl7.fhir.Boolean getNotGiven() {
+		return notGiven;
 	}
 
 	/**
@@ -671,11 +706,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWasNotGiven(org.hl7.fhir.Boolean newWasNotGiven, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldWasNotGiven = wasNotGiven;
-		wasNotGiven = newWasNotGiven;
+	public NotificationChain basicSetNotGiven(org.hl7.fhir.Boolean newNotGiven, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldNotGiven = notGiven;
+		notGiven = newNotGiven;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN, oldWasNotGiven, newWasNotGiven);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, oldNotGiven, newNotGiven);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -686,18 +721,18 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWasNotGiven(org.hl7.fhir.Boolean newWasNotGiven) {
-		if (newWasNotGiven != wasNotGiven) {
+	public void setNotGiven(org.hl7.fhir.Boolean newNotGiven) {
+		if (newNotGiven != notGiven) {
 			NotificationChain msgs = null;
-			if (wasNotGiven != null)
-				msgs = ((InternalEObject)wasNotGiven).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN, null, msgs);
-			if (newWasNotGiven != null)
-				msgs = ((InternalEObject)newWasNotGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN, null, msgs);
-			msgs = basicSetWasNotGiven(newWasNotGiven, msgs);
+			if (notGiven != null)
+				msgs = ((InternalEObject)notGiven).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, null, msgs);
+			if (newNotGiven != null)
+				msgs = ((InternalEObject)newNotGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, null, msgs);
+			msgs = basicSetNotGiven(newNotGiven, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN, newWasNotGiven, newWasNotGiven));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, newNotGiven, newNotGiven));
 	}
 
 	/**
@@ -796,9 +831,9 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MedicationAdministrationEventHistory> getEventHistory() {
+	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
-			eventHistory = new EObjectContainmentEList<MedicationAdministrationEventHistory>(MedicationAdministrationEventHistory.class, this, FhirPackage.MEDICATION_ADMINISTRATION__EVENT_HISTORY);
+			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__EVENT_HISTORY);
 		}
 		return eventHistory;
 	}
@@ -823,16 +858,20 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return basicSetPatient(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME:
-				return basicSetEffectiveTimeDateTime(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD:
-				return basicSetEffectiveTimePeriod(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION:
+				return ((InternalEList<?>)getSupportingInformation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME:
+				return basicSetEffectiveDateTime(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD:
+				return basicSetEffectivePeriod(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return basicSetPerformer(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return basicSetPrescription(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN:
-				return basicSetWasNotGiven(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
+				return basicSetNotGiven(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return ((InternalEList<?>)getReasonNotGiven()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN:
@@ -869,16 +908,20 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return getPatient();
 			case FhirPackage.MEDICATION_ADMINISTRATION__ENCOUNTER:
 				return getEncounter();
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME:
-				return getEffectiveTimeDateTime();
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD:
-				return getEffectiveTimePeriod();
+			case FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION:
+				return getSupportingInformation();
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME:
+				return getEffectiveDateTime();
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD:
+				return getEffectivePeriod();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return getPerformer();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return getPrescription();
-			case FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN:
-				return getWasNotGiven();
+			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
+				return getNotGiven();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return getReasonNotGiven();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN:
@@ -923,20 +966,28 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__ENCOUNTER:
 				setEncounter((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME:
-				setEffectiveTimeDateTime((DateTime)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION:
+				getSupportingInformation().clear();
+				getSupportingInformation().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD:
-				setEffectiveTimePeriod((Period)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME:
+				setEffectiveDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD:
+				setEffectivePeriod((Period)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				setPerformer((Reference)newValue);
 				return;
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				setPrescription((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN:
-				setWasNotGiven((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
+				setNotGiven((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				getReasonNotGiven().clear();
@@ -959,7 +1010,7 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__EVENT_HISTORY:
 				getEventHistory().clear();
-				getEventHistory().addAll((Collection<? extends MedicationAdministrationEventHistory>)newValue);
+				getEventHistory().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -991,20 +1042,26 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__ENCOUNTER:
 				setEncounter((Reference)null);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME:
-				setEffectiveTimeDateTime((DateTime)null);
+			case FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION:
+				getSupportingInformation().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD:
-				setEffectiveTimePeriod((Period)null);
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME:
+				setEffectiveDateTime((DateTime)null);
+				return;
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD:
+				setEffectivePeriod((Period)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				setPerformer((Reference)null);
 				return;
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				setPrescription((Reference)null);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN:
-				setWasNotGiven((org.hl7.fhir.Boolean)null);
+			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
+				setNotGiven((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				getReasonNotGiven().clear();
@@ -1048,16 +1105,20 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return patient != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__ENCOUNTER:
 				return encounter != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_DATE_TIME:
-				return effectiveTimeDateTime != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_TIME_PERIOD:
-				return effectiveTimePeriod != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION:
+				return supportingInformation != null && !supportingInformation.isEmpty();
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_DATE_TIME:
+				return effectiveDateTime != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION__EFFECTIVE_PERIOD:
+				return effectivePeriod != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return performer != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return prescription != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION__WAS_NOT_GIVEN:
-				return wasNotGiven != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
+				return notGiven != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return reasonNotGiven != null && !reasonNotGiven.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN:

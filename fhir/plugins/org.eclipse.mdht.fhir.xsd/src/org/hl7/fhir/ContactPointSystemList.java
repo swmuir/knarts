@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -71,6 +61,16 @@ public enum ContactPointSystemList implements Enumerator {
 	PAGER(3, "pager", "pager"),
 
 	/**
+	 * The '<em><b>Url</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #URL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	URL(4, "url", "url"),
+
+	/**
 	 * The '<em><b>Other</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,7 +78,7 @@ public enum ContactPointSystemList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(4, "other", "other");
+	OTHER(5, "other", "other");
 
 	/**
 	 * The '<em><b>Phone</b></em>' literal value.
@@ -137,18 +137,32 @@ public enum ContactPointSystemList implements Enumerator {
 	public static final int PAGER_VALUE = 3;
 
 	/**
-	 * The '<em><b>Other</b></em>' literal value.
+	 * The '<em><b>Url</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * URL
+	 * <!-- end-model-doc -->
+	 * @see #URL
+	 * @model name="url"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int URL_VALUE = 4;
+
+	/**
+	 * The '<em><b>Other</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Other
 	 * <!-- end-model-doc -->
 	 * @see #OTHER
 	 * @model name="other"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OTHER_VALUE = 4;
+	public static final int OTHER_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Contact Point System List</b></em>' enumerators.
@@ -162,6 +176,7 @@ public enum ContactPointSystemList implements Enumerator {
 			FAX,
 			EMAIL,
 			PAGER,
+			URL,
 			OTHER,
 		};
 
@@ -223,6 +238,7 @@ public enum ContactPointSystemList implements Enumerator {
 			case FAX_VALUE: return FAX;
 			case EMAIL_VALUE: return EMAIL;
 			case PAGER_VALUE: return PAGER;
+			case URL_VALUE: return URL;
 			case OTHER_VALUE: return OTHER;
 		}
 		return null;

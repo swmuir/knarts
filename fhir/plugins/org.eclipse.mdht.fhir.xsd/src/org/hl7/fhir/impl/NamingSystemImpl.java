@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,14 +18,16 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.NamingSystem;
-import org.hl7.fhir.NamingSystemContact;
 import org.hl7.fhir.NamingSystemType;
 import org.hl7.fhir.NamingSystemUniqueId;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +47,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUniqueId <em>Unique Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getReplacedBy <em>Replaced By</em>}</li>
@@ -81,7 +74,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
@@ -121,7 +114,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NamingSystemContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getResponsible() <em>Responsible</em>}' containment reference.
@@ -151,7 +144,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
 	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
@@ -161,7 +154,17 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> useContext;
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getUsage() <em>Usage</em>}' containment reference.
@@ -260,7 +263,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -269,8 +272,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__STATUS, oldStatus, newStatus);
@@ -284,7 +287,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -432,9 +435,9 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NamingSystemContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<NamingSystemContact>(NamingSystemContact.class, this, FhirPackage.NAMING_SYSTEM__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.NAMING_SYSTEM__CONTACT);
 		}
 		return contact;
 	}
@@ -530,7 +533,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -539,8 +542,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__DESCRIPTION, oldDescription, newDescription);
@@ -554,7 +557,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -573,11 +576,23 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getUseContext() {
+	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
-			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NAMING_SYSTEM__USE_CONTEXT);
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.NAMING_SYSTEM__USE_CONTEXT);
 		}
 		return useContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NAMING_SYSTEM__JURISDICTION);
+		}
+		return jurisdiction;
 	}
 
 	/**
@@ -706,6 +721,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return basicSetDescription(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.NAMING_SYSTEM__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.NAMING_SYSTEM__USAGE:
 				return basicSetUsage(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
@@ -744,6 +761,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return getDescription();
 			case FhirPackage.NAMING_SYSTEM__USE_CONTEXT:
 				return getUseContext();
+			case FhirPackage.NAMING_SYSTEM__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.NAMING_SYSTEM__USAGE:
 				return getUsage();
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
@@ -767,7 +786,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				setKind((NamingSystemType)newValue);
@@ -780,7 +799,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return;
 			case FhirPackage.NAMING_SYSTEM__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends NamingSystemContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__RESPONSIBLE:
 				setResponsible((org.hl7.fhir.String)newValue);
@@ -789,11 +808,15 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__USE_CONTEXT:
 				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.NAMING_SYSTEM__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.NAMING_SYSTEM__USAGE:
 				setUsage((org.hl7.fhir.String)newValue);
@@ -821,7 +844,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__KIND:
 				setKind((NamingSystemType)null);
@@ -842,10 +865,13 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
 			case FhirPackage.NAMING_SYSTEM__USE_CONTEXT:
 				getUseContext().clear();
+				return;
+			case FhirPackage.NAMING_SYSTEM__JURISDICTION:
+				getJurisdiction().clear();
 				return;
 			case FhirPackage.NAMING_SYSTEM__USAGE:
 				setUsage((org.hl7.fhir.String)null);
@@ -888,6 +914,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return description != null;
 			case FhirPackage.NAMING_SYSTEM__USE_CONTEXT:
 				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.NAMING_SYSTEM__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.NAMING_SYSTEM__USAGE:
 				return usage != null;
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:

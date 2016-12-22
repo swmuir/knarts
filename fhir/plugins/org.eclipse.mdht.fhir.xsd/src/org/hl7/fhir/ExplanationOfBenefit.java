@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,61 +19,41 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimIdentifier <em>Claim Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimReference <em>Claim Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseIdentifier <em>Claim Response Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseReference <em>Claim Response Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalRuleset <em>Original Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getBillablePeriod <em>Billable Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getEnterer <em>Enterer</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getInsurer <em>Insurer</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getReferral <em>Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaim <em>Claim</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponse <em>Claim Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOrganizationReference <em>Organization Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getFacilityIdentifier <em>Facility Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getFacilityReference <em>Facility Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getRelated <em>Related</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPrescriptionIdentifier <em>Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPrescriptionReference <em>Prescription Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPrescription <em>Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescription <em>Original Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPayee <em>Payee</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getReferralIdentifier <em>Referral Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getReferralReference <em>Referral Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOccurrenceCode <em>Occurrence Code</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOccurenceSpanCode <em>Occurence Span Code</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getValueCode <em>Value Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getSpecialCondition <em>Special Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPatientIdentifier <em>Patient Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPatientReference <em>Patient Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPrecedence <em>Precedence</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentDate <em>Accident Date</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentType <em>Accident Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentLocationAddress <em>Accident Location Address</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentLocationReference <em>Accident Location Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getInterventionException <em>Intervention Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getOnset <em>Onset</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getInsurance <em>Insurance</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAccident <em>Accident</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getEmploymentImpacted <em>Employment Impacted</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getAddItem <em>Add Item</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getMissingTeeth <em>Missing Teeth</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getTotalCost <em>Total Cost</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getUnallocDeductable <em>Unalloc Deductable</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getTotalBenefit <em>Total Benefit</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAdjustment <em>Payment Adjustment</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAdjustmentReason <em>Payment Adjustment Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentDate <em>Payment Date</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAmount <em>Payment Amount</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentRef <em>Payment Ref</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getReserved <em>Reserved</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getBenefitBalance <em>Benefit Balance</em>}</li>
@@ -100,7 +70,7 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Response Business Identifier.
+	 * The EOB Business Identifier.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Identifier()
@@ -111,128 +81,46 @@ public interface ExplanationOfBenefit extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Claim Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Identifier</em>' containment reference.
-	 * @see #setClaimIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ClaimIdentifier()
+	 * <!-- begin-model-doc -->
+	 * The status of the resource instance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(ExplanationOfBenefitStatus)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Status()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getClaimIdentifier();
+	ExplanationOfBenefitStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaimIdentifier <em>Claim Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Identifier</em>' containment reference.
-	 * @see #getClaimIdentifier()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setClaimIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Claim Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Reference</em>' containment reference.
-	 * @see #setClaimReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ClaimReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getClaimReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaimReference <em>Claim Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Reference</em>' containment reference.
-	 * @see #getClaimReference()
-	 * @generated
-	 */
-	void setClaimReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Claim Response Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Response Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Response Identifier</em>' containment reference.
-	 * @see #setClaimResponseIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ClaimResponseIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimResponseIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getClaimResponseIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseIdentifier <em>Claim Response Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Response Identifier</em>' containment reference.
-	 * @see #getClaimResponseIdentifier()
-	 * @generated
-	 */
-	void setClaimResponseIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Claim Response Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Response Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Response Reference</em>' containment reference.
-	 * @see #setClaimResponseReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ClaimResponseReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimResponseReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getClaimResponseReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponseReference <em>Claim Response Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Response Reference</em>' containment reference.
-	 * @see #getClaimResponseReference()
-	 * @generated
-	 */
-	void setClaimResponseReference(Reference value);
+	void setStatus(ExplanationOfBenefitStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The category of claim.
+	 * The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(ClaimType2)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Type()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ClaimType2 getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getType <em>Type</em>}' containment reference.
@@ -242,11 +130,11 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(ClaimType2 value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -258,85 +146,33 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 *        extendedMetaData="kind='element' name='subType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getSubType();
+	EList<CodeableConcept> getSubType();
 
 	/**
-	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the specification on which this instance relies.
+	 * Patient Resource.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ruleset</em>' containment reference.
-	 * @see #setRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Ruleset()
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Patient()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getRuleset();
+	Reference getPatient();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getRuleset <em>Ruleset</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPatient <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ruleset</em>' containment reference.
-	 * @see #getRuleset()
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
 	 * @generated
 	 */
-	void setRuleset(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Ruleset</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The version of the specification from which the original instance was created.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #setOriginalRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OriginalRuleset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalRuleset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getOriginalRuleset();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalRuleset <em>Original Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #getOriginalRuleset()
-	 * @generated
-	 */
-	void setOriginalRuleset(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date when the EOB was created.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Created</em>' containment reference.
-	 * @see #setCreated(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Created()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getCreated();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getCreated <em>Created</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' containment reference.
-	 * @see #getCreated()
-	 * @generated
-	 */
-	void setCreated(DateTime value);
+	void setPatient(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Billable Period</b></em>' containment reference.
@@ -365,6 +201,266 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setBillablePeriod(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date when the EOB was created.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Created</em>' containment reference.
+	 * @see #setCreated(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Created()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getCreated();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getCreated <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created</em>' containment reference.
+	 * @see #getCreated()
+	 * @generated
+	 */
+	void setCreated(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Enterer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The person who created the explanation of benefit.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Enterer</em>' containment reference.
+	 * @see #setEnterer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Enterer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='enterer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEnterer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getEnterer <em>Enterer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enterer</em>' containment reference.
+	 * @see #getEnterer()
+	 * @generated
+	 */
+	void setEnterer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Insurer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The insurer which is responsible for the explanation of benefit.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Insurer</em>' containment reference.
+	 * @see #setInsurer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Insurer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getInsurer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getInsurer <em>Insurer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Insurer</em>' containment reference.
+	 * @see #getInsurer()
+	 * @generated
+	 */
+	void setInsurer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The provider which is responsible for the claim.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Provider</em>' containment reference.
+	 * @see #setProvider(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Provider()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='provider' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getProvider();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getProvider <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provider</em>' containment reference.
+	 * @see #getProvider()
+	 * @generated
+	 */
+	void setProvider(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The provider which is responsible for the claim.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Organization</em>' containment reference.
+	 * @see #setOrganization(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Organization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOrganization();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOrganization <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization</em>' containment reference.
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	void setOrganization(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Referral</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referral resource which lists the date, practitioner, reason and other supporting information.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Referral</em>' containment reference.
+	 * @see #setReferral(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Referral()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='referral' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getReferral();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getReferral <em>Referral</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Referral</em>' containment reference.
+	 * @see #getReferral()
+	 * @generated
+	 */
+	void setReferral(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Facility</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Facility where the services were provided.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Facility</em>' containment reference.
+	 * @see #setFacility(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Facility()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='facility' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getFacility();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getFacility <em>Facility</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Facility</em>' containment reference.
+	 * @see #getFacility()
+	 * @generated
+	 */
+	void setFacility(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Claim</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Claim</em>' containment reference.
+	 * @see #setClaim(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Claim()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='claim' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getClaim();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaim <em>Claim</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Claim</em>' containment reference.
+	 * @see #getClaim()
+	 * @generated
+	 */
+	void setClaim(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Claim Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Claim Response</em>' containment reference.
+	 * @see #setClaimResponse(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ClaimResponse()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='claimResponse' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getClaimResponse();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getClaimResponse <em>Claim Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Claim Response</em>' containment reference.
+	 * @see #getClaimResponse()
+	 * @generated
+	 */
+	void setClaimResponse(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Processing outcome errror, partial or complete processing.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Outcome</em>' containment reference.
+	 * @see #setOutcome(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Outcome()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getOutcome();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOutcome <em>Outcome</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Outcome</em>' containment reference.
+	 * @see #getOutcome()
+	 * @generated
+	 */
+	void setOutcome(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,168 +487,6 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setDisposition(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Provider Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #setProviderIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ProviderIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getProviderIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getProviderIdentifier <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Identifier</em>' containment reference.
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 */
-	void setProviderIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Provider Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provider Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #setProviderReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ProviderReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='providerReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getProviderReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getProviderReference <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider Reference</em>' containment reference.
-	 * @see #getProviderReference()
-	 * @generated
-	 */
-	void setProviderReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Organization Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Organization Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Organization Identifier</em>' containment reference.
-	 * @see #setOrganizationIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OrganizationIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organizationIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getOrganizationIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOrganizationIdentifier <em>Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization Identifier</em>' containment reference.
-	 * @see #getOrganizationIdentifier()
-	 * @generated
-	 */
-	void setOrganizationIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Organization Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Organization Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Organization Reference</em>' containment reference.
-	 * @see #setOrganizationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OrganizationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organizationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrganizationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOrganizationReference <em>Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization Reference</em>' containment reference.
-	 * @see #getOrganizationReference()
-	 * @generated
-	 */
-	void setOrganizationReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Facility Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Facility Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facility Identifier</em>' containment reference.
-	 * @see #setFacilityIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_FacilityIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='facilityIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getFacilityIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getFacilityIdentifier <em>Facility Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Facility Identifier</em>' containment reference.
-	 * @see #getFacilityIdentifier()
-	 * @generated
-	 */
-	void setFacilityIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Facility Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Facility Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facility Reference</em>' containment reference.
-	 * @see #setFacilityReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_FacilityReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='facilityReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getFacilityReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getFacilityReference <em>Facility Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Facility Reference</em>' containment reference.
-	 * @see #getFacilityReference()
-	 * @generated
-	 */
-	void setFacilityReference(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Related</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitRelated}.
 	 * <!-- begin-user-doc -->
@@ -569,112 +503,56 @@ public interface ExplanationOfBenefit extends DomainResource {
 	EList<ExplanationOfBenefitRelated> getRelated();
 
 	/**
-	 * Returns the value of the '<em><b>Prescription Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Prescription Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prescription Identifier</em>' containment reference.
-	 * @see #setPrescriptionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PrescriptionIdentifier()
+	 * <!-- begin-model-doc -->
+	 * Prescription to support the dispensing of Pharmacy or Vision products.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Prescription</em>' containment reference.
+	 * @see #setPrescription(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Prescription()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescriptionIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='prescription' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getPrescriptionIdentifier();
+	Reference getPrescription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPrescriptionIdentifier <em>Prescription Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPrescription <em>Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescription Identifier</em>' containment reference.
-	 * @see #getPrescriptionIdentifier()
+	 * @param value the new value of the '<em>Prescription</em>' containment reference.
+	 * @see #getPrescription()
 	 * @generated
 	 */
-	void setPrescriptionIdentifier(Identifier value);
+	void setPrescription(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Prescription Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Original Prescription</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Prescription Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prescription Reference</em>' containment reference.
-	 * @see #setPrescriptionReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PrescriptionReference()
+	 * <!-- begin-model-doc -->
+	 * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Original Prescription</em>' containment reference.
+	 * @see #setOriginalPrescription(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OriginalPrescription()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescriptionReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='originalPrescription' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPrescriptionReference();
+	Reference getOriginalPrescription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPrescriptionReference <em>Prescription Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescription <em>Original Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescription Reference</em>' containment reference.
-	 * @see #getPrescriptionReference()
+	 * @param value the new value of the '<em>Original Prescription</em>' containment reference.
+	 * @see #getOriginalPrescription()
 	 * @generated
 	 */
-	void setPrescriptionReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Prescription Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Original Prescription Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Original Prescription Identifier</em>' containment reference.
-	 * @see #setOriginalPrescriptionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OriginalPrescriptionIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalPrescriptionIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getOriginalPrescriptionIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Prescription Identifier</em>' containment reference.
-	 * @see #getOriginalPrescriptionIdentifier()
-	 * @generated
-	 */
-	void setOriginalPrescriptionIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Prescription Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Original Prescription Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Original Prescription Reference</em>' containment reference.
-	 * @see #setOriginalPrescriptionReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OriginalPrescriptionReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalPrescriptionReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOriginalPrescriptionReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Prescription Reference</em>' containment reference.
-	 * @see #getOriginalPrescriptionReference()
-	 * @generated
-	 */
-	void setOriginalPrescriptionReference(Reference value);
+	void setOriginalPrescription(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
@@ -703,106 +581,36 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setPayee(ExplanationOfBenefitPayee value);
 
 	/**
-	 * Returns the value of the '<em><b>Referral Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Referral Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referral Identifier</em>' containment reference.
-	 * @see #setReferralIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ReferralIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referralIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getReferralIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getReferralIdentifier <em>Referral Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referral Identifier</em>' containment reference.
-	 * @see #getReferralIdentifier()
-	 * @generated
-	 */
-	void setReferralIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Referral Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Referral Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referral Reference</em>' containment reference.
-	 * @see #setReferralReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ReferralReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referralReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReferralReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getReferralReference <em>Referral Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referral Reference</em>' containment reference.
-	 * @see #getReferralReference()
-	 * @generated
-	 */
-	void setReferralReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Occurrence Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitInformation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * **Insert definition of Occurrence codes.
+	 * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Occurrence Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OccurrenceCode()
+	 * @return the value of the '<em>Information</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Information()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurrenceCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='information' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getOccurrenceCode();
+	EList<ExplanationOfBenefitInformation> getInformation();
 
 	/**
-	 * Returns the value of the '<em><b>Occurence Span Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitCareTeam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * **Insert definition of Occurrence Span codes.
+	 * The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Occurence Span Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_OccurenceSpanCode()
+	 * @return the value of the '<em>Care Team</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_CareTeam()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurenceSpanCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeam' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getOccurenceSpanCode();
-
-	/**
-	 * Returns the value of the '<em><b>Value Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * **Insert definition of Value codes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ValueCode()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueCode' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getValueCode();
+	EList<ExplanationOfBenefitCareTeam> getCareTeam();
 
 	/**
 	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
@@ -837,76 +645,6 @@ public interface ExplanationOfBenefit extends DomainResource {
 	EList<ExplanationOfBenefitProcedure> getProcedure();
 
 	/**
-	 * Returns the value of the '<em><b>Special Condition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Special Condition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_SpecialCondition()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specialCondition' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getSpecialCondition();
-
-	/**
-	 * Returns the value of the '<em><b>Patient Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Patient Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patient Identifier</em>' containment reference.
-	 * @see #setPatientIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PatientIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patientIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getPatientIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPatientIdentifier <em>Patient Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient Identifier</em>' containment reference.
-	 * @see #getPatientIdentifier()
-	 * @generated
-	 */
-	void setPatientIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Patient Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Patient Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patient Reference</em>' containment reference.
-	 * @see #setPatientReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PatientReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patientReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatientReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPatientReference <em>Patient Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient Reference</em>' containment reference.
-	 * @see #getPatientReference()
-	 * @generated
-	 */
-	void setPatientReference(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Precedence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -933,168 +671,56 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setPrecedence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Insurance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Financial instrument by which payment information for health care.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Coverage</em>' containment reference.
-	 * @see #setCoverage(ExplanationOfBenefitCoverage)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Coverage()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='coverage' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Insurance</em>' containment reference.
+	 * @see #setInsurance(ExplanationOfBenefitInsurance)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Insurance()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExplanationOfBenefitCoverage getCoverage();
+	ExplanationOfBenefitInsurance getInsurance();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getCoverage <em>Coverage</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getInsurance <em>Insurance</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Coverage</em>' containment reference.
-	 * @see #getCoverage()
+	 * @param value the new value of the '<em>Insurance</em>' containment reference.
+	 * @see #getInsurance()
 	 * @generated
 	 */
-	void setCoverage(ExplanationOfBenefitCoverage value);
+	void setInsurance(ExplanationOfBenefitInsurance value);
 
 	/**
-	 * Returns the value of the '<em><b>Accident Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Accident</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date of an accident which these services are addressing.
+	 * An accident which resulted in the need for healthcare services.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accident Date</em>' containment reference.
-	 * @see #setAccidentDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_AccidentDate()
+	 * @return the value of the '<em>Accident</em>' containment reference.
+	 * @see #setAccident(ExplanationOfBenefitAccident)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Accident()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='accident' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getAccidentDate();
+	ExplanationOfBenefitAccident getAccident();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentDate <em>Accident Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getAccident <em>Accident</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Date</em>' containment reference.
-	 * @see #getAccidentDate()
+	 * @param value the new value of the '<em>Accident</em>' containment reference.
+	 * @see #getAccident()
 	 * @generated
 	 */
-	void setAccidentDate(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Type of accident: work, auto, etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accident Type</em>' containment reference.
-	 * @see #setAccidentType(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_AccidentType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getAccidentType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentType <em>Accident Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Type</em>' containment reference.
-	 * @see #getAccidentType()
-	 * @generated
-	 */
-	void setAccidentType(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Location Address</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Accident Location Address</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accident Location Address</em>' containment reference.
-	 * @see #setAccidentLocationAddress(Address)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_AccidentLocationAddress()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentLocationAddress' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Address getAccidentLocationAddress();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentLocationAddress <em>Accident Location Address</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Location Address</em>' containment reference.
-	 * @see #getAccidentLocationAddress()
-	 * @generated
-	 */
-	void setAccidentLocationAddress(Address value);
-
-	/**
-	 * Returns the value of the '<em><b>Accident Location Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Accident Location Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accident Location Reference</em>' containment reference.
-	 * @see #setAccidentLocationReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_AccidentLocationReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='accidentLocationReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getAccidentLocationReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getAccidentLocationReference <em>Accident Location Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accident Location Reference</em>' containment reference.
-	 * @see #getAccidentLocationReference()
-	 * @generated
-	 */
-	void setAccidentLocationReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Intervention Exception</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of intervention and exception codes which may influence the adjudication of the claim.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Intervention Exception</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_InterventionException()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='interventionException' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getInterventionException();
-
-	/**
-	 * Returns the value of the '<em><b>Onset</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitOnset}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Period, start and last dates of aspects of the Condition or related services.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Onset</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Onset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ExplanationOfBenefitOnset> getOnset();
+	void setAccident(ExplanationOfBenefitAccident value);
 
 	/**
 	 * Returns the value of the '<em><b>Employment Impacted</b></em>' containment reference.
@@ -1181,22 +807,6 @@ public interface ExplanationOfBenefit extends DomainResource {
 	EList<ExplanationOfBenefitAddItem> getAddItem();
 
 	/**
-	 * Returns the value of the '<em><b>Missing Teeth</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitMissingTeeth}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Missing Teeth</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_MissingTeeth()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='missingTeeth' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ExplanationOfBenefitMissingTeeth> getMissingTeeth();
-
-	/**
 	 * Returns the value of the '<em><b>Total Cost</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1275,160 +885,30 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setTotalBenefit(Money value);
 
 	/**
-	 * Returns the value of the '<em><b>Payment Adjustment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
+	 * Payment details for the claim if the claim has been paid.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payment Adjustment</em>' containment reference.
-	 * @see #setPaymentAdjustment(Money)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PaymentAdjustment()
+	 * @return the value of the '<em>Payment</em>' containment reference.
+	 * @see #setPayment(ExplanationOfBenefitPayment)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Payment()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='paymentAdjustment' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='payment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Money getPaymentAdjustment();
+	ExplanationOfBenefitPayment getPayment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAdjustment <em>Payment Adjustment</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPayment <em>Payment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Adjustment</em>' containment reference.
-	 * @see #getPaymentAdjustment()
+	 * @param value the new value of the '<em>Payment</em>' containment reference.
+	 * @see #getPayment()
 	 * @generated
 	 */
-	void setPaymentAdjustment(Money value);
-
-	/**
-	 * Returns the value of the '<em><b>Payment Adjustment Reason</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reason for the payment adjustment.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payment Adjustment Reason</em>' containment reference.
-	 * @see #setPaymentAdjustmentReason(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PaymentAdjustmentReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='paymentAdjustmentReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getPaymentAdjustmentReason();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAdjustmentReason <em>Payment Adjustment Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Adjustment Reason</em>' containment reference.
-	 * @see #getPaymentAdjustmentReason()
-	 * @generated
-	 */
-	void setPaymentAdjustmentReason(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Payment Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Estimated payment data.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payment Date</em>' containment reference.
-	 * @see #setPaymentDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PaymentDate()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='paymentDate' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Date getPaymentDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentDate <em>Payment Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Date</em>' containment reference.
-	 * @see #getPaymentDate()
-	 * @generated
-	 */
-	void setPaymentDate(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Payment Amount</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Payable less any payment adjustment.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payment Amount</em>' containment reference.
-	 * @see #setPaymentAmount(Money)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PaymentAmount()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='paymentAmount' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Money getPaymentAmount();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentAmount <em>Payment Amount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Amount</em>' containment reference.
-	 * @see #getPaymentAmount()
-	 * @generated
-	 */
-	void setPaymentAmount(Money value);
-
-	/**
-	 * Returns the value of the '<em><b>Payment Ref</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Payment identifer.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payment Ref</em>' containment reference.
-	 * @see #setPaymentRef(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_PaymentRef()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='paymentRef' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getPaymentRef();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getPaymentRef <em>Payment Ref</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Ref</em>' containment reference.
-	 * @see #getPaymentRef()
-	 * @generated
-	 */
-	void setPaymentRef(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Reserved</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Status of funds reservation (For provider, for Patient, None).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reserved</em>' containment reference.
-	 * @see #setReserved(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Reserved()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reserved' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getReserved();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getReserved <em>Reserved</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reserved</em>' containment reference.
-	 * @see #getReserved()
-	 * @generated
-	 */
-	void setReserved(Coding value);
+	void setPayment(ExplanationOfBenefitPayment value);
 
 	/**
 	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
@@ -1438,13 +918,13 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * The form to be used for printing the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Form</em>' containment reference.
-	 * @see #setForm(Coding)
+	 * @see #setForm(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Form()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getForm();
+	CodeableConcept getForm();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getForm <em>Form</em>}' containment reference.
@@ -1454,7 +934,7 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * @see #getForm()
 	 * @generated
 	 */
-	void setForm(Coding value);
+	void setForm(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

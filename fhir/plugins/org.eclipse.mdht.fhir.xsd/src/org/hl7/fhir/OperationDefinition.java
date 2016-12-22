@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -39,15 +29,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.OperationDefinition#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.OperationDefinition#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getIdempotent <em>Idempotent</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getBase <em>Base</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getOverload <em>Overload</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getOperationDefinition()
@@ -60,7 +53,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published.
+	 * An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published. The URL SHOULD include the major version of the operation definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -86,7 +79,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+	 * The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -112,7 +105,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language name identifying the operation.
+	 * A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -138,16 +131,16 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the profile.
+	 * The status of this operation definition. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getStatus <em>Status</em>}' containment reference.
@@ -157,7 +150,7 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
@@ -190,7 +183,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A flag to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -216,7 +209,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
+	 * The date  (and optionally time) when the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -265,11 +258,11 @@ public interface OperationDefinition extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.OperationDefinitionContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Contact()
@@ -277,23 +270,23 @@ public interface OperationDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<OperationDefinitionContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the profile and its use.
+	 * A free text natural language description of the operation definition from the consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getDescription <em>Description</em>}' containment reference.
@@ -303,15 +296,15 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_UseContext()
@@ -319,33 +312,49 @@ public interface OperationDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getUseContext();
+	EList<UsageContext> getUseContext();
 
 	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this operation definition is needed and why it's been constrained as it has.
+	 * A jurisdiction in which the operation definition is intended to be used.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requirements</em>' containment reference.
-	 * @see #setRequirements(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Requirements()
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Jurisdiction()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requirements' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getRequirements();
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getRequirements <em>Requirements</em>}' containment reference.
+	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requirements</em>' containment reference.
-	 * @see #getRequirements()
+	 * <!-- begin-model-doc -->
+	 * Explains why this operation definition is needed and why it has been designed as it has.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Purpose</em>' containment reference.
+	 * @see #setPurpose(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Purpose()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='purpose' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setRequirements(org.hl7.fhir.String value);
+	Markdown getPurpose();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getPurpose <em>Purpose</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Purpose</em>' containment reference.
+	 * @see #getPurpose()
+	 * @generated
+	 */
+	void setPurpose(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Idempotent</b></em>' containment reference.
@@ -452,6 +461,22 @@ public interface OperationDefinition extends DomainResource {
 	void setBase(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Resource</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The types on which this operation can be executed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resource</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Resource()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Code> getResource();
+
+	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -478,20 +503,30 @@ public interface OperationDefinition extends DomainResource {
 	void setSystem(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
+	 * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Type()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Code> getType();
+	org.hl7.fhir.Boolean getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' containment reference.
@@ -534,5 +569,21 @@ public interface OperationDefinition extends DomainResource {
 	 * @generated
 	 */
 	EList<OperationDefinitionParameter> getParameter();
+
+	/**
+	 * Returns the value of the '<em><b>Overload</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.OperationDefinitionOverload}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines an appropriate combination of parameters to use when invoking this operation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Overload</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Overload()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='overload' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<OperationDefinitionOverload> getOverload();
 
 } // OperationDefinition

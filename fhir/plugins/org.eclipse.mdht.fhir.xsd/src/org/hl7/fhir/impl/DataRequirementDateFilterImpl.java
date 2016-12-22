@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -22,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.DataRequirementDateFilter;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 
@@ -36,6 +27,7 @@ import org.hl7.fhir.Period;
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValuePeriod <em>Value Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValueDuration <em>Value Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +62,16 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 	 * @ordered
 	 */
 	protected Period valuePeriod;
+
+	/**
+	 * The cached value of the '{@link #getValueDuration() <em>Value Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration valueDuration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +226,49 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Duration getValueDuration() {
+		return valueDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDuration(Duration newValueDuration, NotificationChain msgs) {
+		Duration oldValueDuration = valueDuration;
+		valueDuration = newValueDuration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION, oldValueDuration, newValueDuration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDuration(Duration newValueDuration) {
+		if (newValueDuration != valueDuration) {
+			NotificationChain msgs = null;
+			if (valueDuration != null)
+				msgs = ((InternalEObject)valueDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION, null, msgs);
+			if (newValueDuration != null)
+				msgs = ((InternalEObject)newValueDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION, null, msgs);
+			msgs = basicSetValueDuration(newValueDuration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION, newValueDuration, newValueDuration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -233,6 +278,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 				return basicSetValueDateTime(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
 				return basicSetValuePeriod(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION:
+				return basicSetValueDuration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -251,6 +298,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 				return getValueDateTime();
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
 				return getValuePeriod();
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION:
+				return getValueDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,6 +320,9 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 				return;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
 				setValuePeriod((Period)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION:
+				setValueDuration((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,6 +345,9 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
 				setValuePeriod((Period)null);
 				return;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION:
+				setValueDuration((Duration)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -311,6 +366,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 				return valueDateTime != null;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
 				return valuePeriod != null;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DURATION:
+				return valueDuration != null;
 		}
 		return super.eIsSet(featureID);
 	}

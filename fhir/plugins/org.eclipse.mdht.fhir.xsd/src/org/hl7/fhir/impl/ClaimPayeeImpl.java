@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ClaimPayee;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
 /**
@@ -35,8 +25,8 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getPartyIdentifier <em>Party Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getPartyReference <em>Party Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getResourceType <em>Resource Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getParty <em>Party</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,27 +40,27 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getPartyIdentifier() <em>Party Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getResourceType() <em>Resource Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPartyIdentifier()
+	 * @see #getResourceType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier partyIdentifier;
+	protected Coding resourceType;
 
 	/**
-	 * The cached value of the '{@link #getPartyReference() <em>Party Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getParty() <em>Party</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPartyReference()
+	 * @see #getParty()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference partyReference;
+	protected Reference party;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,7 +86,7 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -105,8 +95,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__TYPE, oldType, newType);
@@ -120,7 +110,7 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -139,8 +129,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getPartyIdentifier() {
-		return partyIdentifier;
+	public Coding getResourceType() {
+		return resourceType;
 	}
 
 	/**
@@ -148,11 +138,11 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPartyIdentifier(Identifier newPartyIdentifier, NotificationChain msgs) {
-		Identifier oldPartyIdentifier = partyIdentifier;
-		partyIdentifier = newPartyIdentifier;
+	public NotificationChain basicSetResourceType(Coding newResourceType, NotificationChain msgs) {
+		Coding oldResourceType = resourceType;
+		resourceType = newResourceType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER, oldPartyIdentifier, newPartyIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, oldResourceType, newResourceType);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -163,18 +153,18 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPartyIdentifier(Identifier newPartyIdentifier) {
-		if (newPartyIdentifier != partyIdentifier) {
+	public void setResourceType(Coding newResourceType) {
+		if (newResourceType != resourceType) {
 			NotificationChain msgs = null;
-			if (partyIdentifier != null)
-				msgs = ((InternalEObject)partyIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER, null, msgs);
-			if (newPartyIdentifier != null)
-				msgs = ((InternalEObject)newPartyIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER, null, msgs);
-			msgs = basicSetPartyIdentifier(newPartyIdentifier, msgs);
+			if (resourceType != null)
+				msgs = ((InternalEObject)resourceType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, null, msgs);
+			if (newResourceType != null)
+				msgs = ((InternalEObject)newResourceType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, null, msgs);
+			msgs = basicSetResourceType(newResourceType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER, newPartyIdentifier, newPartyIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, newResourceType, newResourceType));
 	}
 
 	/**
@@ -182,8 +172,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPartyReference() {
-		return partyReference;
+	public Reference getParty() {
+		return party;
 	}
 
 	/**
@@ -191,11 +181,11 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPartyReference(Reference newPartyReference, NotificationChain msgs) {
-		Reference oldPartyReference = partyReference;
-		partyReference = newPartyReference;
+	public NotificationChain basicSetParty(Reference newParty, NotificationChain msgs) {
+		Reference oldParty = party;
+		party = newParty;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE, oldPartyReference, newPartyReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY, oldParty, newParty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -206,18 +196,18 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPartyReference(Reference newPartyReference) {
-		if (newPartyReference != partyReference) {
+	public void setParty(Reference newParty) {
+		if (newParty != party) {
 			NotificationChain msgs = null;
-			if (partyReference != null)
-				msgs = ((InternalEObject)partyReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE, null, msgs);
-			if (newPartyReference != null)
-				msgs = ((InternalEObject)newPartyReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE, null, msgs);
-			msgs = basicSetPartyReference(newPartyReference, msgs);
+			if (party != null)
+				msgs = ((InternalEObject)party).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY, null, msgs);
+			if (newParty != null)
+				msgs = ((InternalEObject)newParty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__PARTY, null, msgs);
+			msgs = basicSetParty(newParty, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE, newPartyReference, newPartyReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__PARTY, newParty, newParty));
 	}
 
 	/**
@@ -230,10 +220,10 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER:
-				return basicSetPartyIdentifier(null, msgs);
-			case FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE:
-				return basicSetPartyReference(null, msgs);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
+				return basicSetResourceType(null, msgs);
+			case FhirPackage.CLAIM_PAYEE__PARTY:
+				return basicSetParty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,10 +238,10 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return getType();
-			case FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER:
-				return getPartyIdentifier();
-			case FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE:
-				return getPartyReference();
+			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
+				return getResourceType();
+			case FhirPackage.CLAIM_PAYEE__PARTY:
+				return getParty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,13 +255,13 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER:
-				setPartyIdentifier((Identifier)newValue);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
+				setResourceType((Coding)newValue);
 				return;
-			case FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE:
-				setPartyReference((Reference)newValue);
+			case FhirPackage.CLAIM_PAYEE__PARTY:
+				setParty((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,13 +276,13 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER:
-				setPartyIdentifier((Identifier)null);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
+				setResourceType((Coding)null);
 				return;
-			case FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE:
-				setPartyReference((Reference)null);
+			case FhirPackage.CLAIM_PAYEE__PARTY:
+				setParty((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -308,10 +298,10 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return type != null;
-			case FhirPackage.CLAIM_PAYEE__PARTY_IDENTIFIER:
-				return partyIdentifier != null;
-			case FhirPackage.CLAIM_PAYEE__PARTY_REFERENCE:
-				return partyReference != null;
+			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
+				return resourceType != null;
+			case FhirPackage.CLAIM_PAYEE__PARTY:
+				return party != null;
 		}
 		return super.eIsSet(featureID);
 	}

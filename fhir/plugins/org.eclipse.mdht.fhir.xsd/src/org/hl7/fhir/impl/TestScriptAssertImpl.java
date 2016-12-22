@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -43,13 +33,16 @@ import org.hl7.fhir.TestScriptRuleset1;
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getCompareToSourceId <em>Compare To Source Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getCompareToSourceExpression <em>Compare To Source Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getCompareToSourcePath <em>Compare To Source Path</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getHeaderField <em>Header Field</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getMinimumId <em>Minimum Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getNavigationLinks <em>Navigation Links</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getRequestURL <em>Request URL</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getResponseCode <em>Response Code</em>}</li>
@@ -105,6 +98,16 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	protected org.hl7.fhir.String compareToSourceId;
 
 	/**
+	 * The cached value of the '{@link #getCompareToSourceExpression() <em>Compare To Source Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompareToSourceExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String compareToSourceExpression;
+
+	/**
 	 * The cached value of the '{@link #getCompareToSourcePath() <em>Compare To Source Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +126,16 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * @ordered
 	 */
 	protected ContentType contentType;
+
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String expression;
 
 	/**
 	 * The cached value of the '{@link #getHeaderField() <em>Header Field</em>}' containment reference.
@@ -173,6 +186,16 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String path;
+
+	/**
+	 * The cached value of the '{@link #getRequestURL() <em>Request URL</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String requestURL;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -460,6 +483,49 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getCompareToSourceExpression() {
+		return compareToSourceExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCompareToSourceExpression(org.hl7.fhir.String newCompareToSourceExpression, NotificationChain msgs) {
+		org.hl7.fhir.String oldCompareToSourceExpression = compareToSourceExpression;
+		compareToSourceExpression = newCompareToSourceExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION, oldCompareToSourceExpression, newCompareToSourceExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompareToSourceExpression(org.hl7.fhir.String newCompareToSourceExpression) {
+		if (newCompareToSourceExpression != compareToSourceExpression) {
+			NotificationChain msgs = null;
+			if (compareToSourceExpression != null)
+				msgs = ((InternalEObject)compareToSourceExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION, null, msgs);
+			if (newCompareToSourceExpression != null)
+				msgs = ((InternalEObject)newCompareToSourceExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION, null, msgs);
+			msgs = basicSetCompareToSourceExpression(newCompareToSourceExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION, newCompareToSourceExpression, newCompareToSourceExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getCompareToSourcePath() {
 		return compareToSourcePath;
 	}
@@ -539,6 +605,49 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE, newContentType, newContentType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getExpression() {
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpression(org.hl7.fhir.String newExpression, NotificationChain msgs) {
+		org.hl7.fhir.String oldExpression = expression;
+		expression = newExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION, oldExpression, newExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpression(org.hl7.fhir.String newExpression) {
+		if (newExpression != expression) {
+			NotificationChain msgs = null;
+			if (expression != null)
+				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION, null, msgs);
+			if (newExpression != null)
+				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION, null, msgs);
+			msgs = basicSetExpression(newExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION, newExpression, newExpression));
 	}
 
 	/**
@@ -754,6 +863,49 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__PATH, newPath, newPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getRequestURL() {
+		return requestURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestURL(org.hl7.fhir.String newRequestURL, NotificationChain msgs) {
+		org.hl7.fhir.String oldRequestURL = requestURL;
+		requestURL = newRequestURL;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL, oldRequestURL, newRequestURL);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestURL(org.hl7.fhir.String newRequestURL) {
+		if (newRequestURL != requestURL) {
+			NotificationChain msgs = null;
+			if (requestURL != null)
+				msgs = ((InternalEObject)requestURL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL, null, msgs);
+			if (newRequestURL != null)
+				msgs = ((InternalEObject)newRequestURL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL, null, msgs);
+			msgs = basicSetRequestURL(newRequestURL, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL, newRequestURL, newRequestURL));
 	}
 
 	/**
@@ -1159,10 +1311,14 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return basicSetDirection(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_ID:
 				return basicSetCompareToSourceId(null, msgs);
+			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION:
+				return basicSetCompareToSourceExpression(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_PATH:
 				return basicSetCompareToSourcePath(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE:
 				return basicSetContentType(null, msgs);
+			case FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION:
+				return basicSetExpression(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__HEADER_FIELD:
 				return basicSetHeaderField(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__MINIMUM_ID:
@@ -1173,6 +1329,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return basicSetOperator(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return basicSetPath(null, msgs);
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
+				return basicSetRequestURL(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
 				return basicSetResource(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESPONSE:
@@ -1211,10 +1369,14 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return getDirection();
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_ID:
 				return getCompareToSourceId();
+			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION:
+				return getCompareToSourceExpression();
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_PATH:
 				return getCompareToSourcePath();
 			case FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE:
 				return getContentType();
+			case FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION:
+				return getExpression();
 			case FhirPackage.TEST_SCRIPT_ASSERT__HEADER_FIELD:
 				return getHeaderField();
 			case FhirPackage.TEST_SCRIPT_ASSERT__MINIMUM_ID:
@@ -1225,6 +1387,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return getOperator();
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return getPath();
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
+				return getRequestURL();
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
 				return getResource();
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESPONSE:
@@ -1267,11 +1431,17 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_ID:
 				setCompareToSourceId((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION:
+				setCompareToSourceExpression((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_PATH:
 				setCompareToSourcePath((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE:
 				setContentType((ContentType)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION:
+				setExpression((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__HEADER_FIELD:
 				setHeaderField((org.hl7.fhir.String)newValue);
@@ -1287,6 +1457,9 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				setPath((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
+				setRequestURL((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
 				setResource((Code)newValue);
@@ -1339,11 +1512,17 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_ID:
 				setCompareToSourceId((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION:
+				setCompareToSourceExpression((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_PATH:
 				setCompareToSourcePath((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE:
 				setContentType((ContentType)null);
+				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION:
+				setExpression((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__HEADER_FIELD:
 				setHeaderField((org.hl7.fhir.String)null);
@@ -1359,6 +1538,9 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				setPath((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
+				setRequestURL((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
 				setResource((Code)null);
@@ -1407,10 +1589,14 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return direction != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_ID:
 				return compareToSourceId != null;
+			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_EXPRESSION:
+				return compareToSourceExpression != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__COMPARE_TO_SOURCE_PATH:
 				return compareToSourcePath != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__CONTENT_TYPE:
 				return contentType != null;
+			case FhirPackage.TEST_SCRIPT_ASSERT__EXPRESSION:
+				return expression != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__HEADER_FIELD:
 				return headerField != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__MINIMUM_ID:
@@ -1421,6 +1607,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return operator != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return path != null;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
+				return requestURL != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
 				return resource != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESPONSE:

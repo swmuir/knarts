@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,7 +17,8 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.SubstanceIngredient#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceIngredient#getSubstance <em>Substance</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceIngredient#getSubstanceCodeableConcept <em>Substance Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceIngredient#getSubstanceReference <em>Substance Reference</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceIngredient()
@@ -62,29 +53,57 @@ public interface SubstanceIngredient extends BackboneElement {
 	void setQuantity(Ratio value);
 
 	/**
-	 * Returns the value of the '<em><b>Substance</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Substance Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Substance Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Another substance that is a component of this substance.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substance</em>' containment reference.
-	 * @see #setSubstance(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceIngredient_Substance()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='substance' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Substance Codeable Concept</em>' containment reference.
+	 * @see #setSubstanceCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceIngredient_SubstanceCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='substanceCodeableConcept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubstance();
+	CodeableConcept getSubstanceCodeableConcept();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceIngredient#getSubstance <em>Substance</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceIngredient#getSubstanceCodeableConcept <em>Substance Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Substance</em>' containment reference.
-	 * @see #getSubstance()
+	 * @param value the new value of the '<em>Substance Codeable Concept</em>' containment reference.
+	 * @see #getSubstanceCodeableConcept()
 	 * @generated
 	 */
-	void setSubstance(Reference value);
+	void setSubstanceCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Substance Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Substance Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Substance Reference</em>' containment reference.
+	 * @see #setSubstanceReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceIngredient_SubstanceReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='substanceReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubstanceReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceIngredient#getSubstanceReference <em>Substance Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Substance Reference</em>' containment reference.
+	 * @see #getSubstanceReference()
+	 * @generated
+	 */
+	void setSubstanceReference(Reference value);
 
 } // SubstanceIngredient

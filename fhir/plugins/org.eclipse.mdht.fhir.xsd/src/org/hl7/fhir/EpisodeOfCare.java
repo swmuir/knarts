@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -39,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getReferralRequest <em>Referral Request</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getCareManager <em>Care Manager</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getTeam <em>Team</em>}</li>
+ *   <li>{@link org.hl7.fhir.EpisodeOfCare#getAccount <em>Account</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEpisodeOfCare()
@@ -271,5 +262,21 @@ public interface EpisodeOfCare extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getTeam();
+
+	/**
+	 * Returns the value of the '<em><b>Account</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The set of accounts that may be used for billing for this EpisodeOfCare.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Account</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEpisodeOfCare_Account()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='account' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getAccount();
 
 } // EpisodeOfCare

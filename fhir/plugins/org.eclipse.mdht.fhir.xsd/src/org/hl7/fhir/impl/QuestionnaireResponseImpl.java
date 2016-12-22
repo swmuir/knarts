@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -44,13 +34,15 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getItem <em>Item</em>}</li>
  * </ul>
  *
@@ -66,6 +58,26 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * @ordered
 	 */
 	protected Identifier identifier;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> parent;
 
 	/**
 	 * The cached value of the '{@link #getQuestionnaire() <em>Questionnaire</em>}' containment reference.
@@ -98,6 +110,16 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	protected Reference subject;
 
 	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference context;
+
+	/**
 	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,16 +148,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * @ordered
 	 */
 	protected Reference source;
-
-	/**
-	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEncounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
@@ -207,6 +219,30 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON);
+		}
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getParent() {
+		if (parent == null) {
+			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT);
+		}
+		return parent;
 	}
 
 	/**
@@ -343,6 +379,49 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getAuthor() {
 		return author;
 	}
@@ -472,49 +551,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEncounter() {
-		return encounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, oldEncounter, newEncounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
-			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, newEncounter, newEncounter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<QuestionnaireResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM);
@@ -532,20 +568,24 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
+				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return basicSetQuestionnaire(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
 				return basicSetAuthor(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return basicSetAuthored(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SOURCE:
 				return basicSetSource(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 		}
@@ -562,20 +602,24 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
+				return getParent();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return getQuestionnaire();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
 				return getStatus();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return getSubject();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
+				return getContext();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
 				return getAuthor();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return getAuthored();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SOURCE:
 				return getSource();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
-				return getEncounter();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
 				return getItem();
 		}
@@ -594,6 +638,14 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
 				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
+				getParent().clear();
+				getParent().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				setQuestionnaire((Reference)newValue);
 				return;
@@ -603,6 +655,9 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
+				setContext((Reference)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
 				setAuthor((Reference)newValue);
 				return;
@@ -611,9 +666,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SOURCE:
 				setSource((Reference)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
-				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
 				getItem().clear();
@@ -634,6 +686,12 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
+				getBasedOn().clear();
+				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
+				getParent().clear();
+				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				setQuestionnaire((Reference)null);
 				return;
@@ -643,6 +701,9 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				setSubject((Reference)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
+				setContext((Reference)null);
+				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
 				setAuthor((Reference)null);
 				return;
@@ -651,9 +712,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SOURCE:
 				setSource((Reference)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
-				setEncounter((Reference)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
 				getItem().clear();
@@ -672,20 +730,24 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__IDENTIFIER:
 				return identifier != null;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
+				return parent != null && !parent.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return questionnaire != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
 				return status != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return subject != null;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
+				return context != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
 				return author != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return authored != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SOURCE:
 				return source != null;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
-				return encounter != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM:
 				return item != null && !item.isEmpty();
 		}

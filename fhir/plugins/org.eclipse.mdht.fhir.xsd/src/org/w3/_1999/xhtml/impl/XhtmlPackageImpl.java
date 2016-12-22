@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -107,13 +97,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass baseTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass bdoTypeEClass = null;
 
 	/**
@@ -142,13 +125,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bodyTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass brTypeEClass = null;
 
 	/**
@@ -157,20 +133,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EClass bTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass buttonContentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass buttonTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,13 +181,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass delTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass dfnTypeEClass = null;
 
 	/**
@@ -268,28 +223,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass fieldsetTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass flowEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass formContentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass formTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -338,21 +272,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass headTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass hrTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass htmlTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -373,20 +293,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass inputType1EClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass insTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass iTypeEClass = null;
 
 	/**
@@ -395,27 +301,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EClass kbdTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass labelTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass legendTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass linkTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -436,49 +321,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass metaTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass noscriptTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass objectTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass olTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optgroupTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass paramTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -520,20 +363,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass scriptTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass selectTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass smallTypeEClass = null;
 
 	/**
@@ -549,13 +378,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EClass strongTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass styleTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -597,13 +419,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textareaTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass tfootTypeEClass = null;
 
 	/**
@@ -619,13 +434,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EClass thTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass titleTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -667,27 +475,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum checkedTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum declareTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum deferTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum dirTypeEEnum = null;
 
 	/**
@@ -702,70 +489,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum disabledTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum disabledType1EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum disabledType2EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum disabledType3EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum disabledType4EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum disabledType5EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum inputTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum ismapTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum methodTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum multipleTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -779,28 +503,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum readonlyTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum readonlyType1EEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum scopeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum selectedTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -828,21 +531,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum typeTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum valignTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum valuetypeTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -877,13 +566,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType checkedTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType contentTypeEDataType = null;
 
 	/**
@@ -912,20 +594,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType declareTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType deferTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType dirTypeObjectEDataType = null;
 
 	/**
@@ -934,55 +602,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EDataType dirTypeObject1EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObject1EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObject2EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObject3EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObject4EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType disabledTypeObject5EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType inputTypeObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1024,21 +643,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType methodTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType multiLengthEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType multipleTypeObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1066,20 +671,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType readonlyTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType readonlyTypeObject1EDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType scopeObjectEDataType = null;
 
 	/**
@@ -1088,13 +679,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EDataType scriptEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType selectedTypeObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1143,13 +727,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType typeTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType uriEDataType = null;
 
 	/**
@@ -1165,13 +742,6 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	private EDataType valignTypeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType valuetypeTypeObjectEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1312,7 +882,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbbrType_Onclick() {
+	public EAttribute getAbbrType_Style() {
         return (EAttribute)getAbbrType().getEStructuralFeatures().get(5);
 	}
 
@@ -1321,98 +891,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbbrType_Ondblclick() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onkeydown() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onkeypress() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onkeyup() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onmousedown() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onmousemove() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onmouseout() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onmouseover() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Onmouseup() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAbbrType_Style() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAbbrType_Title() {
-        return (EAttribute)getAbbrType().getEStructuralFeatures().get(16);
+        return (EAttribute)getAbbrType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1486,7 +966,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Object() {
+	public EReference getAContent_Img() {
         return (EReference)getAContent().getEStructuralFeatures().get(6);
 	}
 
@@ -1495,7 +975,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Img() {
+	public EReference getAContent_Tt() {
         return (EReference)getAContent().getEStructuralFeatures().get(7);
 	}
 
@@ -1504,7 +984,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Tt() {
+	public EReference getAContent_I() {
         return (EReference)getAContent().getEStructuralFeatures().get(8);
 	}
 
@@ -1513,7 +993,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_I() {
+	public EReference getAContent_B() {
         return (EReference)getAContent().getEStructuralFeatures().get(9);
 	}
 
@@ -1522,7 +1002,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_B() {
+	public EReference getAContent_Big() {
         return (EReference)getAContent().getEStructuralFeatures().get(10);
 	}
 
@@ -1531,7 +1011,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Big() {
+	public EReference getAContent_Small() {
         return (EReference)getAContent().getEStructuralFeatures().get(11);
 	}
 
@@ -1540,7 +1020,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Small() {
+	public EReference getAContent_Em() {
         return (EReference)getAContent().getEStructuralFeatures().get(12);
 	}
 
@@ -1549,7 +1029,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Em() {
+	public EReference getAContent_Strong() {
         return (EReference)getAContent().getEStructuralFeatures().get(13);
 	}
 
@@ -1558,7 +1038,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Strong() {
+	public EReference getAContent_Dfn() {
         return (EReference)getAContent().getEStructuralFeatures().get(14);
 	}
 
@@ -1567,7 +1047,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Dfn() {
+	public EReference getAContent_Code() {
         return (EReference)getAContent().getEStructuralFeatures().get(15);
 	}
 
@@ -1576,7 +1056,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Code() {
+	public EReference getAContent_Q() {
         return (EReference)getAContent().getEStructuralFeatures().get(16);
 	}
 
@@ -1585,7 +1065,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Q() {
+	public EReference getAContent_Samp() {
         return (EReference)getAContent().getEStructuralFeatures().get(17);
 	}
 
@@ -1594,7 +1074,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Samp() {
+	public EReference getAContent_Kbd() {
         return (EReference)getAContent().getEStructuralFeatures().get(18);
 	}
 
@@ -1603,7 +1083,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Kbd() {
+	public EReference getAContent_Var() {
         return (EReference)getAContent().getEStructuralFeatures().get(19);
 	}
 
@@ -1612,7 +1092,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Var() {
+	public EReference getAContent_Cite() {
         return (EReference)getAContent().getEStructuralFeatures().get(20);
 	}
 
@@ -1621,7 +1101,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Cite() {
+	public EReference getAContent_Abbr() {
         return (EReference)getAContent().getEStructuralFeatures().get(21);
 	}
 
@@ -1630,7 +1110,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Abbr() {
+	public EReference getAContent_Acronym() {
         return (EReference)getAContent().getEStructuralFeatures().get(22);
 	}
 
@@ -1639,7 +1119,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Acronym() {
+	public EReference getAContent_Sub() {
         return (EReference)getAContent().getEStructuralFeatures().get(23);
 	}
 
@@ -1648,89 +1128,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAContent_Sub() {
-        return (EReference)getAContent().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAContent_Sup() {
-        return (EReference)getAContent().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Input() {
-        return (EReference)getAContent().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Select() {
-        return (EReference)getAContent().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Textarea() {
-        return (EReference)getAContent().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Label() {
-        return (EReference)getAContent().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Button() {
-        return (EReference)getAContent().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Ins() {
-        return (EReference)getAContent().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Del() {
-        return (EReference)getAContent().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAContent_Script() {
-        return (EReference)getAContent().getEStructuralFeatures().get(33);
+        return (EReference)getAContent().getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -1795,7 +1194,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAcronymType_Onclick() {
+	public EAttribute getAcronymType_Style() {
         return (EAttribute)getAcronymType().getEStructuralFeatures().get(5);
 	}
 
@@ -1804,98 +1203,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAcronymType_Ondblclick() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onkeydown() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onkeypress() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onkeyup() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onmousedown() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onmousemove() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onmouseout() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onmouseover() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Onmouseup() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAcronymType_Style() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAcronymType_Title() {
-        return (EAttribute)getAcronymType().getEStructuralFeatures().get(16);
+        return (EAttribute)getAcronymType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1960,7 +1269,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAddressType_Onclick() {
+	public EAttribute getAddressType_Style() {
         return (EAttribute)getAddressType().getEStructuralFeatures().get(5);
 	}
 
@@ -1969,98 +1278,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAddressType_Ondblclick() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onkeydown() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onkeypress() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onkeyup() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onmousedown() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onmousemove() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onmouseout() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onmouseover() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Onmouseup() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddressType_Style() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAddressType_Title() {
-        return (EAttribute)getAddressType().getEStructuralFeatures().get(16);
+        return (EAttribute)getAddressType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2170,7 +1389,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAreaType_Onblur() {
+	public EAttribute getAreaType_Shape() {
         return (EAttribute)getAreaType().getEStructuralFeatures().get(10);
 	}
 
@@ -2179,7 +1398,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAreaType_Onclick() {
+	public EAttribute getAreaType_Style() {
         return (EAttribute)getAreaType().getEStructuralFeatures().get(11);
 	}
 
@@ -2188,7 +1407,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAreaType_Ondblclick() {
+	public EAttribute getAreaType_Tabindex() {
         return (EAttribute)getAreaType().getEStructuralFeatures().get(12);
 	}
 
@@ -2197,116 +1416,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAreaType_Onfocus() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onkeydown() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onkeypress() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onkeyup() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onmousedown() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onmousemove() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onmouseout() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onmouseover() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Onmouseup() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Shape() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Style() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAreaType_Tabindex() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAreaType_Title() {
-        return (EAttribute)getAreaType().getEStructuralFeatures().get(25);
+        return (EAttribute)getAreaType().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2425,7 +1536,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onblur() {
+	public EAttribute getAType_Rel() {
         return (EAttribute)getAType().getEStructuralFeatures().get(11);
 	}
 
@@ -2434,7 +1545,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onclick() {
+	public EAttribute getAType_Rev() {
         return (EAttribute)getAType().getEStructuralFeatures().get(12);
 	}
 
@@ -2443,7 +1554,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Ondblclick() {
+	public EAttribute getAType_Shape() {
         return (EAttribute)getAType().getEStructuralFeatures().get(13);
 	}
 
@@ -2452,7 +1563,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onfocus() {
+	public EAttribute getAType_Style() {
         return (EAttribute)getAType().getEStructuralFeatures().get(14);
 	}
 
@@ -2461,7 +1572,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onkeydown() {
+	public EAttribute getAType_Tabindex() {
         return (EAttribute)getAType().getEStructuralFeatures().get(15);
 	}
 
@@ -2470,7 +1581,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onkeypress() {
+	public EAttribute getAType_Title() {
         return (EAttribute)getAType().getEStructuralFeatures().get(16);
 	}
 
@@ -2479,146 +1590,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAType_Onkeyup() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Onmousedown() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Onmousemove() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Onmouseout() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Onmouseover() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Onmouseup() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Rel() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Rev() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Shape() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Style() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Tabindex() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAType_Title() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAType_Type() {
-        return (EAttribute)getAType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBaseType() {
-		if (baseTypeEClass == null) {
-			baseTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(8);
-		}
-		return baseTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBaseType_Href() {
-        return (EAttribute)getBaseType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBaseType_Id() {
-        return (EAttribute)getBaseType().getEStructuralFeatures().get(1);
+        return (EAttribute)getAType().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2628,7 +1601,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBdoType() {
 		if (bdoTypeEClass == null) {
-			bdoTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(9);
+			bdoTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(8);
 		}
 		return bdoTypeEClass;
 	}
@@ -2683,7 +1656,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBdoType_Onclick() {
+	public EAttribute getBdoType_Style() {
         return (EAttribute)getBdoType().getEStructuralFeatures().get(5);
 	}
 
@@ -2692,98 +1665,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBdoType_Ondblclick() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onkeydown() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onkeypress() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onkeyup() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onmousedown() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onmousemove() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onmouseout() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onmouseover() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Onmouseup() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBdoType_Style() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBdoType_Title() {
-        return (EAttribute)getBdoType().getEStructuralFeatures().get(16);
+        return (EAttribute)getBdoType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2793,7 +1676,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBigType() {
 		if (bigTypeEClass == null) {
-			bigTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(10);
+			bigTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(9);
 		}
 		return bigTypeEClass;
 	}
@@ -2848,7 +1731,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBigType_Onclick() {
+	public EAttribute getBigType_Style() {
         return (EAttribute)getBigType().getEStructuralFeatures().get(5);
 	}
 
@@ -2857,98 +1740,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBigType_Ondblclick() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onkeydown() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onkeypress() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onkeyup() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onmousedown() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onmousemove() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onmouseout() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onmouseover() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Onmouseup() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBigType_Style() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBigType_Title() {
-        return (EAttribute)getBigType().getEStructuralFeatures().get(16);
+        return (EAttribute)getBigType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2958,7 +1751,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBlock() {
 		if (blockEClass == null) {
-			blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(11);
+			blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(10);
 		}
 		return blockEClass;
 	}
@@ -2968,7 +1761,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBlock_Group() {
+	public EAttribute getBlock_Block() {
         return (EAttribute)getBlock().getEStructuralFeatures().get(0);
 	}
 
@@ -3112,62 +1905,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBlock_Fieldset() {
-        return (EReference)getBlock().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBlock_Table() {
-        return (EReference)getBlock().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Form() {
-        return (EReference)getBlock().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Noscript() {
-        return (EReference)getBlock().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Ins() {
-        return (EReference)getBlock().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Del() {
-        return (EReference)getBlock().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Script() {
-        return (EReference)getBlock().getEStructuralFeatures().get(22);
+        return (EReference)getBlock().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3177,7 +1916,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBlockquoteType() {
 		if (blockquoteTypeEClass == null) {
-			blockquoteTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(12);
+			blockquoteTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(11);
 		}
 		return blockquoteTypeEClass;
 	}
@@ -3241,7 +1980,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBlockquoteType_Onclick() {
+	public EAttribute getBlockquoteType_Style() {
         return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(6);
 	}
 
@@ -3250,281 +1989,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBlockquoteType_Ondblclick() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onkeydown() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onkeypress() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onkeyup() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onmousedown() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onmousemove() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onmouseout() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onmouseover() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Onmouseup() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlockquoteType_Style() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBlockquoteType_Title() {
-        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBodyType() {
-		if (bodyTypeEClass == null) {
-			bodyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(13);
-		}
-		return bodyTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Class() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Dir() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Id() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Lang() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Lang1() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onclick() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Ondblclick() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onkeydown() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onkeypress() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onkeyup() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onload() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onmousedown() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onmousemove() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onmouseout() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onmouseover() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onmouseup() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Onunload() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Style() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBodyType_Title() {
-        return (EAttribute)getBodyType().getEStructuralFeatures().get(18);
+        return (EAttribute)getBlockquoteType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3534,7 +2000,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBrType() {
 		if (brTypeEClass == null) {
-			brTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(14);
+			brTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(12);
 		}
 		return brTypeEClass;
 	}
@@ -3582,7 +2048,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getBType() {
 		if (bTypeEClass == null) {
-			bTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(15);
+			bTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(13);
 		}
 		return bTypeEClass;
 	}
@@ -3637,7 +2103,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBType_Onclick() {
+	public EAttribute getBType_Style() {
         return (EAttribute)getBType().getEStructuralFeatures().get(5);
 	}
 
@@ -3646,761 +2112,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBType_Ondblclick() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onkeydown() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onkeypress() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onkeyup() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onmousedown() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onmousemove() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onmouseout() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onmouseover() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Onmouseup() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBType_Style() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBType_Title() {
-        return (EAttribute)getBType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getButtonContent() {
-		if (buttonContentEClass == null) {
-			buttonContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(16);
-		}
-		return buttonContentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonContent_Mixed() {
-        return (EAttribute)getButtonContent().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonContent_Group() {
-        return (EAttribute)getButtonContent().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_P() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H1() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H2() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H3() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H4() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H5() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_H6() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Div() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Ul() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Ol() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Dl() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Pre() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Hr() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Blockquote() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Address() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Table() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Br() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Span() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Bdo() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Map() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Object() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Img() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Tt() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_I() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_B() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Big() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Small() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Em() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Strong() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Dfn() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Code() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Q() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Samp() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Kbd() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(35);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Var() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(36);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Cite() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Abbr() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(38);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Acronym() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(39);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Sub() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(40);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Sup() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(41);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Noscript() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(42);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Ins() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(43);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Del() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(44);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButtonContent_Script() {
-        return (EReference)getButtonContent().getEStructuralFeatures().get(45);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getButtonType() {
-		if (buttonTypeEClass == null) {
-			buttonTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(17);
-		}
-		return buttonTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Accesskey() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Class() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Dir() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Disabled() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Id() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Lang() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Lang1() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Name() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onblur() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onclick() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Ondblclick() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onfocus() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onkeydown() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onkeypress() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onkeyup() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onmousedown() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onmousemove() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onmouseout() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onmouseover() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Onmouseup() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Style() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Tabindex() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Title() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Type() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButtonType_Value() {
-        return (EAttribute)getButtonType().getEStructuralFeatures().get(24);
+        return (EAttribute)getBType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4410,7 +2123,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getCaptionType() {
 		if (captionTypeEClass == null) {
-			captionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(18);
+			captionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(14);
 		}
 		return captionTypeEClass;
 	}
@@ -4465,7 +2178,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCaptionType_Onclick() {
+	public EAttribute getCaptionType_Style() {
         return (EAttribute)getCaptionType().getEStructuralFeatures().get(5);
 	}
 
@@ -4474,98 +2187,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCaptionType_Ondblclick() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onkeydown() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onkeypress() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onkeyup() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onmousedown() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onmousemove() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onmouseout() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onmouseover() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Onmouseup() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCaptionType_Style() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getCaptionType_Title() {
-        return (EAttribute)getCaptionType().getEStructuralFeatures().get(16);
+        return (EAttribute)getCaptionType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4575,7 +2198,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getCiteType() {
 		if (citeTypeEClass == null) {
-			citeTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(24);
+			citeTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(18);
 		}
 		return citeTypeEClass;
 	}
@@ -4630,7 +2253,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCiteType_Onclick() {
+	public EAttribute getCiteType_Style() {
         return (EAttribute)getCiteType().getEStructuralFeatures().get(5);
 	}
 
@@ -4639,98 +2262,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCiteType_Ondblclick() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onkeydown() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onkeypress() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onkeyup() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onmousedown() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onmousemove() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onmouseout() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onmouseover() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Onmouseup() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCiteType_Style() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getCiteType_Title() {
-        return (EAttribute)getCiteType().getEStructuralFeatures().get(16);
+        return (EAttribute)getCiteType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4740,7 +2273,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getCodeType() {
 		if (codeTypeEClass == null) {
-			codeTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(25);
+			codeTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(19);
 		}
 		return codeTypeEClass;
 	}
@@ -4795,7 +2328,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeType_Onclick() {
+	public EAttribute getCodeType_Style() {
         return (EAttribute)getCodeType().getEStructuralFeatures().get(5);
 	}
 
@@ -4804,98 +2337,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeType_Ondblclick() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onkeydown() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onkeypress() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onkeyup() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onmousedown() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onmousemove() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onmouseout() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onmouseover() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Onmouseup() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCodeType_Style() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getCodeType_Title() {
-        return (EAttribute)getCodeType().getEStructuralFeatures().get(16);
+        return (EAttribute)getCodeType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4905,7 +2348,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getColgroupType() {
 		if (colgroupTypeEClass == null) {
-			colgroupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(26);
+			colgroupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(20);
 		}
 		return colgroupTypeEClass;
 	}
@@ -4996,7 +2439,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColgroupType_Onclick() {
+	public EAttribute getColgroupType_Span() {
         return (EAttribute)getColgroupType().getEStructuralFeatures().get(9);
 	}
 
@@ -5005,7 +2448,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColgroupType_Ondblclick() {
+	public EAttribute getColgroupType_Style() {
         return (EAttribute)getColgroupType().getEStructuralFeatures().get(10);
 	}
 
@@ -5014,7 +2457,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColgroupType_Onkeydown() {
+	public EAttribute getColgroupType_Title() {
         return (EAttribute)getColgroupType().getEStructuralFeatures().get(11);
 	}
 
@@ -5023,7 +2466,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColgroupType_Onkeypress() {
+	public EAttribute getColgroupType_Valign() {
         return (EAttribute)getColgroupType().getEStructuralFeatures().get(12);
 	}
 
@@ -5032,98 +2475,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColgroupType_Onkeyup() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Onmousedown() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Onmousemove() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Onmouseout() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Onmouseover() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Onmouseup() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Span() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Style() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Title() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColgroupType_Valign() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getColgroupType_Width() {
-        return (EAttribute)getColgroupType().getEStructuralFeatures().get(23);
+        return (EAttribute)getColgroupType().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -5133,7 +2486,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getColType() {
 		if (colTypeEClass == null) {
-			colTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(27);
+			colTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(21);
 		}
 		return colTypeEClass;
 	}
@@ -5215,7 +2568,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColType_Onclick() {
+	public EAttribute getColType_Span() {
         return (EAttribute)getColType().getEStructuralFeatures().get(8);
 	}
 
@@ -5224,7 +2577,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColType_Ondblclick() {
+	public EAttribute getColType_Style() {
         return (EAttribute)getColType().getEStructuralFeatures().get(9);
 	}
 
@@ -5233,7 +2586,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColType_Onkeydown() {
+	public EAttribute getColType_Title() {
         return (EAttribute)getColType().getEStructuralFeatures().get(10);
 	}
 
@@ -5242,7 +2595,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColType_Onkeypress() {
+	public EAttribute getColType_Valign() {
         return (EAttribute)getColType().getEStructuralFeatures().get(11);
 	}
 
@@ -5251,98 +2604,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColType_Onkeyup() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Onmousedown() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Onmousemove() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Onmouseout() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Onmouseover() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Onmouseup() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Span() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Style() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Title() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColType_Valign() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getColType_Width() {
-        return (EAttribute)getColType().getEStructuralFeatures().get(22);
+        return (EAttribute)getColType().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -5352,7 +2615,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDdType() {
 		if (ddTypeEClass == null) {
-			ddTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(32);
+			ddTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(26);
 		}
 		return ddTypeEClass;
 	}
@@ -5407,7 +2670,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDdType_Onclick() {
+	public EAttribute getDdType_Style() {
         return (EAttribute)getDdType().getEStructuralFeatures().get(5);
 	}
 
@@ -5416,281 +2679,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDdType_Ondblclick() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onkeydown() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onkeypress() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onkeyup() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onmousedown() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onmousemove() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onmouseout() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onmouseover() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Onmouseup() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDdType_Style() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDdType_Title() {
-        return (EAttribute)getDdType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDelType() {
-		if (delTypeEClass == null) {
-			delTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(37);
-		}
-		return delTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Cite1() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Class() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Datetime() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Dir() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Id() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Lang() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Lang1() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onclick() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Ondblclick() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onkeydown() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onkeypress() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onkeyup() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onmousedown() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onmousemove() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onmouseout() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onmouseover() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Onmouseup() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Style() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelType_Title() {
-        return (EAttribute)getDelType().getEStructuralFeatures().get(18);
+        return (EAttribute)getDdType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5700,7 +2690,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDfnType() {
 		if (dfnTypeEClass == null) {
-			dfnTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(38);
+			dfnTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(27);
 		}
 		return dfnTypeEClass;
 	}
@@ -5755,7 +2745,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDfnType_Onclick() {
+	public EAttribute getDfnType_Style() {
         return (EAttribute)getDfnType().getEStructuralFeatures().get(5);
 	}
 
@@ -5764,98 +2754,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDfnType_Ondblclick() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onkeydown() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onkeypress() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onkeyup() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onmousedown() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onmousemove() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onmouseout() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onmouseover() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Onmouseup() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDfnType_Style() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDfnType_Title() {
-        return (EAttribute)getDfnType().getEStructuralFeatures().get(16);
+        return (EAttribute)getDfnType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5865,7 +2765,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDivType() {
 		if (divTypeEClass == null) {
-			divTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(55);
+			divTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(32);
 		}
 		return divTypeEClass;
 	}
@@ -5920,7 +2820,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDivType_Onclick() {
+	public EAttribute getDivType_Style() {
         return (EAttribute)getDivType().getEStructuralFeatures().get(5);
 	}
 
@@ -5929,98 +2829,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDivType_Ondblclick() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onkeydown() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onkeypress() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onkeyup() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onmousedown() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onmousemove() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onmouseout() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onmouseover() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Onmouseup() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDivType_Style() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDivType_Title() {
-        return (EAttribute)getDivType().getEStructuralFeatures().get(16);
+        return (EAttribute)getDivType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -6030,7 +2840,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDlType() {
 		if (dlTypeEClass == null) {
-			dlTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(56);
+			dlTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(33);
 		}
 		return dlTypeEClass;
 	}
@@ -6112,7 +2922,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDlType_Onclick() {
+	public EAttribute getDlType_Style() {
         return (EAttribute)getDlType().getEStructuralFeatures().get(8);
 	}
 
@@ -6121,98 +2931,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDlType_Ondblclick() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onkeydown() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onkeypress() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onkeyup() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onmousedown() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onmousemove() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onmouseout() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onmouseover() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Onmouseup() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDlType_Style() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDlType_Title() {
-        return (EAttribute)getDlType().getEStructuralFeatures().get(19);
+        return (EAttribute)getDlType().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -6222,7 +2942,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDocumentRoot() {
 		if (documentRootEClass == null) {
-			documentRootEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(57);
+			documentRootEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(34);
 		}
 		return documentRootEClass;
 	}
@@ -6313,7 +3033,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Base() {
+	public EReference getDocumentRoot_Bdo() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(9);
 	}
 
@@ -6322,7 +3042,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Bdo() {
+	public EReference getDocumentRoot_Big() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(10);
 	}
 
@@ -6331,7 +3051,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Big() {
+	public EReference getDocumentRoot_Blockquote() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(11);
 	}
 
@@ -6340,7 +3060,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Blockquote() {
+	public EReference getDocumentRoot_Br() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(12);
 	}
 
@@ -6349,7 +3069,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Body() {
+	public EReference getDocumentRoot_Caption() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(13);
 	}
 
@@ -6358,7 +3078,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Br() {
+	public EReference getDocumentRoot_Cite() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(14);
 	}
 
@@ -6367,7 +3087,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Button() {
+	public EReference getDocumentRoot_Code() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(15);
 	}
 
@@ -6376,7 +3096,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Caption() {
+	public EReference getDocumentRoot_Col() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(16);
 	}
 
@@ -6385,7 +3105,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Cite() {
+	public EReference getDocumentRoot_Colgroup() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(17);
 	}
 
@@ -6394,7 +3114,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Code() {
+	public EReference getDocumentRoot_Dd() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(18);
 	}
 
@@ -6403,7 +3123,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Col() {
+	public EReference getDocumentRoot_Dfn() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(19);
 	}
 
@@ -6412,7 +3132,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Colgroup() {
+	public EReference getDocumentRoot_Div() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(20);
 	}
 
@@ -6421,7 +3141,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Dd() {
+	public EReference getDocumentRoot_Dl() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(21);
 	}
 
@@ -6430,7 +3150,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Del() {
+	public EReference getDocumentRoot_Dt() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(22);
 	}
 
@@ -6439,7 +3159,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Dfn() {
+	public EReference getDocumentRoot_Em() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(23);
 	}
 
@@ -6448,7 +3168,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Div() {
+	public EReference getDocumentRoot_H1() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(24);
 	}
 
@@ -6457,7 +3177,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Dl() {
+	public EReference getDocumentRoot_H2() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(25);
 	}
 
@@ -6466,7 +3186,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Dt() {
+	public EReference getDocumentRoot_H3() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(26);
 	}
 
@@ -6475,7 +3195,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Em() {
+	public EReference getDocumentRoot_H4() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(27);
 	}
 
@@ -6484,7 +3204,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Fieldset() {
+	public EReference getDocumentRoot_H5() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(28);
 	}
 
@@ -6493,7 +3213,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Form() {
+	public EReference getDocumentRoot_H6() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(29);
 	}
 
@@ -6502,7 +3222,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H1() {
+	public EReference getDocumentRoot_Hr() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(30);
 	}
 
@@ -6511,7 +3231,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H2() {
+	public EReference getDocumentRoot_I() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(31);
 	}
 
@@ -6520,7 +3240,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H3() {
+	public EReference getDocumentRoot_Img() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(32);
 	}
 
@@ -6529,7 +3249,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H4() {
+	public EReference getDocumentRoot_Kbd() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(33);
 	}
 
@@ -6538,7 +3258,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H5() {
+	public EReference getDocumentRoot_Li() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(34);
 	}
 
@@ -6547,7 +3267,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_H6() {
+	public EReference getDocumentRoot_Map() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(35);
 	}
 
@@ -6556,7 +3276,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Head() {
+	public EReference getDocumentRoot_Ol() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(36);
 	}
 
@@ -6565,7 +3285,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Hr() {
+	public EReference getDocumentRoot_P() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(37);
 	}
 
@@ -6574,7 +3294,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Html() {
+	public EReference getDocumentRoot_Pre() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(38);
 	}
 
@@ -6583,7 +3303,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_I() {
+	public EReference getDocumentRoot_Q() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(39);
 	}
 
@@ -6592,7 +3312,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Img() {
+	public EReference getDocumentRoot_Samp() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(40);
 	}
 
@@ -6601,7 +3321,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Input() {
+	public EReference getDocumentRoot_Small() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(41);
 	}
 
@@ -6610,7 +3330,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Ins() {
+	public EReference getDocumentRoot_Span() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(42);
 	}
 
@@ -6619,7 +3339,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Kbd() {
+	public EReference getDocumentRoot_Strong() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(43);
 	}
 
@@ -6628,7 +3348,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Label() {
+	public EReference getDocumentRoot_Sub() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(44);
 	}
 
@@ -6637,7 +3357,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Legend() {
+	public EReference getDocumentRoot_Sup() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(45);
 	}
 
@@ -6646,7 +3366,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Li() {
+	public EReference getDocumentRoot_Table() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(46);
 	}
 
@@ -6655,7 +3375,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Link() {
+	public EReference getDocumentRoot_Tbody() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(47);
 	}
 
@@ -6664,7 +3384,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Map() {
+	public EReference getDocumentRoot_Td() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(48);
 	}
 
@@ -6673,7 +3393,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Meta() {
+	public EReference getDocumentRoot_Tfoot() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(49);
 	}
 
@@ -6682,7 +3402,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Noscript() {
+	public EReference getDocumentRoot_Th() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(50);
 	}
 
@@ -6691,7 +3411,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Object() {
+	public EReference getDocumentRoot_Thead() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(51);
 	}
 
@@ -6700,7 +3420,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Ol() {
+	public EReference getDocumentRoot_Tr() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(52);
 	}
 
@@ -6709,7 +3429,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Optgroup() {
+	public EReference getDocumentRoot_Tt() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(53);
 	}
 
@@ -6718,7 +3438,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Option() {
+	public EReference getDocumentRoot_Ul() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(54);
 	}
 
@@ -6727,224 +3447,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_P() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(55);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Param() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(56);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Pre() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(57);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Q() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(58);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Samp() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(59);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Script() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(60);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Select() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(61);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Small() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(62);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Span() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(63);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Strong() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(64);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Style() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(65);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Sub() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(66);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Sup() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(67);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Table() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(68);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Tbody() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(69);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Td() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(70);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Textarea() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(71);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Tfoot() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(72);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Th() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(73);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Thead() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(74);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Title() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(75);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Tr() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(76);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Tt() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(77);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Ul() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(78);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDocumentRoot_Var() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(79);
+        return (EReference)getDocumentRoot().getEStructuralFeatures().get(55);
 	}
 
 	/**
@@ -6954,7 +3458,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getDtType() {
 		if (dtTypeEClass == null) {
-			dtTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(58);
+			dtTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(35);
 		}
 		return dtTypeEClass;
 	}
@@ -7009,7 +3513,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDtType_Onclick() {
+	public EAttribute getDtType_Style() {
         return (EAttribute)getDtType().getEStructuralFeatures().get(5);
 	}
 
@@ -7018,98 +3522,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDtType_Ondblclick() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onkeydown() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onkeypress() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onkeyup() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onmousedown() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onmousemove() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onmouseout() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onmouseover() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Onmouseup() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDtType_Style() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDtType_Title() {
-        return (EAttribute)getDtType().getEStructuralFeatures().get(16);
+        return (EAttribute)getDtType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -7119,7 +3533,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getEmType() {
 		if (emTypeEClass == null) {
-			emTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(59);
+			emTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(36);
 		}
 		return emTypeEClass;
 	}
@@ -7174,7 +3588,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmType_Onclick() {
+	public EAttribute getEmType_Style() {
         return (EAttribute)getEmType().getEStructuralFeatures().get(5);
 	}
 
@@ -7183,758 +3597,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmType_Ondblclick() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onkeydown() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onkeypress() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onkeyup() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onmousedown() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onmousemove() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onmouseout() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onmouseover() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Onmouseup() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEmType_Style() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getEmType_Title() {
-        return (EAttribute)getEmType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFieldsetType() {
-		if (fieldsetTypeEClass == null) {
-			fieldsetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(60);
-		}
-		return fieldsetTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Mixed() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Legend() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Group() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_P() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H1() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H2() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H3() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H4() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H5() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_H6() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Div() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Ul() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Ol() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Dl() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Pre() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Hr() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Blockquote() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Address() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Fieldset() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Table() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Form() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_A() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Br() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Span() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Bdo() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Map() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Object() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Img() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Tt() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_I() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_B() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Big() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Small() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Em() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Strong() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Dfn() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(35);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Code() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(36);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Q() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Samp() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(38);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Kbd() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(39);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Var() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(40);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Cite() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(41);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Abbr() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(42);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Acronym() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(43);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Sub() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(44);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Sup() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(45);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Input() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(46);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Select() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(47);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Textarea() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(48);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Label() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(49);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Button() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(50);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Noscript() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(51);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Ins() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(52);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Del() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(53);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFieldsetType_Script() {
-        return (EReference)getFieldsetType().getEStructuralFeatures().get(54);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Class() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(55);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Dir() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(56);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Id() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(57);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Lang() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(58);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Lang1() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(59);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onclick() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(60);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Ondblclick() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(61);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onkeydown() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(62);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onkeypress() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(63);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onkeyup() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(64);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onmousedown() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(65);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onmousemove() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(66);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onmouseout() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(67);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onmouseover() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(68);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Onmouseup() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(69);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Style() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(70);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFieldsetType_Title() {
-        return (EAttribute)getFieldsetType().getEStructuralFeatures().get(71);
+        return (EAttribute)getEmType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -7944,7 +3608,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getFlow() {
 		if (flowEClass == null) {
-			flowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(61);
+			flowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(37);
 		}
 		return flowEClass;
 	}
@@ -8107,7 +3771,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Fieldset() {
+	public EReference getFlow_Table() {
         return (EReference)getFlow().getEStructuralFeatures().get(17);
 	}
 
@@ -8116,7 +3780,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Table() {
+	public EReference getFlow_A() {
         return (EReference)getFlow().getEStructuralFeatures().get(18);
 	}
 
@@ -8125,7 +3789,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Form() {
+	public EReference getFlow_Br() {
         return (EReference)getFlow().getEStructuralFeatures().get(19);
 	}
 
@@ -8134,7 +3798,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_A() {
+	public EReference getFlow_Span() {
         return (EReference)getFlow().getEStructuralFeatures().get(20);
 	}
 
@@ -8143,7 +3807,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Br() {
+	public EReference getFlow_Bdo() {
         return (EReference)getFlow().getEStructuralFeatures().get(21);
 	}
 
@@ -8152,7 +3816,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Span() {
+	public EReference getFlow_Map() {
         return (EReference)getFlow().getEStructuralFeatures().get(22);
 	}
 
@@ -8161,7 +3825,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Bdo() {
+	public EReference getFlow_Img() {
         return (EReference)getFlow().getEStructuralFeatures().get(23);
 	}
 
@@ -8170,7 +3834,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Map() {
+	public EReference getFlow_Tt() {
         return (EReference)getFlow().getEStructuralFeatures().get(24);
 	}
 
@@ -8179,7 +3843,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Object() {
+	public EReference getFlow_I() {
         return (EReference)getFlow().getEStructuralFeatures().get(25);
 	}
 
@@ -8188,7 +3852,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Img() {
+	public EReference getFlow_B() {
         return (EReference)getFlow().getEStructuralFeatures().get(26);
 	}
 
@@ -8197,7 +3861,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Tt() {
+	public EReference getFlow_Big() {
         return (EReference)getFlow().getEStructuralFeatures().get(27);
 	}
 
@@ -8206,7 +3870,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_I() {
+	public EReference getFlow_Small() {
         return (EReference)getFlow().getEStructuralFeatures().get(28);
 	}
 
@@ -8215,7 +3879,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_B() {
+	public EReference getFlow_Em() {
         return (EReference)getFlow().getEStructuralFeatures().get(29);
 	}
 
@@ -8224,7 +3888,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Big() {
+	public EReference getFlow_Strong() {
         return (EReference)getFlow().getEStructuralFeatures().get(30);
 	}
 
@@ -8233,7 +3897,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Small() {
+	public EReference getFlow_Dfn() {
         return (EReference)getFlow().getEStructuralFeatures().get(31);
 	}
 
@@ -8242,7 +3906,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Em() {
+	public EReference getFlow_Code() {
         return (EReference)getFlow().getEStructuralFeatures().get(32);
 	}
 
@@ -8251,7 +3915,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Strong() {
+	public EReference getFlow_Q() {
         return (EReference)getFlow().getEStructuralFeatures().get(33);
 	}
 
@@ -8260,7 +3924,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Dfn() {
+	public EReference getFlow_Samp() {
         return (EReference)getFlow().getEStructuralFeatures().get(34);
 	}
 
@@ -8269,7 +3933,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Code() {
+	public EReference getFlow_Kbd() {
         return (EReference)getFlow().getEStructuralFeatures().get(35);
 	}
 
@@ -8278,7 +3942,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Q() {
+	public EReference getFlow_Var() {
         return (EReference)getFlow().getEStructuralFeatures().get(36);
 	}
 
@@ -8287,7 +3951,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Samp() {
+	public EReference getFlow_Cite() {
         return (EReference)getFlow().getEStructuralFeatures().get(37);
 	}
 
@@ -8296,7 +3960,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Kbd() {
+	public EReference getFlow_Abbr() {
         return (EReference)getFlow().getEStructuralFeatures().get(38);
 	}
 
@@ -8305,7 +3969,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Var() {
+	public EReference getFlow_Acronym() {
         return (EReference)getFlow().getEStructuralFeatures().get(39);
 	}
 
@@ -8314,7 +3978,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Cite() {
+	public EReference getFlow_Sub() {
         return (EReference)getFlow().getEStructuralFeatures().get(40);
 	}
 
@@ -8323,554 +3987,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlow_Abbr() {
-        return (EReference)getFlow().getEStructuralFeatures().get(41);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Acronym() {
-        return (EReference)getFlow().getEStructuralFeatures().get(42);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Sub() {
-        return (EReference)getFlow().getEStructuralFeatures().get(43);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getFlow_Sup() {
-        return (EReference)getFlow().getEStructuralFeatures().get(44);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Input() {
-        return (EReference)getFlow().getEStructuralFeatures().get(45);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Select() {
-        return (EReference)getFlow().getEStructuralFeatures().get(46);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Textarea() {
-        return (EReference)getFlow().getEStructuralFeatures().get(47);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Label() {
-        return (EReference)getFlow().getEStructuralFeatures().get(48);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Button() {
-        return (EReference)getFlow().getEStructuralFeatures().get(49);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Noscript() {
-        return (EReference)getFlow().getEStructuralFeatures().get(50);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Ins() {
-        return (EReference)getFlow().getEStructuralFeatures().get(51);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Del() {
-        return (EReference)getFlow().getEStructuralFeatures().get(52);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Script() {
-        return (EReference)getFlow().getEStructuralFeatures().get(53);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFormContent() {
-		if (formContentEClass == null) {
-			formContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(62);
-		}
-		return formContentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormContent_Group() {
-        return (EAttribute)getFormContent().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_P() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H1() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H2() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H3() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H4() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H5() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_H6() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Div() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Ul() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Ol() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Dl() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Pre() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Hr() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Blockquote() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Address() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Fieldset() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Table() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Noscript() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Ins() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Del() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormContent_Script() {
-        return (EReference)getFormContent().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFormType() {
-		if (formTypeEClass == null) {
-			formTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(63);
-		}
-		return formTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Accept() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_AcceptCharset() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Action() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Class() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Dir() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Enctype() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Id() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Lang() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Lang1() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Method() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onclick() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Ondblclick() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onkeydown() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onkeypress() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onkeyup() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onmousedown() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onmousemove() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onmouseout() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onmouseover() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onmouseup() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onreset() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Onsubmit() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Style() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormType_Title() {
-        return (EAttribute)getFormType().getEStructuralFeatures().get(23);
+        return (EReference)getFlow().getEStructuralFeatures().get(41);
 	}
 
 	/**
@@ -8880,7 +3998,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH1Type() {
 		if (h1TypeEClass == null) {
-			h1TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(64);
+			h1TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(38);
 		}
 		return h1TypeEClass;
 	}
@@ -8935,7 +4053,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH1Type_Onclick() {
+	public EAttribute getH1Type_Style() {
         return (EAttribute)getH1Type().getEStructuralFeatures().get(5);
 	}
 
@@ -8944,98 +4062,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH1Type_Ondblclick() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onkeydown() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onkeypress() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onkeyup() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onmousedown() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onmousemove() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onmouseout() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onmouseover() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Onmouseup() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH1Type_Style() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH1Type_Title() {
-        return (EAttribute)getH1Type().getEStructuralFeatures().get(16);
+        return (EAttribute)getH1Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -9045,7 +4073,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH2Type() {
 		if (h2TypeEClass == null) {
-			h2TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(65);
+			h2TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(39);
 		}
 		return h2TypeEClass;
 	}
@@ -9100,7 +4128,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH2Type_Onclick() {
+	public EAttribute getH2Type_Style() {
         return (EAttribute)getH2Type().getEStructuralFeatures().get(5);
 	}
 
@@ -9109,98 +4137,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH2Type_Ondblclick() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onkeydown() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onkeypress() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onkeyup() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onmousedown() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onmousemove() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onmouseout() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onmouseover() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Onmouseup() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH2Type_Style() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH2Type_Title() {
-        return (EAttribute)getH2Type().getEStructuralFeatures().get(16);
+        return (EAttribute)getH2Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -9210,7 +4148,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH3Type() {
 		if (h3TypeEClass == null) {
-			h3TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(66);
+			h3TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(40);
 		}
 		return h3TypeEClass;
 	}
@@ -9265,7 +4203,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH3Type_Onclick() {
+	public EAttribute getH3Type_Style() {
         return (EAttribute)getH3Type().getEStructuralFeatures().get(5);
 	}
 
@@ -9274,98 +4212,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH3Type_Ondblclick() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onkeydown() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onkeypress() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onkeyup() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onmousedown() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onmousemove() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onmouseout() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onmouseover() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Onmouseup() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH3Type_Style() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH3Type_Title() {
-        return (EAttribute)getH3Type().getEStructuralFeatures().get(16);
+        return (EAttribute)getH3Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -9375,7 +4223,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH4Type() {
 		if (h4TypeEClass == null) {
-			h4TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(67);
+			h4TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(41);
 		}
 		return h4TypeEClass;
 	}
@@ -9430,7 +4278,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH4Type_Onclick() {
+	public EAttribute getH4Type_Style() {
         return (EAttribute)getH4Type().getEStructuralFeatures().get(5);
 	}
 
@@ -9439,98 +4287,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH4Type_Ondblclick() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onkeydown() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onkeypress() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onkeyup() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onmousedown() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onmousemove() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onmouseout() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onmouseover() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Onmouseup() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH4Type_Style() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH4Type_Title() {
-        return (EAttribute)getH4Type().getEStructuralFeatures().get(16);
+        return (EAttribute)getH4Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -9540,7 +4298,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH5Type() {
 		if (h5TypeEClass == null) {
-			h5TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(68);
+			h5TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(42);
 		}
 		return h5TypeEClass;
 	}
@@ -9595,7 +4353,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH5Type_Onclick() {
+	public EAttribute getH5Type_Style() {
         return (EAttribute)getH5Type().getEStructuralFeatures().get(5);
 	}
 
@@ -9604,98 +4362,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH5Type_Ondblclick() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onkeydown() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onkeypress() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onkeyup() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onmousedown() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onmousemove() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onmouseout() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onmouseover() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Onmouseup() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH5Type_Style() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH5Type_Title() {
-        return (EAttribute)getH5Type().getEStructuralFeatures().get(16);
+        return (EAttribute)getH5Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -9705,7 +4373,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getH6Type() {
 		if (h6TypeEClass == null) {
-			h6TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(69);
+			h6TypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(43);
 		}
 		return h6TypeEClass;
 	}
@@ -9760,7 +4428,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH6Type_Onclick() {
+	public EAttribute getH6Type_Style() {
         return (EAttribute)getH6Type().getEStructuralFeatures().get(5);
 	}
 
@@ -9769,461 +4437,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getH6Type_Ondblclick() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onkeydown() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onkeypress() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onkeyup() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onmousedown() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onmousemove() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onmouseout() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onmouseover() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Onmouseup() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getH6Type_Style() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getH6Type_Title() {
-        return (EAttribute)getH6Type().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getHeadType() {
-		if (headTypeEClass == null) {
-			headTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(70);
-		}
-		return headTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Group() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Script() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Style() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Meta() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Link() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Object() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Title() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Group1() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Script1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Style1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Meta1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Link1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Object1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Base() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Group2() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Script2() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Style2() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Meta2() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Link2() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Object2() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Base1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Group3() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Script3() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Style3() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Meta3() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Link3() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Object3() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Title1() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Group4() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Script4() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Style4() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Meta4() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Link4() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeadType_Object4() {
-        return (EReference)getHeadType().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Dir() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Id() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(35);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Lang() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(36);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Lang1() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeadType_Profile() {
-        return (EAttribute)getHeadType().getEStructuralFeatures().get(38);
+        return (EAttribute)getH6Type().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -10233,7 +4448,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getHrType() {
 		if (hrTypeEClass == null) {
-			hrTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(71);
+			hrTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(44);
 		}
 		return hrTypeEClass;
 	}
@@ -10288,7 +4503,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHrType_Onclick() {
+	public EAttribute getHrType_Style() {
         return (EAttribute)getHrType().getEStructuralFeatures().get(5);
 	}
 
@@ -10297,164 +4512,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHrType_Ondblclick() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onkeydown() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onkeypress() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onkeyup() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onmousedown() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onmousemove() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onmouseout() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onmouseover() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Onmouseup() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHrType_Style() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getHrType_Title() {
-        return (EAttribute)getHrType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getHtmlType() {
-		if (htmlTypeEClass == null) {
-			htmlTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(72);
-		}
-		return htmlTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHtmlType_Head() {
-        return (EReference)getHtmlType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHtmlType_Body() {
-        return (EReference)getHtmlType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHtmlType_Dir() {
-        return (EAttribute)getHtmlType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHtmlType_Id() {
-        return (EAttribute)getHtmlType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHtmlType_Lang() {
-        return (EAttribute)getHtmlType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHtmlType_Lang1() {
-        return (EAttribute)getHtmlType().getEStructuralFeatures().get(5);
+        return (EAttribute)getHrType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -10464,7 +4523,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getImgType() {
 		if (imgTypeEClass == null) {
-			imgTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(73);
+			imgTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(45);
 		}
 		return imgTypeEClass;
 	}
@@ -10555,7 +4614,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImgType_Onclick() {
+	public EAttribute getImgType_Src() {
         return (EAttribute)getImgType().getEStructuralFeatures().get(9);
 	}
 
@@ -10564,7 +4623,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImgType_Ondblclick() {
+	public EAttribute getImgType_Style() {
         return (EAttribute)getImgType().getEStructuralFeatures().get(10);
 	}
 
@@ -10573,7 +4632,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImgType_Onkeydown() {
+	public EAttribute getImgType_Title() {
         return (EAttribute)getImgType().getEStructuralFeatures().get(11);
 	}
 
@@ -10582,7 +4641,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImgType_Onkeypress() {
+	public EAttribute getImgType_Usemap() {
         return (EAttribute)getImgType().getEStructuralFeatures().get(12);
 	}
 
@@ -10591,98 +4650,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImgType_Onkeyup() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Onmousedown() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Onmousemove() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Onmouseout() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Onmouseover() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Onmouseup() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Src() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Style() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Title() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImgType_Usemap() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getImgType_Width() {
-        return (EAttribute)getImgType().getEStructuralFeatures().get(23);
+        return (EAttribute)getImgType().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -10692,7 +4661,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getInline() {
 		if (inlineEClass == null) {
-			inlineEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(74);
+			inlineEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(46);
 		}
 		return inlineEClass;
 	}
@@ -10711,7 +4680,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInline_Group() {
+	public EAttribute getInline_Inline() {
         return (EAttribute)getInline().getEStructuralFeatures().get(1);
 	}
 
@@ -10765,7 +4734,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Object() {
+	public EReference getInline_Img() {
         return (EReference)getInline().getEStructuralFeatures().get(7);
 	}
 
@@ -10774,7 +4743,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Img() {
+	public EReference getInline_Tt() {
         return (EReference)getInline().getEStructuralFeatures().get(8);
 	}
 
@@ -10783,7 +4752,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Tt() {
+	public EReference getInline_I() {
         return (EReference)getInline().getEStructuralFeatures().get(9);
 	}
 
@@ -10792,7 +4761,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_I() {
+	public EReference getInline_B() {
         return (EReference)getInline().getEStructuralFeatures().get(10);
 	}
 
@@ -10801,7 +4770,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_B() {
+	public EReference getInline_Big() {
         return (EReference)getInline().getEStructuralFeatures().get(11);
 	}
 
@@ -10810,7 +4779,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Big() {
+	public EReference getInline_Small() {
         return (EReference)getInline().getEStructuralFeatures().get(12);
 	}
 
@@ -10819,7 +4788,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Small() {
+	public EReference getInline_Em() {
         return (EReference)getInline().getEStructuralFeatures().get(13);
 	}
 
@@ -10828,7 +4797,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Em() {
+	public EReference getInline_Strong() {
         return (EReference)getInline().getEStructuralFeatures().get(14);
 	}
 
@@ -10837,7 +4806,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Strong() {
+	public EReference getInline_Dfn() {
         return (EReference)getInline().getEStructuralFeatures().get(15);
 	}
 
@@ -10846,7 +4815,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Dfn() {
+	public EReference getInline_Code() {
         return (EReference)getInline().getEStructuralFeatures().get(16);
 	}
 
@@ -10855,7 +4824,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Code() {
+	public EReference getInline_Q() {
         return (EReference)getInline().getEStructuralFeatures().get(17);
 	}
 
@@ -10864,7 +4833,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Q() {
+	public EReference getInline_Samp() {
         return (EReference)getInline().getEStructuralFeatures().get(18);
 	}
 
@@ -10873,7 +4842,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Samp() {
+	public EReference getInline_Kbd() {
         return (EReference)getInline().getEStructuralFeatures().get(19);
 	}
 
@@ -10882,7 +4851,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Kbd() {
+	public EReference getInline_Var() {
         return (EReference)getInline().getEStructuralFeatures().get(20);
 	}
 
@@ -10891,7 +4860,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Var() {
+	public EReference getInline_Cite() {
         return (EReference)getInline().getEStructuralFeatures().get(21);
 	}
 
@@ -10900,7 +4869,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Cite() {
+	public EReference getInline_Abbr() {
         return (EReference)getInline().getEStructuralFeatures().get(22);
 	}
 
@@ -10909,7 +4878,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Abbr() {
+	public EReference getInline_Acronym() {
         return (EReference)getInline().getEStructuralFeatures().get(23);
 	}
 
@@ -10918,7 +4887,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Acronym() {
+	public EReference getInline_Sub() {
         return (EReference)getInline().getEStructuralFeatures().get(24);
 	}
 
@@ -10927,599 +4896,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInline_Sub() {
-        return (EReference)getInline().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getInline_Sup() {
-        return (EReference)getInline().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Input() {
-        return (EReference)getInline().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Select() {
-        return (EReference)getInline().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Textarea() {
-        return (EReference)getInline().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Label() {
-        return (EReference)getInline().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Button() {
-        return (EReference)getInline().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Ins() {
-        return (EReference)getInline().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Del() {
-        return (EReference)getInline().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInline_Script() {
-        return (EReference)getInline().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInputType1() {
-		if (inputType1EClass == null) {
-			inputType1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(76);
-		}
-		return inputType1EClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Accept() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Accesskey() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Alt() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Checked() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Class() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Dir() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Disabled() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Id() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Lang() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Lang1() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Maxlength() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Name() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onblur() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onchange() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onclick() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Ondblclick() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onfocus() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onkeydown() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onkeypress() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onkeyup() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onmousedown() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onmousemove() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onmouseout() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onmouseover() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onmouseup() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Onselect() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Readonly() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Size() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Src() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Style() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Tabindex() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Title() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Type() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Usemap() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInputType1_Value() {
-        return (EAttribute)getInputType1().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInsType() {
-		if (insTypeEClass == null) {
-			insTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(78);
-		}
-		return insTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Cite1() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Class() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Datetime() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Dir() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Id() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Lang() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Lang1() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onclick() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Ondblclick() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onkeydown() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onkeypress() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onkeyup() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onmousedown() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onmousemove() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onmouseout() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onmouseover() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Onmouseup() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Style() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInsType_Title() {
-        return (EAttribute)getInsType().getEStructuralFeatures().get(18);
+        return (EReference)getInline().getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -11529,7 +4907,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getIType() {
 		if (iTypeEClass == null) {
-			iTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(81);
+			iTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(49);
 		}
 		return iTypeEClass;
 	}
@@ -11584,7 +4962,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIType_Onclick() {
+	public EAttribute getIType_Style() {
         return (EAttribute)getIType().getEStructuralFeatures().get(5);
 	}
 
@@ -11593,98 +4971,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIType_Ondblclick() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onkeydown() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onkeypress() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onkeyup() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onmousedown() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onmousemove() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onmouseout() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onmouseover() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Onmouseup() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIType_Style() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIType_Title() {
-        return (EAttribute)getIType().getEStructuralFeatures().get(16);
+        return (EAttribute)getIType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -11694,7 +4982,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getKbdType() {
 		if (kbdTypeEClass == null) {
-			kbdTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(82);
+			kbdTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(50);
 		}
 		return kbdTypeEClass;
 	}
@@ -11749,7 +5037,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getKbdType_Onclick() {
+	public EAttribute getKbdType_Style() {
         return (EAttribute)getKbdType().getEStructuralFeatures().get(5);
 	}
 
@@ -11758,701 +5046,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getKbdType_Ondblclick() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onkeydown() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onkeypress() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onkeyup() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onmousedown() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onmousemove() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onmouseout() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onmouseover() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Onmouseup() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getKbdType_Style() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getKbdType_Title() {
-        return (EAttribute)getKbdType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLabelType() {
-		if (labelTypeEClass == null) {
-			labelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(83);
-		}
-		return labelTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Accesskey() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Class() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Dir() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_For() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Id() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Lang() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Lang1() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onblur() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onclick() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Ondblclick() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onfocus() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onkeydown() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onkeypress() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onkeyup() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onmousedown() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onmousemove() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onmouseout() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onmouseover() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Onmouseup() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Style() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLabelType_Title() {
-        return (EAttribute)getLabelType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLegendType() {
-		if (legendTypeEClass == null) {
-			legendTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(85);
-		}
-		return legendTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Accesskey() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Class() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Dir() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Id() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Lang() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Lang1() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onclick() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Ondblclick() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onkeydown() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onkeypress() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onkeyup() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onmousedown() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onmousemove() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onmouseout() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onmouseover() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Onmouseup() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Style() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLegendType_Title() {
-        return (EAttribute)getLegendType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLinkType() {
-		if (linkTypeEClass == null) {
-			linkTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(87);
-		}
-		return linkTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Charset() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Class() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Dir() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Href() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Hreflang() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Id() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Lang() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Lang1() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Media() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onclick() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Ondblclick() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onkeydown() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onkeypress() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onkeyup() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onmousedown() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onmousemove() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onmouseout() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onmouseover() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Onmouseup() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Rel() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Rev() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Style() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Title() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLinkType_Type() {
-        return (EAttribute)getLinkType().getEStructuralFeatures().get(23);
+        return (EAttribute)getKbdType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -12462,7 +5057,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getLiType() {
 		if (liTypeEClass == null) {
-			liTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(89);
+			liTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(54);
 		}
 		return liTypeEClass;
 	}
@@ -12517,7 +5112,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLiType_Onclick() {
+	public EAttribute getLiType_Style() {
         return (EAttribute)getLiType().getEStructuralFeatures().get(5);
 	}
 
@@ -12526,98 +5121,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLiType_Ondblclick() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onkeydown() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onkeypress() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onkeyup() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onmousedown() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onmousemove() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onmouseout() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onmouseover() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Onmouseup() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiType_Style() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getLiType_Title() {
-        return (EAttribute)getLiType().getEStructuralFeatures().get(16);
+        return (EAttribute)getLiType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -12627,7 +5132,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getMapType() {
 		if (mapTypeEClass == null) {
-			mapTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(90);
+			mapTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(55);
 		}
 		return mapTypeEClass;
 	}
@@ -12637,7 +5142,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMapType_Group() {
+	public EAttribute getMapType_Block() {
         return (EAttribute)getMapType().getEStructuralFeatures().get(0);
 	}
 
@@ -12781,7 +5286,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMapType_Fieldset() {
+	public EReference getMapType_Table() {
         return (EReference)getMapType().getEStructuralFeatures().get(16);
 	}
 
@@ -12790,7 +5295,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMapType_Table() {
+	public EReference getMapType_Area() {
         return (EReference)getMapType().getEStructuralFeatures().get(17);
 	}
 
@@ -12799,62 +5304,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMapType_Form() {
-        return (EReference)getMapType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapType_Noscript() {
-        return (EReference)getMapType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapType_Ins() {
-        return (EReference)getMapType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapType_Del() {
-        return (EReference)getMapType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapType_Script() {
-        return (EReference)getMapType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapType_Area() {
-        return (EReference)getMapType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMapType_Class() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(24);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -12863,7 +5314,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Dir() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(25);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -12872,7 +5323,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Id() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(26);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -12881,7 +5332,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Lang() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(27);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -12890,7 +5341,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Lang1() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(28);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -12899,97 +5350,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Name() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onclick() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Ondblclick() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onkeydown() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onkeypress() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onkeyup() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onmousedown() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(35);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onmousemove() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(36);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onmouseout() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onmouseover() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(38);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapType_Onmouseup() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(39);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -12998,7 +5359,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Style() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(40);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -13007,1033 +5368,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * @generated
 	 */
 	public EAttribute getMapType_Title() {
-        return (EAttribute)getMapType().getEStructuralFeatures().get(41);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMetaType() {
-		if (metaTypeEClass == null) {
-			metaTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(92);
-		}
-		return metaTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Content() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Dir() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_HttpEquiv() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Id() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Lang() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Lang1() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Name() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMetaType_Scheme() {
-        return (EAttribute)getMetaType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNoscriptType() {
-		if (noscriptTypeEClass == null) {
-			noscriptTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(100);
-		}
-		return noscriptTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Class() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Dir() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Id() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Lang() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Lang1() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onclick() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Ondblclick() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onkeydown() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onkeypress() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onkeyup() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onmousedown() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onmousemove() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onmouseout() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onmouseover() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Onmouseup() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Style() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNoscriptType_Title() {
-        return (EAttribute)getNoscriptType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getObjectType() {
-		if (objectTypeEClass == null) {
-			objectTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(102);
-		}
-		return objectTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Mixed() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Group() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Param() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_P() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H1() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H2() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H3() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H4() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H5() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_H6() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Div() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Ul() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Ol() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Dl() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Pre() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Hr() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Blockquote() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Address() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Fieldset() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Table() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Form() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_A() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Br() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Span() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Bdo() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Map() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Object() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Img() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Tt() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_I() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_B() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Big() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Small() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Em() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Strong() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Dfn() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(35);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Code() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(36);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Q() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Samp() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(38);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Kbd() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(39);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Var() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(40);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Cite() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(41);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Abbr() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(42);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Acronym() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(43);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Sub() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(44);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Sup() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(45);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Input() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(46);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Select() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(47);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Textarea() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(48);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Label() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(49);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Button() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(50);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Noscript() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(51);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Ins() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(52);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Del() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(53);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getObjectType_Script() {
-        return (EReference)getObjectType().getEStructuralFeatures().get(54);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Archive() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(55);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Class() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(56);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Classid() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(57);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Codebase() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(58);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Codetype() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(59);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Data() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(60);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Declare() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(61);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Dir() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(62);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Height() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(63);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Id() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(64);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Lang() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(65);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Lang1() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(66);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Name() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(67);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onclick() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(68);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Ondblclick() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(69);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onkeydown() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(70);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onkeypress() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(71);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onkeyup() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(72);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onmousedown() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(73);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onmousemove() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(74);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onmouseout() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(75);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onmouseover() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(76);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Onmouseup() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(77);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Standby() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(78);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Style() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(79);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Tabindex() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(80);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Title() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(81);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Type() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(82);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Usemap() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(83);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getObjectType_Width() {
-        return (EAttribute)getObjectType().getEStructuralFeatures().get(84);
+        return (EAttribute)getMapType().getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -14043,7 +5378,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getOlType() {
 		if (olTypeEClass == null) {
-			olTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(103);
+			olTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(61);
 		}
 		return olTypeEClass;
 	}
@@ -14107,7 +5442,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOlType_Onclick() {
+	public EAttribute getOlType_Style() {
         return (EAttribute)getOlType().getEStructuralFeatures().get(6);
 	}
 
@@ -14116,557 +5451,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOlType_Ondblclick() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onkeydown() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onkeypress() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onkeyup() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onmousedown() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onmousemove() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onmouseout() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onmouseover() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Onmouseup() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOlType_Style() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getOlType_Title() {
-        return (EAttribute)getOlType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOptgroupType() {
-		if (optgroupTypeEClass == null) {
-			optgroupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(104);
-		}
-		return optgroupTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOptgroupType_Option() {
-        return (EReference)getOptgroupType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Class() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Dir() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Disabled() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Id() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Label() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Lang() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Lang1() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onclick() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Ondblclick() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onkeydown() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onkeypress() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onkeyup() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onmousedown() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onmousemove() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onmouseout() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onmouseover() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Onmouseup() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Style() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptgroupType_Title() {
-        return (EAttribute)getOptgroupType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOptionType() {
-		if (optionTypeEClass == null) {
-			optionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(105);
-		}
-		return optionTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Mixed() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Class() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Dir() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Disabled() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Id() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Label() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Lang() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Lang1() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onclick() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Ondblclick() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onkeydown() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onkeypress() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onkeyup() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onmousedown() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onmousemove() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onmouseout() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onmouseover() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Onmouseup() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Selected() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Style() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Title() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionType_Value() {
-        return (EAttribute)getOptionType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParamType() {
-		if (paramTypeEClass == null) {
-			paramTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(106);
-		}
-		return paramTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamType_Id() {
-        return (EAttribute)getParamType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamType_Name() {
-        return (EAttribute)getParamType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamType_Type() {
-        return (EAttribute)getParamType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamType_Value() {
-        return (EAttribute)getParamType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamType_Valuetype() {
-        return (EAttribute)getParamType().getEStructuralFeatures().get(4);
+        return (EAttribute)getOlType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -14676,7 +5462,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getPreContent() {
 		if (preContentEClass == null) {
-			preContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(108);
+			preContentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(63);
 		}
 		return preContentEClass;
 	}
@@ -14911,81 +5697,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPreContent_Ins() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Del() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Script() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Input() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Select() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Textarea() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Label() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreContent_Button() {
-        return (EReference)getPreContent().getEStructuralFeatures().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPreType() {
 		if (preTypeEClass == null) {
-			preTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(109);
+			preTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(64);
 		}
 		return preTypeEClass;
 	}
@@ -15040,7 +5754,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreType_Onclick() {
+	public EAttribute getPreType_Space() {
         return (EAttribute)getPreType().getEStructuralFeatures().get(5);
 	}
 
@@ -15049,7 +5763,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreType_Ondblclick() {
+	public EAttribute getPreType_Style() {
         return (EAttribute)getPreType().getEStructuralFeatures().get(6);
 	}
 
@@ -15058,98 +5772,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreType_Onkeydown() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onkeypress() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onkeyup() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onmousedown() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onmousemove() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onmouseout() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onmouseover() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Onmouseup() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Space() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreType_Style() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPreType_Title() {
-        return (EAttribute)getPreType().getEStructuralFeatures().get(17);
+        return (EAttribute)getPreType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -15159,7 +5783,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getPType() {
 		if (pTypeEClass == null) {
-			pTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(110);
+			pTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(65);
 		}
 		return pTypeEClass;
 	}
@@ -15214,7 +5838,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPType_Onclick() {
+	public EAttribute getPType_Style() {
         return (EAttribute)getPType().getEStructuralFeatures().get(5);
 	}
 
@@ -15223,98 +5847,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPType_Ondblclick() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onkeydown() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onkeypress() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onkeyup() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onmousedown() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onmousemove() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onmouseout() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onmouseover() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Onmouseup() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPType_Style() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPType_Title() {
-        return (EAttribute)getPType().getEStructuralFeatures().get(16);
+        return (EAttribute)getPType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -15324,7 +5858,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getQType() {
 		if (qTypeEClass == null) {
-			qTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(111);
+			qTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(66);
 		}
 		return qTypeEClass;
 	}
@@ -15388,7 +5922,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQType_Onclick() {
+	public EAttribute getQType_Style() {
         return (EAttribute)getQType().getEStructuralFeatures().get(6);
 	}
 
@@ -15397,98 +5931,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQType_Ondblclick() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onkeydown() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onkeypress() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onkeyup() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onmousedown() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onmousemove() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onmouseout() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onmouseover() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Onmouseup() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQType_Style() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getQType_Title() {
-        return (EAttribute)getQType().getEStructuralFeatures().get(17);
+        return (EAttribute)getQType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -15498,7 +5942,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getSampType() {
 		if (sampTypeEClass == null) {
-			sampTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(116);
+			sampTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(67);
 		}
 		return sampTypeEClass;
 	}
@@ -15553,7 +5997,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSampType_Onclick() {
+	public EAttribute getSampType_Style() {
         return (EAttribute)getSampType().getEStructuralFeatures().get(5);
 	}
 
@@ -15562,437 +6006,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSampType_Ondblclick() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onkeydown() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onkeypress() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onkeyup() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onmousedown() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onmousemove() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onmouseout() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onmouseover() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Onmouseup() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSampType_Style() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSampType_Title() {
-        return (EAttribute)getSampType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getScriptType() {
-		if (scriptTypeEClass == null) {
-			scriptTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(120);
-		}
-		return scriptTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Mixed() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Charset() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Defer() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Id() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Space() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Src() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScriptType_Type() {
-        return (EAttribute)getScriptType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSelectType() {
-		if (selectTypeEClass == null) {
-			selectTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(123);
-		}
-		return selectTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Group() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSelectType_Optgroup() {
-        return (EReference)getSelectType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSelectType_Option() {
-        return (EReference)getSelectType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Class() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Dir() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Disabled() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Id() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Lang() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Lang1() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Multiple() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Name() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onblur() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onchange() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onclick() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Ondblclick() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onfocus() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onkeydown() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onkeypress() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onkeyup() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onmousedown() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onmousemove() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onmouseout() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onmouseover() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Onmouseup() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Size() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Style() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Tabindex() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSelectType_Title() {
-        return (EAttribute)getSelectType().getEStructuralFeatures().get(27);
+        return (EAttribute)getSampType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16002,7 +6017,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getSmallType() {
 		if (smallTypeEClass == null) {
-			smallTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(126);
+			smallTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(73);
 		}
 		return smallTypeEClass;
 	}
@@ -16057,7 +6072,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSmallType_Onclick() {
+	public EAttribute getSmallType_Style() {
         return (EAttribute)getSmallType().getEStructuralFeatures().get(5);
 	}
 
@@ -16066,98 +6081,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSmallType_Ondblclick() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onkeydown() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onkeypress() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onkeyup() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onmousedown() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onmousemove() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onmouseout() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onmouseover() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Onmouseup() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmallType_Style() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSmallType_Title() {
-        return (EAttribute)getSmallType().getEStructuralFeatures().get(16);
+        return (EAttribute)getSmallType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16167,7 +6092,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getSpanType() {
 		if (spanTypeEClass == null) {
-			spanTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(127);
+			spanTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(74);
 		}
 		return spanTypeEClass;
 	}
@@ -16222,7 +6147,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpanType_Onclick() {
+	public EAttribute getSpanType_Style() {
         return (EAttribute)getSpanType().getEStructuralFeatures().get(5);
 	}
 
@@ -16231,98 +6156,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpanType_Ondblclick() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onkeydown() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onkeypress() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onkeyup() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onmousedown() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onmousemove() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onmouseout() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onmouseover() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Onmouseup() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpanType_Style() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSpanType_Title() {
-        return (EAttribute)getSpanType().getEStructuralFeatures().get(16);
+        return (EAttribute)getSpanType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16332,7 +6167,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getStrongType() {
 		if (strongTypeEClass == null) {
-			strongTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(128);
+			strongTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(75);
 		}
 		return strongTypeEClass;
 	}
@@ -16387,7 +6222,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrongType_Onclick() {
+	public EAttribute getStrongType_Style() {
         return (EAttribute)getStrongType().getEStructuralFeatures().get(5);
 	}
 
@@ -16396,191 +6231,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrongType_Ondblclick() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onkeydown() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onkeypress() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onkeyup() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onmousedown() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onmousemove() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onmouseout() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onmouseover() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Onmouseup() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrongType_Style() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getStrongType_Title() {
-        return (EAttribute)getStrongType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStyleType() {
-		if (styleTypeEClass == null) {
-			styleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(130);
-		}
-		return styleTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Mixed() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Dir() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Id() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Lang() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Lang1() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Media() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Space() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Title() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyleType_Type() {
-        return (EAttribute)getStyleType().getEStructuralFeatures().get(8);
+        return (EAttribute)getStrongType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16590,7 +6242,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getSubType() {
 		if (subTypeEClass == null) {
-			subTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(131);
+			subTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(77);
 		}
 		return subTypeEClass;
 	}
@@ -16645,7 +6297,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubType_Onclick() {
+	public EAttribute getSubType_Style() {
         return (EAttribute)getSubType().getEStructuralFeatures().get(5);
 	}
 
@@ -16654,98 +6306,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubType_Ondblclick() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onkeydown() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onkeypress() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onkeyup() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onmousedown() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onmousemove() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onmouseout() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onmouseover() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Onmouseup() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubType_Style() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSubType_Title() {
-        return (EAttribute)getSubType().getEStructuralFeatures().get(16);
+        return (EAttribute)getSubType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16755,7 +6317,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getSupType() {
 		if (supTypeEClass == null) {
-			supTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(132);
+			supTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(78);
 		}
 		return supTypeEClass;
 	}
@@ -16810,7 +6372,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupType_Onclick() {
+	public EAttribute getSupType_Style() {
         return (EAttribute)getSupType().getEStructuralFeatures().get(5);
 	}
 
@@ -16819,98 +6381,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupType_Ondblclick() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onkeydown() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onkeypress() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onkeyup() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onmousedown() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onmousemove() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onmouseout() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onmouseover() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Onmouseup() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupType_Style() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSupType_Title() {
-        return (EAttribute)getSupType().getEStructuralFeatures().get(16);
+        return (EAttribute)getSupType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -16920,7 +6392,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTableType() {
 		if (tableTypeEClass == null) {
-			tableTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(134);
+			tableTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(80);
 		}
 		return tableTypeEClass;
 	}
@@ -17074,7 +6546,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableType_Onclick() {
+	public EAttribute getTableType_Rules() {
         return (EAttribute)getTableType().getEStructuralFeatures().get(16);
 	}
 
@@ -17083,7 +6555,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableType_Ondblclick() {
+	public EAttribute getTableType_Style() {
         return (EAttribute)getTableType().getEStructuralFeatures().get(17);
 	}
 
@@ -17092,7 +6564,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableType_Onkeydown() {
+	public EAttribute getTableType_Summary() {
         return (EAttribute)getTableType().getEStructuralFeatures().get(18);
 	}
 
@@ -17101,7 +6573,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableType_Onkeypress() {
+	public EAttribute getTableType_Title() {
         return (EAttribute)getTableType().getEStructuralFeatures().get(19);
 	}
 
@@ -17110,98 +6582,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableType_Onkeyup() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Onmousedown() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Onmousemove() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Onmouseout() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Onmouseover() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Onmouseup() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Rules() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Style() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Summary() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableType_Title() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTableType_Width() {
-        return (EAttribute)getTableType().getEStructuralFeatures().get(30);
+        return (EAttribute)getTableType().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -17211,7 +6593,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTbodyType() {
 		if (tbodyTypeEClass == null) {
-			tbodyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(135);
+			tbodyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(81);
 		}
 		return tbodyTypeEClass;
 	}
@@ -17302,7 +6684,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTbodyType_Onclick() {
+	public EAttribute getTbodyType_Style() {
         return (EAttribute)getTbodyType().getEStructuralFeatures().get(9);
 	}
 
@@ -17311,7 +6693,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTbodyType_Ondblclick() {
+	public EAttribute getTbodyType_Title() {
         return (EAttribute)getTbodyType().getEStructuralFeatures().get(10);
 	}
 
@@ -17320,98 +6702,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTbodyType_Onkeydown() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onkeypress() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onkeyup() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onmousedown() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onmousemove() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onmouseout() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onmouseover() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Onmouseup() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Style() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTbodyType_Title() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTbodyType_Valign() {
-        return (EAttribute)getTbodyType().getEStructuralFeatures().get(21);
+        return (EAttribute)getTbodyType().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -17421,7 +6713,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTdType() {
 		if (tdTypeEClass == null) {
-			tdTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(136);
+			tdTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(82);
 		}
 		return tdTypeEClass;
 	}
@@ -17539,7 +6831,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTdType_Onclick() {
+	public EAttribute getTdType_Rowspan() {
         return (EAttribute)getTdType().getEStructuralFeatures().get(12);
 	}
 
@@ -17548,7 +6840,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTdType_Ondblclick() {
+	public EAttribute getTdType_Scope() {
         return (EAttribute)getTdType().getEStructuralFeatures().get(13);
 	}
 
@@ -17557,7 +6849,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTdType_Onkeydown() {
+	public EAttribute getTdType_Style() {
         return (EAttribute)getTdType().getEStructuralFeatures().get(14);
 	}
 
@@ -17566,7 +6858,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTdType_Onkeypress() {
+	public EAttribute getTdType_Title() {
         return (EAttribute)getTdType().getEStructuralFeatures().get(15);
 	}
 
@@ -17575,371 +6867,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTdType_Onkeyup() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Onmousedown() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Onmousemove() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Onmouseout() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Onmouseover() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Onmouseup() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Rowspan() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Scope() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Style() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTdType_Title() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTdType_Valign() {
-        return (EAttribute)getTdType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTextareaType() {
-		if (textareaTypeEClass == null) {
-			textareaTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(138);
-		}
-		return textareaTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Mixed() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Accesskey() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Class() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Cols() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Dir() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Disabled() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Id() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Lang() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Lang1() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Name() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onblur() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onchange() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onclick() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Ondblclick() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onfocus() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onkeydown() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onkeypress() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onkeyup() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onmousedown() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onmousemove() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onmouseout() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onmouseover() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onmouseup() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Onselect() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Readonly() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Rows() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Style() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Tabindex() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextareaType_Title() {
-        return (EAttribute)getTextareaType().getEStructuralFeatures().get(28);
+        return (EAttribute)getTdType().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -17949,7 +6878,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTfootType() {
 		if (tfootTypeEClass == null) {
-			tfootTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(139);
+			tfootTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(84);
 		}
 		return tfootTypeEClass;
 	}
@@ -18040,7 +6969,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTfootType_Onclick() {
+	public EAttribute getTfootType_Style() {
         return (EAttribute)getTfootType().getEStructuralFeatures().get(9);
 	}
 
@@ -18049,7 +6978,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTfootType_Ondblclick() {
+	public EAttribute getTfootType_Title() {
         return (EAttribute)getTfootType().getEStructuralFeatures().get(10);
 	}
 
@@ -18058,98 +6987,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTfootType_Onkeydown() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onkeypress() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onkeyup() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onmousedown() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onmousemove() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onmouseout() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onmouseover() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Onmouseup() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Style() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTfootType_Title() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTfootType_Valign() {
-        return (EAttribute)getTfootType().getEStructuralFeatures().get(21);
+        return (EAttribute)getTfootType().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -18159,7 +6998,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTheadType() {
 		if (theadTypeEClass == null) {
-			theadTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(142);
+			theadTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(87);
 		}
 		return theadTypeEClass;
 	}
@@ -18250,7 +7089,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTheadType_Onclick() {
+	public EAttribute getTheadType_Style() {
         return (EAttribute)getTheadType().getEStructuralFeatures().get(9);
 	}
 
@@ -18259,7 +7098,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTheadType_Ondblclick() {
+	public EAttribute getTheadType_Title() {
         return (EAttribute)getTheadType().getEStructuralFeatures().get(10);
 	}
 
@@ -18268,98 +7107,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTheadType_Onkeydown() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onkeypress() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onkeyup() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onmousedown() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onmousemove() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onmouseout() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onmouseover() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Onmouseup() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Style() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTheadType_Title() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTheadType_Valign() {
-        return (EAttribute)getTheadType().getEStructuralFeatures().get(21);
+        return (EAttribute)getTheadType().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -18369,7 +7118,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getThType() {
 		if (thTypeEClass == null) {
-			thTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(143);
+			thTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(88);
 		}
 		return thTypeEClass;
 	}
@@ -18487,7 +7236,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThType_Onclick() {
+	public EAttribute getThType_Rowspan() {
         return (EAttribute)getThType().getEStructuralFeatures().get(12);
 	}
 
@@ -18496,7 +7245,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThType_Ondblclick() {
+	public EAttribute getThType_Scope() {
         return (EAttribute)getThType().getEStructuralFeatures().get(13);
 	}
 
@@ -18505,7 +7254,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThType_Onkeydown() {
+	public EAttribute getThType_Style() {
         return (EAttribute)getThType().getEStructuralFeatures().get(14);
 	}
 
@@ -18514,7 +7263,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThType_Onkeypress() {
+	public EAttribute getThType_Title() {
         return (EAttribute)getThType().getEStructuralFeatures().get(15);
 	}
 
@@ -18523,155 +7272,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThType_Onkeyup() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Onmousedown() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Onmousemove() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Onmouseout() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Onmouseover() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Onmouseup() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Rowspan() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Scope() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Style() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getThType_Title() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getThType_Valign() {
-        return (EAttribute)getThType().getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTitleType() {
-		if (titleTypeEClass == null) {
-			titleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(144);
-		}
-		return titleTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTitleType_Mixed() {
-        return (EAttribute)getTitleType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTitleType_Dir() {
-        return (EAttribute)getTitleType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTitleType_Id() {
-        return (EAttribute)getTitleType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTitleType_Lang() {
-        return (EAttribute)getTitleType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTitleType_Lang1() {
-        return (EAttribute)getTitleType().getEStructuralFeatures().get(4);
+        return (EAttribute)getThType().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -18681,7 +7283,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTrType() {
 		if (trTypeEClass == null) {
-			trTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(145);
+			trTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(89);
 		}
 		return trTypeEClass;
 	}
@@ -18790,7 +7392,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrType_Onclick() {
+	public EAttribute getTrType_Style() {
         return (EAttribute)getTrType().getEStructuralFeatures().get(11);
 	}
 
@@ -18799,7 +7401,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrType_Ondblclick() {
+	public EAttribute getTrType_Title() {
         return (EAttribute)getTrType().getEStructuralFeatures().get(12);
 	}
 
@@ -18808,98 +7410,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrType_Onkeydown() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onkeypress() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onkeyup() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onmousedown() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onmousemove() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onmouseout() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onmouseover() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Onmouseup() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Style() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTrType_Title() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTrType_Valign() {
-        return (EAttribute)getTrType().getEStructuralFeatures().get(23);
+        return (EAttribute)getTrType().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -18909,7 +7421,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getTtType() {
 		if (ttTypeEClass == null) {
-			ttTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(148);
+			ttTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(92);
 		}
 		return ttTypeEClass;
 	}
@@ -18964,7 +7476,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTtType_Onclick() {
+	public EAttribute getTtType_Style() {
         return (EAttribute)getTtType().getEStructuralFeatures().get(5);
 	}
 
@@ -18973,98 +7485,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTtType_Ondblclick() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onkeydown() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onkeypress() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onkeyup() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onmousedown() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onmousemove() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onmouseout() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onmouseover() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Onmouseup() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTtType_Style() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTtType_Title() {
-        return (EAttribute)getTtType().getEStructuralFeatures().get(16);
+        return (EAttribute)getTtType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -19074,7 +7496,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getUlType() {
 		if (ulTypeEClass == null) {
-			ulTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(151);
+			ulTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(93);
 		}
 		return ulTypeEClass;
 	}
@@ -19138,7 +7560,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUlType_Onclick() {
+	public EAttribute getUlType_Style() {
         return (EAttribute)getUlType().getEStructuralFeatures().get(6);
 	}
 
@@ -19147,98 +7569,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUlType_Ondblclick() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onkeydown() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onkeypress() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onkeyup() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onmousedown() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onmousemove() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onmouseout() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onmouseover() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Onmouseup() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUlType_Style() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getUlType_Title() {
-        return (EAttribute)getUlType().getEStructuralFeatures().get(17);
+        return (EAttribute)getUlType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -19248,7 +7580,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EClass getVarType() {
 		if (varTypeEClass == null) {
-			varTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(158);
+			varTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(98);
 		}
 		return varTypeEClass;
 	}
@@ -19303,7 +7635,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVarType_Onclick() {
+	public EAttribute getVarType_Style() {
         return (EAttribute)getVarType().getEStructuralFeatures().get(5);
 	}
 
@@ -19312,98 +7644,8 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVarType_Ondblclick() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onkeydown() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onkeypress() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onkeyup() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onmousedown() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onmousemove() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onmouseout() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onmouseover() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Onmouseup() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVarType_Style() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getVarType_Title() {
-        return (EAttribute)getVarType().getEStructuralFeatures().get(16);
+        return (EAttribute)getVarType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -19423,45 +7665,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCheckedType() {
-		if (checkedTypeEEnum == null) {
-			checkedTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(22);
-		}
-		return checkedTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDeclareType() {
-		if (declareTypeEEnum == null) {
-			declareTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(33);
-		}
-		return declareTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDeferType() {
-		if (deferTypeEEnum == null) {
-			deferTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(35);
-		}
-		return deferTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getDirType() {
 		if (dirTypeEEnum == null) {
-			dirTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(39);
+			dirTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(28);
 		}
 		return dirTypeEEnum;
 	}
@@ -19473,7 +7679,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EEnum getDirType1() {
 		if (dirType1EEnum == null) {
-			dirType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(40);
+			dirType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(29);
 		}
 		return dirType1EEnum;
 	}
@@ -19483,93 +7689,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDisabledType() {
-		if (disabledTypeEEnum == null) {
-			disabledTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(43);
-		}
-		return disabledTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDisabledType1() {
-		if (disabledType1EEnum == null) {
-			disabledType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(44);
-		}
-		return disabledType1EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDisabledType2() {
-		if (disabledType2EEnum == null) {
-			disabledType2EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(45);
-		}
-		return disabledType2EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDisabledType3() {
-		if (disabledType3EEnum == null) {
-			disabledType3EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(46);
-		}
-		return disabledType3EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDisabledType4() {
-		if (disabledType4EEnum == null) {
-			disabledType4EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(47);
-		}
-		return disabledType4EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDisabledType5() {
-		if (disabledType5EEnum == null) {
-			disabledType5EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(48);
-		}
-		return disabledType5EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getInputType() {
-		if (inputTypeEEnum == null) {
-			inputTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(75);
-		}
-		return inputTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getIsmapType() {
 		if (ismapTypeEEnum == null) {
-			ismapTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(79);
+			ismapTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(47);
 		}
 		return ismapTypeEEnum;
 	}
@@ -19579,33 +7701,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getMethodType() {
-		if (methodTypeEEnum == null) {
-			methodTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(93);
-		}
-		return methodTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getMultipleType() {
-		if (multipleTypeEEnum == null) {
-			multipleTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(96);
-		}
-		return multipleTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getNohrefType() {
 		if (nohrefTypeEEnum == null) {
-			nohrefTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(98);
+			nohrefTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(58);
 		}
 		return nohrefTypeEEnum;
 	}
@@ -19615,33 +7713,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getReadonlyType() {
-		if (readonlyTypeEEnum == null) {
-			readonlyTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(112);
-		}
-		return readonlyTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getReadonlyType1() {
-		if (readonlyType1EEnum == null) {
-			readonlyType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(113);
-		}
-		return readonlyType1EEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getScope() {
 		if (scopeEEnum == null) {
-			scopeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(117);
+			scopeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(68);
 		}
 		return scopeEEnum;
 	}
@@ -19651,21 +7725,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSelectedType() {
-		if (selectedTypeEEnum == null) {
-			selectedTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(121);
-		}
-		return selectedTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getShape() {
 		if (shapeEEnum == null) {
-			shapeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(124);
+			shapeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(71);
 		}
 		return shapeEEnum;
 	}
@@ -19677,7 +7739,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EEnum getTFrame() {
 		if (tFrameEEnum == null) {
-			tFrameEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(140);
+			tFrameEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(85);
 		}
 		return tFrameEEnum;
 	}
@@ -19689,7 +7751,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EEnum getTRules() {
 		if (tRulesEEnum == null) {
-			tRulesEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(146);
+			tRulesEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(90);
 		}
 		return tRulesEEnum;
 	}
@@ -19699,35 +7761,11 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getTypeType() {
-		if (typeTypeEEnum == null) {
-			typeTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(149);
-		}
-		return typeTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getValignType() {
 		if (valignTypeEEnum == null) {
-			valignTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(154);
+			valignTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(96);
 		}
 		return valignTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getValuetypeType() {
-		if (valuetypeTypeEEnum == null) {
-			valuetypeTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(156);
-		}
-		return valuetypeTypeEEnum;
 	}
 
 	/**
@@ -19749,7 +7787,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getCharacter() {
 		if (characterEDataType == null) {
-			characterEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(19);
+			characterEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(15);
 		}
 		return characterEDataType;
 	}
@@ -19761,7 +7799,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getCharset() {
 		if (charsetEDataType == null) {
-			charsetEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(20);
+			charsetEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(16);
 		}
 		return charsetEDataType;
 	}
@@ -19773,7 +7811,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getCharsets() {
 		if (charsetsEDataType == null) {
-			charsetsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(21);
+			charsetsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(17);
 		}
 		return charsetsEDataType;
 	}
@@ -19783,21 +7821,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCheckedTypeObject() {
-		if (checkedTypeObjectEDataType == null) {
-			checkedTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(23);
-		}
-		return checkedTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getContentType() {
 		if (contentTypeEDataType == null) {
-			contentTypeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(28);
+			contentTypeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(22);
 		}
 		return contentTypeEDataType;
 	}
@@ -19809,7 +7835,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getContentTypes() {
 		if (contentTypesEDataType == null) {
-			contentTypesEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(29);
+			contentTypesEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(23);
 		}
 		return contentTypesEDataType;
 	}
@@ -19821,7 +7847,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getCoords() {
 		if (coordsEDataType == null) {
-			coordsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(30);
+			coordsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(24);
 		}
 		return coordsEDataType;
 	}
@@ -19833,7 +7859,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getDatetime() {
 		if (datetimeEDataType == null) {
-			datetimeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(31);
+			datetimeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(25);
 		}
 		return datetimeEDataType;
 	}
@@ -19843,33 +7869,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDeclareTypeObject() {
-		if (declareTypeObjectEDataType == null) {
-			declareTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(34);
-		}
-		return declareTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDeferTypeObject() {
-		if (deferTypeObjectEDataType == null) {
-			deferTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(36);
-		}
-		return deferTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getDirTypeObject() {
 		if (dirTypeObjectEDataType == null) {
-			dirTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(41);
+			dirTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(30);
 		}
 		return dirTypeObjectEDataType;
 	}
@@ -19881,7 +7883,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getDirTypeObject1() {
 		if (dirTypeObject1EDataType == null) {
-			dirTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(42);
+			dirTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(31);
 		}
 		return dirTypeObject1EDataType;
 	}
@@ -19891,93 +7893,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDisabledTypeObject() {
-		if (disabledTypeObjectEDataType == null) {
-			disabledTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(49);
-		}
-		return disabledTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDisabledTypeObject1() {
-		if (disabledTypeObject1EDataType == null) {
-			disabledTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(50);
-		}
-		return disabledTypeObject1EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDisabledTypeObject2() {
-		if (disabledTypeObject2EDataType == null) {
-			disabledTypeObject2EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(51);
-		}
-		return disabledTypeObject2EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDisabledTypeObject3() {
-		if (disabledTypeObject3EDataType == null) {
-			disabledTypeObject3EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(52);
-		}
-		return disabledTypeObject3EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDisabledTypeObject4() {
-		if (disabledTypeObject4EDataType == null) {
-			disabledTypeObject4EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(53);
-		}
-		return disabledTypeObject4EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDisabledTypeObject5() {
-		if (disabledTypeObject5EDataType == null) {
-			disabledTypeObject5EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(54);
-		}
-		return disabledTypeObject5EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getInputTypeObject() {
-		if (inputTypeObjectEDataType == null) {
-			inputTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(77);
-		}
-		return inputTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getIsmapTypeObject() {
 		if (ismapTypeObjectEDataType == null) {
-			ismapTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(80);
+			ismapTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(48);
 		}
 		return ismapTypeObjectEDataType;
 	}
@@ -19989,7 +7907,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getLanguageCode() {
 		if (languageCodeEDataType == null) {
-			languageCodeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(84);
+			languageCodeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(51);
 		}
 		return languageCodeEDataType;
 	}
@@ -20001,7 +7919,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getLength() {
 		if (lengthEDataType == null) {
-			lengthEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(86);
+			lengthEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(52);
 		}
 		return lengthEDataType;
 	}
@@ -20013,7 +7931,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getLinkTypes() {
 		if (linkTypesEDataType == null) {
-			linkTypesEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(88);
+			linkTypesEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(53);
 		}
 		return linkTypesEDataType;
 	}
@@ -20025,7 +7943,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getMediaDesc() {
 		if (mediaDescEDataType == null) {
-			mediaDescEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(91);
+			mediaDescEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(56);
 		}
 		return mediaDescEDataType;
 	}
@@ -20035,21 +7953,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMethodTypeObject() {
-		if (methodTypeObjectEDataType == null) {
-			methodTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(94);
-		}
-		return methodTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getMultiLength() {
 		if (multiLengthEDataType == null) {
-			multiLengthEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(95);
+			multiLengthEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(57);
 		}
 		return multiLengthEDataType;
 	}
@@ -20059,21 +7965,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMultipleTypeObject() {
-		if (multipleTypeObjectEDataType == null) {
-			multipleTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(97);
-		}
-		return multipleTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getNohrefTypeObject() {
 		if (nohrefTypeObjectEDataType == null) {
-			nohrefTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(99);
+			nohrefTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(59);
 		}
 		return nohrefTypeObjectEDataType;
 	}
@@ -20085,7 +7979,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getNumber() {
 		if (numberEDataType == null) {
-			numberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(101);
+			numberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(60);
 		}
 		return numberEDataType;
 	}
@@ -20097,7 +7991,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getPixels() {
 		if (pixelsEDataType == null) {
-			pixelsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(107);
+			pixelsEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(62);
 		}
 		return pixelsEDataType;
 	}
@@ -20107,33 +8001,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getReadonlyTypeObject() {
-		if (readonlyTypeObjectEDataType == null) {
-			readonlyTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(114);
-		}
-		return readonlyTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getReadonlyTypeObject1() {
-		if (readonlyTypeObject1EDataType == null) {
-			readonlyTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(115);
-		}
-		return readonlyTypeObject1EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getScopeObject() {
 		if (scopeObjectEDataType == null) {
-			scopeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(118);
+			scopeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(69);
 		}
 		return scopeObjectEDataType;
 	}
@@ -20145,7 +8015,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getScript() {
 		if (scriptEDataType == null) {
-			scriptEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(119);
+			scriptEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(70);
 		}
 		return scriptEDataType;
 	}
@@ -20155,21 +8025,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSelectedTypeObject() {
-		if (selectedTypeObjectEDataType == null) {
-			selectedTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(122);
-		}
-		return selectedTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getShapeObject() {
 		if (shapeObjectEDataType == null) {
-			shapeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(125);
+			shapeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(72);
 		}
 		return shapeObjectEDataType;
 	}
@@ -20181,7 +8039,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getStyleSheet() {
 		if (styleSheetEDataType == null) {
-			styleSheetEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(129);
+			styleSheetEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(76);
 		}
 		return styleSheetEDataType;
 	}
@@ -20193,7 +8051,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getTabindexNumber() {
 		if (tabindexNumberEDataType == null) {
-			tabindexNumberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(133);
+			tabindexNumberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(79);
 		}
 		return tabindexNumberEDataType;
 	}
@@ -20205,7 +8063,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getText() {
 		if (textEDataType == null) {
-			textEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(137);
+			textEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(83);
 		}
 		return textEDataType;
 	}
@@ -20217,7 +8075,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getTFrameObject() {
 		if (tFrameObjectEDataType == null) {
-			tFrameObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(141);
+			tFrameObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(86);
 		}
 		return tFrameObjectEDataType;
 	}
@@ -20229,7 +8087,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getTRulesObject() {
 		if (tRulesObjectEDataType == null) {
-			tRulesObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(147);
+			tRulesObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(91);
 		}
 		return tRulesObjectEDataType;
 	}
@@ -20239,21 +8097,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTypeTypeObject() {
-		if (typeTypeObjectEDataType == null) {
-			typeTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(150);
-		}
-		return typeTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getURI() {
 		if (uriEDataType == null) {
-			uriEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(152);
+			uriEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(94);
 		}
 		return uriEDataType;
 	}
@@ -20265,7 +8111,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getUriList() {
 		if (uriListEDataType == null) {
-			uriListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(153);
+			uriListEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(95);
 		}
 		return uriListEDataType;
 	}
@@ -20277,21 +8123,9 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 	 */
 	public EDataType getValignTypeObject() {
 		if (valignTypeObjectEDataType == null) {
-			valignTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(155);
+			valignTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(97);
 		}
 		return valignTypeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getValuetypeTypeObject() {
-		if (valuetypeTypeObjectEDataType == null) {
-			valuetypeTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI).getEClassifiers().get(157);
-		}
-		return valuetypeTypeObjectEDataType;
 	}
 
 	/**

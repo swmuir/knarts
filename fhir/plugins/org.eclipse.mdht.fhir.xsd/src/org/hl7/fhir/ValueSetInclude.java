@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -31,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ValueSetInclude#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetInclude#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetInclude#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.hl7.fhir.ValueSetInclude#getValueSet <em>Value Set</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getValueSetInclude()
@@ -48,7 +39,7 @@ public interface ValueSetInclude extends BackboneElement {
 	 * @return the value of the '<em>System</em>' containment reference.
 	 * @see #setSystem(Uri)
 	 * @see org.hl7.fhir.FhirPackage#getValueSetInclude_System()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -121,5 +112,21 @@ public interface ValueSetInclude extends BackboneElement {
 	 * @generated
 	 */
 	EList<ValueSetFilter> getFilter();
+
+	/**
+	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value Set</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getValueSetInclude_ValueSet()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getValueSet();
 
 } // ValueSetInclude

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -22,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImmunizationRecommendationProtocol;
+import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 
 /**
@@ -49,7 +40,7 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer doseSequence;
+	protected PositiveInt doseSequence;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -105,7 +96,7 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Integer getDoseSequence() {
+	public PositiveInt getDoseSequence() {
 		return doseSequence;
 	}
 
@@ -114,8 +105,8 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDoseSequence(org.hl7.fhir.Integer newDoseSequence, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldDoseSequence = doseSequence;
+	public NotificationChain basicSetDoseSequence(PositiveInt newDoseSequence, NotificationChain msgs) {
+		PositiveInt oldDoseSequence = doseSequence;
 		doseSequence = newDoseSequence;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL__DOSE_SEQUENCE, oldDoseSequence, newDoseSequence);
@@ -129,7 +120,7 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDoseSequence(org.hl7.fhir.Integer newDoseSequence) {
+	public void setDoseSequence(PositiveInt newDoseSequence) {
 		if (newDoseSequence != doseSequence) {
 			NotificationChain msgs = null;
 			if (doseSequence != null)
@@ -321,7 +312,7 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL__DOSE_SEQUENCE:
-				setDoseSequence((org.hl7.fhir.Integer)newValue);
+				setDoseSequence((PositiveInt)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -345,7 +336,7 @@ public class ImmunizationRecommendationProtocolImpl extends BackboneElementImpl 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL__DOSE_SEQUENCE:
-				setDoseSequence((org.hl7.fhir.Integer)null);
+				setDoseSequence((PositiveInt)null);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);

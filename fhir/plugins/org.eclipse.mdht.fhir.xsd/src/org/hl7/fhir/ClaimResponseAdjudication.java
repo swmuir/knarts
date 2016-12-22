@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -45,13 +35,13 @@ public interface ClaimResponseAdjudication extends BackboneElement {
 	 * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(Coding)
+	 * @see #setCategory(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAdjudication_Category()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCategory();
+	CodeableConcept getCategory();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseAdjudication#getCategory <em>Category</em>}' containment reference.
@@ -61,7 +51,7 @@ public interface ClaimResponseAdjudication extends BackboneElement {
 	 * @see #getCategory()
 	 * @generated
 	 */
-	void setCategory(Coding value);
+	void setCategory(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
@@ -71,13 +61,13 @@ public interface ClaimResponseAdjudication extends BackboneElement {
 	 * Adjudication reason such as limit reached.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason</em>' containment reference.
-	 * @see #setReason(Coding)
+	 * @see #setReason(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAdjudication_Reason()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getReason();
+	CodeableConcept getReason();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseAdjudication#getReason <em>Reason</em>}' containment reference.
@@ -87,7 +77,7 @@ public interface ClaimResponseAdjudication extends BackboneElement {
 	 * @see #getReason()
 	 * @generated
 	 */
-	void setReason(Coding value);
+	void setReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.

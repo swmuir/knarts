@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,24 +18,20 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.Coverage#getIssuerIdentifier <em>Issuer Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getIssuerReference <em>Issuer Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getBin <em>Bin</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getPlanholderIdentifier <em>Planholder Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getPlanholderReference <em>Planholder Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getBeneficiaryIdentifier <em>Beneficiary Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getBeneficiaryReference <em>Beneficiary Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getPolicyHolder <em>Policy Holder</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getSubscriber <em>Subscriber</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getSubscriberId <em>Subscriber Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getBeneficiary <em>Beneficiary</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getPayor <em>Payor</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getGroup <em>Group</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getPlan <em>Plan</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getSubPlan <em>Sub Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getException <em>Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getSchool <em>School</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getOrder <em>Order</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getNetwork <em>Network</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getContract <em>Contract</em>}</li>
  * </ul>
@@ -56,84 +42,202 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Coverage extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Issuer Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Issuer Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issuer Identifier</em>' containment reference.
-	 * @see #setIssuerIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_IssuerIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='issuerIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getIssuerIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getIssuerIdentifier <em>Issuer Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issuer Identifier</em>' containment reference.
-	 * @see #getIssuerIdentifier()
-	 * @generated
-	 */
-	void setIssuerIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Issuer Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Issuer Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issuer Reference</em>' containment reference.
-	 * @see #setIssuerReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_IssuerReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='issuerReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getIssuerReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getIssuerReference <em>Issuer Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issuer Reference</em>' containment reference.
-	 * @see #getIssuerReference()
-	 * @generated
-	 */
-	void setIssuerReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Bin</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Business Identification Number (BIN number) used to identify the routing  of eClaims.
+	 * The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatination of the Coverage.SubscriberID and the Coverage.dependant.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Bin</em>' containment reference.
-	 * @see #setBin(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Bin()
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bin' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getBin();
+	EList<Identifier> getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getBin <em>Bin</em>}' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bin</em>' containment reference.
-	 * @see #getBin()
+	 * <!-- begin-model-doc -->
+	 * The status of the resource instance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(Code)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setBin(org.hl7.fhir.String value);
+	Code getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Policy Holder</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party who 'owns' the insurance policy,  may be an individual, corporation or the subscriber's employer.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Policy Holder</em>' containment reference.
+	 * @see #setPolicyHolder(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_PolicyHolder()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='policyHolder' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPolicyHolder();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getPolicyHolder <em>Policy Holder</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Policy Holder</em>' containment reference.
+	 * @see #getPolicyHolder()
+	 * @generated
+	 */
+	void setPolicyHolder(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Subscriber</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subscriber</em>' containment reference.
+	 * @see #setSubscriber(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Subscriber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subscriber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubscriber();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getSubscriber <em>Subscriber</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subscriber</em>' containment reference.
+	 * @see #getSubscriber()
+	 * @generated
+	 */
+	void setSubscriber(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Subscriber Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The insurer assigned ID for the Subscriber.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subscriber Id</em>' containment reference.
+	 * @see #setSubscriberId(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_SubscriberId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subscriberId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getSubscriberId();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getSubscriberId <em>Subscriber Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subscriber Id</em>' containment reference.
+	 * @see #getSubscriberId()
+	 * @generated
+	 */
+	void setSubscriberId(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Beneficiary</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party who benefits from the insurance coverage., the patient when services are provided.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Beneficiary</em>' containment reference.
+	 * @see #setBeneficiary(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Beneficiary()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='beneficiary' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getBeneficiary();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getBeneficiary <em>Beneficiary</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Beneficiary</em>' containment reference.
+	 * @see #getBeneficiary()
+	 * @generated
+	 */
+	void setBeneficiary(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The relationship of beneficiary (patient) to the subscriber.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relationship</em>' containment reference.
+	 * @see #setRelationship(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Relationship()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getRelationship();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relationship</em>' containment reference.
+	 * @see #getRelationship()
+	 * @generated
+	 */
+	void setRelationship(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
@@ -162,196 +266,36 @@ public interface Coverage extends DomainResource {
 	void setPeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payor</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
+	 * The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Type()
+	 * @return the value of the '<em>Payor</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Payor()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='payor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Planholder Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Planholder Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Planholder Identifier</em>' containment reference.
-	 * @see #setPlanholderIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_PlanholderIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='planholderIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getPlanholderIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getPlanholderIdentifier <em>Planholder Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Planholder Identifier</em>' containment reference.
-	 * @see #getPlanholderIdentifier()
-	 * @generated
-	 */
-	void setPlanholderIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Planholder Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Planholder Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Planholder Reference</em>' containment reference.
-	 * @see #setPlanholderReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_PlanholderReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='planholderReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPlanholderReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getPlanholderReference <em>Planholder Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Planholder Reference</em>' containment reference.
-	 * @see #getPlanholderReference()
-	 * @generated
-	 */
-	void setPlanholderReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Beneficiary Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Beneficiary Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Beneficiary Identifier</em>' containment reference.
-	 * @see #setBeneficiaryIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_BeneficiaryIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='beneficiaryIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getBeneficiaryIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getBeneficiaryIdentifier <em>Beneficiary Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Beneficiary Identifier</em>' containment reference.
-	 * @see #getBeneficiaryIdentifier()
-	 * @generated
-	 */
-	void setBeneficiaryIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Beneficiary Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Beneficiary Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Beneficiary Reference</em>' containment reference.
-	 * @see #setBeneficiaryReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_BeneficiaryReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='beneficiaryReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getBeneficiaryReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getBeneficiaryReference <em>Beneficiary Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Beneficiary Reference</em>' containment reference.
-	 * @see #getBeneficiaryReference()
-	 * @generated
-	 */
-	void setBeneficiaryReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The relationship of the patient to the planholdersubscriber).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Relationship</em>' containment reference.
-	 * @see #setRelationship(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Relationship()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getRelationship();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relationship</em>' containment reference.
-	 * @see #getRelationship()
-	 * @generated
-	 */
-	void setRelationship(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Subscriber Id, Certificate number or Personal Health Number or Case ID.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Identifier> getIdentifier();
+	EList<Reference> getPayor();
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
+	 * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(org.hl7.fhir.String)
+	 * @see #setGroup(CoverageGroup)
 	 * @see org.hl7.fhir.FhirPackage#getCoverage_Group()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getGroup();
+	CoverageGroup getGroup();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getGroup <em>Group</em>}' containment reference.
@@ -361,59 +305,7 @@ public interface Coverage extends DomainResource {
 	 * @see #getGroup()
 	 * @generated
 	 */
-	void setGroup(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Plan</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Plan</em>' containment reference.
-	 * @see #setPlan(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Plan()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='plan' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPlan();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getPlan <em>Plan</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plan</em>' containment reference.
-	 * @see #getPlan()
-	 * @generated
-	 */
-	void setPlan(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Sub Plan</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sub Plan</em>' containment reference.
-	 * @see #setSubPlan(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_SubPlan()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subPlan' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getSubPlan();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getSubPlan <em>Sub Plan</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sub Plan</em>' containment reference.
-	 * @see #getSubPlan()
-	 * @generated
-	 */
-	void setSubPlan(org.hl7.fhir.String value);
+	void setGroup(CoverageGroup value);
 
 	/**
 	 * Returns the value of the '<em><b>Dependent</b></em>' containment reference.
@@ -423,13 +315,13 @@ public interface Coverage extends DomainResource {
 	 * A unique identifier for a dependent under the coverage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dependent</em>' containment reference.
-	 * @see #setDependent(PositiveInt)
+	 * @see #setDependent(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getCoverage_Dependent()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='dependent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getDependent();
+	org.hl7.fhir.String getDependent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}' containment reference.
@@ -439,7 +331,7 @@ public interface Coverage extends DomainResource {
 	 * @see #getDependent()
 	 * @generated
 	 */
-	void setDependent(PositiveInt value);
+	void setDependent(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -449,13 +341,13 @@ public interface Coverage extends DomainResource {
 	 * An optional counter for a particular instance of the identified coverage which increments upon each renewal.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
-	 * @see #setSequence(PositiveInt)
+	 * @see #setSequence(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getCoverage_Sequence()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='sequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getSequence();
+	org.hl7.fhir.String getSequence();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getSequence <em>Sequence</em>}' containment reference.
@@ -465,56 +357,40 @@ public interface Coverage extends DomainResource {
 	 * @see #getSequence()
 	 * @generated
 	 */
-	void setSequence(PositiveInt value);
+	void setSequence(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Exception</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Order</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Factors which may influence the applicability of coverage.
+	 * The order of applicability of this coverage relative to other coverages which are currently inforce. Note, there may be gaps in the numbering and this does not imply primary, secondard etc. as the specific positioning of coverages depends upon the episode of care.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Exception</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Exception()
+	 * @return the value of the '<em>Order</em>' containment reference.
+	 * @see #setOrder(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Order()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='exception' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='order' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getException();
+	PositiveInt getOrder();
 
 	/**
-	 * Returns the value of the '<em><b>School</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getOrder <em>Order</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Name of school for over-aged dependants.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>School</em>' containment reference.
-	 * @see #setSchool(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_School()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='school' namespace='##targetNamespace'"
+	 * @param value the new value of the '<em>Order</em>' containment reference.
+	 * @see #getOrder()
 	 * @generated
 	 */
-	org.hl7.fhir.String getSchool();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getSchool <em>School</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>School</em>' containment reference.
-	 * @see #getSchool()
-	 * @generated
-	 */
-	void setSchool(org.hl7.fhir.String value);
+	void setOrder(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Network</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier for a community of providers.
+	 * The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Network</em>' containment reference.
 	 * @see #setNetwork(org.hl7.fhir.String)

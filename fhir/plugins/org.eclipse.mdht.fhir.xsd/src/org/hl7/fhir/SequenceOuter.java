@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -19,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Variation and Sequence data.
+ * Raw data describing a biological sequence.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -40,7 +30,7 @@ public interface SequenceOuter extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Structural Variant Outer Start-End.
+	 * Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Start</em>' containment reference.
 	 * @see #setStart(org.hl7.fhir.Integer)
@@ -66,7 +56,7 @@ public interface SequenceOuter extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Structural Variant Outer Start-End.
+	 * Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>End</em>' containment reference.
 	 * @see #setEnd(org.hl7.fhir.Integer)

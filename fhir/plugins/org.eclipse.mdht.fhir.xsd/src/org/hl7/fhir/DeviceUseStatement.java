@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,8 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBodySiteCodeableConcept <em>Body Site Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBodySiteReference <em>Body Site Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getWhenUsed <em>When Used</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getIdentifier <em>Identifier</em>}</li>
@@ -48,58 +37,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DeviceUseStatement extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Body Site Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Body Site Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body Site Codeable Concept</em>' containment reference.
-	 * @see #setBodySiteCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_BodySiteCodeableConcept()
+	 * <!-- begin-model-doc -->
+	 * Indicates the site on the subject's body where the device was used ( i.e. the target site).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Body Site</em>' containment reference.
+	 * @see #setBodySite(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_BodySite()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bodySiteCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='bodySite' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getBodySiteCodeableConcept();
+	CodeableConcept getBodySite();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getBodySiteCodeableConcept <em>Body Site Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getBodySite <em>Body Site</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body Site Codeable Concept</em>' containment reference.
-	 * @see #getBodySiteCodeableConcept()
+	 * @param value the new value of the '<em>Body Site</em>' containment reference.
+	 * @see #getBodySite()
 	 * @generated
 	 */
-	void setBodySiteCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Body Site Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Body Site Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body Site Reference</em>' containment reference.
-	 * @see #setBodySiteReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_BodySiteReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bodySiteReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getBodySiteReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getBodySiteReference <em>Body Site Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body Site Reference</em>' containment reference.
-	 * @see #getBodySiteReference()
-	 * @generated
-	 */
-	void setBodySiteReference(Reference value);
+	void setBodySite(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>When Used</b></em>' containment reference.

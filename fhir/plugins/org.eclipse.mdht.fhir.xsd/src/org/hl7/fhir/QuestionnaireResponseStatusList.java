@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -58,7 +48,17 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AMENDED(2, "amended", "amended");
+	AMENDED(2, "amended", "amended"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -103,6 +103,20 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 	public static final int AMENDED_VALUE = 2;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Questionnaire Response Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +127,7 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 			IN_PROGRESS,
 			COMPLETED,
 			AMENDED,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -172,6 +187,7 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case COMPLETED_VALUE: return COMPLETED;
 			case AMENDED_VALUE: return AMENDED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

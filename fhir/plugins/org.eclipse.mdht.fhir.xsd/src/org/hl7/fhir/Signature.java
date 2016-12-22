@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -32,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Signature#getWhen <em>When</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getWhoUri <em>Who Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getWhoReference <em>Who Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Signature#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.Signature#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getBlob <em>Blob</em>}</li>
  * </ul>
@@ -136,6 +128,60 @@ public interface Signature extends Element {
 	 * @generated
 	 */
 	void setWhoReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>On Behalf Of Uri</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Behalf Of Uri</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Behalf Of Uri</em>' containment reference.
+	 * @see #setOnBehalfOfUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getSignature_OnBehalfOfUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='onBehalfOfUri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getOnBehalfOfUri();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Signature#getOnBehalfOfUri <em>On Behalf Of Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Behalf Of Uri</em>' containment reference.
+	 * @see #getOnBehalfOfUri()
+	 * @generated
+	 */
+	void setOnBehalfOfUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>On Behalf Of Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Behalf Of Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Behalf Of Reference</em>' containment reference.
+	 * @see #setOnBehalfOfReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSignature_OnBehalfOfReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='onBehalfOfReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOnBehalfOfReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Signature#getOnBehalfOfReference <em>On Behalf Of Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Behalf Of Reference</em>' containment reference.
+	 * @see #getOnBehalfOfReference()
+	 * @generated
+	 */
+	void setOnBehalfOfReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Content Type</b></em>' containment reference.

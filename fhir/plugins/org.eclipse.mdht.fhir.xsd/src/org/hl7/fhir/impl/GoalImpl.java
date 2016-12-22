@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -47,18 +37,18 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStartCodeableConcept <em>Start Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTargetDate <em>Target Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTargetQuantity <em>Target Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTargetDuration <em>Target Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getExpressedBy <em>Expressed By</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getOutcome <em>Outcome</em>}</li>
@@ -76,6 +66,46 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected GoalStatus status;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> category;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept priority;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept description;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -118,44 +148,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected Date targetDate;
 
 	/**
-	 * The cached value of the '{@link #getTargetQuantity() <em>Target Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getTargetDuration() <em>Target Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetQuantity()
+	 * @see #getTargetDuration()
 	 * @generated
 	 * @ordered
 	 */
-	protected Duration targetQuantity;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> category;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String description;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected GoalStatus status;
+	protected Duration targetDuration;
 
 	/**
 	 * The cached value of the '{@link #getStatusDate() <em>Status Date</em>}' containment reference.
@@ -168,14 +168,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected Date statusDate;
 
 	/**
-	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStatusReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept statusReason;
+	protected EList<CodeableConcept> statusReason;
 
 	/**
 	 * The cached value of the '{@link #getExpressedBy() <em>Expressed By</em>}' containment reference.
@@ -186,16 +186,6 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * @ordered
 	 */
 	protected Reference expressedBy;
-
-	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept priority;
 
 	/**
 	 * The cached value of the '{@link #getAddresses() <em>Addresses</em>}' containment reference list.
@@ -256,6 +246,147 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.GOAL__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GoalStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(GoalStatus newStatus, NotificationChain msgs) {
+		GoalStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(GoalStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__CATEGORY);
+		}
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
+		CodeableConcept oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(CodeableConcept newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(CodeableConcept newDescription, NotificationChain msgs) {
+		CodeableConcept oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(CodeableConcept newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -435,8 +566,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Duration getTargetQuantity() {
-		return targetQuantity;
+	public Duration getTargetDuration() {
+		return targetDuration;
 	}
 
 	/**
@@ -444,11 +575,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetQuantity(Duration newTargetQuantity, NotificationChain msgs) {
-		Duration oldTargetQuantity = targetQuantity;
-		targetQuantity = newTargetQuantity;
+	public NotificationChain basicSetTargetDuration(Duration newTargetDuration, NotificationChain msgs) {
+		Duration oldTargetDuration = targetDuration;
+		targetDuration = newTargetDuration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_QUANTITY, oldTargetQuantity, newTargetQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DURATION, oldTargetDuration, newTargetDuration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -459,116 +590,18 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetQuantity(Duration newTargetQuantity) {
-		if (newTargetQuantity != targetQuantity) {
+	public void setTargetDuration(Duration newTargetDuration) {
+		if (newTargetDuration != targetDuration) {
 			NotificationChain msgs = null;
-			if (targetQuantity != null)
-				msgs = ((InternalEObject)targetQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_QUANTITY, null, msgs);
-			if (newTargetQuantity != null)
-				msgs = ((InternalEObject)newTargetQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_QUANTITY, null, msgs);
-			msgs = basicSetTargetQuantity(newTargetQuantity, msgs);
+			if (targetDuration != null)
+				msgs = ((InternalEObject)targetDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DURATION, null, msgs);
+			if (newTargetDuration != null)
+				msgs = ((InternalEObject)newTargetDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DURATION, null, msgs);
+			msgs = basicSetTargetDuration(newTargetDuration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_QUANTITY, newTargetQuantity, newTargetQuantity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getCategory() {
-		if (category == null) {
-			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__CATEGORY);
-		}
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GoalStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatus(GoalStatus newStatus, NotificationChain msgs) {
-		GoalStatus oldStatus = status;
-		status = newStatus;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, oldStatus, newStatus);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatus(GoalStatus newStatus) {
-		if (newStatus != status) {
-			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DURATION, newTargetDuration, newTargetDuration));
 	}
 
 	/**
@@ -619,42 +652,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getStatusReason() {
+	public EList<CodeableConcept> getStatusReason() {
+		if (statusReason == null) {
+			statusReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__STATUS_REASON);
+		}
 		return statusReason;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
-		CodeableConcept oldStatusReason = statusReason;
-		statusReason = newStatusReason;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS_REASON, oldStatusReason, newStatusReason);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatusReason(CodeableConcept newStatusReason) {
-		if (newStatusReason != statusReason) {
-			NotificationChain msgs = null;
-			if (statusReason != null)
-				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS_REASON, null, msgs);
-			if (newStatusReason != null)
-				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS_REASON, null, msgs);
-			msgs = basicSetStatusReason(newStatusReason, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS_REASON, newStatusReason, newStatusReason));
 	}
 
 	/**
@@ -705,49 +707,6 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getPriority() {
-		return priority;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
-		CodeableConcept oldPriority = priority;
-		priority = newPriority;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__PRIORITY, oldPriority, newPriority);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPriority(CodeableConcept newPriority) {
-		if (newPriority != priority) {
-			NotificationChain msgs = null;
-			if (priority != null)
-				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__PRIORITY, null, msgs);
-			if (newPriority != null)
-				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__PRIORITY, null, msgs);
-			msgs = basicSetPriority(newPriority, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__PRIORITY, newPriority, newPriority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getAddresses() {
 		if (addresses == null) {
 			addresses = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GOAL__ADDRESSES);
@@ -789,6 +748,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GOAL__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.GOAL__CATEGORY:
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GOAL__PRIORITY:
+				return basicSetPriority(null, msgs);
+			case FhirPackage.GOAL__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 			case FhirPackage.GOAL__SUBJECT:
 				return basicSetSubject(null, msgs);
 			case FhirPackage.GOAL__START_DATE:
@@ -797,22 +764,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return basicSetStartCodeableConcept(null, msgs);
 			case FhirPackage.GOAL__TARGET_DATE:
 				return basicSetTargetDate(null, msgs);
-			case FhirPackage.GOAL__TARGET_QUANTITY:
-				return basicSetTargetQuantity(null, msgs);
-			case FhirPackage.GOAL__CATEGORY:
-				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
-			case FhirPackage.GOAL__DESCRIPTION:
-				return basicSetDescription(null, msgs);
-			case FhirPackage.GOAL__STATUS:
-				return basicSetStatus(null, msgs);
+			case FhirPackage.GOAL__TARGET_DURATION:
+				return basicSetTargetDuration(null, msgs);
 			case FhirPackage.GOAL__STATUS_DATE:
 				return basicSetStatusDate(null, msgs);
 			case FhirPackage.GOAL__STATUS_REASON:
-				return basicSetStatusReason(null, msgs);
+				return ((InternalEList<?>)getStatusReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				return basicSetExpressedBy(null, msgs);
-			case FhirPackage.GOAL__PRIORITY:
-				return basicSetPriority(null, msgs);
 			case FhirPackage.GOAL__ADDRESSES:
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GOAL__NOTE:
@@ -833,6 +792,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.GOAL__STATUS:
+				return getStatus();
+			case FhirPackage.GOAL__CATEGORY:
+				return getCategory();
+			case FhirPackage.GOAL__PRIORITY:
+				return getPriority();
+			case FhirPackage.GOAL__DESCRIPTION:
+				return getDescription();
 			case FhirPackage.GOAL__SUBJECT:
 				return getSubject();
 			case FhirPackage.GOAL__START_DATE:
@@ -841,22 +808,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return getStartCodeableConcept();
 			case FhirPackage.GOAL__TARGET_DATE:
 				return getTargetDate();
-			case FhirPackage.GOAL__TARGET_QUANTITY:
-				return getTargetQuantity();
-			case FhirPackage.GOAL__CATEGORY:
-				return getCategory();
-			case FhirPackage.GOAL__DESCRIPTION:
-				return getDescription();
-			case FhirPackage.GOAL__STATUS:
-				return getStatus();
+			case FhirPackage.GOAL__TARGET_DURATION:
+				return getTargetDuration();
 			case FhirPackage.GOAL__STATUS_DATE:
 				return getStatusDate();
 			case FhirPackage.GOAL__STATUS_REASON:
 				return getStatusReason();
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				return getExpressedBy();
-			case FhirPackage.GOAL__PRIORITY:
-				return getPriority();
 			case FhirPackage.GOAL__ADDRESSES:
 				return getAddresses();
 			case FhirPackage.GOAL__NOTE:
@@ -880,6 +839,19 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.GOAL__STATUS:
+				setStatus((GoalStatus)newValue);
+				return;
+			case FhirPackage.GOAL__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.GOAL__PRIORITY:
+				setPriority((CodeableConcept)newValue);
+				return;
+			case FhirPackage.GOAL__DESCRIPTION:
+				setDescription((CodeableConcept)newValue);
+				return;
 			case FhirPackage.GOAL__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
@@ -892,30 +864,18 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__TARGET_DATE:
 				setTargetDate((Date)newValue);
 				return;
-			case FhirPackage.GOAL__TARGET_QUANTITY:
-				setTargetQuantity((Duration)newValue);
-				return;
-			case FhirPackage.GOAL__CATEGORY:
-				getCategory().clear();
-				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
-			case FhirPackage.GOAL__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.GOAL__STATUS:
-				setStatus((GoalStatus)newValue);
+			case FhirPackage.GOAL__TARGET_DURATION:
+				setTargetDuration((Duration)newValue);
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)newValue);
 				return;
 			case FhirPackage.GOAL__STATUS_REASON:
-				setStatusReason((CodeableConcept)newValue);
+				getStatusReason().clear();
+				getStatusReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				setExpressedBy((Reference)newValue);
-				return;
-			case FhirPackage.GOAL__PRIORITY:
-				setPriority((CodeableConcept)newValue);
 				return;
 			case FhirPackage.GOAL__ADDRESSES:
 				getAddresses().clear();
@@ -944,6 +904,18 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.GOAL__STATUS:
+				setStatus((GoalStatus)null);
+				return;
+			case FhirPackage.GOAL__CATEGORY:
+				getCategory().clear();
+				return;
+			case FhirPackage.GOAL__PRIORITY:
+				setPriority((CodeableConcept)null);
+				return;
+			case FhirPackage.GOAL__DESCRIPTION:
+				setDescription((CodeableConcept)null);
+				return;
 			case FhirPackage.GOAL__SUBJECT:
 				setSubject((Reference)null);
 				return;
@@ -956,29 +928,17 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__TARGET_DATE:
 				setTargetDate((Date)null);
 				return;
-			case FhirPackage.GOAL__TARGET_QUANTITY:
-				setTargetQuantity((Duration)null);
-				return;
-			case FhirPackage.GOAL__CATEGORY:
-				getCategory().clear();
-				return;
-			case FhirPackage.GOAL__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.GOAL__STATUS:
-				setStatus((GoalStatus)null);
+			case FhirPackage.GOAL__TARGET_DURATION:
+				setTargetDuration((Duration)null);
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)null);
 				return;
 			case FhirPackage.GOAL__STATUS_REASON:
-				setStatusReason((CodeableConcept)null);
+				getStatusReason().clear();
 				return;
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				setExpressedBy((Reference)null);
-				return;
-			case FhirPackage.GOAL__PRIORITY:
-				setPriority((CodeableConcept)null);
 				return;
 			case FhirPackage.GOAL__ADDRESSES:
 				getAddresses().clear();
@@ -1003,6 +963,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.GOAL__STATUS:
+				return status != null;
+			case FhirPackage.GOAL__CATEGORY:
+				return category != null && !category.isEmpty();
+			case FhirPackage.GOAL__PRIORITY:
+				return priority != null;
+			case FhirPackage.GOAL__DESCRIPTION:
+				return description != null;
 			case FhirPackage.GOAL__SUBJECT:
 				return subject != null;
 			case FhirPackage.GOAL__START_DATE:
@@ -1011,22 +979,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return startCodeableConcept != null;
 			case FhirPackage.GOAL__TARGET_DATE:
 				return targetDate != null;
-			case FhirPackage.GOAL__TARGET_QUANTITY:
-				return targetQuantity != null;
-			case FhirPackage.GOAL__CATEGORY:
-				return category != null && !category.isEmpty();
-			case FhirPackage.GOAL__DESCRIPTION:
-				return description != null;
-			case FhirPackage.GOAL__STATUS:
-				return status != null;
+			case FhirPackage.GOAL__TARGET_DURATION:
+				return targetDuration != null;
 			case FhirPackage.GOAL__STATUS_DATE:
 				return statusDate != null;
 			case FhirPackage.GOAL__STATUS_REASON:
-				return statusReason != null;
+				return statusReason != null && !statusReason.isEmpty();
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				return expressedBy != null;
-			case FhirPackage.GOAL__PRIORITY:
-				return priority != null;
 			case FhirPackage.GOAL__ADDRESSES:
 				return addresses != null && !addresses.isEmpty();
 			case FhirPackage.GOAL__NOTE:

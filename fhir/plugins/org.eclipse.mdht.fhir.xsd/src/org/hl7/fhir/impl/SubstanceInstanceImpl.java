@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -23,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.SimpleQuantity;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SubstanceInstance;
 
 /**
@@ -70,7 +60,7 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity quantity;
+	protected Quantity quantity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,7 +172,7 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getQuantity() {
+	public Quantity getQuantity() {
 		return quantity;
 	}
 
@@ -191,8 +181,8 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuantity(SimpleQuantity newQuantity, NotificationChain msgs) {
-		SimpleQuantity oldQuantity = quantity;
+	public NotificationChain basicSetQuantity(Quantity newQuantity, NotificationChain msgs) {
+		Quantity oldQuantity = quantity;
 		quantity = newQuantity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_INSTANCE__QUANTITY, oldQuantity, newQuantity);
@@ -206,7 +196,7 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuantity(SimpleQuantity newQuantity) {
+	public void setQuantity(Quantity newQuantity) {
 		if (newQuantity != quantity) {
 			NotificationChain msgs = null;
 			if (quantity != null)
@@ -271,7 +261,7 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 				setExpiry((DateTime)newValue);
 				return;
 			case FhirPackage.SUBSTANCE_INSTANCE__QUANTITY:
-				setQuantity((SimpleQuantity)newValue);
+				setQuantity((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,7 +282,7 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 				setExpiry((DateTime)null);
 				return;
 			case FhirPackage.SUBSTANCE_INSTANCE__QUANTITY:
-				setQuantity((SimpleQuantity)null);
+				setQuantity((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -19,17 +19,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeSystem;
 import org.hl7.fhir.CodeSystemConcept;
-import org.hl7.fhir.CodeSystemContact;
 import org.hl7.fhir.CodeSystemContentMode;
 import org.hl7.fhir.CodeSystemFilter;
+import org.hl7.fhir.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.CodeSystemProperty;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +46,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getPublisher <em>Publisher</em>}</li>
@@ -50,10 +54,12 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getCaseSensitive <em>Case Sensitive</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getValueSet <em>Value Set</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getHierarchyMeaning <em>Hierarchy Meaning</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getCompositional <em>Compositional</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getVersionNeeded <em>Version Needed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getContent <em>Content</em>}</li>
@@ -107,6 +113,16 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	protected org.hl7.fhir.String name;
 
 	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,7 +130,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -144,7 +160,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeSystemContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -164,7 +180,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
 	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
@@ -174,17 +190,27 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> useContext;
+	protected EList<UsageContext> useContext;
 
 	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference.
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
+	 * @see #getJurisdiction()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String requirements;
+	protected EList<CodeableConcept> jurisdiction;
+
+	/**
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected Markdown purpose;
 
 	/**
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
@@ -194,7 +220,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String copyright;
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getCaseSensitive() <em>Case Sensitive</em>}' containment reference.
@@ -215,6 +241,16 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @ordered
 	 */
 	protected Uri valueSet;
+
+	/**
+	 * The cached value of the '{@link #getHierarchyMeaning() <em>Hierarchy Meaning</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHierarchyMeaning()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeSystemHierarchyMeaning hierarchyMeaning;
 
 	/**
 	 * The cached value of the '{@link #getCompositional() <em>Compositional</em>}' containment reference.
@@ -482,7 +518,50 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -491,8 +570,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__STATUS, oldStatus, newStatus);
@@ -506,7 +585,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -611,9 +690,9 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeSystemContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<CodeSystemContact>(CodeSystemContact.class, this, FhirPackage.CODE_SYSTEM__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CODE_SYSTEM__CONTACT);
 		}
 		return contact;
 	}
@@ -666,7 +745,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -675,8 +754,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__DESCRIPTION, oldDescription, newDescription);
@@ -690,7 +769,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -709,9 +788,9 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getUseContext() {
+	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
-			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CODE_SYSTEM__USE_CONTEXT);
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.CODE_SYSTEM__USE_CONTEXT);
 		}
 		return useContext;
 	}
@@ -721,8 +800,11 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getRequirements() {
-		return requirements;
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CODE_SYSTEM__JURISDICTION);
+		}
+		return jurisdiction;
 	}
 
 	/**
@@ -730,11 +812,20 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequirements(org.hl7.fhir.String newRequirements, NotificationChain msgs) {
-		org.hl7.fhir.String oldRequirements = requirements;
-		requirements = newRequirements;
+	public Markdown getPurpose() {
+		return purpose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPurpose(Markdown newPurpose, NotificationChain msgs) {
+		Markdown oldPurpose = purpose;
+		purpose = newPurpose;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__REQUIREMENTS, oldRequirements, newRequirements);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__PURPOSE, oldPurpose, newPurpose);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -745,18 +836,18 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequirements(org.hl7.fhir.String newRequirements) {
-		if (newRequirements != requirements) {
+	public void setPurpose(Markdown newPurpose) {
+		if (newPurpose != purpose) {
 			NotificationChain msgs = null;
-			if (requirements != null)
-				msgs = ((InternalEObject)requirements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__REQUIREMENTS, null, msgs);
-			if (newRequirements != null)
-				msgs = ((InternalEObject)newRequirements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__REQUIREMENTS, null, msgs);
-			msgs = basicSetRequirements(newRequirements, msgs);
+			if (purpose != null)
+				msgs = ((InternalEObject)purpose).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__PURPOSE, null, msgs);
+			if (newPurpose != null)
+				msgs = ((InternalEObject)newPurpose).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__PURPOSE, null, msgs);
+			msgs = basicSetPurpose(newPurpose, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__REQUIREMENTS, newRequirements, newRequirements));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__PURPOSE, newPurpose, newPurpose));
 	}
 
 	/**
@@ -764,7 +855,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCopyright() {
+	public Markdown getCopyright() {
 		return copyright;
 	}
 
@@ -773,8 +864,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyright(org.hl7.fhir.String newCopyright, NotificationChain msgs) {
-		org.hl7.fhir.String oldCopyright = copyright;
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__COPYRIGHT, oldCopyright, newCopyright);
@@ -788,7 +879,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCopyright(org.hl7.fhir.String newCopyright) {
+	public void setCopyright(Markdown newCopyright) {
 		if (newCopyright != copyright) {
 			NotificationChain msgs = null;
 			if (copyright != null)
@@ -886,6 +977,49 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__VALUE_SET, newValueSet, newValueSet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeSystemHierarchyMeaning getHierarchyMeaning() {
+		return hierarchyMeaning;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHierarchyMeaning(CodeSystemHierarchyMeaning newHierarchyMeaning, NotificationChain msgs) {
+		CodeSystemHierarchyMeaning oldHierarchyMeaning = hierarchyMeaning;
+		hierarchyMeaning = newHierarchyMeaning;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING, oldHierarchyMeaning, newHierarchyMeaning);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHierarchyMeaning(CodeSystemHierarchyMeaning newHierarchyMeaning) {
+		if (newHierarchyMeaning != hierarchyMeaning) {
+			NotificationChain msgs = null;
+			if (hierarchyMeaning != null)
+				msgs = ((InternalEObject)hierarchyMeaning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING, null, msgs);
+			if (newHierarchyMeaning != null)
+				msgs = ((InternalEObject)newHierarchyMeaning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING, null, msgs);
+			msgs = basicSetHierarchyMeaning(newHierarchyMeaning, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING, newHierarchyMeaning, newHierarchyMeaning));
 	}
 
 	/**
@@ -1112,6 +1246,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return basicSetVersion(null, msgs);
 			case FhirPackage.CODE_SYSTEM__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.CODE_SYSTEM__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.CODE_SYSTEM__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
@@ -1126,14 +1262,18 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CODE_SYSTEM__REQUIREMENTS:
-				return basicSetRequirements(null, msgs);
+			case FhirPackage.CODE_SYSTEM__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CODE_SYSTEM__PURPOSE:
+				return basicSetPurpose(null, msgs);
 			case FhirPackage.CODE_SYSTEM__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.CODE_SYSTEM__CASE_SENSITIVE:
 				return basicSetCaseSensitive(null, msgs);
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
 				return basicSetValueSet(null, msgs);
+			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
+				return basicSetHierarchyMeaning(null, msgs);
 			case FhirPackage.CODE_SYSTEM__COMPOSITIONAL:
 				return basicSetCompositional(null, msgs);
 			case FhirPackage.CODE_SYSTEM__VERSION_NEEDED:
@@ -1168,6 +1308,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return getVersion();
 			case FhirPackage.CODE_SYSTEM__NAME:
 				return getName();
+			case FhirPackage.CODE_SYSTEM__TITLE:
+				return getTitle();
 			case FhirPackage.CODE_SYSTEM__STATUS:
 				return getStatus();
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
@@ -1182,14 +1324,18 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return getDescription();
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
 				return getUseContext();
-			case FhirPackage.CODE_SYSTEM__REQUIREMENTS:
-				return getRequirements();
+			case FhirPackage.CODE_SYSTEM__JURISDICTION:
+				return getJurisdiction();
+			case FhirPackage.CODE_SYSTEM__PURPOSE:
+				return getPurpose();
 			case FhirPackage.CODE_SYSTEM__COPYRIGHT:
 				return getCopyright();
 			case FhirPackage.CODE_SYSTEM__CASE_SENSITIVE:
 				return getCaseSensitive();
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
 				return getValueSet();
+			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
+				return getHierarchyMeaning();
 			case FhirPackage.CODE_SYSTEM__COMPOSITIONAL:
 				return getCompositional();
 			case FhirPackage.CODE_SYSTEM__VERSION_NEEDED:
@@ -1229,8 +1375,11 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.CODE_SYSTEM__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.CODE_SYSTEM__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -1240,29 +1389,36 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return;
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends CodeSystemContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__DATE:
 				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
 				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
 				return;
-			case FhirPackage.CODE_SYSTEM__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)newValue);
+			case FhirPackage.CODE_SYSTEM__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM__PURPOSE:
+				setPurpose((Markdown)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)newValue);
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__CASE_SENSITIVE:
 				setCaseSensitive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
 				setValueSet((Uri)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
+				setHierarchyMeaning((CodeSystemHierarchyMeaning)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__COMPOSITIONAL:
 				setCompositional((org.hl7.fhir.Boolean)newValue);
@@ -1312,8 +1468,11 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.CODE_SYSTEM__TITLE:
+				setTitle((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.CODE_SYSTEM__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -1328,22 +1487,28 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setDate((DateTime)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
 				getUseContext().clear();
 				return;
-			case FhirPackage.CODE_SYSTEM__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)null);
+			case FhirPackage.CODE_SYSTEM__JURISDICTION:
+				getJurisdiction().clear();
+				return;
+			case FhirPackage.CODE_SYSTEM__PURPOSE:
+				setPurpose((Markdown)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)null);
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__CASE_SENSITIVE:
 				setCaseSensitive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
 				setValueSet((Uri)null);
+				return;
+			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
+				setHierarchyMeaning((CodeSystemHierarchyMeaning)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__COMPOSITIONAL:
 				setCompositional((org.hl7.fhir.Boolean)null);
@@ -1386,6 +1551,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return version != null;
 			case FhirPackage.CODE_SYSTEM__NAME:
 				return name != null;
+			case FhirPackage.CODE_SYSTEM__TITLE:
+				return title != null;
 			case FhirPackage.CODE_SYSTEM__STATUS:
 				return status != null;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
@@ -1400,14 +1567,18 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return description != null;
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
 				return useContext != null && !useContext.isEmpty();
-			case FhirPackage.CODE_SYSTEM__REQUIREMENTS:
-				return requirements != null;
+			case FhirPackage.CODE_SYSTEM__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
+			case FhirPackage.CODE_SYSTEM__PURPOSE:
+				return purpose != null;
 			case FhirPackage.CODE_SYSTEM__COPYRIGHT:
 				return copyright != null;
 			case FhirPackage.CODE_SYSTEM__CASE_SENSITIVE:
 				return caseSensitive != null;
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
 				return valueSet != null;
+			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
+				return hierarchyMeaning != null;
 			case FhirPackage.CODE_SYSTEM__COMPOSITIONAL:
 				return compositional != null;
 			case FhirPackage.CODE_SYSTEM__VERSION_NEEDED:

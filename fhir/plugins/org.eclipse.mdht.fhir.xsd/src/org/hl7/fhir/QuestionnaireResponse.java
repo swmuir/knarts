@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,13 +19,15 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getItem <em>Item</em>}</li>
  * </ul>
  *
@@ -69,6 +61,38 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * @generated
 	 */
 	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies a procedure or observation that this questionnaire was performed as part of the execution of.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Parent</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Parent()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getParent();
 
 	/**
 	 * Returns the value of the '<em><b>Questionnaire</b></em>' containment reference.
@@ -149,6 +173,32 @@ public interface QuestionnaireResponse extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The encounter or episode of care with primary association to the questionnaire.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,32 +275,6 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * @generated
 	 */
 	void setSource(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.

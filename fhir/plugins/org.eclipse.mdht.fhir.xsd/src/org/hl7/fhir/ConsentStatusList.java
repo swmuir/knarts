@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -41,6 +31,16 @@ public enum ConsentStatusList implements Enumerator {
 	DRAFT(0, "draft", "draft"),
 
 	/**
+	 * The '<em><b>Proposed</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PROPOSED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PROPOSED(1, "proposed", "proposed"),
+
+	/**
 	 * The '<em><b>Active</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +48,17 @@ public enum ConsentStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTIVE(1, "active", "active"),
+	ACTIVE(2, "active", "active"),
+
+	/**
+	 * The '<em><b>Rejected</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REJECTED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REJECTED(3, "rejected", "rejected"),
 
 	/**
 	 * The '<em><b>Inactive</b></em>' literal object.
@@ -58,7 +68,17 @@ public enum ConsentStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INACTIVE(2, "inactive", "inactive");
+	INACTIVE(4, "inactive", "inactive"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Draft</b></em>' literal value.
@@ -75,6 +95,20 @@ public enum ConsentStatusList implements Enumerator {
 	public static final int DRAFT_VALUE = 0;
 
 	/**
+	 * The '<em><b>Proposed</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Proposed
+	 * <!-- end-model-doc -->
+	 * @see #PROPOSED
+	 * @model name="proposed"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PROPOSED_VALUE = 1;
+
+	/**
 	 * The '<em><b>Active</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +120,21 @@ public enum ConsentStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTIVE_VALUE = 1;
+	public static final int ACTIVE_VALUE = 2;
+
+	/**
+	 * The '<em><b>Rejected</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Rejected
+	 * <!-- end-model-doc -->
+	 * @see #REJECTED
+	 * @model name="rejected"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REJECTED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Inactive</b></em>' literal value.
@@ -100,7 +148,21 @@ public enum ConsentStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INACTIVE_VALUE = 2;
+	public static final int INACTIVE_VALUE = 4;
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Consent Status List</b></em>' enumerators.
@@ -111,8 +173,11 @@ public enum ConsentStatusList implements Enumerator {
 	private static final ConsentStatusList[] VALUES_ARRAY =
 		new ConsentStatusList[] {
 			DRAFT,
+			PROPOSED,
 			ACTIVE,
+			REJECTED,
 			INACTIVE,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -170,8 +235,11 @@ public enum ConsentStatusList implements Enumerator {
 	public static ConsentStatusList get(int value) {
 		switch (value) {
 			case DRAFT_VALUE: return DRAFT;
+			case PROPOSED_VALUE: return PROPOSED;
 			case ACTIVE_VALUE: return ACTIVE;
+			case REJECTED_VALUE: return REJECTED;
 			case INACTIVE_VALUE: return INACTIVE;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

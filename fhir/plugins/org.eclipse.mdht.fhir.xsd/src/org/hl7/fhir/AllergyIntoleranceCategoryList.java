@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -51,6 +41,16 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 	MEDICATION(1, "medication", "medication"),
 
 	/**
+	 * The '<em><b>Biologic</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BIOLOGIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BIOLOGIC(2, "biologic", "biologic"),
+
+	/**
 	 * The '<em><b>Environment</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,17 +58,7 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENVIRONMENT(2, "environment", "environment"),
-
-	/**
-	 * The '<em><b>Other</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #OTHER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	OTHER(3, "other", "other");
+	ENVIRONMENT(3, "environment", "environment");
 
 	/**
 	 * The '<em><b>Food</b></em>' literal value.
@@ -99,6 +89,20 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 	public static final int MEDICATION_VALUE = 1;
 
 	/**
+	 * The '<em><b>Biologic</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Biologic
+	 * <!-- end-model-doc -->
+	 * @see #BIOLOGIC
+	 * @model name="biologic"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BIOLOGIC_VALUE = 2;
+
+	/**
 	 * The '<em><b>Environment</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,21 +114,7 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENVIRONMENT_VALUE = 2;
-
-	/**
-	 * The '<em><b>Other</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Other
-	 * <!-- end-model-doc -->
-	 * @see #OTHER
-	 * @model name="other"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int OTHER_VALUE = 3;
+	public static final int ENVIRONMENT_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Allergy Intolerance Category List</b></em>' enumerators.
@@ -136,8 +126,8 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 		new AllergyIntoleranceCategoryList[] {
 			FOOD,
 			MEDICATION,
+			BIOLOGIC,
 			ENVIRONMENT,
-			OTHER,
 		};
 
 	/**
@@ -196,8 +186,8 @@ public enum AllergyIntoleranceCategoryList implements Enumerator {
 		switch (value) {
 			case FOOD_VALUE: return FOOD;
 			case MEDICATION_VALUE: return MEDICATION;
+			case BIOLOGIC_VALUE: return BIOLOGIC;
 			case ENVIRONMENT_VALUE: return ENVIRONMENT;
-			case OTHER_VALUE: return OTHER;
 		}
 		return null;
 	}

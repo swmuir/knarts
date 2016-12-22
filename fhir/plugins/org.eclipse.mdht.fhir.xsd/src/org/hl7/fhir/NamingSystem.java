@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -38,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.NamingSystem#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.NamingSystem#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getUniqueId <em>Unique Id</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getReplacedBy <em>Replaced By</em>}</li>
@@ -53,7 +44,7 @@ public interface NamingSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The descriptive name of this particular identifier type or code system.
+	 * A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -79,16 +70,16 @@ public interface NamingSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates whether the naming system is "ready for use" or not.
+	 * The status of this naming system. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.NamingSystem#getStatus <em>Status</em>}' containment reference.
@@ -98,7 +89,7 @@ public interface NamingSystem extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
@@ -131,7 +122,7 @@ public interface NamingSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes.
+	 * The date  (and optionally time) when the naming system was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -180,11 +171,11 @@ public interface NamingSystem extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.NamingSystemContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_Contact()
@@ -192,7 +183,7 @@ public interface NamingSystem extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<NamingSystemContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Responsible</b></em>' containment reference.
@@ -251,16 +242,16 @@ public interface NamingSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Details about what the namespace identifies including scope, granularity, version labeling, etc.
+	 * A free text natural language description of the naming system from the consumer's perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.NamingSystem#getDescription <em>Description</em>}' containment reference.
@@ -270,15 +261,15 @@ public interface NamingSystem extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of naming systems.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_UseContext()
@@ -286,7 +277,23 @@ public interface NamingSystem extends DomainResource {
 	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getUseContext();
+	EList<UsageContext> getUseContext();
+
+	/**
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A jurisdiction in which the naming system is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
 	 * Returns the value of the '<em><b>Usage</b></em>' containment reference.
