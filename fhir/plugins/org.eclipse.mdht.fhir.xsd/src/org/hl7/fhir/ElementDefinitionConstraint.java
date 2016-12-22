@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -33,6 +23,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ElementDefinitionConstraint#getHuman <em>Human</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionConstraint#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionConstraint#getXpath <em>Xpath</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionConstraint#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint()
@@ -149,12 +140,12 @@ public interface ElementDefinitionConstraint extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
+	 * A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint_Expression()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -180,7 +171,7 @@ public interface ElementDefinitionConstraint extends Element {
 	 * @return the value of the '<em>Xpath</em>' containment reference.
 	 * @see #setXpath(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint_Xpath()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='xpath' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -195,5 +186,31 @@ public interface ElementDefinitionConstraint extends Element {
 	 * @generated
 	 */
 	void setXpath(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to the original source of the constraint, for traceability purposes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint_Source()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getSource();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionConstraint#getSource <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(Uri value);
 
 } // ElementDefinitionConstraint

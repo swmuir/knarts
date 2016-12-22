@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,7 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.Address;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.ExplanationOfBenefitAdjudication;
@@ -35,12 +26,11 @@ import org.hl7.fhir.ExplanationOfBenefitDetail;
 import org.hl7.fhir.ExplanationOfBenefitItem;
 import org.hl7.fhir.ExplanationOfBenefitProsthesis;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,24 +41,23 @@ import org.hl7.fhir.SimpleQuantity;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSupervisorIdentifier <em>Supervisor Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSupervisorReference <em>Supervisor Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProviderQualification <em>Provider Qualification</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getCareTeamLinkId <em>Care Team Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProcedureLinkId <em>Procedure Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getInformationLinkId <em>Information Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getRevenue <em>Revenue</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getService <em>Service</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getServiceModifier <em>Service Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getServicedDate <em>Serviced Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getServicedPeriod <em>Serviced Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getPlace <em>Place</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getLocationCodeableConcept <em>Location Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getLocationAddress <em>Location Address</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getLocationReference <em>Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getFactor <em>Factor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getPoints <em>Points</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getNet <em>Net</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getBodySite <em>Body Site</em>}</li>
@@ -93,64 +82,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	protected PositiveInt sequence;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getCareTeamLinkId() <em>Care Team Link Id</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getCareTeamLinkId()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
-
-	/**
-	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier providerIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference providerReference;
-
-	/**
-	 * The cached value of the '{@link #getSupervisorIdentifier() <em>Supervisor Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSupervisorIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier supervisorIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getSupervisorReference() <em>Supervisor Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSupervisorReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference supervisorReference;
-
-	/**
-	 * The cached value of the '{@link #getProviderQualification() <em>Provider Qualification</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderQualification()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding providerQualification;
+	protected EList<PositiveInt> careTeamLinkId;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosisLinkId() <em>Diagnosis Link Id</em>}' containment reference list.
@@ -163,6 +102,46 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	protected EList<PositiveInt> diagnosisLinkId;
 
 	/**
+	 * The cached value of the '{@link #getProcedureLinkId() <em>Procedure Link Id</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcedureLinkId()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PositiveInt> procedureLinkId;
+
+	/**
+	 * The cached value of the '{@link #getInformationLinkId() <em>Information Link Id</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInformationLinkId()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PositiveInt> informationLinkId;
+
+	/**
+	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRevenue()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept revenue;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept category;
+
+	/**
 	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,17 +149,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding service;
-
-	/**
-	 * The cached value of the '{@link #getServiceModifier() <em>Service Modifier</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceModifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> serviceModifier;
+	protected CodeableConcept service;
 
 	/**
 	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
@@ -190,7 +159,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> modifier;
+	protected EList<CodeableConcept> modifier;
 
 	/**
 	 * The cached value of the '{@link #getProgramCode() <em>Program Code</em>}' containment reference list.
@@ -200,7 +169,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> programCode;
+	protected EList<CodeableConcept> programCode;
 
 	/**
 	 * The cached value of the '{@link #getServicedDate() <em>Serviced Date</em>}' containment reference.
@@ -223,14 +192,34 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	protected Period servicedPeriod;
 
 	/**
-	 * The cached value of the '{@link #getPlace() <em>Place</em>}' containment reference.
+	 * The cached value of the '{@link #getLocationCodeableConcept() <em>Location Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlace()
+	 * @see #getLocationCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding place;
+	protected CodeableConcept locationCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getLocationAddress() <em>Location Address</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected Address locationAddress;
+
+	/**
+	 * The cached value of the '{@link #getLocationReference() <em>Location Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference locationReference;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -240,7 +229,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity quantity;
+	protected Quantity quantity;
 
 	/**
 	 * The cached value of the '{@link #getUnitPrice() <em>Unit Price</em>}' containment reference.
@@ -261,16 +250,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @ordered
 	 */
 	protected Decimal factor;
-
-	/**
-	 * The cached value of the '{@link #getPoints() <em>Points</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decimal points;
 
 	/**
 	 * The cached value of the '{@link #getNet() <em>Net</em>}' containment reference.
@@ -300,7 +279,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding bodySite;
+	protected CodeableConcept bodySite;
 
 	/**
 	 * The cached value of the '{@link #getSubSite() <em>Sub Site</em>}' containment reference list.
@@ -310,7 +289,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> subSite;
+	protected EList<CodeableConcept> subSite;
 
 	/**
 	 * The cached value of the '{@link #getNoteNumber() <em>Note Number</em>}' containment reference list.
@@ -419,257 +398,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<PositiveInt> getCareTeamLinkId() {
+		if (careTeamLinkId == null) {
+			careTeamLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(Coding newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getProviderIdentifier() {
-		return providerIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
-		Identifier oldProviderIdentifier = providerIdentifier;
-		providerIdentifier = newProviderIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderIdentifier(Identifier newProviderIdentifier) {
-		if (newProviderIdentifier != providerIdentifier) {
-			NotificationChain msgs = null;
-			if (providerIdentifier != null)
-				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER, null, msgs);
-			if (newProviderIdentifier != null)
-				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER, null, msgs);
-			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getProviderReference() {
-		return providerReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
-		Reference oldProviderReference = providerReference;
-		providerReference = newProviderReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderReference(Reference newProviderReference) {
-		if (newProviderReference != providerReference) {
-			NotificationChain msgs = null;
-			if (providerReference != null)
-				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE, null, msgs);
-			if (newProviderReference != null)
-				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE, null, msgs);
-			msgs = basicSetProviderReference(newProviderReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getSupervisorIdentifier() {
-		return supervisorIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSupervisorIdentifier(Identifier newSupervisorIdentifier, NotificationChain msgs) {
-		Identifier oldSupervisorIdentifier = supervisorIdentifier;
-		supervisorIdentifier = newSupervisorIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER, oldSupervisorIdentifier, newSupervisorIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSupervisorIdentifier(Identifier newSupervisorIdentifier) {
-		if (newSupervisorIdentifier != supervisorIdentifier) {
-			NotificationChain msgs = null;
-			if (supervisorIdentifier != null)
-				msgs = ((InternalEObject)supervisorIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER, null, msgs);
-			if (newSupervisorIdentifier != null)
-				msgs = ((InternalEObject)newSupervisorIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER, null, msgs);
-			msgs = basicSetSupervisorIdentifier(newSupervisorIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER, newSupervisorIdentifier, newSupervisorIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getSupervisorReference() {
-		return supervisorReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSupervisorReference(Reference newSupervisorReference, NotificationChain msgs) {
-		Reference oldSupervisorReference = supervisorReference;
-		supervisorReference = newSupervisorReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE, oldSupervisorReference, newSupervisorReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSupervisorReference(Reference newSupervisorReference) {
-		if (newSupervisorReference != supervisorReference) {
-			NotificationChain msgs = null;
-			if (supervisorReference != null)
-				msgs = ((InternalEObject)supervisorReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE, null, msgs);
-			if (newSupervisorReference != null)
-				msgs = ((InternalEObject)newSupervisorReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE, null, msgs);
-			msgs = basicSetSupervisorReference(newSupervisorReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE, newSupervisorReference, newSupervisorReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getProviderQualification() {
-		return providerQualification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderQualification(Coding newProviderQualification, NotificationChain msgs) {
-		Coding oldProviderQualification = providerQualification;
-		providerQualification = newProviderQualification;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION, oldProviderQualification, newProviderQualification);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderQualification(Coding newProviderQualification) {
-		if (newProviderQualification != providerQualification) {
-			NotificationChain msgs = null;
-			if (providerQualification != null)
-				msgs = ((InternalEObject)providerQualification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION, null, msgs);
-			if (newProviderQualification != null)
-				msgs = ((InternalEObject)newProviderQualification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION, null, msgs);
-			msgs = basicSetProviderQualification(newProviderQualification, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION, newProviderQualification, newProviderQualification));
+		return careTeamLinkId;
 	}
 
 	/**
@@ -689,7 +422,117 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getService() {
+	public EList<PositiveInt> getProcedureLinkId() {
+		if (procedureLinkId == null) {
+			procedureLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID);
+		}
+		return procedureLinkId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PositiveInt> getInformationLinkId() {
+		if (informationLinkId == null) {
+			informationLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID);
+		}
+		return informationLinkId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getRevenue() {
+		return revenue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRevenue(CodeableConcept newRevenue, NotificationChain msgs) {
+		CodeableConcept oldRevenue = revenue;
+		revenue = newRevenue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE, oldRevenue, newRevenue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRevenue(CodeableConcept newRevenue) {
+		if (newRevenue != revenue) {
+			NotificationChain msgs = null;
+			if (revenue != null)
+				msgs = ((InternalEObject)revenue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE, null, msgs);
+			if (newRevenue != null)
+				msgs = ((InternalEObject)newRevenue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE, null, msgs);
+			msgs = basicSetRevenue(newRevenue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE, newRevenue, newRevenue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getCategory() {
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY, oldCategory, newCategory);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
+			NotificationChain msgs = null;
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY, newCategory, newCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getService() {
 		return service;
 	}
 
@@ -698,8 +541,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(Coding newService, NotificationChain msgs) {
-		Coding oldService = service;
+	public NotificationChain basicSetService(CodeableConcept newService, NotificationChain msgs) {
+		CodeableConcept oldService = service;
 		service = newService;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE, oldService, newService);
@@ -713,7 +556,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(Coding newService) {
+	public void setService(CodeableConcept newService) {
 		if (newService != service) {
 			NotificationChain msgs = null;
 			if (service != null)
@@ -732,21 +575,9 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getServiceModifier() {
-		if (serviceModifier == null) {
-			serviceModifier = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER);
-		}
-		return serviceModifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Coding> getModifier() {
+	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
-			modifier = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER);
+			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER);
 		}
 		return modifier;
 	}
@@ -756,9 +587,9 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getProgramCode() {
+	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
-			programCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE);
+			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE);
 		}
 		return programCode;
 	}
@@ -854,8 +685,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getPlace() {
-		return place;
+	public CodeableConcept getLocationCodeableConcept() {
+		return locationCodeableConcept;
 	}
 
 	/**
@@ -863,11 +694,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlace(Coding newPlace, NotificationChain msgs) {
-		Coding oldPlace = place;
-		place = newPlace;
+	public NotificationChain basicSetLocationCodeableConcept(CodeableConcept newLocationCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldLocationCodeableConcept = locationCodeableConcept;
+		locationCodeableConcept = newLocationCodeableConcept;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE, oldPlace, newPlace);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT, oldLocationCodeableConcept, newLocationCodeableConcept);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -878,18 +709,18 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPlace(Coding newPlace) {
-		if (newPlace != place) {
+	public void setLocationCodeableConcept(CodeableConcept newLocationCodeableConcept) {
+		if (newLocationCodeableConcept != locationCodeableConcept) {
 			NotificationChain msgs = null;
-			if (place != null)
-				msgs = ((InternalEObject)place).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE, null, msgs);
-			if (newPlace != null)
-				msgs = ((InternalEObject)newPlace).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE, null, msgs);
-			msgs = basicSetPlace(newPlace, msgs);
+			if (locationCodeableConcept != null)
+				msgs = ((InternalEObject)locationCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT, null, msgs);
+			if (newLocationCodeableConcept != null)
+				msgs = ((InternalEObject)newLocationCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetLocationCodeableConcept(newLocationCodeableConcept, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE, newPlace, newPlace));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT, newLocationCodeableConcept, newLocationCodeableConcept));
 	}
 
 	/**
@@ -897,7 +728,93 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getQuantity() {
+	public Address getLocationAddress() {
+		return locationAddress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLocationAddress(Address newLocationAddress, NotificationChain msgs) {
+		Address oldLocationAddress = locationAddress;
+		locationAddress = newLocationAddress;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS, oldLocationAddress, newLocationAddress);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocationAddress(Address newLocationAddress) {
+		if (newLocationAddress != locationAddress) {
+			NotificationChain msgs = null;
+			if (locationAddress != null)
+				msgs = ((InternalEObject)locationAddress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS, null, msgs);
+			if (newLocationAddress != null)
+				msgs = ((InternalEObject)newLocationAddress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS, null, msgs);
+			msgs = basicSetLocationAddress(newLocationAddress, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS, newLocationAddress, newLocationAddress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getLocationReference() {
+		return locationReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLocationReference(Reference newLocationReference, NotificationChain msgs) {
+		Reference oldLocationReference = locationReference;
+		locationReference = newLocationReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE, oldLocationReference, newLocationReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocationReference(Reference newLocationReference) {
+		if (newLocationReference != locationReference) {
+			NotificationChain msgs = null;
+			if (locationReference != null)
+				msgs = ((InternalEObject)locationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE, null, msgs);
+			if (newLocationReference != null)
+				msgs = ((InternalEObject)newLocationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE, null, msgs);
+			msgs = basicSetLocationReference(newLocationReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE, newLocationReference, newLocationReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Quantity getQuantity() {
 		return quantity;
 	}
 
@@ -906,8 +823,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuantity(SimpleQuantity newQuantity, NotificationChain msgs) {
-		SimpleQuantity oldQuantity = quantity;
+	public NotificationChain basicSetQuantity(Quantity newQuantity, NotificationChain msgs) {
+		Quantity oldQuantity = quantity;
 		quantity = newQuantity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY, oldQuantity, newQuantity);
@@ -921,7 +838,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuantity(SimpleQuantity newQuantity) {
+	public void setQuantity(Quantity newQuantity) {
 		if (newQuantity != quantity) {
 			NotificationChain msgs = null;
 			if (quantity != null)
@@ -1026,49 +943,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Decimal getPoints() {
-		return points;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPoints(Decimal newPoints, NotificationChain msgs) {
-		Decimal oldPoints = points;
-		points = newPoints;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS, oldPoints, newPoints);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPoints(Decimal newPoints) {
-		if (newPoints != points) {
-			NotificationChain msgs = null;
-			if (points != null)
-				msgs = ((InternalEObject)points).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS, null, msgs);
-			if (newPoints != null)
-				msgs = ((InternalEObject)newPoints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS, null, msgs);
-			msgs = basicSetPoints(newPoints, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS, newPoints, newPoints));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Money getNet() {
 		return net;
 	}
@@ -1124,7 +998,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getBodySite() {
+	public CodeableConcept getBodySite() {
 		return bodySite;
 	}
 
@@ -1133,8 +1007,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBodySite(Coding newBodySite, NotificationChain msgs) {
-		Coding oldBodySite = bodySite;
+	public NotificationChain basicSetBodySite(CodeableConcept newBodySite, NotificationChain msgs) {
+		CodeableConcept oldBodySite = bodySite;
 		bodySite = newBodySite;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__BODY_SITE, oldBodySite, newBodySite);
@@ -1148,7 +1022,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBodySite(Coding newBodySite) {
+	public void setBodySite(CodeableConcept newBodySite) {
 		if (newBodySite != bodySite) {
 			NotificationChain msgs = null;
 			if (bodySite != null)
@@ -1167,9 +1041,9 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getSubSite() {
+	public EList<CodeableConcept> getSubSite() {
 		if (subSite == null) {
-			subSite = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE);
+			subSite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE);
 		}
 		return subSite;
 	}
@@ -1263,24 +1137,20 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER:
-				return basicSetProviderIdentifier(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE:
-				return basicSetProviderReference(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER:
-				return basicSetSupervisorIdentifier(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE:
-				return basicSetSupervisorReference(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION:
-				return basicSetProviderQualification(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
+				return ((InternalEList<?>)getCareTeamLinkId()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
 				return ((InternalEList<?>)getDiagnosisLinkId()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
+				return ((InternalEList<?>)getProcedureLinkId()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
+				return ((InternalEList<?>)getInformationLinkId()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
+				return basicSetRevenue(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
+				return basicSetCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
 				return basicSetService(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER:
-				return ((InternalEList<?>)getServiceModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER:
 				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE:
@@ -1289,16 +1159,18 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return basicSetServicedDate(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_PERIOD:
 				return basicSetServicedPeriod(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE:
-				return basicSetPlace(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT:
+				return basicSetLocationCodeableConcept(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS:
+				return basicSetLocationAddress(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE:
+				return basicSetLocationReference(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UNIT_PRICE:
 				return basicSetUnitPrice(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__FACTOR:
 				return basicSetFactor(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS:
-				return basicSetPoints(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NET:
 				return basicSetNet(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UDI:
@@ -1329,24 +1201,20 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return getSequence();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE:
-				return getType();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER:
-				return getProviderIdentifier();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE:
-				return getProviderReference();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER:
-				return getSupervisorIdentifier();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE:
-				return getSupervisorReference();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION:
-				return getProviderQualification();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
+				return getCareTeamLinkId();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
 				return getDiagnosisLinkId();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
+				return getProcedureLinkId();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
+				return getInformationLinkId();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
+				return getRevenue();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
+				return getCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
 				return getService();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER:
-				return getServiceModifier();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER:
 				return getModifier();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE:
@@ -1355,16 +1223,18 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return getServicedDate();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_PERIOD:
 				return getServicedPeriod();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE:
-				return getPlace();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT:
+				return getLocationCodeableConcept();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS:
+				return getLocationAddress();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE:
+				return getLocationReference();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY:
 				return getQuantity();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UNIT_PRICE:
 				return getUnitPrice();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__FACTOR:
 				return getFactor();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS:
-				return getPoints();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NET:
 				return getNet();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UDI:
@@ -1397,42 +1267,38 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				setSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE:
-				setType((Coding)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE:
-				setProviderReference((Reference)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER:
-				setSupervisorIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE:
-				setSupervisorReference((Reference)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION:
-				setProviderQualification((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
+				getCareTeamLinkId().clear();
+				getCareTeamLinkId().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
 				getDiagnosisLinkId().clear();
 				getDiagnosisLinkId().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
-				setService((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
+				getProcedureLinkId().clear();
+				getProcedureLinkId().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER:
-				getServiceModifier().clear();
-				getServiceModifier().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
+				getInformationLinkId().clear();
+				getInformationLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
+				setRevenue((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
+				setCategory((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
+				setService((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER:
 				getModifier().clear();
-				getModifier().addAll((Collection<? extends Coding>)newValue);
+				getModifier().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE:
 				getProgramCode().clear();
-				getProgramCode().addAll((Collection<? extends Coding>)newValue);
+				getProgramCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_DATE:
 				setServicedDate((Date)newValue);
@@ -1440,20 +1306,23 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_PERIOD:
 				setServicedPeriod((Period)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE:
-				setPlace((Coding)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT:
+				setLocationCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS:
+				setLocationAddress((Address)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE:
+				setLocationReference((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY:
-				setQuantity((SimpleQuantity)newValue);
+				setQuantity((Quantity)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UNIT_PRICE:
 				setUnitPrice((Money)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__FACTOR:
 				setFactor((Decimal)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS:
-				setPoints((Decimal)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NET:
 				setNet((Money)newValue);
@@ -1463,11 +1332,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				getUdi().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__BODY_SITE:
-				setBodySite((Coding)newValue);
+				setBodySite((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				getSubSite().clear();
-				getSubSite().addAll((Collection<? extends Coding>)newValue);
+				getSubSite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				getNoteNumber().clear();
@@ -1499,32 +1368,26 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE:
-				setType((Coding)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE:
-				setProviderReference((Reference)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER:
-				setSupervisorIdentifier((Identifier)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE:
-				setSupervisorReference((Reference)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION:
-				setProviderQualification((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
+				getCareTeamLinkId().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
 				getDiagnosisLinkId().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
-				setService((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
+				getProcedureLinkId().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER:
-				getServiceModifier().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
+				getInformationLinkId().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
+				setRevenue((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
+				setCategory((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
+				setService((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER:
 				getModifier().clear();
@@ -1538,20 +1401,23 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_PERIOD:
 				setServicedPeriod((Period)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE:
-				setPlace((Coding)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT:
+				setLocationCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS:
+				setLocationAddress((Address)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE:
+				setLocationReference((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY:
-				setQuantity((SimpleQuantity)null);
+				setQuantity((Quantity)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UNIT_PRICE:
 				setUnitPrice((Money)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__FACTOR:
 				setFactor((Decimal)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS:
-				setPoints((Decimal)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NET:
 				setNet((Money)null);
@@ -1560,7 +1426,7 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				getUdi().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__BODY_SITE:
-				setBodySite((Coding)null);
+				setBodySite((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				getSubSite().clear();
@@ -1591,24 +1457,20 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__TYPE:
-				return type != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_IDENTIFIER:
-				return providerIdentifier != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_REFERENCE:
-				return providerReference != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_IDENTIFIER:
-				return supervisorIdentifier != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUPERVISOR_REFERENCE:
-				return supervisorReference != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROVIDER_QUALIFICATION:
-				return providerQualification != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
+				return careTeamLinkId != null && !careTeamLinkId.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
 				return diagnosisLinkId != null && !diagnosisLinkId.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
+				return procedureLinkId != null && !procedureLinkId.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
+				return informationLinkId != null && !informationLinkId.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
+				return revenue != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
+				return category != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE:
 				return service != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICE_MODIFIER:
-				return serviceModifier != null && !serviceModifier.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER:
 				return modifier != null && !modifier.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE:
@@ -1617,16 +1479,18 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return servicedDate != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SERVICED_PERIOD:
 				return servicedPeriod != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PLACE:
-				return place != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_CODEABLE_CONCEPT:
+				return locationCodeableConcept != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_ADDRESS:
+				return locationAddress != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__LOCATION_REFERENCE:
+				return locationReference != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__QUANTITY:
 				return quantity != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UNIT_PRICE:
 				return unitPrice != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__FACTOR:
 				return factor != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__POINTS:
-				return points != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NET:
 				return net != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UDI:

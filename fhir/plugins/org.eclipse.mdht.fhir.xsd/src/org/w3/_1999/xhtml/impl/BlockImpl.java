@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -30,11 +20,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.w3._1999.xhtml.AddressType;
 import org.w3._1999.xhtml.Block;
 import org.w3._1999.xhtml.BlockquoteType;
-import org.w3._1999.xhtml.DelType;
 import org.w3._1999.xhtml.DivType;
 import org.w3._1999.xhtml.DlType;
-import org.w3._1999.xhtml.FieldsetType;
-import org.w3._1999.xhtml.FormType;
 import org.w3._1999.xhtml.H1Type;
 import org.w3._1999.xhtml.H2Type;
 import org.w3._1999.xhtml.H3Type;
@@ -42,12 +29,9 @@ import org.w3._1999.xhtml.H4Type;
 import org.w3._1999.xhtml.H5Type;
 import org.w3._1999.xhtml.H6Type;
 import org.w3._1999.xhtml.HrType;
-import org.w3._1999.xhtml.InsType;
-import org.w3._1999.xhtml.NoscriptType;
 import org.w3._1999.xhtml.OlType;
 import org.w3._1999.xhtml.PType;
 import org.w3._1999.xhtml.PreType;
-import org.w3._1999.xhtml.ScriptType;
 import org.w3._1999.xhtml.TableType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.XhtmlPackage;
@@ -60,7 +44,7 @@ import org.w3._1999.xhtml.XhtmlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getP <em>P</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getH1 <em>H1</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getH2 <em>H2</em>}</li>
@@ -76,27 +60,21 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getHr <em>Hr</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getBlockquote <em>Blockquote</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getAddress <em>Address</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getFieldset <em>Fieldset</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getTable <em>Table</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getForm <em>Form</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getNoscript <em>Noscript</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.BlockImpl#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * The cached value of the '{@link #getBlock() <em>Block</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap group;
+	protected FeatureMap block;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,11 +100,11 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getGroup() {
-		if (group == null) {
-			group = new BasicFeatureMap(this, XhtmlPackage.BLOCK__GROUP);
+	public FeatureMap getBlock() {
+		if (block == null) {
+			block = new BasicFeatureMap(this, XhtmlPackage.BLOCK__BLOCK);
 		}
-		return group;
+		return block;
 	}
 
 	/**
@@ -135,7 +113,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<PType> getP() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_P());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_P());
 	}
 
 	/**
@@ -144,7 +122,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H1Type> getH1() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H1());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H1());
 	}
 
 	/**
@@ -153,7 +131,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H2Type> getH2() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H2());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H2());
 	}
 
 	/**
@@ -162,7 +140,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H3Type> getH3() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H3());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H3());
 	}
 
 	/**
@@ -171,7 +149,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H4Type> getH4() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H4());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H4());
 	}
 
 	/**
@@ -180,7 +158,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H5Type> getH5() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H5());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H5());
 	}
 
 	/**
@@ -189,7 +167,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<H6Type> getH6() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_H6());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_H6());
 	}
 
 	/**
@@ -198,7 +176,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<DivType> getDiv() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Div());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Div());
 	}
 
 	/**
@@ -207,7 +185,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<UlType> getUl() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Ul());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Ul());
 	}
 
 	/**
@@ -216,7 +194,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<OlType> getOl() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Ol());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Ol());
 	}
 
 	/**
@@ -225,7 +203,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<DlType> getDl() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Dl());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Dl());
 	}
 
 	/**
@@ -234,7 +212,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<PreType> getPre() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Pre());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Pre());
 	}
 
 	/**
@@ -243,7 +221,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<HrType> getHr() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Hr());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Hr());
 	}
 
 	/**
@@ -252,7 +230,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<BlockquoteType> getBlockquote() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Blockquote());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Blockquote());
 	}
 
 	/**
@@ -261,16 +239,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<AddressType> getAddress() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Address());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<FieldsetType> getFieldset() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Fieldset());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Address());
 	}
 
 	/**
@@ -279,52 +248,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 * @generated
 	 */
 	public EList<TableType> getTable() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Table());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<FormType> getForm() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Form());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<NoscriptType> getNoscript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Noscript());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InsType> getIns() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Ins());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DelType> getDel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Del());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ScriptType> getScript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getBlock_Script());
+		return getBlock().list(XhtmlPackage.eINSTANCE.getBlock_Table());
 	}
 
 	/**
@@ -335,8 +259,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XhtmlPackage.BLOCK__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case XhtmlPackage.BLOCK__BLOCK:
+				return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.BLOCK__P:
 				return ((InternalEList<?>)getP()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.BLOCK__H1:
@@ -367,20 +291,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 				return ((InternalEList<?>)getBlockquote()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.BLOCK__ADDRESS:
 				return ((InternalEList<?>)getAddress()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__FIELDSET:
-				return ((InternalEList<?>)getFieldset()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.BLOCK__TABLE:
 				return ((InternalEList<?>)getTable()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__FORM:
-				return ((InternalEList<?>)getForm()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__NOSCRIPT:
-				return ((InternalEList<?>)getNoscript()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__INS:
-				return ((InternalEList<?>)getIns()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__DEL:
-				return ((InternalEList<?>)getDel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.BLOCK__SCRIPT:
-				return ((InternalEList<?>)getScript()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -393,9 +305,9 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.BLOCK__GROUP:
-				if (coreType) return getGroup();
-				return ((FeatureMap.Internal)getGroup()).getWrapper();
+			case XhtmlPackage.BLOCK__BLOCK:
+				if (coreType) return getBlock();
+				return ((FeatureMap.Internal)getBlock()).getWrapper();
 			case XhtmlPackage.BLOCK__P:
 				return getP();
 			case XhtmlPackage.BLOCK__H1:
@@ -426,20 +338,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 				return getBlockquote();
 			case XhtmlPackage.BLOCK__ADDRESS:
 				return getAddress();
-			case XhtmlPackage.BLOCK__FIELDSET:
-				return getFieldset();
 			case XhtmlPackage.BLOCK__TABLE:
 				return getTable();
-			case XhtmlPackage.BLOCK__FORM:
-				return getForm();
-			case XhtmlPackage.BLOCK__NOSCRIPT:
-				return getNoscript();
-			case XhtmlPackage.BLOCK__INS:
-				return getIns();
-			case XhtmlPackage.BLOCK__DEL:
-				return getDel();
-			case XhtmlPackage.BLOCK__SCRIPT:
-				return getScript();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -453,8 +353,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.BLOCK__GROUP:
-				((FeatureMap.Internal)getGroup()).set(newValue);
+			case XhtmlPackage.BLOCK__BLOCK:
+				((FeatureMap.Internal)getBlock()).set(newValue);
 				return;
 			case XhtmlPackage.BLOCK__P:
 				getP().clear();
@@ -516,33 +416,9 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 				getAddress().clear();
 				getAddress().addAll((Collection<? extends AddressType>)newValue);
 				return;
-			case XhtmlPackage.BLOCK__FIELDSET:
-				getFieldset().clear();
-				getFieldset().addAll((Collection<? extends FieldsetType>)newValue);
-				return;
 			case XhtmlPackage.BLOCK__TABLE:
 				getTable().clear();
 				getTable().addAll((Collection<? extends TableType>)newValue);
-				return;
-			case XhtmlPackage.BLOCK__FORM:
-				getForm().clear();
-				getForm().addAll((Collection<? extends FormType>)newValue);
-				return;
-			case XhtmlPackage.BLOCK__NOSCRIPT:
-				getNoscript().clear();
-				getNoscript().addAll((Collection<? extends NoscriptType>)newValue);
-				return;
-			case XhtmlPackage.BLOCK__INS:
-				getIns().clear();
-				getIns().addAll((Collection<? extends InsType>)newValue);
-				return;
-			case XhtmlPackage.BLOCK__DEL:
-				getDel().clear();
-				getDel().addAll((Collection<? extends DelType>)newValue);
-				return;
-			case XhtmlPackage.BLOCK__SCRIPT:
-				getScript().clear();
-				getScript().addAll((Collection<? extends ScriptType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -556,8 +432,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.BLOCK__GROUP:
-				getGroup().clear();
+			case XhtmlPackage.BLOCK__BLOCK:
+				getBlock().clear();
 				return;
 			case XhtmlPackage.BLOCK__P:
 				getP().clear();
@@ -604,26 +480,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 			case XhtmlPackage.BLOCK__ADDRESS:
 				getAddress().clear();
 				return;
-			case XhtmlPackage.BLOCK__FIELDSET:
-				getFieldset().clear();
-				return;
 			case XhtmlPackage.BLOCK__TABLE:
 				getTable().clear();
-				return;
-			case XhtmlPackage.BLOCK__FORM:
-				getForm().clear();
-				return;
-			case XhtmlPackage.BLOCK__NOSCRIPT:
-				getNoscript().clear();
-				return;
-			case XhtmlPackage.BLOCK__INS:
-				getIns().clear();
-				return;
-			case XhtmlPackage.BLOCK__DEL:
-				getDel().clear();
-				return;
-			case XhtmlPackage.BLOCK__SCRIPT:
-				getScript().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -637,8 +495,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.BLOCK__GROUP:
-				return group != null && !group.isEmpty();
+			case XhtmlPackage.BLOCK__BLOCK:
+				return block != null && !block.isEmpty();
 			case XhtmlPackage.BLOCK__P:
 				return !getP().isEmpty();
 			case XhtmlPackage.BLOCK__H1:
@@ -669,20 +527,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 				return !getBlockquote().isEmpty();
 			case XhtmlPackage.BLOCK__ADDRESS:
 				return !getAddress().isEmpty();
-			case XhtmlPackage.BLOCK__FIELDSET:
-				return !getFieldset().isEmpty();
 			case XhtmlPackage.BLOCK__TABLE:
 				return !getTable().isEmpty();
-			case XhtmlPackage.BLOCK__FORM:
-				return !getForm().isEmpty();
-			case XhtmlPackage.BLOCK__NOSCRIPT:
-				return !getNoscript().isEmpty();
-			case XhtmlPackage.BLOCK__INS:
-				return !getIns().isEmpty();
-			case XhtmlPackage.BLOCK__DEL:
-				return !getDel().isEmpty();
-			case XhtmlPackage.BLOCK__SCRIPT:
-				return !getScript().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -697,8 +543,8 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (group: ");
-		result.append(group);
+		result.append(" (block: ");
+		result.append(block);
 		result.append(')');
 		return result.toString();
 	}

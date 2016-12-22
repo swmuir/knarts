@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,11 +18,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConsentAgent1;
+import org.hl7.fhir.Coding;
+import org.hl7.fhir.ConsentActor;
+import org.hl7.fhir.ConsentData;
 import org.hl7.fhir.ConsentExcept;
+import org.hl7.fhir.ConsentExceptType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,28 +34,20 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getApplies <em>Applies</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getAction <em>Action</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getAgent <em>Agent</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getSecurityLabel <em>Security Label</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExcept {
-	/**
-	 * The cached value of the '{@link #getApplies() <em>Applies</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplies()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period applies;
-
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -72,27 +56,27 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected ConsentExceptType type;
 
 	/**
-	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference.
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubType()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept subType;
+	protected Period period;
 
 	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopic()
+	 * @see #getActor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> topic;
+	protected EList<ConsentActor> actor;
 
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
@@ -105,24 +89,54 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	protected EList<CodeableConcept> action;
 
 	/**
-	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecurityLabel() <em>Security Label</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAgent()
+	 * @see #getSecurityLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConsentAgent1> agent;
+	protected EList<Coding> securityLabel;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getPurpose()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String text;
+	protected EList<Coding> purpose;
+
+	/**
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> class_;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> code;
+
+	/**
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getData()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConsentData> data;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,50 +162,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getApplies() {
-		return applies;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetApplies(Period newApplies, NotificationChain msgs) {
-		Period oldApplies = applies;
-		applies = newApplies;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__APPLIES, oldApplies, newApplies);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setApplies(Period newApplies) {
-		if (newApplies != applies) {
-			NotificationChain msgs = null;
-			if (applies != null)
-				msgs = ((InternalEObject)applies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__APPLIES, null, msgs);
-			if (newApplies != null)
-				msgs = ((InternalEObject)newApplies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__APPLIES, null, msgs);
-			msgs = basicSetApplies(newApplies, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__APPLIES, newApplies, newApplies));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getType() {
+	public ConsentExceptType getType() {
 		return type;
 	}
 
@@ -200,8 +171,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
+	public NotificationChain basicSetType(ConsentExceptType newType, NotificationChain msgs) {
+		ConsentExceptType oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__TYPE, oldType, newType);
@@ -215,7 +186,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
+	public void setType(ConsentExceptType newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -234,8 +205,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getSubType() {
-		return subType;
+	public Period getPeriod() {
+		return period;
 	}
 
 	/**
@@ -243,11 +214,11 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubType(CodeableConcept newSubType, NotificationChain msgs) {
-		CodeableConcept oldSubType = subType;
-		subType = newSubType;
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__SUB_TYPE, oldSubType, newSubType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__PERIOD, oldPeriod, newPeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -258,18 +229,18 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubType(CodeableConcept newSubType) {
-		if (newSubType != subType) {
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
 			NotificationChain msgs = null;
-			if (subType != null)
-				msgs = ((InternalEObject)subType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__SUB_TYPE, null, msgs);
-			if (newSubType != null)
-				msgs = ((InternalEObject)newSubType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__SUB_TYPE, null, msgs);
-			msgs = basicSetSubType(newSubType, msgs);
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__SUB_TYPE, newSubType, newSubType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__PERIOD, newPeriod, newPeriod));
 	}
 
 	/**
@@ -277,11 +248,11 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getTopic() {
-		if (topic == null) {
-			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT_EXCEPT__TOPIC);
+	public EList<ConsentActor> getActor() {
+		if (actor == null) {
+			actor = new EObjectContainmentEList<ConsentActor>(ConsentActor.class, this, FhirPackage.CONSENT_EXCEPT__ACTOR);
 		}
-		return topic;
+		return actor;
 	}
 
 	/**
@@ -301,11 +272,11 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConsentAgent1> getAgent() {
-		if (agent == null) {
-			agent = new EObjectContainmentEList<ConsentAgent1>(ConsentAgent1.class, this, FhirPackage.CONSENT_EXCEPT__AGENT);
+	public EList<Coding> getSecurityLabel() {
+		if (securityLabel == null) {
+			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL);
 		}
-		return agent;
+		return securityLabel;
 	}
 
 	/**
@@ -313,8 +284,11 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getText() {
-		return text;
+	public EList<Coding> getPurpose() {
+		if (purpose == null) {
+			purpose = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__PURPOSE);
+		}
+		return purpose;
 	}
 
 	/**
@@ -322,14 +296,11 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetText(org.hl7.fhir.String newText, NotificationChain msgs) {
-		org.hl7.fhir.String oldText = text;
-		text = newText;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__TEXT, oldText, newText);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Coding> getClass_() {
+		if (class_ == null) {
+			class_ = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__CLASS);
 		}
-		return msgs;
+		return class_;
 	}
 
 	/**
@@ -337,18 +308,23 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(org.hl7.fhir.String newText) {
-		if (newText != text) {
-			NotificationChain msgs = null;
-			if (text != null)
-				msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__TEXT, null, msgs);
-			if (newText != null)
-				msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__TEXT, null, msgs);
-			msgs = basicSetText(newText, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Coding> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__CODE);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__TEXT, newText, newText));
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConsentData> getData() {
+		if (data == null) {
+			data = new EObjectContainmentEList<ConsentData>(ConsentData.class, this, FhirPackage.CONSENT_EXCEPT__DATA);
+		}
+		return data;
 	}
 
 	/**
@@ -359,20 +335,24 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.CONSENT_EXCEPT__APPLIES:
-				return basicSetApplies(null, msgs);
 			case FhirPackage.CONSENT_EXCEPT__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.CONSENT_EXCEPT__SUB_TYPE:
-				return basicSetSubType(null, msgs);
-			case FhirPackage.CONSENT_EXCEPT__TOPIC:
-				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__PERIOD:
+				return basicSetPeriod(null, msgs);
+			case FhirPackage.CONSENT_EXCEPT__ACTOR:
+				return ((InternalEList<?>)getActor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT_EXCEPT__AGENT:
-				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT_EXCEPT__TEXT:
-				return basicSetText(null, msgs);
+			case FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL:
+				return ((InternalEList<?>)getSecurityLabel()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__PURPOSE:
+				return ((InternalEList<?>)getPurpose()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__CLASS:
+				return ((InternalEList<?>)getClass_()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__CODE:
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__DATA:
+				return ((InternalEList<?>)getData()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -385,20 +365,24 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.CONSENT_EXCEPT__APPLIES:
-				return getApplies();
 			case FhirPackage.CONSENT_EXCEPT__TYPE:
 				return getType();
-			case FhirPackage.CONSENT_EXCEPT__SUB_TYPE:
-				return getSubType();
-			case FhirPackage.CONSENT_EXCEPT__TOPIC:
-				return getTopic();
+			case FhirPackage.CONSENT_EXCEPT__PERIOD:
+				return getPeriod();
+			case FhirPackage.CONSENT_EXCEPT__ACTOR:
+				return getActor();
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				return getAction();
-			case FhirPackage.CONSENT_EXCEPT__AGENT:
-				return getAgent();
-			case FhirPackage.CONSENT_EXCEPT__TEXT:
-				return getText();
+			case FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL:
+				return getSecurityLabel();
+			case FhirPackage.CONSENT_EXCEPT__PURPOSE:
+				return getPurpose();
+			case FhirPackage.CONSENT_EXCEPT__CLASS:
+				return getClass_();
+			case FhirPackage.CONSENT_EXCEPT__CODE:
+				return getCode();
+			case FhirPackage.CONSENT_EXCEPT__DATA:
+				return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,29 +396,39 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.CONSENT_EXCEPT__APPLIES:
-				setApplies((Period)newValue);
-				return;
 			case FhirPackage.CONSENT_EXCEPT__TYPE:
-				setType((CodeableConcept)newValue);
+				setType((ConsentExceptType)newValue);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__SUB_TYPE:
-				setSubType((CodeableConcept)newValue);
+			case FhirPackage.CONSENT_EXCEPT__PERIOD:
+				setPeriod((Period)newValue);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__TOPIC:
-				getTopic().clear();
-				getTopic().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CONSENT_EXCEPT__ACTOR:
+				getActor().clear();
+				getActor().addAll((Collection<? extends ConsentActor>)newValue);
 				return;
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				getAction().clear();
 				getAction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__AGENT:
-				getAgent().clear();
-				getAgent().addAll((Collection<? extends ConsentAgent1>)newValue);
+			case FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL:
+				getSecurityLabel().clear();
+				getSecurityLabel().addAll((Collection<? extends Coding>)newValue);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__TEXT:
-				setText((org.hl7.fhir.String)newValue);
+			case FhirPackage.CONSENT_EXCEPT__PURPOSE:
+				getPurpose().clear();
+				getPurpose().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.CONSENT_EXCEPT__CLASS:
+				getClass_().clear();
+				getClass_().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.CONSENT_EXCEPT__CODE:
+				getCode().clear();
+				getCode().addAll((Collection<? extends Coding>)newValue);
+				return;
+			case FhirPackage.CONSENT_EXCEPT__DATA:
+				getData().clear();
+				getData().addAll((Collection<? extends ConsentData>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -448,26 +442,32 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CONSENT_EXCEPT__APPLIES:
-				setApplies((Period)null);
-				return;
 			case FhirPackage.CONSENT_EXCEPT__TYPE:
-				setType((CodeableConcept)null);
+				setType((ConsentExceptType)null);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__SUB_TYPE:
-				setSubType((CodeableConcept)null);
+			case FhirPackage.CONSENT_EXCEPT__PERIOD:
+				setPeriod((Period)null);
 				return;
-			case FhirPackage.CONSENT_EXCEPT__TOPIC:
-				getTopic().clear();
+			case FhirPackage.CONSENT_EXCEPT__ACTOR:
+				getActor().clear();
 				return;
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				getAction().clear();
 				return;
-			case FhirPackage.CONSENT_EXCEPT__AGENT:
-				getAgent().clear();
+			case FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL:
+				getSecurityLabel().clear();
 				return;
-			case FhirPackage.CONSENT_EXCEPT__TEXT:
-				setText((org.hl7.fhir.String)null);
+			case FhirPackage.CONSENT_EXCEPT__PURPOSE:
+				getPurpose().clear();
+				return;
+			case FhirPackage.CONSENT_EXCEPT__CLASS:
+				getClass_().clear();
+				return;
+			case FhirPackage.CONSENT_EXCEPT__CODE:
+				getCode().clear();
+				return;
+			case FhirPackage.CONSENT_EXCEPT__DATA:
+				getData().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -481,20 +481,24 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CONSENT_EXCEPT__APPLIES:
-				return applies != null;
 			case FhirPackage.CONSENT_EXCEPT__TYPE:
 				return type != null;
-			case FhirPackage.CONSENT_EXCEPT__SUB_TYPE:
-				return subType != null;
-			case FhirPackage.CONSENT_EXCEPT__TOPIC:
-				return topic != null && !topic.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__PERIOD:
+				return period != null;
+			case FhirPackage.CONSENT_EXCEPT__ACTOR:
+				return actor != null && !actor.isEmpty();
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				return action != null && !action.isEmpty();
-			case FhirPackage.CONSENT_EXCEPT__AGENT:
-				return agent != null && !agent.isEmpty();
-			case FhirPackage.CONSENT_EXCEPT__TEXT:
-				return text != null;
+			case FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL:
+				return securityLabel != null && !securityLabel.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__PURPOSE:
+				return purpose != null && !purpose.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__CLASS:
+				return class_ != null && !class_.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__CODE:
+				return code != null && !code.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__DATA:
+				return data != null && !data.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

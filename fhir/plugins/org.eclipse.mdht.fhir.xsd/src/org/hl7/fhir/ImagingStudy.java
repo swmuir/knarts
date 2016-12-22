@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -34,14 +24,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingStudy#getAvailability <em>Availability</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getModalityList <em>Modality List</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getOrder <em>Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getReferrer <em>Referrer</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getBaseLocation <em>Base Location</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfSeries <em>Number Of Series</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getProcedure <em>Procedure</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getSeries <em>Series</em>}</li>
  * </ul>
@@ -188,6 +180,32 @@ public interface ImagingStudy extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The encounter at which the request is initiated.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Started</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,20 +232,20 @@ public interface ImagingStudy extends DomainResource {
 	void setStarted(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Order</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of the diagnostic orders that resulted in this imaging study being performed.
+	 * A list of the diagnostic requests that resulted in this imaging study being performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Order</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Order()
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_BasedOn()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='order' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getOrder();
+	EList<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Referrer</b></em>' containment reference.
@@ -256,56 +274,36 @@ public interface ImagingStudy extends DomainResource {
 	void setReferrer(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Interpreter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Interpreter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Who read the study and interpreted the images or other content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpreter</em>' containment reference.
-	 * @see #setInterpreter(Reference)
+	 * @return the value of the '<em>Interpreter</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Interpreter()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='interpreter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getInterpreter();
+	EList<Reference> getInterpreter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interpreter</em>' containment reference.
-	 * @see #getInterpreter()
-	 * @generated
-	 */
-	void setInterpreter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base Location</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyBaseLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * WADO-RS resource where Study is available.
+	 * Methods of accessing  (e.g., retrieving, viewing) the study.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Url()
+	 * @return the value of the '<em>Base Location</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_BaseLocation()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='baseLocation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getUrl <em>Url</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Url</em>' containment reference.
-	 * @see #getUrl()
-	 * @generated
-	 */
-	void setUrl(Uri value);
+	EList<ImagingStudyBaseLocation> getBaseLocation();
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Series</b></em>' containment reference.
@@ -374,6 +372,32 @@ public interface ImagingStudy extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getProcedure();
+
+	/**
+	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Description of clinical codition indicating why the ImagingStudy was requested.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason</em>' containment reference.
+	 * @see #setReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Reason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getReason <em>Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reason</em>' containment reference.
+	 * @see #getReason()
+	 * @generated
+	 */
+	void setReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

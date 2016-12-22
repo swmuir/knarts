@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,7 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityRequest;
@@ -45,27 +36,19 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getTargetIdentifier <em>Target Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getTargetReference <em>Target Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getOrganizationReference <em>Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getEntererIdentifier <em>Enterer Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getEntererReference <em>Enterer Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getFacilityIdentifier <em>Facility Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getFacilityReference <em>Facility Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getPatientIdentifier <em>Patient Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getPatientReference <em>Patient Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getCoverageIdentifier <em>Coverage Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getCoverageReference <em>Coverage Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBusinessArrangement <em>Business Arrangement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getServicedDate <em>Serviced Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getServicedPeriod <em>Serviced Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getEnterer <em>Enterer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getInsurer <em>Insurer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBusinessArrangement <em>Business Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBenefitCategory <em>Benefit Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBenefitSubCategory <em>Benefit Sub Category</em>}</li>
  * </ul>
@@ -84,94 +67,14 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding ruleset;
-
-	/**
-	 * The cached value of the '{@link #getOriginalRuleset() <em>Original Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding originalRuleset;
-
-	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreated()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime created;
-
-	/**
-	 * The cached value of the '{@link #getTargetIdentifier() <em>Target Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier targetIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getTargetReference() <em>Target Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference targetReference;
-
-	/**
-	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier providerIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference providerReference;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier organizationIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organizationReference;
+	protected Code status;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -181,97 +84,17 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding priority;
+	protected CodeableConcept priority;
 
 	/**
-	 * The cached value of the '{@link #getEntererIdentifier() <em>Enterer Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntererIdentifier()
+	 * @see #getPatient()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier entererIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getEntererReference() <em>Enterer Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntererReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference entererReference;
-
-	/**
-	 * The cached value of the '{@link #getFacilityIdentifier() <em>Facility Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacilityIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier facilityIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getFacilityReference() <em>Facility Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacilityReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference facilityReference;
-
-	/**
-	 * The cached value of the '{@link #getPatientIdentifier() <em>Patient Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatientIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier patientIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getPatientReference() <em>Patient Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatientReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference patientReference;
-
-	/**
-	 * The cached value of the '{@link #getCoverageIdentifier() <em>Coverage Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCoverageIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier coverageIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getCoverageReference() <em>Coverage Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCoverageReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference coverageReference;
-
-	/**
-	 * The cached value of the '{@link #getBusinessArrangement() <em>Business Arrangement</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBusinessArrangement()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String businessArrangement;
+	protected Reference patient;
 
 	/**
 	 * The cached value of the '{@link #getServicedDate() <em>Serviced Date</em>}' containment reference.
@@ -294,6 +117,86 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	protected Period servicedPeriod;
 
 	/**
+	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreated()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime created;
+
+	/**
+	 * The cached value of the '{@link #getEnterer() <em>Enterer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnterer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference enterer;
+
+	/**
+	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvider()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference provider;
+
+	/**
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrganization()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference organization;
+
+	/**
+	 * The cached value of the '{@link #getInsurer() <em>Insurer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference insurer;
+
+	/**
+	 * The cached value of the '{@link #getFacility() <em>Facility</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFacility()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference facility;
+
+	/**
+	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCoverage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference coverage;
+
+	/**
+	 * The cached value of the '{@link #getBusinessArrangement() <em>Business Arrangement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBusinessArrangement()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String businessArrangement;
+
+	/**
 	 * The cached value of the '{@link #getBenefitCategory() <em>Benefit Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -301,7 +204,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding benefitCategory;
+	protected CodeableConcept benefitCategory;
 
 	/**
 	 * The cached value of the '{@link #getBenefitSubCategory() <em>Benefit Sub Category</em>}' containment reference.
@@ -311,7 +214,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding benefitSubCategory;
+	protected CodeableConcept benefitSubCategory;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -349,8 +252,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getRuleset() {
-		return ruleset;
+	public Code getStatus() {
+		return status;
 	}
 
 	/**
@@ -358,11 +261,11 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRuleset(Coding newRuleset, NotificationChain msgs) {
-		Coding oldRuleset = ruleset;
-		ruleset = newRuleset;
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__RULESET, oldRuleset, newRuleset);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -373,18 +276,18 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRuleset(Coding newRuleset) {
-		if (newRuleset != ruleset) {
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (ruleset != null)
-				msgs = ((InternalEObject)ruleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__RULESET, null, msgs);
-			if (newRuleset != null)
-				msgs = ((InternalEObject)newRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__RULESET, null, msgs);
-			msgs = basicSetRuleset(newRuleset, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__RULESET, newRuleset, newRuleset));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -392,351 +295,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getOriginalRuleset() {
-		return originalRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalRuleset(Coding newOriginalRuleset, NotificationChain msgs) {
-		Coding oldOriginalRuleset = originalRuleset;
-		originalRuleset = newOriginalRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET, oldOriginalRuleset, newOriginalRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalRuleset(Coding newOriginalRuleset) {
-		if (newOriginalRuleset != originalRuleset) {
-			NotificationChain msgs = null;
-			if (originalRuleset != null)
-				msgs = ((InternalEObject)originalRuleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET, null, msgs);
-			if (newOriginalRuleset != null)
-				msgs = ((InternalEObject)newOriginalRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET, null, msgs);
-			msgs = basicSetOriginalRuleset(newOriginalRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET, newOriginalRuleset, newOriginalRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getCreated() {
-		return created;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
-		DateTime oldCreated = created;
-		created = newCreated;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__CREATED, oldCreated, newCreated);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreated(DateTime newCreated) {
-		if (newCreated != created) {
-			NotificationChain msgs = null;
-			if (created != null)
-				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__CREATED, null, msgs);
-			if (newCreated != null)
-				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__CREATED, null, msgs);
-			msgs = basicSetCreated(newCreated, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__CREATED, newCreated, newCreated));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getTargetIdentifier() {
-		return targetIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetIdentifier(Identifier newTargetIdentifier, NotificationChain msgs) {
-		Identifier oldTargetIdentifier = targetIdentifier;
-		targetIdentifier = newTargetIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER, oldTargetIdentifier, newTargetIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetIdentifier(Identifier newTargetIdentifier) {
-		if (newTargetIdentifier != targetIdentifier) {
-			NotificationChain msgs = null;
-			if (targetIdentifier != null)
-				msgs = ((InternalEObject)targetIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER, null, msgs);
-			if (newTargetIdentifier != null)
-				msgs = ((InternalEObject)newTargetIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER, null, msgs);
-			msgs = basicSetTargetIdentifier(newTargetIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER, newTargetIdentifier, newTargetIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getTargetReference() {
-		return targetReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetReference(Reference newTargetReference, NotificationChain msgs) {
-		Reference oldTargetReference = targetReference;
-		targetReference = newTargetReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE, oldTargetReference, newTargetReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetReference(Reference newTargetReference) {
-		if (newTargetReference != targetReference) {
-			NotificationChain msgs = null;
-			if (targetReference != null)
-				msgs = ((InternalEObject)targetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE, null, msgs);
-			if (newTargetReference != null)
-				msgs = ((InternalEObject)newTargetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE, null, msgs);
-			msgs = basicSetTargetReference(newTargetReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE, newTargetReference, newTargetReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getProviderIdentifier() {
-		return providerIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
-		Identifier oldProviderIdentifier = providerIdentifier;
-		providerIdentifier = newProviderIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderIdentifier(Identifier newProviderIdentifier) {
-		if (newProviderIdentifier != providerIdentifier) {
-			NotificationChain msgs = null;
-			if (providerIdentifier != null)
-				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER, null, msgs);
-			if (newProviderIdentifier != null)
-				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER, null, msgs);
-			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getProviderReference() {
-		return providerReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
-		Reference oldProviderReference = providerReference;
-		providerReference = newProviderReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderReference(Reference newProviderReference) {
-		if (newProviderReference != providerReference) {
-			NotificationChain msgs = null;
-			if (providerReference != null)
-				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE, null, msgs);
-			if (newProviderReference != null)
-				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE, null, msgs);
-			msgs = basicSetProviderReference(newProviderReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getOrganizationIdentifier() {
-		return organizationIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
-		Identifier oldOrganizationIdentifier = organizationIdentifier;
-		organizationIdentifier = newOrganizationIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
-		if (newOrganizationIdentifier != organizationIdentifier) {
-			NotificationChain msgs = null;
-			if (organizationIdentifier != null)
-				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER, null, msgs);
-			if (newOrganizationIdentifier != null)
-				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER, null, msgs);
-			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrganizationReference() {
-		return organizationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
-		Reference oldOrganizationReference = organizationReference;
-		organizationReference = newOrganizationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationReference(Reference newOrganizationReference) {
-		if (newOrganizationReference != organizationReference) {
-			NotificationChain msgs = null;
-			if (organizationReference != null)
-				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE, null, msgs);
-			if (newOrganizationReference != null)
-				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE, null, msgs);
-			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getPriority() {
+	public CodeableConcept getPriority() {
 		return priority;
 	}
 
@@ -745,8 +304,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(Coding newPriority, NotificationChain msgs) {
-		Coding oldPriority = priority;
+	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
+		CodeableConcept oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PRIORITY, oldPriority, newPriority);
@@ -760,7 +319,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(Coding newPriority) {
+	public void setPriority(CodeableConcept newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -779,8 +338,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getEntererIdentifier() {
-		return entererIdentifier;
+	public Reference getPatient() {
+		return patient;
 	}
 
 	/**
@@ -788,11 +347,11 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEntererIdentifier(Identifier newEntererIdentifier, NotificationChain msgs) {
-		Identifier oldEntererIdentifier = entererIdentifier;
-		entererIdentifier = newEntererIdentifier;
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER, oldEntererIdentifier, newEntererIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT, oldPatient, newPatient);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -803,362 +362,18 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntererIdentifier(Identifier newEntererIdentifier) {
-		if (newEntererIdentifier != entererIdentifier) {
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
 			NotificationChain msgs = null;
-			if (entererIdentifier != null)
-				msgs = ((InternalEObject)entererIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER, null, msgs);
-			if (newEntererIdentifier != null)
-				msgs = ((InternalEObject)newEntererIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER, null, msgs);
-			msgs = basicSetEntererIdentifier(newEntererIdentifier, msgs);
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER, newEntererIdentifier, newEntererIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getEntererReference() {
-		return entererReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEntererReference(Reference newEntererReference, NotificationChain msgs) {
-		Reference oldEntererReference = entererReference;
-		entererReference = newEntererReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE, oldEntererReference, newEntererReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntererReference(Reference newEntererReference) {
-		if (newEntererReference != entererReference) {
-			NotificationChain msgs = null;
-			if (entererReference != null)
-				msgs = ((InternalEObject)entererReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE, null, msgs);
-			if (newEntererReference != null)
-				msgs = ((InternalEObject)newEntererReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE, null, msgs);
-			msgs = basicSetEntererReference(newEntererReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE, newEntererReference, newEntererReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getFacilityIdentifier() {
-		return facilityIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFacilityIdentifier(Identifier newFacilityIdentifier, NotificationChain msgs) {
-		Identifier oldFacilityIdentifier = facilityIdentifier;
-		facilityIdentifier = newFacilityIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER, oldFacilityIdentifier, newFacilityIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFacilityIdentifier(Identifier newFacilityIdentifier) {
-		if (newFacilityIdentifier != facilityIdentifier) {
-			NotificationChain msgs = null;
-			if (facilityIdentifier != null)
-				msgs = ((InternalEObject)facilityIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER, null, msgs);
-			if (newFacilityIdentifier != null)
-				msgs = ((InternalEObject)newFacilityIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER, null, msgs);
-			msgs = basicSetFacilityIdentifier(newFacilityIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER, newFacilityIdentifier, newFacilityIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getFacilityReference() {
-		return facilityReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFacilityReference(Reference newFacilityReference, NotificationChain msgs) {
-		Reference oldFacilityReference = facilityReference;
-		facilityReference = newFacilityReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE, oldFacilityReference, newFacilityReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFacilityReference(Reference newFacilityReference) {
-		if (newFacilityReference != facilityReference) {
-			NotificationChain msgs = null;
-			if (facilityReference != null)
-				msgs = ((InternalEObject)facilityReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE, null, msgs);
-			if (newFacilityReference != null)
-				msgs = ((InternalEObject)newFacilityReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE, null, msgs);
-			msgs = basicSetFacilityReference(newFacilityReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE, newFacilityReference, newFacilityReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getPatientIdentifier() {
-		return patientIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatientIdentifier(Identifier newPatientIdentifier, NotificationChain msgs) {
-		Identifier oldPatientIdentifier = patientIdentifier;
-		patientIdentifier = newPatientIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER, oldPatientIdentifier, newPatientIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatientIdentifier(Identifier newPatientIdentifier) {
-		if (newPatientIdentifier != patientIdentifier) {
-			NotificationChain msgs = null;
-			if (patientIdentifier != null)
-				msgs = ((InternalEObject)patientIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER, null, msgs);
-			if (newPatientIdentifier != null)
-				msgs = ((InternalEObject)newPatientIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER, null, msgs);
-			msgs = basicSetPatientIdentifier(newPatientIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER, newPatientIdentifier, newPatientIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getPatientReference() {
-		return patientReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatientReference(Reference newPatientReference, NotificationChain msgs) {
-		Reference oldPatientReference = patientReference;
-		patientReference = newPatientReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE, oldPatientReference, newPatientReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatientReference(Reference newPatientReference) {
-		if (newPatientReference != patientReference) {
-			NotificationChain msgs = null;
-			if (patientReference != null)
-				msgs = ((InternalEObject)patientReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE, null, msgs);
-			if (newPatientReference != null)
-				msgs = ((InternalEObject)newPatientReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE, null, msgs);
-			msgs = basicSetPatientReference(newPatientReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE, newPatientReference, newPatientReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getCoverageIdentifier() {
-		return coverageIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCoverageIdentifier(Identifier newCoverageIdentifier, NotificationChain msgs) {
-		Identifier oldCoverageIdentifier = coverageIdentifier;
-		coverageIdentifier = newCoverageIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER, oldCoverageIdentifier, newCoverageIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCoverageIdentifier(Identifier newCoverageIdentifier) {
-		if (newCoverageIdentifier != coverageIdentifier) {
-			NotificationChain msgs = null;
-			if (coverageIdentifier != null)
-				msgs = ((InternalEObject)coverageIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER, null, msgs);
-			if (newCoverageIdentifier != null)
-				msgs = ((InternalEObject)newCoverageIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER, null, msgs);
-			msgs = basicSetCoverageIdentifier(newCoverageIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER, newCoverageIdentifier, newCoverageIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getCoverageReference() {
-		return coverageReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCoverageReference(Reference newCoverageReference, NotificationChain msgs) {
-		Reference oldCoverageReference = coverageReference;
-		coverageReference = newCoverageReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE, oldCoverageReference, newCoverageReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCoverageReference(Reference newCoverageReference) {
-		if (newCoverageReference != coverageReference) {
-			NotificationChain msgs = null;
-			if (coverageReference != null)
-				msgs = ((InternalEObject)coverageReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE, null, msgs);
-			if (newCoverageReference != null)
-				msgs = ((InternalEObject)newCoverageReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE, null, msgs);
-			msgs = basicSetCoverageReference(newCoverageReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE, newCoverageReference, newCoverageReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getBusinessArrangement() {
-		return businessArrangement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBusinessArrangement(org.hl7.fhir.String newBusinessArrangement, NotificationChain msgs) {
-		org.hl7.fhir.String oldBusinessArrangement = businessArrangement;
-		businessArrangement = newBusinessArrangement;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, oldBusinessArrangement, newBusinessArrangement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBusinessArrangement(org.hl7.fhir.String newBusinessArrangement) {
-		if (newBusinessArrangement != businessArrangement) {
-			NotificationChain msgs = null;
-			if (businessArrangement != null)
-				msgs = ((InternalEObject)businessArrangement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, null, msgs);
-			if (newBusinessArrangement != null)
-				msgs = ((InternalEObject)newBusinessArrangement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, null, msgs);
-			msgs = basicSetBusinessArrangement(newBusinessArrangement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, newBusinessArrangement, newBusinessArrangement));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PATIENT, newPatient, newPatient));
 	}
 
 	/**
@@ -1252,7 +467,351 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getBenefitCategory() {
+	public DateTime getCreated() {
+		return created;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
+		DateTime oldCreated = created;
+		created = newCreated;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__CREATED, oldCreated, newCreated);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCreated(DateTime newCreated) {
+		if (newCreated != created) {
+			NotificationChain msgs = null;
+			if (created != null)
+				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__CREATED, null, msgs);
+			if (newCreated != null)
+				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__CREATED, null, msgs);
+			msgs = basicSetCreated(newCreated, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__CREATED, newCreated, newCreated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getEnterer() {
+		return enterer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEnterer(Reference newEnterer, NotificationChain msgs) {
+		Reference oldEnterer = enterer;
+		enterer = newEnterer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER, oldEnterer, newEnterer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnterer(Reference newEnterer) {
+		if (newEnterer != enterer) {
+			NotificationChain msgs = null;
+			if (enterer != null)
+				msgs = ((InternalEObject)enterer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER, null, msgs);
+			if (newEnterer != null)
+				msgs = ((InternalEObject)newEnterer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ENTERER, null, msgs);
+			msgs = basicSetEnterer(newEnterer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ENTERER, newEnterer, newEnterer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getProvider() {
+		return provider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProvider(Reference newProvider, NotificationChain msgs) {
+		Reference oldProvider = provider;
+		provider = newProvider;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER, oldProvider, newProvider);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProvider(Reference newProvider) {
+		if (newProvider != provider) {
+			NotificationChain msgs = null;
+			if (provider != null)
+				msgs = ((InternalEObject)provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER, null, msgs);
+			if (newProvider != null)
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__PROVIDER, null, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__PROVIDER, newProvider, newProvider));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getOrganization() {
+		return organization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
+		Reference oldOrganization = organization;
+		organization = newOrganization;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION, oldOrganization, newOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrganization(Reference newOrganization) {
+		if (newOrganization != organization) {
+			NotificationChain msgs = null;
+			if (organization != null)
+				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION, null, msgs);
+			msgs = basicSetOrganization(newOrganization, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION, newOrganization, newOrganization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getInsurer() {
+		return insurer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInsurer(Reference newInsurer, NotificationChain msgs) {
+		Reference oldInsurer = insurer;
+		insurer = newInsurer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__INSURER, oldInsurer, newInsurer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInsurer(Reference newInsurer) {
+		if (newInsurer != insurer) {
+			NotificationChain msgs = null;
+			if (insurer != null)
+				msgs = ((InternalEObject)insurer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__INSURER, null, msgs);
+			if (newInsurer != null)
+				msgs = ((InternalEObject)newInsurer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__INSURER, null, msgs);
+			msgs = basicSetInsurer(newInsurer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__INSURER, newInsurer, newInsurer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getFacility() {
+		return facility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFacility(Reference newFacility, NotificationChain msgs) {
+		Reference oldFacility = facility;
+		facility = newFacility;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY, oldFacility, newFacility);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFacility(Reference newFacility) {
+		if (newFacility != facility) {
+			NotificationChain msgs = null;
+			if (facility != null)
+				msgs = ((InternalEObject)facility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY, null, msgs);
+			if (newFacility != null)
+				msgs = ((InternalEObject)newFacility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__FACILITY, null, msgs);
+			msgs = basicSetFacility(newFacility, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__FACILITY, newFacility, newFacility));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getCoverage() {
+		return coverage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCoverage(Reference newCoverage, NotificationChain msgs) {
+		Reference oldCoverage = coverage;
+		coverage = newCoverage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE, oldCoverage, newCoverage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCoverage(Reference newCoverage) {
+		if (newCoverage != coverage) {
+			NotificationChain msgs = null;
+			if (coverage != null)
+				msgs = ((InternalEObject)coverage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE, null, msgs);
+			if (newCoverage != null)
+				msgs = ((InternalEObject)newCoverage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__COVERAGE, null, msgs);
+			msgs = basicSetCoverage(newCoverage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__COVERAGE, newCoverage, newCoverage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getBusinessArrangement() {
+		return businessArrangement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBusinessArrangement(org.hl7.fhir.String newBusinessArrangement, NotificationChain msgs) {
+		org.hl7.fhir.String oldBusinessArrangement = businessArrangement;
+		businessArrangement = newBusinessArrangement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, oldBusinessArrangement, newBusinessArrangement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBusinessArrangement(org.hl7.fhir.String newBusinessArrangement) {
+		if (newBusinessArrangement != businessArrangement) {
+			NotificationChain msgs = null;
+			if (businessArrangement != null)
+				msgs = ((InternalEObject)businessArrangement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, null, msgs);
+			if (newBusinessArrangement != null)
+				msgs = ((InternalEObject)newBusinessArrangement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, null, msgs);
+			msgs = basicSetBusinessArrangement(newBusinessArrangement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT, newBusinessArrangement, newBusinessArrangement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getBenefitCategory() {
 		return benefitCategory;
 	}
 
@@ -1261,8 +820,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitCategory(Coding newBenefitCategory, NotificationChain msgs) {
-		Coding oldBenefitCategory = benefitCategory;
+	public NotificationChain basicSetBenefitCategory(CodeableConcept newBenefitCategory, NotificationChain msgs) {
+		CodeableConcept oldBenefitCategory = benefitCategory;
 		benefitCategory = newBenefitCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY, oldBenefitCategory, newBenefitCategory);
@@ -1276,7 +835,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitCategory(Coding newBenefitCategory) {
+	public void setBenefitCategory(CodeableConcept newBenefitCategory) {
 		if (newBenefitCategory != benefitCategory) {
 			NotificationChain msgs = null;
 			if (benefitCategory != null)
@@ -1295,7 +854,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getBenefitSubCategory() {
+	public CodeableConcept getBenefitSubCategory() {
 		return benefitSubCategory;
 	}
 
@@ -1304,8 +863,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitSubCategory(Coding newBenefitSubCategory, NotificationChain msgs) {
-		Coding oldBenefitSubCategory = benefitSubCategory;
+	public NotificationChain basicSetBenefitSubCategory(CodeableConcept newBenefitSubCategory, NotificationChain msgs) {
+		CodeableConcept oldBenefitSubCategory = benefitSubCategory;
 		benefitSubCategory = newBenefitSubCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY, oldBenefitSubCategory, newBenefitSubCategory);
@@ -1319,7 +878,7 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitSubCategory(Coding newBenefitSubCategory) {
+	public void setBenefitSubCategory(CodeableConcept newBenefitSubCategory) {
 		if (newBenefitSubCategory != benefitSubCategory) {
 			NotificationChain msgs = null;
 			if (benefitSubCategory != null)
@@ -1343,48 +902,32 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__RULESET:
-				return basicSetRuleset(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET:
-				return basicSetOriginalRuleset(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
-				return basicSetCreated(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER:
-				return basicSetTargetIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE:
-				return basicSetTargetReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER:
-				return basicSetProviderIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE:
-				return basicSetProviderReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER:
-				return basicSetOrganizationIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE:
-				return basicSetOrganizationReference(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__PRIORITY:
 				return basicSetPriority(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER:
-				return basicSetEntererIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE:
-				return basicSetEntererReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER:
-				return basicSetFacilityIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE:
-				return basicSetFacilityReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER:
-				return basicSetPatientIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE:
-				return basicSetPatientReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER:
-				return basicSetCoverageIdentifier(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE:
-				return basicSetCoverageReference(null, msgs);
-			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
-				return basicSetBusinessArrangement(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT:
+				return basicSetPatient(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_DATE:
 				return basicSetServicedDate(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_PERIOD:
 				return basicSetServicedPeriod(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
+				return basicSetCreated(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER:
+				return basicSetEnterer(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER:
+				return basicSetProvider(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__INSURER:
+				return basicSetInsurer(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY:
+				return basicSetFacility(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE:
+				return basicSetCoverage(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
+				return basicSetBusinessArrangement(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY:
 				return basicSetBenefitCategory(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
@@ -1403,48 +946,32 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__RULESET:
-				return getRuleset();
-			case FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET:
-				return getOriginalRuleset();
-			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
-				return getCreated();
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER:
-				return getTargetIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE:
-				return getTargetReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER:
-				return getProviderIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE:
-				return getProviderReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER:
-				return getOrganizationIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE:
-				return getOrganizationReference();
+			case FhirPackage.ELIGIBILITY_REQUEST__STATUS:
+				return getStatus();
 			case FhirPackage.ELIGIBILITY_REQUEST__PRIORITY:
 				return getPriority();
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER:
-				return getEntererIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE:
-				return getEntererReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER:
-				return getFacilityIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE:
-				return getFacilityReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER:
-				return getPatientIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE:
-				return getPatientReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER:
-				return getCoverageIdentifier();
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE:
-				return getCoverageReference();
-			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
-				return getBusinessArrangement();
+			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT:
+				return getPatient();
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_DATE:
 				return getServicedDate();
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_PERIOD:
 				return getServicedPeriod();
+			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
+				return getCreated();
+			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER:
+				return getEnterer();
+			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER:
+				return getProvider();
+			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION:
+				return getOrganization();
+			case FhirPackage.ELIGIBILITY_REQUEST__INSURER:
+				return getInsurer();
+			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY:
+				return getFacility();
+			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE:
+				return getCoverage();
+			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
+				return getBusinessArrangement();
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY:
 				return getBenefitCategory();
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
@@ -1466,62 +993,14 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__RULESET:
-				setRuleset((Coding)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
-				setCreated((DateTime)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE:
-				setTargetReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE:
-				setProviderReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)newValue);
+			case FhirPackage.ELIGIBILITY_REQUEST__STATUS:
+				setStatus((Code)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__PRIORITY:
-				setPriority((Coding)newValue);
+				setPriority((CodeableConcept)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER:
-				setEntererIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE:
-				setEntererReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER:
-				setFacilityIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE:
-				setFacilityReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER:
-				setPatientIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE:
-				setPatientReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER:
-				setCoverageIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE:
-				setCoverageReference((Reference)newValue);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
-				setBusinessArrangement((org.hl7.fhir.String)newValue);
+			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT:
+				setPatient((Reference)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_DATE:
 				setServicedDate((Date)newValue);
@@ -1529,11 +1008,35 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_PERIOD:
 				setServicedPeriod((Period)newValue);
 				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
+				setCreated((DateTime)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER:
+				setEnterer((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER:
+				setProvider((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION:
+				setOrganization((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__INSURER:
+				setInsurer((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY:
+				setFacility((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE:
+				setCoverage((Reference)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
+				setBusinessArrangement((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY:
-				setBenefitCategory((Coding)newValue);
+				setBenefitCategory((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
-				setBenefitSubCategory((Coding)newValue);
+				setBenefitSubCategory((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1550,62 +1053,14 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 			case FhirPackage.ELIGIBILITY_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__RULESET:
-				setRuleset((Coding)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
-				setCreated((DateTime)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE:
-				setTargetReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE:
-				setProviderReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)null);
+			case FhirPackage.ELIGIBILITY_REQUEST__STATUS:
+				setStatus((Code)null);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__PRIORITY:
-				setPriority((Coding)null);
+				setPriority((CodeableConcept)null);
 				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER:
-				setEntererIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE:
-				setEntererReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER:
-				setFacilityIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE:
-				setFacilityReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER:
-				setPatientIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE:
-				setPatientReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER:
-				setCoverageIdentifier((Identifier)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE:
-				setCoverageReference((Reference)null);
-				return;
-			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
-				setBusinessArrangement((org.hl7.fhir.String)null);
+			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT:
+				setPatient((Reference)null);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_DATE:
 				setServicedDate((Date)null);
@@ -1613,11 +1068,35 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_PERIOD:
 				setServicedPeriod((Period)null);
 				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
+				setCreated((DateTime)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER:
+				setEnterer((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER:
+				setProvider((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION:
+				setOrganization((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__INSURER:
+				setInsurer((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY:
+				setFacility((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE:
+				setCoverage((Reference)null);
+				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
+				setBusinessArrangement((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY:
-				setBenefitCategory((Coding)null);
+				setBenefitCategory((CodeableConcept)null);
 				return;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
-				setBenefitSubCategory((Coding)null);
+				setBenefitSubCategory((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1633,48 +1112,32 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.ELIGIBILITY_REQUEST__RULESET:
-				return ruleset != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORIGINAL_RULESET:
-				return originalRuleset != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
-				return created != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_IDENTIFIER:
-				return targetIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__TARGET_REFERENCE:
-				return targetReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_IDENTIFIER:
-				return providerIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER_REFERENCE:
-				return providerReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_IDENTIFIER:
-				return organizationIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION_REFERENCE:
-				return organizationReference != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__STATUS:
+				return status != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__PRIORITY:
 				return priority != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_IDENTIFIER:
-				return entererIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER_REFERENCE:
-				return entererReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_IDENTIFIER:
-				return facilityIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY_REFERENCE:
-				return facilityReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_IDENTIFIER:
-				return patientIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT_REFERENCE:
-				return patientReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_IDENTIFIER:
-				return coverageIdentifier != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE_REFERENCE:
-				return coverageReference != null;
-			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
-				return businessArrangement != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__PATIENT:
+				return patient != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_DATE:
 				return servicedDate != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__SERVICED_PERIOD:
 				return servicedPeriod != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__CREATED:
+				return created != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__ENTERER:
+				return enterer != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__PROVIDER:
+				return provider != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__ORGANIZATION:
+				return organization != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__INSURER:
+				return insurer != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__FACILITY:
+				return facility != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__COVERAGE:
+				return coverage != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__BUSINESS_ARRANGEMENT:
+				return businessArrangement != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_CATEGORY:
 				return benefitCategory != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:

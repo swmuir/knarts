@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,7 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureCoding <em>Procedure Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureReference <em>Procedure Reference</em>}</li>
  * </ul>
  *
@@ -90,31 +80,31 @@ public interface ExplanationOfBenefitProcedure extends BackboneElement {
 	void setDate(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Procedure Coding</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Procedure Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Procedure Coding</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Procedure Codeable Concept</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Procedure Coding</em>' containment reference.
-	 * @see #setProcedureCoding(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcedure_ProcedureCoding()
+	 * @return the value of the '<em>Procedure Codeable Concept</em>' containment reference.
+	 * @see #setProcedureCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcedure_ProcedureCodeableConcept()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='procedureCoding' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='procedureCodeableConcept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getProcedureCoding();
+	CodeableConcept getProcedureCodeableConcept();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureCoding <em>Procedure Coding</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Procedure Coding</em>' containment reference.
-	 * @see #getProcedureCoding()
+	 * @param value the new value of the '<em>Procedure Codeable Concept</em>' containment reference.
+	 * @see #getProcedureCodeableConcept()
 	 * @generated
 	 */
-	void setProcedureCoding(Coding value);
+	void setProcedureCodeableConcept(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Procedure Reference</b></em>' containment reference.

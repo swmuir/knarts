@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -40,7 +30,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.VisionPrescriptionDispense#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescriptionDispense#getColor <em>Color</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescriptionDispense#getBrand <em>Brand</em>}</li>
- *   <li>{@link org.hl7.fhir.VisionPrescriptionDispense#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.VisionPrescriptionDispense#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense()
@@ -56,13 +46,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * Identifies the type of vision correction product which is required for the patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Product</em>' containment reference.
-	 * @see #setProduct(Coding)
+	 * @see #setProduct(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Product()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='product' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getProduct();
+	CodeableConcept getProduct();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getProduct <em>Product</em>}' containment reference.
@@ -72,7 +62,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getProduct()
 	 * @generated
 	 */
-	void setProduct(Coding value);
+	void setProduct(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Eye</b></em>' containment reference.
@@ -82,13 +72,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * The eye for which the lens applies.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Eye</em>' containment reference.
-	 * @see #setEye(VisionEyes)
+	 * @see #setEye(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Eye()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='eye' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	VisionEyes getEye();
+	CodeableConcept getEye();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getEye <em>Eye</em>}' containment reference.
@@ -98,7 +88,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getEye()
 	 * @generated
 	 */
-	void setEye(VisionEyes value);
+	void setEye(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Sphere</b></em>' containment reference.
@@ -212,13 +202,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * The relative base, or reference lens edge, for the prism.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(VisionBase)
+	 * @see #setBase(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Base()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	VisionBase getBase();
+	CodeableConcept getBase();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getBase <em>Base</em>}' containment reference.
@@ -228,7 +218,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getBase()
 	 * @generated
 	 */
-	void setBase(VisionBase value);
+	void setBase(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Add</b></em>' containment reference.
@@ -342,13 +332,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * The recommended maximum wear period for the lens.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration</em>' containment reference.
-	 * @see #setDuration(SimpleQuantity)
+	 * @see #setDuration(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Duration()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='duration' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getDuration();
+	Quantity getDuration();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getDuration <em>Duration</em>}' containment reference.
@@ -358,7 +348,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getDuration()
 	 * @generated
 	 */
-	void setDuration(SimpleQuantity value);
+	void setDuration(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' containment reference.
@@ -413,29 +403,29 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	void setBrand(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Notes</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Notes for special requirements such as coatings and lens materials.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Notes</em>' containment reference.
-	 * @see #setNotes(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Notes()
+	 * @return the value of the '<em>Note</em>' containment reference.
+	 * @see #setNote(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notes' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNotes();
+	org.hl7.fhir.String getNote();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getNotes <em>Notes</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getNote <em>Note</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Notes</em>' containment reference.
-	 * @see #getNotes()
+	 * @param value the new value of the '<em>Note</em>' containment reference.
+	 * @see #getNote()
 	 * @generated
 	 */
-	void setNotes(org.hl7.fhir.String value);
+	void setNote(org.hl7.fhir.String value);
 
 } // VisionPrescriptionDispense

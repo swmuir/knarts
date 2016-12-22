@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -38,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getRequestHeader <em>Request Header</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptOperation#getRequestId <em>Request Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getResponseId <em>Response Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getSourceId <em>Source Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getTargetId <em>Target Id</em>}</li>
@@ -80,7 +71,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
+	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
 	 * @see #setResource(Code)
@@ -324,6 +315,32 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @generated
 	 */
 	EList<TestScriptRequestHeader> getRequestHeader();
+
+	/**
+	 * Returns the value of the '<em><b>Request Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The fixture id (maybe new) to map to the request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request Id</em>' containment reference.
+	 * @see #setRequestId(Id)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_RequestId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Id getRequestId();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getRequestId <em>Request Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Id</em>' containment reference.
+	 * @see #getRequestId()
+	 * @generated
+	 */
+	void setRequestId(Id value);
 
 	/**
 	 * Returns the value of the '<em><b>Response Id</b></em>' containment reference.

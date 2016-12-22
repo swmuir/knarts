@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -98,13 +88,13 @@ public interface MedicationContent extends BackboneElement {
 	 * The amount of the product that is in the package.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(SimpleQuantity)
+	 * @see #setAmount(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationContent_Amount()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getAmount();
+	Quantity getAmount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationContent#getAmount <em>Amount</em>}' containment reference.
@@ -114,6 +104,6 @@ public interface MedicationContent extends BackboneElement {
 	 * @see #getAmount()
 	 * @generated
 	 */
-	void setAmount(SimpleQuantity value);
+	void setAmount(Quantity value);
 
 } // MedicationContent

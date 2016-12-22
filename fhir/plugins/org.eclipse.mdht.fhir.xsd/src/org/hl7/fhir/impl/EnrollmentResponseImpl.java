@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,13 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EnrollmentResponse;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,11 +34,10 @@ import org.hl7.fhir.RemittanceOutcome;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
@@ -69,6 +58,16 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected Code status;
+
+	/**
 	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +85,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * @generated
 	 * @ordered
 	 */
-	protected RemittanceOutcome outcome;
+	protected CodeableConcept outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -97,26 +96,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String disposition;
-
-	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding ruleset;
-
-	/**
-	 * The cached value of the '{@link #getOriginalRuleset() <em>Original Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding originalRuleset;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -194,6 +173,49 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Code getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getRequest() {
 		return request;
 	}
@@ -237,7 +259,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RemittanceOutcome getOutcome() {
+	public CodeableConcept getOutcome() {
 		return outcome;
 	}
 
@@ -246,8 +268,8 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
-		RemittanceOutcome oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
+		CodeableConcept oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -261,7 +283,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(RemittanceOutcome newOutcome) {
+	public void setOutcome(CodeableConcept newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -316,92 +338,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION, newDisposition, newDisposition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getRuleset() {
-		return ruleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleset(Coding newRuleset, NotificationChain msgs) {
-		Coding oldRuleset = ruleset;
-		ruleset = newRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__RULESET, oldRuleset, newRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRuleset(Coding newRuleset) {
-		if (newRuleset != ruleset) {
-			NotificationChain msgs = null;
-			if (ruleset != null)
-				msgs = ((InternalEObject)ruleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__RULESET, null, msgs);
-			if (newRuleset != null)
-				msgs = ((InternalEObject)newRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__RULESET, null, msgs);
-			msgs = basicSetRuleset(newRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__RULESET, newRuleset, newRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getOriginalRuleset() {
-		return originalRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalRuleset(Coding newOriginalRuleset, NotificationChain msgs) {
-		Coding oldOriginalRuleset = originalRuleset;
-		originalRuleset = newOriginalRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET, oldOriginalRuleset, newOriginalRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalRuleset(Coding newOriginalRuleset) {
-		if (newOriginalRuleset != originalRuleset) {
-			NotificationChain msgs = null;
-			if (originalRuleset != null)
-				msgs = ((InternalEObject)originalRuleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET, null, msgs);
-			if (newOriginalRuleset != null)
-				msgs = ((InternalEObject)newOriginalRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET, null, msgs);
-			msgs = basicSetOriginalRuleset(newOriginalRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET, newOriginalRuleset, newOriginalRuleset));
 	}
 
 	/**
@@ -586,16 +522,14 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 		switch (featureID) {
 			case FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENROLLMENT_RESPONSE__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST:
 				return basicSetRequest(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				return basicSetDisposition(null, msgs);
-			case FhirPackage.ENROLLMENT_RESPONSE__RULESET:
-				return basicSetRuleset(null, msgs);
-			case FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET:
-				return basicSetOriginalRuleset(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__CREATED:
 				return basicSetCreated(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__ORGANIZATION:
@@ -618,16 +552,14 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 		switch (featureID) {
 			case FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.ENROLLMENT_RESPONSE__STATUS:
+				return getStatus();
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST:
 				return getRequest();
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
 				return getOutcome();
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				return getDisposition();
-			case FhirPackage.ENROLLMENT_RESPONSE__RULESET:
-				return getRuleset();
-			case FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET:
-				return getOriginalRuleset();
 			case FhirPackage.ENROLLMENT_RESPONSE__CREATED:
 				return getCreated();
 			case FhirPackage.ENROLLMENT_RESPONSE__ORGANIZATION:
@@ -653,20 +585,17 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.ENROLLMENT_RESPONSE__STATUS:
+				setStatus((Code)newValue);
+				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST:
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
-				setOutcome((RemittanceOutcome)newValue);
+				setOutcome((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__RULESET:
-				setRuleset((Coding)newValue);
-				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
@@ -695,20 +624,17 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 			case FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.ENROLLMENT_RESPONSE__STATUS:
+				setStatus((Code)null);
+				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST:
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
-				setOutcome((RemittanceOutcome)null);
+				setOutcome((CodeableConcept)null);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__RULESET:
-				setRuleset((Coding)null);
-				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)null);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__CREATED:
 				setCreated((DateTime)null);
@@ -736,16 +662,14 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 		switch (featureID) {
 			case FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.ENROLLMENT_RESPONSE__STATUS:
+				return status != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST:
 				return request != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
 				return outcome != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				return disposition != null;
-			case FhirPackage.ENROLLMENT_RESPONSE__RULESET:
-				return ruleset != null;
-			case FhirPackage.ENROLLMENT_RESPONSE__ORIGINAL_RULESET:
-				return originalRuleset != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__CREATED:
 				return created != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__ORGANIZATION:

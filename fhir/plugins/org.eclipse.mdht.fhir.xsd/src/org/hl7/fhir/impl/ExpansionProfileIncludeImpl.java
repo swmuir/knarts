@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -24,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.ExpansionProfileCodeSystem1;
+import org.hl7.fhir.ExpansionProfileDesignation1;
 import org.hl7.fhir.ExpansionProfileInclude;
 import org.hl7.fhir.FhirPackage;
 
@@ -36,21 +26,21 @@ import org.hl7.fhir.FhirPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ExpansionProfileIncludeImpl#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileIncludeImpl#getDesignation <em>Designation</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements ExpansionProfileInclude {
 	/**
-	 * The cached value of the '{@link #getCodeSystem() <em>Code System</em>}' containment reference list.
+	 * The cached value of the '{@link #getDesignation() <em>Designation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeSystem()
+	 * @see #getDesignation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExpansionProfileCodeSystem1> codeSystem;
+	protected EList<ExpansionProfileDesignation1> designation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,11 +66,11 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExpansionProfileCodeSystem1> getCodeSystem() {
-		if (codeSystem == null) {
-			codeSystem = new EObjectContainmentEList<ExpansionProfileCodeSystem1>(ExpansionProfileCodeSystem1.class, this, FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM);
+	public EList<ExpansionProfileDesignation1> getDesignation() {
+		if (designation == null) {
+			designation = new EObjectContainmentEList<ExpansionProfileDesignation1>(ExpansionProfileDesignation1.class, this, FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION);
 		}
-		return codeSystem;
+		return designation;
 	}
 
 	/**
@@ -91,8 +81,8 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM:
-				return ((InternalEList<?>)getCodeSystem()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION:
+				return ((InternalEList<?>)getDesignation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -105,8 +95,8 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM:
-				return getCodeSystem();
+			case FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION:
+				return getDesignation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,9 +110,9 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM:
-				getCodeSystem().clear();
-				getCodeSystem().addAll((Collection<? extends ExpansionProfileCodeSystem1>)newValue);
+			case FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION:
+				getDesignation().clear();
+				getDesignation().addAll((Collection<? extends ExpansionProfileDesignation1>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,8 +126,8 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM:
-				getCodeSystem().clear();
+			case FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION:
+				getDesignation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -151,8 +141,8 @@ public class ExpansionProfileIncludeImpl extends BackboneElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE__CODE_SYSTEM:
-				return codeSystem != null && !codeSystem.isEmpty();
+			case FhirPackage.EXPANSION_PROFILE_INCLUDE__DESIGNATION:
+				return designation != null && !designation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

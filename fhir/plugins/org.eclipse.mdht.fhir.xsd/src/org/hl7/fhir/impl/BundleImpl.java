@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -32,6 +22,7 @@ import org.hl7.fhir.BundleEntry;
 import org.hl7.fhir.BundleLink;
 import org.hl7.fhir.BundleType;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.UnsignedInt;
 
@@ -44,6 +35,7 @@ import org.hl7.fhir.UnsignedInt;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BundleImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getLink <em>Link</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getEntry <em>Entry</em>}</li>
@@ -62,6 +54,16 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * @ordered
 	 */
 	protected BundleType type;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getTotal() <em>Total</em>}' containment reference.
@@ -163,6 +165,49 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BUNDLE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BUNDLE__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BUNDLE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BUNDLE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BUNDLE__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -285,6 +330,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 		switch (featureID) {
 			case FhirPackage.BUNDLE__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.BUNDLE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.BUNDLE__TOTAL:
 				return basicSetTotal(null, msgs);
 			case FhirPackage.BUNDLE__LINK:
@@ -307,6 +354,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 		switch (featureID) {
 			case FhirPackage.BUNDLE__TYPE:
 				return getType();
+			case FhirPackage.BUNDLE__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.BUNDLE__TOTAL:
 				return getTotal();
 			case FhirPackage.BUNDLE__LINK:
@@ -330,6 +379,9 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 		switch (featureID) {
 			case FhirPackage.BUNDLE__TYPE:
 				setType((BundleType)newValue);
+				return;
+			case FhirPackage.BUNDLE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.BUNDLE__TOTAL:
 				setTotal((UnsignedInt)newValue);
@@ -360,6 +412,9 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 			case FhirPackage.BUNDLE__TYPE:
 				setType((BundleType)null);
 				return;
+			case FhirPackage.BUNDLE__IDENTIFIER:
+				setIdentifier((Identifier)null);
+				return;
 			case FhirPackage.BUNDLE__TOTAL:
 				setTotal((UnsignedInt)null);
 				return;
@@ -386,6 +441,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 		switch (featureID) {
 			case FhirPackage.BUNDLE__TYPE:
 				return type != null;
+			case FhirPackage.BUNDLE__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.BUNDLE__TOTAL:
 				return total != null;
 			case FhirPackage.BUNDLE__LINK:

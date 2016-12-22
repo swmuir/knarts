@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -31,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Location#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.Location#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getMode <em>Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getType <em>Type</em>}</li>
@@ -40,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Location#getPosition <em>Position</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.Location#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getLocation()
@@ -114,6 +106,22 @@ public interface Location extends DomainResource {
 	 * @generated
 	 */
 	void setName(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Alias</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of alternate names that the location is known as, or was known as in the past.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Alias</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLocation_Alias()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='alias' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<org.hl7.fhir.String> getAlias();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
@@ -338,5 +346,21 @@ public interface Location extends DomainResource {
 	 * @generated
 	 */
 	void setPartOf(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technical endpoints providing access to services operated for the location.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLocation_Endpoint()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getEndpoint();
 
 } // Location

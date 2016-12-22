@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -44,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Patient#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getAnimal <em>Animal</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getCommunication <em>Communication</em>}</li>
- *   <li>{@link org.hl7.fhir.Patient#getCareProvider <em>Care Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.Patient#getGeneralPractitioner <em>General Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getLink <em>Link</em>}</li>
  * </ul>
@@ -405,20 +395,20 @@ public interface Patient extends DomainResource {
 	EList<PatientCommunication> getCommunication();
 
 	/**
-	 * Returns the value of the '<em><b>Care Provider</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>General Practitioner</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Patient's nominated care provider.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Care Provider</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPatient_CareProvider()
+	 * @return the value of the '<em>General Practitioner</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPatient_GeneralPractitioner()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='careProvider' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='generalPractitioner' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getCareProvider();
+	EList<Reference> getGeneralPractitioner();
 
 	/**
 	 * Returns the value of the '<em><b>Managing Organization</b></em>' containment reference.

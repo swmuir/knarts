@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -30,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SpecimenTreatment#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenTreatment#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenTreatment#getAdditive <em>Additive</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenTreatment#getTimeDateTime <em>Time Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenTreatment#getTimePeriod <em>Time Period</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSpecimenTreatment()
@@ -104,5 +96,59 @@ public interface SpecimenTreatment extends BackboneElement {
 	 * @generated
 	 */
 	EList<Reference> getAdditive();
+
+	/**
+	 * Returns the value of the '<em><b>Time Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time Date Time</em>' containment reference.
+	 * @see #setTimeDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenTreatment_TimeDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timeDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getTimeDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenTreatment#getTimeDateTime <em>Time Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time Date Time</em>' containment reference.
+	 * @see #getTimeDateTime()
+	 * @generated
+	 */
+	void setTimeDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Time Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time Period</em>' containment reference.
+	 * @see #setTimePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenTreatment_TimePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getTimePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenTreatment#getTimePeriod <em>Time Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time Period</em>' containment reference.
+	 * @see #getTimePeriod()
+	 * @generated
+	 */
+	void setTimePeriod(Period value);
 
 } // SpecimenTreatment

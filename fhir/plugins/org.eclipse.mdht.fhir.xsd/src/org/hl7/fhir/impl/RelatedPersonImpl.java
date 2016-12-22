@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -49,6 +39,7 @@ import org.hl7.fhir.RelatedPerson;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getName <em>Name</em>}</li>
@@ -74,6 +65,16 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
+
+	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,14 +95,14 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	protected CodeableConcept relationship;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected HumanName name;
+	protected EList<HumanName> name;
 
 	/**
 	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
@@ -199,6 +200,49 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__ACTIVE, oldActive, newActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
+			NotificationChain msgs = null;
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__ACTIVE, newActive, newActive));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getPatient() {
 		return patient;
 	}
@@ -285,42 +329,11 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HumanName getName() {
+	public EList<HumanName> getName() {
+		if (name == null) {
+			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.RELATED_PERSON__NAME);
+		}
 		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetName(HumanName newName, NotificationChain msgs) {
-		HumanName oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__NAME, oldName, newName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(HumanName newName) {
-		if (newName != name) {
-			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__NAME, newName, newName));
 	}
 
 	/**
@@ -498,12 +511,14 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 		switch (featureID) {
 			case FhirPackage.RELATED_PERSON__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.RELATED_PERSON__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
 				return basicSetRelationship(null, msgs);
 			case FhirPackage.RELATED_PERSON__NAME:
-				return basicSetName(null, msgs);
+				return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RELATED_PERSON__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RELATED_PERSON__GENDER:
@@ -530,6 +545,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 		switch (featureID) {
 			case FhirPackage.RELATED_PERSON__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.RELATED_PERSON__ACTIVE:
+				return getActive();
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				return getPatient();
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
@@ -565,6 +582,9 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.RELATED_PERSON__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				setPatient((Reference)newValue);
 				return;
@@ -572,7 +592,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				setRelationship((CodeableConcept)newValue);
 				return;
 			case FhirPackage.RELATED_PERSON__NAME:
-				setName((HumanName)newValue);
+				getName().clear();
+				getName().addAll((Collection<? extends HumanName>)newValue);
 				return;
 			case FhirPackage.RELATED_PERSON__TELECOM:
 				getTelecom().clear();
@@ -610,6 +631,9 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 			case FhirPackage.RELATED_PERSON__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.RELATED_PERSON__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				setPatient((Reference)null);
 				return;
@@ -617,7 +641,7 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				setRelationship((CodeableConcept)null);
 				return;
 			case FhirPackage.RELATED_PERSON__NAME:
-				setName((HumanName)null);
+				getName().clear();
 				return;
 			case FhirPackage.RELATED_PERSON__TELECOM:
 				getTelecom().clear();
@@ -651,12 +675,14 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 		switch (featureID) {
 			case FhirPackage.RELATED_PERSON__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.RELATED_PERSON__ACTIVE:
+				return active != null;
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				return patient != null;
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
 				return relationship != null;
 			case FhirPackage.RELATED_PERSON__NAME:
-				return name != null;
+				return name != null && !name.isEmpty();
 			case FhirPackage.RELATED_PERSON__TELECOM:
 				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.RELATED_PERSON__GENDER:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,11 +19,10 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.EnrollmentResponse#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.EnrollmentResponse#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.EnrollmentResponse#getOriginalRuleset <em>Original Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getRequestProvider <em>Request Provider</em>}</li>
@@ -60,6 +49,32 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status of the resource instance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(Code)
+	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Code getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
@@ -92,16 +107,16 @@ public interface EnrollmentResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Transaction status: error, complete.
+	 * Processing status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(RemittanceOutcome)
+	 * @see #setOutcome(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	RemittanceOutcome getOutcome();
+	CodeableConcept getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -111,7 +126,7 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(RemittanceOutcome value);
+	void setOutcome(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.
@@ -138,58 +153,6 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @generated
 	 */
 	void setDisposition(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ruleset</em>' containment reference.
-	 * @see #setRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_Ruleset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getRuleset();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getRuleset <em>Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ruleset</em>' containment reference.
-	 * @see #getRuleset()
-	 * @generated
-	 */
-	void setRuleset(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Original Ruleset</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The style (standard) and version of the original material which was converted into this resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #setOriginalRuleset(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_OriginalRuleset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='originalRuleset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getOriginalRuleset();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getOriginalRuleset <em>Original Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original Ruleset</em>' containment reference.
-	 * @see #getOriginalRuleset()
-	 * @generated
-	 */
-	void setOriginalRuleset(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.

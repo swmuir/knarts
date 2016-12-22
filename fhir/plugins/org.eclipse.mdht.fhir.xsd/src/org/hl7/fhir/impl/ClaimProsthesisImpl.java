@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ClaimProsthesis;
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 
@@ -69,7 +59,7 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding priorMaterial;
+	protected CodeableConcept priorMaterial;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,7 +171,7 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getPriorMaterial() {
+	public CodeableConcept getPriorMaterial() {
 		return priorMaterial;
 	}
 
@@ -190,8 +180,8 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriorMaterial(Coding newPriorMaterial, NotificationChain msgs) {
-		Coding oldPriorMaterial = priorMaterial;
+	public NotificationChain basicSetPriorMaterial(CodeableConcept newPriorMaterial, NotificationChain msgs) {
+		CodeableConcept oldPriorMaterial = priorMaterial;
 		priorMaterial = newPriorMaterial;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PROSTHESIS__PRIOR_MATERIAL, oldPriorMaterial, newPriorMaterial);
@@ -205,7 +195,7 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriorMaterial(Coding newPriorMaterial) {
+	public void setPriorMaterial(CodeableConcept newPriorMaterial) {
 		if (newPriorMaterial != priorMaterial) {
 			NotificationChain msgs = null;
 			if (priorMaterial != null)
@@ -270,7 +260,7 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 				setPriorDate((Date)newValue);
 				return;
 			case FhirPackage.CLAIM_PROSTHESIS__PRIOR_MATERIAL:
-				setPriorMaterial((Coding)newValue);
+				setPriorMaterial((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,7 +281,7 @@ public class ClaimProsthesisImpl extends BackboneElementImpl implements ClaimPro
 				setPriorDate((Date)null);
 				return;
 			case FhirPackage.CLAIM_PROSTHESIS__PRIOR_MATERIAL:
-				setPriorMaterial((Coding)null);
+				setPriorMaterial((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);

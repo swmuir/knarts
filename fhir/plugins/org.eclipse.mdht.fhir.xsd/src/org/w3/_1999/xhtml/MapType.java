@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -27,7 +17,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.w3._1999.xhtml.MapType#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.w3._1999.xhtml.MapType#getBlock <em>Block</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getP <em>P</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getH1 <em>H1</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getH2 <em>H2</em>}</li>
@@ -43,13 +33,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.MapType#getHr <em>Hr</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getBlockquote <em>Blockquote</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getAddress <em>Address</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getFieldset <em>Fieldset</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getTable <em>Table</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getForm <em>Form</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getNoscript <em>Noscript</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getScript <em>Script</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getArea <em>Area</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getDir <em>Dir</em>}</li>
@@ -57,16 +41,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.MapType#getLang <em>Lang</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getLang1 <em>Lang1</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getName <em>Name</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnclick <em>Onclick</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOndblclick <em>Ondblclick</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnkeydown <em>Onkeydown</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnkeypress <em>Onkeypress</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnkeyup <em>Onkeyup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnmousedown <em>Onmousedown</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnmousemove <em>Onmousemove</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnmouseout <em>Onmouseout</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnmouseover <em>Onmouseover</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.MapType#getOnmouseup <em>Onmouseup</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getStyle <em>Style</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.MapType#getTitle <em>Title</em>}</li>
  * </ul>
@@ -77,21 +51,21 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  */
 public interface MapType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Block</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Block</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' attribute list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Group()
+	 * @return the value of the '<em>Block</em>' attribute list.
+	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Block()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:0'"
+	 *        extendedMetaData="kind='group' name='Block:0'"
 	 * @generated
 	 */
-	FeatureMap getGroup();
+	FeatureMap getBlock();
 
 	/**
 	 * Returns the value of the '<em><b>P</b></em>' containment reference list.
@@ -105,7 +79,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>P</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_P()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='p' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='p' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<PType> getP();
@@ -122,7 +96,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H1</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H1()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h1' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h1' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H1Type> getH1();
@@ -139,7 +113,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H2</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H2()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h2' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h2' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H2Type> getH2();
@@ -156,7 +130,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H3</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H3()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h3' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h3' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H3Type> getH3();
@@ -173,7 +147,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H4</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H4()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h4' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h4' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H4Type> getH4();
@@ -190,7 +164,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H5</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H5()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h5' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h5' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H5Type> getH5();
@@ -207,7 +181,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>H6</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_H6()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='h6' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='h6' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<H6Type> getH6();
@@ -219,13 +193,13 @@ public interface MapType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container      
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Div</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Div()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='div' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='div' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<DivType> getDiv();
@@ -237,13 +211,13 @@ public interface MapType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Unordered list
-	 * 			
+	 *       Unordered list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ul</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Ul()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ul' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='ul' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<UlType> getUl();
@@ -255,13 +229,13 @@ public interface MapType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Ordered (numbered) list
-	 * 			
+	 *       Ordered (numbered) list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ol</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Ol()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ol' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='ol' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<OlType> getOl();
@@ -278,7 +252,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>Dl</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Dl()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='dl' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='dl' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<DlType> getDl();
@@ -290,13 +264,13 @@ public interface MapType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				content is "Inline" excluding "img|object|big|small|sub|sup"
-	 * 			
+	 *       content is "Inline" excluding "img|object|big|small|sub|sup"
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pre</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Pre()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='pre' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='pre' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<PreType> getPre();
@@ -313,7 +287,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>Hr</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Hr()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='hr' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='hr' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<HrType> getHr();
@@ -330,7 +304,7 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>Blockquote</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Blockquote()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='blockquote' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='blockquote' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<BlockquoteType> getBlockquote();
@@ -342,39 +316,16 @@ public interface MapType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				information on author
-	 * 			
+	 *       information on author
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Address()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='address' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='address' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<AddressType> getAddress();
-
-	/**
-	 * Returns the value of the '<em><b>Fieldset</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.FieldsetType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				The fieldset element is used to group form fields.
-	 * 				Only one legend element should occur in the content
-	 * 				and if present should only be preceded by whitespace.
-	 * 
-	 * 				NOTE: this content model is different from the XHTML 1.0 DTD,
-	 * 				closer to the intended content model in HTML4 DTD
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Fieldset</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Fieldset()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='fieldset' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<FieldsetType> getFieldset();
 
 	/**
 	 * Returns the value of the '<em><b>Table</b></em>' containment reference list.
@@ -388,97 +339,10 @@ public interface MapType extends EObject {
 	 * @return the value of the '<em>Table</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Table()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='table' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='table' namespace='##targetNamespace' group='#Block:0'"
 	 * @generated
 	 */
 	EList<TableType> getTable();
-
-	/**
-	 * Returns the value of the '<em><b>Form</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.FormType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Form</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Form</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Form()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<FormType> getForm();
-
-	/**
-	 * Returns the value of the '<em><b>Noscript</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.NoscriptType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				alternate content container for non script-based rendering
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Noscript</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Noscript()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='noscript' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<NoscriptType> getNoscript();
-
-	/**
-	 * Returns the value of the '<em><b>Ins</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.InsType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ins</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ins</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Ins()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ins' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<InsType> getIns();
-
-	/**
-	 * Returns the value of the '<em><b>Del</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.DelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Del</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Del</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Del()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='del' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<DelType> getDel();
-
-	/**
-	 * Returns the value of the '<em><b>Script</b></em>' containment reference list.
-	 * The list contents are of type {@link org.w3._1999.xhtml.ScriptType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				script statements, which may include CDATA sections
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Script</em>' containment reference list.
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Script()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='script' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<ScriptType> getScript();
 
 	/**
 	 * Returns the value of the '<em><b>Area</b></em>' containment reference list.
@@ -716,276 +580,6 @@ public interface MapType extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onclick</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onclick</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onclick</em>' attribute.
-	 * @see #setOnclick(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onclick()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onclick'"
-	 * @generated
-	 */
-	String getOnclick();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnclick <em>Onclick</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onclick</em>' attribute.
-	 * @see #getOnclick()
-	 * @generated
-	 */
-	void setOnclick(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ondblclick</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ondblclick</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ondblclick</em>' attribute.
-	 * @see #setOndblclick(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Ondblclick()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='ondblclick'"
-	 * @generated
-	 */
-	String getOndblclick();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOndblclick <em>Ondblclick</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ondblclick</em>' attribute.
-	 * @see #getOndblclick()
-	 * @generated
-	 */
-	void setOndblclick(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeydown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeydown</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeydown</em>' attribute.
-	 * @see #setOnkeydown(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onkeydown()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeydown'"
-	 * @generated
-	 */
-	String getOnkeydown();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnkeydown <em>Onkeydown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeydown</em>' attribute.
-	 * @see #getOnkeydown()
-	 * @generated
-	 */
-	void setOnkeydown(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeypress</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeypress</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeypress</em>' attribute.
-	 * @see #setOnkeypress(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onkeypress()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeypress'"
-	 * @generated
-	 */
-	String getOnkeypress();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnkeypress <em>Onkeypress</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeypress</em>' attribute.
-	 * @see #getOnkeypress()
-	 * @generated
-	 */
-	void setOnkeypress(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeyup</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeyup</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeyup</em>' attribute.
-	 * @see #setOnkeyup(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onkeyup()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeyup'"
-	 * @generated
-	 */
-	String getOnkeyup();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnkeyup <em>Onkeyup</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeyup</em>' attribute.
-	 * @see #getOnkeyup()
-	 * @generated
-	 */
-	void setOnkeyup(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmousedown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmousedown</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmousedown</em>' attribute.
-	 * @see #setOnmousedown(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onmousedown()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmousedown'"
-	 * @generated
-	 */
-	String getOnmousedown();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnmousedown <em>Onmousedown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmousedown</em>' attribute.
-	 * @see #getOnmousedown()
-	 * @generated
-	 */
-	void setOnmousedown(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmousemove</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmousemove</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmousemove</em>' attribute.
-	 * @see #setOnmousemove(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onmousemove()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmousemove'"
-	 * @generated
-	 */
-	String getOnmousemove();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnmousemove <em>Onmousemove</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmousemove</em>' attribute.
-	 * @see #getOnmousemove()
-	 * @generated
-	 */
-	void setOnmousemove(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseout</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseout</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseout</em>' attribute.
-	 * @see #setOnmouseout(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onmouseout()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseout'"
-	 * @generated
-	 */
-	String getOnmouseout();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnmouseout <em>Onmouseout</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseout</em>' attribute.
-	 * @see #getOnmouseout()
-	 * @generated
-	 */
-	void setOnmouseout(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseover</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseover</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseover</em>' attribute.
-	 * @see #setOnmouseover(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onmouseover()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseover'"
-	 * @generated
-	 */
-	String getOnmouseover();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnmouseover <em>Onmouseover</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseover</em>' attribute.
-	 * @see #getOnmouseover()
-	 * @generated
-	 */
-	void setOnmouseover(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseup</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseup</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseup</em>' attribute.
-	 * @see #setOnmouseup(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getMapType_Onmouseup()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseup'"
-	 * @generated
-	 */
-	String getOnmouseup();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.MapType#getOnmouseup <em>Onmouseup</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseup</em>' attribute.
-	 * @see #getOnmouseup()
-	 * @generated
-	 */
-	void setOnmouseup(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.

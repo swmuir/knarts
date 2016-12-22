@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -32,10 +22,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Organization#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.Organization#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Organization#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.Organization#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getOrganization()
@@ -138,6 +130,22 @@ public interface Organization extends DomainResource {
 	void setName(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Alias</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of alternate names that the organization is known as, or was known as in the past.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Alias</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOrganization_Alias()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='alias' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<org.hl7.fhir.String> getAlias();
+
+	/**
 	 * Returns the value of the '<em><b>Telecom</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ContactPoint}.
 	 * <!-- begin-user-doc -->
@@ -210,5 +218,21 @@ public interface Organization extends DomainResource {
 	 * @generated
 	 */
 	EList<OrganizationContact> getContact();
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technical endpoints providing access to services operated for the organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOrganization_Endpoint()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getEndpoint();
 
 } // Organization

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,9 +18,10 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUnsignedInt <em>Benefit Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitQuantity <em>Benefit Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitString <em>Benefit String</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitMoney <em>Benefit Money</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUsedUnsignedInt <em>Benefit Used Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUsedQuantity <em>Benefit Used Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUsedMoney <em>Benefit Used Money</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial()
@@ -46,13 +37,13 @@ public interface ExplanationOfBenefitFinancial extends BackboneElement {
 	 * Deductable, visits, benefit amount.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getType <em>Type</em>}' containment reference.
@@ -62,7 +53,7 @@ public interface ExplanationOfBenefitFinancial extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Benefit Unsigned Int</b></em>' containment reference.
@@ -92,31 +83,58 @@ public interface ExplanationOfBenefitFinancial extends BackboneElement {
 	void setBenefitUnsignedInt(UnsignedInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Benefit Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Benefit String</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Benefit Quantity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Benefit String</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Benefit Quantity</em>' containment reference.
-	 * @see #setBenefitQuantity(Money)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_BenefitQuantity()
+	 * @return the value of the '<em>Benefit String</em>' containment reference.
+	 * @see #setBenefitString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_BenefitString()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='benefitQuantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='benefitString' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Money getBenefitQuantity();
+	org.hl7.fhir.String getBenefitString();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitQuantity <em>Benefit Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitString <em>Benefit String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Benefit Quantity</em>' containment reference.
-	 * @see #getBenefitQuantity()
+	 * @param value the new value of the '<em>Benefit String</em>' containment reference.
+	 * @see #getBenefitString()
 	 * @generated
 	 */
-	void setBenefitQuantity(Money value);
+	void setBenefitString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Benefit Money</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Benefit Money</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Benefit Money</em>' containment reference.
+	 * @see #setBenefitMoney(Money)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_BenefitMoney()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='benefitMoney' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Money getBenefitMoney();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitMoney <em>Benefit Money</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Benefit Money</em>' containment reference.
+	 * @see #getBenefitMoney()
+	 * @generated
+	 */
+	void setBenefitMoney(Money value);
 
 	/**
 	 * Returns the value of the '<em><b>Benefit Used Unsigned Int</b></em>' containment reference.
@@ -146,30 +164,30 @@ public interface ExplanationOfBenefitFinancial extends BackboneElement {
 	void setBenefitUsedUnsignedInt(UnsignedInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Benefit Used Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Benefit Used Money</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Benefit Used Quantity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Benefit Used Money</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Benefit Used Quantity</em>' containment reference.
-	 * @see #setBenefitUsedQuantity(Money)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_BenefitUsedQuantity()
+	 * @return the value of the '<em>Benefit Used Money</em>' containment reference.
+	 * @see #setBenefitUsedMoney(Money)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitFinancial_BenefitUsedMoney()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='benefitUsedQuantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='benefitUsedMoney' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Money getBenefitUsedQuantity();
+	Money getBenefitUsedMoney();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUsedQuantity <em>Benefit Used Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitFinancial#getBenefitUsedMoney <em>Benefit Used Money</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Benefit Used Quantity</em>' containment reference.
-	 * @see #getBenefitUsedQuantity()
+	 * @param value the new value of the '<em>Benefit Used Money</em>' containment reference.
+	 * @see #getBenefitUsedMoney()
 	 * @generated
 	 */
-	void setBenefitUsedQuantity(Money value);
+	void setBenefitUsedMoney(Money value);
 
 } // ExplanationOfBenefitFinancial

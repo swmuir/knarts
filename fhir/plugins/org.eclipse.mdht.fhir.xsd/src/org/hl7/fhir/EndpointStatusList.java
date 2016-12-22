@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,27 @@ public enum EndpointStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OFF(3, "off", "off");
+	OFF(3, "off", "off"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Test</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TEST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TEST(5, "test", "test");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -127,6 +137,34 @@ public enum EndpointStatusList implements Enumerator {
 	public static final int OFF_VALUE = 3;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
+
+	/**
+	 * The '<em><b>Test</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Test
+	 * <!-- end-model-doc -->
+	 * @see #TEST
+	 * @model name="test"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TEST_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Endpoint Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +176,8 @@ public enum EndpointStatusList implements Enumerator {
 			SUSPENDED,
 			ERROR,
 			OFF,
+			ENTERED_IN_ERROR,
+			TEST,
 		};
 
 	/**
@@ -198,6 +238,8 @@ public enum EndpointStatusList implements Enumerator {
 			case SUSPENDED_VALUE: return SUSPENDED;
 			case ERROR_VALUE: return ERROR;
 			case OFF_VALUE: return OFF;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case TEST_VALUE: return TEST;
 		}
 		return null;
 	}

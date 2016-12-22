@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +19,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitNote#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitNote#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitNote#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitNote#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitNote()
@@ -70,13 +61,13 @@ public interface ExplanationOfBenefitNote extends BackboneElement {
 	 * The note purpose: Print/Display.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitNote_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitNote#getType <em>Type</em>}' containment reference.
@@ -86,7 +77,7 @@ public interface ExplanationOfBenefitNote extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
@@ -113,5 +104,31 @@ public interface ExplanationOfBenefitNote extends BackboneElement {
 	 * @generated
 	 */
 	void setText(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Language</em>' containment reference.
+	 * @see #setLanguage(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitNote_Language()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='language' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getLanguage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitNote#getLanguage <em>Language</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' containment reference.
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(CodeableConcept value);
 
 } // ExplanationOfBenefitNote

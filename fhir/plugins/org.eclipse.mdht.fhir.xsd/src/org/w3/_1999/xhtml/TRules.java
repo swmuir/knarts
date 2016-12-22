@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -25,11 +15,11 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
  * 
- * 				The rules attribute defines which rules to draw between cells:
+ *       The rules attribute defines which rules to draw between cells:
  * 
- * 				If rules is absent then assume:
- * 				"none" if border is absent or border="0" otherwise "all"
- * 			
+ *       If rules is absent then assume:
+ *           "none" if border is absent or border="0" otherwise "all"
+ *       
  * <!-- end-model-doc -->
  * @see org.w3._1999.xhtml.XhtmlPackage#getTRules()
  * @model extendedMetaData="name='TRules'"

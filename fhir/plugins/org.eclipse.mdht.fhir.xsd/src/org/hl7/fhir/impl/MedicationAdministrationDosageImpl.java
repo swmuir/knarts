@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -23,9 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationAdministrationDosage;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Ratio;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +25,7 @@ import org.hl7.fhir.SimpleQuantity;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getSiteCodeableConcept <em>Site Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getSiteReference <em>Site Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationDosageImpl#getDose <em>Dose</em>}</li>
@@ -59,24 +47,14 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	protected org.hl7.fhir.String text;
 
 	/**
-	 * The cached value of the '{@link #getSiteCodeableConcept() <em>Site Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getSite() <em>Site</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSiteCodeableConcept()
+	 * @see #getSite()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept siteCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getSiteReference() <em>Site Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSiteReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference siteReference;
+	protected CodeableConcept site;
 
 	/**
 	 * The cached value of the '{@link #getRoute() <em>Route</em>}' containment reference.
@@ -106,7 +84,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity dose;
+	protected Quantity dose;
 
 	/**
 	 * The cached value of the '{@link #getRateRatio() <em>Rate Ratio</em>}' containment reference.
@@ -126,7 +104,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity rateQuantity;
+	protected Quantity rateQuantity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,8 +173,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getSiteCodeableConcept() {
-		return siteCodeableConcept;
+	public CodeableConcept getSite() {
+		return site;
 	}
 
 	/**
@@ -204,11 +182,11 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSiteCodeableConcept(CodeableConcept newSiteCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldSiteCodeableConcept = siteCodeableConcept;
-		siteCodeableConcept = newSiteCodeableConcept;
+	public NotificationChain basicSetSite(CodeableConcept newSite, NotificationChain msgs) {
+		CodeableConcept oldSite = site;
+		site = newSite;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT, oldSiteCodeableConcept, newSiteCodeableConcept);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE, oldSite, newSite);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -219,61 +197,18 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSiteCodeableConcept(CodeableConcept newSiteCodeableConcept) {
-		if (newSiteCodeableConcept != siteCodeableConcept) {
+	public void setSite(CodeableConcept newSite) {
+		if (newSite != site) {
 			NotificationChain msgs = null;
-			if (siteCodeableConcept != null)
-				msgs = ((InternalEObject)siteCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT, null, msgs);
-			if (newSiteCodeableConcept != null)
-				msgs = ((InternalEObject)newSiteCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetSiteCodeableConcept(newSiteCodeableConcept, msgs);
+			if (site != null)
+				msgs = ((InternalEObject)site).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE, null, msgs);
+			if (newSite != null)
+				msgs = ((InternalEObject)newSite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE, null, msgs);
+			msgs = basicSetSite(newSite, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT, newSiteCodeableConcept, newSiteCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getSiteReference() {
-		return siteReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSiteReference(Reference newSiteReference, NotificationChain msgs) {
-		Reference oldSiteReference = siteReference;
-		siteReference = newSiteReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE, oldSiteReference, newSiteReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSiteReference(Reference newSiteReference) {
-		if (newSiteReference != siteReference) {
-			NotificationChain msgs = null;
-			if (siteReference != null)
-				msgs = ((InternalEObject)siteReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE, null, msgs);
-			if (newSiteReference != null)
-				msgs = ((InternalEObject)newSiteReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE, null, msgs);
-			msgs = basicSetSiteReference(newSiteReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE, newSiteReference, newSiteReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE, newSite, newSite));
 	}
 
 	/**
@@ -367,7 +302,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getDose() {
+	public Quantity getDose() {
 		return dose;
 	}
 
@@ -376,8 +311,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDose(SimpleQuantity newDose, NotificationChain msgs) {
-		SimpleQuantity oldDose = dose;
+	public NotificationChain basicSetDose(Quantity newDose, NotificationChain msgs) {
+		Quantity oldDose = dose;
 		dose = newDose;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__DOSE, oldDose, newDose);
@@ -391,7 +326,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDose(SimpleQuantity newDose) {
+	public void setDose(Quantity newDose) {
 		if (newDose != dose) {
 			NotificationChain msgs = null;
 			if (dose != null)
@@ -453,7 +388,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getRateQuantity() {
+	public Quantity getRateQuantity() {
 		return rateQuantity;
 	}
 
@@ -462,8 +397,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRateQuantity(SimpleQuantity newRateQuantity, NotificationChain msgs) {
-		SimpleQuantity oldRateQuantity = rateQuantity;
+	public NotificationChain basicSetRateQuantity(Quantity newRateQuantity, NotificationChain msgs) {
+		Quantity oldRateQuantity = rateQuantity;
 		rateQuantity = newRateQuantity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__RATE_QUANTITY, oldRateQuantity, newRateQuantity);
@@ -477,7 +412,7 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRateQuantity(SimpleQuantity newRateQuantity) {
+	public void setRateQuantity(Quantity newRateQuantity) {
 		if (newRateQuantity != rateQuantity) {
 			NotificationChain msgs = null;
 			if (rateQuantity != null)
@@ -501,10 +436,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__TEXT:
 				return basicSetText(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT:
-				return basicSetSiteCodeableConcept(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE:
-				return basicSetSiteReference(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE:
+				return basicSetSite(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__ROUTE:
 				return basicSetRoute(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__METHOD:
@@ -529,10 +462,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__TEXT:
 				return getText();
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT:
-				return getSiteCodeableConcept();
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE:
-				return getSiteReference();
+			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE:
+				return getSite();
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__ROUTE:
 				return getRoute();
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__METHOD:
@@ -558,11 +489,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__TEXT:
 				setText((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT:
-				setSiteCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE:
-				setSiteReference((Reference)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE:
+				setSite((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__ROUTE:
 				setRoute((CodeableConcept)newValue);
@@ -571,13 +499,13 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 				setMethod((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__DOSE:
-				setDose((SimpleQuantity)newValue);
+				setDose((Quantity)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__RATE_RATIO:
 				setRateRatio((Ratio)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__RATE_QUANTITY:
-				setRateQuantity((SimpleQuantity)newValue);
+				setRateQuantity((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -594,11 +522,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__TEXT:
 				setText((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT:
-				setSiteCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE:
-				setSiteReference((Reference)null);
+			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE:
+				setSite((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__ROUTE:
 				setRoute((CodeableConcept)null);
@@ -607,13 +532,13 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 				setMethod((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__DOSE:
-				setDose((SimpleQuantity)null);
+				setDose((Quantity)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__RATE_RATIO:
 				setRateRatio((Ratio)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__RATE_QUANTITY:
-				setRateQuantity((SimpleQuantity)null);
+				setRateQuantity((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -629,10 +554,8 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__TEXT:
 				return text != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_CODEABLE_CONCEPT:
-				return siteCodeableConcept != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE_REFERENCE:
-				return siteReference != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__SITE:
+				return site != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__ROUTE:
 				return route != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE__METHOD:

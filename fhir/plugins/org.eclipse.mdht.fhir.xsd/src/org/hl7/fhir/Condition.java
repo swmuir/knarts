@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,29 +19,29 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Condition#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getAsserter <em>Asserter</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getDateRecorded <em>Date Recorded</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getClinicalStatus <em>Clinical Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getVerificationStatus <em>Verification Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getSeverity <em>Severity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getOnsetDateTime <em>Onset Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getOnsetQuantity <em>Onset Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getOnsetPeriod <em>Onset Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getOnsetString <em>Onset String</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementDateTime <em>Abatement Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getAbatementQuantity <em>Abatement Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getAbatementAge <em>Abatement Age</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementBoolean <em>Abatement Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementPeriod <em>Abatement Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementRange <em>Abatement Range</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementString <em>Abatement String</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getStage <em>Stage</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getEvidence <em>Evidence</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -75,162 +65,6 @@ public interface Condition extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates the patient who the condition record is associated with.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Patient()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Encounter during which the condition was first asserted.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Asserter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Individual who is making the condition statement.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Asserter</em>' containment reference.
-	 * @see #setAsserter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Asserter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='asserter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getAsserter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAsserter <em>Asserter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Asserter</em>' containment reference.
-	 * @see #getAsserter()
-	 * @generated
-	 */
-	void setAsserter(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Date Recorded</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A date, when  the Condition statement was documented.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Recorded</em>' containment reference.
-	 * @see #setDateRecorded(Date)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_DateRecorded()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dateRecorded' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Date getDateRecorded();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getDateRecorded <em>Date Recorded</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Recorded</em>' containment reference.
-	 * @see #getDateRecorded()
-	 * @generated
-	 */
-	void setDateRecorded(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identification of the condition, problem or diagnosis.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Code()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getCode();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getCode <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A category assigned to the condition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_Category()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Clinical Status</b></em>' containment reference.
@@ -268,7 +102,7 @@ public interface Condition extends DomainResource {
 	 * @return the value of the '<em>Verification Status</em>' containment reference.
 	 * @see #setVerificationStatus(ConditionVerificationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCondition_VerificationStatus()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='verificationStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -283,6 +117,22 @@ public interface Condition extends DomainResource {
 	 * @generated
 	 */
 	void setVerificationStatus(ConditionVerificationStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A category assigned to the condition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Severity</b></em>' containment reference.
@@ -309,6 +159,100 @@ public interface Condition extends DomainResource {
 	 * @generated
 	 */
 	void setSeverity(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identification of the condition, problem or diagnosis.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Code()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getCode <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The anatomical location where this condition manifests itself.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Body Site</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCondition_BodySite()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='bodySite' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getBodySite();
+
+	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the patient or group who the condition record is associated with.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Subject()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Encounter during which the condition was first asserted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Onset Date Time</b></em>' containment reference.
@@ -338,31 +282,31 @@ public interface Condition extends DomainResource {
 	void setOnsetDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Onset Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Onset Age</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Onset Quantity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Onset Age</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onset Quantity</em>' containment reference.
-	 * @see #setOnsetQuantity(Age)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_OnsetQuantity()
+	 * @return the value of the '<em>Onset Age</em>' containment reference.
+	 * @see #setOnsetAge(Age)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_OnsetAge()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onsetQuantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='onsetAge' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Age getOnsetQuantity();
+	Age getOnsetAge();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getOnsetQuantity <em>Onset Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getOnsetAge <em>Onset Age</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onset Quantity</em>' containment reference.
-	 * @see #getOnsetQuantity()
+	 * @param value the new value of the '<em>Onset Age</em>' containment reference.
+	 * @see #getOnsetAge()
 	 * @generated
 	 */
-	void setOnsetQuantity(Age value);
+	void setOnsetAge(Age value);
 
 	/**
 	 * Returns the value of the '<em><b>Onset Period</b></em>' containment reference.
@@ -473,31 +417,31 @@ public interface Condition extends DomainResource {
 	void setAbatementDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Abatement Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Abatement Age</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abatement Quantity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Abatement Age</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abatement Quantity</em>' containment reference.
-	 * @see #setAbatementQuantity(Age)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_AbatementQuantity()
+	 * @return the value of the '<em>Abatement Age</em>' containment reference.
+	 * @see #setAbatementAge(Age)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_AbatementAge()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='abatementQuantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='abatementAge' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Age getAbatementQuantity();
+	Age getAbatementAge();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAbatementQuantity <em>Abatement Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAbatementAge <em>Abatement Age</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Abatement Quantity</em>' containment reference.
-	 * @see #getAbatementQuantity()
+	 * @param value the new value of the '<em>Abatement Age</em>' containment reference.
+	 * @see #getAbatementAge()
 	 * @generated
 	 */
-	void setAbatementQuantity(Age value);
+	void setAbatementAge(Age value);
 
 	/**
 	 * Returns the value of the '<em><b>Abatement Boolean</b></em>' containment reference.
@@ -608,6 +552,58 @@ public interface Condition extends DomainResource {
 	void setAbatementString(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Asserted Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date on which the existance of the Condition was first asserted or acknowledged.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Asserted Date</em>' containment reference.
+	 * @see #setAssertedDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_AssertedDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='assertedDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Date getAssertedDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAssertedDate <em>Asserted Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Asserted Date</em>' containment reference.
+	 * @see #getAssertedDate()
+	 * @generated
+	 */
+	void setAssertedDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Asserter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Individual who is making the condition statement.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Asserter</em>' containment reference.
+	 * @see #setAsserter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Asserter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='asserter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getAsserter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAsserter <em>Asserter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Asserter</em>' containment reference.
+	 * @see #getAsserter()
+	 * @generated
+	 */
+	void setAsserter(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Stage</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -648,22 +644,6 @@ public interface Condition extends DomainResource {
 	 * @generated
 	 */
 	EList<ConditionEvidence> getEvidence();
-
-	/**
-	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The anatomical location where this condition manifests itself.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Body Site</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCondition_BodySite()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bodySite' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getBodySite();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

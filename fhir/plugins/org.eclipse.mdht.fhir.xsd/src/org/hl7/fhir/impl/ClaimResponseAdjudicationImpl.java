@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ClaimResponseAdjudication;
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
@@ -51,7 +41,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding category;
+	protected CodeableConcept category;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
@@ -61,7 +51,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding reason;
+	protected CodeableConcept reason;
 
 	/**
 	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
@@ -107,7 +97,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCategory() {
+	public CodeableConcept getCategory() {
 		return category;
 	}
 
@@ -116,8 +106,8 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(Coding newCategory, NotificationChain msgs) {
-		Coding oldCategory = category;
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ADJUDICATION__CATEGORY, oldCategory, newCategory);
@@ -131,7 +121,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(Coding newCategory) {
+	public void setCategory(CodeableConcept newCategory) {
 		if (newCategory != category) {
 			NotificationChain msgs = null;
 			if (category != null)
@@ -150,7 +140,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getReason() {
+	public CodeableConcept getReason() {
 		return reason;
 	}
 
@@ -159,8 +149,8 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReason(Coding newReason, NotificationChain msgs) {
-		Coding oldReason = reason;
+	public NotificationChain basicSetReason(CodeableConcept newReason, NotificationChain msgs) {
+		CodeableConcept oldReason = reason;
 		reason = newReason;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ADJUDICATION__REASON, oldReason, newReason);
@@ -174,7 +164,7 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReason(Coding newReason) {
+	public void setReason(CodeableConcept newReason) {
 		if (newReason != reason) {
 			NotificationChain msgs = null;
 			if (reason != null)
@@ -323,10 +313,10 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__CATEGORY:
-				setCategory((Coding)newValue);
+				setCategory((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__REASON:
-				setReason((Coding)newValue);
+				setReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__AMOUNT:
 				setAmount((Money)newValue);
@@ -347,10 +337,10 @@ public class ClaimResponseAdjudicationImpl extends BackboneElementImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__CATEGORY:
-				setCategory((Coding)null);
+				setCategory((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__REASON:
-				setReason((Coding)null);
+				setReason((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION__AMOUNT:
 				setAmount((Money)null);

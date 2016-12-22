@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.RepositoryType;
 import org.hl7.fhir.SequenceRepository;
 import org.hl7.fhir.Uri;
 
@@ -32,15 +23,27 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getVariantId <em>Variant Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getReadId <em>Read Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getDatasetId <em>Dataset Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getVariantsetId <em>Variantset Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceRepositoryImpl#getReadsetId <em>Readset Id</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SequenceRepositoryImpl extends BackboneElementImpl implements SequenceRepository {
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RepositoryType type;
+
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -62,24 +65,34 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	protected org.hl7.fhir.String name;
 
 	/**
-	 * The cached value of the '{@link #getVariantId() <em>Variant Id</em>}' containment reference.
+	 * The cached value of the '{@link #getDatasetId() <em>Dataset Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariantId()
+	 * @see #getDatasetId()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String variantId;
+	protected org.hl7.fhir.String datasetId;
 
 	/**
-	 * The cached value of the '{@link #getReadId() <em>Read Id</em>}' containment reference.
+	 * The cached value of the '{@link #getVariantsetId() <em>Variantset Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReadId()
+	 * @see #getVariantsetId()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String readId;
+	protected org.hl7.fhir.String variantsetId;
+
+	/**
+	 * The cached value of the '{@link #getReadsetId() <em>Readset Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReadsetId()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String readsetId;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +111,49 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getSequenceRepository();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepositoryType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(RepositoryType newType, NotificationChain msgs) {
+		RepositoryType oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(RepositoryType newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__TYPE, newType, newType));
 	}
 
 	/**
@@ -191,8 +247,8 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getVariantId() {
-		return variantId;
+	public org.hl7.fhir.String getDatasetId() {
+		return datasetId;
 	}
 
 	/**
@@ -200,11 +256,11 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVariantId(org.hl7.fhir.String newVariantId, NotificationChain msgs) {
-		org.hl7.fhir.String oldVariantId = variantId;
-		variantId = newVariantId;
+	public NotificationChain basicSetDatasetId(org.hl7.fhir.String newDatasetId, NotificationChain msgs) {
+		org.hl7.fhir.String oldDatasetId = datasetId;
+		datasetId = newDatasetId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID, oldVariantId, newVariantId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID, oldDatasetId, newDatasetId);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -215,18 +271,18 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariantId(org.hl7.fhir.String newVariantId) {
-		if (newVariantId != variantId) {
+	public void setDatasetId(org.hl7.fhir.String newDatasetId) {
+		if (newDatasetId != datasetId) {
 			NotificationChain msgs = null;
-			if (variantId != null)
-				msgs = ((InternalEObject)variantId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID, null, msgs);
-			if (newVariantId != null)
-				msgs = ((InternalEObject)newVariantId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID, null, msgs);
-			msgs = basicSetVariantId(newVariantId, msgs);
+			if (datasetId != null)
+				msgs = ((InternalEObject)datasetId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID, null, msgs);
+			if (newDatasetId != null)
+				msgs = ((InternalEObject)newDatasetId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID, null, msgs);
+			msgs = basicSetDatasetId(newDatasetId, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID, newVariantId, newVariantId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID, newDatasetId, newDatasetId));
 	}
 
 	/**
@@ -234,8 +290,8 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getReadId() {
-		return readId;
+	public org.hl7.fhir.String getVariantsetId() {
+		return variantsetId;
 	}
 
 	/**
@@ -243,11 +299,11 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReadId(org.hl7.fhir.String newReadId, NotificationChain msgs) {
-		org.hl7.fhir.String oldReadId = readId;
-		readId = newReadId;
+	public NotificationChain basicSetVariantsetId(org.hl7.fhir.String newVariantsetId, NotificationChain msgs) {
+		org.hl7.fhir.String oldVariantsetId = variantsetId;
+		variantsetId = newVariantsetId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__READ_ID, oldReadId, newReadId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID, oldVariantsetId, newVariantsetId);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -258,18 +314,61 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReadId(org.hl7.fhir.String newReadId) {
-		if (newReadId != readId) {
+	public void setVariantsetId(org.hl7.fhir.String newVariantsetId) {
+		if (newVariantsetId != variantsetId) {
 			NotificationChain msgs = null;
-			if (readId != null)
-				msgs = ((InternalEObject)readId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__READ_ID, null, msgs);
-			if (newReadId != null)
-				msgs = ((InternalEObject)newReadId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__READ_ID, null, msgs);
-			msgs = basicSetReadId(newReadId, msgs);
+			if (variantsetId != null)
+				msgs = ((InternalEObject)variantsetId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID, null, msgs);
+			if (newVariantsetId != null)
+				msgs = ((InternalEObject)newVariantsetId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID, null, msgs);
+			msgs = basicSetVariantsetId(newVariantsetId, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__READ_ID, newReadId, newReadId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID, newVariantsetId, newVariantsetId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getReadsetId() {
+		return readsetId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReadsetId(org.hl7.fhir.String newReadsetId, NotificationChain msgs) {
+		org.hl7.fhir.String oldReadsetId = readsetId;
+		readsetId = newReadsetId;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__READSET_ID, oldReadsetId, newReadsetId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadsetId(org.hl7.fhir.String newReadsetId) {
+		if (newReadsetId != readsetId) {
+			NotificationChain msgs = null;
+			if (readsetId != null)
+				msgs = ((InternalEObject)readsetId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__READSET_ID, null, msgs);
+			if (newReadsetId != null)
+				msgs = ((InternalEObject)newReadsetId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_REPOSITORY__READSET_ID, null, msgs);
+			msgs = basicSetReadsetId(newReadsetId, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_REPOSITORY__READSET_ID, newReadsetId, newReadsetId));
 	}
 
 	/**
@@ -280,14 +379,18 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.SEQUENCE_REPOSITORY__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.SEQUENCE_REPOSITORY__URL:
 				return basicSetUrl(null, msgs);
 			case FhirPackage.SEQUENCE_REPOSITORY__NAME:
 				return basicSetName(null, msgs);
-			case FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID:
-				return basicSetVariantId(null, msgs);
-			case FhirPackage.SEQUENCE_REPOSITORY__READ_ID:
-				return basicSetReadId(null, msgs);
+			case FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID:
+				return basicSetDatasetId(null, msgs);
+			case FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID:
+				return basicSetVariantsetId(null, msgs);
+			case FhirPackage.SEQUENCE_REPOSITORY__READSET_ID:
+				return basicSetReadsetId(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -300,14 +403,18 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.SEQUENCE_REPOSITORY__TYPE:
+				return getType();
 			case FhirPackage.SEQUENCE_REPOSITORY__URL:
 				return getUrl();
 			case FhirPackage.SEQUENCE_REPOSITORY__NAME:
 				return getName();
-			case FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID:
-				return getVariantId();
-			case FhirPackage.SEQUENCE_REPOSITORY__READ_ID:
-				return getReadId();
+			case FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID:
+				return getDatasetId();
+			case FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID:
+				return getVariantsetId();
+			case FhirPackage.SEQUENCE_REPOSITORY__READSET_ID:
+				return getReadsetId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,17 +427,23 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.SEQUENCE_REPOSITORY__TYPE:
+				setType((RepositoryType)newValue);
+				return;
 			case FhirPackage.SEQUENCE_REPOSITORY__URL:
 				setUrl((Uri)newValue);
 				return;
 			case FhirPackage.SEQUENCE_REPOSITORY__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID:
-				setVariantId((org.hl7.fhir.String)newValue);
+			case FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID:
+				setDatasetId((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.SEQUENCE_REPOSITORY__READ_ID:
-				setReadId((org.hl7.fhir.String)newValue);
+			case FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID:
+				setVariantsetId((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.SEQUENCE_REPOSITORY__READSET_ID:
+				setReadsetId((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,17 +457,23 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.SEQUENCE_REPOSITORY__TYPE:
+				setType((RepositoryType)null);
+				return;
 			case FhirPackage.SEQUENCE_REPOSITORY__URL:
 				setUrl((Uri)null);
 				return;
 			case FhirPackage.SEQUENCE_REPOSITORY__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID:
-				setVariantId((org.hl7.fhir.String)null);
+			case FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID:
+				setDatasetId((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.SEQUENCE_REPOSITORY__READ_ID:
-				setReadId((org.hl7.fhir.String)null);
+			case FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID:
+				setVariantsetId((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.SEQUENCE_REPOSITORY__READSET_ID:
+				setReadsetId((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -368,14 +487,18 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.SEQUENCE_REPOSITORY__TYPE:
+				return type != null;
 			case FhirPackage.SEQUENCE_REPOSITORY__URL:
 				return url != null;
 			case FhirPackage.SEQUENCE_REPOSITORY__NAME:
 				return name != null;
-			case FhirPackage.SEQUENCE_REPOSITORY__VARIANT_ID:
-				return variantId != null;
-			case FhirPackage.SEQUENCE_REPOSITORY__READ_ID:
-				return readId != null;
+			case FhirPackage.SEQUENCE_REPOSITORY__DATASET_ID:
+				return datasetId != null;
+			case FhirPackage.SEQUENCE_REPOSITORY__VARIANTSET_ID:
+				return variantsetId != null;
+			case FhirPackage.SEQUENCE_REPOSITORY__READSET_ID:
+				return readsetId != null;
 		}
 		return super.eIsSet(featureID);
 	}

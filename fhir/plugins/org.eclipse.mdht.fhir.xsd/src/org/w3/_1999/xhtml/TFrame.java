@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -25,13 +15,13 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
  * 
- * 				The border attribute sets the thickness of the frame around the
- * 				table. The default units are screen pixels.
+ *       The border attribute sets the thickness of the frame around the
+ *       table. The default units are screen pixels.
  * 
- * 				The frame attribute specifies which parts of the frame around
- * 				the table should be rendered. The values are not the same as
- * 				CALS to avoid a name clash with the valign attribute.
- * 			
+ *       The frame attribute specifies which parts of the frame around
+ *       the table should be rendered. The values are not the same as
+ *       CALS to avoid a name clash with the valign attribute.
+ *       
  * <!-- end-model-doc -->
  * @see org.w3._1999.xhtml.XhtmlPackage#getTFrame()
  * @model extendedMetaData="name='TFrame'"

@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuide#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getFhirVersion <em>Fhir Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuide#getDependency <em>Dependency</em>}</li>
@@ -47,7 +48,7 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published.
+	 * An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this implementation guide is (or will be) published. The URL SHOULD include the major version of the implementation guide. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -73,7 +74,7 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the Implementation Guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Implementation Guide author manually.
+	 * The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -99,7 +100,7 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language name identifying the Implementation Guide.
+	 * A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -125,16 +126,16 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the Implementation Guide.
+	 * The status of this implementation guide. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuide#getStatus <em>Status</em>}' containment reference.
@@ -144,14 +145,14 @@ public interface ImplementationGuide extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This Implementation Guide was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A flag to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -200,11 +201,11 @@ public interface ImplementationGuide extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImplementationGuideContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Contact()
@@ -212,14 +213,14 @@ public interface ImplementationGuide extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImplementationGuideContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date this version of the implementation guide was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
+	 * The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -245,16 +246,16 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the Implementation Guide and its use.
+	 * A free text natural language description of the implementation guide from the consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuide#getDescription <em>Description</em>}' containment reference.
@@ -264,15 +265,15 @@ public interface ImplementationGuide extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdiction for which this implementation guide was defined.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_UseContext()
@@ -280,23 +281,39 @@ public interface ImplementationGuide extends DomainResource {
 	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getUseContext();
+	EList<UsageContext> getUseContext();
+
+	/**
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A jurisdiction in which the implementation guide is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
 	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+	 * A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Copyright</em>' containment reference.
-	 * @see #setCopyright(org.hl7.fhir.String)
+	 * @see #setCopyright(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Copyright()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='copyright' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCopyright();
+	Markdown getCopyright();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuide#getCopyright <em>Copyright</em>}' containment reference.
@@ -306,14 +323,14 @@ public interface ImplementationGuide extends DomainResource {
 	 * @see #getCopyright()
 	 * @generated
 	 */
-	void setCopyright(org.hl7.fhir.String value);
+	void setCopyright(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Fhir Version</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.4.0 for this version.
+	 * The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.8.0 for this version.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fhir Version</em>' containment reference.
 	 * @see #setFhirVersion(Id)
@@ -360,7 +377,7 @@ public interface ImplementationGuide extends DomainResource {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Package</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Package()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='package' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -408,7 +425,7 @@ public interface ImplementationGuide extends DomainResource {
 	 * @return the value of the '<em>Page</em>' containment reference.
 	 * @see #setPage(ImplementationGuidePage)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuide_Page()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='page' namespace='##targetNamespace'"
 	 * @generated
 	 */

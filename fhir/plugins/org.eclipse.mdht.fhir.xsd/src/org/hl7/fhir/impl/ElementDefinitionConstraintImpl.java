@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -24,6 +14,7 @@ import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +30,7 @@ import org.hl7.fhir.Id;
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionConstraintImpl#getHuman <em>Human</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionConstraintImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionConstraintImpl#getXpath <em>Xpath</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionConstraintImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +95,16 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String xpath;
+
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri source;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -386,6 +388,49 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Uri getSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Uri newSource, NotificationChain msgs) {
+		Uri oldSource = source;
+		source = newSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE, oldSource, newSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSource(Uri newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE, null, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE, null, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -401,6 +446,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				return basicSetExpression(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__XPATH:
 				return basicSetXpath(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
+				return basicSetSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -425,6 +472,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				return getExpression();
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__XPATH:
 				return getXpath();
+			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
+				return getSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,6 +503,9 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__XPATH:
 				setXpath((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
+				setSource((Uri)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,6 +537,9 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__XPATH:
 				setXpath((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
+				setSource((Uri)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -509,6 +564,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				return expression != null;
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__XPATH:
 				return xpath != null;
+			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
+				return source != null;
 		}
 		return super.eIsSet(featureID);
 	}

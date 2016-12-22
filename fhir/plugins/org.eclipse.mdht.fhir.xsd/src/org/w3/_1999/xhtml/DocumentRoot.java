@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -36,73 +26,49 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getAddress <em>Address</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getArea <em>Area</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getB <em>B</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBase <em>Base</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBig <em>Big</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBlockquote <em>Blockquote</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBody <em>Body</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getBr <em>Br</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getButton <em>Button</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getCaption <em>Caption</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getCite <em>Cite</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getCode <em>Code</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getCol <em>Col</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getColgroup <em>Colgroup</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDd <em>Dd</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDel <em>Del</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDfn <em>Dfn</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDiv <em>Div</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDl <em>Dl</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getDt <em>Dt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getEm <em>Em</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getFieldset <em>Fieldset</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getForm <em>Form</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH1 <em>H1</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH2 <em>H2</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH3 <em>H3</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH4 <em>H4</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH5 <em>H5</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getH6 <em>H6</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getHead <em>Head</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getHr <em>Hr</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getHtml <em>Html</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getI <em>I</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getImg <em>Img</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getIns <em>Ins</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getKbd <em>Kbd</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getLegend <em>Legend</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getLi <em>Li</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getLink <em>Link</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getMeta <em>Meta</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getNoscript <em>Noscript</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getObject <em>Object</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getOl <em>Ol</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getOptgroup <em>Optgroup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getOption <em>Option</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getP <em>P</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getParam <em>Param</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getPre <em>Pre</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getQ <em>Q</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSamp <em>Samp</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getScript <em>Script</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSelect <em>Select</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSmall <em>Small</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getStrong <em>Strong</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getStyle <em>Style</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSub <em>Sub</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getSup <em>Sup</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTable <em>Table</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTbody <em>Tbody</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTd <em>Td</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTextarea <em>Textarea</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTfoot <em>Tfoot</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTh <em>Th</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getThead <em>Thead</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTitle <em>Title</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTr <em>Tr</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getTt <em>Tt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.DocumentRoot#getUl <em>Ul</em>}</li>
@@ -173,8 +139,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				content is "Inline" except that anchors shouldn't be nested
-	 * 			
+	 *       content is "Inline" except that anchors shouldn't be nested
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>A</em>' containment reference.
 	 * @see #setA(AType)
@@ -201,8 +167,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				abbreviation
-	 * 			
+	 *       abbreviation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abbr</em>' containment reference.
 	 * @see #setAbbr(AbbrType)
@@ -229,8 +195,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				acronym
-	 * 			
+	 *       acronym
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Acronym</em>' containment reference.
 	 * @see #setAcronym(AcronymType)
@@ -257,8 +223,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				information on author
-	 * 			
+	 *       information on author
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference.
 	 * @see #setAddress(AddressType)
@@ -312,8 +278,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bold font
-	 * 			
+	 *       bold font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>B</em>' containment reference.
 	 * @see #setB(BType)
@@ -335,41 +301,13 @@ public interface DocumentRoot extends EObject {
 	void setB(BType value);
 
 	/**
-	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				document base URI
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(BaseType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Base()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	BaseType getBase();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getBase <em>Base</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base</em>' containment reference.
-	 * @see #getBase()
-	 * @generated
-	 */
-	void setBase(BaseType value);
-
-	/**
 	 * Returns the value of the '<em><b>Bdo</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				I18N BiDi over-ride
-	 * 			
+	 *       I18N BiDi over-ride
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bdo</em>' containment reference.
 	 * @see #setBdo(BdoType)
@@ -396,8 +334,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				bigger font
-	 * 			
+	 *       bigger font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Big</em>' containment reference.
 	 * @see #setBig(BigType)
@@ -446,40 +384,13 @@ public interface DocumentRoot extends EObject {
 	void setBlockquote(BlockquoteType value);
 
 	/**
-	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Body</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body</em>' containment reference.
-	 * @see #setBody(BodyType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Body()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='body' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	BodyType getBody();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getBody <em>Body</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body</em>' containment reference.
-	 * @see #getBody()
-	 * @generated
-	 */
-	void setBody(BodyType value);
-
-	/**
 	 * Returns the value of the '<em><b>Br</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				forced line break
-	 * 			
+	 *       forced line break
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Br</em>' containment reference.
 	 * @see #setBr(BrType)
@@ -499,34 +410,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setBr(BrType value);
-
-	/**
-	 * Returns the value of the '<em><b>Button</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Content is "Flow" excluding a, form and form controls
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Button</em>' containment reference.
-	 * @see #setButton(ButtonType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Button()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='button' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ButtonType getButton();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getButton <em>Button</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Button</em>' containment reference.
-	 * @see #getButton()
-	 * @generated
-	 */
-	void setButton(ButtonType value);
 
 	/**
 	 * Returns the value of the '<em><b>Caption</b></em>' containment reference.
@@ -561,8 +444,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				citation
-	 * 			
+	 *       citation
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cite</em>' containment reference.
 	 * @see #setCite(CiteType)
@@ -589,8 +472,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				program code
-	 * 			
+	 *       program code
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeType)
@@ -617,17 +500,17 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				col elements define the alignment properties for cells in
-	 * 				one or more columns.
+	 *       col elements define the alignment properties for cells in
+	 *       one or more columns.
 	 * 
-	 * 				The width attribute specifies the width of the columns, e.g.
+	 *       The width attribute specifies the width of the columns, e.g.
 	 * 
-	 * 				width=64        width in screen pixels
-	 * 				width=0.5*      relative width of 0.5
+	 *           width=64        width in screen pixels
+	 *           width=0.5*      relative width of 0.5
 	 * 
-	 * 				The span attribute causes the attributes of one
-	 * 				col element to apply to more than one column.
-	 * 			
+	 *       The span attribute causes the attributes of one
+	 *       col element to apply to more than one column.
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Col</em>' containment reference.
 	 * @see #setCol(ColType)
@@ -654,9 +537,9 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				colgroup groups a set of col elements. It allows you to group
-	 * 				several semantically related columns together.
-	 * 			
+	 *       colgroup groups a set of col elements. It allows you to group
+	 *       several semantically related columns together.
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Colgroup</em>' containment reference.
 	 * @see #setColgroup(ColgroupType)
@@ -705,40 +588,13 @@ public interface DocumentRoot extends EObject {
 	void setDd(DdType value);
 
 	/**
-	 * Returns the value of the '<em><b>Del</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Del</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Del</em>' containment reference.
-	 * @see #setDel(DelType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Del()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='del' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DelType getDel();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getDel <em>Del</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Del</em>' containment reference.
-	 * @see #getDel()
-	 * @generated
-	 */
-	void setDel(DelType value);
-
-	/**
 	 * Returns the value of the '<em><b>Dfn</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				definitional
-	 * 			
+	 *       definitional
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dfn</em>' containment reference.
 	 * @see #setDfn(DfnType)
@@ -765,8 +621,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container      
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Div</em>' containment reference.
 	 * @see #setDiv(DivType)
@@ -847,8 +703,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				emphasis
-	 * 			
+	 *       emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Em</em>' containment reference.
 	 * @see #setEm(EmType)
@@ -868,66 +724,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setEm(EmType value);
-
-	/**
-	 * Returns the value of the '<em><b>Fieldset</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				The fieldset element is used to group form fields.
-	 * 				Only one legend element should occur in the content
-	 * 				and if present should only be preceded by whitespace.
-	 * 
-	 * 				NOTE: this content model is different from the XHTML 1.0 DTD,
-	 * 				closer to the intended content model in HTML4 DTD
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Fieldset</em>' containment reference.
-	 * @see #setFieldset(FieldsetType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Fieldset()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='fieldset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	FieldsetType getFieldset();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getFieldset <em>Fieldset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fieldset</em>' containment reference.
-	 * @see #getFieldset()
-	 * @generated
-	 */
-	void setFieldset(FieldsetType value);
-
-	/**
-	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Form</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Form</em>' containment reference.
-	 * @see #setForm(FormType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Form()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	FormType getForm();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getForm <em>Form</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Form</em>' containment reference.
-	 * @see #getForm()
-	 * @generated
-	 */
-	void setForm(FormType value);
 
 	/**
 	 * Returns the value of the '<em><b>H1</b></em>' containment reference.
@@ -1092,35 +888,6 @@ public interface DocumentRoot extends EObject {
 	void setH6(H6Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Head</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				content model is "head.misc" combined with a single
-	 * 				title and an optional base element in any order
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Head</em>' containment reference.
-	 * @see #setHead(HeadType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Head()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='head' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	HeadType getHead();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getHead <em>Head</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Head</em>' containment reference.
-	 * @see #getHead()
-	 * @generated
-	 */
-	void setHead(HeadType value);
-
-	/**
 	 * Returns the value of the '<em><b>Hr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1148,40 +915,13 @@ public interface DocumentRoot extends EObject {
 	void setHr(HrType value);
 
 	/**
-	 * Returns the value of the '<em><b>Html</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Html</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Html</em>' containment reference.
-	 * @see #setHtml(HtmlType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Html()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='html' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	HtmlType getHtml();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getHtml <em>Html</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Html</em>' containment reference.
-	 * @see #getHtml()
-	 * @generated
-	 */
-	void setHtml(HtmlType value);
-
-	/**
 	 * Returns the value of the '<em><b>I</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				italic font
-	 * 			
+	 *       italic font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>I</em>' containment reference.
 	 * @see #setI(IType)
@@ -1230,68 +970,13 @@ public interface DocumentRoot extends EObject {
 	void setImg(ImgType value);
 
 	/**
-	 * Returns the value of the '<em><b>Input</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				form control
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Input</em>' containment reference.
-	 * @see #setInput(InputType1)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Input()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='input' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	InputType1 getInput();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getInput <em>Input</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Input</em>' containment reference.
-	 * @see #getInput()
-	 * @generated
-	 */
-	void setInput(InputType1 value);
-
-	/**
-	 * Returns the value of the '<em><b>Ins</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ins</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ins</em>' containment reference.
-	 * @see #setIns(InsType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Ins()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ins' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	InsType getIns();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getIns <em>Ins</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ins</em>' containment reference.
-	 * @see #getIns()
-	 * @generated
-	 */
-	void setIns(InsType value);
-
-	/**
 	 * Returns the value of the '<em><b>Kbd</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				something user would type
-	 * 			
+	 *       something user would type
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kbd</em>' containment reference.
 	 * @see #setKbd(KbdType)
@@ -1313,70 +998,13 @@ public interface DocumentRoot extends EObject {
 	void setKbd(KbdType value);
 
 	/**
-	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Each label must not contain more than ONE field
-	 * 				Label elements shouldn't be nested.
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Label</em>' containment reference.
-	 * @see #setLabel(LabelType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Label()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	LabelType getLabel();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getLabel <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' containment reference.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(LabelType value);
-
-	/**
-	 * Returns the value of the '<em><b>Legend</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				fieldset label
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Legend</em>' containment reference.
-	 * @see #setLegend(LegendType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Legend()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='legend' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	LegendType getLegend();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getLegend <em>Legend</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Legend</em>' containment reference.
-	 * @see #getLegend()
-	 * @generated
-	 */
-	void setLegend(LegendType value);
-
-	/**
 	 * Returns the value of the '<em><b>Li</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				list item
-	 * 			
+	 *       list item
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Li</em>' containment reference.
 	 * @see #setLi(LiType)
@@ -1396,44 +1024,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setLi(LiType value);
-
-	/**
-	 * Returns the value of the '<em><b>Link</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				Relationship values can be used in principle:
-	 * 
-	 * 				a) for document specific toolbars/menus when used
-	 * 				with the link element in document head e.g.
-	 * 				start, contents, previous, next, index, end, help
-	 * 				b) to link to a separate style sheet (rel="stylesheet")
-	 * 				c) to make a link to a script (rel="script")
-	 * 				d) by stylesheets to control how collections of
-	 * 				html nodes are rendered into printed documents
-	 * 				e) to make a link to a printable version of this document
-	 * 				e.g. a PostScript or PDF version (rel="alternate" media="print")
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Link</em>' containment reference.
-	 * @see #setLink(LinkType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Link()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='link' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	LinkType getLink();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getLink <em>Link</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Link</em>' containment reference.
-	 * @see #getLink()
-	 * @generated
-	 */
-	void setLink(LinkType value);
 
 	/**
 	 * Returns the value of the '<em><b>Map</b></em>' containment reference.
@@ -1463,96 +1053,13 @@ public interface DocumentRoot extends EObject {
 	void setMap(MapType value);
 
 	/**
-	 * Returns the value of the '<em><b>Meta</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				generic metainformation
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Meta</em>' containment reference.
-	 * @see #setMeta(MetaType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Meta()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='meta' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	MetaType getMeta();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getMeta <em>Meta</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta</em>' containment reference.
-	 * @see #getMeta()
-	 * @generated
-	 */
-	void setMeta(MetaType value);
-
-	/**
-	 * Returns the value of the '<em><b>Noscript</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				alternate content container for non script-based rendering
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Noscript</em>' containment reference.
-	 * @see #setNoscript(NoscriptType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Noscript()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='noscript' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	NoscriptType getNoscript();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getNoscript <em>Noscript</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Noscript</em>' containment reference.
-	 * @see #getNoscript()
-	 * @generated
-	 */
-	void setNoscript(NoscriptType value);
-
-	/**
-	 * Returns the value of the '<em><b>Object</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Object</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object</em>' containment reference.
-	 * @see #setObject(ObjectType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Object()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='object' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ObjectType getObject();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getObject <em>Object</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Object</em>' containment reference.
-	 * @see #getObject()
-	 * @generated
-	 */
-	void setObject(ObjectType value);
-
-	/**
 	 * Returns the value of the '<em><b>Ol</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Ordered (numbered) list
-	 * 			
+	 *       Ordered (numbered) list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ol</em>' containment reference.
 	 * @see #setOl(OlType)
@@ -1572,62 +1079,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setOl(OlType value);
-
-	/**
-	 * Returns the value of the '<em><b>Optgroup</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				option group
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Optgroup</em>' containment reference.
-	 * @see #setOptgroup(OptgroupType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Optgroup()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='optgroup' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	OptgroupType getOptgroup();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getOptgroup <em>Optgroup</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Optgroup</em>' containment reference.
-	 * @see #getOptgroup()
-	 * @generated
-	 */
-	void setOptgroup(OptgroupType value);
-
-	/**
-	 * Returns the value of the '<em><b>Option</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				selectable choice
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Option</em>' containment reference.
-	 * @see #setOption(OptionType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Option()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='option' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	OptionType getOption();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getOption <em>Option</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option</em>' containment reference.
-	 * @see #getOption()
-	 * @generated
-	 */
-	void setOption(OptionType value);
 
 	/**
 	 * Returns the value of the '<em><b>P</b></em>' containment reference.
@@ -1657,44 +1108,13 @@ public interface DocumentRoot extends EObject {
 	void setP(PType value);
 
 	/**
-	 * Returns the value of the '<em><b>Param</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				param is used to supply a named property value.
-	 * 				In XML it would seem natural to follow RDF and support an
-	 * 				abbreviated syntax where the param elements are replaced
-	 * 				by attribute value pairs on the object start tag.
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Param</em>' containment reference.
-	 * @see #setParam(ParamType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Param()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='param' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ParamType getParam();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getParam <em>Param</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Param</em>' containment reference.
-	 * @see #getParam()
-	 * @generated
-	 */
-	void setParam(ParamType value);
-
-	/**
 	 * Returns the value of the '<em><b>Pre</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				content is "Inline" excluding "img|object|big|small|sub|sup"
-	 * 			
+	 *       content is "Inline" excluding "img|object|big|small|sub|sup"
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pre</em>' containment reference.
 	 * @see #setPre(PreType)
@@ -1721,8 +1141,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				inlined quote
-	 * 			
+	 *       inlined quote
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Q</em>' containment reference.
 	 * @see #setQ(QType)
@@ -1749,8 +1169,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				sample
-	 * 			
+	 *       sample
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Samp</em>' containment reference.
 	 * @see #setSamp(SampType)
@@ -1772,69 +1192,13 @@ public interface DocumentRoot extends EObject {
 	void setSamp(SampType value);
 
 	/**
-	 * Returns the value of the '<em><b>Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				script statements, which may include CDATA sections
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Script</em>' containment reference.
-	 * @see #setScript(ScriptType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Script()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='script' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ScriptType getScript();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getScript <em>Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Script</em>' containment reference.
-	 * @see #getScript()
-	 * @generated
-	 */
-	void setScript(ScriptType value);
-
-	/**
-	 * Returns the value of the '<em><b>Select</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				option selector
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Select</em>' containment reference.
-	 * @see #setSelect(SelectType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Select()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='select' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	SelectType getSelect();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getSelect <em>Select</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Select</em>' containment reference.
-	 * @see #getSelect()
-	 * @generated
-	 */
-	void setSelect(SelectType value);
-
-	/**
 	 * Returns the value of the '<em><b>Small</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				smaller font
-	 * 			
+	 *       smaller font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Small</em>' containment reference.
 	 * @see #setSmall(SmallType)
@@ -1861,8 +1225,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				generic language/style container
-	 * 			
+	 *       generic language/style container
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Span</em>' containment reference.
 	 * @see #setSpan(SpanType)
@@ -1889,8 +1253,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				strong emphasis
-	 * 			
+	 *       strong emphasis
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strong</em>' containment reference.
 	 * @see #setStrong(StrongType)
@@ -1912,41 +1276,13 @@ public interface DocumentRoot extends EObject {
 	void setStrong(StrongType value);
 
 	/**
-	 * Returns the value of the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				style info, which may include CDATA sections
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Style</em>' containment reference.
-	 * @see #setStyle(StyleType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Style()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='style' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	StyleType getStyle();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getStyle <em>Style</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Style</em>' containment reference.
-	 * @see #getStyle()
-	 * @generated
-	 */
-	void setStyle(StyleType value);
-
-	/**
 	 * Returns the value of the '<em><b>Sub</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				subscript
-	 * 			
+	 *       subscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference.
 	 * @see #setSub(SubType)
@@ -1973,8 +1309,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				superscript
-	 * 			
+	 *       superscript
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sup</em>' containment reference.
 	 * @see #setSup(SupType)
@@ -2077,34 +1413,6 @@ public interface DocumentRoot extends EObject {
 	void setTd(TdType value);
 
 	/**
-	 * Returns the value of the '<em><b>Textarea</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				multi-line text field
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Textarea</em>' containment reference.
-	 * @see #setTextarea(TextareaType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Textarea()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='textarea' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TextareaType getTextarea();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getTextarea <em>Textarea</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Textarea</em>' containment reference.
-	 * @see #getTextarea()
-	 * @generated
-	 */
-	void setTextarea(TextareaType value);
-
-	/**
 	 * Returns the value of the '<em><b>Tfoot</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2186,36 +1494,6 @@ public interface DocumentRoot extends EObject {
 	void setThead(TheadType value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * 				The title element is not considered part of the flow of text.
-	 * 				It should be displayed, for example as the page header or
-	 * 				window title. Exactly one title is required per document.
-	 * 			
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Title</em>' containment reference.
-	 * @see #setTitle(TitleType)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_Title()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TitleType getTitle();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.DocumentRoot#getTitle <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' containment reference.
-	 * @see #getTitle()
-	 * @generated
-	 */
-	void setTitle(TitleType value);
-
-	/**
 	 * Returns the value of the '<em><b>Tr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2248,8 +1526,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				fixed pitch font
-	 * 			
+	 *       fixed pitch font
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tt</em>' containment reference.
 	 * @see #setTt(TtType)
@@ -2276,8 +1554,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				Unordered list
-	 * 			
+	 *       Unordered list
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ul</em>' containment reference.
 	 * @see #setUl(UlType)
@@ -2304,8 +1582,8 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				variable
-	 * 			
+	 *       variable
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Var</em>' containment reference.
 	 * @see #setVar(VarType)

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +37,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity low;
+	protected Quantity low;
 
 	/**
 	 * The cached value of the '{@link #getHigh() <em>High</em>}' containment reference.
@@ -57,7 +47,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity high;
+	protected Quantity high;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,7 +73,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getLow() {
+	public Quantity getLow() {
 		return low;
 	}
 
@@ -92,8 +82,8 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLow(SimpleQuantity newLow, NotificationChain msgs) {
-		SimpleQuantity oldLow = low;
+	public NotificationChain basicSetLow(Quantity newLow, NotificationChain msgs) {
+		Quantity oldLow = low;
 		low = newLow;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RANGE__LOW, oldLow, newLow);
@@ -107,7 +97,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLow(SimpleQuantity newLow) {
+	public void setLow(Quantity newLow) {
 		if (newLow != low) {
 			NotificationChain msgs = null;
 			if (low != null)
@@ -126,7 +116,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getHigh() {
+	public Quantity getHigh() {
 		return high;
 	}
 
@@ -135,8 +125,8 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHigh(SimpleQuantity newHigh, NotificationChain msgs) {
-		SimpleQuantity oldHigh = high;
+	public NotificationChain basicSetHigh(Quantity newHigh, NotificationChain msgs) {
+		Quantity oldHigh = high;
 		high = newHigh;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RANGE__HIGH, oldHigh, newHigh);
@@ -150,7 +140,7 @@ public class RangeImpl extends ElementImpl implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHigh(SimpleQuantity newHigh) {
+	public void setHigh(Quantity newHigh) {
 		if (newHigh != high) {
 			NotificationChain msgs = null;
 			if (high != null)
@@ -205,10 +195,10 @@ public class RangeImpl extends ElementImpl implements Range {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.RANGE__LOW:
-				setLow((SimpleQuantity)newValue);
+				setLow((Quantity)newValue);
 				return;
 			case FhirPackage.RANGE__HIGH:
-				setHigh((SimpleQuantity)newValue);
+				setHigh((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,10 +213,10 @@ public class RangeImpl extends ElementImpl implements Range {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.RANGE__LOW:
-				setLow((SimpleQuantity)null);
+				setLow((Quantity)null);
 				return;
 			case FhirPackage.RANGE__HIGH:
-				setHigh((SimpleQuantity)null);
+				setHigh((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);

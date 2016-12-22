@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -19,17 +9,19 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Variation and Sequence data.
+ * Raw data describing a biological sequence.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.SequenceRepository#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceRepository#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceRepository#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.SequenceRepository#getVariantId <em>Variant Id</em>}</li>
- *   <li>{@link org.hl7.fhir.SequenceRepository#getReadId <em>Read Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceRepository#getDatasetId <em>Dataset Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceRepository#getVariantsetId <em>Variantset Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceRepository#getReadsetId <em>Readset Id</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequenceRepository()
@@ -37,6 +29,32 @@ package org.hl7.fhir;
  * @generated
  */
 public interface SequenceRepository extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Click and see / RESTful API / Need login to see / RESTful API with authentication / Other ways to see resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(RepositoryType)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RepositoryType getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(RepositoryType value);
+
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -90,55 +108,81 @@ public interface SequenceRepository extends BackboneElement {
 	void setName(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Variant Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dataset Id</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Id of the variation in this external repository.
+	 * Id of the variant in this external repository. The server will understand how to use this id to call for more info about datasets in external repository.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Variant Id</em>' containment reference.
-	 * @see #setVariantId(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_VariantId()
+	 * @return the value of the '<em>Dataset Id</em>' containment reference.
+	 * @see #setDatasetId(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_DatasetId()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='variantId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='datasetId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getVariantId();
+	org.hl7.fhir.String getDatasetId();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getVariantId <em>Variant Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getDatasetId <em>Dataset Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variant Id</em>' containment reference.
-	 * @see #getVariantId()
+	 * @param value the new value of the '<em>Dataset Id</em>' containment reference.
+	 * @see #getDatasetId()
 	 * @generated
 	 */
-	void setVariantId(org.hl7.fhir.String value);
+	void setDatasetId(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Read Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Variantset Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Id of the variantset in this external repository. The server will understand how to use this id to call for more info about variantsets in external repository.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Variantset Id</em>' containment reference.
+	 * @see #setVariantsetId(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_VariantsetId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='variantsetId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getVariantsetId();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getVariantsetId <em>Variantset Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variantset Id</em>' containment reference.
+	 * @see #getVariantsetId()
+	 * @generated
+	 */
+	void setVariantsetId(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Readset Id</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Id of the read in this external repository.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Read Id</em>' containment reference.
-	 * @see #setReadId(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_ReadId()
+	 * @return the value of the '<em>Readset Id</em>' containment reference.
+	 * @see #setReadsetId(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceRepository_ReadsetId()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='readId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='readsetId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getReadId();
+	org.hl7.fhir.String getReadsetId();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getReadId <em>Read Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceRepository#getReadsetId <em>Readset Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Read Id</em>' containment reference.
-	 * @see #getReadId()
+	 * @param value the new value of the '<em>Readset Id</em>' containment reference.
+	 * @see #getReadsetId()
 	 * @generated
 	 */
-	void setReadId(org.hl7.fhir.String value);
+	void setReadsetId(org.hl7.fhir.String value);
 
 } // SequenceRepository

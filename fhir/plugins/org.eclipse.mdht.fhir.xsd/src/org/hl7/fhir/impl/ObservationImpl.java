@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -110,14 +100,14 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	protected ObservationStatus status;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -468,42 +458,11 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCategory() {
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION__CATEGORY);
+		}
 		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -1556,7 +1515,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.OBSERVATION__CATEGORY:
-				return basicSetCategory(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.OBSERVATION__SUBJECT:
@@ -1704,7 +1663,8 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				setStatus((ObservationStatus)newValue);
 				return;
 			case FhirPackage.OBSERVATION__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.OBSERVATION__CODE:
 				setCode((CodeableConcept)newValue);
@@ -1810,7 +1770,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				setStatus((ObservationStatus)null);
 				return;
 			case FhirPackage.OBSERVATION__CATEGORY:
-				setCategory((CodeableConcept)null);
+				getCategory().clear();
 				return;
 			case FhirPackage.OBSERVATION__CODE:
 				setCode((CodeableConcept)null);
@@ -1910,7 +1870,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__STATUS:
 				return status != null;
 			case FhirPackage.OBSERVATION__CATEGORY:
-				return category != null;
+				return category != null && !category.isEmpty();
 			case FhirPackage.OBSERVATION__CODE:
 				return code != null;
 			case FhirPackage.OBSERVATION__SUBJECT:

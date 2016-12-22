@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,9 +18,12 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getSequenceLinkId <em>Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getRevenue <em>Revenue</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getFee <em>Fee</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getNoteNumberLinkId <em>Note Number Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getDetail <em>Detail</em>}</li>
  * </ul>
@@ -57,20 +50,72 @@ public interface ExplanationOfBenefitAddItem extends BackboneElement {
 	EList<PositiveInt> getSequenceLinkId();
 
 	/**
+	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of reveneu or cost center providing the product and/or service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Revenue</em>' containment reference.
+	 * @see #setRevenue(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_Revenue()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='revenue' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getRevenue();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getRevenue <em>Revenue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Revenue</em>' containment reference.
+	 * @see #getRevenue()
+	 * @generated
+	 */
+	void setRevenue(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCategory();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getCategory <em>Category</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
+	 * @generated
+	 */
+	void setCategory(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code to indicate the Professional Service or Product supplied.
+	 * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(Coding)
+	 * @see #setService(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_Service()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getService();
+	CodeableConcept getService();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitAddItem#getService <em>Service</em>}' containment reference.
@@ -80,14 +125,30 @@ public interface ExplanationOfBenefitAddItem extends BackboneElement {
 	 * @see #getService()
 	 * @generated
 	 */
-	void setService(Coding value);
+	void setService(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Modifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_Modifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='modifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getModifier();
 
 	/**
 	 * Returns the value of the '<em><b>Fee</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fee charged for the professional service or product..
+	 * The fee charged for the professional service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fee</em>' containment reference.
 	 * @see #setFee(Money)
@@ -109,24 +170,24 @@ public interface ExplanationOfBenefitAddItem extends BackboneElement {
 	void setFee(Money value);
 
 	/**
-	 * Returns the value of the '<em><b>Note Number Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Note Number</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of note references to the notes provided below.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note Number Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_NoteNumberLinkId()
+	 * @return the value of the '<em>Note Number</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitAddItem_NoteNumber()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='noteNumberLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='noteNumber' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getNoteNumberLinkId();
+	EList<PositiveInt> getNoteNumber();
 
 	/**
 	 * Returns the value of the '<em><b>Adjudication</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitAdjudication3}.
+	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitAdjudication}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -138,7 +199,7 @@ public interface ExplanationOfBenefitAddItem extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='adjudication' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ExplanationOfBenefitAdjudication3> getAdjudication();
+	EList<ExplanationOfBenefitAdjudication> getAdjudication();
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.

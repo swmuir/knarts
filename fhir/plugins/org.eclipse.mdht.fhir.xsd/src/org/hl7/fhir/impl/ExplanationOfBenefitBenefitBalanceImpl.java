@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitBenefitBalance;
 import org.hl7.fhir.ExplanationOfBenefitFinancial;
 import org.hl7.fhir.FhirPackage;
@@ -42,6 +32,9 @@ import org.hl7.fhir.FhirPackage;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getSubCategory <em>Sub Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getExcluded <em>Excluded</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getNetwork <em>Network</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getTerm <em>Term</em>}</li>
@@ -59,7 +52,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding category;
+	protected CodeableConcept category;
 
 	/**
 	 * The cached value of the '{@link #getSubCategory() <em>Sub Category</em>}' containment reference.
@@ -69,7 +62,37 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding subCategory;
+	protected CodeableConcept subCategory;
+
+	/**
+	 * The cached value of the '{@link #getExcluded() <em>Excluded</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcluded()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean excluded;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String name;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String description;
 
 	/**
 	 * The cached value of the '{@link #getNetwork() <em>Network</em>}' containment reference.
@@ -79,7 +102,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding network;
+	protected CodeableConcept network;
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
@@ -89,7 +112,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding unit;
+	protected CodeableConcept unit;
 
 	/**
 	 * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
@@ -99,7 +122,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding term;
+	protected CodeableConcept term;
 
 	/**
 	 * The cached value of the '{@link #getFinancial() <em>Financial</em>}' containment reference list.
@@ -135,7 +158,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCategory() {
+	public CodeableConcept getCategory() {
 		return category;
 	}
 
@@ -144,8 +167,8 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(Coding newCategory, NotificationChain msgs) {
-		Coding oldCategory = category;
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY, oldCategory, newCategory);
@@ -159,7 +182,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(Coding newCategory) {
+	public void setCategory(CodeableConcept newCategory) {
 		if (newCategory != category) {
 			NotificationChain msgs = null;
 			if (category != null)
@@ -178,7 +201,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getSubCategory() {
+	public CodeableConcept getSubCategory() {
 		return subCategory;
 	}
 
@@ -187,8 +210,8 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubCategory(Coding newSubCategory, NotificationChain msgs) {
-		Coding oldSubCategory = subCategory;
+	public NotificationChain basicSetSubCategory(CodeableConcept newSubCategory, NotificationChain msgs) {
+		CodeableConcept oldSubCategory = subCategory;
 		subCategory = newSubCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY, oldSubCategory, newSubCategory);
@@ -202,7 +225,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubCategory(Coding newSubCategory) {
+	public void setSubCategory(CodeableConcept newSubCategory) {
 		if (newSubCategory != subCategory) {
 			NotificationChain msgs = null;
 			if (subCategory != null)
@@ -221,7 +244,136 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getNetwork() {
+	public org.hl7.fhir.Boolean getExcluded() {
+		return excluded;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExcluded(org.hl7.fhir.Boolean newExcluded, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldExcluded = excluded;
+		excluded = newExcluded;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED, oldExcluded, newExcluded);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExcluded(org.hl7.fhir.Boolean newExcluded) {
+		if (newExcluded != excluded) {
+			NotificationChain msgs = null;
+			if (excluded != null)
+				msgs = ((InternalEObject)excluded).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED, null, msgs);
+			if (newExcluded != null)
+				msgs = ((InternalEObject)newExcluded).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED, null, msgs);
+			msgs = basicSetExcluded(newExcluded, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED, newExcluded, newExcluded));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME, oldName, newName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
+			NotificationChain msgs = null;
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
+		org.hl7.fhir.String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(org.hl7.fhir.String newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getNetwork() {
 		return network;
 	}
 
@@ -230,8 +382,8 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNetwork(Coding newNetwork, NotificationChain msgs) {
-		Coding oldNetwork = network;
+	public NotificationChain basicSetNetwork(CodeableConcept newNetwork, NotificationChain msgs) {
+		CodeableConcept oldNetwork = network;
 		network = newNetwork;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK, oldNetwork, newNetwork);
@@ -245,7 +397,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNetwork(Coding newNetwork) {
+	public void setNetwork(CodeableConcept newNetwork) {
 		if (newNetwork != network) {
 			NotificationChain msgs = null;
 			if (network != null)
@@ -264,7 +416,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getUnit() {
+	public CodeableConcept getUnit() {
 		return unit;
 	}
 
@@ -273,8 +425,8 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUnit(Coding newUnit, NotificationChain msgs) {
-		Coding oldUnit = unit;
+	public NotificationChain basicSetUnit(CodeableConcept newUnit, NotificationChain msgs) {
+		CodeableConcept oldUnit = unit;
 		unit = newUnit;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT, oldUnit, newUnit);
@@ -288,7 +440,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(Coding newUnit) {
+	public void setUnit(CodeableConcept newUnit) {
 		if (newUnit != unit) {
 			NotificationChain msgs = null;
 			if (unit != null)
@@ -307,7 +459,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getTerm() {
+	public CodeableConcept getTerm() {
 		return term;
 	}
 
@@ -316,8 +468,8 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTerm(Coding newTerm, NotificationChain msgs) {
-		Coding oldTerm = term;
+	public NotificationChain basicSetTerm(CodeableConcept newTerm, NotificationChain msgs) {
+		CodeableConcept oldTerm = term;
 		term = newTerm;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__TERM, oldTerm, newTerm);
@@ -331,7 +483,7 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTerm(Coding newTerm) {
+	public void setTerm(CodeableConcept newTerm) {
 		if (newTerm != term) {
 			NotificationChain msgs = null;
 			if (term != null)
@@ -369,6 +521,12 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 				return basicSetCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
 				return basicSetSubCategory(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
+				return basicSetExcluded(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
+				return basicSetName(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK:
 				return basicSetNetwork(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT:
@@ -393,6 +551,12 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 				return getCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
 				return getSubCategory();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
+				return getExcluded();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
+				return getName();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION:
+				return getDescription();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK:
 				return getNetwork();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT:
@@ -415,19 +579,28 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
-				setCategory((Coding)newValue);
+				setCategory((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				setSubCategory((Coding)newValue);
+				setSubCategory((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
+				setExcluded((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
+				setName((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK:
-				setNetwork((Coding)newValue);
+				setNetwork((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT:
-				setUnit((Coding)newValue);
+				setUnit((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__TERM:
-				setTerm((Coding)newValue);
+				setTerm((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__FINANCIAL:
 				getFinancial().clear();
@@ -446,19 +619,28 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
-				setCategory((Coding)null);
+				setCategory((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				setSubCategory((Coding)null);
+				setSubCategory((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
+				setExcluded((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
+				setName((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK:
-				setNetwork((Coding)null);
+				setNetwork((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT:
-				setUnit((Coding)null);
+				setUnit((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__TERM:
-				setTerm((Coding)null);
+				setTerm((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__FINANCIAL:
 				getFinancial().clear();
@@ -479,6 +661,12 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 				return category != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
 				return subCategory != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
+				return excluded != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
+				return name != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__DESCRIPTION:
+				return description != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NETWORK:
 				return network != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__UNIT:

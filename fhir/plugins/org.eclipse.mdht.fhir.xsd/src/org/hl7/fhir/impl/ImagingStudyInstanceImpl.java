@@ -1,33 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.hl7.fhir.Attachment;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImagingStudyInstance;
 import org.hl7.fhir.Oid;
@@ -44,9 +26,7 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getSopClass <em>Sop Class</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyInstanceImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,16 +63,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	protected Oid sopClass;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String type;
-
-	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,16 +71,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String title;
-
-	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attachment> content;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,49 +225,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(org.hl7.fhir.String newType, NotificationChain msgs) {
-		org.hl7.fhir.String oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(org.hl7.fhir.String newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_INSTANCE__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_INSTANCE__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -351,18 +268,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Attachment> getContent() {
-		if (content == null) {
-			content = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT);
-		}
-		return content;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -372,12 +277,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 				return basicSetNumber(null, msgs);
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return basicSetSopClass(null, msgs);
-			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
-				return basicSetType(null, msgs);
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TITLE:
 				return basicSetTitle(null, msgs);
-			case FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT:
-				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -396,12 +297,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 				return getNumber();
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return getSopClass();
-			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
-				return getType();
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TITLE:
 				return getTitle();
-			case FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT:
-				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -411,7 +308,6 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -424,15 +320,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				setSopClass((Oid)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
-				setType((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT:
-				getContent().clear();
-				getContent().addAll((Collection<? extends Attachment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,14 +344,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				setSopClass((Oid)null);
 				return;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
-				setType((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TITLE:
 				setTitle((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT:
-				getContent().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -482,12 +365,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 				return number != null;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__SOP_CLASS:
 				return sopClass != null;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__TYPE:
-				return type != null;
 			case FhirPackage.IMAGING_STUDY_INSTANCE__TITLE:
 				return title != null;
-			case FhirPackage.IMAGING_STUDY_INSTANCE__CONTENT:
-				return content != null && !content.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

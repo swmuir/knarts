@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,19 +17,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Address;
 import org.hl7.fhir.Claim;
-import org.hl7.fhir.ClaimCoverage;
+import org.hl7.fhir.ClaimAccident;
+import org.hl7.fhir.ClaimCareTeam;
 import org.hl7.fhir.ClaimDiagnosis;
+import org.hl7.fhir.ClaimInformation;
+import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
-import org.hl7.fhir.ClaimMissingTeeth;
-import org.hl7.fhir.ClaimOnset;
 import org.hl7.fhir.ClaimPayee;
 import org.hl7.fhir.ClaimProcedure;
 import org.hl7.fhir.ClaimRelated;
-import org.hl7.fhir.ClaimType;
-import org.hl7.fhir.Coding;
-import org.hl7.fhir.Date;
+import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -56,80 +45,41 @@ import org.hl7.fhir.Use;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getBillablePeriod <em>Billable Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTargetIdentifier <em>Target Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTargetReference <em>Target Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOrganizationReference <em>Organization Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getUse <em>Use</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getBillablePeriod <em>Billable Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEnterer <em>Enterer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInsurer <em>Insurer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFundsReserve <em>Funds Reserve</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEntererIdentifier <em>Enterer Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEntererReference <em>Enterer Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFacilityIdentifier <em>Facility Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFacilityReference <em>Facility Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getRelated <em>Related</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPrescriptionIdentifier <em>Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPrescriptionReference <em>Prescription Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalPrescriptionIdentifier <em>Original Prescription Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalPrescriptionReference <em>Original Prescription Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPrescription <em>Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOriginalPrescription <em>Original Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPayee <em>Payee</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getReferralIdentifier <em>Referral Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getReferralReference <em>Referral Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOccurrenceCode <em>Occurrence Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOccurenceSpanCode <em>Occurence Span Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getValueCode <em>Value Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getReferral <em>Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFacility <em>Facility</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCareTeam <em>Care Team</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInformation <em>Information</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getSpecialCondition <em>Special Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPatientIdentifier <em>Patient Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPatientReference <em>Patient Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentDate <em>Accident Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentType <em>Accident Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentLocationAddress <em>Accident Location Address</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccidentLocationReference <em>Accident Location Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInterventionException <em>Intervention Exception</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOnset <em>Onset</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInsurance <em>Insurance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccident <em>Accident</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEmploymentImpacted <em>Employment Impacted</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTotal <em>Total</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAdditionalMaterial <em>Additional Material</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getMissingTeeth <em>Missing Teeth</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ClaimImpl extends DomainResourceImpl implements Claim {
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected ClaimType type;
-
-	/**
-	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> subType;
-
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -141,104 +91,34 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding ruleset;
+	protected Code status;
 
 	/**
-	 * The cached value of the '{@link #getOriginalRuleset() <em>Original Ruleset</em>}' containment reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOriginalRuleset()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding originalRuleset;
+	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
+	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getSubType()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime created;
-
-	/**
-	 * The cached value of the '{@link #getBillablePeriod() <em>Billable Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBillablePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period billablePeriod;
-
-	/**
-	 * The cached value of the '{@link #getTargetIdentifier() <em>Target Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier targetIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getTargetReference() <em>Target Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference targetReference;
-
-	/**
-	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier providerIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProviderReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference providerReference;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier organizationIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organizationReference;
+	protected EList<CodeableConcept> subType;
 
 	/**
 	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
@@ -251,6 +131,76 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected Use use;
 
 	/**
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference patient;
+
+	/**
+	 * The cached value of the '{@link #getBillablePeriod() <em>Billable Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBillablePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period billablePeriod;
+
+	/**
+	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreated()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime created;
+
+	/**
+	 * The cached value of the '{@link #getEnterer() <em>Enterer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnterer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference enterer;
+
+	/**
+	 * The cached value of the '{@link #getInsurer() <em>Insurer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference insurer;
+
+	/**
+	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvider()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference provider;
+
+	/**
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrganization()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference organization;
+
+	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,7 +208,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding priority;
+	protected CodeableConcept priority;
 
 	/**
 	 * The cached value of the '{@link #getFundsReserve() <em>Funds Reserve</em>}' containment reference.
@@ -268,47 +218,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding fundsReserve;
-
-	/**
-	 * The cached value of the '{@link #getEntererIdentifier() <em>Enterer Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntererIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier entererIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getEntererReference() <em>Enterer Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntererReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference entererReference;
-
-	/**
-	 * The cached value of the '{@link #getFacilityIdentifier() <em>Facility Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacilityIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier facilityIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getFacilityReference() <em>Facility Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacilityReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference facilityReference;
+	protected CodeableConcept fundsReserve;
 
 	/**
 	 * The cached value of the '{@link #getRelated() <em>Related</em>}' containment reference list.
@@ -321,44 +231,24 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<ClaimRelated> related;
 
 	/**
-	 * The cached value of the '{@link #getPrescriptionIdentifier() <em>Prescription Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrescriptionIdentifier()
+	 * @see #getPrescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier prescriptionIdentifier;
+	protected Reference prescription;
 
 	/**
-	 * The cached value of the '{@link #getPrescriptionReference() <em>Prescription Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getOriginalPrescription() <em>Original Prescription</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrescriptionReference()
+	 * @see #getOriginalPrescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference prescriptionReference;
-
-	/**
-	 * The cached value of the '{@link #getOriginalPrescriptionIdentifier() <em>Original Prescription Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalPrescriptionIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier originalPrescriptionIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getOriginalPrescriptionReference() <em>Original Prescription Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalPrescriptionReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference originalPrescriptionReference;
+	protected Reference originalPrescription;
 
 	/**
 	 * The cached value of the '{@link #getPayee() <em>Payee</em>}' containment reference.
@@ -371,54 +261,44 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected ClaimPayee payee;
 
 	/**
-	 * The cached value of the '{@link #getReferralIdentifier() <em>Referral Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getReferral() <em>Referral</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferralIdentifier()
+	 * @see #getReferral()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier referralIdentifier;
+	protected Reference referral;
 
 	/**
-	 * The cached value of the '{@link #getReferralReference() <em>Referral Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getFacility() <em>Facility</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferralReference()
+	 * @see #getFacility()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference referralReference;
+	protected Reference facility;
 
 	/**
-	 * The cached value of the '{@link #getOccurrenceCode() <em>Occurrence Code</em>}' containment reference list.
+	 * The cached value of the '{@link #getCareTeam() <em>Care Team</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOccurrenceCode()
+	 * @see #getCareTeam()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> occurrenceCode;
+	protected EList<ClaimCareTeam> careTeam;
 
 	/**
-	 * The cached value of the '{@link #getOccurenceSpanCode() <em>Occurence Span Code</em>}' containment reference list.
+	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOccurenceSpanCode()
+	 * @see #getInformation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> occurenceSpanCode;
-
-	/**
-	 * The cached value of the '{@link #getValueCode() <em>Value Code</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> valueCode;
+	protected EList<ClaimInformation> information;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
@@ -441,104 +321,24 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<ClaimProcedure> procedure;
 
 	/**
-	 * The cached value of the '{@link #getSpecialCondition() <em>Special Condition</em>}' containment reference list.
+	 * The cached value of the '{@link #getInsurance() <em>Insurance</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecialCondition()
+	 * @see #getInsurance()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> specialCondition;
+	protected EList<ClaimInsurance> insurance;
 
 	/**
-	 * The cached value of the '{@link #getPatientIdentifier() <em>Patient Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getAccident() <em>Accident</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPatientIdentifier()
+	 * @see #getAccident()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier patientIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getPatientReference() <em>Patient Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatientReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference patientReference;
-
-	/**
-	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCoverage()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ClaimCoverage> coverage;
-
-	/**
-	 * The cached value of the '{@link #getAccidentDate() <em>Accident Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccidentDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date accidentDate;
-
-	/**
-	 * The cached value of the '{@link #getAccidentType() <em>Accident Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccidentType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding accidentType;
-
-	/**
-	 * The cached value of the '{@link #getAccidentLocationAddress() <em>Accident Location Address</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccidentLocationAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected Address accidentLocationAddress;
-
-	/**
-	 * The cached value of the '{@link #getAccidentLocationReference() <em>Accident Location Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccidentLocationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference accidentLocationReference;
-
-	/**
-	 * The cached value of the '{@link #getInterventionException() <em>Intervention Exception</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterventionException()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> interventionException;
-
-	/**
-	 * The cached value of the '{@link #getOnset() <em>Onset</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnset()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ClaimOnset> onset;
+	protected ClaimAccident accident;
 
 	/**
 	 * The cached value of the '{@link #getEmploymentImpacted() <em>Employment Impacted</em>}' containment reference.
@@ -581,26 +381,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected Money total;
 
 	/**
-	 * The cached value of the '{@link #getAdditionalMaterial() <em>Additional Material</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAdditionalMaterial()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> additionalMaterial;
-
-	/**
-	 * The cached value of the '{@link #getMissingTeeth() <em>Missing Teeth</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMissingTeeth()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ClaimMissingTeeth> missingTeeth;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -624,7 +404,62 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClaimType getType() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CLAIM__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Code getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -633,8 +468,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(ClaimType newType, NotificationChain msgs) {
-		ClaimType oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TYPE, oldType, newType);
@@ -648,7 +483,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ClaimType newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -667,453 +502,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getSubType() {
+	public EList<CodeableConcept> getSubType() {
 		if (subType == null) {
-			subType = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__SUB_TYPE);
+			subType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM__SUB_TYPE);
 		}
 		return subType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CLAIM__IDENTIFIER);
-		}
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getRuleset() {
-		return ruleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleset(Coding newRuleset, NotificationChain msgs) {
-		Coding oldRuleset = ruleset;
-		ruleset = newRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__RULESET, oldRuleset, newRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRuleset(Coding newRuleset) {
-		if (newRuleset != ruleset) {
-			NotificationChain msgs = null;
-			if (ruleset != null)
-				msgs = ((InternalEObject)ruleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__RULESET, null, msgs);
-			if (newRuleset != null)
-				msgs = ((InternalEObject)newRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__RULESET, null, msgs);
-			msgs = basicSetRuleset(newRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__RULESET, newRuleset, newRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getOriginalRuleset() {
-		return originalRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalRuleset(Coding newOriginalRuleset, NotificationChain msgs) {
-		Coding oldOriginalRuleset = originalRuleset;
-		originalRuleset = newOriginalRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_RULESET, oldOriginalRuleset, newOriginalRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalRuleset(Coding newOriginalRuleset) {
-		if (newOriginalRuleset != originalRuleset) {
-			NotificationChain msgs = null;
-			if (originalRuleset != null)
-				msgs = ((InternalEObject)originalRuleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_RULESET, null, msgs);
-			if (newOriginalRuleset != null)
-				msgs = ((InternalEObject)newOriginalRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_RULESET, null, msgs);
-			msgs = basicSetOriginalRuleset(newOriginalRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_RULESET, newOriginalRuleset, newOriginalRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getCreated() {
-		return created;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
-		DateTime oldCreated = created;
-		created = newCreated;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__CREATED, oldCreated, newCreated);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreated(DateTime newCreated) {
-		if (newCreated != created) {
-			NotificationChain msgs = null;
-			if (created != null)
-				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__CREATED, null, msgs);
-			if (newCreated != null)
-				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__CREATED, null, msgs);
-			msgs = basicSetCreated(newCreated, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__CREATED, newCreated, newCreated));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getBillablePeriod() {
-		return billablePeriod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBillablePeriod(Period newBillablePeriod, NotificationChain msgs) {
-		Period oldBillablePeriod = billablePeriod;
-		billablePeriod = newBillablePeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, oldBillablePeriod, newBillablePeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBillablePeriod(Period newBillablePeriod) {
-		if (newBillablePeriod != billablePeriod) {
-			NotificationChain msgs = null;
-			if (billablePeriod != null)
-				msgs = ((InternalEObject)billablePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
-			if (newBillablePeriod != null)
-				msgs = ((InternalEObject)newBillablePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
-			msgs = basicSetBillablePeriod(newBillablePeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, newBillablePeriod, newBillablePeriod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getTargetIdentifier() {
-		return targetIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetIdentifier(Identifier newTargetIdentifier, NotificationChain msgs) {
-		Identifier oldTargetIdentifier = targetIdentifier;
-		targetIdentifier = newTargetIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TARGET_IDENTIFIER, oldTargetIdentifier, newTargetIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetIdentifier(Identifier newTargetIdentifier) {
-		if (newTargetIdentifier != targetIdentifier) {
-			NotificationChain msgs = null;
-			if (targetIdentifier != null)
-				msgs = ((InternalEObject)targetIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TARGET_IDENTIFIER, null, msgs);
-			if (newTargetIdentifier != null)
-				msgs = ((InternalEObject)newTargetIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TARGET_IDENTIFIER, null, msgs);
-			msgs = basicSetTargetIdentifier(newTargetIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TARGET_IDENTIFIER, newTargetIdentifier, newTargetIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getTargetReference() {
-		return targetReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetReference(Reference newTargetReference, NotificationChain msgs) {
-		Reference oldTargetReference = targetReference;
-		targetReference = newTargetReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TARGET_REFERENCE, oldTargetReference, newTargetReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetReference(Reference newTargetReference) {
-		if (newTargetReference != targetReference) {
-			NotificationChain msgs = null;
-			if (targetReference != null)
-				msgs = ((InternalEObject)targetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TARGET_REFERENCE, null, msgs);
-			if (newTargetReference != null)
-				msgs = ((InternalEObject)newTargetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__TARGET_REFERENCE, null, msgs);
-			msgs = basicSetTargetReference(newTargetReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__TARGET_REFERENCE, newTargetReference, newTargetReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getProviderIdentifier() {
-		return providerIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
-		Identifier oldProviderIdentifier = providerIdentifier;
-		providerIdentifier = newProviderIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderIdentifier(Identifier newProviderIdentifier) {
-		if (newProviderIdentifier != providerIdentifier) {
-			NotificationChain msgs = null;
-			if (providerIdentifier != null)
-				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER_IDENTIFIER, null, msgs);
-			if (newProviderIdentifier != null)
-				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER_IDENTIFIER, null, msgs);
-			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getProviderReference() {
-		return providerReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
-		Reference oldProviderReference = providerReference;
-		providerReference = newProviderReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProviderReference(Reference newProviderReference) {
-		if (newProviderReference != providerReference) {
-			NotificationChain msgs = null;
-			if (providerReference != null)
-				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER_REFERENCE, null, msgs);
-			if (newProviderReference != null)
-				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER_REFERENCE, null, msgs);
-			msgs = basicSetProviderReference(newProviderReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getOrganizationIdentifier() {
-		return organizationIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
-		Identifier oldOrganizationIdentifier = organizationIdentifier;
-		organizationIdentifier = newOrganizationIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
-		if (newOrganizationIdentifier != organizationIdentifier) {
-			NotificationChain msgs = null;
-			if (organizationIdentifier != null)
-				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER, null, msgs);
-			if (newOrganizationIdentifier != null)
-				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER, null, msgs);
-			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrganizationReference() {
-		return organizationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
-		Reference oldOrganizationReference = organizationReference;
-		organizationReference = newOrganizationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationReference(Reference newOrganizationReference) {
-		if (newOrganizationReference != organizationReference) {
-			NotificationChain msgs = null;
-			if (organizationReference != null)
-				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION_REFERENCE, null, msgs);
-			if (newOrganizationReference != null)
-				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION_REFERENCE, null, msgs);
-			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
 	}
 
 	/**
@@ -1164,7 +557,308 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getPriority() {
+	public Reference getPatient() {
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT, oldPatient, newPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
+			NotificationChain msgs = null;
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT, newPatient, newPatient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getBillablePeriod() {
+		return billablePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBillablePeriod(Period newBillablePeriod, NotificationChain msgs) {
+		Period oldBillablePeriod = billablePeriod;
+		billablePeriod = newBillablePeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, oldBillablePeriod, newBillablePeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBillablePeriod(Period newBillablePeriod) {
+		if (newBillablePeriod != billablePeriod) {
+			NotificationChain msgs = null;
+			if (billablePeriod != null)
+				msgs = ((InternalEObject)billablePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
+			if (newBillablePeriod != null)
+				msgs = ((InternalEObject)newBillablePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__BILLABLE_PERIOD, null, msgs);
+			msgs = basicSetBillablePeriod(newBillablePeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__BILLABLE_PERIOD, newBillablePeriod, newBillablePeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getCreated() {
+		return created;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
+		DateTime oldCreated = created;
+		created = newCreated;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__CREATED, oldCreated, newCreated);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCreated(DateTime newCreated) {
+		if (newCreated != created) {
+			NotificationChain msgs = null;
+			if (created != null)
+				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__CREATED, null, msgs);
+			if (newCreated != null)
+				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__CREATED, null, msgs);
+			msgs = basicSetCreated(newCreated, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__CREATED, newCreated, newCreated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getEnterer() {
+		return enterer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEnterer(Reference newEnterer, NotificationChain msgs) {
+		Reference oldEnterer = enterer;
+		enterer = newEnterer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER, oldEnterer, newEnterer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnterer(Reference newEnterer) {
+		if (newEnterer != enterer) {
+			NotificationChain msgs = null;
+			if (enterer != null)
+				msgs = ((InternalEObject)enterer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER, null, msgs);
+			if (newEnterer != null)
+				msgs = ((InternalEObject)newEnterer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER, null, msgs);
+			msgs = basicSetEnterer(newEnterer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER, newEnterer, newEnterer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getInsurer() {
+		return insurer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInsurer(Reference newInsurer, NotificationChain msgs) {
+		Reference oldInsurer = insurer;
+		insurer = newInsurer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__INSURER, oldInsurer, newInsurer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInsurer(Reference newInsurer) {
+		if (newInsurer != insurer) {
+			NotificationChain msgs = null;
+			if (insurer != null)
+				msgs = ((InternalEObject)insurer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__INSURER, null, msgs);
+			if (newInsurer != null)
+				msgs = ((InternalEObject)newInsurer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__INSURER, null, msgs);
+			msgs = basicSetInsurer(newInsurer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__INSURER, newInsurer, newInsurer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getProvider() {
+		return provider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProvider(Reference newProvider, NotificationChain msgs) {
+		Reference oldProvider = provider;
+		provider = newProvider;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER, oldProvider, newProvider);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProvider(Reference newProvider) {
+		if (newProvider != provider) {
+			NotificationChain msgs = null;
+			if (provider != null)
+				msgs = ((InternalEObject)provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER, null, msgs);
+			if (newProvider != null)
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PROVIDER, null, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER, newProvider, newProvider));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getOrganization() {
+		return organization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
+		Reference oldOrganization = organization;
+		organization = newOrganization;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION, oldOrganization, newOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrganization(Reference newOrganization) {
+		if (newOrganization != organization) {
+			NotificationChain msgs = null;
+			if (organization != null)
+				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION, null, msgs);
+			msgs = basicSetOrganization(newOrganization, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION, newOrganization, newOrganization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getPriority() {
 		return priority;
 	}
 
@@ -1173,8 +867,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(Coding newPriority, NotificationChain msgs) {
-		Coding oldPriority = priority;
+	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
+		CodeableConcept oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRIORITY, oldPriority, newPriority);
@@ -1188,7 +882,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(Coding newPriority) {
+	public void setPriority(CodeableConcept newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -1207,7 +901,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getFundsReserve() {
+	public CodeableConcept getFundsReserve() {
 		return fundsReserve;
 	}
 
@@ -1216,8 +910,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFundsReserve(Coding newFundsReserve, NotificationChain msgs) {
-		Coding oldFundsReserve = fundsReserve;
+	public NotificationChain basicSetFundsReserve(CodeableConcept newFundsReserve, NotificationChain msgs) {
+		CodeableConcept oldFundsReserve = fundsReserve;
 		fundsReserve = newFundsReserve;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FUNDS_RESERVE, oldFundsReserve, newFundsReserve);
@@ -1231,7 +925,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFundsReserve(Coding newFundsReserve) {
+	public void setFundsReserve(CodeableConcept newFundsReserve) {
 		if (newFundsReserve != fundsReserve) {
 			NotificationChain msgs = null;
 			if (fundsReserve != null)
@@ -1243,178 +937,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FUNDS_RESERVE, newFundsReserve, newFundsReserve));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getEntererIdentifier() {
-		return entererIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEntererIdentifier(Identifier newEntererIdentifier, NotificationChain msgs) {
-		Identifier oldEntererIdentifier = entererIdentifier;
-		entererIdentifier = newEntererIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER_IDENTIFIER, oldEntererIdentifier, newEntererIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntererIdentifier(Identifier newEntererIdentifier) {
-		if (newEntererIdentifier != entererIdentifier) {
-			NotificationChain msgs = null;
-			if (entererIdentifier != null)
-				msgs = ((InternalEObject)entererIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER_IDENTIFIER, null, msgs);
-			if (newEntererIdentifier != null)
-				msgs = ((InternalEObject)newEntererIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER_IDENTIFIER, null, msgs);
-			msgs = basicSetEntererIdentifier(newEntererIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER_IDENTIFIER, newEntererIdentifier, newEntererIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getEntererReference() {
-		return entererReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEntererReference(Reference newEntererReference, NotificationChain msgs) {
-		Reference oldEntererReference = entererReference;
-		entererReference = newEntererReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER_REFERENCE, oldEntererReference, newEntererReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntererReference(Reference newEntererReference) {
-		if (newEntererReference != entererReference) {
-			NotificationChain msgs = null;
-			if (entererReference != null)
-				msgs = ((InternalEObject)entererReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER_REFERENCE, null, msgs);
-			if (newEntererReference != null)
-				msgs = ((InternalEObject)newEntererReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ENTERER_REFERENCE, null, msgs);
-			msgs = basicSetEntererReference(newEntererReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ENTERER_REFERENCE, newEntererReference, newEntererReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getFacilityIdentifier() {
-		return facilityIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFacilityIdentifier(Identifier newFacilityIdentifier, NotificationChain msgs) {
-		Identifier oldFacilityIdentifier = facilityIdentifier;
-		facilityIdentifier = newFacilityIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY_IDENTIFIER, oldFacilityIdentifier, newFacilityIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFacilityIdentifier(Identifier newFacilityIdentifier) {
-		if (newFacilityIdentifier != facilityIdentifier) {
-			NotificationChain msgs = null;
-			if (facilityIdentifier != null)
-				msgs = ((InternalEObject)facilityIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY_IDENTIFIER, null, msgs);
-			if (newFacilityIdentifier != null)
-				msgs = ((InternalEObject)newFacilityIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY_IDENTIFIER, null, msgs);
-			msgs = basicSetFacilityIdentifier(newFacilityIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY_IDENTIFIER, newFacilityIdentifier, newFacilityIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getFacilityReference() {
-		return facilityReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFacilityReference(Reference newFacilityReference, NotificationChain msgs) {
-		Reference oldFacilityReference = facilityReference;
-		facilityReference = newFacilityReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY_REFERENCE, oldFacilityReference, newFacilityReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFacilityReference(Reference newFacilityReference) {
-		if (newFacilityReference != facilityReference) {
-			NotificationChain msgs = null;
-			if (facilityReference != null)
-				msgs = ((InternalEObject)facilityReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY_REFERENCE, null, msgs);
-			if (newFacilityReference != null)
-				msgs = ((InternalEObject)newFacilityReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY_REFERENCE, null, msgs);
-			msgs = basicSetFacilityReference(newFacilityReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY_REFERENCE, newFacilityReference, newFacilityReference));
 	}
 
 	/**
@@ -1434,8 +956,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getPrescriptionIdentifier() {
-		return prescriptionIdentifier;
+	public Reference getPrescription() {
+		return prescription;
 	}
 
 	/**
@@ -1443,11 +965,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrescriptionIdentifier(Identifier newPrescriptionIdentifier, NotificationChain msgs) {
-		Identifier oldPrescriptionIdentifier = prescriptionIdentifier;
-		prescriptionIdentifier = newPrescriptionIdentifier;
+	public NotificationChain basicSetPrescription(Reference newPrescription, NotificationChain msgs) {
+		Reference oldPrescription = prescription;
+		prescription = newPrescription;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER, oldPrescriptionIdentifier, newPrescriptionIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION, oldPrescription, newPrescription);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1458,18 +980,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrescriptionIdentifier(Identifier newPrescriptionIdentifier) {
-		if (newPrescriptionIdentifier != prescriptionIdentifier) {
+	public void setPrescription(Reference newPrescription) {
+		if (newPrescription != prescription) {
 			NotificationChain msgs = null;
-			if (prescriptionIdentifier != null)
-				msgs = ((InternalEObject)prescriptionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER, null, msgs);
-			if (newPrescriptionIdentifier != null)
-				msgs = ((InternalEObject)newPrescriptionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER, null, msgs);
-			msgs = basicSetPrescriptionIdentifier(newPrescriptionIdentifier, msgs);
+			if (prescription != null)
+				msgs = ((InternalEObject)prescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION, null, msgs);
+			if (newPrescription != null)
+				msgs = ((InternalEObject)newPrescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION, null, msgs);
+			msgs = basicSetPrescription(newPrescription, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER, newPrescriptionIdentifier, newPrescriptionIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION, newPrescription, newPrescription));
 	}
 
 	/**
@@ -1477,8 +999,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPrescriptionReference() {
-		return prescriptionReference;
+	public Reference getOriginalPrescription() {
+		return originalPrescription;
 	}
 
 	/**
@@ -1486,11 +1008,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrescriptionReference(Reference newPrescriptionReference, NotificationChain msgs) {
-		Reference oldPrescriptionReference = prescriptionReference;
-		prescriptionReference = newPrescriptionReference;
+	public NotificationChain basicSetOriginalPrescription(Reference newOriginalPrescription, NotificationChain msgs) {
+		Reference oldOriginalPrescription = originalPrescription;
+		originalPrescription = newOriginalPrescription;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION_REFERENCE, oldPrescriptionReference, newPrescriptionReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION, oldOriginalPrescription, newOriginalPrescription);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1501,104 +1023,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrescriptionReference(Reference newPrescriptionReference) {
-		if (newPrescriptionReference != prescriptionReference) {
+	public void setOriginalPrescription(Reference newOriginalPrescription) {
+		if (newOriginalPrescription != originalPrescription) {
 			NotificationChain msgs = null;
-			if (prescriptionReference != null)
-				msgs = ((InternalEObject)prescriptionReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION_REFERENCE, null, msgs);
-			if (newPrescriptionReference != null)
-				msgs = ((InternalEObject)newPrescriptionReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PRESCRIPTION_REFERENCE, null, msgs);
-			msgs = basicSetPrescriptionReference(newPrescriptionReference, msgs);
+			if (originalPrescription != null)
+				msgs = ((InternalEObject)originalPrescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION, null, msgs);
+			if (newOriginalPrescription != null)
+				msgs = ((InternalEObject)newOriginalPrescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION, null, msgs);
+			msgs = basicSetOriginalPrescription(newOriginalPrescription, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PRESCRIPTION_REFERENCE, newPrescriptionReference, newPrescriptionReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getOriginalPrescriptionIdentifier() {
-		return originalPrescriptionIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalPrescriptionIdentifier(Identifier newOriginalPrescriptionIdentifier, NotificationChain msgs) {
-		Identifier oldOriginalPrescriptionIdentifier = originalPrescriptionIdentifier;
-		originalPrescriptionIdentifier = newOriginalPrescriptionIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER, oldOriginalPrescriptionIdentifier, newOriginalPrescriptionIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalPrescriptionIdentifier(Identifier newOriginalPrescriptionIdentifier) {
-		if (newOriginalPrescriptionIdentifier != originalPrescriptionIdentifier) {
-			NotificationChain msgs = null;
-			if (originalPrescriptionIdentifier != null)
-				msgs = ((InternalEObject)originalPrescriptionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER, null, msgs);
-			if (newOriginalPrescriptionIdentifier != null)
-				msgs = ((InternalEObject)newOriginalPrescriptionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER, null, msgs);
-			msgs = basicSetOriginalPrescriptionIdentifier(newOriginalPrescriptionIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER, newOriginalPrescriptionIdentifier, newOriginalPrescriptionIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOriginalPrescriptionReference() {
-		return originalPrescriptionReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalPrescriptionReference(Reference newOriginalPrescriptionReference, NotificationChain msgs) {
-		Reference oldOriginalPrescriptionReference = originalPrescriptionReference;
-		originalPrescriptionReference = newOriginalPrescriptionReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE, oldOriginalPrescriptionReference, newOriginalPrescriptionReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalPrescriptionReference(Reference newOriginalPrescriptionReference) {
-		if (newOriginalPrescriptionReference != originalPrescriptionReference) {
-			NotificationChain msgs = null;
-			if (originalPrescriptionReference != null)
-				msgs = ((InternalEObject)originalPrescriptionReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE, null, msgs);
-			if (newOriginalPrescriptionReference != null)
-				msgs = ((InternalEObject)newOriginalPrescriptionReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE, null, msgs);
-			msgs = basicSetOriginalPrescriptionReference(newOriginalPrescriptionReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE, newOriginalPrescriptionReference, newOriginalPrescriptionReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION, newOriginalPrescription, newOriginalPrescription));
 	}
 
 	/**
@@ -1649,8 +1085,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getReferralIdentifier() {
-		return referralIdentifier;
+	public Reference getReferral() {
+		return referral;
 	}
 
 	/**
@@ -1658,11 +1094,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReferralIdentifier(Identifier newReferralIdentifier, NotificationChain msgs) {
-		Identifier oldReferralIdentifier = referralIdentifier;
-		referralIdentifier = newReferralIdentifier;
+	public NotificationChain basicSetReferral(Reference newReferral, NotificationChain msgs) {
+		Reference oldReferral = referral;
+		referral = newReferral;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL_IDENTIFIER, oldReferralIdentifier, newReferralIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL, oldReferral, newReferral);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1673,18 +1109,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReferralIdentifier(Identifier newReferralIdentifier) {
-		if (newReferralIdentifier != referralIdentifier) {
+	public void setReferral(Reference newReferral) {
+		if (newReferral != referral) {
 			NotificationChain msgs = null;
-			if (referralIdentifier != null)
-				msgs = ((InternalEObject)referralIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL_IDENTIFIER, null, msgs);
-			if (newReferralIdentifier != null)
-				msgs = ((InternalEObject)newReferralIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL_IDENTIFIER, null, msgs);
-			msgs = basicSetReferralIdentifier(newReferralIdentifier, msgs);
+			if (referral != null)
+				msgs = ((InternalEObject)referral).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL, null, msgs);
+			if (newReferral != null)
+				msgs = ((InternalEObject)newReferral).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL, null, msgs);
+			msgs = basicSetReferral(newReferral, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL_IDENTIFIER, newReferralIdentifier, newReferralIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL, newReferral, newReferral));
 	}
 
 	/**
@@ -1692,8 +1128,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getReferralReference() {
-		return referralReference;
+	public Reference getFacility() {
+		return facility;
 	}
 
 	/**
@@ -1701,11 +1137,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReferralReference(Reference newReferralReference, NotificationChain msgs) {
-		Reference oldReferralReference = referralReference;
-		referralReference = newReferralReference;
+	public NotificationChain basicSetFacility(Reference newFacility, NotificationChain msgs) {
+		Reference oldFacility = facility;
+		facility = newFacility;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL_REFERENCE, oldReferralReference, newReferralReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY, oldFacility, newFacility);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1716,18 +1152,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReferralReference(Reference newReferralReference) {
-		if (newReferralReference != referralReference) {
+	public void setFacility(Reference newFacility) {
+		if (newFacility != facility) {
 			NotificationChain msgs = null;
-			if (referralReference != null)
-				msgs = ((InternalEObject)referralReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL_REFERENCE, null, msgs);
-			if (newReferralReference != null)
-				msgs = ((InternalEObject)newReferralReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__REFERRAL_REFERENCE, null, msgs);
-			msgs = basicSetReferralReference(newReferralReference, msgs);
+			if (facility != null)
+				msgs = ((InternalEObject)facility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY, null, msgs);
+			if (newFacility != null)
+				msgs = ((InternalEObject)newFacility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__FACILITY, null, msgs);
+			msgs = basicSetFacility(newFacility, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__REFERRAL_REFERENCE, newReferralReference, newReferralReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__FACILITY, newFacility, newFacility));
 	}
 
 	/**
@@ -1735,11 +1171,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getOccurrenceCode() {
-		if (occurrenceCode == null) {
-			occurrenceCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__OCCURRENCE_CODE);
+	public EList<ClaimCareTeam> getCareTeam() {
+		if (careTeam == null) {
+			careTeam = new EObjectContainmentEList<ClaimCareTeam>(ClaimCareTeam.class, this, FhirPackage.CLAIM__CARE_TEAM);
 		}
-		return occurrenceCode;
+		return careTeam;
 	}
 
 	/**
@@ -1747,23 +1183,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getOccurenceSpanCode() {
-		if (occurenceSpanCode == null) {
-			occurenceSpanCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__OCCURENCE_SPAN_CODE);
+	public EList<ClaimInformation> getInformation() {
+		if (information == null) {
+			information = new EObjectContainmentEList<ClaimInformation>(ClaimInformation.class, this, FhirPackage.CLAIM__INFORMATION);
 		}
-		return occurenceSpanCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Coding> getValueCode() {
-		if (valueCode == null) {
-			valueCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__VALUE_CODE);
-		}
-		return valueCode;
+		return information;
 	}
 
 	/**
@@ -1795,11 +1219,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getSpecialCondition() {
-		if (specialCondition == null) {
-			specialCondition = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__SPECIAL_CONDITION);
+	public EList<ClaimInsurance> getInsurance() {
+		if (insurance == null) {
+			insurance = new EObjectContainmentEList<ClaimInsurance>(ClaimInsurance.class, this, FhirPackage.CLAIM__INSURANCE);
 		}
-		return specialCondition;
+		return insurance;
 	}
 
 	/**
@@ -1807,8 +1231,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getPatientIdentifier() {
-		return patientIdentifier;
+	public ClaimAccident getAccident() {
+		return accident;
 	}
 
 	/**
@@ -1816,11 +1240,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatientIdentifier(Identifier newPatientIdentifier, NotificationChain msgs) {
-		Identifier oldPatientIdentifier = patientIdentifier;
-		patientIdentifier = newPatientIdentifier;
+	public NotificationChain basicSetAccident(ClaimAccident newAccident, NotificationChain msgs) {
+		ClaimAccident oldAccident = accident;
+		accident = newAccident;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT_IDENTIFIER, oldPatientIdentifier, newPatientIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT, oldAccident, newAccident);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1831,269 +1255,18 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatientIdentifier(Identifier newPatientIdentifier) {
-		if (newPatientIdentifier != patientIdentifier) {
+	public void setAccident(ClaimAccident newAccident) {
+		if (newAccident != accident) {
 			NotificationChain msgs = null;
-			if (patientIdentifier != null)
-				msgs = ((InternalEObject)patientIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT_IDENTIFIER, null, msgs);
-			if (newPatientIdentifier != null)
-				msgs = ((InternalEObject)newPatientIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT_IDENTIFIER, null, msgs);
-			msgs = basicSetPatientIdentifier(newPatientIdentifier, msgs);
+			if (accident != null)
+				msgs = ((InternalEObject)accident).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT, null, msgs);
+			if (newAccident != null)
+				msgs = ((InternalEObject)newAccident).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT, null, msgs);
+			msgs = basicSetAccident(newAccident, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT_IDENTIFIER, newPatientIdentifier, newPatientIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getPatientReference() {
-		return patientReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatientReference(Reference newPatientReference, NotificationChain msgs) {
-		Reference oldPatientReference = patientReference;
-		patientReference = newPatientReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT_REFERENCE, oldPatientReference, newPatientReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatientReference(Reference newPatientReference) {
-		if (newPatientReference != patientReference) {
-			NotificationChain msgs = null;
-			if (patientReference != null)
-				msgs = ((InternalEObject)patientReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT_REFERENCE, null, msgs);
-			if (newPatientReference != null)
-				msgs = ((InternalEObject)newPatientReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__PATIENT_REFERENCE, null, msgs);
-			msgs = basicSetPatientReference(newPatientReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PATIENT_REFERENCE, newPatientReference, newPatientReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ClaimCoverage> getCoverage() {
-		if (coverage == null) {
-			coverage = new EObjectContainmentEList<ClaimCoverage>(ClaimCoverage.class, this, FhirPackage.CLAIM__COVERAGE);
-		}
-		return coverage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getAccidentDate() {
-		return accidentDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccidentDate(Date newAccidentDate, NotificationChain msgs) {
-		Date oldAccidentDate = accidentDate;
-		accidentDate = newAccidentDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_DATE, oldAccidentDate, newAccidentDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccidentDate(Date newAccidentDate) {
-		if (newAccidentDate != accidentDate) {
-			NotificationChain msgs = null;
-			if (accidentDate != null)
-				msgs = ((InternalEObject)accidentDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_DATE, null, msgs);
-			if (newAccidentDate != null)
-				msgs = ((InternalEObject)newAccidentDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_DATE, null, msgs);
-			msgs = basicSetAccidentDate(newAccidentDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_DATE, newAccidentDate, newAccidentDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getAccidentType() {
-		return accidentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccidentType(Coding newAccidentType, NotificationChain msgs) {
-		Coding oldAccidentType = accidentType;
-		accidentType = newAccidentType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_TYPE, oldAccidentType, newAccidentType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccidentType(Coding newAccidentType) {
-		if (newAccidentType != accidentType) {
-			NotificationChain msgs = null;
-			if (accidentType != null)
-				msgs = ((InternalEObject)accidentType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_TYPE, null, msgs);
-			if (newAccidentType != null)
-				msgs = ((InternalEObject)newAccidentType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_TYPE, null, msgs);
-			msgs = basicSetAccidentType(newAccidentType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_TYPE, newAccidentType, newAccidentType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Address getAccidentLocationAddress() {
-		return accidentLocationAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccidentLocationAddress(Address newAccidentLocationAddress, NotificationChain msgs) {
-		Address oldAccidentLocationAddress = accidentLocationAddress;
-		accidentLocationAddress = newAccidentLocationAddress;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, oldAccidentLocationAddress, newAccidentLocationAddress);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccidentLocationAddress(Address newAccidentLocationAddress) {
-		if (newAccidentLocationAddress != accidentLocationAddress) {
-			NotificationChain msgs = null;
-			if (accidentLocationAddress != null)
-				msgs = ((InternalEObject)accidentLocationAddress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, null, msgs);
-			if (newAccidentLocationAddress != null)
-				msgs = ((InternalEObject)newAccidentLocationAddress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, null, msgs);
-			msgs = basicSetAccidentLocationAddress(newAccidentLocationAddress, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS, newAccidentLocationAddress, newAccidentLocationAddress));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getAccidentLocationReference() {
-		return accidentLocationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccidentLocationReference(Reference newAccidentLocationReference, NotificationChain msgs) {
-		Reference oldAccidentLocationReference = accidentLocationReference;
-		accidentLocationReference = newAccidentLocationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, oldAccidentLocationReference, newAccidentLocationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccidentLocationReference(Reference newAccidentLocationReference) {
-		if (newAccidentLocationReference != accidentLocationReference) {
-			NotificationChain msgs = null;
-			if (accidentLocationReference != null)
-				msgs = ((InternalEObject)accidentLocationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, null, msgs);
-			if (newAccidentLocationReference != null)
-				msgs = ((InternalEObject)newAccidentLocationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, null, msgs);
-			msgs = basicSetAccidentLocationReference(newAccidentLocationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE, newAccidentLocationReference, newAccidentLocationReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Coding> getInterventionException() {
-		if (interventionException == null) {
-			interventionException = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__INTERVENTION_EXCEPTION);
-		}
-		return interventionException;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ClaimOnset> getOnset() {
-		if (onset == null) {
-			onset = new EObjectContainmentEList<ClaimOnset>(ClaimOnset.class, this, FhirPackage.CLAIM__ONSET);
-		}
-		return onset;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ACCIDENT, newAccident, newAccident));
 	}
 
 	/**
@@ -2242,119 +1415,61 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getAdditionalMaterial() {
-		if (additionalMaterial == null) {
-			additionalMaterial = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CLAIM__ADDITIONAL_MATERIAL);
-		}
-		return additionalMaterial;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ClaimMissingTeeth> getMissingTeeth() {
-		if (missingTeeth == null) {
-			missingTeeth = new EObjectContainmentEList<ClaimMissingTeeth>(ClaimMissingTeeth.class, this, FhirPackage.CLAIM__MISSING_TEETH);
-		}
-		return missingTeeth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.CLAIM__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.CLAIM__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.CLAIM__SUB_TYPE:
 				return ((InternalEList<?>)getSubType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__IDENTIFIER:
-				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__RULESET:
-				return basicSetRuleset(null, msgs);
-			case FhirPackage.CLAIM__ORIGINAL_RULESET:
-				return basicSetOriginalRuleset(null, msgs);
-			case FhirPackage.CLAIM__CREATED:
-				return basicSetCreated(null, msgs);
-			case FhirPackage.CLAIM__BILLABLE_PERIOD:
-				return basicSetBillablePeriod(null, msgs);
-			case FhirPackage.CLAIM__TARGET_IDENTIFIER:
-				return basicSetTargetIdentifier(null, msgs);
-			case FhirPackage.CLAIM__TARGET_REFERENCE:
-				return basicSetTargetReference(null, msgs);
-			case FhirPackage.CLAIM__PROVIDER_IDENTIFIER:
-				return basicSetProviderIdentifier(null, msgs);
-			case FhirPackage.CLAIM__PROVIDER_REFERENCE:
-				return basicSetProviderReference(null, msgs);
-			case FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER:
-				return basicSetOrganizationIdentifier(null, msgs);
-			case FhirPackage.CLAIM__ORGANIZATION_REFERENCE:
-				return basicSetOrganizationReference(null, msgs);
 			case FhirPackage.CLAIM__USE:
 				return basicSetUse(null, msgs);
+			case FhirPackage.CLAIM__PATIENT:
+				return basicSetPatient(null, msgs);
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return basicSetBillablePeriod(null, msgs);
+			case FhirPackage.CLAIM__CREATED:
+				return basicSetCreated(null, msgs);
+			case FhirPackage.CLAIM__ENTERER:
+				return basicSetEnterer(null, msgs);
+			case FhirPackage.CLAIM__INSURER:
+				return basicSetInsurer(null, msgs);
+			case FhirPackage.CLAIM__PROVIDER:
+				return basicSetProvider(null, msgs);
+			case FhirPackage.CLAIM__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
 			case FhirPackage.CLAIM__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
 				return basicSetFundsReserve(null, msgs);
-			case FhirPackage.CLAIM__ENTERER_IDENTIFIER:
-				return basicSetEntererIdentifier(null, msgs);
-			case FhirPackage.CLAIM__ENTERER_REFERENCE:
-				return basicSetEntererReference(null, msgs);
-			case FhirPackage.CLAIM__FACILITY_IDENTIFIER:
-				return basicSetFacilityIdentifier(null, msgs);
-			case FhirPackage.CLAIM__FACILITY_REFERENCE:
-				return basicSetFacilityReference(null, msgs);
 			case FhirPackage.CLAIM__RELATED:
 				return ((InternalEList<?>)getRelated()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER:
-				return basicSetPrescriptionIdentifier(null, msgs);
-			case FhirPackage.CLAIM__PRESCRIPTION_REFERENCE:
-				return basicSetPrescriptionReference(null, msgs);
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER:
-				return basicSetOriginalPrescriptionIdentifier(null, msgs);
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE:
-				return basicSetOriginalPrescriptionReference(null, msgs);
+			case FhirPackage.CLAIM__PRESCRIPTION:
+				return basicSetPrescription(null, msgs);
+			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
+				return basicSetOriginalPrescription(null, msgs);
 			case FhirPackage.CLAIM__PAYEE:
 				return basicSetPayee(null, msgs);
-			case FhirPackage.CLAIM__REFERRAL_IDENTIFIER:
-				return basicSetReferralIdentifier(null, msgs);
-			case FhirPackage.CLAIM__REFERRAL_REFERENCE:
-				return basicSetReferralReference(null, msgs);
-			case FhirPackage.CLAIM__OCCURRENCE_CODE:
-				return ((InternalEList<?>)getOccurrenceCode()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__OCCURENCE_SPAN_CODE:
-				return ((InternalEList<?>)getOccurenceSpanCode()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__VALUE_CODE:
-				return ((InternalEList<?>)getValueCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__REFERRAL:
+				return basicSetReferral(null, msgs);
+			case FhirPackage.CLAIM__FACILITY:
+				return basicSetFacility(null, msgs);
+			case FhirPackage.CLAIM__CARE_TEAM:
+				return ((InternalEList<?>)getCareTeam()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__INFORMATION:
+				return ((InternalEList<?>)getInformation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__PROCEDURE:
 				return ((InternalEList<?>)getProcedure()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__SPECIAL_CONDITION:
-				return ((InternalEList<?>)getSpecialCondition()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__PATIENT_IDENTIFIER:
-				return basicSetPatientIdentifier(null, msgs);
-			case FhirPackage.CLAIM__PATIENT_REFERENCE:
-				return basicSetPatientReference(null, msgs);
-			case FhirPackage.CLAIM__COVERAGE:
-				return ((InternalEList<?>)getCoverage()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__ACCIDENT_DATE:
-				return basicSetAccidentDate(null, msgs);
-			case FhirPackage.CLAIM__ACCIDENT_TYPE:
-				return basicSetAccidentType(null, msgs);
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
-				return basicSetAccidentLocationAddress(null, msgs);
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
-				return basicSetAccidentLocationReference(null, msgs);
-			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
-				return ((InternalEList<?>)getInterventionException()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__ONSET:
-				return ((InternalEList<?>)getOnset()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__INSURANCE:
+				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__ACCIDENT:
+				return basicSetAccident(null, msgs);
 			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
 				return basicSetEmploymentImpacted(null, msgs);
 			case FhirPackage.CLAIM__HOSPITALIZATION:
@@ -2363,10 +1478,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__TOTAL:
 				return basicSetTotal(null, msgs);
-			case FhirPackage.CLAIM__ADDITIONAL_MATERIAL:
-				return ((InternalEList<?>)getAdditionalMaterial()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__MISSING_TEETH:
-				return ((InternalEList<?>)getMissingTeeth()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2379,92 +1490,58 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.CLAIM__IDENTIFIER:
+				return getIdentifier();
+			case FhirPackage.CLAIM__STATUS:
+				return getStatus();
 			case FhirPackage.CLAIM__TYPE:
 				return getType();
 			case FhirPackage.CLAIM__SUB_TYPE:
 				return getSubType();
-			case FhirPackage.CLAIM__IDENTIFIER:
-				return getIdentifier();
-			case FhirPackage.CLAIM__RULESET:
-				return getRuleset();
-			case FhirPackage.CLAIM__ORIGINAL_RULESET:
-				return getOriginalRuleset();
-			case FhirPackage.CLAIM__CREATED:
-				return getCreated();
-			case FhirPackage.CLAIM__BILLABLE_PERIOD:
-				return getBillablePeriod();
-			case FhirPackage.CLAIM__TARGET_IDENTIFIER:
-				return getTargetIdentifier();
-			case FhirPackage.CLAIM__TARGET_REFERENCE:
-				return getTargetReference();
-			case FhirPackage.CLAIM__PROVIDER_IDENTIFIER:
-				return getProviderIdentifier();
-			case FhirPackage.CLAIM__PROVIDER_REFERENCE:
-				return getProviderReference();
-			case FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER:
-				return getOrganizationIdentifier();
-			case FhirPackage.CLAIM__ORGANIZATION_REFERENCE:
-				return getOrganizationReference();
 			case FhirPackage.CLAIM__USE:
 				return getUse();
+			case FhirPackage.CLAIM__PATIENT:
+				return getPatient();
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return getBillablePeriod();
+			case FhirPackage.CLAIM__CREATED:
+				return getCreated();
+			case FhirPackage.CLAIM__ENTERER:
+				return getEnterer();
+			case FhirPackage.CLAIM__INSURER:
+				return getInsurer();
+			case FhirPackage.CLAIM__PROVIDER:
+				return getProvider();
+			case FhirPackage.CLAIM__ORGANIZATION:
+				return getOrganization();
 			case FhirPackage.CLAIM__PRIORITY:
 				return getPriority();
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
 				return getFundsReserve();
-			case FhirPackage.CLAIM__ENTERER_IDENTIFIER:
-				return getEntererIdentifier();
-			case FhirPackage.CLAIM__ENTERER_REFERENCE:
-				return getEntererReference();
-			case FhirPackage.CLAIM__FACILITY_IDENTIFIER:
-				return getFacilityIdentifier();
-			case FhirPackage.CLAIM__FACILITY_REFERENCE:
-				return getFacilityReference();
 			case FhirPackage.CLAIM__RELATED:
 				return getRelated();
-			case FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER:
-				return getPrescriptionIdentifier();
-			case FhirPackage.CLAIM__PRESCRIPTION_REFERENCE:
-				return getPrescriptionReference();
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER:
-				return getOriginalPrescriptionIdentifier();
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE:
-				return getOriginalPrescriptionReference();
+			case FhirPackage.CLAIM__PRESCRIPTION:
+				return getPrescription();
+			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
+				return getOriginalPrescription();
 			case FhirPackage.CLAIM__PAYEE:
 				return getPayee();
-			case FhirPackage.CLAIM__REFERRAL_IDENTIFIER:
-				return getReferralIdentifier();
-			case FhirPackage.CLAIM__REFERRAL_REFERENCE:
-				return getReferralReference();
-			case FhirPackage.CLAIM__OCCURRENCE_CODE:
-				return getOccurrenceCode();
-			case FhirPackage.CLAIM__OCCURENCE_SPAN_CODE:
-				return getOccurenceSpanCode();
-			case FhirPackage.CLAIM__VALUE_CODE:
-				return getValueCode();
+			case FhirPackage.CLAIM__REFERRAL:
+				return getReferral();
+			case FhirPackage.CLAIM__FACILITY:
+				return getFacility();
+			case FhirPackage.CLAIM__CARE_TEAM:
+				return getCareTeam();
+			case FhirPackage.CLAIM__INFORMATION:
+				return getInformation();
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return getDiagnosis();
 			case FhirPackage.CLAIM__PROCEDURE:
 				return getProcedure();
-			case FhirPackage.CLAIM__SPECIAL_CONDITION:
-				return getSpecialCondition();
-			case FhirPackage.CLAIM__PATIENT_IDENTIFIER:
-				return getPatientIdentifier();
-			case FhirPackage.CLAIM__PATIENT_REFERENCE:
-				return getPatientReference();
-			case FhirPackage.CLAIM__COVERAGE:
-				return getCoverage();
-			case FhirPackage.CLAIM__ACCIDENT_DATE:
-				return getAccidentDate();
-			case FhirPackage.CLAIM__ACCIDENT_TYPE:
-				return getAccidentType();
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
-				return getAccidentLocationAddress();
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
-				return getAccidentLocationReference();
-			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
-				return getInterventionException();
-			case FhirPackage.CLAIM__ONSET:
-				return getOnset();
+			case FhirPackage.CLAIM__INSURANCE:
+				return getInsurance();
+			case FhirPackage.CLAIM__ACCIDENT:
+				return getAccident();
 			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
 				return getEmploymentImpacted();
 			case FhirPackage.CLAIM__HOSPITALIZATION:
@@ -2473,10 +1550,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getItem();
 			case FhirPackage.CLAIM__TOTAL:
 				return getTotal();
-			case FhirPackage.CLAIM__ADDITIONAL_MATERIAL:
-				return getAdditionalMaterial();
-			case FhirPackage.CLAIM__MISSING_TEETH:
-				return getMissingTeeth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2490,104 +1563,76 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.CLAIM__TYPE:
-				setType((ClaimType)newValue);
-				return;
-			case FhirPackage.CLAIM__SUB_TYPE:
-				getSubType().clear();
-				getSubType().addAll((Collection<? extends Coding>)newValue);
-				return;
 			case FhirPackage.CLAIM__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.CLAIM__RULESET:
-				setRuleset((Coding)newValue);
+			case FhirPackage.CLAIM__STATUS:
+				setStatus((Code)newValue);
 				return;
-			case FhirPackage.CLAIM__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)newValue);
+			case FhirPackage.CLAIM__TYPE:
+				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM__CREATED:
-				setCreated((DateTime)newValue);
-				return;
-			case FhirPackage.CLAIM__BILLABLE_PERIOD:
-				setBillablePeriod((Period)newValue);
-				return;
-			case FhirPackage.CLAIM__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__TARGET_REFERENCE:
-				setTargetReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__PROVIDER_REFERENCE:
-				setProviderReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)newValue);
+			case FhirPackage.CLAIM__SUB_TYPE:
+				getSubType().clear();
+				getSubType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CLAIM__USE:
 				setUse((Use)newValue);
 				return;
+			case FhirPackage.CLAIM__PATIENT:
+				setPatient((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				setBillablePeriod((Period)newValue);
+				return;
+			case FhirPackage.CLAIM__CREATED:
+				setCreated((DateTime)newValue);
+				return;
+			case FhirPackage.CLAIM__ENTERER:
+				setEnterer((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM__INSURER:
+				setInsurer((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM__PROVIDER:
+				setProvider((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM__ORGANIZATION:
+				setOrganization((Reference)newValue);
+				return;
 			case FhirPackage.CLAIM__PRIORITY:
-				setPriority((Coding)newValue);
+				setPriority((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
-				setFundsReserve((Coding)newValue);
-				return;
-			case FhirPackage.CLAIM__ENTERER_IDENTIFIER:
-				setEntererIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__ENTERER_REFERENCE:
-				setEntererReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__FACILITY_IDENTIFIER:
-				setFacilityIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__FACILITY_REFERENCE:
-				setFacilityReference((Reference)newValue);
+				setFundsReserve((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM__RELATED:
 				getRelated().clear();
 				getRelated().addAll((Collection<? extends ClaimRelated>)newValue);
 				return;
-			case FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER:
-				setPrescriptionIdentifier((Identifier)newValue);
+			case FhirPackage.CLAIM__PRESCRIPTION:
+				setPrescription((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM__PRESCRIPTION_REFERENCE:
-				setPrescriptionReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER:
-				setOriginalPrescriptionIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE:
-				setOriginalPrescriptionReference((Reference)newValue);
+			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
+				setOriginalPrescription((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM__PAYEE:
 				setPayee((ClaimPayee)newValue);
 				return;
-			case FhirPackage.CLAIM__REFERRAL_IDENTIFIER:
-				setReferralIdentifier((Identifier)newValue);
+			case FhirPackage.CLAIM__REFERRAL:
+				setReferral((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM__REFERRAL_REFERENCE:
-				setReferralReference((Reference)newValue);
+			case FhirPackage.CLAIM__FACILITY:
+				setFacility((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM__OCCURRENCE_CODE:
-				getOccurrenceCode().clear();
-				getOccurrenceCode().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.CLAIM__CARE_TEAM:
+				getCareTeam().clear();
+				getCareTeam().addAll((Collection<? extends ClaimCareTeam>)newValue);
 				return;
-			case FhirPackage.CLAIM__OCCURENCE_SPAN_CODE:
-				getOccurenceSpanCode().clear();
-				getOccurenceSpanCode().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.CLAIM__VALUE_CODE:
-				getValueCode().clear();
-				getValueCode().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.CLAIM__INFORMATION:
+				getInformation().clear();
+				getInformation().addAll((Collection<? extends ClaimInformation>)newValue);
 				return;
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -2597,39 +1642,12 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				getProcedure().clear();
 				getProcedure().addAll((Collection<? extends ClaimProcedure>)newValue);
 				return;
-			case FhirPackage.CLAIM__SPECIAL_CONDITION:
-				getSpecialCondition().clear();
-				getSpecialCondition().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.CLAIM__INSURANCE:
+				getInsurance().clear();
+				getInsurance().addAll((Collection<? extends ClaimInsurance>)newValue);
 				return;
-			case FhirPackage.CLAIM__PATIENT_IDENTIFIER:
-				setPatientIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM__PATIENT_REFERENCE:
-				setPatientReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__COVERAGE:
-				getCoverage().clear();
-				getCoverage().addAll((Collection<? extends ClaimCoverage>)newValue);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_DATE:
-				setAccidentDate((Date)newValue);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_TYPE:
-				setAccidentType((Coding)newValue);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
-				setAccidentLocationAddress((Address)newValue);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
-				setAccidentLocationReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
-				getInterventionException().clear();
-				getInterventionException().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.CLAIM__ONSET:
-				getOnset().clear();
-				getOnset().addAll((Collection<? extends ClaimOnset>)newValue);
+			case FhirPackage.CLAIM__ACCIDENT:
+				setAccident((ClaimAccident)newValue);
 				return;
 			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
 				setEmploymentImpacted((Period)newValue);
@@ -2644,14 +1662,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__TOTAL:
 				setTotal((Money)newValue);
 				return;
-			case FhirPackage.CLAIM__ADDITIONAL_MATERIAL:
-				getAdditionalMaterial().clear();
-				getAdditionalMaterial().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.CLAIM__MISSING_TEETH:
-				getMissingTeeth().clear();
-				getMissingTeeth().addAll((Collection<? extends ClaimMissingTeeth>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2664,98 +1674,71 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.CLAIM__IDENTIFIER:
+				getIdentifier().clear();
+				return;
+			case FhirPackage.CLAIM__STATUS:
+				setStatus((Code)null);
+				return;
 			case FhirPackage.CLAIM__TYPE:
-				setType((ClaimType)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM__SUB_TYPE:
 				getSubType().clear();
 				return;
-			case FhirPackage.CLAIM__IDENTIFIER:
-				getIdentifier().clear();
+			case FhirPackage.CLAIM__USE:
+				setUse((Use)null);
 				return;
-			case FhirPackage.CLAIM__RULESET:
-				setRuleset((Coding)null);
-				return;
-			case FhirPackage.CLAIM__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)null);
-				return;
-			case FhirPackage.CLAIM__CREATED:
-				setCreated((DateTime)null);
+			case FhirPackage.CLAIM__PATIENT:
+				setPatient((Reference)null);
 				return;
 			case FhirPackage.CLAIM__BILLABLE_PERIOD:
 				setBillablePeriod((Period)null);
 				return;
-			case FhirPackage.CLAIM__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)null);
+			case FhirPackage.CLAIM__CREATED:
+				setCreated((DateTime)null);
 				return;
-			case FhirPackage.CLAIM__TARGET_REFERENCE:
-				setTargetReference((Reference)null);
+			case FhirPackage.CLAIM__ENTERER:
+				setEnterer((Reference)null);
 				return;
-			case FhirPackage.CLAIM__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)null);
+			case FhirPackage.CLAIM__INSURER:
+				setInsurer((Reference)null);
 				return;
-			case FhirPackage.CLAIM__PROVIDER_REFERENCE:
-				setProviderReference((Reference)null);
+			case FhirPackage.CLAIM__PROVIDER:
+				setProvider((Reference)null);
 				return;
-			case FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM__USE:
-				setUse((Use)null);
+			case FhirPackage.CLAIM__ORGANIZATION:
+				setOrganization((Reference)null);
 				return;
 			case FhirPackage.CLAIM__PRIORITY:
-				setPriority((Coding)null);
+				setPriority((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
-				setFundsReserve((Coding)null);
-				return;
-			case FhirPackage.CLAIM__ENTERER_IDENTIFIER:
-				setEntererIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM__ENTERER_REFERENCE:
-				setEntererReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM__FACILITY_IDENTIFIER:
-				setFacilityIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM__FACILITY_REFERENCE:
-				setFacilityReference((Reference)null);
+				setFundsReserve((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM__RELATED:
 				getRelated().clear();
 				return;
-			case FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER:
-				setPrescriptionIdentifier((Identifier)null);
+			case FhirPackage.CLAIM__PRESCRIPTION:
+				setPrescription((Reference)null);
 				return;
-			case FhirPackage.CLAIM__PRESCRIPTION_REFERENCE:
-				setPrescriptionReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER:
-				setOriginalPrescriptionIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE:
-				setOriginalPrescriptionReference((Reference)null);
+			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
+				setOriginalPrescription((Reference)null);
 				return;
 			case FhirPackage.CLAIM__PAYEE:
 				setPayee((ClaimPayee)null);
 				return;
-			case FhirPackage.CLAIM__REFERRAL_IDENTIFIER:
-				setReferralIdentifier((Identifier)null);
+			case FhirPackage.CLAIM__REFERRAL:
+				setReferral((Reference)null);
 				return;
-			case FhirPackage.CLAIM__REFERRAL_REFERENCE:
-				setReferralReference((Reference)null);
+			case FhirPackage.CLAIM__FACILITY:
+				setFacility((Reference)null);
 				return;
-			case FhirPackage.CLAIM__OCCURRENCE_CODE:
-				getOccurrenceCode().clear();
+			case FhirPackage.CLAIM__CARE_TEAM:
+				getCareTeam().clear();
 				return;
-			case FhirPackage.CLAIM__OCCURENCE_SPAN_CODE:
-				getOccurenceSpanCode().clear();
-				return;
-			case FhirPackage.CLAIM__VALUE_CODE:
-				getValueCode().clear();
+			case FhirPackage.CLAIM__INFORMATION:
+				getInformation().clear();
 				return;
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -2763,35 +1746,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__PROCEDURE:
 				getProcedure().clear();
 				return;
-			case FhirPackage.CLAIM__SPECIAL_CONDITION:
-				getSpecialCondition().clear();
+			case FhirPackage.CLAIM__INSURANCE:
+				getInsurance().clear();
 				return;
-			case FhirPackage.CLAIM__PATIENT_IDENTIFIER:
-				setPatientIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM__PATIENT_REFERENCE:
-				setPatientReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM__COVERAGE:
-				getCoverage().clear();
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_DATE:
-				setAccidentDate((Date)null);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_TYPE:
-				setAccidentType((Coding)null);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
-				setAccidentLocationAddress((Address)null);
-				return;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
-				setAccidentLocationReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
-				getInterventionException().clear();
-				return;
-			case FhirPackage.CLAIM__ONSET:
-				getOnset().clear();
+			case FhirPackage.CLAIM__ACCIDENT:
+				setAccident((ClaimAccident)null);
 				return;
 			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
 				setEmploymentImpacted((Period)null);
@@ -2805,12 +1764,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__TOTAL:
 				setTotal((Money)null);
 				return;
-			case FhirPackage.CLAIM__ADDITIONAL_MATERIAL:
-				getAdditionalMaterial().clear();
-				return;
-			case FhirPackage.CLAIM__MISSING_TEETH:
-				getMissingTeeth().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2823,92 +1776,58 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.CLAIM__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.CLAIM__STATUS:
+				return status != null;
 			case FhirPackage.CLAIM__TYPE:
 				return type != null;
 			case FhirPackage.CLAIM__SUB_TYPE:
 				return subType != null && !subType.isEmpty();
-			case FhirPackage.CLAIM__IDENTIFIER:
-				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.CLAIM__RULESET:
-				return ruleset != null;
-			case FhirPackage.CLAIM__ORIGINAL_RULESET:
-				return originalRuleset != null;
-			case FhirPackage.CLAIM__CREATED:
-				return created != null;
-			case FhirPackage.CLAIM__BILLABLE_PERIOD:
-				return billablePeriod != null;
-			case FhirPackage.CLAIM__TARGET_IDENTIFIER:
-				return targetIdentifier != null;
-			case FhirPackage.CLAIM__TARGET_REFERENCE:
-				return targetReference != null;
-			case FhirPackage.CLAIM__PROVIDER_IDENTIFIER:
-				return providerIdentifier != null;
-			case FhirPackage.CLAIM__PROVIDER_REFERENCE:
-				return providerReference != null;
-			case FhirPackage.CLAIM__ORGANIZATION_IDENTIFIER:
-				return organizationIdentifier != null;
-			case FhirPackage.CLAIM__ORGANIZATION_REFERENCE:
-				return organizationReference != null;
 			case FhirPackage.CLAIM__USE:
 				return use != null;
+			case FhirPackage.CLAIM__PATIENT:
+				return patient != null;
+			case FhirPackage.CLAIM__BILLABLE_PERIOD:
+				return billablePeriod != null;
+			case FhirPackage.CLAIM__CREATED:
+				return created != null;
+			case FhirPackage.CLAIM__ENTERER:
+				return enterer != null;
+			case FhirPackage.CLAIM__INSURER:
+				return insurer != null;
+			case FhirPackage.CLAIM__PROVIDER:
+				return provider != null;
+			case FhirPackage.CLAIM__ORGANIZATION:
+				return organization != null;
 			case FhirPackage.CLAIM__PRIORITY:
 				return priority != null;
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
 				return fundsReserve != null;
-			case FhirPackage.CLAIM__ENTERER_IDENTIFIER:
-				return entererIdentifier != null;
-			case FhirPackage.CLAIM__ENTERER_REFERENCE:
-				return entererReference != null;
-			case FhirPackage.CLAIM__FACILITY_IDENTIFIER:
-				return facilityIdentifier != null;
-			case FhirPackage.CLAIM__FACILITY_REFERENCE:
-				return facilityReference != null;
 			case FhirPackage.CLAIM__RELATED:
 				return related != null && !related.isEmpty();
-			case FhirPackage.CLAIM__PRESCRIPTION_IDENTIFIER:
-				return prescriptionIdentifier != null;
-			case FhirPackage.CLAIM__PRESCRIPTION_REFERENCE:
-				return prescriptionReference != null;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_IDENTIFIER:
-				return originalPrescriptionIdentifier != null;
-			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION_REFERENCE:
-				return originalPrescriptionReference != null;
+			case FhirPackage.CLAIM__PRESCRIPTION:
+				return prescription != null;
+			case FhirPackage.CLAIM__ORIGINAL_PRESCRIPTION:
+				return originalPrescription != null;
 			case FhirPackage.CLAIM__PAYEE:
 				return payee != null;
-			case FhirPackage.CLAIM__REFERRAL_IDENTIFIER:
-				return referralIdentifier != null;
-			case FhirPackage.CLAIM__REFERRAL_REFERENCE:
-				return referralReference != null;
-			case FhirPackage.CLAIM__OCCURRENCE_CODE:
-				return occurrenceCode != null && !occurrenceCode.isEmpty();
-			case FhirPackage.CLAIM__OCCURENCE_SPAN_CODE:
-				return occurenceSpanCode != null && !occurenceSpanCode.isEmpty();
-			case FhirPackage.CLAIM__VALUE_CODE:
-				return valueCode != null && !valueCode.isEmpty();
+			case FhirPackage.CLAIM__REFERRAL:
+				return referral != null;
+			case FhirPackage.CLAIM__FACILITY:
+				return facility != null;
+			case FhirPackage.CLAIM__CARE_TEAM:
+				return careTeam != null && !careTeam.isEmpty();
+			case FhirPackage.CLAIM__INFORMATION:
+				return information != null && !information.isEmpty();
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return diagnosis != null && !diagnosis.isEmpty();
 			case FhirPackage.CLAIM__PROCEDURE:
 				return procedure != null && !procedure.isEmpty();
-			case FhirPackage.CLAIM__SPECIAL_CONDITION:
-				return specialCondition != null && !specialCondition.isEmpty();
-			case FhirPackage.CLAIM__PATIENT_IDENTIFIER:
-				return patientIdentifier != null;
-			case FhirPackage.CLAIM__PATIENT_REFERENCE:
-				return patientReference != null;
-			case FhirPackage.CLAIM__COVERAGE:
-				return coverage != null && !coverage.isEmpty();
-			case FhirPackage.CLAIM__ACCIDENT_DATE:
-				return accidentDate != null;
-			case FhirPackage.CLAIM__ACCIDENT_TYPE:
-				return accidentType != null;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_ADDRESS:
-				return accidentLocationAddress != null;
-			case FhirPackage.CLAIM__ACCIDENT_LOCATION_REFERENCE:
-				return accidentLocationReference != null;
-			case FhirPackage.CLAIM__INTERVENTION_EXCEPTION:
-				return interventionException != null && !interventionException.isEmpty();
-			case FhirPackage.CLAIM__ONSET:
-				return onset != null && !onset.isEmpty();
+			case FhirPackage.CLAIM__INSURANCE:
+				return insurance != null && !insurance.isEmpty();
+			case FhirPackage.CLAIM__ACCIDENT:
+				return accident != null;
 			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
 				return employmentImpacted != null;
 			case FhirPackage.CLAIM__HOSPITALIZATION:
@@ -2917,10 +1836,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return item != null && !item.isEmpty();
 			case FhirPackage.CLAIM__TOTAL:
 				return total != null;
-			case FhirPackage.CLAIM__ADDITIONAL_MATERIAL:
-				return additionalMaterial != null && !additionalMaterial.isEmpty();
-			case FhirPackage.CLAIM__MISSING_TEETH:
-				return missingTeeth != null && !missingTeeth.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

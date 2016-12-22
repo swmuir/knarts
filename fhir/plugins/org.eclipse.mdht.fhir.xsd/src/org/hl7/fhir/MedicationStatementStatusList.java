@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,27 @@ public enum MedicationStatementStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTENDED(3, "intended", "intended");
+	INTENDED(3, "intended", "intended"),
+
+	/**
+	 * The '<em><b>Stopped</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STOPPED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STOPPED(4, "stopped", "stopped"),
+
+	/**
+	 * The '<em><b>On Hold</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_HOLD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_HOLD(5, "onHold", "on-hold");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -127,6 +137,34 @@ public enum MedicationStatementStatusList implements Enumerator {
 	public static final int INTENDED_VALUE = 3;
 
 	/**
+	 * The '<em><b>Stopped</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Stopped
+	 * <!-- end-model-doc -->
+	 * @see #STOPPED
+	 * @model name="stopped"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STOPPED_VALUE = 4;
+
+	/**
+	 * The '<em><b>On Hold</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On Hold
+	 * <!-- end-model-doc -->
+	 * @see #ON_HOLD
+	 * @model name="onHold" literal="on-hold"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_HOLD_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Medication Statement Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +176,8 @@ public enum MedicationStatementStatusList implements Enumerator {
 			COMPLETED,
 			ENTERED_IN_ERROR,
 			INTENDED,
+			STOPPED,
+			ON_HOLD,
 		};
 
 	/**
@@ -198,6 +238,8 @@ public enum MedicationStatementStatusList implements Enumerator {
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case INTENDED_VALUE: return INTENDED;
+			case STOPPED_VALUE: return STOPPED;
+			case ON_HOLD_VALUE: return ON_HOLD;
 		}
 		return null;
 	}

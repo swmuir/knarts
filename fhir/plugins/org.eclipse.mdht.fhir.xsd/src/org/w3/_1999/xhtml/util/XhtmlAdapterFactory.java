@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.util;
@@ -102,10 +92,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createATypeAdapter();
 			}
 			@Override
-			public Adapter caseBaseType(BaseType object) {
-				return createBaseTypeAdapter();
-			}
-			@Override
 			public Adapter caseBdoType(BdoType object) {
 				return createBdoTypeAdapter();
 			}
@@ -122,24 +108,12 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createBlockquoteTypeAdapter();
 			}
 			@Override
-			public Adapter caseBodyType(BodyType object) {
-				return createBodyTypeAdapter();
-			}
-			@Override
 			public Adapter caseBrType(BrType object) {
 				return createBrTypeAdapter();
 			}
 			@Override
 			public Adapter caseBType(BType object) {
 				return createBTypeAdapter();
-			}
-			@Override
-			public Adapter caseButtonContent(ButtonContent object) {
-				return createButtonContentAdapter();
-			}
-			@Override
-			public Adapter caseButtonType(ButtonType object) {
-				return createButtonTypeAdapter();
 			}
 			@Override
 			public Adapter caseCaptionType(CaptionType object) {
@@ -166,10 +140,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createDdTypeAdapter();
 			}
 			@Override
-			public Adapter caseDelType(DelType object) {
-				return createDelTypeAdapter();
-			}
-			@Override
 			public Adapter caseDfnType(DfnType object) {
 				return createDfnTypeAdapter();
 			}
@@ -194,20 +164,8 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createEmTypeAdapter();
 			}
 			@Override
-			public Adapter caseFieldsetType(FieldsetType object) {
-				return createFieldsetTypeAdapter();
-			}
-			@Override
 			public Adapter caseFlow(Flow object) {
 				return createFlowAdapter();
-			}
-			@Override
-			public Adapter caseFormContent(FormContent object) {
-				return createFormContentAdapter();
-			}
-			@Override
-			public Adapter caseFormType(FormType object) {
-				return createFormTypeAdapter();
 			}
 			@Override
 			public Adapter caseH1Type(H1Type object) {
@@ -234,16 +192,8 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createH6TypeAdapter();
 			}
 			@Override
-			public Adapter caseHeadType(HeadType object) {
-				return createHeadTypeAdapter();
-			}
-			@Override
 			public Adapter caseHrType(HrType object) {
 				return createHrTypeAdapter();
-			}
-			@Override
-			public Adapter caseHtmlType(HtmlType object) {
-				return createHtmlTypeAdapter();
 			}
 			@Override
 			public Adapter caseImgType(ImgType object) {
@@ -254,32 +204,12 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createInlineAdapter();
 			}
 			@Override
-			public Adapter caseInputType1(InputType1 object) {
-				return createInputType1Adapter();
-			}
-			@Override
-			public Adapter caseInsType(InsType object) {
-				return createInsTypeAdapter();
-			}
-			@Override
 			public Adapter caseIType(IType object) {
 				return createITypeAdapter();
 			}
 			@Override
 			public Adapter caseKbdType(KbdType object) {
 				return createKbdTypeAdapter();
-			}
-			@Override
-			public Adapter caseLabelType(LabelType object) {
-				return createLabelTypeAdapter();
-			}
-			@Override
-			public Adapter caseLegendType(LegendType object) {
-				return createLegendTypeAdapter();
-			}
-			@Override
-			public Adapter caseLinkType(LinkType object) {
-				return createLinkTypeAdapter();
 			}
 			@Override
 			public Adapter caseLiType(LiType object) {
@@ -290,32 +220,8 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createMapTypeAdapter();
 			}
 			@Override
-			public Adapter caseMetaType(MetaType object) {
-				return createMetaTypeAdapter();
-			}
-			@Override
-			public Adapter caseNoscriptType(NoscriptType object) {
-				return createNoscriptTypeAdapter();
-			}
-			@Override
-			public Adapter caseObjectType(ObjectType object) {
-				return createObjectTypeAdapter();
-			}
-			@Override
 			public Adapter caseOlType(OlType object) {
 				return createOlTypeAdapter();
-			}
-			@Override
-			public Adapter caseOptgroupType(OptgroupType object) {
-				return createOptgroupTypeAdapter();
-			}
-			@Override
-			public Adapter caseOptionType(OptionType object) {
-				return createOptionTypeAdapter();
-			}
-			@Override
-			public Adapter caseParamType(ParamType object) {
-				return createParamTypeAdapter();
 			}
 			@Override
 			public Adapter casePreContent(PreContent object) {
@@ -338,14 +244,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createSampTypeAdapter();
 			}
 			@Override
-			public Adapter caseScriptType(ScriptType object) {
-				return createScriptTypeAdapter();
-			}
-			@Override
-			public Adapter caseSelectType(SelectType object) {
-				return createSelectTypeAdapter();
-			}
-			@Override
 			public Adapter caseSmallType(SmallType object) {
 				return createSmallTypeAdapter();
 			}
@@ -356,10 +254,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStrongType(StrongType object) {
 				return createStrongTypeAdapter();
-			}
-			@Override
-			public Adapter caseStyleType(StyleType object) {
-				return createStyleTypeAdapter();
 			}
 			@Override
 			public Adapter caseSubType(SubType object) {
@@ -382,10 +276,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 				return createTdTypeAdapter();
 			}
 			@Override
-			public Adapter caseTextareaType(TextareaType object) {
-				return createTextareaTypeAdapter();
-			}
-			@Override
 			public Adapter caseTfootType(TfootType object) {
 				return createTfootTypeAdapter();
 			}
@@ -396,10 +286,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseThType(ThType object) {
 				return createThTypeAdapter();
-			}
-			@Override
-			public Adapter caseTitleType(TitleType object) {
-				return createTitleTypeAdapter();
 			}
 			@Override
 			public Adapter caseTrType(TrType object) {
@@ -522,20 +408,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.BaseType <em>Base Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.BaseType
-	 * @generated
-	 */
-	public Adapter createBaseTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.BdoType <em>Bdo Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -592,20 +464,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.BodyType <em>Body Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.BodyType
-	 * @generated
-	 */
-	public Adapter createBodyTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.BrType <em>Br Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -630,34 +488,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.ButtonContent <em>Button Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.ButtonContent
-	 * @generated
-	 */
-	public Adapter createButtonContentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.ButtonType <em>Button Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.ButtonType
-	 * @generated
-	 */
-	public Adapter createButtonTypeAdapter() {
 		return null;
 	}
 
@@ -746,20 +576,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.DelType <em>Del Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.DelType
-	 * @generated
-	 */
-	public Adapter createDelTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.DfnType <em>Dfn Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -844,20 +660,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.FieldsetType <em>Fieldset Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.FieldsetType
-	 * @generated
-	 */
-	public Adapter createFieldsetTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -868,34 +670,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFlowAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.FormContent <em>Form Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.FormContent
-	 * @generated
-	 */
-	public Adapter createFormContentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.FormType <em>Form Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.FormType
-	 * @generated
-	 */
-	public Adapter createFormTypeAdapter() {
 		return null;
 	}
 
@@ -984,20 +758,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.HeadType <em>Head Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.HeadType
-	 * @generated
-	 */
-	public Adapter createHeadTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.HrType <em>Hr Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1008,20 +768,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHrTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.HtmlType <em>Html Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.HtmlType
-	 * @generated
-	 */
-	public Adapter createHtmlTypeAdapter() {
 		return null;
 	}
 
@@ -1054,34 +800,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.InputType1 <em>Input Type1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.InputType1
-	 * @generated
-	 */
-	public Adapter createInputType1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.InsType <em>Ins Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.InsType
-	 * @generated
-	 */
-	public Adapter createInsTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.IType <em>IType</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1106,48 +824,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKbdTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.LabelType <em>Label Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.LabelType
-	 * @generated
-	 */
-	public Adapter createLabelTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.LegendType <em>Legend Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.LegendType
-	 * @generated
-	 */
-	public Adapter createLegendTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.LinkType <em>Link Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.LinkType
-	 * @generated
-	 */
-	public Adapter createLinkTypeAdapter() {
 		return null;
 	}
 
@@ -1180,48 +856,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.MetaType <em>Meta Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.MetaType
-	 * @generated
-	 */
-	public Adapter createMetaTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.NoscriptType <em>Noscript Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.NoscriptType
-	 * @generated
-	 */
-	public Adapter createNoscriptTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.ObjectType <em>Object Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.ObjectType
-	 * @generated
-	 */
-	public Adapter createObjectTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.OlType <em>Ol Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1232,48 +866,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOlTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.OptgroupType <em>Optgroup Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.OptgroupType
-	 * @generated
-	 */
-	public Adapter createOptgroupTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.OptionType <em>Option Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.OptionType
-	 * @generated
-	 */
-	public Adapter createOptionTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.ParamType <em>Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.ParamType
-	 * @generated
-	 */
-	public Adapter createParamTypeAdapter() {
 		return null;
 	}
 
@@ -1348,34 +940,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.ScriptType <em>Script Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.ScriptType
-	 * @generated
-	 */
-	public Adapter createScriptTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.SelectType <em>Select Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.SelectType
-	 * @generated
-	 */
-	public Adapter createSelectTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.SmallType <em>Small Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1414,20 +978,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStrongTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.StyleType <em>Style Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.StyleType
-	 * @generated
-	 */
-	public Adapter createStyleTypeAdapter() {
 		return null;
 	}
 
@@ -1502,20 +1052,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.TextareaType <em>Textarea Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.TextareaType
-	 * @generated
-	 */
-	public Adapter createTextareaTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.TfootType <em>Tfoot Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1554,20 +1090,6 @@ public class XhtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createThTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.w3._1999.xhtml.TitleType <em>Title Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.w3._1999.xhtml.TitleType
-	 * @generated
-	 */
-	public Adapter createTitleTypeAdapter() {
 		return null;
 	}
 

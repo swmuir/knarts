@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -148,7 +138,57 @@ public enum StructureMapTransformList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EVALUATE(11, "evaluate", "evaluate");
+	EVALUATE(11, "evaluate", "evaluate"),
+
+	/**
+	 * The '<em><b>Cc</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CC(12, "cc", "cc"),
+
+	/**
+	 * The '<em><b>C</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #C_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	C(13, "c", "c"),
+
+	/**
+	 * The '<em><b>Qty</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QTY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QTY(14, "qty", "qty"),
+
+	/**
+	 * The '<em><b>Id</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ID_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ID(15, "id", "id"),
+
+	/**
+	 * The '<em><b>Cp</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CP_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CP(16, "cp", "cp");
 
 	/**
 	 * The '<em><b>Create</b></em>' literal value.
@@ -319,6 +359,76 @@ public enum StructureMapTransformList implements Enumerator {
 	public static final int EVALUATE_VALUE = 11;
 
 	/**
+	 * The '<em><b>Cc</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * cc
+	 * <!-- end-model-doc -->
+	 * @see #CC
+	 * @model name="cc"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CC_VALUE = 12;
+
+	/**
+	 * The '<em><b>C</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * c
+	 * <!-- end-model-doc -->
+	 * @see #C
+	 * @model name="c"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int C_VALUE = 13;
+
+	/**
+	 * The '<em><b>Qty</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * qty
+	 * <!-- end-model-doc -->
+	 * @see #QTY
+	 * @model name="qty"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QTY_VALUE = 14;
+
+	/**
+	 * The '<em><b>Id</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * id
+	 * <!-- end-model-doc -->
+	 * @see #ID
+	 * @model name="id"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ID_VALUE = 15;
+
+	/**
+	 * The '<em><b>Cp</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * cp
+	 * <!-- end-model-doc -->
+	 * @see #CP
+	 * @model name="cp"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CP_VALUE = 16;
+
+	/**
 	 * An array of all the '<em><b>Structure Map Transform List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,6 +448,11 @@ public enum StructureMapTransformList implements Enumerator {
 			UUID,
 			POINTER,
 			EVALUATE,
+			CC,
+			C,
+			QTY,
+			ID,
+			CP,
 		};
 
 	/**
@@ -406,6 +521,11 @@ public enum StructureMapTransformList implements Enumerator {
 			case UUID_VALUE: return UUID;
 			case POINTER_VALUE: return POINTER;
 			case EVALUATE_VALUE: return EVALUATE;
+			case CC_VALUE: return CC;
+			case C_VALUE: return C;
+			case QTY_VALUE: return QTY;
+			case ID_VALUE: return ID;
+			case CP_VALUE: return CP;
 		}
 		return null;
 	}

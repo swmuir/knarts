@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PaymentReconciliationNote;
 
@@ -47,7 +37,7 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -83,7 +73,7 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -92,8 +82,8 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_NOTE__TYPE, oldType, newType);
@@ -107,7 +97,7 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -205,7 +195,7 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.PAYMENT_RECONCILIATION_NOTE__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_NOTE__TEXT:
 				setText((org.hl7.fhir.String)newValue);
@@ -223,7 +213,7 @@ public class PaymentReconciliationNoteImpl extends BackboneElementImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.PAYMENT_RECONCILIATION_NOTE__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_NOTE__TEXT:
 				setText((org.hl7.fhir.String)null);

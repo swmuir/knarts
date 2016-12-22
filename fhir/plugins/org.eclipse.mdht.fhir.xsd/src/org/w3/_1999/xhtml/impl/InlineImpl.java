@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -34,31 +24,22 @@ import org.w3._1999.xhtml.BType;
 import org.w3._1999.xhtml.BdoType;
 import org.w3._1999.xhtml.BigType;
 import org.w3._1999.xhtml.BrType;
-import org.w3._1999.xhtml.ButtonType;
 import org.w3._1999.xhtml.CiteType;
 import org.w3._1999.xhtml.CodeType;
-import org.w3._1999.xhtml.DelType;
 import org.w3._1999.xhtml.DfnType;
 import org.w3._1999.xhtml.EmType;
 import org.w3._1999.xhtml.IType;
 import org.w3._1999.xhtml.ImgType;
 import org.w3._1999.xhtml.Inline;
-import org.w3._1999.xhtml.InputType1;
-import org.w3._1999.xhtml.InsType;
 import org.w3._1999.xhtml.KbdType;
-import org.w3._1999.xhtml.LabelType;
 import org.w3._1999.xhtml.MapType;
-import org.w3._1999.xhtml.ObjectType;
 import org.w3._1999.xhtml.QType;
 import org.w3._1999.xhtml.SampType;
-import org.w3._1999.xhtml.ScriptType;
-import org.w3._1999.xhtml.SelectType;
 import org.w3._1999.xhtml.SmallType;
 import org.w3._1999.xhtml.SpanType;
 import org.w3._1999.xhtml.StrongType;
 import org.w3._1999.xhtml.SubType;
 import org.w3._1999.xhtml.SupType;
-import org.w3._1999.xhtml.TextareaType;
 import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.VarType;
 import org.w3._1999.xhtml.XhtmlPackage;
@@ -72,13 +53,12 @@ import org.w3._1999.xhtml.XhtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getInline <em>Inline</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getA <em>A</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getBr <em>Br</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getObject <em>Object</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getImg <em>Img</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getTt <em>Tt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getI <em>I</em>}</li>
@@ -98,14 +78,6 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getSup <em>Sup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getSelect <em>Select</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getTextarea <em>Textarea</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getButton <em>Button</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.InlineImpl#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,8 +129,8 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getGroup() {
-		return (FeatureMap)getMixed().<FeatureMap.Entry>list(XhtmlPackage.eINSTANCE.getInline_Group());
+	public FeatureMap getInline() {
+		return (FeatureMap)getMixed().<FeatureMap.Entry>list(XhtmlPackage.eINSTANCE.getInline_Inline());
 	}
 
 	/**
@@ -167,7 +139,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<AType> getA() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_A());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_A());
 	}
 
 	/**
@@ -176,7 +148,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<BrType> getBr() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Br());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Br());
 	}
 
 	/**
@@ -185,7 +157,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<SpanType> getSpan() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Span());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Span());
 	}
 
 	/**
@@ -194,7 +166,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<BdoType> getBdo() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Bdo());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Bdo());
 	}
 
 	/**
@@ -203,16 +175,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<MapType> getMap() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Map());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ObjectType> getObject() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Object());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Map());
 	}
 
 	/**
@@ -221,7 +184,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<ImgType> getImg() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Img());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Img());
 	}
 
 	/**
@@ -230,7 +193,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<TtType> getTt() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Tt());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Tt());
 	}
 
 	/**
@@ -239,7 +202,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<IType> getI() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_I());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_I());
 	}
 
 	/**
@@ -248,7 +211,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<BType> getB() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_B());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_B());
 	}
 
 	/**
@@ -257,7 +220,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<BigType> getBig() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Big());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Big());
 	}
 
 	/**
@@ -266,7 +229,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<SmallType> getSmall() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Small());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Small());
 	}
 
 	/**
@@ -275,7 +238,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<EmType> getEm() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Em());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Em());
 	}
 
 	/**
@@ -284,7 +247,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<StrongType> getStrong() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Strong());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Strong());
 	}
 
 	/**
@@ -293,7 +256,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<DfnType> getDfn() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Dfn());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Dfn());
 	}
 
 	/**
@@ -302,7 +265,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<CodeType> getCode() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Code());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Code());
 	}
 
 	/**
@@ -311,7 +274,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<QType> getQ() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Q());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Q());
 	}
 
 	/**
@@ -320,7 +283,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<SampType> getSamp() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Samp());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Samp());
 	}
 
 	/**
@@ -329,7 +292,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<KbdType> getKbd() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Kbd());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Kbd());
 	}
 
 	/**
@@ -338,7 +301,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<VarType> getVar() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Var());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Var());
 	}
 
 	/**
@@ -347,7 +310,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<CiteType> getCite() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Cite());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Cite());
 	}
 
 	/**
@@ -356,7 +319,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<AbbrType> getAbbr() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Abbr());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Abbr());
 	}
 
 	/**
@@ -365,7 +328,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<AcronymType> getAcronym() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Acronym());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Acronym());
 	}
 
 	/**
@@ -374,7 +337,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<SubType> getSub() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Sub());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Sub());
 	}
 
 	/**
@@ -383,79 +346,7 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	 * @generated
 	 */
 	public EList<SupType> getSup() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Sup());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InputType1> getInput() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Input());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SelectType> getSelect() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Select());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TextareaType> getTextarea() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Textarea());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<LabelType> getLabel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Label());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ButtonType> getButton() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Button());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InsType> getIns() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Ins());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DelType> getDel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Del());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ScriptType> getScript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getInline_Script());
+		return getInline().list(XhtmlPackage.eINSTANCE.getInline_Sup());
 	}
 
 	/**
@@ -468,8 +359,8 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 		switch (featureID) {
 			case XhtmlPackage.INLINE__MIXED:
 				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case XhtmlPackage.INLINE__INLINE:
+				return ((InternalEList<?>)getInline()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__A:
 				return ((InternalEList<?>)getA()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__BR:
@@ -480,8 +371,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return ((InternalEList<?>)getBdo()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__MAP:
 				return ((InternalEList<?>)getMap()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__OBJECT:
-				return ((InternalEList<?>)getObject()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__IMG:
 				return ((InternalEList<?>)getImg()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__TT:
@@ -520,22 +409,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.INLINE__SUP:
 				return ((InternalEList<?>)getSup()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__INPUT:
-				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__SELECT:
-				return ((InternalEList<?>)getSelect()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__TEXTAREA:
-				return ((InternalEList<?>)getTextarea()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__LABEL:
-				return ((InternalEList<?>)getLabel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__BUTTON:
-				return ((InternalEList<?>)getButton()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__INS:
-				return ((InternalEList<?>)getIns()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__DEL:
-				return ((InternalEList<?>)getDel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.INLINE__SCRIPT:
-				return ((InternalEList<?>)getScript()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -551,9 +424,9 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 			case XhtmlPackage.INLINE__MIXED:
 				if (coreType) return getMixed();
 				return ((FeatureMap.Internal)getMixed()).getWrapper();
-			case XhtmlPackage.INLINE__GROUP:
-				if (coreType) return getGroup();
-				return ((FeatureMap.Internal)getGroup()).getWrapper();
+			case XhtmlPackage.INLINE__INLINE:
+				if (coreType) return getInline();
+				return ((FeatureMap.Internal)getInline()).getWrapper();
 			case XhtmlPackage.INLINE__A:
 				return getA();
 			case XhtmlPackage.INLINE__BR:
@@ -564,8 +437,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return getBdo();
 			case XhtmlPackage.INLINE__MAP:
 				return getMap();
-			case XhtmlPackage.INLINE__OBJECT:
-				return getObject();
 			case XhtmlPackage.INLINE__IMG:
 				return getImg();
 			case XhtmlPackage.INLINE__TT:
@@ -604,22 +475,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return getSub();
 			case XhtmlPackage.INLINE__SUP:
 				return getSup();
-			case XhtmlPackage.INLINE__INPUT:
-				return getInput();
-			case XhtmlPackage.INLINE__SELECT:
-				return getSelect();
-			case XhtmlPackage.INLINE__TEXTAREA:
-				return getTextarea();
-			case XhtmlPackage.INLINE__LABEL:
-				return getLabel();
-			case XhtmlPackage.INLINE__BUTTON:
-				return getButton();
-			case XhtmlPackage.INLINE__INS:
-				return getIns();
-			case XhtmlPackage.INLINE__DEL:
-				return getDel();
-			case XhtmlPackage.INLINE__SCRIPT:
-				return getScript();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -636,8 +491,8 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 			case XhtmlPackage.INLINE__MIXED:
 				((FeatureMap.Internal)getMixed()).set(newValue);
 				return;
-			case XhtmlPackage.INLINE__GROUP:
-				((FeatureMap.Internal)getGroup()).set(newValue);
+			case XhtmlPackage.INLINE__INLINE:
+				((FeatureMap.Internal)getInline()).set(newValue);
 				return;
 			case XhtmlPackage.INLINE__A:
 				getA().clear();
@@ -658,10 +513,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 			case XhtmlPackage.INLINE__MAP:
 				getMap().clear();
 				getMap().addAll((Collection<? extends MapType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__OBJECT:
-				getObject().clear();
-				getObject().addAll((Collection<? extends ObjectType>)newValue);
 				return;
 			case XhtmlPackage.INLINE__IMG:
 				getImg().clear();
@@ -739,38 +590,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				getSup().clear();
 				getSup().addAll((Collection<? extends SupType>)newValue);
 				return;
-			case XhtmlPackage.INLINE__INPUT:
-				getInput().clear();
-				getInput().addAll((Collection<? extends InputType1>)newValue);
-				return;
-			case XhtmlPackage.INLINE__SELECT:
-				getSelect().clear();
-				getSelect().addAll((Collection<? extends SelectType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__TEXTAREA:
-				getTextarea().clear();
-				getTextarea().addAll((Collection<? extends TextareaType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__LABEL:
-				getLabel().clear();
-				getLabel().addAll((Collection<? extends LabelType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__BUTTON:
-				getButton().clear();
-				getButton().addAll((Collection<? extends ButtonType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__INS:
-				getIns().clear();
-				getIns().addAll((Collection<? extends InsType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__DEL:
-				getDel().clear();
-				getDel().addAll((Collection<? extends DelType>)newValue);
-				return;
-			case XhtmlPackage.INLINE__SCRIPT:
-				getScript().clear();
-				getScript().addAll((Collection<? extends ScriptType>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -786,8 +605,8 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 			case XhtmlPackage.INLINE__MIXED:
 				getMixed().clear();
 				return;
-			case XhtmlPackage.INLINE__GROUP:
-				getGroup().clear();
+			case XhtmlPackage.INLINE__INLINE:
+				getInline().clear();
 				return;
 			case XhtmlPackage.INLINE__A:
 				getA().clear();
@@ -803,9 +622,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return;
 			case XhtmlPackage.INLINE__MAP:
 				getMap().clear();
-				return;
-			case XhtmlPackage.INLINE__OBJECT:
-				getObject().clear();
 				return;
 			case XhtmlPackage.INLINE__IMG:
 				getImg().clear();
@@ -864,30 +680,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 			case XhtmlPackage.INLINE__SUP:
 				getSup().clear();
 				return;
-			case XhtmlPackage.INLINE__INPUT:
-				getInput().clear();
-				return;
-			case XhtmlPackage.INLINE__SELECT:
-				getSelect().clear();
-				return;
-			case XhtmlPackage.INLINE__TEXTAREA:
-				getTextarea().clear();
-				return;
-			case XhtmlPackage.INLINE__LABEL:
-				getLabel().clear();
-				return;
-			case XhtmlPackage.INLINE__BUTTON:
-				getButton().clear();
-				return;
-			case XhtmlPackage.INLINE__INS:
-				getIns().clear();
-				return;
-			case XhtmlPackage.INLINE__DEL:
-				getDel().clear();
-				return;
-			case XhtmlPackage.INLINE__SCRIPT:
-				getScript().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -902,8 +694,8 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 		switch (featureID) {
 			case XhtmlPackage.INLINE__MIXED:
 				return mixed != null && !mixed.isEmpty();
-			case XhtmlPackage.INLINE__GROUP:
-				return !getGroup().isEmpty();
+			case XhtmlPackage.INLINE__INLINE:
+				return !getInline().isEmpty();
 			case XhtmlPackage.INLINE__A:
 				return !getA().isEmpty();
 			case XhtmlPackage.INLINE__BR:
@@ -914,8 +706,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return !getBdo().isEmpty();
 			case XhtmlPackage.INLINE__MAP:
 				return !getMap().isEmpty();
-			case XhtmlPackage.INLINE__OBJECT:
-				return !getObject().isEmpty();
 			case XhtmlPackage.INLINE__IMG:
 				return !getImg().isEmpty();
 			case XhtmlPackage.INLINE__TT:
@@ -954,22 +744,6 @@ public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 				return !getSub().isEmpty();
 			case XhtmlPackage.INLINE__SUP:
 				return !getSup().isEmpty();
-			case XhtmlPackage.INLINE__INPUT:
-				return !getInput().isEmpty();
-			case XhtmlPackage.INLINE__SELECT:
-				return !getSelect().isEmpty();
-			case XhtmlPackage.INLINE__TEXTAREA:
-				return !getTextarea().isEmpty();
-			case XhtmlPackage.INLINE__LABEL:
-				return !getLabel().isEmpty();
-			case XhtmlPackage.INLINE__BUTTON:
-				return !getButton().isEmpty();
-			case XhtmlPackage.INLINE__INS:
-				return !getIns().isEmpty();
-			case XhtmlPackage.INLINE__DEL:
-				return !getDel().isEmpty();
-			case XhtmlPackage.INLINE__SCRIPT:
-				return !getScript().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

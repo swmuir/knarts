@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -19,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Variation and Sequence data.
+ * Raw data describing a biological sequence.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,6 +21,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getReferenceSeqId <em>Reference Seq Id</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getReferenceSeqPointer <em>Reference Seq Pointer</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getReferenceSeqString <em>Reference Seq String</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getStrand <em>Strand</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getWindowStart <em>Window Start</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceReferenceSeq#getWindowEnd <em>Window End</em>}</li>
  * </ul>
@@ -45,7 +36,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.
+	 * Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Chromosome</em>' containment reference.
 	 * @see #setChromosome(CodeableConcept)
@@ -102,7 +93,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * @return the value of the '<em>Reference Seq Id</em>' containment reference.
 	 * @see #setReferenceSeqId(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getSequenceReferenceSeq_ReferenceSeqId()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='referenceSeqId' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -123,7 +114,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A Pointer to another Sequence entity as refence sequence.
+	 * A Pointer to another Sequence entity as reference sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference Seq Pointer</em>' containment reference.
 	 * @see #setReferenceSeqPointer(Reference)
@@ -171,11 +162,37 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	void setReferenceSeqString(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Strand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Directionality of DNA sequence. Available values are "1" for the plus strand (5' to 3')/Watson/Sense/positive  and "-1" for the minus strand(3' to 5')/Crick/Antisense/negative.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Strand</em>' containment reference.
+	 * @see #setStrand(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceReferenceSeq_Strand()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='strand' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getStrand();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceReferenceSeq#getStrand <em>Strand</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Strand</em>' containment reference.
+	 * @see #getStrand()
+	 * @generated
+	 */
+	void setStrand(org.hl7.fhir.Integer value);
+
+	/**
 	 * Returns the value of the '<em><b>Window Start</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 0-based start position (inclusive) of the window on the reference sequence.
+	 * Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Window Start</em>' containment reference.
 	 * @see #setWindowStart(org.hl7.fhir.Integer)
@@ -201,7 +218,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 0-based end position (exclusive) of the window on the reference sequence.
+	 * End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Window End</em>' containment reference.
 	 * @see #setWindowEnd(org.hl7.fhir.Integer)

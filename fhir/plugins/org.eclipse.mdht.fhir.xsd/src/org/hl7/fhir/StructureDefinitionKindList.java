@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -31,14 +21,24 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum StructureDefinitionKindList implements Enumerator {
 	/**
-	 * The '<em><b>Datatype</b></em>' literal object.
+	 * The '<em><b>Primitive Type</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DATATYPE_VALUE
+	 * @see #PRIMITIVE_TYPE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DATATYPE(0, "datatype", "datatype"),
+	PRIMITIVE_TYPE(0, "primitiveType", "primitive-type"),
+
+	/**
+	 * The '<em><b>Complex Type</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPLEX_TYPE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPLEX_TYPE(1, "complexType", "complex-type"),
 
 	/**
 	 * The '<em><b>Resource</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESOURCE(1, "resource", "resource"),
+	RESOURCE(2, "resource", "resource"),
 
 	/**
 	 * The '<em><b>Logical</b></em>' literal object.
@@ -58,21 +58,35 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOGICAL(2, "logical", "logical");
+	LOGICAL(3, "logical", "logical");
 
 	/**
-	 * The '<em><b>Datatype</b></em>' literal value.
+	 * The '<em><b>Primitive Type</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Data Type
+	 * Primitive Data Type
 	 * <!-- end-model-doc -->
-	 * @see #DATATYPE
-	 * @model name="datatype"
+	 * @see #PRIMITIVE_TYPE
+	 * @model name="primitiveType" literal="primitive-type"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATATYPE_VALUE = 0;
+	public static final int PRIMITIVE_TYPE_VALUE = 0;
+
+	/**
+	 * The '<em><b>Complex Type</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Complex Data Type
+	 * <!-- end-model-doc -->
+	 * @see #COMPLEX_TYPE
+	 * @model name="complexType" literal="complex-type"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMPLEX_TYPE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Resource</b></em>' literal value.
@@ -86,7 +100,7 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESOURCE_VALUE = 1;
+	public static final int RESOURCE_VALUE = 2;
 
 	/**
 	 * The '<em><b>Logical</b></em>' literal value.
@@ -100,7 +114,7 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LOGICAL_VALUE = 2;
+	public static final int LOGICAL_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Structure Definition Kind List</b></em>' enumerators.
@@ -110,7 +124,8 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 */
 	private static final StructureDefinitionKindList[] VALUES_ARRAY =
 		new StructureDefinitionKindList[] {
-			DATATYPE,
+			PRIMITIVE_TYPE,
+			COMPLEX_TYPE,
 			RESOURCE,
 			LOGICAL,
 		};
@@ -169,7 +184,8 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 */
 	public static StructureDefinitionKindList get(int value) {
 		switch (value) {
-			case DATATYPE_VALUE: return DATATYPE;
+			case PRIMITIVE_TYPE_VALUE: return PRIMITIVE_TYPE;
+			case COMPLEX_TYPE_VALUE: return COMPLEX_TYPE;
 			case RESOURCE_VALUE: return RESOURCE;
 			case LOGICAL_VALUE: return LOGICAL;
 		}

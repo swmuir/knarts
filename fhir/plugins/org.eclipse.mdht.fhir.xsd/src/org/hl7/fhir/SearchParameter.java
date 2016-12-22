@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.SearchParameter#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getExperimental <em>Experimental</em>}</li>
@@ -36,15 +27,21 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SearchParameter#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.SearchParameter#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getBase <em>Base</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getXpath <em>Xpath</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getXpathUsage <em>Xpath Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.SearchParameter#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getComparator <em>Comparator</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getModifier <em>Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getChain <em>Chain</em>}</li>
+ *   <li>{@link org.hl7.fhir.SearchParameter#getComponent <em>Component</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSearchParameter()
@@ -57,7 +54,7 @@ public interface SearchParameter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
+	 * An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published. The URL SHOULD include the major version of the search parameter. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -79,11 +76,37 @@ public interface SearchParameter extends DomainResource {
 	void setUrl(Uri value);
 
 	/**
+	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Version</em>' containment reference.
+	 * @see #setVersion(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Version()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getVersion();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getVersion <em>Version</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' containment reference.
+	 * @see #getVersion()
+	 * @generated
+	 */
+	void setVersion(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language name identifying the search parameter.
+	 * A natural language name identifying the search parameter. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -109,16 +132,16 @@ public interface SearchParameter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of this search parameter definition.
+	 * The status of this search parameter. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getStatus <em>Status</em>}' containment reference.
@@ -128,14 +151,14 @@ public interface SearchParameter extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A flag to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -161,7 +184,7 @@ public interface SearchParameter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.
+	 * The date  (and optionally time) when the search parameter was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -210,11 +233,11 @@ public interface SearchParameter extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SearchParameterContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Contact()
@@ -222,15 +245,15 @@ public interface SearchParameter extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SearchParameterContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of search parameters.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_UseContext()
@@ -238,33 +261,49 @@ public interface SearchParameter extends DomainResource {
 	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getUseContext();
+	EList<UsageContext> getUseContext();
 
 	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Scope and Usage that this search parameter was created to meet.
+	 * A jurisdiction in which the search parameter is intended to be used.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requirements</em>' containment reference.
-	 * @see #setRequirements(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Requirements()
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Jurisdiction()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requirements' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getRequirements();
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getRequirements <em>Requirements</em>}' containment reference.
+	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requirements</em>' containment reference.
-	 * @see #getRequirements()
+	 * <!-- begin-model-doc -->
+	 * Explains why this search parameter is needed and why it has been designed as it has.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Purpose</em>' containment reference.
+	 * @see #setPurpose(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Purpose()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='purpose' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setRequirements(org.hl7.fhir.String value);
+	Markdown getPurpose();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getPurpose <em>Purpose</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Purpose</em>' containment reference.
+	 * @see #getPurpose()
+	 * @generated
+	 */
+	void setPurpose(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -293,30 +332,20 @@ public interface SearchParameter extends DomainResource {
 	void setCode(Code value);
 
 	/**
-	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Code}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The base resource type that this search parameter refers to.
+	 * The base resource type(s) that this search parameter can be used against.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(Code)
+	 * @return the value of the '<em>Base</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Base()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getBase();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getBase <em>Base</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base</em>' containment reference.
-	 * @see #getBase()
-	 * @generated
-	 */
-	void setBase(Code value);
+	EList<Code> getBase();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -345,20 +374,46 @@ public interface SearchParameter extends DomainResource {
 	void setType(SearchParamType value);
 
 	/**
+	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Derived From</em>' containment reference.
+	 * @see #setDerivedFrom(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_DerivedFrom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='derivedFrom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getDerivedFrom();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getDerivedFrom <em>Derived From</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Derived From</em>' containment reference.
+	 * @see #getDerivedFrom()
+	 * @generated
+	 */
+	void setDerivedFrom(Uri value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the search parameters and how it used.
+	 * A free text natural language description of the search parameter from the consumer's perspective. and how it used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Description()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SearchParameter#getDescription <em>Description</em>}' containment reference.
@@ -368,7 +423,7 @@ public interface SearchParameter extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
@@ -463,5 +518,69 @@ public interface SearchParameter extends DomainResource {
 	 * @generated
 	 */
 	EList<Code> getTarget();
+
+	/**
+	 * Returns the value of the '<em><b>Comparator</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SearchComparator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Comparators supported for the search parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Comparator</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Comparator()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='comparator' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SearchComparator> getComparator();
+
+	/**
+	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SearchModifierCode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A modifier supported for the search parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Modifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Modifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='modifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SearchModifierCode> getModifier();
+
+	/**
+	 * Returns the value of the '<em><b>Chain</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Chain</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Chain()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='chain' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<org.hl7.fhir.String> getChain();
+
+	/**
+	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SearchParameterComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Used to define the parts of a composite search parameter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Component</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSearchParameter_Component()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SearchParameterComponent> getComponent();
 
 } // SearchParameter

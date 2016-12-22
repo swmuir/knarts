@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -59,6 +49,7 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getAsNeededBoolean <em>As Needed Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureRequestImpl#getAsNeededCodeableConcept <em>As Needed Codeable Concept</em>}</li>
@@ -189,6 +180,16 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * @ordered
 	 */
 	protected ProcedureRequestStatus status;
+
+	/**
+	 * The cached value of the '{@link #getSupportingInfo() <em>Supporting Info</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupportingInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> supportingInfo;
 
 	/**
 	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
@@ -728,6 +729,18 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getSupportingInfo() {
+		if (supportingInfo == null) {
+			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO);
+		}
+		return supportingInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Annotation> getNotes() {
 		if (notes == null) {
 			notes = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.PROCEDURE_REQUEST__NOTES);
@@ -982,6 +995,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				return basicSetPerformer(null, msgs);
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO:
+				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE_REQUEST__NOTES:
 				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE_REQUEST__AS_NEEDED_BOOLEAN:
@@ -1030,6 +1045,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				return getPerformer();
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
 				return getStatus();
+			case FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO:
+				return getSupportingInfo();
 			case FhirPackage.PROCEDURE_REQUEST__NOTES:
 				return getNotes();
 			case FhirPackage.PROCEDURE_REQUEST__AS_NEEDED_BOOLEAN:
@@ -1092,6 +1109,10 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
 				setStatus((ProcedureRequestStatus)newValue);
+				return;
+			case FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO:
+				getSupportingInfo().clear();
+				getSupportingInfo().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__NOTES:
 				getNotes().clear();
@@ -1160,6 +1181,9 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
 				setStatus((ProcedureRequestStatus)null);
 				return;
+			case FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO:
+				getSupportingInfo().clear();
+				return;
 			case FhirPackage.PROCEDURE_REQUEST__NOTES:
 				getNotes().clear();
 				return;
@@ -1214,6 +1238,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				return performer != null;
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
 				return status != null;
+			case FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO:
+				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.PROCEDURE_REQUEST__NOTES:
 				return notes != null && !notes.isEmpty();
 			case FhirPackage.PROCEDURE_REQUEST__AS_NEEDED_BOOLEAN:

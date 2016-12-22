@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -91,6 +81,16 @@ public enum TaskStatusList implements Enumerator {
 	READY(5, "ready", "ready"),
 
 	/**
+	 * The '<em><b>Cancelled</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CANCELLED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CANCELLED(6, "cancelled", "cancelled"),
+
+	/**
 	 * The '<em><b>In Progress</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,7 +98,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN_PROGRESS(6, "inProgress", "in-progress"),
+	IN_PROGRESS(7, "inProgress", "in-progress"),
 
 	/**
 	 * The '<em><b>On Hold</b></em>' literal object.
@@ -108,7 +108,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ON_HOLD(7, "onHold", "on-hold"),
+	ON_HOLD(8, "onHold", "on-hold"),
 
 	/**
 	 * The '<em><b>Failed</b></em>' literal object.
@@ -118,7 +118,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAILED(8, "failed", "failed"),
+	FAILED(9, "failed", "failed"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -128,7 +128,17 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(9, "completed", "completed");
+	COMPLETED(10, "completed", "completed"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(11, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Draft</b></em>' literal value.
@@ -215,6 +225,20 @@ public enum TaskStatusList implements Enumerator {
 	public static final int READY_VALUE = 5;
 
 	/**
+	 * The '<em><b>Cancelled</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Cancelled
+	 * <!-- end-model-doc -->
+	 * @see #CANCELLED
+	 * @model name="cancelled"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CANCELLED_VALUE = 6;
+
+	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,7 +250,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_PROGRESS_VALUE = 6;
+	public static final int IN_PROGRESS_VALUE = 7;
 
 	/**
 	 * The '<em><b>On Hold</b></em>' literal value.
@@ -240,7 +264,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ON_HOLD_VALUE = 7;
+	public static final int ON_HOLD_VALUE = 8;
 
 	/**
 	 * The '<em><b>Failed</b></em>' literal value.
@@ -254,7 +278,7 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAILED_VALUE = 8;
+	public static final int FAILED_VALUE = 9;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -268,7 +292,21 @@ public enum TaskStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 9;
+	public static final int COMPLETED_VALUE = 10;
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 11;
 
 	/**
 	 * An array of all the '<em><b>Task Status List</b></em>' enumerators.
@@ -284,10 +322,12 @@ public enum TaskStatusList implements Enumerator {
 			ACCEPTED,
 			REJECTED,
 			READY,
+			CANCELLED,
 			IN_PROGRESS,
 			ON_HOLD,
 			FAILED,
 			COMPLETED,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -350,10 +390,12 @@ public enum TaskStatusList implements Enumerator {
 			case ACCEPTED_VALUE: return ACCEPTED;
 			case REJECTED_VALUE: return REJECTED;
 			case READY_VALUE: return READY;
+			case CANCELLED_VALUE: return CANCELLED;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case FAILED_VALUE: return FAILED;
 			case COMPLETED_VALUE: return COMPLETED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

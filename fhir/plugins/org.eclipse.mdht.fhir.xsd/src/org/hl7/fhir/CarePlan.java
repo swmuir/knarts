@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,18 +19,19 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CarePlan#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getModified <em>Modified</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getModified <em>Modified</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getSupport <em>Support</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getRelatedPlan <em>Related Plan</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getActivity <em>Activity</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getNote <em>Note</em>}</li>
@@ -66,32 +57,6 @@ public interface CarePlan extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the patient or group whose intended care is described by the plan.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Subject()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSubject();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getSubject <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
-	 * @generated
-	 */
-	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -120,11 +85,79 @@ public interface CarePlan extends DomainResource {
 	void setStatus(CarePlanStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", "wellness plan", etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCategory();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A description of the scope and nature of the plan.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Description()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the patient or group whose intended care is described by the plan.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Subject()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the context in which this particular CarePlan is defined.
+	 * Identifies the original context in which this particular CarePlan was created.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference.
 	 * @see #setContext(Reference)
@@ -172,22 +205,6 @@ public interface CarePlan extends DomainResource {
 	void setPeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Author()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getAuthor();
-
-	/**
 	 * Returns the value of the '<em><b>Modified</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,46 +231,36 @@ public interface CarePlan extends DomainResource {
 	void setModified(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", "wellness plan", etc.
+	 * Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Category()
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Author()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getCategory();
+	EList<Reference> getAuthor();
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the scope and nature of the plan.
+	 * Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Description()
+	 * @return the value of the '<em>Care Team</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_CareTeam()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeam' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(org.hl7.fhir.String value);
+	EList<Reference> getCareTeam();
 
 	/**
 	 * Returns the value of the '<em><b>Addresses</b></em>' containment reference list.
@@ -288,6 +295,32 @@ public interface CarePlan extends DomainResource {
 	EList<Reference> getSupport();
 
 	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference.
+	 * @see #setDefinition(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getDefinition <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' containment reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Related Plan</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CarePlanRelatedPlan}.
 	 * <!-- begin-user-doc -->
@@ -302,32 +335,6 @@ public interface CarePlan extends DomainResource {
 	 * @generated
 	 */
 	EList<CarePlanRelatedPlan> getRelatedPlan();
-
-	/**
-	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Care Team</em>' containment reference.
-	 * @see #setCareTeam(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_CareTeam()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='careTeam' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getCareTeam();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlan#getCareTeam <em>Care Team</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Care Team</em>' containment reference.
-	 * @see #getCareTeam()
-	 * @generated
-	 */
-	void setCareTeam(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Goal</b></em>' containment reference list.

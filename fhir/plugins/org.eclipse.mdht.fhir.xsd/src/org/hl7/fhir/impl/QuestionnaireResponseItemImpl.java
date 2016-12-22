@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -31,6 +21,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +32,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getAnswer <em>Answer</em>}</li>
@@ -59,6 +51,16 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String linkId;
+
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri definition;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -160,6 +162,49 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID, newLinkId, newLinkId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
+		Uri oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(Uri newDefinition) {
+		if (newDefinition != definition) {
+			NotificationChain msgs = null;
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -282,6 +327,8 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID:
 				return basicSetLinkId(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION:
+				return basicSetDefinition(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return basicSetText(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
@@ -304,6 +351,8 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID:
 				return getLinkId();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION:
+				return getDefinition();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return getText();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
@@ -327,6 +376,9 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID:
 				setLinkId((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION:
+				setDefinition((Uri)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				setText((org.hl7.fhir.String)newValue);
@@ -357,6 +409,9 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID:
 				setLinkId((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION:
+				setDefinition((Uri)null);
+				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				setText((org.hl7.fhir.String)null);
 				return;
@@ -383,6 +438,8 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__LINK_ID:
 				return linkId != null;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__DEFINITION:
+				return definition != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return text != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -23,9 +13,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.SampledDataDataType;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +45,7 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity origin;
+	protected Quantity origin;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -141,7 +131,7 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getOrigin() {
+	public Quantity getOrigin() {
 		return origin;
 	}
 
@@ -150,8 +140,8 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrigin(SimpleQuantity newOrigin, NotificationChain msgs) {
-		SimpleQuantity oldOrigin = origin;
+	public NotificationChain basicSetOrigin(Quantity newOrigin, NotificationChain msgs) {
+		Quantity oldOrigin = origin;
 		origin = newOrigin;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SAMPLED_DATA__ORIGIN, oldOrigin, newOrigin);
@@ -165,7 +155,7 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrigin(SimpleQuantity newOrigin) {
+	public void setOrigin(Quantity newOrigin) {
 		if (newOrigin != origin) {
 			NotificationChain msgs = null;
 			if (origin != null)
@@ -498,7 +488,7 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.SAMPLED_DATA__ORIGIN:
-				setOrigin((SimpleQuantity)newValue);
+				setOrigin((Quantity)newValue);
 				return;
 			case FhirPackage.SAMPLED_DATA__PERIOD:
 				setPeriod((Decimal)newValue);
@@ -531,7 +521,7 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SAMPLED_DATA__ORIGIN:
-				setOrigin((SimpleQuantity)null);
+				setOrigin((Quantity)null);
 				return;
 			case FhirPackage.SAMPLED_DATA__PERIOD:
 				setPeriod((Decimal)null);

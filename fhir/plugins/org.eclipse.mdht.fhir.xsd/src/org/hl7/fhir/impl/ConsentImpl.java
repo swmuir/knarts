@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -29,17 +19,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.Consent;
-import org.hl7.fhir.ConsentAgent;
 import org.hl7.fhir.ConsentExcept;
-import org.hl7.fhir.ConsentFriendly;
-import org.hl7.fhir.ConsentLegal;
 import org.hl7.fhir.ConsentStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,19 +40,19 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getIssued <em>Issued</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getApplies <em>Applies</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getDateTime <em>Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getAuthority <em>Authority</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getDomain <em>Domain</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getAction <em>Action</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getAgent <em>Agent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getConsentor <em>Consentor</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getSourceAttachment <em>Source Attachment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getSourceIdentifier <em>Source Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getSourceReference <em>Source Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPolicy <em>Policy</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getExcept <em>Except</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getFriendly <em>Friendly</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getLegal <em>Legal</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getRule <em>Rule</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,44 +79,34 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	protected ConsentStatus status;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected EList<CodeableConcept> category;
 
 	/**
-	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
+	 * The cached value of the '{@link #getDateTime() <em>Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIssued()
+	 * @see #getDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime issued;
+	protected DateTime dateTime;
 
 	/**
-	 * The cached value of the '{@link #getApplies() <em>Applies</em>}' containment reference.
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getApplies()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period applies;
-
-	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTopic()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> topic;
+	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -140,44 +119,84 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	protected Reference patient;
 
 	/**
-	 * The cached value of the '{@link #getAuthority() <em>Authority</em>}' containment reference list.
+	 * The cached value of the '{@link #getConsentor() <em>Consentor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAuthority()
+	 * @see #getConsentor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> authority;
+	protected EList<Reference> consentor;
 
 	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' containment reference list.
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomain()
+	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> domain;
+	protected Reference organization;
 
 	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getSourceAttachment() <em>Source Attachment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAction()
+	 * @see #getSourceAttachment()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> action;
+	protected Attachment sourceAttachment;
 
 	/**
-	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
+	 * The cached value of the '{@link #getSourceIdentifier() <em>Source Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAgent()
+	 * @see #getSourceIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConsentAgent> agent;
+	protected Identifier sourceIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getSourceReference() <em>Source Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference sourceReference;
+
+	/**
+	 * The cached value of the '{@link #getPolicy() <em>Policy</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicy()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri policy;
+
+	/**
+	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> recipient;
+
+	/**
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> purpose;
 
 	/**
 	 * The cached value of the '{@link #getExcept() <em>Except</em>}' containment reference list.
@@ -188,36 +207,6 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * @ordered
 	 */
 	protected EList<ConsentExcept> except;
-
-	/**
-	 * The cached value of the '{@link #getFriendly() <em>Friendly</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFriendly()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ConsentFriendly> friendly;
-
-	/**
-	 * The cached value of the '{@link #getLegal() <em>Legal</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLegal()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ConsentLegal> legal;
-
-	/**
-	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRule()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attachment> rule;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,8 +318,11 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONSENT__CATEGORY);
+		}
+		return category;
 	}
 
 	/**
@@ -338,11 +330,20 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public DateTime getDateTime() {
+		return dateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDateTime(DateTime newDateTime, NotificationChain msgs) {
+		DateTime oldDateTime = dateTime;
+		dateTime = newDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__DATE_TIME, oldDateTime, newDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -353,18 +354,18 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setDateTime(DateTime newDateTime) {
+		if (newDateTime != dateTime) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (dateTime != null)
+				msgs = ((InternalEObject)dateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__DATE_TIME, null, msgs);
+			if (newDateTime != null)
+				msgs = ((InternalEObject)newDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__DATE_TIME, null, msgs);
+			msgs = basicSetDateTime(newDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__DATE_TIME, newDateTime, newDateTime));
 	}
 
 	/**
@@ -372,8 +373,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getIssued() {
-		return issued;
+	public Period getPeriod() {
+		return period;
 	}
 
 	/**
@@ -381,11 +382,11 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIssued(DateTime newIssued, NotificationChain msgs) {
-		DateTime oldIssued = issued;
-		issued = newIssued;
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ISSUED, oldIssued, newIssued);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__PERIOD, oldPeriod, newPeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -396,73 +397,18 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIssued(DateTime newIssued) {
-		if (newIssued != issued) {
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
 			NotificationChain msgs = null;
-			if (issued != null)
-				msgs = ((InternalEObject)issued).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ISSUED, null, msgs);
-			if (newIssued != null)
-				msgs = ((InternalEObject)newIssued).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ISSUED, null, msgs);
-			msgs = basicSetIssued(newIssued, msgs);
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ISSUED, newIssued, newIssued));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getApplies() {
-		return applies;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetApplies(Period newApplies, NotificationChain msgs) {
-		Period oldApplies = applies;
-		applies = newApplies;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__APPLIES, oldApplies, newApplies);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setApplies(Period newApplies) {
-		if (newApplies != applies) {
-			NotificationChain msgs = null;
-			if (applies != null)
-				msgs = ((InternalEObject)applies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__APPLIES, null, msgs);
-			if (newApplies != null)
-				msgs = ((InternalEObject)newApplies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__APPLIES, null, msgs);
-			msgs = basicSetApplies(newApplies, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__APPLIES, newApplies, newApplies));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getTopic() {
-		if (topic == null) {
-			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__TOPIC);
-		}
-		return topic;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__PERIOD, newPeriod, newPeriod));
 	}
 
 	/**
@@ -513,11 +459,11 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getAuthority() {
-		if (authority == null) {
-			authority = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__AUTHORITY);
+	public EList<Reference> getConsentor() {
+		if (consentor == null) {
+			consentor = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__CONSENTOR);
 		}
-		return authority;
+		return consentor;
 	}
 
 	/**
@@ -525,11 +471,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getDomain() {
-		if (domain == null) {
-			domain = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__DOMAIN);
-		}
-		return domain;
+	public Reference getOrganization() {
+		return organization;
 	}
 
 	/**
@@ -537,11 +480,14 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getAction() {
-		if (action == null) {
-			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONSENT__ACTION);
+	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
+		Reference oldOrganization = organization;
+		organization = newOrganization;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ORGANIZATION, oldOrganization, newOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return action;
+		return msgs;
 	}
 
 	/**
@@ -549,11 +495,214 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConsentAgent> getAgent() {
-		if (agent == null) {
-			agent = new EObjectContainmentEList<ConsentAgent>(ConsentAgent.class, this, FhirPackage.CONSENT__AGENT);
+	public void setOrganization(Reference newOrganization) {
+		if (newOrganization != organization) {
+			NotificationChain msgs = null;
+			if (organization != null)
+				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ORGANIZATION, null, msgs);
+			msgs = basicSetOrganization(newOrganization, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return agent;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ORGANIZATION, newOrganization, newOrganization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attachment getSourceAttachment() {
+		return sourceAttachment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceAttachment(Attachment newSourceAttachment, NotificationChain msgs) {
+		Attachment oldSourceAttachment = sourceAttachment;
+		sourceAttachment = newSourceAttachment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_ATTACHMENT, oldSourceAttachment, newSourceAttachment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceAttachment(Attachment newSourceAttachment) {
+		if (newSourceAttachment != sourceAttachment) {
+			NotificationChain msgs = null;
+			if (sourceAttachment != null)
+				msgs = ((InternalEObject)sourceAttachment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_ATTACHMENT, null, msgs);
+			if (newSourceAttachment != null)
+				msgs = ((InternalEObject)newSourceAttachment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_ATTACHMENT, null, msgs);
+			msgs = basicSetSourceAttachment(newSourceAttachment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_ATTACHMENT, newSourceAttachment, newSourceAttachment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getSourceIdentifier() {
+		return sourceIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceIdentifier(Identifier newSourceIdentifier, NotificationChain msgs) {
+		Identifier oldSourceIdentifier = sourceIdentifier;
+		sourceIdentifier = newSourceIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_IDENTIFIER, oldSourceIdentifier, newSourceIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceIdentifier(Identifier newSourceIdentifier) {
+		if (newSourceIdentifier != sourceIdentifier) {
+			NotificationChain msgs = null;
+			if (sourceIdentifier != null)
+				msgs = ((InternalEObject)sourceIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_IDENTIFIER, null, msgs);
+			if (newSourceIdentifier != null)
+				msgs = ((InternalEObject)newSourceIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_IDENTIFIER, null, msgs);
+			msgs = basicSetSourceIdentifier(newSourceIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_IDENTIFIER, newSourceIdentifier, newSourceIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSourceReference() {
+		return sourceReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceReference(Reference newSourceReference, NotificationChain msgs) {
+		Reference oldSourceReference = sourceReference;
+		sourceReference = newSourceReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_REFERENCE, oldSourceReference, newSourceReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceReference(Reference newSourceReference) {
+		if (newSourceReference != sourceReference) {
+			NotificationChain msgs = null;
+			if (sourceReference != null)
+				msgs = ((InternalEObject)sourceReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_REFERENCE, null, msgs);
+			if (newSourceReference != null)
+				msgs = ((InternalEObject)newSourceReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__SOURCE_REFERENCE, null, msgs);
+			msgs = basicSetSourceReference(newSourceReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__SOURCE_REFERENCE, newSourceReference, newSourceReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getPolicy() {
+		return policy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPolicy(Uri newPolicy, NotificationChain msgs) {
+		Uri oldPolicy = policy;
+		policy = newPolicy;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__POLICY, oldPolicy, newPolicy);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPolicy(Uri newPolicy) {
+		if (newPolicy != policy) {
+			NotificationChain msgs = null;
+			if (policy != null)
+				msgs = ((InternalEObject)policy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__POLICY, null, msgs);
+			if (newPolicy != null)
+				msgs = ((InternalEObject)newPolicy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__POLICY, null, msgs);
+			msgs = basicSetPolicy(newPolicy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__POLICY, newPolicy, newPolicy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getRecipient() {
+		if (recipient == null) {
+			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__RECIPIENT);
+		}
+		return recipient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Coding> getPurpose() {
+		if (purpose == null) {
+			purpose = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT__PURPOSE);
+		}
+		return purpose;
 	}
 
 	/**
@@ -573,42 +722,6 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConsentFriendly> getFriendly() {
-		if (friendly == null) {
-			friendly = new EObjectContainmentEList<ConsentFriendly>(ConsentFriendly.class, this, FhirPackage.CONSENT__FRIENDLY);
-		}
-		return friendly;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ConsentLegal> getLegal() {
-		if (legal == null) {
-			legal = new EObjectContainmentEList<ConsentLegal>(ConsentLegal.class, this, FhirPackage.CONSENT__LEGAL);
-		}
-		return legal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Attachment> getRule() {
-		if (rule == null) {
-			rule = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.CONSENT__RULE);
-		}
-		return rule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -616,32 +729,32 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return basicSetIdentifier(null, msgs);
 			case FhirPackage.CONSENT__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.CONSENT__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.CONSENT__ISSUED:
-				return basicSetIssued(null, msgs);
-			case FhirPackage.CONSENT__APPLIES:
-				return basicSetApplies(null, msgs);
-			case FhirPackage.CONSENT__TOPIC:
-				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__CATEGORY:
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__DATE_TIME:
+				return basicSetDateTime(null, msgs);
+			case FhirPackage.CONSENT__PERIOD:
+				return basicSetPeriod(null, msgs);
 			case FhirPackage.CONSENT__PATIENT:
 				return basicSetPatient(null, msgs);
-			case FhirPackage.CONSENT__AUTHORITY:
-				return ((InternalEList<?>)getAuthority()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__DOMAIN:
-				return ((InternalEList<?>)getDomain()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__ACTION:
-				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__AGENT:
-				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__CONSENTOR:
+				return ((InternalEList<?>)getConsentor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
+			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
+				return basicSetSourceAttachment(null, msgs);
+			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
+				return basicSetSourceIdentifier(null, msgs);
+			case FhirPackage.CONSENT__SOURCE_REFERENCE:
+				return basicSetSourceReference(null, msgs);
+			case FhirPackage.CONSENT__POLICY:
+				return basicSetPolicy(null, msgs);
+			case FhirPackage.CONSENT__RECIPIENT:
+				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__PURPOSE:
+				return ((InternalEList<?>)getPurpose()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT__EXCEPT:
 				return ((InternalEList<?>)getExcept()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__FRIENDLY:
-				return ((InternalEList<?>)getFriendly()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__LEGAL:
-				return ((InternalEList<?>)getLegal()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONSENT__RULE:
-				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -658,32 +771,32 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return getIdentifier();
 			case FhirPackage.CONSENT__STATUS:
 				return getStatus();
-			case FhirPackage.CONSENT__TYPE:
-				return getType();
-			case FhirPackage.CONSENT__ISSUED:
-				return getIssued();
-			case FhirPackage.CONSENT__APPLIES:
-				return getApplies();
-			case FhirPackage.CONSENT__TOPIC:
-				return getTopic();
+			case FhirPackage.CONSENT__CATEGORY:
+				return getCategory();
+			case FhirPackage.CONSENT__DATE_TIME:
+				return getDateTime();
+			case FhirPackage.CONSENT__PERIOD:
+				return getPeriod();
 			case FhirPackage.CONSENT__PATIENT:
 				return getPatient();
-			case FhirPackage.CONSENT__AUTHORITY:
-				return getAuthority();
-			case FhirPackage.CONSENT__DOMAIN:
-				return getDomain();
-			case FhirPackage.CONSENT__ACTION:
-				return getAction();
-			case FhirPackage.CONSENT__AGENT:
-				return getAgent();
+			case FhirPackage.CONSENT__CONSENTOR:
+				return getConsentor();
+			case FhirPackage.CONSENT__ORGANIZATION:
+				return getOrganization();
+			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
+				return getSourceAttachment();
+			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
+				return getSourceIdentifier();
+			case FhirPackage.CONSENT__SOURCE_REFERENCE:
+				return getSourceReference();
+			case FhirPackage.CONSENT__POLICY:
+				return getPolicy();
+			case FhirPackage.CONSENT__RECIPIENT:
+				return getRecipient();
+			case FhirPackage.CONSENT__PURPOSE:
+				return getPurpose();
 			case FhirPackage.CONSENT__EXCEPT:
 				return getExcept();
-			case FhirPackage.CONSENT__FRIENDLY:
-				return getFriendly();
-			case FhirPackage.CONSENT__LEGAL:
-				return getLegal();
-			case FhirPackage.CONSENT__RULE:
-				return getRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -703,53 +816,49 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 			case FhirPackage.CONSENT__STATUS:
 				setStatus((ConsentStatus)newValue);
 				return;
-			case FhirPackage.CONSENT__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.CONSENT__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.CONSENT__ISSUED:
-				setIssued((DateTime)newValue);
+			case FhirPackage.CONSENT__DATE_TIME:
+				setDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.CONSENT__APPLIES:
-				setApplies((Period)newValue);
-				return;
-			case FhirPackage.CONSENT__TOPIC:
-				getTopic().clear();
-				getTopic().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CONSENT__PERIOD:
+				setPeriod((Period)newValue);
 				return;
 			case FhirPackage.CONSENT__PATIENT:
 				setPatient((Reference)newValue);
 				return;
-			case FhirPackage.CONSENT__AUTHORITY:
-				getAuthority().clear();
-				getAuthority().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CONSENT__CONSENTOR:
+				getConsentor().clear();
+				getConsentor().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.CONSENT__DOMAIN:
-				getDomain().clear();
-				getDomain().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CONSENT__ORGANIZATION:
+				setOrganization((Reference)newValue);
 				return;
-			case FhirPackage.CONSENT__ACTION:
-				getAction().clear();
-				getAction().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
+				setSourceAttachment((Attachment)newValue);
 				return;
-			case FhirPackage.CONSENT__AGENT:
-				getAgent().clear();
-				getAgent().addAll((Collection<? extends ConsentAgent>)newValue);
+			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
+				setSourceIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.CONSENT__SOURCE_REFERENCE:
+				setSourceReference((Reference)newValue);
+				return;
+			case FhirPackage.CONSENT__POLICY:
+				setPolicy((Uri)newValue);
+				return;
+			case FhirPackage.CONSENT__RECIPIENT:
+				getRecipient().clear();
+				getRecipient().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CONSENT__PURPOSE:
+				getPurpose().clear();
+				getPurpose().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CONSENT__EXCEPT:
 				getExcept().clear();
 				getExcept().addAll((Collection<? extends ConsentExcept>)newValue);
-				return;
-			case FhirPackage.CONSENT__FRIENDLY:
-				getFriendly().clear();
-				getFriendly().addAll((Collection<? extends ConsentFriendly>)newValue);
-				return;
-			case FhirPackage.CONSENT__LEGAL:
-				getLegal().clear();
-				getLegal().addAll((Collection<? extends ConsentLegal>)newValue);
-				return;
-			case FhirPackage.CONSENT__RULE:
-				getRule().clear();
-				getRule().addAll((Collection<? extends Attachment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -769,44 +878,44 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 			case FhirPackage.CONSENT__STATUS:
 				setStatus((ConsentStatus)null);
 				return;
-			case FhirPackage.CONSENT__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.CONSENT__CATEGORY:
+				getCategory().clear();
 				return;
-			case FhirPackage.CONSENT__ISSUED:
-				setIssued((DateTime)null);
+			case FhirPackage.CONSENT__DATE_TIME:
+				setDateTime((DateTime)null);
 				return;
-			case FhirPackage.CONSENT__APPLIES:
-				setApplies((Period)null);
-				return;
-			case FhirPackage.CONSENT__TOPIC:
-				getTopic().clear();
+			case FhirPackage.CONSENT__PERIOD:
+				setPeriod((Period)null);
 				return;
 			case FhirPackage.CONSENT__PATIENT:
 				setPatient((Reference)null);
 				return;
-			case FhirPackage.CONSENT__AUTHORITY:
-				getAuthority().clear();
+			case FhirPackage.CONSENT__CONSENTOR:
+				getConsentor().clear();
 				return;
-			case FhirPackage.CONSENT__DOMAIN:
-				getDomain().clear();
+			case FhirPackage.CONSENT__ORGANIZATION:
+				setOrganization((Reference)null);
 				return;
-			case FhirPackage.CONSENT__ACTION:
-				getAction().clear();
+			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
+				setSourceAttachment((Attachment)null);
 				return;
-			case FhirPackage.CONSENT__AGENT:
-				getAgent().clear();
+			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
+				setSourceIdentifier((Identifier)null);
+				return;
+			case FhirPackage.CONSENT__SOURCE_REFERENCE:
+				setSourceReference((Reference)null);
+				return;
+			case FhirPackage.CONSENT__POLICY:
+				setPolicy((Uri)null);
+				return;
+			case FhirPackage.CONSENT__RECIPIENT:
+				getRecipient().clear();
+				return;
+			case FhirPackage.CONSENT__PURPOSE:
+				getPurpose().clear();
 				return;
 			case FhirPackage.CONSENT__EXCEPT:
 				getExcept().clear();
-				return;
-			case FhirPackage.CONSENT__FRIENDLY:
-				getFriendly().clear();
-				return;
-			case FhirPackage.CONSENT__LEGAL:
-				getLegal().clear();
-				return;
-			case FhirPackage.CONSENT__RULE:
-				getRule().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -824,32 +933,32 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return identifier != null;
 			case FhirPackage.CONSENT__STATUS:
 				return status != null;
-			case FhirPackage.CONSENT__TYPE:
-				return type != null;
-			case FhirPackage.CONSENT__ISSUED:
-				return issued != null;
-			case FhirPackage.CONSENT__APPLIES:
-				return applies != null;
-			case FhirPackage.CONSENT__TOPIC:
-				return topic != null && !topic.isEmpty();
+			case FhirPackage.CONSENT__CATEGORY:
+				return category != null && !category.isEmpty();
+			case FhirPackage.CONSENT__DATE_TIME:
+				return dateTime != null;
+			case FhirPackage.CONSENT__PERIOD:
+				return period != null;
 			case FhirPackage.CONSENT__PATIENT:
 				return patient != null;
-			case FhirPackage.CONSENT__AUTHORITY:
-				return authority != null && !authority.isEmpty();
-			case FhirPackage.CONSENT__DOMAIN:
-				return domain != null && !domain.isEmpty();
-			case FhirPackage.CONSENT__ACTION:
-				return action != null && !action.isEmpty();
-			case FhirPackage.CONSENT__AGENT:
-				return agent != null && !agent.isEmpty();
+			case FhirPackage.CONSENT__CONSENTOR:
+				return consentor != null && !consentor.isEmpty();
+			case FhirPackage.CONSENT__ORGANIZATION:
+				return organization != null;
+			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
+				return sourceAttachment != null;
+			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
+				return sourceIdentifier != null;
+			case FhirPackage.CONSENT__SOURCE_REFERENCE:
+				return sourceReference != null;
+			case FhirPackage.CONSENT__POLICY:
+				return policy != null;
+			case FhirPackage.CONSENT__RECIPIENT:
+				return recipient != null && !recipient.isEmpty();
+			case FhirPackage.CONSENT__PURPOSE:
+				return purpose != null && !purpose.isEmpty();
 			case FhirPackage.CONSENT__EXCEPT:
 				return except != null && !except.isEmpty();
-			case FhirPackage.CONSENT__FRIENDLY:
-				return friendly != null && !friendly.isEmpty();
-			case FhirPackage.CONSENT__LEGAL:
-				return legal != null && !legal.isEmpty();
-			case FhirPackage.CONSENT__RULE:
-				return rule != null && !rule.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

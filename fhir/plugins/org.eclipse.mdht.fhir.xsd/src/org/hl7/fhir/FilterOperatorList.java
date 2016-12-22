@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -51,6 +41,16 @@ public enum FilterOperatorList implements Enumerator {
 	IS_A(1, "isA", "is-a"),
 
 	/**
+	 * The '<em><b>Descendent Of</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DESCENDENT_OF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DESCENDENT_OF(2, "descendentOf", "descendent-of"),
+
+	/**
 	 * The '<em><b>Is Not A</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +58,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IS_NOT_A(2, "isNotA", "is-not-a"),
+	IS_NOT_A(3, "isNotA", "is-not-a"),
 
 	/**
 	 * The '<em><b>Regex</b></em>' literal object.
@@ -68,7 +68,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REGEX(3, "regex", "regex"),
+	REGEX(4, "regex", "regex"),
 
 	/**
 	 * The '<em><b>In</b></em>' literal object.
@@ -78,7 +78,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN(4, "in", "in"),
+	IN(5, "in", "in"),
 
 	/**
 	 * The '<em><b>Not In</b></em>' literal object.
@@ -88,7 +88,27 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOT_IN(5, "notIn", "not-in");
+	NOT_IN(6, "notIn", "not-in"),
+
+	/**
+	 * The '<em><b>Generalizes</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #GENERALIZES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	GENERALIZES(7, "generalizes", "generalizes"),
+
+	/**
+	 * The '<em><b>Exists</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EXISTS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EXISTS(8, "exists", "exists");
 
 	/**
 	 * The '<em><b></b></em>' literal value.
@@ -119,6 +139,20 @@ public enum FilterOperatorList implements Enumerator {
 	public static final int IS_A_VALUE = 1;
 
 	/**
+	 * The '<em><b>Descendent Of</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Descendent Of (by subsumption)
+	 * <!-- end-model-doc -->
+	 * @see #DESCENDENT_OF
+	 * @model name="descendentOf" literal="descendent-of"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DESCENDENT_OF_VALUE = 2;
+
+	/**
 	 * The '<em><b>Is Not A</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +164,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IS_NOT_A_VALUE = 2;
+	public static final int IS_NOT_A_VALUE = 3;
 
 	/**
 	 * The '<em><b>Regex</b></em>' literal value.
@@ -144,7 +178,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REGEX_VALUE = 3;
+	public static final int REGEX_VALUE = 4;
 
 	/**
 	 * The '<em><b>In</b></em>' literal value.
@@ -158,7 +192,7 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_VALUE = 4;
+	public static final int IN_VALUE = 5;
 
 	/**
 	 * The '<em><b>Not In</b></em>' literal value.
@@ -172,7 +206,35 @@ public enum FilterOperatorList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NOT_IN_VALUE = 5;
+	public static final int NOT_IN_VALUE = 6;
+
+	/**
+	 * The '<em><b>Generalizes</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generalizes (by Subsumption)
+	 * <!-- end-model-doc -->
+	 * @see #GENERALIZES
+	 * @model name="generalizes"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int GENERALIZES_VALUE = 7;
+
+	/**
+	 * The '<em><b>Exists</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Exists
+	 * <!-- end-model-doc -->
+	 * @see #EXISTS
+	 * @model name="exists"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EXISTS_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Filter Operator List</b></em>' enumerators.
@@ -184,10 +246,13 @@ public enum FilterOperatorList implements Enumerator {
 		new FilterOperatorList[] {
 			_,
 			IS_A,
+			DESCENDENT_OF,
 			IS_NOT_A,
 			REGEX,
 			IN,
 			NOT_IN,
+			GENERALIZES,
+			EXISTS,
 		};
 
 	/**
@@ -246,10 +311,13 @@ public enum FilterOperatorList implements Enumerator {
 		switch (value) {
 			case __VALUE: return _;
 			case IS_A_VALUE: return IS_A;
+			case DESCENDENT_OF_VALUE: return DESCENDENT_OF;
 			case IS_NOT_A_VALUE: return IS_NOT_A;
 			case REGEX_VALUE: return REGEX;
 			case IN_VALUE: return IN;
 			case NOT_IN_VALUE: return NOT_IN;
+			case GENERALIZES_VALUE: return GENERALIZES;
+			case EXISTS_VALUE: return EXISTS;
 		}
 		return null;
 	}

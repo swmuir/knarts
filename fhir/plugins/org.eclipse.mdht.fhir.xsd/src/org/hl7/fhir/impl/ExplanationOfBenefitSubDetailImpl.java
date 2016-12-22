@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,15 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Decimal;
-import org.hl7.fhir.ExplanationOfBenefitAdjudication2;
+import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.ExplanationOfBenefitSubDetail;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,14 +37,17 @@ import org.hl7.fhir.SimpleQuantity;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getRevenue <em>Revenue</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getUnitPrice <em>Unit Price</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getFactor <em>Factor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getPoints <em>Points</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getNet <em>Net</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getUdi <em>Udi</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getAdjudication <em>Adjudication</em>}</li>
  * </ul>
  *
@@ -79,7 +72,27 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
+
+	/**
+	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRevenue()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept revenue;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept category;
 
 	/**
 	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
@@ -89,7 +102,17 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding service;
+	protected CodeableConcept service;
+
+	/**
+	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> modifier;
 
 	/**
 	 * The cached value of the '{@link #getProgramCode() <em>Program Code</em>}' containment reference list.
@@ -99,7 +122,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> programCode;
+	protected EList<CodeableConcept> programCode;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -109,7 +132,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity quantity;
+	protected Quantity quantity;
 
 	/**
 	 * The cached value of the '{@link #getUnitPrice() <em>Unit Price</em>}' containment reference.
@@ -132,16 +155,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	protected Decimal factor;
 
 	/**
-	 * The cached value of the '{@link #getPoints() <em>Points</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decimal points;
-
-	/**
 	 * The cached value of the '{@link #getNet() <em>Net</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +175,16 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	protected EList<Reference> udi;
 
 	/**
+	 * The cached value of the '{@link #getNoteNumber() <em>Note Number</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNoteNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PositiveInt> noteNumber;
+
+	/**
 	 * The cached value of the '{@link #getAdjudication() <em>Adjudication</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,7 +192,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExplanationOfBenefitAdjudication2> adjudication;
+	protected EList<ExplanationOfBenefitAdjudication> adjudication;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,7 +261,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -247,8 +270,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE, oldType, newType);
@@ -262,7 +285,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -281,7 +304,93 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getService() {
+	public CodeableConcept getRevenue() {
+		return revenue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRevenue(CodeableConcept newRevenue, NotificationChain msgs) {
+		CodeableConcept oldRevenue = revenue;
+		revenue = newRevenue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE, oldRevenue, newRevenue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRevenue(CodeableConcept newRevenue) {
+		if (newRevenue != revenue) {
+			NotificationChain msgs = null;
+			if (revenue != null)
+				msgs = ((InternalEObject)revenue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE, null, msgs);
+			if (newRevenue != null)
+				msgs = ((InternalEObject)newRevenue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE, null, msgs);
+			msgs = basicSetRevenue(newRevenue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE, newRevenue, newRevenue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getCategory() {
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY, oldCategory, newCategory);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
+			NotificationChain msgs = null;
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY, newCategory, newCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getService() {
 		return service;
 	}
 
@@ -290,8 +399,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(Coding newService, NotificationChain msgs) {
-		Coding oldService = service;
+	public NotificationChain basicSetService(CodeableConcept newService, NotificationChain msgs) {
+		CodeableConcept oldService = service;
 		service = newService;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE, oldService, newService);
@@ -305,7 +414,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(Coding newService) {
+	public void setService(CodeableConcept newService) {
 		if (newService != service) {
 			NotificationChain msgs = null;
 			if (service != null)
@@ -324,9 +433,21 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getProgramCode() {
+	public EList<CodeableConcept> getModifier() {
+		if (modifier == null) {
+			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER);
+		}
+		return modifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
-			programCode = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE);
+			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE);
 		}
 		return programCode;
 	}
@@ -336,7 +457,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getQuantity() {
+	public Quantity getQuantity() {
 		return quantity;
 	}
 
@@ -345,8 +466,8 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuantity(SimpleQuantity newQuantity, NotificationChain msgs) {
-		SimpleQuantity oldQuantity = quantity;
+	public NotificationChain basicSetQuantity(Quantity newQuantity, NotificationChain msgs) {
+		Quantity oldQuantity = quantity;
 		quantity = newQuantity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY, oldQuantity, newQuantity);
@@ -360,7 +481,7 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuantity(SimpleQuantity newQuantity) {
+	public void setQuantity(Quantity newQuantity) {
 		if (newQuantity != quantity) {
 			NotificationChain msgs = null;
 			if (quantity != null)
@@ -465,49 +586,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Decimal getPoints() {
-		return points;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPoints(Decimal newPoints, NotificationChain msgs) {
-		Decimal oldPoints = points;
-		points = newPoints;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS, oldPoints, newPoints);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPoints(Decimal newPoints) {
-		if (newPoints != points) {
-			NotificationChain msgs = null;
-			if (points != null)
-				msgs = ((InternalEObject)points).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS, null, msgs);
-			if (newPoints != null)
-				msgs = ((InternalEObject)newPoints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS, null, msgs);
-			msgs = basicSetPoints(newPoints, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS, newPoints, newPoints));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Money getNet() {
 		return net;
 	}
@@ -563,9 +641,21 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExplanationOfBenefitAdjudication2> getAdjudication() {
+	public EList<PositiveInt> getNoteNumber() {
+		if (noteNumber == null) {
+			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER);
+		}
+		return noteNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExplanationOfBenefitAdjudication> getAdjudication() {
 		if (adjudication == null) {
-			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication2>(ExplanationOfBenefitAdjudication2.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION);
+			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication>(ExplanationOfBenefitAdjudication.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION);
 		}
 		return adjudication;
 	}
@@ -582,8 +672,14 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return basicSetSequence(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
+				return basicSetRevenue(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
+				return basicSetCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return basicSetService(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER:
+				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
 				return ((InternalEList<?>)getProgramCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
@@ -592,12 +688,12 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return basicSetUnitPrice(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__FACTOR:
 				return basicSetFactor(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS:
-				return basicSetPoints(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				return basicSetNet(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
 				return ((InternalEList<?>)getUdi()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER:
+				return ((InternalEList<?>)getNoteNumber()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				return ((InternalEList<?>)getAdjudication()).basicRemove(otherEnd, msgs);
 		}
@@ -616,8 +712,14 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return getSequence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
 				return getType();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
+				return getRevenue();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
+				return getCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return getService();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER:
+				return getModifier();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
 				return getProgramCode();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
@@ -626,12 +728,12 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return getUnitPrice();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__FACTOR:
 				return getFactor();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS:
-				return getPoints();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				return getNet();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
 				return getUdi();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER:
+				return getNoteNumber();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				return getAdjudication();
 		}
@@ -651,26 +753,33 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				setSequence((PositiveInt)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
+				setRevenue((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
+				setCategory((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
-				setService((Coding)newValue);
+				setService((CodeableConcept)newValue);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER:
+				getModifier().clear();
+				getModifier().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
 				getProgramCode().clear();
-				getProgramCode().addAll((Collection<? extends Coding>)newValue);
+				getProgramCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
-				setQuantity((SimpleQuantity)newValue);
+				setQuantity((Quantity)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UNIT_PRICE:
 				setUnitPrice((Money)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__FACTOR:
 				setFactor((Decimal)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS:
-				setPoints((Decimal)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				setNet((Money)newValue);
@@ -679,9 +788,13 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				getUdi().clear();
 				getUdi().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER:
+				getNoteNumber().clear();
+				getNoteNumber().addAll((Collection<? extends PositiveInt>)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				getAdjudication().clear();
-				getAdjudication().addAll((Collection<? extends ExplanationOfBenefitAdjudication2>)newValue);
+				getAdjudication().addAll((Collection<? extends ExplanationOfBenefitAdjudication>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -699,16 +812,25 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				setSequence((PositiveInt)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
+				setRevenue((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
+				setCategory((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
-				setService((Coding)null);
+				setService((CodeableConcept)null);
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER:
+				getModifier().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
 				getProgramCode().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
-				setQuantity((SimpleQuantity)null);
+				setQuantity((Quantity)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UNIT_PRICE:
 				setUnitPrice((Money)null);
@@ -716,14 +838,14 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__FACTOR:
 				setFactor((Decimal)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS:
-				setPoints((Decimal)null);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				setNet((Money)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
 				getUdi().clear();
+				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER:
+				getNoteNumber().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				getAdjudication().clear();
@@ -744,8 +866,14 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return sequence != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
 				return type != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
+				return revenue != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
+				return category != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SERVICE:
 				return service != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER:
+				return modifier != null && !modifier.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE:
 				return programCode != null && !programCode.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__QUANTITY:
@@ -754,12 +882,12 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 				return unitPrice != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__FACTOR:
 				return factor != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__POINTS:
-				return points != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NET:
 				return net != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI:
 				return udi != null && !udi.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER:
+				return noteNumber != null && !noteNumber.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION:
 				return adjudication != null && !adjudication.isEmpty();
 		}

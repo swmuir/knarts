@@ -46,8 +46,6 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.hl7.fhir.BindingStrength;
 import org.hl7.fhir.BindingStrengthList;
-import org.hl7.fhir.ConformanceResourceStatus;
-import org.hl7.fhir.ConformanceResourceStatusList;
 import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.ElementDefinition;
@@ -61,6 +59,8 @@ import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
+import org.hl7.fhir.PublicationStatusList;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SlicingRules;
 import org.hl7.fhir.SlicingRulesList;
@@ -98,14 +98,14 @@ public class ModelExporter implements ModelConstants {
 				? structureDefStereotype.getId() : umlClass.getName().toLowerCase();
 		String uri = structureDefStereotype.getUri() != null 
 						? structureDefStereotype.getUri() : MDHT_STRUCTURE_URI_BASE + id;
-		ConformanceResourceStatus resourceStatus = FhirFactory.eINSTANCE.createConformanceResourceStatus();
+		PublicationStatus resourceStatus = FhirFactory.eINSTANCE.createPublicationStatus();
 		String status = structureDefStereotype.getStatus() != null 
 				? structureDefStereotype.getStatus() : "draft";
-		resourceStatus.setValue(ConformanceResourceStatusList.get(status));
+		resourceStatus.setValue(PublicationStatusList.get(status));
 		String publisher = structureDefStereotype.getPublisher() != null 
 								? structureDefStereotype.getPublisher() : "Model Driven Health Tools (MDHT)";
 		if (structureDefStereotype.getCopyright() != null) {
-			structureDef.setCopyright(createFhirString(structureDefStereotype.getCopyright()));
+			structureDef.setCopyright(createMarkdown(structureDefStereotype.getCopyright()));
 		}
 		
 		structureDef.setId(createFhirId(id));
@@ -118,7 +118,7 @@ public class ModelExporter implements ModelConstants {
 			structureDef.setName(createFhirString(structureDefStereotype.getName()));
 		}
 		if (structureDefStereotype.getDisplay() != null) {
-			structureDef.setDisplay(createFhirString(structureDefStereotype.getDisplay()));
+			structureDef.setTitle(createFhirString(structureDefStereotype.getDisplay()));
 		}
 
 		for (Classifier parent : umlClass.getGenerals()) {
@@ -135,16 +135,17 @@ public class ModelExporter implements ModelConstants {
 		//		Exclude self from search for core base type?
 		Classifier baseType = getCoreBaseType(umlClass);
 		if (!umlClass.equals(baseType)) {
-			structureDef.setBaseType(createFhirCode(baseType.getName()));
+			structureDef.setType(createFhirCode(baseType.getName()));
 		}
 		
 		// Set 'kind'
+		// TODO does not handle datatype: primitive-type vs complex-type, but primitive-type cannot be used by profile developers
 		String kindValue;
 		if (structureDefStereotype.getIsLogical() != null && structureDefStereotype.getIsLogical()) {
 			kindValue = "logical";
 		}
 		else if (modelIndexer.isKindOfDataType(umlClass)) {
-			kindValue = "datatype";
+			kindValue = "complex-type";
 		}
 		else if (modelIndexer.isKindOfResource(umlClass)) {
 			kindValue = "resource";
@@ -182,11 +183,11 @@ public class ModelExporter implements ModelConstants {
 
 		String description = getComment(umlClass, FHIRPackage.eINSTANCE.getDescription());
 		if (description != null) {
-			structureDef.setDescription(createFhirString(description));
+			structureDef.setDescription(createMarkdown(description));
 		}
 		String requirements = getComment(umlClass, FHIRPackage.eINSTANCE.getRequirements());
 		if (requirements != null) {
-			structureDef.setRequirements(createFhirString(requirements));
+			structureDef.setPurpose(createMarkdown(requirements));
 		}
 		
 		// Add differential ElementDefinitions
@@ -201,10 +202,10 @@ public class ModelExporter implements ModelConstants {
 		elementDef.setMin(createFhirInteger(0));
 		elementDef.setMax(createFhirString("*"));
 		if (!umlClass.getName().equals(baseType.getName())) {
-			elementDef.setName(createFhirString(umlClass.getName()));
+			elementDef.setSliceName(createFhirString(umlClass.getName()));
 		}
 		ElementDefinitionType elementDefType = FhirFactory.eINSTANCE.createElementDefinitionType();
-		elementDefType.setCode(createFhirCode(baseType.getName()));
+		elementDefType.setCode(createFhirUri(baseType.getName()));
 		elementDef.getType().add(elementDefType);
 		elementMap.put(umlClass, elementDef);
 
@@ -322,7 +323,7 @@ public class ModelExporter implements ModelConstants {
 				elementDef.setId(elementDefStereotype.getId());
 			}
 			if (elementDefStereotype.getName() != null) {
-				elementDef.setName(createFhirString(elementDefStereotype.getName()));
+				elementDef.setSliceName(createFhirString(elementDefStereotype.getName()));
 			}
 			if (elementDefStereotype.getIsSummary() != null) {
 				elementDef.setIsSummary(createFhirBoolean(elementDefStereotype.getIsSummary()));
@@ -496,12 +497,13 @@ public class ModelExporter implements ModelConstants {
 		else {
 			elementType = getCoreBaseType(type);
 		}
-		elementDefType.setCode(createFhirCode(elementType.getName()));
+		elementDefType.setCode(createFhirUri(elementType.getName()));
 		
 		if (!type.equals(elementType)) {
 			org.eclipse.mdht.uml.fhir.StructureDefinition structureDefStereotype = FhirModelUtil.getStructureDefinition(type);
 			if (structureDefStereotype != null) {
-				elementDefType.getProfile().add(createFhirUri(structureDefStereotype.getUri()));
+				//TODO if target is a reference, setTargetProfile()
+				elementDefType.setProfile(createFhirUri(structureDefStereotype.getUri()));
 			}
 		}
 		return elementDefType;

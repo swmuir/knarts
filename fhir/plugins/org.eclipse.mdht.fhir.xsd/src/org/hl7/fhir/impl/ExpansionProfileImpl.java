@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,15 +18,19 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Code;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.ExpansionProfile;
-import org.hl7.fhir.ExpansionProfileCodeSystem;
-import org.hl7.fhir.ExpansionProfileContact;
 import org.hl7.fhir.ExpansionProfileDesignation;
+import org.hl7.fhir.ExpansionProfileExcludedSystem;
+import org.hl7.fhir.ExpansionProfileFixedVersion;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,11 +50,14 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getFixedVersion <em>Fixed Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getExcludedSystem <em>Excluded System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getIncludeDesignations <em>Include Designations</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDesignation <em>Designation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getIncludeDefinition <em>Include Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getIncludeInactive <em>Include Inactive</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getActiveOnly <em>Active Only</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getExcludeNested <em>Exclude Nested</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getExcludeNotForUI <em>Exclude Not For UI</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getExcludePostCoordinated <em>Exclude Post Coordinated</em>}</li>
@@ -119,7 +116,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -149,7 +146,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExpansionProfileContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -169,17 +166,47 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
-	 * The cached value of the '{@link #getCodeSystem() <em>Code System</em>}' containment reference.
+	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeSystem()
+	 * @see #getUseContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected ExpansionProfileCodeSystem codeSystem;
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
+
+	/**
+	 * The cached value of the '{@link #getFixedVersion() <em>Fixed Version</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixedVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExpansionProfileFixedVersion> fixedVersion;
+
+	/**
+	 * The cached value of the '{@link #getExcludedSystem() <em>Excluded System</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcludedSystem()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExpansionProfileExcludedSystem excludedSystem;
 
 	/**
 	 * The cached value of the '{@link #getIncludeDesignations() <em>Include Designations</em>}' containment reference.
@@ -212,14 +239,14 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	protected org.hl7.fhir.Boolean includeDefinition;
 
 	/**
-	 * The cached value of the '{@link #getIncludeInactive() <em>Include Inactive</em>}' containment reference.
+	 * The cached value of the '{@link #getActiveOnly() <em>Active Only</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIncludeInactive()
+	 * @see #getActiveOnly()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean includeInactive;
+	protected org.hl7.fhir.Boolean activeOnly;
 
 	/**
 	 * The cached value of the '{@link #getExcludeNested() <em>Exclude Nested</em>}' containment reference.
@@ -467,7 +494,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -476,8 +503,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__STATUS, oldStatus, newStatus);
@@ -491,7 +518,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -596,9 +623,9 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExpansionProfileContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<ExpansionProfileContact>(ExpansionProfileContact.class, this, FhirPackage.EXPANSION_PROFILE__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.EXPANSION_PROFILE__CONTACT);
 		}
 		return contact;
 	}
@@ -651,7 +678,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -660,8 +687,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__DESCRIPTION, oldDescription, newDescription);
@@ -675,7 +702,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -694,8 +721,11 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExpansionProfileCodeSystem getCodeSystem() {
-		return codeSystem;
+	public EList<UsageContext> getUseContext() {
+		if (useContext == null) {
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.EXPANSION_PROFILE__USE_CONTEXT);
+		}
+		return useContext;
 	}
 
 	/**
@@ -703,11 +733,44 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCodeSystem(ExpansionProfileCodeSystem newCodeSystem, NotificationChain msgs) {
-		ExpansionProfileCodeSystem oldCodeSystem = codeSystem;
-		codeSystem = newCodeSystem;
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPANSION_PROFILE__JURISDICTION);
+		}
+		return jurisdiction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExpansionProfileFixedVersion> getFixedVersion() {
+		if (fixedVersion == null) {
+			fixedVersion = new EObjectContainmentEList<ExpansionProfileFixedVersion>(ExpansionProfileFixedVersion.class, this, FhirPackage.EXPANSION_PROFILE__FIXED_VERSION);
+		}
+		return fixedVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpansionProfileExcludedSystem getExcludedSystem() {
+		return excludedSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExcludedSystem(ExpansionProfileExcludedSystem newExcludedSystem, NotificationChain msgs) {
+		ExpansionProfileExcludedSystem oldExcludedSystem = excludedSystem;
+		excludedSystem = newExcludedSystem;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM, oldCodeSystem, newCodeSystem);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM, oldExcludedSystem, newExcludedSystem);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -718,18 +781,18 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeSystem(ExpansionProfileCodeSystem newCodeSystem) {
-		if (newCodeSystem != codeSystem) {
+	public void setExcludedSystem(ExpansionProfileExcludedSystem newExcludedSystem) {
+		if (newExcludedSystem != excludedSystem) {
 			NotificationChain msgs = null;
-			if (codeSystem != null)
-				msgs = ((InternalEObject)codeSystem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM, null, msgs);
-			if (newCodeSystem != null)
-				msgs = ((InternalEObject)newCodeSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM, null, msgs);
-			msgs = basicSetCodeSystem(newCodeSystem, msgs);
+			if (excludedSystem != null)
+				msgs = ((InternalEObject)excludedSystem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM, null, msgs);
+			if (newExcludedSystem != null)
+				msgs = ((InternalEObject)newExcludedSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM, null, msgs);
+			msgs = basicSetExcludedSystem(newExcludedSystem, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM, newCodeSystem, newCodeSystem));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM, newExcludedSystem, newExcludedSystem));
 	}
 
 	/**
@@ -866,8 +929,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getIncludeInactive() {
-		return includeInactive;
+	public org.hl7.fhir.Boolean getActiveOnly() {
+		return activeOnly;
 	}
 
 	/**
@@ -875,11 +938,11 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIncludeInactive(org.hl7.fhir.Boolean newIncludeInactive, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldIncludeInactive = includeInactive;
-		includeInactive = newIncludeInactive;
+	public NotificationChain basicSetActiveOnly(org.hl7.fhir.Boolean newActiveOnly, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActiveOnly = activeOnly;
+		activeOnly = newActiveOnly;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE, oldIncludeInactive, newIncludeInactive);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY, oldActiveOnly, newActiveOnly);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -890,18 +953,18 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIncludeInactive(org.hl7.fhir.Boolean newIncludeInactive) {
-		if (newIncludeInactive != includeInactive) {
+	public void setActiveOnly(org.hl7.fhir.Boolean newActiveOnly) {
+		if (newActiveOnly != activeOnly) {
 			NotificationChain msgs = null;
-			if (includeInactive != null)
-				msgs = ((InternalEObject)includeInactive).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE, null, msgs);
-			if (newIncludeInactive != null)
-				msgs = ((InternalEObject)newIncludeInactive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE, null, msgs);
-			msgs = basicSetIncludeInactive(newIncludeInactive, msgs);
+			if (activeOnly != null)
+				msgs = ((InternalEObject)activeOnly).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY, null, msgs);
+			if (newActiveOnly != null)
+				msgs = ((InternalEObject)newActiveOnly).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY, null, msgs);
+			msgs = basicSetActiveOnly(newActiveOnly, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE, newIncludeInactive, newIncludeInactive));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY, newActiveOnly, newActiveOnly));
 	}
 
 	/**
@@ -1147,16 +1210,22 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return basicSetDate(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM:
-				return basicSetCodeSystem(null, msgs);
+			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
+				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPANSION_PROFILE__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPANSION_PROFILE__FIXED_VERSION:
+				return ((InternalEList<?>)getFixedVersion()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM:
+				return basicSetExcludedSystem(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DESIGNATIONS:
 				return basicSetIncludeDesignations(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__DESIGNATION:
 				return basicSetDesignation(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DEFINITION:
 				return basicSetIncludeDefinition(null, msgs);
-			case FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE:
-				return basicSetIncludeInactive(null, msgs);
+			case FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY:
+				return basicSetActiveOnly(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NESTED:
 				return basicSetExcludeNested(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NOT_FOR_UI:
@@ -1199,16 +1268,22 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return getDate();
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM:
-				return getCodeSystem();
+			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
+				return getUseContext();
+			case FhirPackage.EXPANSION_PROFILE__JURISDICTION:
+				return getJurisdiction();
+			case FhirPackage.EXPANSION_PROFILE__FIXED_VERSION:
+				return getFixedVersion();
+			case FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM:
+				return getExcludedSystem();
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DESIGNATIONS:
 				return getIncludeDesignations();
 			case FhirPackage.EXPANSION_PROFILE__DESIGNATION:
 				return getDesignation();
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DEFINITION:
 				return getIncludeDefinition();
-			case FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE:
-				return getIncludeInactive();
+			case FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY:
+				return getActiveOnly();
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NESTED:
 				return getExcludeNested();
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NOT_FOR_UI:
@@ -1245,7 +1320,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -1255,16 +1330,28 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return;
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends ExpansionProfileContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__DATE:
 				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
-			case FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM:
-				setCodeSystem((ExpansionProfileCodeSystem)newValue);
+			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
+				getUseContext().clear();
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.EXPANSION_PROFILE__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.EXPANSION_PROFILE__FIXED_VERSION:
+				getFixedVersion().clear();
+				getFixedVersion().addAll((Collection<? extends ExpansionProfileFixedVersion>)newValue);
+				return;
+			case FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM:
+				setExcludedSystem((ExpansionProfileExcludedSystem)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DESIGNATIONS:
 				setIncludeDesignations((org.hl7.fhir.Boolean)newValue);
@@ -1275,8 +1362,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DEFINITION:
 				setIncludeDefinition((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE:
-				setIncludeInactive((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY:
+				setActiveOnly((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NESTED:
 				setExcludeNested((org.hl7.fhir.Boolean)newValue);
@@ -1318,7 +1405,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -1333,10 +1420,19 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				setDate((DateTime)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
-			case FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM:
-				setCodeSystem((ExpansionProfileCodeSystem)null);
+			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
+				getUseContext().clear();
+				return;
+			case FhirPackage.EXPANSION_PROFILE__JURISDICTION:
+				getJurisdiction().clear();
+				return;
+			case FhirPackage.EXPANSION_PROFILE__FIXED_VERSION:
+				getFixedVersion().clear();
+				return;
+			case FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM:
+				setExcludedSystem((ExpansionProfileExcludedSystem)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DESIGNATIONS:
 				setIncludeDesignations((org.hl7.fhir.Boolean)null);
@@ -1347,8 +1443,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DEFINITION:
 				setIncludeDefinition((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE:
-				setIncludeInactive((org.hl7.fhir.Boolean)null);
+			case FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY:
+				setActiveOnly((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NESTED:
 				setExcludeNested((org.hl7.fhir.Boolean)null);
@@ -1397,16 +1493,22 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return date != null;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return description != null;
-			case FhirPackage.EXPANSION_PROFILE__CODE_SYSTEM:
-				return codeSystem != null;
+			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
+				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.EXPANSION_PROFILE__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
+			case FhirPackage.EXPANSION_PROFILE__FIXED_VERSION:
+				return fixedVersion != null && !fixedVersion.isEmpty();
+			case FhirPackage.EXPANSION_PROFILE__EXCLUDED_SYSTEM:
+				return excludedSystem != null;
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DESIGNATIONS:
 				return includeDesignations != null;
 			case FhirPackage.EXPANSION_PROFILE__DESIGNATION:
 				return designation != null;
 			case FhirPackage.EXPANSION_PROFILE__INCLUDE_DEFINITION:
 				return includeDefinition != null;
-			case FhirPackage.EXPANSION_PROFILE__INCLUDE_INACTIVE:
-				return includeInactive != null;
+			case FhirPackage.EXPANSION_PROFILE__ACTIVE_ONLY:
+				return activeOnly != null;
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NESTED:
 				return excludeNested != null;
 			case FhirPackage.EXPANSION_PROFILE__EXCLUDE_NOT_FOR_UI:

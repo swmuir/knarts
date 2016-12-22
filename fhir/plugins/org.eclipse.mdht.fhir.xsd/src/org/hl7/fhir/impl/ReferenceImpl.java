@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -21,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
 /**
@@ -32,6 +23,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getDisplay <em>Display</em>}</li>
  * </ul>
  *
@@ -47,6 +39,16 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String reference;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' containment reference.
@@ -125,6 +127,49 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERENCE__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERENCE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERENCE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERENCE__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -173,6 +218,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return basicSetReference(null, msgs);
+			case FhirPackage.REFERENCE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.REFERENCE__DISPLAY:
 				return basicSetDisplay(null, msgs);
 		}
@@ -189,6 +236,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return getReference();
+			case FhirPackage.REFERENCE__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.REFERENCE__DISPLAY:
 				return getDisplay();
 		}
@@ -205,6 +254,9 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				setReference((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.REFERENCE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.REFERENCE__DISPLAY:
 				setDisplay((org.hl7.fhir.String)newValue);
@@ -224,6 +276,9 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 			case FhirPackage.REFERENCE__REFERENCE:
 				setReference((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.REFERENCE__IDENTIFIER:
+				setIdentifier((Identifier)null);
+				return;
 			case FhirPackage.REFERENCE__DISPLAY:
 				setDisplay((org.hl7.fhir.String)null);
 				return;
@@ -241,6 +296,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return reference != null;
+			case FhirPackage.REFERENCE__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.REFERENCE__DISPLAY:
 				return display != null;
 		}

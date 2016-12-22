@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.HealthcareService#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getProvidedBy <em>Provided By</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getServiceCategory <em>Service Category</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getServiceType <em>Service Type</em>}</li>
@@ -51,6 +42,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.HealthcareService#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getHealthcareService()
@@ -73,6 +65,32 @@ public interface HealthcareService extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Active</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether this healthcareservice record is in active use.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Active</em>' containment reference.
+	 * @see #setActive(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Active()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='active' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getActive();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getActive <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Active</em>' containment reference.
+	 * @see #getActive()
+	 * @generated
+	 */
+	void setActive(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Provided By</b></em>' containment reference.
@@ -535,5 +553,21 @@ public interface HealthcareService extends DomainResource {
 	 * @generated
 	 */
 	void setAvailabilityExceptions(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technical endpoints providing access to services operated for the specific healthcare services defined at this resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Endpoint()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getEndpoint();
 
 } // HealthcareService

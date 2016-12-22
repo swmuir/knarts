@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -33,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudySeries#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBaseLocation <em>Base Location</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getLaterality <em>Laterality</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getStarted <em>Started</em>}</li>
@@ -202,30 +192,20 @@ public interface ImagingStudySeries extends BackboneElement {
 	void setAvailability(InstanceAvailability value);
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base Location</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyBaseLocation1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URI/URL specifying the location of the referenced series using WADO-RS.
+	 * Methods of accessing (e.g. retrieving) the series.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Url()
+	 * @return the value of the '<em>Base Location</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_BaseLocation()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='baseLocation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudySeries#getUrl <em>Url</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Url</em>' containment reference.
-	 * @see #getUrl()
-	 * @generated
-	 */
-	void setUrl(Uri value);
+	EList<ImagingStudyBaseLocation1> getBaseLocation();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.

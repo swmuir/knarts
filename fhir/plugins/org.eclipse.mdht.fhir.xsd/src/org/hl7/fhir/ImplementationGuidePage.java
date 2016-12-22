@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -28,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getPackage <em>Package</em>}</li>
@@ -68,30 +58,30 @@ public interface ImplementationGuidePage extends BackboneElement {
 	void setSource(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short name used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
+	 * A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Name()
+	 * @return the value of the '<em>Title</em>' containment reference.
+	 * @see #setTitle(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Title()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getName();
+	org.hl7.fhir.String getTitle();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getName <em>Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getTitle <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' containment reference.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Title</em>' containment reference.
+	 * @see #getTitle()
 	 * @generated
 	 */
-	void setName(org.hl7.fhir.String value);
+	void setTitle(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.

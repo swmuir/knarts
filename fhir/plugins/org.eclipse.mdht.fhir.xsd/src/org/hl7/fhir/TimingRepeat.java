@@ -1,17 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +18,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.TimingRepeat#getBoundsQuantity <em>Bounds Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.TimingRepeat#getBoundsDuration <em>Bounds Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getBoundsRange <em>Bounds Range</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getBoundsPeriod <em>Bounds Period</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getCount <em>Count</em>}</li>
@@ -40,6 +31,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TimingRepeat#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getPeriodMax <em>Period Max</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getPeriodUnit <em>Period Unit</em>}</li>
+ *   <li>{@link org.hl7.fhir.TimingRepeat#getDayOfWeek <em>Day Of Week</em>}</li>
+ *   <li>{@link org.hl7.fhir.TimingRepeat#getTimeOfDay <em>Time Of Day</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getWhen <em>When</em>}</li>
  *   <li>{@link org.hl7.fhir.TimingRepeat#getOffset <em>Offset</em>}</li>
  * </ul>
@@ -50,31 +43,31 @@ package org.hl7.fhir;
  */
 public interface TimingRepeat extends Element {
 	/**
-	 * Returns the value of the '<em><b>Bounds Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Bounds Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bounds Quantity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Bounds Duration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bounds Quantity</em>' containment reference.
-	 * @see #setBoundsQuantity(Duration)
-	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_BoundsQuantity()
+	 * @return the value of the '<em>Bounds Duration</em>' containment reference.
+	 * @see #setBoundsDuration(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_BoundsDuration()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='boundsQuantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='boundsDuration' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Duration getBoundsQuantity();
+	Duration getBoundsDuration();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getBoundsQuantity <em>Bounds Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getBoundsDuration <em>Bounds Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bounds Quantity</em>' containment reference.
-	 * @see #getBoundsQuantity()
+	 * @param value the new value of the '<em>Bounds Duration</em>' containment reference.
+	 * @see #getBoundsDuration()
 	 * @generated
 	 */
-	void setBoundsQuantity(Duration value);
+	void setBoundsDuration(Duration value);
 
 	/**
 	 * Returns the value of the '<em><b>Bounds Range</b></em>' containment reference.
@@ -389,6 +382,38 @@ public interface TimingRepeat extends Element {
 	 * @generated
 	 */
 	void setPeriodUnit(UnitsOfTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Day Of Week</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If one or more days of week is provided, then the action happens only on the specified day(s).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Day Of Week</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_DayOfWeek()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dayOfWeek' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Code> getDayOfWeek();
+
+	/**
+	 * Returns the value of the '<em><b>Time Of Day</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Time}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specified time of day for action to take place.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Time Of Day</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_TimeOfDay()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timeOfDay' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Time> getTimeOfDay();
 
 	/**
 	 * Returns the value of the '<em><b>When</b></em>' containment reference.

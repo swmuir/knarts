@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -23,8 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationContent;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.SimpleQuantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,7 +60,7 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity amount;
+	protected Quantity amount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,7 +172,7 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getAmount() {
+	public Quantity getAmount() {
 		return amount;
 	}
 
@@ -191,8 +181,8 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(SimpleQuantity newAmount, NotificationChain msgs) {
-		SimpleQuantity oldAmount = amount;
+	public NotificationChain basicSetAmount(Quantity newAmount, NotificationChain msgs) {
+		Quantity oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_CONTENT__AMOUNT, oldAmount, newAmount);
@@ -206,7 +196,7 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(SimpleQuantity newAmount) {
+	public void setAmount(Quantity newAmount) {
 		if (newAmount != amount) {
 			NotificationChain msgs = null;
 			if (amount != null)
@@ -271,7 +261,7 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 				setItemReference((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_CONTENT__AMOUNT:
-				setAmount((SimpleQuantity)newValue);
+				setAmount((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,7 +282,7 @@ public class MedicationContentImpl extends BackboneElementImpl implements Medica
 				setItemReference((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_CONTENT__AMOUNT:
-				setAmount((SimpleQuantity)null);
+				setAmount((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);

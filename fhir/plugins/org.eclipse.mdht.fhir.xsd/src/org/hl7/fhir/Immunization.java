@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -34,7 +24,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Immunization#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getWasNotGiven <em>Was Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getReported <em>Reported</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getPrimarySource <em>Primary Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getReportOrigin <em>Report Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}</li>
@@ -203,30 +194,56 @@ public interface Immunization extends DomainResource {
 	void setWasNotGiven(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Reported</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Primary Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * True if this administration was reported rather than directly administered.
+	 * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reported</em>' containment reference.
-	 * @see #setReported(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Reported()
+	 * @return the value of the '<em>Primary Source</em>' containment reference.
+	 * @see #setPrimarySource(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_PrimarySource()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='reported' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='primarySource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getReported();
+	org.hl7.fhir.Boolean getPrimarySource();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getReported <em>Reported</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getPrimarySource <em>Primary Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reported</em>' containment reference.
-	 * @see #getReported()
+	 * @param value the new value of the '<em>Primary Source</em>' containment reference.
+	 * @see #getPrimarySource()
 	 * @generated
 	 */
-	void setReported(org.hl7.fhir.Boolean value);
+	void setPrimarySource(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Report Origin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Report Origin</em>' containment reference.
+	 * @see #setReportOrigin(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_ReportOrigin()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reportOrigin' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getReportOrigin();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getReportOrigin <em>Report Origin</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Report Origin</em>' containment reference.
+	 * @see #getReportOrigin()
+	 * @generated
+	 */
+	void setReportOrigin(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
@@ -470,13 +487,13 @@ public interface Immunization extends DomainResource {
 	 * The quantity of vaccine product that was administered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dose Quantity</em>' containment reference.
-	 * @see #setDoseQuantity(SimpleQuantity)
+	 * @see #setDoseQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getImmunization_DoseQuantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='doseQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getDoseQuantity();
+	Quantity getDoseQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getDoseQuantity <em>Dose Quantity</em>}' containment reference.
@@ -486,7 +503,7 @@ public interface Immunization extends DomainResource {
 	 * @see #getDoseQuantity()
 	 * @generated
 	 */
-	void setDoseQuantity(SimpleQuantity value);
+	void setDoseQuantity(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

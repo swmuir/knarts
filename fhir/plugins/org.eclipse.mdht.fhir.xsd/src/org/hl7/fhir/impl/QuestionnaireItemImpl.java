@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -52,6 +42,7 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getText <em>Text</em>}</li>
@@ -91,6 +82,16 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String linkId;
+
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri definition;
 
 	/**
 	 * The cached value of the '{@link #getConcept() <em>Concept</em>}' containment reference list.
@@ -402,6 +403,49 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID, newLinkId, newLinkId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
+		Uri oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(Uri newDefinition) {
+		if (newDefinition != definition) {
+			NotificationChain msgs = null;
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -1365,6 +1409,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID:
 				return basicSetLinkId(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
+				return basicSetDefinition(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
 				return ((InternalEList<?>)getConcept()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
@@ -1429,6 +1475,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID:
 				return getLinkId();
+			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
+				return getDefinition();
 			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
 				return getConcept();
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
@@ -1494,6 +1542,9 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID:
 				setLinkId((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
+				setDefinition((Uri)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
 				getConcept().clear();
@@ -1589,6 +1640,9 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID:
 				setLinkId((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
+				setDefinition((Uri)null);
+				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
 				getConcept().clear();
 				return;
@@ -1678,6 +1732,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ITEM__LINK_ID:
 				return linkId != null;
+			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
+				return definition != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
 				return concept != null && !concept.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:

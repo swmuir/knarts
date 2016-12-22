@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -31,6 +21,16 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ConceptMapEquivalenceList implements Enumerator {
 	/**
+	 * The '<em><b>Relatedto</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RELATEDTO_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RELATEDTO(0, "relatedto", "relatedto"),
+
+	/**
 	 * The '<em><b>Equivalent</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +38,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUIVALENT(0, "equivalent", "equivalent"),
+	EQUIVALENT(1, "equivalent", "equivalent"),
 
 	/**
 	 * The '<em><b>Equal</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(1, "equal", "equal"),
+	EQUAL(2, "equal", "equal"),
 
 	/**
 	 * The '<em><b>Wider</b></em>' literal object.
@@ -58,7 +58,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WIDER(2, "wider", "wider"),
+	WIDER(3, "wider", "wider"),
 
 	/**
 	 * The '<em><b>Subsumes</b></em>' literal object.
@@ -68,7 +68,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSUMES(3, "subsumes", "subsumes"),
+	SUBSUMES(4, "subsumes", "subsumes"),
 
 	/**
 	 * The '<em><b>Narrower</b></em>' literal object.
@@ -78,7 +78,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NARROWER(4, "narrower", "narrower"),
+	NARROWER(5, "narrower", "narrower"),
 
 	/**
 	 * The '<em><b>Specializes</b></em>' literal object.
@@ -88,7 +88,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPECIALIZES(5, "specializes", "specializes"),
+	SPECIALIZES(6, "specializes", "specializes"),
 
 	/**
 	 * The '<em><b>Inexact</b></em>' literal object.
@@ -98,7 +98,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INEXACT(6, "inexact", "inexact"),
+	INEXACT(7, "inexact", "inexact"),
 
 	/**
 	 * The '<em><b>Unmatched</b></em>' literal object.
@@ -108,7 +108,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNMATCHED(7, "unmatched", "unmatched"),
+	UNMATCHED(8, "unmatched", "unmatched"),
 
 	/**
 	 * The '<em><b>Disjoint</b></em>' literal object.
@@ -118,7 +118,21 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DISJOINT(8, "disjoint", "disjoint");
+	DISJOINT(9, "disjoint", "disjoint");
+
+	/**
+	 * The '<em><b>Relatedto</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Related To
+	 * <!-- end-model-doc -->
+	 * @see #RELATEDTO
+	 * @model name="relatedto"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELATEDTO_VALUE = 0;
 
 	/**
 	 * The '<em><b>Equivalent</b></em>' literal value.
@@ -132,7 +146,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUIVALENT_VALUE = 0;
+	public static final int EQUIVALENT_VALUE = 1;
 
 	/**
 	 * The '<em><b>Equal</b></em>' literal value.
@@ -146,7 +160,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUAL_VALUE = 1;
+	public static final int EQUAL_VALUE = 2;
 
 	/**
 	 * The '<em><b>Wider</b></em>' literal value.
@@ -160,7 +174,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WIDER_VALUE = 2;
+	public static final int WIDER_VALUE = 3;
 
 	/**
 	 * The '<em><b>Subsumes</b></em>' literal value.
@@ -174,7 +188,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSUMES_VALUE = 3;
+	public static final int SUBSUMES_VALUE = 4;
 
 	/**
 	 * The '<em><b>Narrower</b></em>' literal value.
@@ -188,7 +202,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NARROWER_VALUE = 4;
+	public static final int NARROWER_VALUE = 5;
 
 	/**
 	 * The '<em><b>Specializes</b></em>' literal value.
@@ -202,7 +216,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SPECIALIZES_VALUE = 5;
+	public static final int SPECIALIZES_VALUE = 6;
 
 	/**
 	 * The '<em><b>Inexact</b></em>' literal value.
@@ -216,7 +230,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INEXACT_VALUE = 6;
+	public static final int INEXACT_VALUE = 7;
 
 	/**
 	 * The '<em><b>Unmatched</b></em>' literal value.
@@ -230,7 +244,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNMATCHED_VALUE = 7;
+	public static final int UNMATCHED_VALUE = 8;
 
 	/**
 	 * The '<em><b>Disjoint</b></em>' literal value.
@@ -244,7 +258,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DISJOINT_VALUE = 8;
+	public static final int DISJOINT_VALUE = 9;
 
 	/**
 	 * An array of all the '<em><b>Concept Map Equivalence List</b></em>' enumerators.
@@ -254,6 +268,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 */
 	private static final ConceptMapEquivalenceList[] VALUES_ARRAY =
 		new ConceptMapEquivalenceList[] {
+			RELATEDTO,
 			EQUIVALENT,
 			EQUAL,
 			WIDER,
@@ -319,6 +334,7 @@ public enum ConceptMapEquivalenceList implements Enumerator {
 	 */
 	public static ConceptMapEquivalenceList get(int value) {
 		switch (value) {
+			case RELATEDTO_VALUE: return RELATEDTO;
 			case EQUIVALENT_VALUE: return EQUIVALENT;
 			case EQUAL_VALUE: return EQUAL;
 			case WIDER_VALUE: return WIDER;

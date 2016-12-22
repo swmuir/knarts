@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -69,13 +59,13 @@ public interface AuditEventNetwork extends BackboneElement {
 	 * An identifier for the type of network access point that originated the audit event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(AuditEventParticipantNetworkType)
+	 * @see #setType(AuditEventAgentNetworkType)
 	 * @see org.hl7.fhir.FhirPackage#getAuditEventNetwork_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AuditEventParticipantNetworkType getType();
+	AuditEventAgentNetworkType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.AuditEventNetwork#getType <em>Type</em>}' containment reference.
@@ -85,6 +75,6 @@ public interface AuditEventNetwork extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(AuditEventParticipantNetworkType value);
+	void setType(AuditEventAgentNetworkType value);
 
 } // AuditEventNetwork

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,12 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.SimpleQuantity;
-import org.hl7.fhir.VisionBase;
-import org.hl7.fhir.VisionEyes;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.VisionPrescriptionDispense;
 
 /**
@@ -50,7 +38,7 @@ import org.hl7.fhir.VisionPrescriptionDispense;
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionDispenseImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionDispenseImpl#getColor <em>Color</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionDispenseImpl#getBrand <em>Brand</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionDispenseImpl#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionDispenseImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,7 +52,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding product;
+	protected CodeableConcept product;
 
 	/**
 	 * The cached value of the '{@link #getEye() <em>Eye</em>}' containment reference.
@@ -74,7 +62,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected VisionEyes eye;
+	protected CodeableConcept eye;
 
 	/**
 	 * The cached value of the '{@link #getSphere() <em>Sphere</em>}' containment reference.
@@ -124,7 +112,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected VisionBase base;
+	protected CodeableConcept base;
 
 	/**
 	 * The cached value of the '{@link #getAdd() <em>Add</em>}' containment reference.
@@ -174,7 +162,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected SimpleQuantity duration;
+	protected Quantity duration;
 
 	/**
 	 * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
@@ -197,14 +185,14 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	protected org.hl7.fhir.String brand;
 
 	/**
-	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotes()
+	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String notes;
+	protected org.hl7.fhir.String note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,7 +218,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getProduct() {
+	public CodeableConcept getProduct() {
 		return product;
 	}
 
@@ -239,8 +227,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProduct(Coding newProduct, NotificationChain msgs) {
-		Coding oldProduct = product;
+	public NotificationChain basicSetProduct(CodeableConcept newProduct, NotificationChain msgs) {
+		CodeableConcept oldProduct = product;
 		product = newProduct;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__PRODUCT, oldProduct, newProduct);
@@ -254,7 +242,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProduct(Coding newProduct) {
+	public void setProduct(CodeableConcept newProduct) {
 		if (newProduct != product) {
 			NotificationChain msgs = null;
 			if (product != null)
@@ -273,7 +261,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisionEyes getEye() {
+	public CodeableConcept getEye() {
 		return eye;
 	}
 
@@ -282,8 +270,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEye(VisionEyes newEye, NotificationChain msgs) {
-		VisionEyes oldEye = eye;
+	public NotificationChain basicSetEye(CodeableConcept newEye, NotificationChain msgs) {
+		CodeableConcept oldEye = eye;
 		eye = newEye;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__EYE, oldEye, newEye);
@@ -297,7 +285,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEye(VisionEyes newEye) {
+	public void setEye(CodeableConcept newEye) {
 		if (newEye != eye) {
 			NotificationChain msgs = null;
 			if (eye != null)
@@ -488,7 +476,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisionBase getBase() {
+	public CodeableConcept getBase() {
 		return base;
 	}
 
@@ -497,8 +485,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBase(VisionBase newBase, NotificationChain msgs) {
-		VisionBase oldBase = base;
+	public NotificationChain basicSetBase(CodeableConcept newBase, NotificationChain msgs) {
+		CodeableConcept oldBase = base;
 		base = newBase;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__BASE, oldBase, newBase);
@@ -512,7 +500,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBase(VisionBase newBase) {
+	public void setBase(CodeableConcept newBase) {
 		if (newBase != base) {
 			NotificationChain msgs = null;
 			if (base != null)
@@ -703,7 +691,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleQuantity getDuration() {
+	public Quantity getDuration() {
 		return duration;
 	}
 
@@ -712,8 +700,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDuration(SimpleQuantity newDuration, NotificationChain msgs) {
-		SimpleQuantity oldDuration = duration;
+	public NotificationChain basicSetDuration(Quantity newDuration, NotificationChain msgs) {
+		Quantity oldDuration = duration;
 		duration = newDuration;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__DURATION, oldDuration, newDuration);
@@ -727,7 +715,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDuration(SimpleQuantity newDuration) {
+	public void setDuration(Quantity newDuration) {
 		if (newDuration != duration) {
 			NotificationChain msgs = null;
 			if (duration != null)
@@ -832,8 +820,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getNotes() {
-		return notes;
+	public org.hl7.fhir.String getNote() {
+		return note;
 	}
 
 	/**
@@ -841,11 +829,11 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNotes(org.hl7.fhir.String newNotes, NotificationChain msgs) {
-		org.hl7.fhir.String oldNotes = notes;
-		notes = newNotes;
+	public NotificationChain basicSetNote(org.hl7.fhir.String newNote, NotificationChain msgs) {
+		org.hl7.fhir.String oldNote = note;
+		note = newNote;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES, oldNotes, newNotes);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE, oldNote, newNote);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -856,18 +844,18 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNotes(org.hl7.fhir.String newNotes) {
-		if (newNotes != notes) {
+	public void setNote(org.hl7.fhir.String newNote) {
+		if (newNote != note) {
 			NotificationChain msgs = null;
-			if (notes != null)
-				msgs = ((InternalEObject)notes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES, null, msgs);
-			if (newNotes != null)
-				msgs = ((InternalEObject)newNotes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES, null, msgs);
-			msgs = basicSetNotes(newNotes, msgs);
+			if (note != null)
+				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE, null, msgs);
+			if (newNote != null)
+				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE, null, msgs);
+			msgs = basicSetNote(newNote, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES, newNotes, newNotes));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -906,8 +894,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				return basicSetColor(null, msgs);
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BRAND:
 				return basicSetBrand(null, msgs);
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES:
-				return basicSetNotes(null, msgs);
+			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE:
+				return basicSetNote(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -948,8 +936,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				return getColor();
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BRAND:
 				return getBrand();
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES:
-				return getNotes();
+			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -963,10 +951,10 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__PRODUCT:
-				setProduct((Coding)newValue);
+				setProduct((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__EYE:
-				setEye((VisionEyes)newValue);
+				setEye((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__SPHERE:
 				setSphere((Decimal)newValue);
@@ -981,7 +969,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				setPrism((Decimal)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BASE:
-				setBase((VisionBase)newValue);
+				setBase((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__ADD:
 				setAdd((Decimal)newValue);
@@ -996,7 +984,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				setDiameter((Decimal)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__DURATION:
-				setDuration((SimpleQuantity)newValue);
+				setDuration((Quantity)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__COLOR:
 				setColor((org.hl7.fhir.String)newValue);
@@ -1004,8 +992,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BRAND:
 				setBrand((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES:
-				setNotes((org.hl7.fhir.String)newValue);
+			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE:
+				setNote((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1020,10 +1008,10 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__PRODUCT:
-				setProduct((Coding)null);
+				setProduct((CodeableConcept)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__EYE:
-				setEye((VisionEyes)null);
+				setEye((CodeableConcept)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__SPHERE:
 				setSphere((Decimal)null);
@@ -1038,7 +1026,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				setPrism((Decimal)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BASE:
-				setBase((VisionBase)null);
+				setBase((CodeableConcept)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__ADD:
 				setAdd((Decimal)null);
@@ -1053,7 +1041,7 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				setDiameter((Decimal)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__DURATION:
-				setDuration((SimpleQuantity)null);
+				setDuration((Quantity)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__COLOR:
 				setColor((org.hl7.fhir.String)null);
@@ -1061,8 +1049,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BRAND:
 				setBrand((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES:
-				setNotes((org.hl7.fhir.String)null);
+			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE:
+				setNote((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1104,8 +1092,8 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 				return color != null;
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__BRAND:
 				return brand != null;
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTES:
-				return notes != null;
+			case FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE:
+				return note != null;
 		}
 		return super.eIsSet(featureID);
 	}

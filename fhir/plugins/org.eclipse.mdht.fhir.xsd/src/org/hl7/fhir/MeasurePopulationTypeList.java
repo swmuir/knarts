@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -111,14 +101,14 @@ public enum MeasurePopulationTypeList implements Enumerator {
 	MEASURE_POPULATION_EXCLUSION(7, "measurePopulationExclusion", "measure-population-exclusion"),
 
 	/**
-	 * The '<em><b>Measure Score</b></em>' literal object.
+	 * The '<em><b>Measure Observation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEASURE_SCORE_VALUE
+	 * @see #MEASURE_OBSERVATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MEASURE_SCORE(8, "measureScore", "measure-score");
+	MEASURE_OBSERVATION(8, "measureObservation", "measure-observation");
 
 	/**
 	 * The '<em><b>Initial Population</b></em>' literal value.
@@ -233,18 +223,18 @@ public enum MeasurePopulationTypeList implements Enumerator {
 	public static final int MEASURE_POPULATION_EXCLUSION_VALUE = 7;
 
 	/**
-	 * The '<em><b>Measure Score</b></em>' literal value.
+	 * The '<em><b>Measure Observation</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Measure Score
+	 * Measure Observation
 	 * <!-- end-model-doc -->
-	 * @see #MEASURE_SCORE
-	 * @model name="measureScore" literal="measure-score"
+	 * @see #MEASURE_OBSERVATION
+	 * @model name="measureObservation" literal="measure-observation"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEASURE_SCORE_VALUE = 8;
+	public static final int MEASURE_OBSERVATION_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Measure Population Type List</b></em>' enumerators.
@@ -262,7 +252,7 @@ public enum MeasurePopulationTypeList implements Enumerator {
 			DENOMINATOR_EXCEPTION,
 			MEASURE_POPULATION,
 			MEASURE_POPULATION_EXCLUSION,
-			MEASURE_SCORE,
+			MEASURE_OBSERVATION,
 		};
 
 	/**
@@ -327,7 +317,7 @@ public enum MeasurePopulationTypeList implements Enumerator {
 			case DENOMINATOR_EXCEPTION_VALUE: return DENOMINATOR_EXCEPTION;
 			case MEASURE_POPULATION_VALUE: return MEASURE_POPULATION;
 			case MEASURE_POPULATION_EXCLUSION_VALUE: return MEASURE_POPULATION_EXCLUSION;
-			case MEASURE_SCORE_VALUE: return MEASURE_SCORE;
+			case MEASURE_OBSERVATION_VALUE: return MEASURE_OBSERVATION;
 		}
 		return null;
 	}

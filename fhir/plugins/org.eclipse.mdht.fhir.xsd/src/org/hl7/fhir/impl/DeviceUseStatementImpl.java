@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -44,8 +34,7 @@ import org.hl7.fhir.Timing;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getBodySiteCodeableConcept <em>Body Site Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getBodySiteReference <em>Body Site Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getWhenUsed <em>When Used</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getIdentifier <em>Identifier</em>}</li>
@@ -62,24 +51,14 @@ import org.hl7.fhir.Timing;
  */
 public class DeviceUseStatementImpl extends DomainResourceImpl implements DeviceUseStatement {
 	/**
-	 * The cached value of the '{@link #getBodySiteCodeableConcept() <em>Body Site Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBodySiteCodeableConcept()
+	 * @see #getBodySite()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept bodySiteCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getBodySiteReference() <em>Body Site Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBodySiteReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference bodySiteReference;
+	protected CodeableConcept bodySite;
 
 	/**
 	 * The cached value of the '{@link #getWhenUsed() <em>When Used</em>}' containment reference.
@@ -205,8 +184,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getBodySiteCodeableConcept() {
-		return bodySiteCodeableConcept;
+	public CodeableConcept getBodySite() {
+		return bodySite;
 	}
 
 	/**
@@ -214,11 +193,11 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBodySiteCodeableConcept(CodeableConcept newBodySiteCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldBodySiteCodeableConcept = bodySiteCodeableConcept;
-		bodySiteCodeableConcept = newBodySiteCodeableConcept;
+	public NotificationChain basicSetBodySite(CodeableConcept newBodySite, NotificationChain msgs) {
+		CodeableConcept oldBodySite = bodySite;
+		bodySite = newBodySite;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT, oldBodySiteCodeableConcept, newBodySiteCodeableConcept);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, oldBodySite, newBodySite);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -229,61 +208,18 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBodySiteCodeableConcept(CodeableConcept newBodySiteCodeableConcept) {
-		if (newBodySiteCodeableConcept != bodySiteCodeableConcept) {
+	public void setBodySite(CodeableConcept newBodySite) {
+		if (newBodySite != bodySite) {
 			NotificationChain msgs = null;
-			if (bodySiteCodeableConcept != null)
-				msgs = ((InternalEObject)bodySiteCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT, null, msgs);
-			if (newBodySiteCodeableConcept != null)
-				msgs = ((InternalEObject)newBodySiteCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetBodySiteCodeableConcept(newBodySiteCodeableConcept, msgs);
+			if (bodySite != null)
+				msgs = ((InternalEObject)bodySite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
+			if (newBodySite != null)
+				msgs = ((InternalEObject)newBodySite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
+			msgs = basicSetBodySite(newBodySite, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT, newBodySiteCodeableConcept, newBodySiteCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getBodySiteReference() {
-		return bodySiteReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBodySiteReference(Reference newBodySiteReference, NotificationChain msgs) {
-		Reference oldBodySiteReference = bodySiteReference;
-		bodySiteReference = newBodySiteReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE, oldBodySiteReference, newBodySiteReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBodySiteReference(Reference newBodySiteReference) {
-		if (newBodySiteReference != bodySiteReference) {
-			NotificationChain msgs = null;
-			if (bodySiteReference != null)
-				msgs = ((InternalEObject)bodySiteReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE, null, msgs);
-			if (newBodySiteReference != null)
-				msgs = ((InternalEObject)newBodySiteReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE, null, msgs);
-			msgs = basicSetBodySiteReference(newBodySiteReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE, newBodySiteReference, newBodySiteReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, newBodySite, newBodySite));
 	}
 
 	/**
@@ -631,10 +567,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT:
-				return basicSetBodySiteCodeableConcept(null, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE:
-				return basicSetBodySiteReference(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return basicSetBodySite(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
 				return basicSetWhenUsed(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
@@ -667,10 +601,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT:
-				return getBodySiteCodeableConcept();
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE:
-				return getBodySiteReference();
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return getBodySite();
 			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
 				return getWhenUsed();
 			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
@@ -704,11 +636,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT:
-				setBodySiteCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE:
-				setBodySiteReference((Reference)newValue);
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				setBodySite((CodeableConcept)newValue);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
 				setWhenUsed((Period)newValue);
@@ -755,11 +684,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT:
-				setBodySiteCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE:
-				setBodySiteReference((Reference)null);
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				setBodySite((CodeableConcept)null);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
 				setWhenUsed((Period)null);
@@ -803,10 +729,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_CODEABLE_CONCEPT:
-				return bodySiteCodeableConcept != null;
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE_REFERENCE:
-				return bodySiteReference != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return bodySite != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
 				return whenUsed != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:

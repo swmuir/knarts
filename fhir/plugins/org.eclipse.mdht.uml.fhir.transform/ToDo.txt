@@ -16,7 +16,7 @@ x on export, omit cardinality if not restricted
 
 --------------------
 BUGS and ISSUES:
-- Slicing property name must be unique
+x Slicing property name must be unique
   -- e.g. LipidProfile.result -> derive property name as lowerCamelCase from type name (extension name)
 
 - Property type for TypeChoice
@@ -68,8 +68,6 @@ Model Mapping
 
 - Use DITA to publish FHIR model as Help plugin
 
-- Add XML serialization metadata on import, e.g. ElementDefinition <representation value="xmlAttr"/>
-
 ***- Assign element.id as Ecore Id
   -- create derived model, test re-importing core w/o breaking references
   -- Issue: no id for nested classes, also need id for all properties to enable redefine/subset
@@ -101,7 +99,7 @@ Model Mapping
 
 - Extension
   -- contextType and context(s)
-  -- fixed values, for 'uri'
+  x fixed values, for 'uri'
   -- test extensions embedded within extensions, e.g. adverseevent-qicore-cause, or condition-dueTo
 
 - Import operations

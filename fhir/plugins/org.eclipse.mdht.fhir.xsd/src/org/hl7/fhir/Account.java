@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -20,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
+ * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -32,13 +22,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Account#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Account#getActivePeriod <em>Active Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Account#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getCurrency <em>Currency</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getBalance <em>Balance</em>}</li>
+ *   <li>{@link org.hl7.fhir.Account#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getCoveragePeriod <em>Coverage Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.Account#getGuarantor <em>Guarantor</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAccount()
@@ -141,30 +133,31 @@ public interface Account extends DomainResource {
 	void setStatus(AccountStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Active Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Active</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the period of time over which the account is allowed.
+	 * Indicates the period of time over which the account is allowed to have transactions posted to it.
+	 * This period may be different to the coveragePeriod which is the duration of time that services may occur.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Active Period</em>' containment reference.
-	 * @see #setActivePeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getAccount_ActivePeriod()
+	 * @return the value of the '<em>Active</em>' containment reference.
+	 * @see #setActive(Period)
+	 * @see org.hl7.fhir.FhirPackage#getAccount_Active()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='activePeriod' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='active' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getActivePeriod();
+	Period getActive();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Account#getActivePeriod <em>Active Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Account#getActive <em>Active</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Active Period</em>' containment reference.
-	 * @see #getActivePeriod()
+	 * @param value the new value of the '<em>Active</em>' containment reference.
+	 * @see #getActive()
 	 * @generated
 	 */
-	void setActivePeriod(Period value);
+	void setActive(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Currency</b></em>' containment reference.
@@ -217,6 +210,24 @@ public interface Account extends DomainResource {
 	 * @generated
 	 */
 	void setBalance(Money value);
+
+	/**
+	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party(s) that are responsible for payment (or part of) of charges applied to this account (including self-pay).
+	 * 
+	 * A coverage may only be resposible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Coverage</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAccount_Coverage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='coverage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getCoverage();
 
 	/**
 	 * Returns the value of the '<em><b>Coverage Period</b></em>' containment reference.
@@ -321,5 +332,21 @@ public interface Account extends DomainResource {
 	 * @generated
 	 */
 	void setDescription(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Guarantor</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.AccountGuarantor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Parties financially responsible for the account.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Guarantor</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAccount_Guarantor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='guarantor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<AccountGuarantor> getGuarantor();
 
 } // Account

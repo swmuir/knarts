@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -48,7 +38,37 @@ public enum MeasureTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OUTCOME(1, "outcome", "outcome");
+	OUTCOME(1, "outcome", "outcome"),
+
+	/**
+	 * The '<em><b>Structure</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRUCTURE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STRUCTURE(2, "structure", "structure"),
+
+	/**
+	 * The '<em><b>Patient Reported Outcome</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATIENT_REPORTED_OUTCOME_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PATIENT_REPORTED_OUTCOME(3, "patientReportedOutcome", "patient-reported-outcome"),
+
+	/**
+	 * The '<em><b>Composite</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPOSITE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPOSITE(4, "composite", "composite");
 
 	/**
 	 * The '<em><b>Process</b></em>' literal value.
@@ -79,6 +99,48 @@ public enum MeasureTypeList implements Enumerator {
 	public static final int OUTCOME_VALUE = 1;
 
 	/**
+	 * The '<em><b>Structure</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Structure
+	 * <!-- end-model-doc -->
+	 * @see #STRUCTURE
+	 * @model name="structure"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STRUCTURE_VALUE = 2;
+
+	/**
+	 * The '<em><b>Patient Reported Outcome</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Patient Reported Outcome
+	 * <!-- end-model-doc -->
+	 * @see #PATIENT_REPORTED_OUTCOME
+	 * @model name="patientReportedOutcome" literal="patient-reported-outcome"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PATIENT_REPORTED_OUTCOME_VALUE = 3;
+
+	/**
+	 * The '<em><b>Composite</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Composite
+	 * <!-- end-model-doc -->
+	 * @see #COMPOSITE
+	 * @model name="composite"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMPOSITE_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Measure Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +150,9 @@ public enum MeasureTypeList implements Enumerator {
 		new MeasureTypeList[] {
 			PROCESS,
 			OUTCOME,
+			STRUCTURE,
+			PATIENT_REPORTED_OUTCOME,
+			COMPOSITE,
 		};
 
 	/**
@@ -146,6 +211,9 @@ public enum MeasureTypeList implements Enumerator {
 		switch (value) {
 			case PROCESS_VALUE: return PROCESS;
 			case OUTCOME_VALUE: return OUTCOME;
+			case STRUCTURE_VALUE: return STRUCTURE;
+			case PATIENT_REPORTED_OUTCOME_VALUE: return PATIENT_REPORTED_OUTCOME;
+			case COMPOSITE_VALUE: return COMPOSITE;
 		}
 		return null;
 	}

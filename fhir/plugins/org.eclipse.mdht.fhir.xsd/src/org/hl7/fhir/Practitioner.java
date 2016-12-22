@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -36,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Practitioner#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getBirthDate <em>Birth Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getPhoto <em>Photo</em>}</li>
- *   <li>{@link org.hl7.fhir.Practitioner#getPractitionerRole <em>Practitioner Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.Practitioner#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getQualification <em>Qualification</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getCommunication <em>Communication</em>}</li>
  * </ul>
@@ -206,20 +196,20 @@ public interface Practitioner extends DomainResource {
 	EList<Attachment> getPhoto();
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner Role</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.PractitionerPractitionerRole}.
+	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PractitionerRole1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The list of roles/organizations that the practitioner is associated with.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Practitioner Role</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPractitioner_PractitionerRole()
+	 * @return the value of the '<em>Role</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPractitioner_Role()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='practitionerRole' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PractitionerPractitionerRole> getPractitionerRole();
+	EList<PractitionerRole1> getRole();
 
 	/**
 	 * Returns the value of the '<em><b>Qualification</b></em>' containment reference list.

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -29,18 +19,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
-import org.hl7.fhir.ClaimResponseCoverage;
 import org.hl7.fhir.ClaimResponseError;
+import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
 import org.hl7.fhir.ClaimResponseNote;
+import org.hl7.fhir.ClaimResponsePayment;
+import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
-import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,17 +42,12 @@ import org.hl7.fhir.RemittanceOutcome;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestIdentifier <em>Request Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestReference <em>Request Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getOrganizationReference <em>Organization Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestProviderIdentifier <em>Request Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestProviderReference <em>Request Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestOrganizationIdentifier <em>Request Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestOrganizationReference <em>Request Organization Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getInsurer <em>Insurer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getDisposition <em>Disposition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPayeeType <em>Payee Type</em>}</li>
@@ -71,15 +57,12 @@ import org.hl7.fhir.RemittanceOutcome;
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getTotalCost <em>Total Cost</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getUnallocDeductable <em>Unalloc Deductable</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getTotalBenefit <em>Total Benefit</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPaymentAdjustment <em>Payment Adjustment</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPaymentAdjustmentReason <em>Payment Adjustment Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPaymentDate <em>Payment Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPaymentAmount <em>Payment Amount</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPaymentRef <em>Payment Ref</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getReserved <em>Reserved</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getNote <em>Note</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getCommunicationRequest <em>Communication Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getInsurance <em>Insurance</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,44 +79,14 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getRequestIdentifier() <em>Request Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestIdentifier()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier requestIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getRequestReference() <em>Request Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference requestReference;
-
-	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding ruleset;
-
-	/**
-	 * The cached value of the '{@link #getOriginalRuleset() <em>Original Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding originalRuleset;
+	protected Code status;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -146,64 +99,44 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getInsurer() <em>Insurer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganizationIdentifier()
+	 * @see #getInsurer()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier organizationIdentifier;
+	protected Reference insurer;
 
 	/**
-	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getRequestProvider() <em>Request Provider</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganizationReference()
+	 * @see #getRequestProvider()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organizationReference;
+	protected Reference requestProvider;
 
 	/**
-	 * The cached value of the '{@link #getRequestProviderIdentifier() <em>Request Provider Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getRequestOrganization() <em>Request Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestProviderIdentifier()
+	 * @see #getRequestOrganization()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier requestProviderIdentifier;
+	protected Reference requestOrganization;
 
 	/**
-	 * The cached value of the '{@link #getRequestProviderReference() <em>Request Provider Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestProviderReference()
+	 * @see #getRequest()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requestProviderReference;
-
-	/**
-	 * The cached value of the '{@link #getRequestOrganizationIdentifier() <em>Request Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestOrganizationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier requestOrganizationIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getRequestOrganizationReference() <em>Request Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestOrganizationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference requestOrganizationReference;
+	protected Reference request;
 
 	/**
 	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
@@ -213,7 +146,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * @generated
 	 * @ordered
 	 */
-	protected RemittanceOutcome outcome;
+	protected CodeableConcept outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -233,7 +166,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding payeeType;
+	protected CodeableConcept payeeType;
 
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
@@ -296,54 +229,14 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	protected Money totalBenefit;
 
 	/**
-	 * The cached value of the '{@link #getPaymentAdjustment() <em>Payment Adjustment</em>}' containment reference.
+	 * The cached value of the '{@link #getPayment() <em>Payment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPaymentAdjustment()
+	 * @see #getPayment()
 	 * @generated
 	 * @ordered
 	 */
-	protected Money paymentAdjustment;
-
-	/**
-	 * The cached value of the '{@link #getPaymentAdjustmentReason() <em>Payment Adjustment Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentAdjustmentReason()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding paymentAdjustmentReason;
-
-	/**
-	 * The cached value of the '{@link #getPaymentDate() <em>Payment Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date paymentDate;
-
-	/**
-	 * The cached value of the '{@link #getPaymentAmount() <em>Payment Amount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected Money paymentAmount;
-
-	/**
-	 * The cached value of the '{@link #getPaymentRef() <em>Payment Ref</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier paymentRef;
+	protected ClaimResponsePayment payment;
 
 	/**
 	 * The cached value of the '{@link #getReserved() <em>Reserved</em>}' containment reference.
@@ -363,7 +256,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding form;
+	protected CodeableConcept form;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -376,14 +269,24 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	protected EList<ClaimResponseNote> note;
 
 	/**
-	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference list.
+	 * The cached value of the '{@link #getCommunicationRequest() <em>Communication Request</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCoverage()
+	 * @see #getCommunicationRequest()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ClaimResponseCoverage> coverage;
+	protected EList<Reference> communicationRequest;
+
+	/**
+	 * The cached value of the '{@link #getInsurance() <em>Insurance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ClaimResponseInsurance> insurance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -421,8 +324,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getRequestIdentifier() {
-		return requestIdentifier;
+	public Code getStatus() {
+		return status;
 	}
 
 	/**
@@ -430,11 +333,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestIdentifier(Identifier newRequestIdentifier, NotificationChain msgs) {
-		Identifier oldRequestIdentifier = requestIdentifier;
-		requestIdentifier = newRequestIdentifier;
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER, oldRequestIdentifier, newRequestIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -445,147 +348,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestIdentifier(Identifier newRequestIdentifier) {
-		if (newRequestIdentifier != requestIdentifier) {
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (requestIdentifier != null)
-				msgs = ((InternalEObject)requestIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER, null, msgs);
-			if (newRequestIdentifier != null)
-				msgs = ((InternalEObject)newRequestIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER, null, msgs);
-			msgs = basicSetRequestIdentifier(newRequestIdentifier, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER, newRequestIdentifier, newRequestIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getRequestReference() {
-		return requestReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestReference(Reference newRequestReference, NotificationChain msgs) {
-		Reference oldRequestReference = requestReference;
-		requestReference = newRequestReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE, oldRequestReference, newRequestReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestReference(Reference newRequestReference) {
-		if (newRequestReference != requestReference) {
-			NotificationChain msgs = null;
-			if (requestReference != null)
-				msgs = ((InternalEObject)requestReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE, null, msgs);
-			if (newRequestReference != null)
-				msgs = ((InternalEObject)newRequestReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE, null, msgs);
-			msgs = basicSetRequestReference(newRequestReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE, newRequestReference, newRequestReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getRuleset() {
-		return ruleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleset(Coding newRuleset, NotificationChain msgs) {
-		Coding oldRuleset = ruleset;
-		ruleset = newRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__RULESET, oldRuleset, newRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRuleset(Coding newRuleset) {
-		if (newRuleset != ruleset) {
-			NotificationChain msgs = null;
-			if (ruleset != null)
-				msgs = ((InternalEObject)ruleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__RULESET, null, msgs);
-			if (newRuleset != null)
-				msgs = ((InternalEObject)newRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__RULESET, null, msgs);
-			msgs = basicSetRuleset(newRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__RULESET, newRuleset, newRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getOriginalRuleset() {
-		return originalRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalRuleset(Coding newOriginalRuleset, NotificationChain msgs) {
-		Coding oldOriginalRuleset = originalRuleset;
-		originalRuleset = newOriginalRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET, oldOriginalRuleset, newOriginalRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalRuleset(Coding newOriginalRuleset) {
-		if (newOriginalRuleset != originalRuleset) {
-			NotificationChain msgs = null;
-			if (originalRuleset != null)
-				msgs = ((InternalEObject)originalRuleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET, null, msgs);
-			if (newOriginalRuleset != null)
-				msgs = ((InternalEObject)newOriginalRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET, null, msgs);
-			msgs = basicSetOriginalRuleset(newOriginalRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET, newOriginalRuleset, newOriginalRuleset));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -636,8 +410,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getOrganizationIdentifier() {
-		return organizationIdentifier;
+	public Reference getInsurer() {
+		return insurer;
 	}
 
 	/**
@@ -645,11 +419,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
-		Identifier oldOrganizationIdentifier = organizationIdentifier;
-		organizationIdentifier = newOrganizationIdentifier;
+	public NotificationChain basicSetInsurer(Reference newInsurer, NotificationChain msgs) {
+		Reference oldInsurer = insurer;
+		insurer = newInsurer;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__INSURER, oldInsurer, newInsurer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -660,18 +434,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
-		if (newOrganizationIdentifier != organizationIdentifier) {
+	public void setInsurer(Reference newInsurer) {
+		if (newInsurer != insurer) {
 			NotificationChain msgs = null;
-			if (organizationIdentifier != null)
-				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER, null, msgs);
-			if (newOrganizationIdentifier != null)
-				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER, null, msgs);
-			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
+			if (insurer != null)
+				msgs = ((InternalEObject)insurer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__INSURER, null, msgs);
+			if (newInsurer != null)
+				msgs = ((InternalEObject)newInsurer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__INSURER, null, msgs);
+			msgs = basicSetInsurer(newInsurer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__INSURER, newInsurer, newInsurer));
 	}
 
 	/**
@@ -679,8 +453,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganizationReference() {
-		return organizationReference;
+	public Reference getRequestProvider() {
+		return requestProvider;
 	}
 
 	/**
@@ -688,11 +462,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
-		Reference oldOrganizationReference = organizationReference;
-		organizationReference = newOrganizationReference;
+	public NotificationChain basicSetRequestProvider(Reference newRequestProvider, NotificationChain msgs) {
+		Reference oldRequestProvider = requestProvider;
+		requestProvider = newRequestProvider;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER, oldRequestProvider, newRequestProvider);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -703,18 +477,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganizationReference(Reference newOrganizationReference) {
-		if (newOrganizationReference != organizationReference) {
+	public void setRequestProvider(Reference newRequestProvider) {
+		if (newRequestProvider != requestProvider) {
 			NotificationChain msgs = null;
-			if (organizationReference != null)
-				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE, null, msgs);
-			if (newOrganizationReference != null)
-				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE, null, msgs);
-			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
+			if (requestProvider != null)
+				msgs = ((InternalEObject)requestProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER, null, msgs);
+			if (newRequestProvider != null)
+				msgs = ((InternalEObject)newRequestProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER, null, msgs);
+			msgs = basicSetRequestProvider(newRequestProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER, newRequestProvider, newRequestProvider));
 	}
 
 	/**
@@ -722,8 +496,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getRequestProviderIdentifier() {
-		return requestProviderIdentifier;
+	public Reference getRequestOrganization() {
+		return requestOrganization;
 	}
 
 	/**
@@ -731,11 +505,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestProviderIdentifier(Identifier newRequestProviderIdentifier, NotificationChain msgs) {
-		Identifier oldRequestProviderIdentifier = requestProviderIdentifier;
-		requestProviderIdentifier = newRequestProviderIdentifier;
+	public NotificationChain basicSetRequestOrganization(Reference newRequestOrganization, NotificationChain msgs) {
+		Reference oldRequestOrganization = requestOrganization;
+		requestOrganization = newRequestOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, oldRequestProviderIdentifier, newRequestProviderIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION, oldRequestOrganization, newRequestOrganization);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -746,18 +520,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestProviderIdentifier(Identifier newRequestProviderIdentifier) {
-		if (newRequestProviderIdentifier != requestProviderIdentifier) {
+	public void setRequestOrganization(Reference newRequestOrganization) {
+		if (newRequestOrganization != requestOrganization) {
 			NotificationChain msgs = null;
-			if (requestProviderIdentifier != null)
-				msgs = ((InternalEObject)requestProviderIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, null, msgs);
-			if (newRequestProviderIdentifier != null)
-				msgs = ((InternalEObject)newRequestProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, null, msgs);
-			msgs = basicSetRequestProviderIdentifier(newRequestProviderIdentifier, msgs);
+			if (requestOrganization != null)
+				msgs = ((InternalEObject)requestOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
+			if (newRequestOrganization != null)
+				msgs = ((InternalEObject)newRequestOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
+			msgs = basicSetRequestOrganization(newRequestOrganization, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER, newRequestProviderIdentifier, newRequestProviderIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION, newRequestOrganization, newRequestOrganization));
 	}
 
 	/**
@@ -765,8 +539,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestProviderReference() {
-		return requestProviderReference;
+	public Reference getRequest() {
+		return request;
 	}
 
 	/**
@@ -774,11 +548,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestProviderReference(Reference newRequestProviderReference, NotificationChain msgs) {
-		Reference oldRequestProviderReference = requestProviderReference;
-		requestProviderReference = newRequestProviderReference;
+	public NotificationChain basicSetRequest(Reference newRequest, NotificationChain msgs) {
+		Reference oldRequest = request;
+		request = newRequest;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE, oldRequestProviderReference, newRequestProviderReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST, oldRequest, newRequest);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -789,18 +563,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestProviderReference(Reference newRequestProviderReference) {
-		if (newRequestProviderReference != requestProviderReference) {
+	public void setRequest(Reference newRequest) {
+		if (newRequest != request) {
 			NotificationChain msgs = null;
-			if (requestProviderReference != null)
-				msgs = ((InternalEObject)requestProviderReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE, null, msgs);
-			if (newRequestProviderReference != null)
-				msgs = ((InternalEObject)newRequestProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE, null, msgs);
-			msgs = basicSetRequestProviderReference(newRequestProviderReference, msgs);
+			if (request != null)
+				msgs = ((InternalEObject)request).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST, null, msgs);
+			if (newRequest != null)
+				msgs = ((InternalEObject)newRequest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST, null, msgs);
+			msgs = basicSetRequest(newRequest, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE, newRequestProviderReference, newRequestProviderReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST, newRequest, newRequest));
 	}
 
 	/**
@@ -808,93 +582,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getRequestOrganizationIdentifier() {
-		return requestOrganizationIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestOrganizationIdentifier(Identifier newRequestOrganizationIdentifier, NotificationChain msgs) {
-		Identifier oldRequestOrganizationIdentifier = requestOrganizationIdentifier;
-		requestOrganizationIdentifier = newRequestOrganizationIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, oldRequestOrganizationIdentifier, newRequestOrganizationIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestOrganizationIdentifier(Identifier newRequestOrganizationIdentifier) {
-		if (newRequestOrganizationIdentifier != requestOrganizationIdentifier) {
-			NotificationChain msgs = null;
-			if (requestOrganizationIdentifier != null)
-				msgs = ((InternalEObject)requestOrganizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, null, msgs);
-			if (newRequestOrganizationIdentifier != null)
-				msgs = ((InternalEObject)newRequestOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, null, msgs);
-			msgs = basicSetRequestOrganizationIdentifier(newRequestOrganizationIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER, newRequestOrganizationIdentifier, newRequestOrganizationIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getRequestOrganizationReference() {
-		return requestOrganizationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestOrganizationReference(Reference newRequestOrganizationReference, NotificationChain msgs) {
-		Reference oldRequestOrganizationReference = requestOrganizationReference;
-		requestOrganizationReference = newRequestOrganizationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, oldRequestOrganizationReference, newRequestOrganizationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestOrganizationReference(Reference newRequestOrganizationReference) {
-		if (newRequestOrganizationReference != requestOrganizationReference) {
-			NotificationChain msgs = null;
-			if (requestOrganizationReference != null)
-				msgs = ((InternalEObject)requestOrganizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, null, msgs);
-			if (newRequestOrganizationReference != null)
-				msgs = ((InternalEObject)newRequestOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, null, msgs);
-			msgs = basicSetRequestOrganizationReference(newRequestOrganizationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE, newRequestOrganizationReference, newRequestOrganizationReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RemittanceOutcome getOutcome() {
+	public CodeableConcept getOutcome() {
 		return outcome;
 	}
 
@@ -903,8 +591,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
-		RemittanceOutcome oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
+		CodeableConcept oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -918,7 +606,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(RemittanceOutcome newOutcome) {
+	public void setOutcome(CodeableConcept newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -980,7 +668,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getPayeeType() {
+	public CodeableConcept getPayeeType() {
 		return payeeType;
 	}
 
@@ -989,8 +677,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPayeeType(Coding newPayeeType, NotificationChain msgs) {
-		Coding oldPayeeType = payeeType;
+	public NotificationChain basicSetPayeeType(CodeableConcept newPayeeType, NotificationChain msgs) {
+		CodeableConcept oldPayeeType = payeeType;
 		payeeType = newPayeeType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYEE_TYPE, oldPayeeType, newPayeeType);
@@ -1004,7 +692,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPayeeType(Coding newPayeeType) {
+	public void setPayeeType(CodeableConcept newPayeeType) {
 		if (newPayeeType != payeeType) {
 			NotificationChain msgs = null;
 			if (payeeType != null)
@@ -1188,8 +876,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getPaymentAdjustment() {
-		return paymentAdjustment;
+	public ClaimResponsePayment getPayment() {
+		return payment;
 	}
 
 	/**
@@ -1197,11 +885,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPaymentAdjustment(Money newPaymentAdjustment, NotificationChain msgs) {
-		Money oldPaymentAdjustment = paymentAdjustment;
-		paymentAdjustment = newPaymentAdjustment;
+	public NotificationChain basicSetPayment(ClaimResponsePayment newPayment, NotificationChain msgs) {
+		ClaimResponsePayment oldPayment = payment;
+		payment = newPayment;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT, oldPaymentAdjustment, newPaymentAdjustment);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT, oldPayment, newPayment);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1212,190 +900,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPaymentAdjustment(Money newPaymentAdjustment) {
-		if (newPaymentAdjustment != paymentAdjustment) {
+	public void setPayment(ClaimResponsePayment newPayment) {
+		if (newPayment != payment) {
 			NotificationChain msgs = null;
-			if (paymentAdjustment != null)
-				msgs = ((InternalEObject)paymentAdjustment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT, null, msgs);
-			if (newPaymentAdjustment != null)
-				msgs = ((InternalEObject)newPaymentAdjustment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT, null, msgs);
-			msgs = basicSetPaymentAdjustment(newPaymentAdjustment, msgs);
+			if (payment != null)
+				msgs = ((InternalEObject)payment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT, null, msgs);
+			if (newPayment != null)
+				msgs = ((InternalEObject)newPayment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT, null, msgs);
+			msgs = basicSetPayment(newPayment, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT, newPaymentAdjustment, newPaymentAdjustment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getPaymentAdjustmentReason() {
-		return paymentAdjustmentReason;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPaymentAdjustmentReason(Coding newPaymentAdjustmentReason, NotificationChain msgs) {
-		Coding oldPaymentAdjustmentReason = paymentAdjustmentReason;
-		paymentAdjustmentReason = newPaymentAdjustmentReason;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON, oldPaymentAdjustmentReason, newPaymentAdjustmentReason);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaymentAdjustmentReason(Coding newPaymentAdjustmentReason) {
-		if (newPaymentAdjustmentReason != paymentAdjustmentReason) {
-			NotificationChain msgs = null;
-			if (paymentAdjustmentReason != null)
-				msgs = ((InternalEObject)paymentAdjustmentReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON, null, msgs);
-			if (newPaymentAdjustmentReason != null)
-				msgs = ((InternalEObject)newPaymentAdjustmentReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON, null, msgs);
-			msgs = basicSetPaymentAdjustmentReason(newPaymentAdjustmentReason, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON, newPaymentAdjustmentReason, newPaymentAdjustmentReason));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getPaymentDate() {
-		return paymentDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPaymentDate(Date newPaymentDate, NotificationChain msgs) {
-		Date oldPaymentDate = paymentDate;
-		paymentDate = newPaymentDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE, oldPaymentDate, newPaymentDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaymentDate(Date newPaymentDate) {
-		if (newPaymentDate != paymentDate) {
-			NotificationChain msgs = null;
-			if (paymentDate != null)
-				msgs = ((InternalEObject)paymentDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE, null, msgs);
-			if (newPaymentDate != null)
-				msgs = ((InternalEObject)newPaymentDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE, null, msgs);
-			msgs = basicSetPaymentDate(newPaymentDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE, newPaymentDate, newPaymentDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Money getPaymentAmount() {
-		return paymentAmount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPaymentAmount(Money newPaymentAmount, NotificationChain msgs) {
-		Money oldPaymentAmount = paymentAmount;
-		paymentAmount = newPaymentAmount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT, oldPaymentAmount, newPaymentAmount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaymentAmount(Money newPaymentAmount) {
-		if (newPaymentAmount != paymentAmount) {
-			NotificationChain msgs = null;
-			if (paymentAmount != null)
-				msgs = ((InternalEObject)paymentAmount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT, null, msgs);
-			if (newPaymentAmount != null)
-				msgs = ((InternalEObject)newPaymentAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT, null, msgs);
-			msgs = basicSetPaymentAmount(newPaymentAmount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT, newPaymentAmount, newPaymentAmount));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getPaymentRef() {
-		return paymentRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPaymentRef(Identifier newPaymentRef, NotificationChain msgs) {
-		Identifier oldPaymentRef = paymentRef;
-		paymentRef = newPaymentRef;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_REF, oldPaymentRef, newPaymentRef);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaymentRef(Identifier newPaymentRef) {
-		if (newPaymentRef != paymentRef) {
-			NotificationChain msgs = null;
-			if (paymentRef != null)
-				msgs = ((InternalEObject)paymentRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_REF, null, msgs);
-			if (newPaymentRef != null)
-				msgs = ((InternalEObject)newPaymentRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PAYMENT_REF, null, msgs);
-			msgs = basicSetPaymentRef(newPaymentRef, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT_REF, newPaymentRef, newPaymentRef));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PAYMENT, newPayment, newPayment));
 	}
 
 	/**
@@ -1446,7 +962,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getForm() {
+	public CodeableConcept getForm() {
 		return form;
 	}
 
@@ -1455,8 +971,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetForm(Coding newForm, NotificationChain msgs) {
-		Coding oldForm = form;
+	public NotificationChain basicSetForm(CodeableConcept newForm, NotificationChain msgs) {
+		CodeableConcept oldForm = form;
 		form = newForm;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__FORM, oldForm, newForm);
@@ -1470,7 +986,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setForm(Coding newForm) {
+	public void setForm(CodeableConcept newForm) {
 		if (newForm != form) {
 			NotificationChain msgs = null;
 			if (form != null)
@@ -1501,11 +1017,23 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ClaimResponseCoverage> getCoverage() {
-		if (coverage == null) {
-			coverage = new EObjectContainmentEList<ClaimResponseCoverage>(ClaimResponseCoverage.class, this, FhirPackage.CLAIM_RESPONSE__COVERAGE);
+	public EList<Reference> getCommunicationRequest() {
+		if (communicationRequest == null) {
+			communicationRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST);
 		}
-		return coverage;
+		return communicationRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ClaimResponseInsurance> getInsurance() {
+		if (insurance == null) {
+			insurance = new EObjectContainmentEList<ClaimResponseInsurance>(ClaimResponseInsurance.class, this, FhirPackage.CLAIM_RESPONSE__INSURANCE);
+		}
+		return insurance;
 	}
 
 	/**
@@ -1518,28 +1046,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 		switch (featureID) {
 			case FhirPackage.CLAIM_RESPONSE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER:
-				return basicSetRequestIdentifier(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE:
-				return basicSetRequestReference(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__RULESET:
-				return basicSetRuleset(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET:
-				return basicSetOriginalRuleset(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER:
-				return basicSetOrganizationIdentifier(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE:
-				return basicSetOrganizationReference(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
-				return basicSetRequestProviderIdentifier(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE:
-				return basicSetRequestProviderReference(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
-				return basicSetRequestOrganizationIdentifier(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
-				return basicSetRequestOrganizationReference(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__INSURER:
+				return basicSetInsurer(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER:
+				return basicSetRequestProvider(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION:
+				return basicSetRequestOrganization(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST:
+				return basicSetRequest(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
@@ -1558,24 +1076,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return basicSetUnallocDeductable(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__TOTAL_BENEFIT:
 				return basicSetTotalBenefit(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT:
-				return basicSetPaymentAdjustment(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON:
-				return basicSetPaymentAdjustmentReason(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE:
-				return basicSetPaymentDate(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT:
-				return basicSetPaymentAmount(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_REF:
-				return basicSetPaymentRef(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__PAYMENT:
+				return basicSetPayment(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__RESERVED:
 				return basicSetReserved(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return basicSetForm(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM_RESPONSE__COVERAGE:
-				return ((InternalEList<?>)getCoverage()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
+				return ((InternalEList<?>)getCommunicationRequest()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
+				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1590,28 +1102,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 		switch (featureID) {
 			case FhirPackage.CLAIM_RESPONSE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER:
-				return getRequestIdentifier();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE:
-				return getRequestReference();
-			case FhirPackage.CLAIM_RESPONSE__RULESET:
-				return getRuleset();
-			case FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET:
-				return getOriginalRuleset();
+			case FhirPackage.CLAIM_RESPONSE__STATUS:
+				return getStatus();
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return getCreated();
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER:
-				return getOrganizationIdentifier();
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE:
-				return getOrganizationReference();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
-				return getRequestProviderIdentifier();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE:
-				return getRequestProviderReference();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
-				return getRequestOrganizationIdentifier();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
-				return getRequestOrganizationReference();
+			case FhirPackage.CLAIM_RESPONSE__INSURER:
+				return getInsurer();
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER:
+				return getRequestProvider();
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION:
+				return getRequestOrganization();
+			case FhirPackage.CLAIM_RESPONSE__REQUEST:
+				return getRequest();
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
 				return getOutcome();
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
@@ -1630,24 +1132,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return getUnallocDeductable();
 			case FhirPackage.CLAIM_RESPONSE__TOTAL_BENEFIT:
 				return getTotalBenefit();
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT:
-				return getPaymentAdjustment();
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON:
-				return getPaymentAdjustmentReason();
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE:
-				return getPaymentDate();
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT:
-				return getPaymentAmount();
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_REF:
-				return getPaymentRef();
+			case FhirPackage.CLAIM_RESPONSE__PAYMENT:
+				return getPayment();
 			case FhirPackage.CLAIM_RESPONSE__RESERVED:
 				return getReserved();
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return getForm();
 			case FhirPackage.CLAIM_RESPONSE__NOTE:
 				return getNote();
-			case FhirPackage.CLAIM_RESPONSE__COVERAGE:
-				return getCoverage();
+			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
+				return getCommunicationRequest();
+			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
+				return getInsurance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1665,47 +1161,32 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER:
-				setRequestIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE:
-				setRequestReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__RULESET:
-				setRuleset((Coding)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)newValue);
+			case FhirPackage.CLAIM_RESPONSE__STATUS:
+				setStatus((Code)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)newValue);
+			case FhirPackage.CLAIM_RESPONSE__INSURER:
+				setInsurer((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)newValue);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER:
+				setRequestProvider((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
-				setRequestProviderIdentifier((Identifier)newValue);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION:
+				setRequestOrganization((Reference)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE:
-				setRequestProviderReference((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
-				setRequestOrganizationIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
-				setRequestOrganizationReference((Reference)newValue);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST:
+				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
-				setOutcome((RemittanceOutcome)newValue);
+				setOutcome((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__PAYEE_TYPE:
-				setPayeeType((Coding)newValue);
+				setPayeeType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__ITEM:
 				getItem().clear();
@@ -1728,34 +1209,26 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 			case FhirPackage.CLAIM_RESPONSE__TOTAL_BENEFIT:
 				setTotalBenefit((Money)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT:
-				setPaymentAdjustment((Money)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON:
-				setPaymentAdjustmentReason((Coding)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE:
-				setPaymentDate((Date)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT:
-				setPaymentAmount((Money)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_REF:
-				setPaymentRef((Identifier)newValue);
+			case FhirPackage.CLAIM_RESPONSE__PAYMENT:
+				setPayment((ClaimResponsePayment)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__RESERVED:
 				setReserved((Coding)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__FORM:
-				setForm((Coding)newValue);
+				setForm((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends ClaimResponseNote>)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__COVERAGE:
-				getCoverage().clear();
-				getCoverage().addAll((Collection<? extends ClaimResponseCoverage>)newValue);
+			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
+				getCommunicationRequest().clear();
+				getCommunicationRequest().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
+				getInsurance().clear();
+				getInsurance().addAll((Collection<? extends ClaimResponseInsurance>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1772,47 +1245,32 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 			case FhirPackage.CLAIM_RESPONSE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER:
-				setRequestIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE:
-				setRequestReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__RULESET:
-				setRuleset((Coding)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)null);
+			case FhirPackage.CLAIM_RESPONSE__STATUS:
+				setStatus((Code)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)null);
+			case FhirPackage.CLAIM_RESPONSE__INSURER:
+				setInsurer((Reference)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)null);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER:
+				setRequestProvider((Reference)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
-				setRequestProviderIdentifier((Identifier)null);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION:
+				setRequestOrganization((Reference)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE:
-				setRequestProviderReference((Reference)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
-				setRequestOrganizationIdentifier((Identifier)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
-				setRequestOrganizationReference((Reference)null);
+			case FhirPackage.CLAIM_RESPONSE__REQUEST:
+				setRequest((Reference)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
-				setOutcome((RemittanceOutcome)null);
+				setOutcome((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__PAYEE_TYPE:
-				setPayeeType((Coding)null);
+				setPayeeType((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__ITEM:
 				getItem().clear();
@@ -1832,32 +1290,23 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 			case FhirPackage.CLAIM_RESPONSE__TOTAL_BENEFIT:
 				setTotalBenefit((Money)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT:
-				setPaymentAdjustment((Money)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON:
-				setPaymentAdjustmentReason((Coding)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE:
-				setPaymentDate((Date)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT:
-				setPaymentAmount((Money)null);
-				return;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_REF:
-				setPaymentRef((Identifier)null);
+			case FhirPackage.CLAIM_RESPONSE__PAYMENT:
+				setPayment((ClaimResponsePayment)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__RESERVED:
 				setReserved((Coding)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__FORM:
-				setForm((Coding)null);
+				setForm((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__NOTE:
 				getNote().clear();
 				return;
-			case FhirPackage.CLAIM_RESPONSE__COVERAGE:
-				getCoverage().clear();
+			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
+				getCommunicationRequest().clear();
+				return;
+			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
+				getInsurance().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1873,28 +1322,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 		switch (featureID) {
 			case FhirPackage.CLAIM_RESPONSE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_IDENTIFIER:
-				return requestIdentifier != null;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_REFERENCE:
-				return requestReference != null;
-			case FhirPackage.CLAIM_RESPONSE__RULESET:
-				return ruleset != null;
-			case FhirPackage.CLAIM_RESPONSE__ORIGINAL_RULESET:
-				return originalRuleset != null;
+			case FhirPackage.CLAIM_RESPONSE__STATUS:
+				return status != null;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return created != null;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_IDENTIFIER:
-				return organizationIdentifier != null;
-			case FhirPackage.CLAIM_RESPONSE__ORGANIZATION_REFERENCE:
-				return organizationReference != null;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_IDENTIFIER:
-				return requestProviderIdentifier != null;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER_REFERENCE:
-				return requestProviderReference != null;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_IDENTIFIER:
-				return requestOrganizationIdentifier != null;
-			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION_REFERENCE:
-				return requestOrganizationReference != null;
+			case FhirPackage.CLAIM_RESPONSE__INSURER:
+				return insurer != null;
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_PROVIDER:
+				return requestProvider != null;
+			case FhirPackage.CLAIM_RESPONSE__REQUEST_ORGANIZATION:
+				return requestOrganization != null;
+			case FhirPackage.CLAIM_RESPONSE__REQUEST:
+				return request != null;
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
 				return outcome != null;
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
@@ -1913,24 +1352,18 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return unallocDeductable != null;
 			case FhirPackage.CLAIM_RESPONSE__TOTAL_BENEFIT:
 				return totalBenefit != null;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT:
-				return paymentAdjustment != null;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_ADJUSTMENT_REASON:
-				return paymentAdjustmentReason != null;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_DATE:
-				return paymentDate != null;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_AMOUNT:
-				return paymentAmount != null;
-			case FhirPackage.CLAIM_RESPONSE__PAYMENT_REF:
-				return paymentRef != null;
+			case FhirPackage.CLAIM_RESPONSE__PAYMENT:
+				return payment != null;
 			case FhirPackage.CLAIM_RESPONSE__RESERVED:
 				return reserved != null;
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return form != null;
 			case FhirPackage.CLAIM_RESPONSE__NOTE:
 				return note != null && !note.isEmpty();
-			case FhirPackage.CLAIM_RESPONSE__COVERAGE:
-				return coverage != null && !coverage.isEmpty();
+			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
+				return communicationRequest != null && !communicationRequest.isEmpty();
+			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
+				return insurance != null && !insurance.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

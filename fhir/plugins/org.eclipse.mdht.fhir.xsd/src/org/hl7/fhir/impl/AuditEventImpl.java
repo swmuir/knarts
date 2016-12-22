@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -33,6 +23,7 @@ import org.hl7.fhir.AuditEventAgent;
 import org.hl7.fhir.AuditEventEntity;
 import org.hl7.fhir.AuditEventOutcome;
 import org.hl7.fhir.AuditEventSource;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
@@ -128,7 +119,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> purposeOfEvent;
+	protected EList<CodeableConcept> purposeOfEvent;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -411,9 +402,9 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getPurposeOfEvent() {
+	public EList<CodeableConcept> getPurposeOfEvent() {
 		if (purposeOfEvent == null) {
-			purposeOfEvent = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT__PURPOSE_OF_EVENT);
+			purposeOfEvent = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT__PURPOSE_OF_EVENT);
 		}
 		return purposeOfEvent;
 	}
@@ -579,7 +570,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 				return;
 			case FhirPackage.AUDIT_EVENT__PURPOSE_OF_EVENT:
 				getPurposeOfEvent().clear();
-				getPurposeOfEvent().addAll((Collection<? extends Coding>)newValue);
+				getPurposeOfEvent().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.AUDIT_EVENT__AGENT:
 				getAgent().clear();

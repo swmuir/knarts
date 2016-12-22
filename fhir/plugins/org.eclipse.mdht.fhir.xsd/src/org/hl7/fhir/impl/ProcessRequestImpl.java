@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ActionList;
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -45,21 +35,15 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getRuleset <em>Ruleset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getOriginalRuleset <em>Original Ruleset</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getTargetIdentifier <em>Target Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getTargetReference <em>Target Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getProviderIdentifier <em>Provider Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getProviderReference <em>Provider Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getOrganizationIdentifier <em>Organization Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getOrganizationReference <em>Organization Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getRequestIdentifier <em>Request Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getRequestReference <em>Request Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getResponseIdentifier <em>Response Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getResponseReference <em>Response Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getRequest <em>Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getNullify <em>Nullify</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessRequestImpl#getItem <em>Item</em>}</li>
@@ -72,16 +56,6 @@ import org.hl7.fhir.Reference;
  */
 public class ProcessRequestImpl extends DomainResourceImpl implements ProcessRequest {
 	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAction()
-	 * @generated
-	 * @ordered
-	 */
-	protected ActionList action;
-
-	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,24 +66,34 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding ruleset;
+	protected Code status;
 
 	/**
-	 * The cached value of the '{@link #getOriginalRuleset() <em>Original Ruleset</em>}' containment reference.
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOriginalRuleset()
+	 * @see #getAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding originalRuleset;
+	protected ActionList action;
+
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference target;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -122,104 +106,44 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getTargetIdentifier() <em>Target Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetIdentifier()
+	 * @see #getProvider()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier targetIdentifier;
+	protected Reference provider;
 
 	/**
-	 * The cached value of the '{@link #getTargetReference() <em>Target Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetReference()
+	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference targetReference;
+	protected Reference organization;
 
 	/**
-	 * The cached value of the '{@link #getProviderIdentifier() <em>Provider Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProviderIdentifier()
+	 * @see #getRequest()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier providerIdentifier;
+	protected Reference request;
 
 	/**
-	 * The cached value of the '{@link #getProviderReference() <em>Provider Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getResponse() <em>Response</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProviderReference()
+	 * @see #getResponse()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference providerReference;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationIdentifier() <em>Organization Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier organizationIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getOrganizationReference() <em>Organization Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganizationReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organizationReference;
-
-	/**
-	 * The cached value of the '{@link #getRequestIdentifier() <em>Request Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier requestIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getRequestReference() <em>Request Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference requestReference;
-
-	/**
-	 * The cached value of the '{@link #getResponseIdentifier() <em>Response Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResponseIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier responseIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getResponseReference() <em>Response Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResponseReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference responseReference;
+	protected Reference response;
 
 	/**
 	 * The cached value of the '{@link #getNullify() <em>Nullify</em>}' containment reference.
@@ -305,6 +229,61 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCESS_REQUEST__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Code getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ActionList getAction() {
 		return action;
 	}
@@ -348,11 +327,8 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCESS_REQUEST__IDENTIFIER);
-		}
-		return identifier;
+	public Reference getTarget() {
+		return target;
 	}
 
 	/**
@@ -360,20 +336,11 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getRuleset() {
-		return ruleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleset(Coding newRuleset, NotificationChain msgs) {
-		Coding oldRuleset = ruleset;
-		ruleset = newRuleset;
+	public NotificationChain basicSetTarget(Reference newTarget, NotificationChain msgs) {
+		Reference oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RULESET, oldRuleset, newRuleset);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -384,61 +351,18 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRuleset(Coding newRuleset) {
-		if (newRuleset != ruleset) {
+	public void setTarget(Reference newTarget) {
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (ruleset != null)
-				msgs = ((InternalEObject)ruleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RULESET, null, msgs);
-			if (newRuleset != null)
-				msgs = ((InternalEObject)newRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RULESET, null, msgs);
-			msgs = basicSetRuleset(newRuleset, msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET, null, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET, null, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RULESET, newRuleset, newRuleset));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getOriginalRuleset() {
-		return originalRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOriginalRuleset(Coding newOriginalRuleset, NotificationChain msgs) {
-		Coding oldOriginalRuleset = originalRuleset;
-		originalRuleset = newOriginalRuleset;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET, oldOriginalRuleset, newOriginalRuleset);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalRuleset(Coding newOriginalRuleset) {
-		if (newOriginalRuleset != originalRuleset) {
-			NotificationChain msgs = null;
-			if (originalRuleset != null)
-				msgs = ((InternalEObject)originalRuleset).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET, null, msgs);
-			if (newOriginalRuleset != null)
-				msgs = ((InternalEObject)newOriginalRuleset).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET, null, msgs);
-			msgs = basicSetOriginalRuleset(newOriginalRuleset, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET, newOriginalRuleset, newOriginalRuleset));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -489,8 +413,8 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getTargetIdentifier() {
-		return targetIdentifier;
+	public Reference getProvider() {
+		return provider;
 	}
 
 	/**
@@ -498,11 +422,11 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetIdentifier(Identifier newTargetIdentifier, NotificationChain msgs) {
-		Identifier oldTargetIdentifier = targetIdentifier;
-		targetIdentifier = newTargetIdentifier;
+	public NotificationChain basicSetProvider(Reference newProvider, NotificationChain msgs) {
+		Reference oldProvider = provider;
+		provider = newProvider;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER, oldTargetIdentifier, newTargetIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER, oldProvider, newProvider);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -513,18 +437,18 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetIdentifier(Identifier newTargetIdentifier) {
-		if (newTargetIdentifier != targetIdentifier) {
+	public void setProvider(Reference newProvider) {
+		if (newProvider != provider) {
 			NotificationChain msgs = null;
-			if (targetIdentifier != null)
-				msgs = ((InternalEObject)targetIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER, null, msgs);
-			if (newTargetIdentifier != null)
-				msgs = ((InternalEObject)newTargetIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER, null, msgs);
-			msgs = basicSetTargetIdentifier(newTargetIdentifier, msgs);
+			if (provider != null)
+				msgs = ((InternalEObject)provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER, null, msgs);
+			if (newProvider != null)
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER, null, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER, newTargetIdentifier, newTargetIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -532,8 +456,8 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getTargetReference() {
-		return targetReference;
+	public Reference getOrganization() {
+		return organization;
 	}
 
 	/**
@@ -541,11 +465,11 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetReference(Reference newTargetReference, NotificationChain msgs) {
-		Reference oldTargetReference = targetReference;
-		targetReference = newTargetReference;
+	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
+		Reference oldOrganization = organization;
+		organization = newOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE, oldTargetReference, newTargetReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION, oldOrganization, newOrganization);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -556,18 +480,18 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetReference(Reference newTargetReference) {
-		if (newTargetReference != targetReference) {
+	public void setOrganization(Reference newOrganization) {
+		if (newOrganization != organization) {
 			NotificationChain msgs = null;
-			if (targetReference != null)
-				msgs = ((InternalEObject)targetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE, null, msgs);
-			if (newTargetReference != null)
-				msgs = ((InternalEObject)newTargetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE, null, msgs);
-			msgs = basicSetTargetReference(newTargetReference, msgs);
+			if (organization != null)
+				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION, null, msgs);
+			msgs = basicSetOrganization(newOrganization, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE, newTargetReference, newTargetReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION, newOrganization, newOrganization));
 	}
 
 	/**
@@ -575,8 +499,8 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getProviderIdentifier() {
-		return providerIdentifier;
+	public Reference getRequest() {
+		return request;
 	}
 
 	/**
@@ -584,11 +508,11 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProviderIdentifier(Identifier newProviderIdentifier, NotificationChain msgs) {
-		Identifier oldProviderIdentifier = providerIdentifier;
-		providerIdentifier = newProviderIdentifier;
+	public NotificationChain basicSetRequest(Reference newRequest, NotificationChain msgs) {
+		Reference oldRequest = request;
+		request = newRequest;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER, oldProviderIdentifier, newProviderIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST, oldRequest, newRequest);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -599,18 +523,18 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProviderIdentifier(Identifier newProviderIdentifier) {
-		if (newProviderIdentifier != providerIdentifier) {
+	public void setRequest(Reference newRequest) {
+		if (newRequest != request) {
 			NotificationChain msgs = null;
-			if (providerIdentifier != null)
-				msgs = ((InternalEObject)providerIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER, null, msgs);
-			if (newProviderIdentifier != null)
-				msgs = ((InternalEObject)newProviderIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER, null, msgs);
-			msgs = basicSetProviderIdentifier(newProviderIdentifier, msgs);
+			if (request != null)
+				msgs = ((InternalEObject)request).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST, null, msgs);
+			if (newRequest != null)
+				msgs = ((InternalEObject)newRequest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST, null, msgs);
+			msgs = basicSetRequest(newRequest, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER, newProviderIdentifier, newProviderIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST, newRequest, newRequest));
 	}
 
 	/**
@@ -618,8 +542,8 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProviderReference() {
-		return providerReference;
+	public Reference getResponse() {
+		return response;
 	}
 
 	/**
@@ -627,11 +551,11 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProviderReference(Reference newProviderReference, NotificationChain msgs) {
-		Reference oldProviderReference = providerReference;
-		providerReference = newProviderReference;
+	public NotificationChain basicSetResponse(Reference newResponse, NotificationChain msgs) {
+		Reference oldResponse = response;
+		response = newResponse;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE, oldProviderReference, newProviderReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE, oldResponse, newResponse);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -642,276 +566,18 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProviderReference(Reference newProviderReference) {
-		if (newProviderReference != providerReference) {
+	public void setResponse(Reference newResponse) {
+		if (newResponse != response) {
 			NotificationChain msgs = null;
-			if (providerReference != null)
-				msgs = ((InternalEObject)providerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE, null, msgs);
-			if (newProviderReference != null)
-				msgs = ((InternalEObject)newProviderReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE, null, msgs);
-			msgs = basicSetProviderReference(newProviderReference, msgs);
+			if (response != null)
+				msgs = ((InternalEObject)response).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE, null, msgs);
+			if (newResponse != null)
+				msgs = ((InternalEObject)newResponse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE, null, msgs);
+			msgs = basicSetResponse(newResponse, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE, newProviderReference, newProviderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getOrganizationIdentifier() {
-		return organizationIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationIdentifier(Identifier newOrganizationIdentifier, NotificationChain msgs) {
-		Identifier oldOrganizationIdentifier = organizationIdentifier;
-		organizationIdentifier = newOrganizationIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER, oldOrganizationIdentifier, newOrganizationIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationIdentifier(Identifier newOrganizationIdentifier) {
-		if (newOrganizationIdentifier != organizationIdentifier) {
-			NotificationChain msgs = null;
-			if (organizationIdentifier != null)
-				msgs = ((InternalEObject)organizationIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER, null, msgs);
-			if (newOrganizationIdentifier != null)
-				msgs = ((InternalEObject)newOrganizationIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER, null, msgs);
-			msgs = basicSetOrganizationIdentifier(newOrganizationIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER, newOrganizationIdentifier, newOrganizationIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrganizationReference() {
-		return organizationReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganizationReference(Reference newOrganizationReference, NotificationChain msgs) {
-		Reference oldOrganizationReference = organizationReference;
-		organizationReference = newOrganizationReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE, oldOrganizationReference, newOrganizationReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganizationReference(Reference newOrganizationReference) {
-		if (newOrganizationReference != organizationReference) {
-			NotificationChain msgs = null;
-			if (organizationReference != null)
-				msgs = ((InternalEObject)organizationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE, null, msgs);
-			if (newOrganizationReference != null)
-				msgs = ((InternalEObject)newOrganizationReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE, null, msgs);
-			msgs = basicSetOrganizationReference(newOrganizationReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE, newOrganizationReference, newOrganizationReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getRequestIdentifier() {
-		return requestIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestIdentifier(Identifier newRequestIdentifier, NotificationChain msgs) {
-		Identifier oldRequestIdentifier = requestIdentifier;
-		requestIdentifier = newRequestIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER, oldRequestIdentifier, newRequestIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestIdentifier(Identifier newRequestIdentifier) {
-		if (newRequestIdentifier != requestIdentifier) {
-			NotificationChain msgs = null;
-			if (requestIdentifier != null)
-				msgs = ((InternalEObject)requestIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER, null, msgs);
-			if (newRequestIdentifier != null)
-				msgs = ((InternalEObject)newRequestIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER, null, msgs);
-			msgs = basicSetRequestIdentifier(newRequestIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER, newRequestIdentifier, newRequestIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getRequestReference() {
-		return requestReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestReference(Reference newRequestReference, NotificationChain msgs) {
-		Reference oldRequestReference = requestReference;
-		requestReference = newRequestReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE, oldRequestReference, newRequestReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestReference(Reference newRequestReference) {
-		if (newRequestReference != requestReference) {
-			NotificationChain msgs = null;
-			if (requestReference != null)
-				msgs = ((InternalEObject)requestReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE, null, msgs);
-			if (newRequestReference != null)
-				msgs = ((InternalEObject)newRequestReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE, null, msgs);
-			msgs = basicSetRequestReference(newRequestReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE, newRequestReference, newRequestReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getResponseIdentifier() {
-		return responseIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResponseIdentifier(Identifier newResponseIdentifier, NotificationChain msgs) {
-		Identifier oldResponseIdentifier = responseIdentifier;
-		responseIdentifier = newResponseIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER, oldResponseIdentifier, newResponseIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResponseIdentifier(Identifier newResponseIdentifier) {
-		if (newResponseIdentifier != responseIdentifier) {
-			NotificationChain msgs = null;
-			if (responseIdentifier != null)
-				msgs = ((InternalEObject)responseIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER, null, msgs);
-			if (newResponseIdentifier != null)
-				msgs = ((InternalEObject)newResponseIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER, null, msgs);
-			msgs = basicSetResponseIdentifier(newResponseIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER, newResponseIdentifier, newResponseIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getResponseReference() {
-		return responseReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResponseReference(Reference newResponseReference, NotificationChain msgs) {
-		Reference oldResponseReference = responseReference;
-		responseReference = newResponseReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE, oldResponseReference, newResponseReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResponseReference(Reference newResponseReference) {
-		if (newResponseReference != responseReference) {
-			NotificationChain msgs = null;
-			if (responseReference != null)
-				msgs = ((InternalEObject)responseReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE, null, msgs);
-			if (newResponseReference != null)
-				msgs = ((InternalEObject)newResponseReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE, null, msgs);
-			msgs = basicSetResponseReference(newResponseReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE, newResponseReference, newResponseReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_REQUEST__RESPONSE, newResponse, newResponse));
 	}
 
 	/**
@@ -1087,36 +753,24 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.PROCESS_REQUEST__ACTION:
-				return basicSetAction(null, msgs);
 			case FhirPackage.PROCESS_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROCESS_REQUEST__RULESET:
-				return basicSetRuleset(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET:
-				return basicSetOriginalRuleset(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__ACTION:
+				return basicSetAction(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__TARGET:
+				return basicSetTarget(null, msgs);
 			case FhirPackage.PROCESS_REQUEST__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER:
-				return basicSetTargetIdentifier(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE:
-				return basicSetTargetReference(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER:
-				return basicSetProviderIdentifier(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE:
-				return basicSetProviderReference(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER:
-				return basicSetOrganizationIdentifier(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE:
-				return basicSetOrganizationReference(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER:
-				return basicSetRequestIdentifier(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE:
-				return basicSetRequestReference(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER:
-				return basicSetResponseIdentifier(null, msgs);
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE:
-				return basicSetResponseReference(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__PROVIDER:
+				return basicSetProvider(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__REQUEST:
+				return basicSetRequest(null, msgs);
+			case FhirPackage.PROCESS_REQUEST__RESPONSE:
+				return basicSetResponse(null, msgs);
 			case FhirPackage.PROCESS_REQUEST__NULLIFY:
 				return basicSetNullify(null, msgs);
 			case FhirPackage.PROCESS_REQUEST__REFERENCE:
@@ -1141,36 +795,24 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.PROCESS_REQUEST__ACTION:
-				return getAction();
 			case FhirPackage.PROCESS_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.PROCESS_REQUEST__RULESET:
-				return getRuleset();
-			case FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET:
-				return getOriginalRuleset();
+			case FhirPackage.PROCESS_REQUEST__STATUS:
+				return getStatus();
+			case FhirPackage.PROCESS_REQUEST__ACTION:
+				return getAction();
+			case FhirPackage.PROCESS_REQUEST__TARGET:
+				return getTarget();
 			case FhirPackage.PROCESS_REQUEST__CREATED:
 				return getCreated();
-			case FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER:
-				return getTargetIdentifier();
-			case FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE:
-				return getTargetReference();
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER:
-				return getProviderIdentifier();
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE:
-				return getProviderReference();
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER:
-				return getOrganizationIdentifier();
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE:
-				return getOrganizationReference();
-			case FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER:
-				return getRequestIdentifier();
-			case FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE:
-				return getRequestReference();
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER:
-				return getResponseIdentifier();
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE:
-				return getResponseReference();
+			case FhirPackage.PROCESS_REQUEST__PROVIDER:
+				return getProvider();
+			case FhirPackage.PROCESS_REQUEST__ORGANIZATION:
+				return getOrganization();
+			case FhirPackage.PROCESS_REQUEST__REQUEST:
+				return getRequest();
+			case FhirPackage.PROCESS_REQUEST__RESPONSE:
+				return getResponse();
 			case FhirPackage.PROCESS_REQUEST__NULLIFY:
 				return getNullify();
 			case FhirPackage.PROCESS_REQUEST__REFERENCE:
@@ -1196,51 +838,33 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.PROCESS_REQUEST__ACTION:
-				setAction((ActionList)newValue);
-				return;
 			case FhirPackage.PROCESS_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__RULESET:
-				setRuleset((Coding)newValue);
+			case FhirPackage.PROCESS_REQUEST__STATUS:
+				setStatus((Code)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)newValue);
+			case FhirPackage.PROCESS_REQUEST__ACTION:
+				setAction((ActionList)newValue);
+				return;
+			case FhirPackage.PROCESS_REQUEST__TARGET:
+				setTarget((Reference)newValue);
 				return;
 			case FhirPackage.PROCESS_REQUEST__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)newValue);
+			case FhirPackage.PROCESS_REQUEST__PROVIDER:
+				setProvider((Reference)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE:
-				setTargetReference((Reference)newValue);
+			case FhirPackage.PROCESS_REQUEST__ORGANIZATION:
+				setOrganization((Reference)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)newValue);
+			case FhirPackage.PROCESS_REQUEST__REQUEST:
+				setRequest((Reference)newValue);
 				return;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE:
-				setProviderReference((Reference)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER:
-				setRequestIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE:
-				setRequestReference((Reference)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER:
-				setResponseIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE:
-				setResponseReference((Reference)newValue);
+			case FhirPackage.PROCESS_REQUEST__RESPONSE:
+				setResponse((Reference)newValue);
 				return;
 			case FhirPackage.PROCESS_REQUEST__NULLIFY:
 				setNullify((org.hl7.fhir.Boolean)newValue);
@@ -1275,50 +899,32 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PROCESS_REQUEST__ACTION:
-				setAction((ActionList)null);
-				return;
 			case FhirPackage.PROCESS_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.PROCESS_REQUEST__RULESET:
-				setRuleset((Coding)null);
+			case FhirPackage.PROCESS_REQUEST__STATUS:
+				setStatus((Code)null);
 				return;
-			case FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET:
-				setOriginalRuleset((Coding)null);
+			case FhirPackage.PROCESS_REQUEST__ACTION:
+				setAction((ActionList)null);
+				return;
+			case FhirPackage.PROCESS_REQUEST__TARGET:
+				setTarget((Reference)null);
 				return;
 			case FhirPackage.PROCESS_REQUEST__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER:
-				setTargetIdentifier((Identifier)null);
+			case FhirPackage.PROCESS_REQUEST__PROVIDER:
+				setProvider((Reference)null);
 				return;
-			case FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE:
-				setTargetReference((Reference)null);
+			case FhirPackage.PROCESS_REQUEST__ORGANIZATION:
+				setOrganization((Reference)null);
 				return;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER:
-				setProviderIdentifier((Identifier)null);
+			case FhirPackage.PROCESS_REQUEST__REQUEST:
+				setRequest((Reference)null);
 				return;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE:
-				setProviderReference((Reference)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER:
-				setOrganizationIdentifier((Identifier)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE:
-				setOrganizationReference((Reference)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER:
-				setRequestIdentifier((Identifier)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE:
-				setRequestReference((Reference)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER:
-				setResponseIdentifier((Identifier)null);
-				return;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE:
-				setResponseReference((Reference)null);
+			case FhirPackage.PROCESS_REQUEST__RESPONSE:
+				setResponse((Reference)null);
 				return;
 			case FhirPackage.PROCESS_REQUEST__NULLIFY:
 				setNullify((org.hl7.fhir.Boolean)null);
@@ -1350,36 +956,24 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PROCESS_REQUEST__ACTION:
-				return action != null;
 			case FhirPackage.PROCESS_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.PROCESS_REQUEST__RULESET:
-				return ruleset != null;
-			case FhirPackage.PROCESS_REQUEST__ORIGINAL_RULESET:
-				return originalRuleset != null;
+			case FhirPackage.PROCESS_REQUEST__STATUS:
+				return status != null;
+			case FhirPackage.PROCESS_REQUEST__ACTION:
+				return action != null;
+			case FhirPackage.PROCESS_REQUEST__TARGET:
+				return target != null;
 			case FhirPackage.PROCESS_REQUEST__CREATED:
 				return created != null;
-			case FhirPackage.PROCESS_REQUEST__TARGET_IDENTIFIER:
-				return targetIdentifier != null;
-			case FhirPackage.PROCESS_REQUEST__TARGET_REFERENCE:
-				return targetReference != null;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_IDENTIFIER:
-				return providerIdentifier != null;
-			case FhirPackage.PROCESS_REQUEST__PROVIDER_REFERENCE:
-				return providerReference != null;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_IDENTIFIER:
-				return organizationIdentifier != null;
-			case FhirPackage.PROCESS_REQUEST__ORGANIZATION_REFERENCE:
-				return organizationReference != null;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_IDENTIFIER:
-				return requestIdentifier != null;
-			case FhirPackage.PROCESS_REQUEST__REQUEST_REFERENCE:
-				return requestReference != null;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_IDENTIFIER:
-				return responseIdentifier != null;
-			case FhirPackage.PROCESS_REQUEST__RESPONSE_REFERENCE:
-				return responseReference != null;
+			case FhirPackage.PROCESS_REQUEST__PROVIDER:
+				return provider != null;
+			case FhirPackage.PROCESS_REQUEST__ORGANIZATION:
+				return organization != null;
+			case FhirPackage.PROCESS_REQUEST__REQUEST:
+				return request != null;
+			case FhirPackage.PROCESS_REQUEST__RESPONSE:
+				return response != null;
 			case FhirPackage.PROCESS_REQUEST__NULLIFY:
 				return nullify != null;
 			case FhirPackage.PROCESS_REQUEST__REFERENCE:

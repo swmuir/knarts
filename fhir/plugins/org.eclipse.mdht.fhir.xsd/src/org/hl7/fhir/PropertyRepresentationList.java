@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -68,7 +58,17 @@ public enum PropertyRepresentationList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CDA_TEXT(3, "cdaText", "cdaText");
+	CDA_TEXT(3, "cdaText", "cdaText"),
+
+	/**
+	 * The '<em><b>Xhtml</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XHTML_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	XHTML(4, "xhtml", "xhtml");
 
 	/**
 	 * The '<em><b>Xml Attr</b></em>' literal value.
@@ -127,6 +127,20 @@ public enum PropertyRepresentationList implements Enumerator {
 	public static final int CDA_TEXT_VALUE = 3;
 
 	/**
+	 * The '<em><b>Xhtml</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * XHTML
+	 * <!-- end-model-doc -->
+	 * @see #XHTML
+	 * @model name="xhtml"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int XHTML_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Property Representation List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +152,7 @@ public enum PropertyRepresentationList implements Enumerator {
 			XML_TEXT,
 			TYPE_ATTR,
 			CDA_TEXT,
+			XHTML,
 		};
 
 	/**
@@ -198,6 +213,7 @@ public enum PropertyRepresentationList implements Enumerator {
 			case XML_TEXT_VALUE: return XML_TEXT;
 			case TYPE_ATTR_VALUE: return TYPE_ATTR;
 			case CDA_TEXT_VALUE: return CDA_TEXT;
+			case XHTML_VALUE: return XHTML;
 		}
 		return null;
 	}

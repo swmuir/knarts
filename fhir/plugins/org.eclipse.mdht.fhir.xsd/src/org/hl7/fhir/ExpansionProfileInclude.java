@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ExpansionProfileInclude#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfileInclude#getDesignation <em>Designation</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExpansionProfileInclude()
@@ -36,19 +26,19 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExpansionProfileInclude extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Code System</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExpansionProfileCodeSystem1}.
+	 * Returns the value of the '<em><b>Designation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExpansionProfileDesignation1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A data group for each code system to be included.
+	 * A data group for each designation to be included.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code System</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExpansionProfileInclude_CodeSystem()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='codeSystem' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Designation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfileInclude_Designation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='designation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ExpansionProfileCodeSystem1> getCodeSystem();
+	EList<ExpansionProfileDesignation1> getDesignation();
 
 } // ExpansionProfileInclude

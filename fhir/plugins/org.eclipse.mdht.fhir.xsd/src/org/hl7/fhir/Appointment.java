@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -44,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Appointment#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.Appointment#getRequestedPeriod <em>Requested Period</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAppointment()
@@ -416,5 +407,21 @@ public interface Appointment extends DomainResource {
 	 * @generated
 	 */
 	EList<AppointmentParticipant> getParticipant();
+
+	/**
+	 * Returns the value of the '<em><b>Requested Period</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Period}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Requested Period</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAppointment_RequestedPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestedPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Period> getRequestedPeriod();
 
 } // Appointment

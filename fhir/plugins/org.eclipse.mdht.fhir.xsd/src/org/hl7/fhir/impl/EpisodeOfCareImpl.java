@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -55,6 +45,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getReferralRequest <em>Referral Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getCareManager <em>Care Manager</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getTeam <em>Team</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getAccount <em>Account</em>}</li>
  * </ul>
  *
  * @generated
@@ -169,6 +160,16 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * @ordered
 	 */
 	protected EList<Reference> team;
+
+	/**
+	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccount()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> account;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -481,6 +482,18 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getAccount() {
+		if (account == null) {
+			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EPISODE_OF_CARE__ACCOUNT);
+		}
+		return account;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -506,6 +519,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return basicSetCareManager(null, msgs);
 			case FhirPackage.EPISODE_OF_CARE__TEAM:
 				return ((InternalEList<?>)getTeam()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EPISODE_OF_CARE__ACCOUNT:
+				return ((InternalEList<?>)getAccount()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -540,6 +555,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return getCareManager();
 			case FhirPackage.EPISODE_OF_CARE__TEAM:
 				return getTeam();
+			case FhirPackage.EPISODE_OF_CARE__ACCOUNT:
+				return getAccount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -592,6 +609,10 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				getTeam().clear();
 				getTeam().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.EPISODE_OF_CARE__ACCOUNT:
+				getAccount().clear();
+				getAccount().addAll((Collection<? extends Reference>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -637,6 +658,9 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 			case FhirPackage.EPISODE_OF_CARE__TEAM:
 				getTeam().clear();
 				return;
+			case FhirPackage.EPISODE_OF_CARE__ACCOUNT:
+				getAccount().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -671,6 +695,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return careManager != null;
 			case FhirPackage.EPISODE_OF_CARE__TEAM:
 				return team != null && !team.isEmpty();
+			case FhirPackage.EPISODE_OF_CARE__ACCOUNT:
+				return account != null && !account.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

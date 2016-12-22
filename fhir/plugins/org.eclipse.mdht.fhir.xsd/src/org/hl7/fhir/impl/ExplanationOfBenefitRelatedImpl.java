@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -20,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -34,8 +24,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitRelatedImpl#getClaimIdentifier <em>Claim Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitRelatedImpl#getClaimReference <em>Claim Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitRelatedImpl#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitRelatedImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitRelatedImpl#getReference <em>Reference</em>}</li>
  * </ul>
@@ -44,24 +33,14 @@ import org.hl7.fhir.Reference;
  */
 public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl implements ExplanationOfBenefitRelated {
 	/**
-	 * The cached value of the '{@link #getClaimIdentifier() <em>Claim Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getClaim() <em>Claim</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClaimIdentifier()
+	 * @see #getClaim()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier claimIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getClaimReference() <em>Claim Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClaimReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference claimReference;
+	protected Reference claim;
 
 	/**
 	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference.
@@ -71,7 +50,7 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding relationship;
+	protected CodeableConcept relationship;
 
 	/**
 	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
@@ -107,8 +86,8 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getClaimIdentifier() {
-		return claimIdentifier;
+	public Reference getClaim() {
+		return claim;
 	}
 
 	/**
@@ -116,11 +95,11 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClaimIdentifier(Identifier newClaimIdentifier, NotificationChain msgs) {
-		Identifier oldClaimIdentifier = claimIdentifier;
-		claimIdentifier = newClaimIdentifier;
+	public NotificationChain basicSetClaim(Reference newClaim, NotificationChain msgs) {
+		Reference oldClaim = claim;
+		claim = newClaim;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER, oldClaimIdentifier, newClaimIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM, oldClaim, newClaim);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -131,18 +110,18 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClaimIdentifier(Identifier newClaimIdentifier) {
-		if (newClaimIdentifier != claimIdentifier) {
+	public void setClaim(Reference newClaim) {
+		if (newClaim != claim) {
 			NotificationChain msgs = null;
-			if (claimIdentifier != null)
-				msgs = ((InternalEObject)claimIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER, null, msgs);
-			if (newClaimIdentifier != null)
-				msgs = ((InternalEObject)newClaimIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER, null, msgs);
-			msgs = basicSetClaimIdentifier(newClaimIdentifier, msgs);
+			if (claim != null)
+				msgs = ((InternalEObject)claim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM, null, msgs);
+			if (newClaim != null)
+				msgs = ((InternalEObject)newClaim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM, null, msgs);
+			msgs = basicSetClaim(newClaim, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER, newClaimIdentifier, newClaimIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM, newClaim, newClaim));
 	}
 
 	/**
@@ -150,50 +129,7 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getClaimReference() {
-		return claimReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClaimReference(Reference newClaimReference, NotificationChain msgs) {
-		Reference oldClaimReference = claimReference;
-		claimReference = newClaimReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE, oldClaimReference, newClaimReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClaimReference(Reference newClaimReference) {
-		if (newClaimReference != claimReference) {
-			NotificationChain msgs = null;
-			if (claimReference != null)
-				msgs = ((InternalEObject)claimReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE, null, msgs);
-			if (newClaimReference != null)
-				msgs = ((InternalEObject)newClaimReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE, null, msgs);
-			msgs = basicSetClaimReference(newClaimReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE, newClaimReference, newClaimReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getRelationship() {
+	public CodeableConcept getRelationship() {
 		return relationship;
 	}
 
@@ -202,8 +138,8 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelationship(Coding newRelationship, NotificationChain msgs) {
-		Coding oldRelationship = relationship;
+	public NotificationChain basicSetRelationship(CodeableConcept newRelationship, NotificationChain msgs) {
+		CodeableConcept oldRelationship = relationship;
 		relationship = newRelationship;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP, oldRelationship, newRelationship);
@@ -217,7 +153,7 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRelationship(Coding newRelationship) {
+	public void setRelationship(CodeableConcept newRelationship) {
 		if (newRelationship != relationship) {
 			NotificationChain msgs = null;
 			if (relationship != null)
@@ -282,10 +218,8 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER:
-				return basicSetClaimIdentifier(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE:
-				return basicSetClaimReference(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM:
+				return basicSetClaim(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP:
 				return basicSetRelationship(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__REFERENCE:
@@ -302,10 +236,8 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER:
-				return getClaimIdentifier();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE:
-				return getClaimReference();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM:
+				return getClaim();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP:
 				return getRelationship();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__REFERENCE:
@@ -322,14 +254,11 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER:
-				setClaimIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE:
-				setClaimReference((Reference)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM:
+				setClaim((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP:
-				setRelationship((Coding)newValue);
+				setRelationship((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__REFERENCE:
 				setReference((Identifier)newValue);
@@ -346,14 +275,11 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER:
-				setClaimIdentifier((Identifier)null);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE:
-				setClaimReference((Reference)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM:
+				setClaim((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP:
-				setRelationship((Coding)null);
+				setRelationship((CodeableConcept)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__REFERENCE:
 				setReference((Identifier)null);
@@ -370,10 +296,8 @@ public class ExplanationOfBenefitRelatedImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_IDENTIFIER:
-				return claimIdentifier != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM_REFERENCE:
-				return claimReference != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__CLAIM:
+				return claim != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__RELATIONSHIP:
 				return relationship != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED__REFERENCE:

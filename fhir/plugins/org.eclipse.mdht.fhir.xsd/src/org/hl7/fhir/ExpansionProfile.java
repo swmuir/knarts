@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -38,11 +28,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.ExpansionProfile#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getFixedVersion <em>Fixed Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getExcludedSystem <em>Excluded System</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getIncludeDesignations <em>Include Designations</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getDesignation <em>Designation</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getIncludeDefinition <em>Include Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.ExpansionProfile#getIncludeInactive <em>Include Inactive</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getActiveOnly <em>Active Only</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getExcludeNested <em>Exclude Nested</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getExcludeNotForUI <em>Exclude Not For UI</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getExcludePostCoordinated <em>Exclude Post Coordinated</em>}</li>
@@ -60,7 +53,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published.
+	 * An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published. The URL SHOULD include the major version of the expansion profile. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -86,7 +79,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	 * A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -112,7 +105,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.
+	 * The identifier that is used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the expansion profile author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -138,7 +131,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language name for the expansion profile.
+	 * A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -164,16 +157,16 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the expansion profile.
+	 * The status of this expansion profile. Enables tracking the life-cycle of the content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ConformanceResourceStatus)
+	 * @see #setStatus(PublicationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConformanceResourceStatus getStatus();
+	PublicationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getStatus <em>Status</em>}' containment reference.
@@ -183,14 +176,14 @@ public interface ExpansionProfile extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ConformanceResourceStatus value);
+	void setStatus(PublicationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Experimental</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage.
+	 * A flag to indicate that this expansion profile is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -239,11 +232,11 @@ public interface ExpansionProfile extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExpansionProfileContact}.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Contacts to assist a user in finding and communicating with the publisher.
+	 * Contact details to assist a user in finding and communicating with the publisher.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Contact()
@@ -251,14 +244,14 @@ public interface ExpansionProfile extends DomainResource {
 	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ExpansionProfileContact> getContact();
+	EList<ContactDetail> getContact();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.
+	 * The date  (and optionally time) when the expansion profile was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the expansion profile changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -284,16 +277,16 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.
+	 * A free text natural language description of the expansion profile from the consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getDescription <em>Description</em>}' containment reference.
@@ -303,33 +296,81 @@ public interface ExpansionProfile extends DomainResource {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
+	void setDescription(Markdown value);
 
 	/**
-	 * Returns the value of the '<em><b>Code System</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions).
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code System</em>' containment reference.
-	 * @see #setCodeSystem(ExpansionProfileCodeSystem)
-	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_CodeSystem()
+	 * @return the value of the '<em>Use Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_UseContext()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='codeSystem' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExpansionProfileCodeSystem getCodeSystem();
+	EList<UsageContext> getUseContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getCodeSystem <em>Code System</em>}' containment reference.
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code System</em>' containment reference.
-	 * @see #getCodeSystem()
+	 * <!-- begin-model-doc -->
+	 * A jurisdiction in which the expansion profile is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setCodeSystem(ExpansionProfileCodeSystem value);
+	EList<CodeableConcept> getJurisdiction();
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Version</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExpansionProfileFixedVersion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Fix use of a particular code system to a particular version.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Fixed Version</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_FixedVersion()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedVersion' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ExpansionProfileFixedVersion> getFixedVersion();
+
+	/**
+	 * Returns the value of the '<em><b>Excluded System</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Code system, or a particular version of a code system to be excluded from value set expansions.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Excluded System</em>' containment reference.
+	 * @see #setExcludedSystem(ExpansionProfileExcludedSystem)
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_ExcludedSystem()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='excludedSystem' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ExpansionProfileExcludedSystem getExcludedSystem();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getExcludedSystem <em>Excluded System</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Excluded System</em>' containment reference.
+	 * @see #getExcludedSystem()
+	 * @generated
+	 */
+	void setExcludedSystem(ExpansionProfileExcludedSystem value);
 
 	/**
 	 * Returns the value of the '<em><b>Include Designations</b></em>' containment reference.
@@ -410,37 +451,37 @@ public interface ExpansionProfile extends DomainResource {
 	void setIncludeDefinition(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Include Inactive</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Active Only</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Controls whether inactive concepts are included or excluded in value set expansions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Include Inactive</em>' containment reference.
-	 * @see #setIncludeInactive(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_IncludeInactive()
+	 * @return the value of the '<em>Active Only</em>' containment reference.
+	 * @see #setActiveOnly(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_ActiveOnly()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='includeInactive' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='activeOnly' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getIncludeInactive();
+	org.hl7.fhir.Boolean getActiveOnly();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getIncludeInactive <em>Include Inactive</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getActiveOnly <em>Active Only</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Include Inactive</em>' containment reference.
-	 * @see #getIncludeInactive()
+	 * @param value the new value of the '<em>Active Only</em>' containment reference.
+	 * @see #getActiveOnly()
 	 * @generated
 	 */
-	void setIncludeInactive(org.hl7.fhir.Boolean value);
+	void setActiveOnly(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude Nested</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
+	 * Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Nested</em>' containment reference.
 	 * @see #setExcludeNested(org.hl7.fhir.Boolean)
@@ -544,7 +585,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
+	 * If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Limited Expansion</em>' containment reference.
 	 * @see #setLimitedExpansion(org.hl7.fhir.Boolean)

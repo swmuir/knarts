@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -27,14 +17,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CompartmentDefinition;
-import org.hl7.fhir.CompartmentDefinitionContact;
 import org.hl7.fhir.CompartmentDefinitionResource;
 import org.hl7.fhir.CompartmentType;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,13 +39,16 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getSearch <em>Search</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getResource <em>Resource</em>}</li>
@@ -82,6 +78,16 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	protected org.hl7.fhir.String name;
 
 	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,7 +95,7 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -119,7 +125,7 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompartmentDefinitionContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -139,17 +145,37 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference.
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
+	 * @see #getPurpose()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String requirements;
+	protected Markdown purpose;
+
+	/**
+	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -291,7 +317,50 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -300,8 +369,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__STATUS, oldStatus, newStatus);
@@ -315,7 +384,7 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -420,9 +489,9 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompartmentDefinitionContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<CompartmentDefinitionContact>(CompartmentDefinitionContact.class, this, FhirPackage.COMPARTMENT_DEFINITION__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.COMPARTMENT_DEFINITION__CONTACT);
 		}
 		return contact;
 	}
@@ -475,7 +544,7 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -484,8 +553,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION, oldDescription, newDescription);
@@ -499,7 +568,7 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -518,8 +587,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getRequirements() {
-		return requirements;
+	public Markdown getPurpose() {
+		return purpose;
 	}
 
 	/**
@@ -527,11 +596,11 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequirements(org.hl7.fhir.String newRequirements, NotificationChain msgs) {
-		org.hl7.fhir.String oldRequirements = requirements;
-		requirements = newRequirements;
+	public NotificationChain basicSetPurpose(Markdown newPurpose, NotificationChain msgs) {
+		Markdown oldPurpose = purpose;
+		purpose = newPurpose;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS, oldRequirements, newRequirements);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__PURPOSE, oldPurpose, newPurpose);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -542,18 +611,42 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequirements(org.hl7.fhir.String newRequirements) {
-		if (newRequirements != requirements) {
+	public void setPurpose(Markdown newPurpose) {
+		if (newPurpose != purpose) {
 			NotificationChain msgs = null;
-			if (requirements != null)
-				msgs = ((InternalEObject)requirements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS, null, msgs);
-			if (newRequirements != null)
-				msgs = ((InternalEObject)newRequirements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS, null, msgs);
-			msgs = basicSetRequirements(newRequirements, msgs);
+			if (purpose != null)
+				msgs = ((InternalEObject)purpose).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__PURPOSE, null, msgs);
+			if (newPurpose != null)
+				msgs = ((InternalEObject)newPurpose).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__PURPOSE, null, msgs);
+			msgs = basicSetPurpose(newPurpose, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS, newRequirements, newRequirements));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__PURPOSE, newPurpose, newPurpose));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UsageContext> getUseContext() {
+		if (useContext == null) {
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT);
+		}
+		return useContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION);
+		}
+		return jurisdiction;
 	}
 
 	/**
@@ -666,6 +759,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return basicSetUrl(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.COMPARTMENT_DEFINITION__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
@@ -678,8 +773,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return basicSetDate(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS:
-				return basicSetRequirements(null, msgs);
+			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
+				return basicSetPurpose(null, msgs);
+			case FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT:
+				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__SEARCH:
@@ -702,6 +801,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return getUrl();
 			case FhirPackage.COMPARTMENT_DEFINITION__NAME:
 				return getName();
+			case FhirPackage.COMPARTMENT_DEFINITION__TITLE:
+				return getTitle();
 			case FhirPackage.COMPARTMENT_DEFINITION__STATUS:
 				return getStatus();
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
@@ -714,8 +815,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return getDate();
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS:
-				return getRequirements();
+			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
+				return getPurpose();
+			case FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT:
+				return getUseContext();
+			case FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.COMPARTMENT_DEFINITION__CODE:
 				return getCode();
 			case FhirPackage.COMPARTMENT_DEFINITION__SEARCH:
@@ -741,8 +846,11 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 			case FhirPackage.COMPARTMENT_DEFINITION__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -752,16 +860,24 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends CompartmentDefinitionContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
 				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
-			case FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)newValue);
+			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
+				setPurpose((Markdown)newValue);
+				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT:
+				getUseContext().clear();
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__CODE:
 				setCode((CompartmentType)newValue);
@@ -791,8 +907,11 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 			case FhirPackage.COMPARTMENT_DEFINITION__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__TITLE:
+				setTitle((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -807,10 +926,16 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				setDate((DateTime)null);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
-			case FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS:
-				setRequirements((org.hl7.fhir.String)null);
+			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
+				setPurpose((Markdown)null);
+				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT:
+				getUseContext().clear();
+				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION:
+				getJurisdiction().clear();
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__CODE:
 				setCode((CompartmentType)null);
@@ -837,6 +962,8 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return url != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__NAME:
 				return name != null;
+			case FhirPackage.COMPARTMENT_DEFINITION__TITLE:
+				return title != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__STATUS:
 				return status != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
@@ -849,8 +976,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return date != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return description != null;
-			case FhirPackage.COMPARTMENT_DEFINITION__REQUIREMENTS:
-				return requirements != null;
+			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
+				return purpose != null;
+			case FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT:
+				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.COMPARTMENT_DEFINITION__CODE:
 				return code != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__SEARCH:

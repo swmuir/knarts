@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -45,13 +35,13 @@ public interface ImmunizationRecommendationProtocol extends BackboneElement {
 	 * Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dose Sequence</em>' containment reference.
-	 * @see #setDoseSequence(org.hl7.fhir.Integer)
+	 * @see #setDoseSequence(PositiveInt)
 	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationProtocol_DoseSequence()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='doseSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getDoseSequence();
+	PositiveInt getDoseSequence();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationProtocol#getDoseSequence <em>Dose Sequence</em>}' containment reference.
@@ -61,7 +51,7 @@ public interface ImmunizationRecommendationProtocol extends BackboneElement {
 	 * @see #getDoseSequence()
 	 * @generated
 	 */
-	void setDoseSequence(org.hl7.fhir.Integer value);
+	void setDoseSequence(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,6 +19,9 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.StructureMapSource#getRequired <em>Required</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getContextType <em>Context Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getMin <em>Min</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getMax <em>Max</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getElement <em>Element</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getListMode <em>List Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getVariable <em>Variable</em>}</li>
@@ -118,6 +111,84 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setContextType(StructureMapContextType value);
+
+	/**
+	 * Returns the value of the '<em><b>Min</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Min</em>' containment reference.
+	 * @see #setMin(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_Min()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='min' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getMin();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getMin <em>Min</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min</em>' containment reference.
+	 * @see #getMin()
+	 * @generated
+	 */
+	void setMin(org.hl7.fhir.Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Max</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specified maximum cardinality for the element - a number or a "*". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max</em>' containment reference.
+	 * @see #setMax(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_Max()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='max' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getMax();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getMax <em>Max</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max</em>' containment reference.
+	 * @see #getMax()
+	 * @generated
+	 */
+	void setMax(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.

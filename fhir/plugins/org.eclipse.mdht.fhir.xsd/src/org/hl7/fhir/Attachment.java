@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -151,7 +141,7 @@ public interface Attachment extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The number of bytes of data that make up this attachment.
+	 * The number of bytes of data that make up this attachment (before base64 encoding, if that is done).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Size</em>' containment reference.
 	 * @see #setSize(UnsignedInt)

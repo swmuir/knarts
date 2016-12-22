@@ -288,7 +288,7 @@ public class ValueSetMemberSection extends WrapperAwareModelerPropertySection {
 					ValueSet valueSet = ProfileUtil.getValueSet(umlEnumeration);
 					if (valueSet != null && valueSet.getUri() != null) {
 						try {
-							expansionValueSet = TerminologyCache.getInstance().expandValueSet(valueSet.getUri());
+							expansionValueSet = TerminologyCache.getInstance().expandValueSetWithId(valueSet.getId());
 							
 						} catch (Exception e) {
 							StatusManager.getManager().handle(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error expanding value set.", e), 

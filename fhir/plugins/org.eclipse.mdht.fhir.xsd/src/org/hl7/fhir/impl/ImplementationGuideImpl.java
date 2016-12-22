@@ -18,17 +18,19 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ConformanceResourceStatus;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
-import org.hl7.fhir.ImplementationGuideContact;
 import org.hl7.fhir.ImplementationGuideDependency;
 import org.hl7.fhir.ImplementationGuideGlobal;
 import org.hl7.fhir.ImplementationGuidePackage;
 import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.Markdown;
+import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +50,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getFhirVersion <em>Fhir Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDependency <em>Dependency</em>}</li>
@@ -98,7 +101,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected ConformanceResourceStatus status;
+	protected PublicationStatus status;
 
 	/**
 	 * The cached value of the '{@link #getExperimental() <em>Experimental</em>}' containment reference.
@@ -128,7 +131,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImplementationGuideContact> contact;
+	protected EList<ContactDetail> contact;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -148,7 +151,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
+	protected Markdown description;
 
 	/**
 	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
@@ -158,7 +161,17 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> useContext;
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
@@ -168,7 +181,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String copyright;
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getFhirVersion() <em>Fhir Version</em>}' containment reference.
@@ -383,7 +396,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConformanceResourceStatus getStatus() {
+	public PublicationStatus getStatus() {
 		return status;
 	}
 
@@ -392,8 +405,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConformanceResourceStatus newStatus, NotificationChain msgs) {
-		ConformanceResourceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(PublicationStatus newStatus, NotificationChain msgs) {
+		PublicationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__STATUS, oldStatus, newStatus);
@@ -407,7 +420,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConformanceResourceStatus newStatus) {
+	public void setStatus(PublicationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -512,9 +525,9 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImplementationGuideContact> getContact() {
+	public EList<ContactDetail> getContact() {
 		if (contact == null) {
-			contact = new EObjectContainmentEList<ImplementationGuideContact>(ImplementationGuideContact.class, this, FhirPackage.IMPLEMENTATION_GUIDE__CONTACT);
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.IMPLEMENTATION_GUIDE__CONTACT);
 		}
 		return contact;
 	}
@@ -567,7 +580,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -576,8 +589,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION, oldDescription, newDescription);
@@ -591,7 +604,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -610,9 +623,9 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getUseContext() {
+	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
-			useContext = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT);
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT);
 		}
 		return useContext;
 	}
@@ -622,7 +635,19 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCopyright() {
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION);
+		}
+		return jurisdiction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Markdown getCopyright() {
 		return copyright;
 	}
 
@@ -631,8 +656,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyright(org.hl7.fhir.String newCopyright, NotificationChain msgs) {
-		org.hl7.fhir.String oldCopyright = copyright;
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT, oldCopyright, newCopyright);
@@ -646,7 +671,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCopyright(org.hl7.fhir.String newCopyright) {
+	public void setCopyright(Markdown newCopyright) {
 		if (newCopyright != copyright) {
 			NotificationChain msgs = null;
 			if (copyright != null)
@@ -822,6 +847,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
@@ -868,6 +895,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return getDescription();
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
 				return getUseContext();
+			case FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return getCopyright();
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
@@ -905,7 +934,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
-				setStatus((ConformanceResourceStatus)newValue);
+				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
@@ -915,20 +944,24 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				getContact().clear();
-				getContact().addAll((Collection<? extends ImplementationGuideContact>)newValue);
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
 				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+				setDescription((Markdown)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
 				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends CodeableConcept>)newValue);
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)newValue);
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
 				setFhirVersion((Id)newValue);
@@ -974,7 +1007,7 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
-				setStatus((ConformanceResourceStatus)null);
+				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
@@ -989,13 +1022,16 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				setDate((DateTime)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+				setDescription((Markdown)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
 				getUseContext().clear();
 				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION:
+				getJurisdiction().clear();
+				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
-				setCopyright((org.hl7.fhir.String)null);
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
 				setFhirVersion((Id)null);
@@ -1047,6 +1083,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return description != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
 				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.IMPLEMENTATION_GUIDE__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return copyright != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml;
@@ -38,16 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getId <em>Id</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getLang <em>Lang</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getLang1 <em>Lang1</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnclick <em>Onclick</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOndblclick <em>Ondblclick</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnkeydown <em>Onkeydown</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnkeypress <em>Onkeypress</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnkeyup <em>Onkeyup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnmousedown <em>Onmousedown</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnmousemove <em>Onmousemove</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnmouseout <em>Onmouseout</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnmouseover <em>Onmouseover</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.ColgroupType#getOnmouseup <em>Onmouseup</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getStyle <em>Style</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.ColgroupType#getTitle <em>Title</em>}</li>
@@ -67,17 +47,17 @@ public interface ColgroupType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 				col elements define the alignment properties for cells in
-	 * 				one or more columns.
+	 *       col elements define the alignment properties for cells in
+	 *       one or more columns.
 	 * 
-	 * 				The width attribute specifies the width of the columns, e.g.
+	 *       The width attribute specifies the width of the columns, e.g.
 	 * 
-	 * 				width=64        width in screen pixels
-	 * 				width=0.5*      relative width of 0.5
+	 *           width=64        width in screen pixels
+	 *           width=0.5*      relative width of 0.5
 	 * 
-	 * 				The span attribute causes the attributes of one
-	 * 				col element to apply to more than one column.
-	 * 			
+	 *       The span attribute causes the attributes of one
+	 *       col element to apply to more than one column.
+	 *       
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Col</em>' containment reference list.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Col()
@@ -390,276 +370,6 @@ public interface ColgroupType extends EObject {
 	 * @generated
 	 */
 	void setLang1(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onclick</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onclick</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onclick</em>' attribute.
-	 * @see #setOnclick(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onclick()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onclick'"
-	 * @generated
-	 */
-	String getOnclick();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnclick <em>Onclick</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onclick</em>' attribute.
-	 * @see #getOnclick()
-	 * @generated
-	 */
-	void setOnclick(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ondblclick</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ondblclick</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ondblclick</em>' attribute.
-	 * @see #setOndblclick(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Ondblclick()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='ondblclick'"
-	 * @generated
-	 */
-	String getOndblclick();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOndblclick <em>Ondblclick</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ondblclick</em>' attribute.
-	 * @see #getOndblclick()
-	 * @generated
-	 */
-	void setOndblclick(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeydown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeydown</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeydown</em>' attribute.
-	 * @see #setOnkeydown(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onkeydown()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeydown'"
-	 * @generated
-	 */
-	String getOnkeydown();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnkeydown <em>Onkeydown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeydown</em>' attribute.
-	 * @see #getOnkeydown()
-	 * @generated
-	 */
-	void setOnkeydown(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeypress</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeypress</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeypress</em>' attribute.
-	 * @see #setOnkeypress(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onkeypress()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeypress'"
-	 * @generated
-	 */
-	String getOnkeypress();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnkeypress <em>Onkeypress</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeypress</em>' attribute.
-	 * @see #getOnkeypress()
-	 * @generated
-	 */
-	void setOnkeypress(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onkeyup</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onkeyup</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onkeyup</em>' attribute.
-	 * @see #setOnkeyup(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onkeyup()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onkeyup'"
-	 * @generated
-	 */
-	String getOnkeyup();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnkeyup <em>Onkeyup</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onkeyup</em>' attribute.
-	 * @see #getOnkeyup()
-	 * @generated
-	 */
-	void setOnkeyup(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmousedown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmousedown</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmousedown</em>' attribute.
-	 * @see #setOnmousedown(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onmousedown()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmousedown'"
-	 * @generated
-	 */
-	String getOnmousedown();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnmousedown <em>Onmousedown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmousedown</em>' attribute.
-	 * @see #getOnmousedown()
-	 * @generated
-	 */
-	void setOnmousedown(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmousemove</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmousemove</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmousemove</em>' attribute.
-	 * @see #setOnmousemove(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onmousemove()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmousemove'"
-	 * @generated
-	 */
-	String getOnmousemove();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnmousemove <em>Onmousemove</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmousemove</em>' attribute.
-	 * @see #getOnmousemove()
-	 * @generated
-	 */
-	void setOnmousemove(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseout</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseout</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseout</em>' attribute.
-	 * @see #setOnmouseout(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onmouseout()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseout'"
-	 * @generated
-	 */
-	String getOnmouseout();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnmouseout <em>Onmouseout</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseout</em>' attribute.
-	 * @see #getOnmouseout()
-	 * @generated
-	 */
-	void setOnmouseout(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseover</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseover</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseover</em>' attribute.
-	 * @see #setOnmouseover(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onmouseover()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseover'"
-	 * @generated
-	 */
-	String getOnmouseover();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnmouseover <em>Onmouseover</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseover</em>' attribute.
-	 * @see #getOnmouseover()
-	 * @generated
-	 */
-	void setOnmouseover(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Onmouseup</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Onmouseup</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Onmouseup</em>' attribute.
-	 * @see #setOnmouseup(String)
-	 * @see org.w3._1999.xhtml.XhtmlPackage#getColgroupType_Onmouseup()
-	 * @model dataType="org.w3._1999.xhtml.Script"
-	 *        extendedMetaData="kind='attribute' name='onmouseup'"
-	 * @generated
-	 */
-	String getOnmouseup();
-
-	/**
-	 * Sets the value of the '{@link org.w3._1999.xhtml.ColgroupType#getOnmouseup <em>Onmouseup</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Onmouseup</em>' attribute.
-	 * @see #getOnmouseup()
-	 * @generated
-	 */
-	void setOnmouseup(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Span</b></em>' attribute.

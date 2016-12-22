@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -82,81 +72,55 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 			case XhtmlPackage.ADDRESS_TYPE: return createAddressType();
 			case XhtmlPackage.AREA_TYPE: return createAreaType();
 			case XhtmlPackage.ATYPE: return createAType();
-			case XhtmlPackage.BASE_TYPE: return createBaseType();
 			case XhtmlPackage.BDO_TYPE: return createBdoType();
 			case XhtmlPackage.BIG_TYPE: return createBigType();
 			case XhtmlPackage.BLOCK: return createBlock();
 			case XhtmlPackage.BLOCKQUOTE_TYPE: return createBlockquoteType();
-			case XhtmlPackage.BODY_TYPE: return createBodyType();
 			case XhtmlPackage.BR_TYPE: return createBrType();
 			case XhtmlPackage.BTYPE: return createBType();
-			case XhtmlPackage.BUTTON_CONTENT: return createButtonContent();
-			case XhtmlPackage.BUTTON_TYPE: return createButtonType();
 			case XhtmlPackage.CAPTION_TYPE: return createCaptionType();
 			case XhtmlPackage.CITE_TYPE: return createCiteType();
 			case XhtmlPackage.CODE_TYPE: return createCodeType();
 			case XhtmlPackage.COLGROUP_TYPE: return createColgroupType();
 			case XhtmlPackage.COL_TYPE: return createColType();
 			case XhtmlPackage.DD_TYPE: return createDdType();
-			case XhtmlPackage.DEL_TYPE: return createDelType();
 			case XhtmlPackage.DFN_TYPE: return createDfnType();
 			case XhtmlPackage.DIV_TYPE: return createDivType();
 			case XhtmlPackage.DL_TYPE: return createDlType();
 			case XhtmlPackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case XhtmlPackage.DT_TYPE: return createDtType();
 			case XhtmlPackage.EM_TYPE: return createEmType();
-			case XhtmlPackage.FIELDSET_TYPE: return createFieldsetType();
 			case XhtmlPackage.FLOW: return createFlow();
-			case XhtmlPackage.FORM_CONTENT: return createFormContent();
-			case XhtmlPackage.FORM_TYPE: return createFormType();
 			case XhtmlPackage.H1_TYPE: return createH1Type();
 			case XhtmlPackage.H2_TYPE: return createH2Type();
 			case XhtmlPackage.H3_TYPE: return createH3Type();
 			case XhtmlPackage.H4_TYPE: return createH4Type();
 			case XhtmlPackage.H5_TYPE: return createH5Type();
 			case XhtmlPackage.H6_TYPE: return createH6Type();
-			case XhtmlPackage.HEAD_TYPE: return createHeadType();
 			case XhtmlPackage.HR_TYPE: return createHrType();
-			case XhtmlPackage.HTML_TYPE: return createHtmlType();
 			case XhtmlPackage.IMG_TYPE: return createImgType();
 			case XhtmlPackage.INLINE: return createInline();
-			case XhtmlPackage.INPUT_TYPE1: return createInputType1();
-			case XhtmlPackage.INS_TYPE: return createInsType();
 			case XhtmlPackage.ITYPE: return createIType();
 			case XhtmlPackage.KBD_TYPE: return createKbdType();
-			case XhtmlPackage.LABEL_TYPE: return createLabelType();
-			case XhtmlPackage.LEGEND_TYPE: return createLegendType();
-			case XhtmlPackage.LINK_TYPE: return createLinkType();
 			case XhtmlPackage.LI_TYPE: return createLiType();
 			case XhtmlPackage.MAP_TYPE: return createMapType();
-			case XhtmlPackage.META_TYPE: return createMetaType();
-			case XhtmlPackage.NOSCRIPT_TYPE: return createNoscriptType();
-			case XhtmlPackage.OBJECT_TYPE: return createObjectType();
 			case XhtmlPackage.OL_TYPE: return createOlType();
-			case XhtmlPackage.OPTGROUP_TYPE: return createOptgroupType();
-			case XhtmlPackage.OPTION_TYPE: return createOptionType();
-			case XhtmlPackage.PARAM_TYPE: return createParamType();
 			case XhtmlPackage.PRE_CONTENT: return createPreContent();
 			case XhtmlPackage.PRE_TYPE: return createPreType();
 			case XhtmlPackage.PTYPE: return createPType();
 			case XhtmlPackage.QTYPE: return createQType();
 			case XhtmlPackage.SAMP_TYPE: return createSampType();
-			case XhtmlPackage.SCRIPT_TYPE: return createScriptType();
-			case XhtmlPackage.SELECT_TYPE: return createSelectType();
 			case XhtmlPackage.SMALL_TYPE: return createSmallType();
 			case XhtmlPackage.SPAN_TYPE: return createSpanType();
 			case XhtmlPackage.STRONG_TYPE: return createStrongType();
-			case XhtmlPackage.STYLE_TYPE: return createStyleType();
 			case XhtmlPackage.SUB_TYPE: return createSubType();
 			case XhtmlPackage.SUP_TYPE: return createSupType();
 			case XhtmlPackage.TABLE_TYPE: return createTableType();
 			case XhtmlPackage.TBODY_TYPE: return createTbodyType();
 			case XhtmlPackage.TD_TYPE: return createTdType();
-			case XhtmlPackage.TEXTAREA_TYPE: return createTextareaType();
 			case XhtmlPackage.TFOOT_TYPE: return createTfootType();
 			case XhtmlPackage.THEAD_TYPE: return createTheadType();
 			case XhtmlPackage.TH_TYPE: return createThType();
-			case XhtmlPackage.TITLE_TYPE: return createTitleType();
 			case XhtmlPackage.TR_TYPE: return createTrType();
 			case XhtmlPackage.TT_TYPE: return createTtType();
 			case XhtmlPackage.UL_TYPE: return createUlType();
@@ -176,58 +140,24 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 		switch (eDataType.getClassifierID()) {
 			case XhtmlPackage.ALIGN_TYPE:
 				return createAlignTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.CHECKED_TYPE:
-				return createCheckedTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.DECLARE_TYPE:
-				return createDeclareTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.DEFER_TYPE:
-				return createDeferTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.DIR_TYPE:
 				return createDirTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.DIR_TYPE1:
 				return createDirType1FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE:
-				return createDisabledTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE1:
-				return createDisabledType1FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE2:
-				return createDisabledType2FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE3:
-				return createDisabledType3FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE4:
-				return createDisabledType4FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE5:
-				return createDisabledType5FromString(eDataType, initialValue);
-			case XhtmlPackage.INPUT_TYPE:
-				return createInputTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.ISMAP_TYPE:
 				return createIsmapTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.METHOD_TYPE:
-				return createMethodTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.MULTIPLE_TYPE:
-				return createMultipleTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.NOHREF_TYPE:
 				return createNohrefTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.READONLY_TYPE:
-				return createReadonlyTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.READONLY_TYPE1:
-				return createReadonlyType1FromString(eDataType, initialValue);
 			case XhtmlPackage.SCOPE:
 				return createScopeFromString(eDataType, initialValue);
-			case XhtmlPackage.SELECTED_TYPE:
-				return createSelectedTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.SHAPE:
 				return createShapeFromString(eDataType, initialValue);
 			case XhtmlPackage.TFRAME:
 				return createTFrameFromString(eDataType, initialValue);
 			case XhtmlPackage.TRULES:
 				return createTRulesFromString(eDataType, initialValue);
-			case XhtmlPackage.TYPE_TYPE:
-				return createTypeTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.VALIGN_TYPE:
 				return createValignTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.VALUETYPE_TYPE:
-				return createValuetypeTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.ALIGN_TYPE_OBJECT:
 				return createAlignTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.CHARACTER:
@@ -236,8 +166,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return createCharsetFromString(eDataType, initialValue);
 			case XhtmlPackage.CHARSETS:
 				return createCharsetsFromString(eDataType, initialValue);
-			case XhtmlPackage.CHECKED_TYPE_OBJECT:
-				return createCheckedTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.CONTENT_TYPE:
 				return createContentTypeFromString(eDataType, initialValue);
 			case XhtmlPackage.CONTENT_TYPES:
@@ -246,28 +174,10 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return createCoordsFromString(eDataType, initialValue);
 			case XhtmlPackage.DATETIME:
 				return createDatetimeFromString(eDataType, initialValue);
-			case XhtmlPackage.DECLARE_TYPE_OBJECT:
-				return createDeclareTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.DEFER_TYPE_OBJECT:
-				return createDeferTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.DIR_TYPE_OBJECT:
 				return createDirTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.DIR_TYPE_OBJECT1:
 				return createDirTypeObject1FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT:
-				return createDisabledTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT1:
-				return createDisabledTypeObject1FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT2:
-				return createDisabledTypeObject2FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT3:
-				return createDisabledTypeObject3FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT4:
-				return createDisabledTypeObject4FromString(eDataType, initialValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT5:
-				return createDisabledTypeObject5FromString(eDataType, initialValue);
-			case XhtmlPackage.INPUT_TYPE_OBJECT:
-				return createInputTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.ISMAP_TYPE_OBJECT:
 				return createIsmapTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.LANGUAGE_CODE:
@@ -278,28 +188,18 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return createLinkTypesFromString(eDataType, initialValue);
 			case XhtmlPackage.MEDIA_DESC:
 				return createMediaDescFromString(eDataType, initialValue);
-			case XhtmlPackage.METHOD_TYPE_OBJECT:
-				return createMethodTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.MULTI_LENGTH:
 				return createMultiLengthFromString(eDataType, initialValue);
-			case XhtmlPackage.MULTIPLE_TYPE_OBJECT:
-				return createMultipleTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.NOHREF_TYPE_OBJECT:
 				return createNohrefTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.NUMBER:
 				return createNumberFromString(eDataType, initialValue);
 			case XhtmlPackage.PIXELS:
 				return createPixelsFromString(eDataType, initialValue);
-			case XhtmlPackage.READONLY_TYPE_OBJECT:
-				return createReadonlyTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.READONLY_TYPE_OBJECT1:
-				return createReadonlyTypeObject1FromString(eDataType, initialValue);
 			case XhtmlPackage.SCOPE_OBJECT:
 				return createScopeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.SCRIPT:
 				return createScriptFromString(eDataType, initialValue);
-			case XhtmlPackage.SELECTED_TYPE_OBJECT:
-				return createSelectedTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.SHAPE_OBJECT:
 				return createShapeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.STYLE_SHEET:
@@ -312,16 +212,12 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return createTFrameObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.TRULES_OBJECT:
 				return createTRulesObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.TYPE_TYPE_OBJECT:
-				return createTypeTypeObjectFromString(eDataType, initialValue);
 			case XhtmlPackage.URI:
 				return createURIFromString(eDataType, initialValue);
 			case XhtmlPackage.URI_LIST:
 				return createUriListFromString(eDataType, initialValue);
 			case XhtmlPackage.VALIGN_TYPE_OBJECT:
 				return createValignTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
-				return createValuetypeTypeObjectFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -337,58 +233,24 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 		switch (eDataType.getClassifierID()) {
 			case XhtmlPackage.ALIGN_TYPE:
 				return convertAlignTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.CHECKED_TYPE:
-				return convertCheckedTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.DECLARE_TYPE:
-				return convertDeclareTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.DEFER_TYPE:
-				return convertDeferTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.DIR_TYPE:
 				return convertDirTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.DIR_TYPE1:
 				return convertDirType1ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE:
-				return convertDisabledTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE1:
-				return convertDisabledType1ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE2:
-				return convertDisabledType2ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE3:
-				return convertDisabledType3ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE4:
-				return convertDisabledType4ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE5:
-				return convertDisabledType5ToString(eDataType, instanceValue);
-			case XhtmlPackage.INPUT_TYPE:
-				return convertInputTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.ISMAP_TYPE:
 				return convertIsmapTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.METHOD_TYPE:
-				return convertMethodTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.MULTIPLE_TYPE:
-				return convertMultipleTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.NOHREF_TYPE:
 				return convertNohrefTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.READONLY_TYPE:
-				return convertReadonlyTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.READONLY_TYPE1:
-				return convertReadonlyType1ToString(eDataType, instanceValue);
 			case XhtmlPackage.SCOPE:
 				return convertScopeToString(eDataType, instanceValue);
-			case XhtmlPackage.SELECTED_TYPE:
-				return convertSelectedTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.SHAPE:
 				return convertShapeToString(eDataType, instanceValue);
 			case XhtmlPackage.TFRAME:
 				return convertTFrameToString(eDataType, instanceValue);
 			case XhtmlPackage.TRULES:
 				return convertTRulesToString(eDataType, instanceValue);
-			case XhtmlPackage.TYPE_TYPE:
-				return convertTypeTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.VALIGN_TYPE:
 				return convertValignTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.VALUETYPE_TYPE:
-				return convertValuetypeTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.ALIGN_TYPE_OBJECT:
 				return convertAlignTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.CHARACTER:
@@ -397,8 +259,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return convertCharsetToString(eDataType, instanceValue);
 			case XhtmlPackage.CHARSETS:
 				return convertCharsetsToString(eDataType, instanceValue);
-			case XhtmlPackage.CHECKED_TYPE_OBJECT:
-				return convertCheckedTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.CONTENT_TYPE:
 				return convertContentTypeToString(eDataType, instanceValue);
 			case XhtmlPackage.CONTENT_TYPES:
@@ -407,28 +267,10 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return convertCoordsToString(eDataType, instanceValue);
 			case XhtmlPackage.DATETIME:
 				return convertDatetimeToString(eDataType, instanceValue);
-			case XhtmlPackage.DECLARE_TYPE_OBJECT:
-				return convertDeclareTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.DEFER_TYPE_OBJECT:
-				return convertDeferTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.DIR_TYPE_OBJECT:
 				return convertDirTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.DIR_TYPE_OBJECT1:
 				return convertDirTypeObject1ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT:
-				return convertDisabledTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT1:
-				return convertDisabledTypeObject1ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT2:
-				return convertDisabledTypeObject2ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT3:
-				return convertDisabledTypeObject3ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT4:
-				return convertDisabledTypeObject4ToString(eDataType, instanceValue);
-			case XhtmlPackage.DISABLED_TYPE_OBJECT5:
-				return convertDisabledTypeObject5ToString(eDataType, instanceValue);
-			case XhtmlPackage.INPUT_TYPE_OBJECT:
-				return convertInputTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.ISMAP_TYPE_OBJECT:
 				return convertIsmapTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.LANGUAGE_CODE:
@@ -439,28 +281,18 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return convertLinkTypesToString(eDataType, instanceValue);
 			case XhtmlPackage.MEDIA_DESC:
 				return convertMediaDescToString(eDataType, instanceValue);
-			case XhtmlPackage.METHOD_TYPE_OBJECT:
-				return convertMethodTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.MULTI_LENGTH:
 				return convertMultiLengthToString(eDataType, instanceValue);
-			case XhtmlPackage.MULTIPLE_TYPE_OBJECT:
-				return convertMultipleTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.NOHREF_TYPE_OBJECT:
 				return convertNohrefTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.NUMBER:
 				return convertNumberToString(eDataType, instanceValue);
 			case XhtmlPackage.PIXELS:
 				return convertPixelsToString(eDataType, instanceValue);
-			case XhtmlPackage.READONLY_TYPE_OBJECT:
-				return convertReadonlyTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.READONLY_TYPE_OBJECT1:
-				return convertReadonlyTypeObject1ToString(eDataType, instanceValue);
 			case XhtmlPackage.SCOPE_OBJECT:
 				return convertScopeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.SCRIPT:
 				return convertScriptToString(eDataType, instanceValue);
-			case XhtmlPackage.SELECTED_TYPE_OBJECT:
-				return convertSelectedTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.SHAPE_OBJECT:
 				return convertShapeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.STYLE_SHEET:
@@ -473,16 +305,12 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 				return convertTFrameObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.TRULES_OBJECT:
 				return convertTRulesObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.TYPE_TYPE_OBJECT:
-				return convertTypeTypeObjectToString(eDataType, instanceValue);
 			case XhtmlPackage.URI:
 				return convertURIToString(eDataType, instanceValue);
 			case XhtmlPackage.URI_LIST:
 				return convertUriListToString(eDataType, instanceValue);
 			case XhtmlPackage.VALIGN_TYPE_OBJECT:
 				return convertValignTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
-				return convertValuetypeTypeObjectToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -553,16 +381,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseType createBaseType() {
-		BaseTypeImpl baseType = new BaseTypeImpl();
-		return baseType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BdoType createBdoType() {
 		BdoTypeImpl bdoType = new BdoTypeImpl();
 		return bdoType;
@@ -603,16 +421,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BodyType createBodyType() {
-		BodyTypeImpl bodyType = new BodyTypeImpl();
-		return bodyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BrType createBrType() {
 		BrTypeImpl brType = new BrTypeImpl();
 		return brType;
@@ -626,26 +434,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	public BType createBType() {
 		BTypeImpl bType = new BTypeImpl();
 		return bType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ButtonContent createButtonContent() {
-		ButtonContentImpl buttonContent = new ButtonContentImpl();
-		return buttonContent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ButtonType createButtonType() {
-		ButtonTypeImpl buttonType = new ButtonTypeImpl();
-		return buttonType;
 	}
 
 	/**
@@ -713,16 +501,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DelType createDelType() {
-		DelTypeImpl delType = new DelTypeImpl();
-		return delType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DfnType createDfnType() {
 		DfnTypeImpl dfnType = new DfnTypeImpl();
 		return dfnType;
@@ -783,39 +561,9 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldsetType createFieldsetType() {
-		FieldsetTypeImpl fieldsetType = new FieldsetTypeImpl();
-		return fieldsetType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Flow createFlow() {
 		FlowImpl flow = new FlowImpl();
 		return flow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormContent createFormContent() {
-		FormContentImpl formContent = new FormContentImpl();
-		return formContent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormType createFormType() {
-		FormTypeImpl formType = new FormTypeImpl();
-		return formType;
 	}
 
 	/**
@@ -883,29 +631,9 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HeadType createHeadType() {
-		HeadTypeImpl headType = new HeadTypeImpl();
-		return headType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public HrType createHrType() {
 		HrTypeImpl hrType = new HrTypeImpl();
 		return hrType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HtmlType createHtmlType() {
-		HtmlTypeImpl htmlType = new HtmlTypeImpl();
-		return htmlType;
 	}
 
 	/**
@@ -933,26 +661,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputType1 createInputType1() {
-		InputType1Impl inputType1 = new InputType1Impl();
-		return inputType1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InsType createInsType() {
-		InsTypeImpl insType = new InsTypeImpl();
-		return insType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IType createIType() {
 		ITypeImpl iType = new ITypeImpl();
 		return iType;
@@ -966,36 +674,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	public KbdType createKbdType() {
 		KbdTypeImpl kbdType = new KbdTypeImpl();
 		return kbdType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LabelType createLabelType() {
-		LabelTypeImpl labelType = new LabelTypeImpl();
-		return labelType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LegendType createLegendType() {
-		LegendTypeImpl legendType = new LegendTypeImpl();
-		return legendType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LinkType createLinkType() {
-		LinkTypeImpl linkType = new LinkTypeImpl();
-		return linkType;
 	}
 
 	/**
@@ -1023,69 +701,9 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MetaType createMetaType() {
-		MetaTypeImpl metaType = new MetaTypeImpl();
-		return metaType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NoscriptType createNoscriptType() {
-		NoscriptTypeImpl noscriptType = new NoscriptTypeImpl();
-		return noscriptType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObjectType createObjectType() {
-		ObjectTypeImpl objectType = new ObjectTypeImpl();
-		return objectType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public OlType createOlType() {
 		OlTypeImpl olType = new OlTypeImpl();
 		return olType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptgroupType createOptgroupType() {
-		OptgroupTypeImpl optgroupType = new OptgroupTypeImpl();
-		return optgroupType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionType createOptionType() {
-		OptionTypeImpl optionType = new OptionTypeImpl();
-		return optionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParamType createParamType() {
-		ParamTypeImpl paramType = new ParamTypeImpl();
-		return paramType;
 	}
 
 	/**
@@ -1143,26 +761,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScriptType createScriptType() {
-		ScriptTypeImpl scriptType = new ScriptTypeImpl();
-		return scriptType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SelectType createSelectType() {
-		SelectTypeImpl selectType = new SelectTypeImpl();
-		return selectType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SmallType createSmallType() {
 		SmallTypeImpl smallType = new SmallTypeImpl();
 		return smallType;
@@ -1186,16 +784,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	public StrongType createStrongType() {
 		StrongTypeImpl strongType = new StrongTypeImpl();
 		return strongType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StyleType createStyleType() {
-		StyleTypeImpl styleType = new StyleTypeImpl();
-		return styleType;
 	}
 
 	/**
@@ -1253,16 +841,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextareaType createTextareaType() {
-		TextareaTypeImpl textareaType = new TextareaTypeImpl();
-		return textareaType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TfootType createTfootType() {
 		TfootTypeImpl tfootType = new TfootTypeImpl();
 		return tfootType;
@@ -1286,16 +864,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	public ThType createThType() {
 		ThTypeImpl thType = new ThTypeImpl();
 		return thType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TitleType createTitleType() {
-		TitleTypeImpl titleType = new TitleTypeImpl();
-		return titleType;
 	}
 
 	/**
@@ -1363,66 +931,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CheckedType createCheckedTypeFromString(EDataType eDataType, String initialValue) {
-		CheckedType result = CheckedType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCheckedTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeclareType createDeclareTypeFromString(EDataType eDataType, String initialValue) {
-		DeclareType result = DeclareType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDeclareTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeferType createDeferTypeFromString(EDataType eDataType, String initialValue) {
-		DeferType result = DeferType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDeferTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DirType createDirTypeFromString(EDataType eDataType, String initialValue) {
 		DirType result = DirType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1463,146 +971,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DisabledType createDisabledTypeFromString(EDataType eDataType, String initialValue) {
-		DisabledType result = DisabledType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType1 createDisabledType1FromString(EDataType eDataType, String initialValue) {
-		DisabledType1 result = DisabledType1.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledType1ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType2 createDisabledType2FromString(EDataType eDataType, String initialValue) {
-		DisabledType2 result = DisabledType2.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledType2ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType3 createDisabledType3FromString(EDataType eDataType, String initialValue) {
-		DisabledType3 result = DisabledType3.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledType3ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType4 createDisabledType4FromString(EDataType eDataType, String initialValue) {
-		DisabledType4 result = DisabledType4.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledType4ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType5 createDisabledType5FromString(EDataType eDataType, String initialValue) {
-		DisabledType5 result = DisabledType5.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledType5ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InputType createInputTypeFromString(EDataType eDataType, String initialValue) {
-		InputType result = InputType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInputTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IsmapType createIsmapTypeFromString(EDataType eDataType, String initialValue) {
 		IsmapType result = IsmapType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1615,46 +983,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * @generated
 	 */
 	public String convertIsmapTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MethodType createMethodTypeFromString(EDataType eDataType, String initialValue) {
-		MethodType result = MethodType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMethodTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MultipleType createMultipleTypeFromString(EDataType eDataType, String initialValue) {
-		MultipleType result = MultipleType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMultipleTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -1683,46 +1011,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReadonlyType createReadonlyTypeFromString(EDataType eDataType, String initialValue) {
-		ReadonlyType result = ReadonlyType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReadonlyTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReadonlyType1 createReadonlyType1FromString(EDataType eDataType, String initialValue) {
-		ReadonlyType1 result = ReadonlyType1.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReadonlyType1ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Scope createScopeFromString(EDataType eDataType, String initialValue) {
 		Scope result = Scope.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1735,26 +1023,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * @generated
 	 */
 	public String convertScopeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SelectedType createSelectedTypeFromString(EDataType eDataType, String initialValue) {
-		SelectedType result = SelectedType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSelectedTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -1823,26 +1091,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeType createTypeTypeFromString(EDataType eDataType, String initialValue) {
-		TypeType result = TypeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTypeTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ValignType createValignTypeFromString(EDataType eDataType, String initialValue) {
 		ValignType result = ValignType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1855,26 +1103,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * @generated
 	 */
 	public String convertValignTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValuetypeType createValuetypeTypeFromString(EDataType eDataType, String initialValue) {
-		ValuetypeType result = ValuetypeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertValuetypeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -1955,24 +1183,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CheckedType createCheckedTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createCheckedTypeFromString(XhtmlPackage.eINSTANCE.getCheckedType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCheckedTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertCheckedTypeToString(XhtmlPackage.eINSTANCE.getCheckedType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String createContentTypeFromString(EDataType eDataType, String initialValue) {
 		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.STRING, initialValue);
 	}
@@ -2045,42 +1255,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeclareType createDeclareTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createDeclareTypeFromString(XhtmlPackage.eINSTANCE.getDeclareType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDeclareTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertDeclareTypeToString(XhtmlPackage.eINSTANCE.getDeclareType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeferType createDeferTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createDeferTypeFromString(XhtmlPackage.eINSTANCE.getDeferType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDeferTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertDeferTypeToString(XhtmlPackage.eINSTANCE.getDeferType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DirType createDirTypeObjectFromString(EDataType eDataType, String initialValue) {
 		return createDirTypeFromString(XhtmlPackage.eINSTANCE.getDirType(), initialValue);
 	}
@@ -2110,132 +1284,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public String convertDirTypeObject1ToString(EDataType eDataType, Object instanceValue) {
 		return convertDirType1ToString(XhtmlPackage.eINSTANCE.getDirType1(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType1 createDisabledTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createDisabledType1FromString(XhtmlPackage.eINSTANCE.getDisabledType1(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledType1ToString(XhtmlPackage.eINSTANCE.getDisabledType1(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType3 createDisabledTypeObject1FromString(EDataType eDataType, String initialValue) {
-		return createDisabledType3FromString(XhtmlPackage.eINSTANCE.getDisabledType3(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObject1ToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledType3ToString(XhtmlPackage.eINSTANCE.getDisabledType3(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType createDisabledTypeObject2FromString(EDataType eDataType, String initialValue) {
-		return createDisabledTypeFromString(XhtmlPackage.eINSTANCE.getDisabledType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObject2ToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledTypeToString(XhtmlPackage.eINSTANCE.getDisabledType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType2 createDisabledTypeObject3FromString(EDataType eDataType, String initialValue) {
-		return createDisabledType2FromString(XhtmlPackage.eINSTANCE.getDisabledType2(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObject3ToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledType2ToString(XhtmlPackage.eINSTANCE.getDisabledType2(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType4 createDisabledTypeObject4FromString(EDataType eDataType, String initialValue) {
-		return createDisabledType4FromString(XhtmlPackage.eINSTANCE.getDisabledType4(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObject4ToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledType4ToString(XhtmlPackage.eINSTANCE.getDisabledType4(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisabledType5 createDisabledTypeObject5FromString(EDataType eDataType, String initialValue) {
-		return createDisabledType5FromString(XhtmlPackage.eINSTANCE.getDisabledType5(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDisabledTypeObject5ToString(EDataType eDataType, Object instanceValue) {
-		return convertDisabledType5ToString(XhtmlPackage.eINSTANCE.getDisabledType5(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InputType createInputTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createInputTypeFromString(XhtmlPackage.eINSTANCE.getInputType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInputTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertInputTypeToString(XhtmlPackage.eINSTANCE.getInputType(), instanceValue);
 	}
 
 	/**
@@ -2333,24 +1381,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodType createMethodTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createMethodTypeFromString(XhtmlPackage.eINSTANCE.getMethodType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMethodTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMethodTypeToString(XhtmlPackage.eINSTANCE.getMethodType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String createMultiLengthFromString(EDataType eDataType, String initialValue) {
 		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.STRING, initialValue);
 	}
@@ -2362,24 +1392,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public String convertMultiLengthToString(EDataType eDataType, Object instanceValue) {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.STRING, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MultipleType createMultipleTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createMultipleTypeFromString(XhtmlPackage.eINSTANCE.getMultipleType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMultipleTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMultipleTypeToString(XhtmlPackage.eINSTANCE.getMultipleType(), instanceValue);
 	}
 
 	/**
@@ -2441,42 +1453,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReadonlyType createReadonlyTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createReadonlyTypeFromString(XhtmlPackage.eINSTANCE.getReadonlyType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReadonlyTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertReadonlyTypeToString(XhtmlPackage.eINSTANCE.getReadonlyType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReadonlyType1 createReadonlyTypeObject1FromString(EDataType eDataType, String initialValue) {
-		return createReadonlyType1FromString(XhtmlPackage.eINSTANCE.getReadonlyType1(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReadonlyTypeObject1ToString(EDataType eDataType, Object instanceValue) {
-		return convertReadonlyType1ToString(XhtmlPackage.eINSTANCE.getReadonlyType1(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Scope createScopeObjectFromString(EDataType eDataType, String initialValue) {
 		return createScopeFromString(XhtmlPackage.eINSTANCE.getScope(), initialValue);
 	}
@@ -2506,24 +1482,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public String convertScriptToString(EDataType eDataType, Object instanceValue) {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.STRING, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SelectedType createSelectedTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createSelectedTypeFromString(XhtmlPackage.eINSTANCE.getSelectedType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSelectedTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertSelectedTypeToString(XhtmlPackage.eINSTANCE.getSelectedType(), instanceValue);
 	}
 
 	/**
@@ -2639,24 +1597,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeType createTypeTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createTypeTypeFromString(XhtmlPackage.eINSTANCE.getTypeType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTypeTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertTypeTypeToString(XhtmlPackage.eINSTANCE.getTypeType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String createURIFromString(EDataType eDataType, String initialValue) {
 		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.ANY_URI, initialValue);
 	}
@@ -2704,24 +1644,6 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public String convertValignTypeObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertValignTypeToString(XhtmlPackage.eINSTANCE.getValignType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValuetypeType createValuetypeTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createValuetypeTypeFromString(XhtmlPackage.eINSTANCE.getValuetypeType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertValuetypeTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertValuetypeTypeToString(XhtmlPackage.eINSTANCE.getValuetypeType(), instanceValue);
 	}
 
 	/**

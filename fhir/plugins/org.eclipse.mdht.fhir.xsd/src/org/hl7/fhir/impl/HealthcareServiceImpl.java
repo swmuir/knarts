@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -46,6 +36,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getProvidedBy <em>Provided By</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getServiceCategory <em>Service Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getServiceType <em>Service Type</em>}</li>
@@ -68,6 +59,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +74,16 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
 
 	/**
 	 * The cached value of the '{@link #getProvidedBy() <em>Provided By</em>}' containment reference.
@@ -304,6 +306,16 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	protected org.hl7.fhir.String availabilityExceptions;
 
 	/**
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> endpoint;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -332,6 +344,49 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__ACTIVE, oldActive, newActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
+			NotificationChain msgs = null;
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -944,11 +999,25 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.HEALTHCARE_SERVICE__ENDPOINT);
+		}
+		return endpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.HEALTHCARE_SERVICE__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return basicSetProvidedBy(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
@@ -993,6 +1062,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return ((InternalEList<?>)getNotAvailable()).basicRemove(otherEnd, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABILITY_EXCEPTIONS:
 				return basicSetAvailabilityExceptions(null, msgs);
+			case FhirPackage.HEALTHCARE_SERVICE__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1007,6 +1078,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 		switch (featureID) {
 			case FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.HEALTHCARE_SERVICE__ACTIVE:
+				return getActive();
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return getProvidedBy();
 			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
@@ -1051,6 +1124,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return getNotAvailable();
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABILITY_EXCEPTIONS:
 				return getAvailabilityExceptions();
+			case FhirPackage.HEALTHCARE_SERVICE__ENDPOINT:
+				return getEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1067,6 +1142,9 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.HEALTHCARE_SERVICE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				setProvidedBy((Reference)newValue);
@@ -1145,6 +1223,10 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABILITY_EXCEPTIONS:
 				setAvailabilityExceptions((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.HEALTHCARE_SERVICE__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1159,6 +1241,9 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 		switch (featureID) {
 			case FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER:
 				getIdentifier().clear();
+				return;
+			case FhirPackage.HEALTHCARE_SERVICE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				setProvidedBy((Reference)null);
@@ -1226,6 +1311,9 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABILITY_EXCEPTIONS:
 				setAvailabilityExceptions((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.HEALTHCARE_SERVICE__ENDPOINT:
+				getEndpoint().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1240,6 +1328,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 		switch (featureID) {
 			case FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.HEALTHCARE_SERVICE__ACTIVE:
+				return active != null;
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return providedBy != null;
 			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
@@ -1284,6 +1374,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return notAvailable != null && !notAvailable.isEmpty();
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABILITY_EXCEPTIONS:
 				return availabilityExceptions != null;
+			case FhirPackage.HEALTHCARE_SERVICE__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

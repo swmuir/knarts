@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -32,7 +22,7 @@ import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,14 +53,14 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	protected Code type;
 
 	/**
-	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
+	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProfile()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference profile;
+	protected EList<Uri> profile;
 
 	/**
 	 * The cached value of the '{@link #getMustSupport() <em>Must Support</em>}' containment reference list.
@@ -169,42 +159,11 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProfile() {
+	public EList<Uri> getProfile() {
+		if (profile == null) {
+			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DATA_REQUIREMENT__PROFILE);
+		}
 		return profile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProfile(Reference newProfile, NotificationChain msgs) {
-		Reference oldProfile = profile;
-		profile = newProfile;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__PROFILE, oldProfile, newProfile);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProfile(Reference newProfile) {
-		if (newProfile != profile) {
-			NotificationChain msgs = null;
-			if (profile != null)
-				msgs = ((InternalEObject)profile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__PROFILE, null, msgs);
-			if (newProfile != null)
-				msgs = ((InternalEObject)newProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__PROFILE, null, msgs);
-			msgs = basicSetProfile(newProfile, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__PROFILE, newProfile, newProfile));
 	}
 
 	/**
@@ -254,7 +213,7 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 			case FhirPackage.DATA_REQUIREMENT__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
-				return basicSetProfile(null, msgs);
+				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				return ((InternalEList<?>)getMustSupport()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_REQUIREMENT__CODE_FILTER:
@@ -300,7 +259,8 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				setType((Code)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
-				setProfile((Reference)newValue);
+				getProfile().clear();
+				getProfile().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				getMustSupport().clear();
@@ -330,7 +290,7 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				setType((Code)null);
 				return;
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
-				setProfile((Reference)null);
+				getProfile().clear();
 				return;
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				getMustSupport().clear();
@@ -356,7 +316,7 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 			case FhirPackage.DATA_REQUIREMENT__TYPE:
 				return type != null;
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
-				return profile != null;
+				return profile != null && !profile.isEmpty();
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				return mustSupport != null && !mustSupport.isEmpty();
 			case FhirPackage.DATA_REQUIREMENT__CODE_FILTER:

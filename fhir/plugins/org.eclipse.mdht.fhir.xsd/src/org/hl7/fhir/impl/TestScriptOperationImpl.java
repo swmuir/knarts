@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -54,6 +44,7 @@ import org.hl7.fhir.TestScriptRequestHeader;
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getRequestHeader <em>Request Header</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getRequestId <em>Request Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getResponseId <em>Response Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getSourceId <em>Source Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getTargetId <em>Target Id</em>}</li>
@@ -172,6 +163,16 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * @ordered
 	 */
 	protected EList<TestScriptRequestHeader> requestHeader;
+
+	/**
+	 * The cached value of the '{@link #getRequestId() <em>Request Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestId()
+	 * @generated
+	 * @ordered
+	 */
+	protected Id requestId;
 
 	/**
 	 * The cached value of the '{@link #getResponseId() <em>Response Id</em>}' containment reference.
@@ -679,6 +680,49 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Id getRequestId() {
+		return requestId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestId(Id newRequestId, NotificationChain msgs) {
+		Id oldRequestId = requestId;
+		requestId = newRequestId;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID, oldRequestId, newRequestId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestId(Id newRequestId) {
+		if (newRequestId != requestId) {
+			NotificationChain msgs = null;
+			if (requestId != null)
+				msgs = ((InternalEObject)requestId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID, null, msgs);
+			if (newRequestId != null)
+				msgs = ((InternalEObject)newRequestId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID, null, msgs);
+			msgs = basicSetRequestId(newRequestId, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID, newRequestId, newRequestId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Id getResponseId() {
 		return responseId;
 	}
@@ -876,6 +920,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return basicSetParams(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER:
 				return ((InternalEList<?>)getRequestHeader()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID:
+				return basicSetRequestId(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESPONSE_ID:
 				return basicSetResponseId(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__SOURCE_ID:
@@ -918,6 +964,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return getParams();
 			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER:
 				return getRequestHeader();
+			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID:
+				return getRequestId();
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESPONSE_ID:
 				return getResponseId();
 			case FhirPackage.TEST_SCRIPT_OPERATION__SOURCE_ID:
@@ -972,6 +1020,9 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER:
 				getRequestHeader().clear();
 				getRequestHeader().addAll((Collection<? extends TestScriptRequestHeader>)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID:
+				setRequestId((Id)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESPONSE_ID:
 				setResponseId((Id)newValue);
@@ -1030,6 +1081,9 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER:
 				getRequestHeader().clear();
 				return;
+			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID:
+				setRequestId((Id)null);
+				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESPONSE_ID:
 				setResponseId((Id)null);
 				return;
@@ -1076,6 +1130,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return params != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER:
 				return requestHeader != null && !requestHeader.isEmpty();
+			case FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_ID:
+				return requestId != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESPONSE_ID:
 				return responseId != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__SOURCE_ID:

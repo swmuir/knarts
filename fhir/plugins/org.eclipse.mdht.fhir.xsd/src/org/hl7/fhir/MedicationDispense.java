@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -33,7 +23,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDispenser <em>Dispenser</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getDispensingOrganization <em>Dispensing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getAuthorizingPrescription <em>Authorizing Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getQuantity <em>Quantity</em>}</li>
@@ -186,6 +178,22 @@ public interface MedicationDispense extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Supporting Information</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional information that supports the medication being dispensed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supporting Information</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_SupportingInformation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportingInformation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSupportingInformation();
+
+	/**
 	 * Returns the value of the '<em><b>Dispenser</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,6 +218,32 @@ public interface MedicationDispense extends DomainResource {
 	 * @generated
 	 */
 	void setDispenser(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Dispensing Organization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The organizaation responsible for the dispense of the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Dispensing Organization</em>' containment reference.
+	 * @see #setDispensingOrganization(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_DispensingOrganization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dispensingOrganization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDispensingOrganization();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getDispensingOrganization <em>Dispensing Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dispensing Organization</em>' containment reference.
+	 * @see #getDispensingOrganization()
+	 * @generated
+	 */
+	void setDispensingOrganization(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Authorizing Prescription</b></em>' containment reference list.
@@ -261,13 +295,13 @@ public interface MedicationDispense extends DomainResource {
 	 * The amount of medication that has been dispensed. Includes unit of measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(SimpleQuantity)
+	 * @see #setQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Quantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getQuantity();
+	Quantity getQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getQuantity <em>Quantity</em>}' containment reference.
@@ -277,7 +311,7 @@ public interface MedicationDispense extends DomainResource {
 	 * @see #getQuantity()
 	 * @generated
 	 */
-	void setQuantity(SimpleQuantity value);
+	void setQuantity(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Days Supply</b></em>' containment reference.
@@ -287,13 +321,13 @@ public interface MedicationDispense extends DomainResource {
 	 * The amount of medication expressed as a timing amount.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Days Supply</em>' containment reference.
-	 * @see #setDaysSupply(SimpleQuantity)
+	 * @see #setDaysSupply(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_DaysSupply()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='daysSupply' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getDaysSupply();
+	Quantity getDaysSupply();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getDaysSupply <em>Days Supply</em>}' containment reference.
@@ -303,7 +337,7 @@ public interface MedicationDispense extends DomainResource {
 	 * @see #getDaysSupply()
 	 * @generated
 	 */
-	void setDaysSupply(SimpleQuantity value);
+	void setDaysSupply(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>When Prepared</b></em>' containment reference.
@@ -417,7 +451,7 @@ public interface MedicationDispense extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Dosage Instruction</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MedicationDispenseDosageInstruction}.
+	 * The list contents are of type {@link org.hl7.fhir.DosageInstruction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -429,7 +463,7 @@ public interface MedicationDispense extends DomainResource {
 	 *        extendedMetaData="kind='element' name='dosageInstruction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<MedicationDispenseDosageInstruction> getDosageInstruction();
+	EList<DosageInstruction> getDosageInstruction();
 
 	/**
 	 * Returns the value of the '<em><b>Substitution</b></em>' containment reference.
@@ -459,7 +493,7 @@ public interface MedicationDispense extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MedicationDispenseEventHistory}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -471,6 +505,6 @@ public interface MedicationDispense extends DomainResource {
 	 *        extendedMetaData="kind='element' name='eventHistory' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<MedicationDispenseEventHistory> getEventHistory();
+	EList<Reference> getEventHistory();
 
 } // MedicationDispense

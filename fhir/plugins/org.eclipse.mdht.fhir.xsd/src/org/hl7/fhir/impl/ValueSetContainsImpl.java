@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -31,6 +21,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetContains;
+import org.hl7.fhir.ValueSetDesignation;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,9 +33,11 @@ import org.hl7.fhir.ValueSetContains;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getInactive <em>Inactive</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getDisplay <em>Display</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getDesignation <em>Designation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetContainsImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
@@ -70,6 +63,16 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean abstract_;
+
+	/**
+	 * The cached value of the '{@link #getInactive() <em>Inactive</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInactive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean inactive;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
@@ -100,6 +103,16 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String display;
+
+	/**
+	 * The cached value of the '{@link #getDesignation() <em>Designation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDesignation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueSetDesignation> designation;
 
 	/**
 	 * The cached value of the '{@link #getContains() <em>Contains</em>}' containment reference list.
@@ -214,6 +227,49 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_CONTAINS__ABSTRACT, newAbstract, newAbstract));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getInactive() {
+		return inactive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInactive(org.hl7.fhir.Boolean newInactive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldInactive = inactive;
+		inactive = newInactive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_CONTAINS__INACTIVE, oldInactive, newInactive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInactive(org.hl7.fhir.Boolean newInactive) {
+		if (newInactive != inactive) {
+			NotificationChain msgs = null;
+			if (inactive != null)
+				msgs = ((InternalEObject)inactive).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_CONTAINS__INACTIVE, null, msgs);
+			if (newInactive != null)
+				msgs = ((InternalEObject)newInactive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_CONTAINS__INACTIVE, null, msgs);
+			msgs = basicSetInactive(newInactive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_CONTAINS__INACTIVE, newInactive, newInactive));
 	}
 
 	/**
@@ -350,6 +406,18 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ValueSetDesignation> getDesignation() {
+		if (designation == null) {
+			designation = new EObjectContainmentEList<ValueSetDesignation>(ValueSetDesignation.class, this, FhirPackage.VALUE_SET_CONTAINS__DESIGNATION);
+		}
+		return designation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ValueSetContains> getContains() {
 		if (contains == null) {
 			contains = new EObjectContainmentEList<ValueSetContains>(ValueSetContains.class, this, FhirPackage.VALUE_SET_CONTAINS__CONTAINS);
@@ -369,12 +437,16 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 				return basicSetSystem(null, msgs);
 			case FhirPackage.VALUE_SET_CONTAINS__ABSTRACT:
 				return basicSetAbstract(null, msgs);
+			case FhirPackage.VALUE_SET_CONTAINS__INACTIVE:
+				return basicSetInactive(null, msgs);
 			case FhirPackage.VALUE_SET_CONTAINS__VERSION:
 				return basicSetVersion(null, msgs);
 			case FhirPackage.VALUE_SET_CONTAINS__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.VALUE_SET_CONTAINS__DISPLAY:
 				return basicSetDisplay(null, msgs);
+			case FhirPackage.VALUE_SET_CONTAINS__DESIGNATION:
+				return ((InternalEList<?>)getDesignation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.VALUE_SET_CONTAINS__CONTAINS:
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 		}
@@ -393,12 +465,16 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 				return getSystem();
 			case FhirPackage.VALUE_SET_CONTAINS__ABSTRACT:
 				return getAbstract();
+			case FhirPackage.VALUE_SET_CONTAINS__INACTIVE:
+				return getInactive();
 			case FhirPackage.VALUE_SET_CONTAINS__VERSION:
 				return getVersion();
 			case FhirPackage.VALUE_SET_CONTAINS__CODE:
 				return getCode();
 			case FhirPackage.VALUE_SET_CONTAINS__DISPLAY:
 				return getDisplay();
+			case FhirPackage.VALUE_SET_CONTAINS__DESIGNATION:
+				return getDesignation();
 			case FhirPackage.VALUE_SET_CONTAINS__CONTAINS:
 				return getContains();
 		}
@@ -420,6 +496,9 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 			case FhirPackage.VALUE_SET_CONTAINS__ABSTRACT:
 				setAbstract((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.VALUE_SET_CONTAINS__INACTIVE:
+				setInactive((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.VALUE_SET_CONTAINS__VERSION:
 				setVersion((org.hl7.fhir.String)newValue);
 				return;
@@ -428,6 +507,10 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 				return;
 			case FhirPackage.VALUE_SET_CONTAINS__DISPLAY:
 				setDisplay((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.VALUE_SET_CONTAINS__DESIGNATION:
+				getDesignation().clear();
+				getDesignation().addAll((Collection<? extends ValueSetDesignation>)newValue);
 				return;
 			case FhirPackage.VALUE_SET_CONTAINS__CONTAINS:
 				getContains().clear();
@@ -451,6 +534,9 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 			case FhirPackage.VALUE_SET_CONTAINS__ABSTRACT:
 				setAbstract((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.VALUE_SET_CONTAINS__INACTIVE:
+				setInactive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.VALUE_SET_CONTAINS__VERSION:
 				setVersion((org.hl7.fhir.String)null);
 				return;
@@ -459,6 +545,9 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 				return;
 			case FhirPackage.VALUE_SET_CONTAINS__DISPLAY:
 				setDisplay((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.VALUE_SET_CONTAINS__DESIGNATION:
+				getDesignation().clear();
 				return;
 			case FhirPackage.VALUE_SET_CONTAINS__CONTAINS:
 				getContains().clear();
@@ -479,12 +568,16 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 				return system != null;
 			case FhirPackage.VALUE_SET_CONTAINS__ABSTRACT:
 				return abstract_ != null;
+			case FhirPackage.VALUE_SET_CONTAINS__INACTIVE:
+				return inactive != null;
 			case FhirPackage.VALUE_SET_CONTAINS__VERSION:
 				return version != null;
 			case FhirPackage.VALUE_SET_CONTAINS__CODE:
 				return code != null;
 			case FhirPackage.VALUE_SET_CONTAINS__DISPLAY:
 				return display != null;
+			case FhirPackage.VALUE_SET_CONTAINS__DESIGNATION:
+				return designation != null && !designation.isEmpty();
 			case FhirPackage.VALUE_SET_CONTAINS__CONTAINS:
 				return contains != null && !contains.isEmpty();
 		}

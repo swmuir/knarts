@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -26,8 +16,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaimIdentifier <em>Claim Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaimReference <em>Claim Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitRelated#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitRelated#getReference <em>Reference</em>}</li>
  * </ul>
@@ -38,58 +27,30 @@ package org.hl7.fhir;
  */
 public interface ExplanationOfBenefitRelated extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Claim Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Claim</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Identifier</em>' containment reference.
-	 * @see #setClaimIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitRelated_ClaimIdentifier()
+	 * <!-- begin-model-doc -->
+	 * Other claims which are related to this claim such as prior claim versions or for related services.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Claim</em>' containment reference.
+	 * @see #setClaim(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitRelated_Claim()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='claim' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getClaimIdentifier();
+	Reference getClaim();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaimIdentifier <em>Claim Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaim <em>Claim</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Identifier</em>' containment reference.
-	 * @see #getClaimIdentifier()
+	 * @param value the new value of the '<em>Claim</em>' containment reference.
+	 * @see #getClaim()
 	 * @generated
 	 */
-	void setClaimIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Claim Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Claim Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Claim Reference</em>' containment reference.
-	 * @see #setClaimReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitRelated_ClaimReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='claimReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getClaimReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitRelated#getClaimReference <em>Claim Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Claim Reference</em>' containment reference.
-	 * @see #getClaimReference()
-	 * @generated
-	 */
-	void setClaimReference(Reference value);
+	void setClaim(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
@@ -99,13 +60,13 @@ public interface ExplanationOfBenefitRelated extends BackboneElement {
 	 * For example prior or umbrella.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Relationship</em>' containment reference.
-	 * @see #setRelationship(Coding)
+	 * @see #setRelationship(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitRelated_Relationship()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getRelationship();
+	CodeableConcept getRelationship();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitRelated#getRelationship <em>Relationship</em>}' containment reference.
@@ -115,7 +76,7 @@ public interface ExplanationOfBenefitRelated extends BackboneElement {
 	 * @see #getRelationship()
 	 * @generated
 	 */
-	void setRelationship(Coding value);
+	void setRelationship(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.

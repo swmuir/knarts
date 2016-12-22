@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -168,7 +158,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> purposeOfUse;
+	protected EList<CodeableConcept> purposeOfUse;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -562,9 +552,9 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getPurposeOfUse() {
+	public EList<CodeableConcept> getPurposeOfUse() {
 		if (purposeOfUse == null) {
-			purposeOfUse = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT_AGENT__PURPOSE_OF_USE);
+			purposeOfUse = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT_AGENT__PURPOSE_OF_USE);
 		}
 		return purposeOfUse;
 	}
@@ -680,7 +670,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 				return;
 			case FhirPackage.AUDIT_EVENT_AGENT__PURPOSE_OF_USE:
 				getPurposeOfUse().clear();
-				getPurposeOfUse().addAll((Collection<? extends Coding>)newValue);
+				getPurposeOfUse().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

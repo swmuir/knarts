@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -43,6 +33,7 @@ import org.hl7.fhir.Schedule;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getServiceCategory <em>Service Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getServiceType <em>Service Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ScheduleImpl#getSpecialty <em>Specialty</em>}</li>
@@ -63,6 +54,16 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
 
 	/**
 	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
@@ -153,6 +154,49 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SCHEDULE__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__ACTIVE, oldActive, newActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
+			NotificationChain msgs = null;
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -361,6 +405,8 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SCHEDULE__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
 				return basicSetServiceCategory(null, msgs);
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
@@ -387,6 +433,8 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.SCHEDULE__ACTIVE:
+				return getActive();
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
 				return getServiceCategory();
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
@@ -415,6 +463,9 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.SCHEDULE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
 				setServiceCategory((CodeableConcept)newValue);
@@ -451,6 +502,9 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.SCHEDULE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
 				setServiceCategory((CodeableConcept)null);
 				return;
@@ -483,6 +537,8 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 		switch (featureID) {
 			case FhirPackage.SCHEDULE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.SCHEDULE__ACTIVE:
+				return active != null;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
 				return serviceCategory != null;
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:

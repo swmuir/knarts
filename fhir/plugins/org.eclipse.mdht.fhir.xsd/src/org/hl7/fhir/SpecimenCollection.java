@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -27,7 +17,6 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollector <em>Collector</em>}</li>
- *   <li>{@link org.hl7.fhir.SpecimenCollection#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollectedDateTime <em>Collected Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollectedPeriod <em>Collected Period</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getQuantity <em>Quantity</em>}</li>
@@ -65,32 +54,6 @@ public interface SpecimenCollection extends BackboneElement {
 	 * @generated
 	 */
 	void setCollector(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * To communicate any details or issues encountered during the specimen collection procedure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment</em>' containment reference.
-	 * @see #setComment(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_Comment()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getComment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getComment <em>Comment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comment</em>' containment reference.
-	 * @see #getComment()
-	 * @generated
-	 */
-	void setComment(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Collected Date Time</b></em>' containment reference.
@@ -154,13 +117,13 @@ public interface SpecimenCollection extends BackboneElement {
 	 * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(SimpleQuantity)
+	 * @see #setQuantity(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_Quantity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SimpleQuantity getQuantity();
+	Quantity getQuantity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getQuantity <em>Quantity</em>}' containment reference.
@@ -170,7 +133,7 @@ public interface SpecimenCollection extends BackboneElement {
 	 * @see #getQuantity()
 	 * @generated
 	 */
-	void setQuantity(SimpleQuantity value);
+	void setQuantity(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Method</b></em>' containment reference.

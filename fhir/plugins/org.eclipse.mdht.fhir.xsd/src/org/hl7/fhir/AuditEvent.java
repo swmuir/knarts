@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -193,7 +183,7 @@ public interface AuditEvent extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Purpose Of Event</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -205,7 +195,7 @@ public interface AuditEvent extends DomainResource {
 	 *        extendedMetaData="kind='element' name='purposeOfEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getPurposeOfEvent();
+	EList<CodeableConcept> getPurposeOfEvent();
 
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
@@ -228,7 +218,7 @@ public interface AuditEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Application systems and processes.
+	 * The system that is reporting the event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(AuditEventSource)

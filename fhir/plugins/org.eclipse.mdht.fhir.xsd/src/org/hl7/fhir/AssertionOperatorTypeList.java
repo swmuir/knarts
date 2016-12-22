@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -128,7 +118,17 @@ public enum AssertionOperatorTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOT_CONTAINS(9, "notContains", "notContains");
+	NOT_CONTAINS(9, "notContains", "notContains"),
+
+	/**
+	 * The '<em><b>Eval</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EVAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EVAL(10, "eval", "eval");
 
 	/**
 	 * The '<em><b>Equals</b></em>' literal value.
@@ -271,6 +271,20 @@ public enum AssertionOperatorTypeList implements Enumerator {
 	public static final int NOT_CONTAINS_VALUE = 9;
 
 	/**
+	 * The '<em><b>Eval</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * evaluate
+	 * <!-- end-model-doc -->
+	 * @see #EVAL
+	 * @model name="eval"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EVAL_VALUE = 10;
+
+	/**
 	 * An array of all the '<em><b>Assertion Operator Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,6 +302,7 @@ public enum AssertionOperatorTypeList implements Enumerator {
 			NOT_EMPTY,
 			CONTAINS,
 			NOT_CONTAINS,
+			EVAL,
 		};
 
 	/**
@@ -354,6 +369,7 @@ public enum AssertionOperatorTypeList implements Enumerator {
 			case NOT_EMPTY_VALUE: return NOT_EMPTY;
 			case CONTAINS_VALUE: return CONTAINS;
 			case NOT_CONTAINS_VALUE: return NOT_CONTAINS;
+			case EVAL_VALUE: return EVAL;
 		}
 		return null;
 	}

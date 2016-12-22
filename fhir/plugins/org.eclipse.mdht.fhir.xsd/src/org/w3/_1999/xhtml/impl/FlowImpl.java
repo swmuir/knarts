@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.w3._1999.xhtml.impl;
@@ -36,17 +26,13 @@ import org.w3._1999.xhtml.BdoType;
 import org.w3._1999.xhtml.BigType;
 import org.w3._1999.xhtml.BlockquoteType;
 import org.w3._1999.xhtml.BrType;
-import org.w3._1999.xhtml.ButtonType;
 import org.w3._1999.xhtml.CiteType;
 import org.w3._1999.xhtml.CodeType;
-import org.w3._1999.xhtml.DelType;
 import org.w3._1999.xhtml.DfnType;
 import org.w3._1999.xhtml.DivType;
 import org.w3._1999.xhtml.DlType;
 import org.w3._1999.xhtml.EmType;
-import org.w3._1999.xhtml.FieldsetType;
 import org.w3._1999.xhtml.Flow;
-import org.w3._1999.xhtml.FormType;
 import org.w3._1999.xhtml.H1Type;
 import org.w3._1999.xhtml.H2Type;
 import org.w3._1999.xhtml.H3Type;
@@ -56,27 +42,19 @@ import org.w3._1999.xhtml.H6Type;
 import org.w3._1999.xhtml.HrType;
 import org.w3._1999.xhtml.IType;
 import org.w3._1999.xhtml.ImgType;
-import org.w3._1999.xhtml.InputType1;
-import org.w3._1999.xhtml.InsType;
 import org.w3._1999.xhtml.KbdType;
-import org.w3._1999.xhtml.LabelType;
 import org.w3._1999.xhtml.MapType;
-import org.w3._1999.xhtml.NoscriptType;
-import org.w3._1999.xhtml.ObjectType;
 import org.w3._1999.xhtml.OlType;
 import org.w3._1999.xhtml.PType;
 import org.w3._1999.xhtml.PreType;
 import org.w3._1999.xhtml.QType;
 import org.w3._1999.xhtml.SampType;
-import org.w3._1999.xhtml.ScriptType;
-import org.w3._1999.xhtml.SelectType;
 import org.w3._1999.xhtml.SmallType;
 import org.w3._1999.xhtml.SpanType;
 import org.w3._1999.xhtml.StrongType;
 import org.w3._1999.xhtml.SubType;
 import org.w3._1999.xhtml.SupType;
 import org.w3._1999.xhtml.TableType;
-import org.w3._1999.xhtml.TextareaType;
 import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.VarType;
@@ -107,15 +85,12 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getHr <em>Hr</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getBlockquote <em>Blockquote</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getAddress <em>Address</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getFieldset <em>Fieldset</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getTable <em>Table</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getForm <em>Form</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getA <em>A</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getBr <em>Br</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getSpan <em>Span</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getBdo <em>Bdo</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getMap <em>Map</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getObject <em>Object</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getImg <em>Img</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getTt <em>Tt</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getI <em>I</em>}</li>
@@ -135,15 +110,6 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getSup <em>Sup</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getInput <em>Input</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getSelect <em>Select</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getTextarea <em>Textarea</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getButton <em>Button</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getNoscript <em>Noscript</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getIns <em>Ins</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getDel <em>Del</em>}</li>
- *   <li>{@link org.w3._1999.xhtml.impl.FlowImpl#getScript <em>Script</em>}</li>
  * </ul>
  *
  * @generated
@@ -339,26 +305,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FieldsetType> getFieldset() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Fieldset());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<TableType> getTable() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Table());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<FormType> getForm() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Form());
 	}
 
 	/**
@@ -404,15 +352,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 */
 	public EList<MapType> getMap() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Map());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ObjectType> getObject() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Object());
 	}
 
 	/**
@@ -591,87 +530,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InputType1> getInput() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Input());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SelectType> getSelect() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Select());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TextareaType> getTextarea() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Textarea());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<LabelType> getLabel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Label());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ButtonType> getButton() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Button());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<NoscriptType> getNoscript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Noscript());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InsType> getIns() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Ins());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DelType> getDel() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Del());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ScriptType> getScript() {
-		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Script());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -709,12 +567,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return ((InternalEList<?>)getBlockquote()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__ADDRESS:
 				return ((InternalEList<?>)getAddress()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__FIELDSET:
-				return ((InternalEList<?>)getFieldset()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__TABLE:
 				return ((InternalEList<?>)getTable()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__FORM:
-				return ((InternalEList<?>)getForm()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__A:
 				return ((InternalEList<?>)getA()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__BR:
@@ -725,8 +579,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return ((InternalEList<?>)getBdo()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__MAP:
 				return ((InternalEList<?>)getMap()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__OBJECT:
-				return ((InternalEList<?>)getObject()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__IMG:
 				return ((InternalEList<?>)getImg()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__TT:
@@ -765,24 +617,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
 			case XhtmlPackage.FLOW__SUP:
 				return ((InternalEList<?>)getSup()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__INPUT:
-				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__SELECT:
-				return ((InternalEList<?>)getSelect()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__TEXTAREA:
-				return ((InternalEList<?>)getTextarea()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__LABEL:
-				return ((InternalEList<?>)getLabel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__BUTTON:
-				return ((InternalEList<?>)getButton()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__NOSCRIPT:
-				return ((InternalEList<?>)getNoscript()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__INS:
-				return ((InternalEList<?>)getIns()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__DEL:
-				return ((InternalEList<?>)getDel()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.FLOW__SCRIPT:
-				return ((InternalEList<?>)getScript()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -831,12 +665,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return getBlockquote();
 			case XhtmlPackage.FLOW__ADDRESS:
 				return getAddress();
-			case XhtmlPackage.FLOW__FIELDSET:
-				return getFieldset();
 			case XhtmlPackage.FLOW__TABLE:
 				return getTable();
-			case XhtmlPackage.FLOW__FORM:
-				return getForm();
 			case XhtmlPackage.FLOW__A:
 				return getA();
 			case XhtmlPackage.FLOW__BR:
@@ -847,8 +677,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return getBdo();
 			case XhtmlPackage.FLOW__MAP:
 				return getMap();
-			case XhtmlPackage.FLOW__OBJECT:
-				return getObject();
 			case XhtmlPackage.FLOW__IMG:
 				return getImg();
 			case XhtmlPackage.FLOW__TT:
@@ -887,24 +715,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return getSub();
 			case XhtmlPackage.FLOW__SUP:
 				return getSup();
-			case XhtmlPackage.FLOW__INPUT:
-				return getInput();
-			case XhtmlPackage.FLOW__SELECT:
-				return getSelect();
-			case XhtmlPackage.FLOW__TEXTAREA:
-				return getTextarea();
-			case XhtmlPackage.FLOW__LABEL:
-				return getLabel();
-			case XhtmlPackage.FLOW__BUTTON:
-				return getButton();
-			case XhtmlPackage.FLOW__NOSCRIPT:
-				return getNoscript();
-			case XhtmlPackage.FLOW__INS:
-				return getIns();
-			case XhtmlPackage.FLOW__DEL:
-				return getDel();
-			case XhtmlPackage.FLOW__SCRIPT:
-				return getScript();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -984,17 +794,9 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				getAddress().clear();
 				getAddress().addAll((Collection<? extends AddressType>)newValue);
 				return;
-			case XhtmlPackage.FLOW__FIELDSET:
-				getFieldset().clear();
-				getFieldset().addAll((Collection<? extends FieldsetType>)newValue);
-				return;
 			case XhtmlPackage.FLOW__TABLE:
 				getTable().clear();
 				getTable().addAll((Collection<? extends TableType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__FORM:
-				getForm().clear();
-				getForm().addAll((Collection<? extends FormType>)newValue);
 				return;
 			case XhtmlPackage.FLOW__A:
 				getA().clear();
@@ -1015,10 +817,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 			case XhtmlPackage.FLOW__MAP:
 				getMap().clear();
 				getMap().addAll((Collection<? extends MapType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__OBJECT:
-				getObject().clear();
-				getObject().addAll((Collection<? extends ObjectType>)newValue);
 				return;
 			case XhtmlPackage.FLOW__IMG:
 				getImg().clear();
@@ -1096,42 +894,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				getSup().clear();
 				getSup().addAll((Collection<? extends SupType>)newValue);
 				return;
-			case XhtmlPackage.FLOW__INPUT:
-				getInput().clear();
-				getInput().addAll((Collection<? extends InputType1>)newValue);
-				return;
-			case XhtmlPackage.FLOW__SELECT:
-				getSelect().clear();
-				getSelect().addAll((Collection<? extends SelectType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__TEXTAREA:
-				getTextarea().clear();
-				getTextarea().addAll((Collection<? extends TextareaType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__LABEL:
-				getLabel().clear();
-				getLabel().addAll((Collection<? extends LabelType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__BUTTON:
-				getButton().clear();
-				getButton().addAll((Collection<? extends ButtonType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__NOSCRIPT:
-				getNoscript().clear();
-				getNoscript().addAll((Collection<? extends NoscriptType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__INS:
-				getIns().clear();
-				getIns().addAll((Collection<? extends InsType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__DEL:
-				getDel().clear();
-				getDel().addAll((Collection<? extends DelType>)newValue);
-				return;
-			case XhtmlPackage.FLOW__SCRIPT:
-				getScript().clear();
-				getScript().addAll((Collection<? extends ScriptType>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1195,14 +957,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 			case XhtmlPackage.FLOW__ADDRESS:
 				getAddress().clear();
 				return;
-			case XhtmlPackage.FLOW__FIELDSET:
-				getFieldset().clear();
-				return;
 			case XhtmlPackage.FLOW__TABLE:
 				getTable().clear();
-				return;
-			case XhtmlPackage.FLOW__FORM:
-				getForm().clear();
 				return;
 			case XhtmlPackage.FLOW__A:
 				getA().clear();
@@ -1218,9 +974,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return;
 			case XhtmlPackage.FLOW__MAP:
 				getMap().clear();
-				return;
-			case XhtmlPackage.FLOW__OBJECT:
-				getObject().clear();
 				return;
 			case XhtmlPackage.FLOW__IMG:
 				getImg().clear();
@@ -1279,33 +1032,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 			case XhtmlPackage.FLOW__SUP:
 				getSup().clear();
 				return;
-			case XhtmlPackage.FLOW__INPUT:
-				getInput().clear();
-				return;
-			case XhtmlPackage.FLOW__SELECT:
-				getSelect().clear();
-				return;
-			case XhtmlPackage.FLOW__TEXTAREA:
-				getTextarea().clear();
-				return;
-			case XhtmlPackage.FLOW__LABEL:
-				getLabel().clear();
-				return;
-			case XhtmlPackage.FLOW__BUTTON:
-				getButton().clear();
-				return;
-			case XhtmlPackage.FLOW__NOSCRIPT:
-				getNoscript().clear();
-				return;
-			case XhtmlPackage.FLOW__INS:
-				getIns().clear();
-				return;
-			case XhtmlPackage.FLOW__DEL:
-				getDel().clear();
-				return;
-			case XhtmlPackage.FLOW__SCRIPT:
-				getScript().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1352,12 +1078,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return !getBlockquote().isEmpty();
 			case XhtmlPackage.FLOW__ADDRESS:
 				return !getAddress().isEmpty();
-			case XhtmlPackage.FLOW__FIELDSET:
-				return !getFieldset().isEmpty();
 			case XhtmlPackage.FLOW__TABLE:
 				return !getTable().isEmpty();
-			case XhtmlPackage.FLOW__FORM:
-				return !getForm().isEmpty();
 			case XhtmlPackage.FLOW__A:
 				return !getA().isEmpty();
 			case XhtmlPackage.FLOW__BR:
@@ -1368,8 +1090,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return !getBdo().isEmpty();
 			case XhtmlPackage.FLOW__MAP:
 				return !getMap().isEmpty();
-			case XhtmlPackage.FLOW__OBJECT:
-				return !getObject().isEmpty();
 			case XhtmlPackage.FLOW__IMG:
 				return !getImg().isEmpty();
 			case XhtmlPackage.FLOW__TT:
@@ -1408,24 +1128,6 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 				return !getSub().isEmpty();
 			case XhtmlPackage.FLOW__SUP:
 				return !getSup().isEmpty();
-			case XhtmlPackage.FLOW__INPUT:
-				return !getInput().isEmpty();
-			case XhtmlPackage.FLOW__SELECT:
-				return !getSelect().isEmpty();
-			case XhtmlPackage.FLOW__TEXTAREA:
-				return !getTextarea().isEmpty();
-			case XhtmlPackage.FLOW__LABEL:
-				return !getLabel().isEmpty();
-			case XhtmlPackage.FLOW__BUTTON:
-				return !getButton().isEmpty();
-			case XhtmlPackage.FLOW__NOSCRIPT:
-				return !getNoscript().isEmpty();
-			case XhtmlPackage.FLOW__INS:
-				return !getIns().isEmpty();
-			case XhtmlPackage.FLOW__DEL:
-				return !getDel().isEmpty();
-			case XhtmlPackage.FLOW__SCRIPT:
-				return !getScript().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

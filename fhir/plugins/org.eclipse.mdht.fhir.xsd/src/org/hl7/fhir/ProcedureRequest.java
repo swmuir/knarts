@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -40,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProcedureRequest#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getAsNeededBoolean <em>As Needed Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedureRequest#getAsNeededCodeableConcept <em>As Needed Codeable Concept</em>}</li>
@@ -349,6 +340,22 @@ public interface ProcedureRequest extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(ProcedureRequestStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Supporting Info</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Information that may be needed by/relevant to the performer in their execution of this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supporting Info</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedureRequest_SupportingInfo()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportingInfo' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSupportingInfo();
 
 	/**
 	 * Returns the value of the '<em><b>Notes</b></em>' containment reference list.

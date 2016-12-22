@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -28,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.ContractAgent;
@@ -52,6 +43,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getApplies <em>Applies</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getSubject <em>Subject</em>}</li>
@@ -85,6 +77,16 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * @ordered
 	 */
 	protected Identifier identifier;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected Code status;
 
 	/**
 	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
@@ -336,6 +338,49 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Code getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(Code newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -731,6 +776,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 		switch (featureID) {
 			case FhirPackage.CONTRACT__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
+			case FhirPackage.CONTRACT__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.CONTRACT__ISSUED:
 				return basicSetIssued(null, msgs);
 			case FhirPackage.CONTRACT__APPLIES:
@@ -783,6 +830,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 		switch (featureID) {
 			case FhirPackage.CONTRACT__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.CONTRACT__STATUS:
+				return getStatus();
 			case FhirPackage.CONTRACT__ISSUED:
 				return getIssued();
 			case FhirPackage.CONTRACT__APPLIES:
@@ -836,6 +885,9 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 		switch (featureID) {
 			case FhirPackage.CONTRACT__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.CONTRACT__STATUS:
+				setStatus((Code)newValue);
 				return;
 			case FhirPackage.CONTRACT__ISSUED:
 				setIssued((DateTime)newValue);
@@ -923,6 +975,9 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 			case FhirPackage.CONTRACT__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
+			case FhirPackage.CONTRACT__STATUS:
+				setStatus((Code)null);
+				return;
 			case FhirPackage.CONTRACT__ISSUED:
 				setIssued((DateTime)null);
 				return;
@@ -994,6 +1049,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 		switch (featureID) {
 			case FhirPackage.CONTRACT__IDENTIFIER:
 				return identifier != null;
+			case FhirPackage.CONTRACT__STATUS:
+				return status != null;
 			case FhirPackage.CONTRACT__ISSUED:
 				return issued != null;
 			case FhirPackage.CONTRACT__APPLIES:

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -29,9 +19,11 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.hl7.fhir.ValueSetContains#getInactive <em>Inactive</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getDisplay <em>Display</em>}</li>
+ *   <li>{@link org.hl7.fhir.ValueSetContains#getDesignation <em>Designation</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetContains#getContains <em>Contains</em>}</li>
  * </ul>
  *
@@ -91,6 +83,32 @@ public interface ValueSetContains extends BackboneElement {
 	 * @generated
 	 */
 	void setAbstract(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Inactive</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Inactive</em>' containment reference.
+	 * @see #setInactive(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getValueSetContains_Inactive()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='inactive' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getInactive();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ValueSetContains#getInactive <em>Inactive</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inactive</em>' containment reference.
+	 * @see #getInactive()
+	 * @generated
+	 */
+	void setInactive(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
@@ -169,6 +187,22 @@ public interface ValueSetContains extends BackboneElement {
 	 * @generated
 	 */
 	void setDisplay(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Designation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ValueSetDesignation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Designation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getValueSetContains_Designation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='designation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ValueSetDesignation> getDesignation();
 
 	/**
 	 * Returns the value of the '<em><b>Contains</b></em>' containment reference list.

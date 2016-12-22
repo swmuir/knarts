@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir;
@@ -31,6 +21,36 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ActivityDefinitionCategoryList implements Enumerator {
 	/**
+	 * The '<em><b>Communication</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMMUNICATION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMMUNICATION(0, "communication", "communication"),
+
+	/**
+	 * The '<em><b>Device</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DEVICE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DEVICE(1, "device", "device"),
+
+	/**
+	 * The '<em><b>Diagnostic</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DIAGNOSTIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DIAGNOSTIC(2, "diagnostic", "diagnostic"),
+
+	/**
 	 * The '<em><b>Diet</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +58,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIET(0, "diet", "diet"),
+	DIET(3, "diet", "diet"),
 
 	/**
 	 * The '<em><b>Drug</b></em>' literal object.
@@ -48,7 +68,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DRUG(1, "drug", "drug"),
+	DRUG(4, "drug", "drug"),
 
 	/**
 	 * The '<em><b>Encounter</b></em>' literal object.
@@ -58,7 +78,17 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENCOUNTER(2, "encounter", "encounter"),
+	ENCOUNTER(5, "encounter", "encounter"),
+
+	/**
+	 * The '<em><b>Immunization</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IMMUNIZATION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IMMUNIZATION(6, "immunization", "immunization"),
 
 	/**
 	 * The '<em><b>Observation</b></em>' literal object.
@@ -68,7 +98,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OBSERVATION(3, "observation", "observation"),
+	OBSERVATION(7, "observation", "observation"),
 
 	/**
 	 * The '<em><b>Procedure</b></em>' literal object.
@@ -78,7 +108,17 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROCEDURE(4, "procedure", "procedure"),
+	PROCEDURE(8, "procedure", "procedure"),
+
+	/**
+	 * The '<em><b>Referral</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REFERRAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REFERRAL(9, "referral", "referral"),
 
 	/**
 	 * The '<em><b>Supply</b></em>' literal object.
@@ -88,7 +128,17 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUPPLY(5, "supply", "supply"),
+	SUPPLY(10, "supply", "supply"),
+
+	/**
+	 * The '<em><b>Vision</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #VISION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	VISION(11, "vision", "vision"),
 
 	/**
 	 * The '<em><b>Other</b></em>' literal object.
@@ -98,7 +148,49 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(6, "other", "other");
+	OTHER(12, "other", "other");
+
+	/**
+	 * The '<em><b>Communication</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Communication
+	 * <!-- end-model-doc -->
+	 * @see #COMMUNICATION
+	 * @model name="communication"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMUNICATION_VALUE = 0;
+
+	/**
+	 * The '<em><b>Device</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Device
+	 * <!-- end-model-doc -->
+	 * @see #DEVICE
+	 * @model name="device"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DEVICE_VALUE = 1;
+
+	/**
+	 * The '<em><b>Diagnostic</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Diagnostic
+	 * <!-- end-model-doc -->
+	 * @see #DIAGNOSTIC
+	 * @model name="diagnostic"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DIAGNOSTIC_VALUE = 2;
 
 	/**
 	 * The '<em><b>Diet</b></em>' literal value.
@@ -112,7 +204,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DIET_VALUE = 0;
+	public static final int DIET_VALUE = 3;
 
 	/**
 	 * The '<em><b>Drug</b></em>' literal value.
@@ -126,7 +218,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DRUG_VALUE = 1;
+	public static final int DRUG_VALUE = 4;
 
 	/**
 	 * The '<em><b>Encounter</b></em>' literal value.
@@ -140,7 +232,21 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENCOUNTER_VALUE = 2;
+	public static final int ENCOUNTER_VALUE = 5;
+
+	/**
+	 * The '<em><b>Immunization</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Immunization
+	 * <!-- end-model-doc -->
+	 * @see #IMMUNIZATION
+	 * @model name="immunization"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IMMUNIZATION_VALUE = 6;
 
 	/**
 	 * The '<em><b>Observation</b></em>' literal value.
@@ -154,7 +260,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OBSERVATION_VALUE = 3;
+	public static final int OBSERVATION_VALUE = 7;
 
 	/**
 	 * The '<em><b>Procedure</b></em>' literal value.
@@ -168,7 +274,21 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROCEDURE_VALUE = 4;
+	public static final int PROCEDURE_VALUE = 8;
+
+	/**
+	 * The '<em><b>Referral</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Referral
+	 * <!-- end-model-doc -->
+	 * @see #REFERRAL
+	 * @model name="referral"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REFERRAL_VALUE = 9;
 
 	/**
 	 * The '<em><b>Supply</b></em>' literal value.
@@ -182,7 +302,21 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUPPLY_VALUE = 5;
+	public static final int SUPPLY_VALUE = 10;
+
+	/**
+	 * The '<em><b>Vision</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Vision
+	 * <!-- end-model-doc -->
+	 * @see #VISION
+	 * @model name="vision"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int VISION_VALUE = 11;
 
 	/**
 	 * The '<em><b>Other</b></em>' literal value.
@@ -196,7 +330,7 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OTHER_VALUE = 6;
+	public static final int OTHER_VALUE = 12;
 
 	/**
 	 * An array of all the '<em><b>Activity Definition Category List</b></em>' enumerators.
@@ -206,12 +340,18 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 */
 	private static final ActivityDefinitionCategoryList[] VALUES_ARRAY =
 		new ActivityDefinitionCategoryList[] {
+			COMMUNICATION,
+			DEVICE,
+			DIAGNOSTIC,
 			DIET,
 			DRUG,
 			ENCOUNTER,
+			IMMUNIZATION,
 			OBSERVATION,
 			PROCEDURE,
+			REFERRAL,
 			SUPPLY,
+			VISION,
 			OTHER,
 		};
 
@@ -269,12 +409,18 @@ public enum ActivityDefinitionCategoryList implements Enumerator {
 	 */
 	public static ActivityDefinitionCategoryList get(int value) {
 		switch (value) {
+			case COMMUNICATION_VALUE: return COMMUNICATION;
+			case DEVICE_VALUE: return DEVICE;
+			case DIAGNOSTIC_VALUE: return DIAGNOSTIC;
 			case DIET_VALUE: return DIET;
 			case DRUG_VALUE: return DRUG;
 			case ENCOUNTER_VALUE: return ENCOUNTER;
+			case IMMUNIZATION_VALUE: return IMMUNIZATION;
 			case OBSERVATION_VALUE: return OBSERVATION;
 			case PROCEDURE_VALUE: return PROCEDURE;
+			case REFERRAL_VALUE: return REFERRAL;
 			case SUPPLY_VALUE: return SUPPLY;
+			case VISION_VALUE: return VISION;
 			case OTHER_VALUE: return OTHER;
 		}
 		return null;

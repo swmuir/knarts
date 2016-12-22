@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2016 David Carlson and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     David Carlson (Clinical Cloud Solutions, LLC) - initial API and implementation
- *******************************************************************************/
 /**
  */
 package org.hl7.fhir.impl;
@@ -35,6 +25,7 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
+import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
@@ -63,6 +54,7 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getRequestedPeriod <em>Requested Period</em>}</li>
  * </ul>
  *
  * @generated
@@ -227,6 +219,16 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * @ordered
 	 */
 	protected EList<AppointmentParticipant> participant;
+
+	/**
+	 * The cached value of the '{@link #getRequestedPeriod() <em>Requested Period</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestedPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Period> requestedPeriod;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -785,6 +787,18 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Period> getRequestedPeriod() {
+		if (requestedPeriod == null) {
+			requestedPeriod = new EObjectContainmentEList<Period>(Period.class, this, FhirPackage.APPOINTMENT__REQUESTED_PERIOD);
+		}
+		return requestedPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -820,6 +834,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return basicSetComment(null, msgs);
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
+			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
+				return ((InternalEList<?>)getRequestedPeriod()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -864,6 +880,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return getComment();
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return getParticipant();
+			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
+				return getRequestedPeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -930,6 +948,10 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				getParticipant().clear();
 				getParticipant().addAll((Collection<? extends AppointmentParticipant>)newValue);
 				return;
+			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
+				getRequestedPeriod().clear();
+				getRequestedPeriod().addAll((Collection<? extends Period>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -990,6 +1012,9 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				getParticipant().clear();
 				return;
+			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
+				getRequestedPeriod().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1034,6 +1059,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return comment != null;
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return participant != null && !participant.isEmpty();
+			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
+				return requestedPeriod != null && !requestedPeriod.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
