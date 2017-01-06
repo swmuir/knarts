@@ -11,7 +11,7 @@
 package org.eclipse.mdht.uml.cda.impl;
 
 import java.util.HashMap;
-import java.util.ListIterator;
+import java.util.Stack;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.mdht.uml.cda.CDAPackage;
@@ -170,19 +169,20 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	 */
 	private void parse() {
 
-		ListIterator<Entry> contens = getMixed().listIterator();
-		while (contens.hasNext()) {
-			Entry entry = contens.next();
-			if (entry.getEStructuralFeature() instanceof EReference) {
-				AnyType anyType = (AnyType) entry.getValue();
-				String x = StrucDocTextOperations.getAttributeValue(anyType.getAnyAttribute(), "ID");
-
-				if (x != null) {
-					textHash.put(x, anyType);
+		Stack<FeatureMap> stack = new Stack<FeatureMap>();
+		stack.push(this.mixed);
+		while (!stack.isEmpty()) {
+			FeatureMap featureMap = stack.pop();
+			for (FeatureMap.Entry entry : featureMap) {
+				if (entry.getEStructuralFeature() instanceof EReference) {
+					AnyType anyType = (AnyType) entry.getValue();
+					String x = StrucDocTextOperations.getAttributeValue(anyType.getAnyAttribute(), "ID");
+					if (x != null) {
+						textHash.put(x, anyType);
+					}
+					stack.push(anyType.getMixed());
 				}
-
 			}
-
 		}
 
 		parsed = true;
