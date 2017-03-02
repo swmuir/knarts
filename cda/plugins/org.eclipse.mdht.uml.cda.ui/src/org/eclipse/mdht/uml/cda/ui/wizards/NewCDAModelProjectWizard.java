@@ -20,7 +20,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +66,6 @@ import org.eclipse.pde.internal.ui.wizards.plugin.NewProjectCreationOperation;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.actions.CopyFilesAndFoldersOperation;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Package;
@@ -338,48 +336,49 @@ public class NewCDAModelProjectWizard extends CDAWizard {
 
 	}
 
+	private void copyDocResources(Bundle bundle, String sourcepath, IProject project) throws Exception {
+
+		Enumeration<java.net.URL> entries = bundle.findEntries(sourcepath, "*", true);
+		while (entries.hasMoreElements()) {
+			URL next = entries.nextElement();
+			// small hack to not copy over model folder to doc project
+			// @TODO modify resource folder in ui
+			if (next.getPath().contains("model")) {
+				continue;
+			}
+			IPath spath = new Path(next.getPath());
+			IPath tpath = new Path(next.getPath().replace("/resources", ""));
+			String[] segments = tpath.segments();
+
+			IFolder f = null;
+			for (int ctr = 0; ctr < segments.length - 1; ctr++) {
+				if (f == null) {
+					f = project.getFolder(tpath.segments()[ctr]);
+				} else {
+					f = f.getFolder(tpath.segments()[ctr]);
+				}
+
+				if (!f.exists()) {
+					f.create(false, true, null);
+				}
+			}
+			try {
+
+				InputStream stream = FileLocator.openStream(bundle, spath, false);
+				IFile file = project.getFile(tpath);
+				file.create(stream, true, null);
+			} catch (Exception exception) {
+				// exception.printStackTrace();
+				// catch to just continue at this point
+			}
+		}
+	}
+
 	void createDocProject(IProject project, String modelName) throws Exception {
 
-		CopyFilesAndFoldersOperation copyOperation = new CopyFilesAndFoldersOperation(this.getShell());
 		Bundle bundle = Platform.getBundle(org.eclipse.mdht.uml.cda.ui.internal.Activator.PLUGIN_ID);
-		ArrayList<java.net.URI> elements = new ArrayList<java.net.URI>();
 
-		Enumeration<java.net.URL> entries = bundle.findEntries("resources/dita", "*", true);
-
-		while (entries.hasMoreElements()) {
-
-			elements.add(FileLocator.toFileURL(new URL(bundle.getEntry("/"), entries.nextElement().getPath())).toURI());
-
-		}
-
-		java.net.URI[] ditauris = new java.net.URI[elements.size()];
-		elements.toArray(ditauris);
-		copyOperation.copyFiles(ditauris, project.getFolder(new Path("dita")));
-
-		entries = bundle.findEntries("resources/css", "*", true);
-		elements.clear();
-		while (entries.hasMoreElements()) {
-
-			elements.add(FileLocator.toFileURL(new URL(bundle.getEntry("/"), entries.nextElement().getPath())).toURI());
-
-		}
-
-		java.net.URI[] cssuris = new java.net.URI[elements.size()];
-		elements.toArray(cssuris);
-
-		copyOperation.copyFiles(cssuris, project.getFolder(new Path("css")));
-
-		entries = bundle.findEntries("resources", "dita-transform.xml", false);
-		elements.clear();
-		while (entries.hasMoreElements()) {
-
-			elements.add(FileLocator.toFileURL(new URL(bundle.getEntry("/"), entries.nextElement().getPath())).toURI());
-
-		}
-
-		java.net.URI[] transformuris = new java.net.URI[elements.size()];
-		elements.toArray(transformuris);
-		copyOperation.copyFiles(transformuris, project);
+		copyDocResources(bundle, "resources", project);
 
 		IProjectDescription description;
 
