@@ -40,9 +40,11 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Material;
 import org.eclipse.mdht.uml.cda.Patient;
+import org.eclipse.mdht.uml.cda.Person;
 import org.eclipse.mdht.uml.cda.PlayingEntity;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.StrucDocText;
@@ -55,6 +57,7 @@ import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
 import org.eclipse.mdht.uml.hl7.datatypes.EN;
 import org.eclipse.mdht.uml.hl7.datatypes.ENXP;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.PN;
 import org.eclipse.mdht.uml.hl7.datatypes.TEL;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -174,6 +177,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	public String getKey(EN pn) {
 
 		if (pn.getText() != null && pn.getText().trim().length() > 0) {
+			System.out.println(pn.getText());
 			names.add(pn.getText());
 			return pn.getText();
 		}
@@ -250,7 +254,13 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			@Override
 			public boolean accept(II ii) {
 
+				// System.out.println("IISI " + );
+
 				if (ii.isNullFlavorDefined()) {
+					return false;
+				}
+
+				if ("templateId".equals(ii.eContainingFeature().getName())) {
 					return false;
 				}
 
@@ -276,10 +286,19 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		};
 		query.getEObjects(II.class, iiFilter);
 
-		Filter<EN> enFilter = new Filter<EN>() {
+		Filter<PN> enFilter = new Filter<PN>() {
 
 			@Override
-			public boolean accept(EN pn) {
+			public boolean accept(PN pn) {
+
+				// System.out.println(pn.eContainingFeature().getName());
+				//
+				// System.out.println(pn.eContainer().eContainingFeature().getName());
+
+				if (pn.eContainer() != null &&
+						"assignedPerson".equals(pn.eContainer().eContainingFeature().getName())) {
+					return false;
+				}
 
 				if (pn.eContainer() instanceof Material) {
 					return false;
@@ -291,6 +310,21 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				if (pn.eContainer() instanceof PlayingEntity) {
 					return false;
 				}
+
+				if (pn.eContainer() instanceof Person && pn.eContainer().eContainer() instanceof AssignedAuthor) {
+					return false;
+				}
+
+				// if (pn.eContainer() instanceOf AssignedPerson) {
+				//
+				// }
+				// Performer2 asfasdf;
+				//
+				// asfasdf.getAssignedEntity().getAssignedPerson().getNames();
+				//
+				// if (pn.eContainer() instanceof Person && pn.eContainer().eContainer() instanceof AssignedAuthor) {
+				// return false;
+				// }
 
 				String key = getKey(pn);
 
@@ -321,7 +355,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			}
 
 		};
-		query.getEObjects(EN.class, enFilter);
+		query.getEObjects(PN.class, enFilter);
 
 		Filter<AD> adFilter = new Filter<AD>() {
 
@@ -383,12 +417,23 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				if (item.isNullFlavorDefined()) {
 					return false;
 				}
-				item.setValue(RandomStringUtils.randomAlphanumeric(5));
+
+				String avalue = item.getValue();
+
+				if (!StringUtils.isEmpty(avalue) && avalue.indexOf('#') == 0) {
+					return false;
+
+				}
+
+				item.setValue(RandomStringUtils.randomAlphabetic(5));
 				return false;
 			}
 		};
 		query.getEObjects(TEL.class, telFilter);
 
+		for (String n : names) {
+			System.out.println(n);
+		}
 		Filter<Section> sectionFilter = new Filter<Section>() {
 
 			@Override
@@ -401,9 +446,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 						String newText = fa.toString();
 						for (String n : names) {
-
-							newText = newText.replace(n, RandomStringUtils.randomAlphabetic(n.length()));
-
+							if (n.length() > 1) {
+								newText = newText.replace(n, RandomStringUtils.randomAlphabetic(n.length()));
+							}
 						}
 						String s = newText.replace("<strucdoctext xmlns=\"urn:hl7-org:v3\">", "").replace(
 							"</strucdoctext>", "");
