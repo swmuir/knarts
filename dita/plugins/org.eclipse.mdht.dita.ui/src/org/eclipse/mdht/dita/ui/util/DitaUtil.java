@@ -151,6 +151,10 @@ public class DitaUtil {
 
 		Bundle bundle = Platform.getBundle("org.dita.dost");
 
+		if (bundle == null) {
+			return null;
+		}
+
 		Path path = new Path("META-INF/MANIFEST.MF");
 
 		URL fileURL = FileLocator.find(bundle, path, null);

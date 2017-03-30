@@ -28,6 +28,7 @@ import java.util.jar.Manifest;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.internal.resources.ResourceException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -358,8 +359,14 @@ public class NewCDAModelProjectWizard extends CDAWizard {
 					f = f.getFolder(tpath.segments()[ctr]);
 				}
 
-				if (!f.exists()) {
-					f.create(false, true, null);
+				try {
+					// For some reason - this logic does not work in practice
+					// so catch and ignore exceptions and hope the folders are created in the end
+					if (!f.exists()) {
+						f.create(true, true, null);
+					}
+				} catch (ResourceException re) {
+
 				}
 			}
 			try {
@@ -378,7 +385,7 @@ public class NewCDAModelProjectWizard extends CDAWizard {
 
 		Bundle bundle = Platform.getBundle(org.eclipse.mdht.uml.cda.ui.internal.Activator.PLUGIN_ID);
 
-		copyDocResources(bundle, "resources", project);
+		// copyDocResources(bundle, "resources", project);
 
 		IProjectDescription description;
 

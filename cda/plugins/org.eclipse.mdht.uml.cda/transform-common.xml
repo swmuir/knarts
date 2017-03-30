@@ -20,7 +20,7 @@
     <property name="filteredModelPath.uml" location="${basedir}/model/${modelName}_filtered.uml"/>
 	<property name="propertiesFilePath" value="${basedir}/plugin.properties" />
 	
-    <property name="validation.failOnError" value="true"/>
+    <property name="validation.failOnError" value="false"/>
 	<property name="runPostProcessing" value="false"/>
 	
 	<target name="all">
