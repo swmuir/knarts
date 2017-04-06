@@ -44,6 +44,14 @@
 			<layout>p2</layout>
 			<url>${eclipse.download}/releases/${mdht.eclipse.target}</url>
 		</repository>
+		
+		<repository>
+			<id>ccda</id>
+			<layout>p2</layout>
+			<url>http://oht-modeling.sourceforge.net/updates/ccda2</url>
+		</repository>
+		
+		
 	</repositories>
 
 	<pluginRepositories>
