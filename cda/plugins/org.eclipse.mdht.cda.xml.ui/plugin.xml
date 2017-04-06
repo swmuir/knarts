@@ -55,6 +55,9 @@
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
 			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
 		</command>
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
+			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenUsingStyleSheet">
+		</command>
 	</extension>
 
 	<extension point="org.eclipse.ui.views">
@@ -118,6 +121,23 @@
 									<and>
 										<instanceof value="org.eclipse.core.resources.IFolder" />
 									</and>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFile" />
+									</and>
+								</or>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+				
+				
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
+					label="Open CDA Document" id="org.eclipse.mdht.cda.xml.ui.menu.openCDA"
+					mnemonic="O">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="or">
+								<or>
 									<and>
 										<instanceof value="org.eclipse.core.resources.IFile" />
 									</and>
