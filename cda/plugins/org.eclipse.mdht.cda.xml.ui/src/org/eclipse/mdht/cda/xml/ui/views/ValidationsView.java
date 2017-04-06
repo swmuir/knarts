@@ -9,7 +9,7 @@
  *     Sean Muir (JKM Software) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.uml.cda.ui.views;
+package org.eclipse.mdht.cda.xml.ui.views;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,11 +22,11 @@ import java.util.Queue;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.Section;
-import org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.util.CDADiagnostic;
-import org.eclipse.mdht.uml.cda.util.ValidationResult;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.cda.util.ValidationResult;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
@@ -250,7 +250,7 @@ public class ValidationsView extends ViewPart {
 		browser = new Browser(parent, SWT.BORDER);
 		if (getSite().getPage().getPerspective() != null) {
 			for (IEditorReference editorReference : getSite().getPage().getEditorReferences()) {
-				if ("org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer".equals(editorReference.getId())) {
+				if ("org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer".equals(editorReference.getId())) {
 					CDAAnalyzer analyzer = (CDAAnalyzer) editorReference.getEditor(false);
 					if (analyzer != null) {
 						this.addTableListener(analyzer.getTable());

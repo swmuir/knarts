@@ -201,64 +201,13 @@
 				id="org.eclipse.mdht.uml.cda.ui.commands.logical.operator" name="operator" />
 		</command>
 
-		<command id="org.eclipse.mdht.uml.cda.ui.commands.analyzeCDA"
-			name="ANALYZECDA" defaultHandler="org.eclipse.mdht.uml.cda.ui.handlers.AnalyzeCDAHandler">
-		</command>
-
-
-		<command id="org.eclipse.mdht.uml.cda.ui.commands.deidentifyCDA"
-			name="DEIDENTIFYCDA" defaultHandler="org.eclipse.mdht.uml.cda.ui.handlers.DeidentifyCDAHandler">
-		</command>
-
 	</extension>
 
 	<extension point="org.eclipse.ui.menus">
 
 
 
-		<menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-
-
-			<command commandId="org.eclipse.mdht.uml.cda.ui.commands.analyzeCDA"
-				label="Analyze CDA" id="org.eclipse.mdht.uml.cda.ui.menu.analyzeCDA"
-				mnemonic="A">
-
-				<visibleWhen>
-
-					<with variable="selection">
-						<iterate>
-							<adapt type="org.eclipse.core.resources.IFolder" />
-						</iterate>
-					</with>
-
-				</visibleWhen>
-
-			</command>
-
-
-			<command commandId="org.eclipse.mdht.uml.cda.ui.commands.deidentifyCDA"
-				label="Deidentify CDA" id="org.eclipse.mdht.uml.cda.ui.menu.deidentifyCDA"
-				mnemonic="D">
-
-				<visibleWhen>
-					<with variable="selection">
-						<iterate ifEmpty="false" operator="or">
-							<or>
-								<and>
-									<instanceof value="org.eclipse.core.resources.IFolder" />
-								</and>
-								<and>
-									<instanceof value="org.eclipse.core.resources.IFile" />
-								</and>
-
-							</or>
-
-						</iterate>
-					</with>
-				</visibleWhen>
-			</command>
-
-		</menuContribution>
+	
 
 
 		<menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=group.new">
@@ -405,46 +354,9 @@
 		</wizard>
 	</extension>
 
-	<extension point="org.eclipse.ui.views">
-		<category name="CDA Analysis" id="cdaanalysis">
-		</category>
-		<view name="Section Entries" icon="icons/analyzer/analysis.ico"
-			category="cdaanalysis" class="org.eclipse.mdht.uml.cda.ui.views.EntriesView"
-			id="org.eclipse.mdht.uml.cda.ui.views.entriesview">
-
-		</view>
-
-		<view name="Section Narrative" icon="icons/analyzer/analysis.ico"
-			category="cdaanalysis" class="org.eclipse.mdht.uml.cda.ui.views.NarrativeView"
-			id="org.eclipse.mdht.uml.cda.ui.views.narrativeview">
-		</view>
-
-		<view name="Section Issues" icon="icons/analyzer/analysis.ico"
-			category="cdaanalysis" class="org.eclipse.mdht.uml.cda.ui.views.ValidationsView"
-			id="org.eclipse.mdht.uml.cda.ui.views.validationsview">
-		</view>
-
-		<view name="Document Metrics Details" icon="icons/analyzer/analysis.ico"
-			category="cdaanalysis" class="org.eclipse.mdht.uml.cda.ui.views.MetricsView"
-			id="org.eclipse.mdht.uml.cda.ui.views.metricsview">
-		</view>
-
-	</extension>
 
 
-	<extension point="org.eclipse.ui.editors">
-		<editor class="org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer"
-			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-			extensions="xml" icon="icons/analyzer/sample.gif"
-			id="org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer" name="CDA Analyzer">
-		</editor>
 
-		<editor class="org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer2"
-			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-			extensions="xml" icon="icons/analyzer/sample.gif"
-			id="org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer2" name="CDA Metrics">
-		</editor>
-	</extension>
 
 	<extension point="org.eclipse.ui.preferencePages">
 		<page id="org.eclipse.mdht.uml.cda.ui.editors.Page1" class="org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferences"

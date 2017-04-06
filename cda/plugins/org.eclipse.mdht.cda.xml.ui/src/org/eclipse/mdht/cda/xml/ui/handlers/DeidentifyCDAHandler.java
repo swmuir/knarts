@@ -9,7 +9,7 @@
  *     seanmuir - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.uml.cda.ui.handlers;
+package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -32,7 +32,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
@@ -51,7 +50,6 @@ import org.eclipse.mdht.uml.cda.StrucDocText;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
-import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
 import org.eclipse.mdht.uml.hl7.datatypes.EN;
@@ -177,7 +175,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	public String getKey(EN pn) {
 
 		if (pn.getText() != null && pn.getText().trim().length() > 0) {
-			System.out.println(pn.getText());
 			names.add(pn.getText());
 			return pn.getText();
 		}
@@ -226,25 +223,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-		ValidationHandler handler = new ValidationHandler() {
-
-			@Override
-			public void handleError(Diagnostic diagnostic) {
-
-			}
-
-			@Override
-			public void handleWarning(Diagnostic diagnostic) {
-
-			}
-
-			@Override
-			public void handleInfo(Diagnostic diagnostic) {
-
-			}
-		};
-
-		ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI, handler);
+		ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
 
 		Query query = new Query(clinicalDocument);
 
@@ -253,8 +232,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 			@Override
 			public boolean accept(II ii) {
-
-				// System.out.println("IISI " + );
 
 				if (ii.isNullFlavorDefined()) {
 					return false;
@@ -291,10 +268,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			@Override
 			public boolean accept(PN pn) {
 
-				// System.out.println(pn.eContainingFeature().getName());
-				//
-				// System.out.println(pn.eContainer().eContainingFeature().getName());
-
 				if (pn.eContainer() != null &&
 						"assignedPerson".equals(pn.eContainer().eContainingFeature().getName())) {
 					return false;
@@ -314,17 +287,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				if (pn.eContainer() instanceof Person && pn.eContainer().eContainer() instanceof AssignedAuthor) {
 					return false;
 				}
-
-				// if (pn.eContainer() instanceOf AssignedPerson) {
-				//
-				// }
-				// Performer2 asfasdf;
-				//
-				// asfasdf.getAssignedEntity().getAssignedPerson().getNames();
-				//
-				// if (pn.eContainer() instanceof Person && pn.eContainer().eContainer() instanceof AssignedAuthor) {
-				// return false;
-				// }
 
 				String key = getKey(pn);
 
@@ -431,9 +393,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		};
 		query.getEObjects(TEL.class, telFilter);
 
-		for (String n : names) {
-			System.out.println(n);
-		}
 		Filter<Section> sectionFilter = new Filter<Section>() {
 
 			@Override

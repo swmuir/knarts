@@ -9,8 +9,10 @@
  *     Sean Muir (JKM Software) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.uml.cda.ui.views;
+package org.eclipse.mdht.cda.xml.ui.views;
 
+import org.apache.commons.lang.StringUtils;
+import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.ClinicalStatement;
 import org.eclipse.mdht.uml.cda.Component4;
@@ -22,11 +24,11 @@ import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.Procedure;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.SubstanceAdministration;
-import org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.TS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
@@ -268,6 +270,15 @@ public class EntriesView extends ViewPart {
 		return result;
 	}
 
+	private static String getValue(TS xxx) {
+
+		if (xxx != null && !StringUtils.isEmpty(xxx.getValue())) {
+			return xxx.getValue();
+		}
+
+		return "";
+	}
+
 	private static StringBuffer getActDetails(Act act) {
 
 		StringBuffer result = new StringBuffer();
@@ -279,6 +290,14 @@ public class EntriesView extends ViewPart {
 		for (II ii : act.getIds()) {
 			result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
 		}
+
+		result.append("<tr>");
+		if (act.getEffectiveTime() != null) {
+			result.append("<td>").append(getValue(act.getEffectiveTime().getLow())).append("</td>");
+			result.append("<td>").append(getValue(act.getEffectiveTime().getCenter())).append("</td>");
+			result.append("<td>").append(getValue(act.getEffectiveTime().getHigh())).append("</td>");
+		}
+		result.append("</tr>");
 
 		result.append(
 			"<tr><td colspan=\"30\" ><table  width=\"100%\"  ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
@@ -431,7 +450,7 @@ public class EntriesView extends ViewPart {
 		browser = new Browser(parent, SWT.BORDER);
 		if (getSite().getPage().getPerspective() != null) {
 			for (IEditorReference editorReference : getSite().getPage().getEditorReferences()) {
-				if ("org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer".equals(editorReference.getId())) {
+				if ("org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer".equals(editorReference.getId())) {
 					CDAAnalyzer analyzer = (CDAAnalyzer) editorReference.getEditor(false);
 					if (analyzer != null) {
 						this.addTableListener(analyzer.getTable());

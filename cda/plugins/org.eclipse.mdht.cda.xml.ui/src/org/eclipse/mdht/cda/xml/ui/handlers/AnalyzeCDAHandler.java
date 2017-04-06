@@ -9,7 +9,7 @@
  *     seanmuir - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.uml.cda.ui.handlers;
+package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -38,13 +38,11 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Section;
-import org.eclipse.mdht.uml.cda.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
-import org.eclipse.mdht.uml.common.ui.dialogs.SubclassEditorViewContentProvider;
-import org.eclipse.mdht.uml.common.ui.dialogs.SubclassEditorViewLabelProvider;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
@@ -61,13 +59,13 @@ import org.eclipse.ui.handlers.HandlerUtil;
  */
 public class AnalyzeCDAHandler extends AbstractHandler {
 
-	protected SubclassEditorViewContentProvider getContentProvider() {
-		return new SubclassEditorViewContentProvider();
-	}
-
-	protected SubclassEditorViewLabelProvider getLabelProvider() {
-		return new SubclassEditorViewLabelProvider();
-	}
+	// protected SubclassEditorViewContentProvider getContentProvider() {
+	// return new SubclassEditorViewContentProvider();
+	// }
+	//
+	// protected SubclassEditorViewLabelProvider getLabelProvider() {
+	// return new SubclassEditorViewLabelProvider();
+	// }
 
 	public static class CDAAnalaysisInput implements IEditorInput {
 
@@ -252,7 +250,7 @@ public class AnalyzeCDAHandler extends AbstractHandler {
 				IWorkbenchPage page = win.getActivePage();
 
 				IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().findEditor(
-					"org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer2");
+					"org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer2");
 
 				page.openEditor(cdaAnalaysisInput, desc.getId());
 				//

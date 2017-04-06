@@ -13,9 +13,18 @@ Require-Bundle: org.eclipse.ui;visibility:=reexport,
  org.eclipse.wst.xml.core;visibility:=reexport,
  org.eclipse.wst.validation;visibility:=reexport,
  org.eclipse.mdht.uml.cda;visibility:=reexport,
- org.eclipse.mdht.uml.cda.ui;visibility:=reexport,
  org.eclipse.debug.core;visibility:=reexport,
  org.eclipse.jdt.launching;visibility:=reexport,
- org.eclipse.debug.ui;visibility:=reexport
+ org.eclipse.debug.ui;visibility:=reexport,
+ org.apache.commons.lang,
+ org.apache.poi;bundle-version="3.9.0",
+ org.apache.poi.ooxml;bundle-version="3.9.0",
+ org.apache.poi.ooxml.schemas;bundle-version="3.9.0",
+ org.openhealthtools.mdht.uml.cda.consol2;resolution:=optional,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.views,
+ org.eclipse.mdht.uml.cda.ui,
+ org.eclipse.core.expressions
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

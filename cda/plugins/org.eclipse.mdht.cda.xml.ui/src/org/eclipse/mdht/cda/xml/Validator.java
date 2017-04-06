@@ -43,6 +43,7 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.uml.cda.DocumentRoot;
 import org.eclipse.mdht.uml.cda.ui.util.DocumentClassDialog;
+//import org.eclipse.mdht.uml.cda.ui.util.DocumentClassDialog;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.validate.XPathIndexer;
 import org.eclipse.wst.validation.ValidationResult;

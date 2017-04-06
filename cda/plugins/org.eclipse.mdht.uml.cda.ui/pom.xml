@@ -12,5 +12,31 @@
   <artifactId>org.eclipse.mdht.uml.cda.ui</artifactId>
  
   <packaging>eclipse-plugin</packaging>
+  
+  <dependencies>
+  <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>3.10-FINAL</version>
+    </dependency>
+  </dependencies>
+  
+   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>bundle-manifest</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
  
 </project>

@@ -9,21 +9,17 @@
  *     Sean Muir (JKM Software) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.uml.cda.ui.editors;
+package org.eclipse.mdht.cda.xml.ui.editors;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CheckboxCellEditor;
@@ -40,6 +36,13 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler;
+import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput;
+import org.eclipse.mdht.cda.xml.ui.internal.Logger;
+import org.eclipse.mdht.cda.xml.ui.views.EntriesView;
+import org.eclipse.mdht.cda.xml.ui.views.MetricsView;
+import org.eclipse.mdht.cda.xml.ui.views.NarrativeView;
+import org.eclipse.mdht.cda.xml.ui.views.ValidationsView;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.ClinicalStatement;
@@ -56,12 +59,7 @@ import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.StructuredBody;
 import org.eclipse.mdht.uml.cda.SubstanceAdministration;
 import org.eclipse.mdht.uml.cda.Supply;
-import org.eclipse.mdht.uml.cda.ui.internal.Logger;
-import org.eclipse.mdht.uml.cda.ui.views.EntriesView;
-import org.eclipse.mdht.uml.cda.ui.views.NarrativeView;
-import org.eclipse.mdht.uml.cda.ui.views.ValidationsView;
 import org.eclipse.mdht.uml.cda.util.CDASwitch;
-import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage;
@@ -69,6 +67,8 @@ import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
 import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -76,18 +76,24 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
-public class CDAAnalyzer extends EditorPart {
+public class CDAAnalyzer2 extends EditorPart {
 
 	/**
 	 * @return the table
@@ -136,7 +142,7 @@ public class CDAAnalyzer extends EditorPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "org.eclipse.mdht.uml.cda.ui.editors.CDAAnalyzer";
+	public static final String ID = "org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer";
 
 	private TableViewer viewer;
 
@@ -179,24 +185,9 @@ public class CDAAnalyzer extends EditorPart {
 
 		public Object[] getElements(Object parent) {
 
-			ArrayList<Section> sections = (ArrayList<Section>) EcoreUtil.copyAll(cd.getSections());
-
-			Collections.sort(sections, new Comparator<Section>() {
-
-				public int compare(Section arg0, Section arg1) {
-					if (arg0.getTitle() != null && arg0.getTitle().getText() != null && arg1.getTitle() != null &&
-							arg1.getTitle().getText() != null) {
-						return arg0.getTitle().getText().toUpperCase().compareTo(
-							arg1.getTitle().getText().toUpperCase());
-					} else {
-						return 0;
-					}
-				}
-			});
-
 			ArrayList<Object> r = new ArrayList<Object>();
 
-			r.addAll(sections);
+			r.addAll(cdaAnalaysisInput.getMetrics());
 
 			return r.toArray();
 		}
@@ -245,63 +236,35 @@ public class CDAAnalyzer extends EditorPart {
 	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 		public String getColumnText(Object obj, int index) {
 
-			CountValidations countValidations = null; // new CountValidations();
-
-			if (obj instanceof Section) {
-
-				Section section = (Section) obj;
-
-				if (!validations.containsKey(section)) {
-
-					countValidations = new CountValidations();
-
-					try {
-						Diagnostic diagnostic = Diagnostician.INSTANCE.validate(((Section) obj));
-
-						if (diagnostic.getChildren().size() > 0) {
-							processDiagnostic(diagnostic, countValidations);
-						}
-					} catch (Throwable iae) {
-						iae.printStackTrace();
-					}
-
-					validations.put(section, countValidations);
-
-				}
-
-				countValidations = validations.get(section);
+			if (obj instanceof org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics) {
+				org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics cdaMetrics = (org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics) obj;
 
 				switch (index) {
 					case 0:
-						if (countValidations.getErrors() > 0) {
+						if (cdaMetrics.totalErrors > 0) {
 							return "X";
 						} else {
 							return "";
 						}
+					case 1:
+						return cdaMetrics.fileName;
 					case 2:
-						return String.format("%d", section.getEntries().size());
+						return Integer.toString(cdaMetrics.totalErrors);
 					case 3:
-						return Integer.toString(countValidations.getTotal());
+						return Integer.toString(cdaMetrics.totalSections);
 					case 4:
-						return Integer.toString(countValidations.getErrors());
+						return Integer.toString(cdaMetrics.totalEntries);
 					case 5:
-						return Integer.toString(countValidations.getWarnings());
+						return Integer.toString(cdaMetrics.totalClinicalStatements);
 					case 6:
-						return Integer.toString(countValidations.getInformational());
-					default:
-						if (((Section) obj).getTitle() != null && ((Section) obj).getTitle().getText() != null) {
-							return ((Section) obj).getTitle().getText().toUpperCase();
-						} else {
-							String templateIds = "";
-							for (II ii : ((Section) obj).getTemplateIds()) {
-								templateIds += ii.getRoot();
-							}
-							return obj.getClass().getSimpleName() + " Missing Title, " + templateIds;
-						}
+						return Integer.toString(cdaMetrics.totalCodedElements);
+					case 7:
+						return Integer.toString(cdaMetrics.totalCodedMetrics) + " out of " +
+								Integer.toString(cdaMetrics.codedMetricsCount);
 				}
 			}
 
-			return getText(obj);
+			return "xxx";
 		}
 
 		@Override
@@ -333,15 +296,8 @@ public class CDAAnalyzer extends EditorPart {
 	/**
 	 * The constructor.
 	 */
-	public CDAAnalyzer() {
+	public CDAAnalyzer2() {
 	}
-
-	/**
-	 * This is a callback that will allow us
-	 * to create the viewer and initialize it.
-	 */
-
-	ClinicalDocument cd = null;
 
 	@Override
 	public void createPartControl(Composite parent) {
@@ -349,6 +305,48 @@ public class CDAAnalyzer extends EditorPart {
 		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
 		table = new Table(parent, style);
+
+		MouseListener listener = new MouseListener() {
+
+			public void mouseDoubleClick(MouseEvent e) {
+				int[] selectedIndexes = table.getSelectionIndices();
+				for (int i : selectedIndexes) {
+					TableItem ti = table.getItem(i);
+
+					if (ti.getData() instanceof org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics) {
+						org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics cdaMetrics = (org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics) ti.getData();
+						;
+
+						IWorkbench wb = PlatformUI.getWorkbench();
+						IWorkbenchWindow win = wb.getActiveWorkbenchWindow();
+						IWorkbenchPage page = win.getActivePage();
+
+						IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().findEditor(
+							"org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer");
+
+						try {
+							page.openEditor(new FileEditorInput(cdaMetrics.file), desc.getId());
+						} catch (PartInitException e1) {
+							;
+						}
+
+					}
+
+				}
+
+			}
+
+			public void mouseDown(MouseEvent e) {
+
+			}
+
+			public void mouseUp(MouseEvent e) {
+
+			}
+
+		};
+
+		table.addMouseListener(listener);
 
 		viewer = new TableViewer(table);
 
@@ -370,27 +368,32 @@ public class CDAAnalyzer extends EditorPart {
 		column.setWidth(20);
 
 		column = new TableColumn(table, SWT.LEFT, 1);
-		column.setText("Section");
+
+		column.setText("File Name");
 		column.setWidth(400);
 
-		column = new TableColumn(table, SWT.LEFT, 2);
-		column.setText("Structured Entries");
+		column = new TableColumn(table, SWT.CENTER, 2);
+		column.setText("Errors");
 		column.setWidth(100);
 
 		column = new TableColumn(table, SWT.CENTER, 3);
-		column.setText("Total Issues");
+		column.setText("Sections");
 		column.setWidth(80);
 
 		column = new TableColumn(table, SWT.CENTER, 4);
-		column.setText("Errors (SHALL)");
+		column.setText("Entries");
 		column.setWidth(80);
 
 		column = new TableColumn(table, SWT.CENTER, 5);
-		column.setText("Warnings (SHOULD)");
+		column.setText("Clinical Statements");
 		column.setWidth(80);
 
 		column = new TableColumn(table, SWT.CENTER, 6);
-		column.setText("Informational (MAY)");
+		column.setText("Coded Elements");
+		column.setWidth(80);
+
+		column = new TableColumn(table, SWT.CENTER, 7);
+		column.setText("Code Metrics");
 		column.setWidth(80);
 
 		// Create the cell editors
@@ -435,32 +438,17 @@ public class CDAAnalyzer extends EditorPart {
 
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
-		// viewer.setSorter(new NameSorter());
 		viewer.setInput(getSite());
 
 		try {
 
 			if (getSite().getPage().getPerspective() != null) {
+				MetricsView metricsView;
 
-				EntriesView entriesView = (EntriesView) getSite().getPage().showView(
-					"org.eclipse.mdht.uml.cda.ui.views.entriesview");
-
-				if (entriesView != null) {
-					entriesView.addTableListener(table);
-				}
-
-				ValidationsView validationsView = (ValidationsView) getSite().getPage().showView(
-					"org.eclipse.mdht.uml.cda.ui.views.validationsview");
-				if (validationsView != null) {
-					validationsView.addTableListener(table);
-				}
-
-				NarrativeView narrativeView;
-
-				narrativeView = (NarrativeView) getSite().getPage().showView(
-					"org.eclipse.mdht.uml.cda.ui.views.narrativeview");
-				if (narrativeView != null) {
-					narrativeView.addTableListener(table);
+				metricsView = (MetricsView) getSite().getPage().showView(
+					"org.eclipse.mdht.cda.xml.ui.views.metricsview");
+				if (metricsView != null) {
+					metricsView.addTableListener(table);
 				}
 			}
 
@@ -498,27 +486,43 @@ public class CDAAnalyzer extends EditorPart {
 
 	}
 
+	CDAAnalaysisInput cdaAnalaysisInput;
+
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 
 		setSite(site);
 		setInput(input);
 
+		if (input instanceof org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput) {
+
+			cdaAnalaysisInput = (CDAAnalaysisInput) input;
+
+		}
+
 		if (input instanceof IFileEditorInput) {
 			IFileEditorInput fileInput = (IFileEditorInput) input;
+			AnalyzeCDAHandler ach = new AnalyzeCDAHandler();
 
-			try {
-				if (cd == null) {
-					cd = CDAUtil.load(new FileInputStream(fileInput.getFile().getLocation().toOSString()));
-					setPartName(String.format("Analysis of %s", fileInput.getName()));
-				}
-			} catch (FileNotFoundException e) {
-
-				e.printStackTrace();
-			} catch (Exception e) {
-
-				e.printStackTrace();
+			if (fileInput.getFile().getParent() instanceof IFolder) {
+				IFolder folder = (IFolder) fileInput.getFile().getParent();
+				ach.codeMetricsFile = folder.getFile("codemetrics.cfg");
+			} else {
+				ach.codeMetricsFile = null;
 			}
+
+			// try {
+
+			cdaAnalaysisInput = new CDAAnalaysisInput();
+			cdaAnalaysisInput.getMetrics().add(ach.analyzePluginMode(fileInput.getFile()));
+
+			// } catch (FileNotFoundException e) {
+			//
+			// e.printStackTrace();
+			// } catch (Exception e) {
+			//
+			// e.printStackTrace();
+			// }
 
 		}
 
@@ -677,7 +681,7 @@ public class CDAAnalyzer extends EditorPart {
 
 					};
 					contentOutlineViewer.setLabelProvider(yyy);
-					contentOutlineViewer.setInput(cd);
+					// contentOutlineViewer.setInput(cd);
 
 				}
 			}
@@ -694,21 +698,21 @@ public class CDAAnalyzer extends EditorPart {
 		super.dispose();
 
 		EntriesView entriesView = (EntriesView) getSite().getPage().findView(
-			"org.eclipse.mdht.uml.cda.ui.views.entriesview");
+			"org.eclipse.mdht.cda.xml.ui.views.entriesview");
 
 		if (entriesView != null) {
 			entriesView.clearView();
 		}
 
 		ValidationsView validationsView = (ValidationsView) getSite().getPage().findView(
-			"org.eclipse.mdht.uml.cda.ui.views.validationsview");
+			"org.eclipse.mdht.cda.xml.ui.views.validationsview");
 		if (validationsView != null) {
 			validationsView.clearView();
 		}
 
 		NarrativeView narrativeView;
 
-		narrativeView = (NarrativeView) getSite().getPage().findView("org.eclipse.mdht.uml.cda.ui.views.narrativeview");
+		narrativeView = (NarrativeView) getSite().getPage().findView("org.eclipse.mdht.cda.xml.ui.views.narrativeview");
 		if (narrativeView != null) {
 			narrativeView.clearView();
 		}

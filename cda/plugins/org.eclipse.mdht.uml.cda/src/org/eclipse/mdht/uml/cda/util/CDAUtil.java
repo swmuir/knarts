@@ -348,6 +348,10 @@ public class CDAUtil {
 		return load(CDAUtil.createResourceSet((EClass) null), uri, handler);
 	}
 
+	public static ClinicalDocument load(URI uri) throws Exception {
+		return load(CDAUtil.createResourceSet((EClass) null), uri, (ValidationHandler) null);
+	}
+
 	/**
 	 * Convenience load method for loading a CDA document as a specific type
 	 *

@@ -26,8 +26,10 @@
 		</content-type>
 	</extension>
 
-	<extension id="xml" name="CDA Validator" point="org.eclipse.wst.validation.validatorV2">
-		<validator build="false" class="org.eclipse.mdht.cda.xml.Validator" markerId="org.eclipse.mdht.cda.xml.validationMarker" manual="true">
+	<extension id="xml" name="CDA Validator"
+		point="org.eclipse.wst.validation.validatorV2">
+		<validator build="false" class="org.eclipse.mdht.cda.xml.Validator"
+			markerId="org.eclipse.mdht.cda.xml.validationMarker" manual="true">
 			<include>
 				<rules>
 					<contentType id="org.eclipse.mdht.cda"></contentType>
@@ -36,10 +38,112 @@
 			</include>
 		</validator>
 	</extension>
-	
-	<extension id="org.eclipse.mdht.cda.xml.validationMarker" name="CDA Validation" point="org.eclipse.core.resources.markers">
+
+	<extension id="org.eclipse.mdht.cda.xml.validationMarker"
+		name="CDA Validation" point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.wst.validation.problemmarker" />
 		<persistent value="false" />
 	</extension>
 
+	<extension point="org.eclipse.ui.commands">
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.analyzeCDA"
+			name="ANALYZECDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler">
+		</command>
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.deidentifyCDA"
+			name="DEIDENTIFYCDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.DeidentifyCDAHandler">
+		</command>
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
+			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
+		</command>
+	</extension>
+
+	<extension point="org.eclipse.ui.views">
+		<category name="CDA Analysis" id="cdaanalysis">
+		</category>
+		<view name="Section Entries" icon="icons/analyzer/analysis.ico"
+			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.EntriesView"
+			id="org.eclipse.mdht.cda.xml.ui.views.entriesview">
+		</view>
+		<view name="Section Narrative" icon="icons/analyzer/analysis.ico"
+			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.NarrativeView"
+			id="org.eclipse.mdht.cda.xml.ui.views.narrativeview">
+		</view>
+		<view name="Section Issues" icon="icons/analyzer/analysis.ico"
+			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.ValidationsView"
+			id="org.eclipse.mdht.cda.xml.ui.views.validationsview">
+		</view>
+		<view name="Document Metrics Details" icon="icons/analyzer/analysis.ico"
+			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.MetricsView"
+			id="org.eclipse.mdht.cda.xml.ui.views.metricsview">
+		</view>
+	</extension>
+
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer"
+			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+			extensions="xml" icon="icons/analyzer/sample.gif"
+			id="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer" name="CDA Analyzer">
+		</editor>
+
+		<editor class="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer2"
+			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+			extensions="xml" icon="icons/analyzer/sample.gif"
+			id="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer2" name="CDA Metrics">
+		</editor>
+	</extension>
+
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+			<menu label="CDA Utilities">
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.analyzeCDA"
+					label="Analyze CDA Document(s)" id="org.eclipse.mdht.cda.xml.ui.menu.analyzeCDA"
+					mnemonic="A">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate>
+								<adapt type="org.eclipse.core.resources.IFolder" />
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+
+
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.deidentifyCDA"
+					label="Deidentify CDA Document(s)" id="org.eclipse.mdht.cda.xml.ui.menu.deidentifyCDA"
+					mnemonic="D">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="or">
+								<or>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFolder" />
+									</and>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFile" />
+									</and>
+								</or>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+
+				<!-- Need to add the ability to enable just when consol2 is available -->
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
+					label="Generate CDA Analysis Report" id="org.eclipse.mdht.cda.xml.ui.menu.generateCDAData"
+					mnemonic="G">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="and">
+								<and>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFolder" />
+									</and>
+								</and>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+			</menu>
+		</menuContribution>
+	</extension>
 </plugin>
