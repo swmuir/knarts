@@ -12,6 +12,7 @@
 package org.eclipse.mdht.cda.xml.ui.views;
 
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.ClinicalStatement;
@@ -19,6 +20,7 @@ import org.eclipse.mdht.uml.cda.Component4;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.Entry;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.Material;
 import org.eclipse.mdht.uml.cda.Observation;
 import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.Procedure;
@@ -27,7 +29,10 @@ import org.eclipse.mdht.uml.cda.SubstanceAdministration;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
+import org.eclipse.mdht.uml.hl7.datatypes.EN;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.IVL_TS;
+import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
@@ -101,7 +106,7 @@ public class EntriesView extends ViewPart {
 		}
 
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Value(s)</small></th></tr></thead> <tbody>");
 		if (procedure.getStatusCode() != null) {
 			result.append(getCDRow(procedure.getStatusCode(), ""));
 		}
@@ -169,6 +174,19 @@ public class EntriesView extends ViewPart {
 
 		result.append(
 			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+
+		if (observation.getClassCode() != null) {
+			result.append(getCDRow(observation.getClassCode(), "ClassCode"));
+		}
+
+		if (observation.getClassCode() != null) {
+			result.append(getCDRow(observation.getMoodCode(), "MoodCode"));
+		}
+
+		if (observation.getNegationInd() != null) {
+			result.append(getCDRow(observation.getNegationInd(), "ClassCode"));
+		}
+
 		if (observation.getStatusCode() != null) {
 			result.append(getCDRow(observation.getStatusCode(), ""));
 		}
@@ -180,6 +198,31 @@ public class EntriesView extends ViewPart {
 				result.append(getCDRow((CD) any, "style=\"background-color:#FFFFAA\""));
 			}
 		}
+
+		// result.append("<tr>");
+		// result.append("<td><small>Class Code ").append(cs.getClassCode() != null
+		// ? cs.getClassCode().getName()
+		// : "");
+		// result.append("</small></td>");
+		// result.append("<td><small>Mood Code ").append(cs.getMoodCode() != null
+		// ? cs.getMoodCode().getName()
+		// : "");
+		// result.append("</small></td>");
+		//
+		// result.append("<td><small>Negation Indicator ").append(cs.getNegationInd() != null
+		// ? cs.getNegationInd().booleanValue()
+		// : "");
+
+		for (II ii : observation.getIds()) {
+			result.append(getCDRow(ii, ""));
+			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
+		}
+
+		if (observation.getEffectiveTime() != null) {
+			result.append(getCDRow(observation.getEffectiveTime(), ""));
+
+		}
+
 		result.append("</tbody></table></td></tr>");
 
 		for (EntryRelationship er : observation.getEntryRelationships()) {
@@ -198,24 +241,24 @@ public class EntriesView extends ViewPart {
 
 		result.append("<tr><td>").append(getClinicalStatementDetails(encounter)).append("</td></tr>");
 
-		for (II ii : encounter.getIds()) {
-			result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
-		}
-
+		// for (II ii : encounter.getIds()) {
+		// result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
+		// }
+		//
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
-		if (encounter.getStatusCode() != null) {
-			result.append(getCDRow(encounter.getStatusCode(), ""));
-		}
-		if (encounter.getCode() != null) {
-			result.append(getCDRow(encounter.getCode(), ""));
-		}
-
-		result.append("</tbody></table></td></tr>");
-
-		for (EntryRelationship er : encounter.getEntryRelationships()) {
-			result.append("<tr><td>").append(getEntryRelationshipDetails(er)).append("</td></tr>");
-		}
+			"<tr><td><table width=\"100%\"><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead><tbody>");
+		// if (encounter.getStatusCode() != null) {
+		// result.append(getCDRow(encounter.getStatusCode(), ""));
+		// }
+		// if (encounter.getCode() != null) {
+		// result.append(getCDRow(encounter.getCode(), ""));
+		// }
+		//
+		// result.append("</tbody></table></td></tr>");
+		//
+		// for (EntryRelationship er : encounter.getEntryRelationships()) {
+		// result.append("<tr><td>").append(getEntryRelationshipDetails(er)).append("</td></tr>");
+		// }
 
 		result.append("</tbody></table>");
 
@@ -228,8 +271,8 @@ public class EntriesView extends ViewPart {
 		StringBuffer result = new StringBuffer();
 
 		result.append(
-			"<table style=\"background-color:#F0F0F0\" width=\"100%\"  ><thead><tr><th><small>Clinical Statement</small></th><th><small>Template ID(s)</small></th></tr></thead><tbody>");
-
+			"<table  width=\"100%\"  ><thead><tr style=\"background-color:#F0F0F0\" ><th><small>Clinical Statement</small></th><th><small>Template ID(s)</small></th></tr></thead><tbody>");
+		// style=\"background-color:#F0F0F0\"
 		StringBuffer templateIds = new StringBuffer();
 		for (II ii : cs.getTemplateIds()) {
 			templateIds.append(templateIds.length() > 0
@@ -242,8 +285,44 @@ public class EntriesView extends ViewPart {
 			prefix = cs.eContainer().eContainer().eClass().getName() + "->";
 		}
 
+		cs.getMoodCode();
+
+		cs.getClassCode();
+
+		// cs.getClassCode();
+		//
+		// cs.getMoodCode();
+		//
+		// cs.getRealmCodes();
+		//
+		// cs.getTemplateIds();
+		//
+		// cs.getTypeId();
+
+		// result.append("<tr><td><small>").append(templateIds).append("</small></td></tr>");
+
 		result.append("<tr><td><small>").append(prefix).append(cs.eClass().getName()).append(
-			"</small></td><td><small>").append(templateIds).append("</small></td></tr></tbody></table>");
+			"</small></td><td><small>").append(templateIds).append("</small></td></tr>");
+
+		result.append(
+			"<thead><tr style=\"background-color:#F0F0F0\" ><th><small>Class Code</small></th><th><small>Mood Code</small></th></tr></thead>");
+
+		result.append("<tr><td><small>").append("").append(cs.getClassCode().getLiteral()).append(
+			"</small></td><td><small>").append(cs.getMoodCode().getLiteral()).append("</small></td></tr>");
+
+		// result.append("<tr><td><small>").append(prefix).append("classCode").append("</small></td><td><small>").append(
+		// "").append("</small></td></tr>");
+		// result.append("<tr><td><small>").append(prefix).append("moodCode").append("</small></td><td><small>").append(
+		// "").append("</small></td></tr>");
+
+		// result.append("</small></td>");
+		// result.append("</tr>");
+
+		// result.append("<tr><td><small>").append(cs.getClassCode() != null
+		// ? cs.getClassCode().getName()
+		// : "").append("</small></td><td><small>").append(templateIds).append("</small></td></tr>");
+
+		result.append("</tbody></table>");
 
 		return result;
 
@@ -287,35 +366,161 @@ public class EntriesView extends ViewPart {
 
 		result.append("<tr><td colspan=\"30\" >").append(getClinicalStatementDetails(act)).append("</td></tr>");
 
-		for (II ii : act.getIds()) {
-			result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
-		}
-
-		result.append("<tr>");
-		if (act.getEffectiveTime() != null) {
-			result.append("<td>").append(getValue(act.getEffectiveTime().getLow())).append("</td>");
-			result.append("<td>").append(getValue(act.getEffectiveTime().getCenter())).append("</td>");
-			result.append("<td>").append(getValue(act.getEffectiveTime().getHigh())).append("</td>");
-		}
-		result.append("</tr>");
-
 		result.append(
-			"<tr><td colspan=\"30\" ><table  width=\"100%\"  ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Value(s)</small></th></tr></thead> <tbody>");
+		if (act.getClassCode() != null) {
+			result.append(getCDRow(act.getClassCode(), "ClassCode"));
+		}
+
+		if (act.getClassCode() != null) {
+			result.append(getCDRow(act.getMoodCode(), "MoodCode"));
+		}
+
+		if (act.getNegationInd() != null) {
+			result.append(getCDRow(act.getNegationInd(), "ClassCode"));
+		}
+
+		// result.append("<tr>");
+		// result.append("<td><small>Class Code ").append(cs.getClassCode() != null
+		// ? cs.getClassCode().getName()
+		// : "");
+		// result.append("</small></td>");
+		// result.append("<td><small>Mood Code ").append(cs.getMoodCode() != null
+		// ? cs.getMoodCode().getName()
+		// : "");
+		// result.append("</small></td>");
+		//
+		// result.append("<td><small>Negation Indicator ").append(cs.getNegationInd() != null
+		// ? cs.getNegationInd().booleanValue()
+		// : "");
+
 		if (act.getStatusCode() != null) {
 			result.append(getCDRow(act.getStatusCode(), ""));
 		}
 		if (act.getCode() != null) {
 			result.append(getCDRow(act.getCode(), ""));
 		}
+
+		for (II ii : act.getIds()) {
+			result.append(getCDRow(ii, ""));
+			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
+		}
+
+		if (act.getEffectiveTime() != null) {
+			result.append(getCDRow(act.getEffectiveTime(), ""));
+
+		}
+
 		result.append("</tbody></table>").append("</td></tr>");
 
 		for (EntryRelationship er : act.getEntryRelationships()) {
 			result.append("");
 			result.append("<tr><td>").append(getEntryRelationshipDetails(er)).append("</td></tr>");
 		}
+
 		result.append("</tbody></table>");
 
 		return result;
+	}
+
+	/**
+	 * @param effectiveTime
+	 * @param rowStyle
+	 * @return
+	 */
+	private static Object getCDRow(IVL_TS effectiveTime, String rowStyle) {
+		StringBuffer result = new StringBuffer();
+		if (effectiveTime != null) {
+
+			result.append("<tr ").append(" >");
+			result.append("<td><small>").append(effectiveTime.eContainingFeature().getName()).append("</small></td>");
+			result.append("<td><small>").append((effectiveTime.getValue() != null
+					? effectiveTime.getValue()
+					: "")).append("</small></td>");
+
+			result.append("<td><small>").append((effectiveTime.getLow() != null
+					? effectiveTime.getLow().getValue()
+					: "")).append("</small></td>");
+
+			result.append("<td><small>").append((effectiveTime.getHigh() != null
+					? effectiveTime.getHigh().getValue()
+					: "")).append("</small></td>");
+			result.append("</tr>");
+
+		}
+
+		return result;
+	}
+
+	/**
+	 * @param ii
+	 * @param rowStyle
+	 * @return
+	 */
+	private static StringBuffer getCDRow(II ii, String attribute) {
+		StringBuffer result = new StringBuffer();
+		if (ii != null) {
+
+			result.append("<tr ").append(" >");
+			result.append("<td><small>").append(ii.eContainingFeature().getName()).append("</small></td>");
+			result.append("<td><small>").append((ii.getExtension() != null
+					? ii.getExtension()
+					: "")).append("</small></td>");
+			result.append("<td><small>").append((ii.getRoot() != null
+					? ii.getRoot()
+					: "")).append("</small></td>");
+
+			result.append("</tr>");
+
+		}
+
+		return result;
+	}
+
+	/**
+	 * @param negationInd
+	 * @param rowStyle
+	 * @return
+	 */
+	private static Object getCDRow(Boolean negationInd, String attribute) {
+		StringBuffer result = new StringBuffer();
+		if (negationInd != null) {
+
+			result.append("<tr ").append(" >");
+			result.append("<td><small>").append(attribute).append("</small></td>");
+			result.append("<td><small>").append((negationInd != null
+					? negationInd
+					: "")).append("</small></td>");
+
+			result.append("</tr>");
+
+		}
+
+		return result;
+	}
+
+	/**
+	 * @param classCode
+	 * @param rowStyle
+	 * @return
+	 */
+	private static StringBuffer getCDRow(Enumerator classCode, String attribute) {
+
+		StringBuffer result = new StringBuffer();
+		if (classCode != null) {
+
+			result.append("<tr ").append(" >");
+			result.append("<td><small>").append(attribute).append("</small></td>");
+			result.append("<td><small>").append((classCode != null
+					? classCode.getLiteral()
+					: "")).append("</small></td>");
+
+			result.append("</tr>");
+
+		}
+
+		return result;
+
 	}
 
 	private static StringBuffer getSubstanceAdministrationDetails(SubstanceAdministration substanceAdministration) {
@@ -349,22 +554,67 @@ public class EntriesView extends ViewPart {
 			result.append(getCDRow(cd, ""));
 		}
 
-		substanceAdministration.getConsumable().getManufacturedProduct();
+		if (substanceAdministration.getRouteCode() != null) {
+			result.append(getCDRow(substanceAdministration.getRouteCode(), ""));
 
-		// substanceAdministration.getConsumable().getAct();
+		}
 
-		// substanceAdministration.getConsumable()
-		// result.append("<tr><td colspan=\"30\" >").append(
-		// getClinicalStatementDetails(substanceAdministration.getConsumable())).append("</td></tr>");
-		// ;
+		if (substanceAdministration.getConsumable() != null &&
+				substanceAdministration.getConsumable().getManufacturedProduct() != null &&
+				substanceAdministration.getConsumable().getManufacturedProduct().getManufacturedMaterial() != null) {
+			Material manufacturedMaterial = substanceAdministration.getConsumable().getManufacturedProduct().getManufacturedMaterial();
+
+			result.append(getCDRow(manufacturedMaterial.getCode(), ""));
+			result.append(getCDRow(manufacturedMaterial.getName(), ""));
+
+		}
+
+		// if (substanceAdministration.getCode() != null) {
+		// result.append(getCDRow(substanceAdministration.getCode(), ""));
+		// }
+
+		for (II ii : substanceAdministration.getIds()) {
+			result.append(getCDRow(ii, ""));
+			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
+		}
+		for (SXCM_TS sxcm_ts : substanceAdministration.getEffectiveTimes()) {
+			if (sxcm_ts instanceof IVL_TS) {
+				result.append(getCDRow((IVL_TS) sxcm_ts, ""));
+			}
+
+		}
+
+		result.append("</tbody></table>").append("</td></tr>");
 
 		for (EntryRelationship er : substanceAdministration.getEntryRelationships()) {
 			result.append("");
 			result.append("<tr><td>").append(getEntryRelationshipDetails(er)).append("</td></tr>");
 		}
+
 		result.append("</tbody></table>");
 
 		return result;
+	}
+
+	// /**
+	// * @param sxcm_ts
+	// * @param rowStyle
+	// * @return
+	// */
+	// private static Object getCDRow(SXCM_TS sxcm_ts, String rowStyle) {
+	//
+	// // TODO Auto-generated method stub
+	// return null;
+	// }
+
+	/**
+	 * @param name
+	 * @param rowStyle
+	 * @return
+	 */
+	private static Object getCDRow(EN name, String rowStyle) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void addTableListener(Table table) {
@@ -380,6 +630,7 @@ public class EntriesView extends ViewPart {
 					int entryCtr = 1;
 					for (Entry entry : section.getEntries()) {
 						if (entry.getAct() != null) {
+
 							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
 								entryCtr++).append("</h3></td></tr>");
 							sbe.append("<tr><td>").append(getActDetails(entry.getAct())).append("</td></tr>");

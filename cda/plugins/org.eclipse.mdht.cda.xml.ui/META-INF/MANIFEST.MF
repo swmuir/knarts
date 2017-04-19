@@ -25,6 +25,8 @@ Require-Bundle: org.eclipse.ui;visibility:=reexport,
  org.eclipse.ui.ide,
  org.eclipse.ui.views,
  org.eclipse.mdht.uml.cda.ui,
- org.eclipse.core.expressions
+ org.eclipse.core.expressions,
+ org.eclipse.swt,
+ org.eclipse.emf.emfstore.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

@@ -11,8 +11,10 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -523,17 +525,40 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 							try {
 								Iterator<Object> iter = iss.iterator();
 								while (iter.hasNext() && !monitor.isCanceled()) {
-
+									IFile indexfile = null;
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
+
+										indexfile = folder.getFile("Index.txt");
 
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
 										processFolder(folder, monitor);
 
 									}
 									if (o instanceof IFile) {
+										indexfile = ((IFolder) ((IFile) o).getParent()).getFile("Index.txt");
 										deidentifyCDA((IFile) o);
+									}
+									if (indexfile != null) {
+
+										StringBuilder sb2 = new StringBuilder();
+										for (String key : randmonIds.keySet()) {
+
+											if (!StringUtils.isEmpty(key)) {
+												sb2.append(key).append(" = ").append(randmonIds.get(key)).append(
+													'\r').append('\n');
+											}
+
+											;
+										}
+
+										InputStream input = new ByteArrayInputStream(sb2.toString().getBytes());
+										if (!indexfile.exists()) {
+											indexfile.create(input, true, null);
+										} else {
+											indexfile.setContents(input, IResource.FORCE, null);
+										}
 									}
 								}
 							} catch (PartInitException e) {
@@ -575,6 +600,17 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				DeIdentificationDialog dlg = new DeIdentificationDialog(window.getShell());
 				dlg.create();
 				dlg.open();
+
+				// try {
+
+				// } finally {
+				// try {
+				// input.close();
+				// } catch (IOException e) {
+				// //ignore
+				// }
+				// }
+				// return file;
 
 			}
 

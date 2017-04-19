@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.mdht</groupId>
 	<artifactId>root</artifactId>
@@ -19,9 +20,10 @@
 		<mylyn.wikitext.version>2.4.0-SNAPSHOT</mylyn.wikitext.version>
 		<skipAllTests>false</skipAllTests>
 		<skipInnerTests>true</skipInnerTests>
-		
-		<!-- Set to file:/home/data/httpd/download.eclipse.org when building on Eclipse servers to improve performance -->
-		<eclipse.download>http://download.eclipse.org</eclipse.download> 
+
+		<!-- Set to file:/home/data/httpd/download.eclipse.org when building on 
+			Eclipse servers to improve performance -->
+		<eclipse.download>http://download.eclipse.org</eclipse.download>
 
 		<!-- MDHT repositories. Used when we're building individual components 
 			(vs building the parent pom including everything) -->
@@ -32,7 +34,7 @@
 
 	<modules>
 		<module>core</module>
-                <module>dita</module>
+		<module>dita</module>
 		<module>cda</module>
 		<module>fhir</module>
 		<module>releng/p2-site</module>
@@ -44,14 +46,14 @@
 			<layout>p2</layout>
 			<url>${eclipse.download}/releases/${mdht.eclipse.target}</url>
 		</repository>
-		
+
 		<repository>
 			<id>ccda</id>
 			<layout>p2</layout>
 			<url>http://oht-modeling.sourceforge.net/updates/ccda2</url>
 		</repository>
-		
-		
+
+
 	</repositories>
 
 	<pluginRepositories>
@@ -130,4 +132,23 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>siteenv</id>
+			<distributionManagement>
+				<repository>
+					<id>devsoap.sitenv.org</id>
+					<name>devsoap.sitenv.org-releases</name>
+					<url>http://devsoap.sitenv.org:8081/artifactory/libs-release-local</url>
+				</repository>
+
+				<snapshotRepository>
+					<id>devsoap.sitenv.org</id>
+					<name>devsoap.sitenv.org-snapshots</name>
+					<url>http://devsoap.sitenv.org:8081/artifactory/libs-snapshot-local</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>
