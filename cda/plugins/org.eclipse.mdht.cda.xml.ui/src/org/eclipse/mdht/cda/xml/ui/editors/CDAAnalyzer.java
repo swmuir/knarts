@@ -43,6 +43,7 @@ import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.mdht.cda.xml.ui.internal.Logger;
 import org.eclipse.mdht.cda.xml.ui.views.EntriesView;
 import org.eclipse.mdht.cda.xml.ui.views.NarrativeView;
+import org.eclipse.mdht.cda.xml.ui.views.RawView;
 import org.eclipse.mdht.cda.xml.ui.views.ValidationsView;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
@@ -461,6 +462,13 @@ public class CDAAnalyzer extends EditorPart {
 					"org.eclipse.mdht.cda.xml.ui.views.narrativeview");
 				if (narrativeView != null) {
 					narrativeView.addTableListener(table);
+				}
+
+				RawView rawView;
+
+				rawView = (RawView) getSite().getPage().showView("org.eclipse.mdht.cda.xml.ui.views.rawview");
+				if (rawView != null) {
+					rawView.addTableListener(table);
 				}
 			}
 

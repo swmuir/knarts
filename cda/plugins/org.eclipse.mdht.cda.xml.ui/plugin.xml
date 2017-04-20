@@ -75,6 +75,10 @@
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.ValidationsView"
 			id="org.eclipse.mdht.cda.xml.ui.views.validationsview">
 		</view>
+		<view name="Section Contents" icon="icons/analyzer/analysis.ico"
+			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.RawView"
+			id="org.eclipse.mdht.cda.xml.ui.views.rawview">
+		</view>
 		<view name="Document Metrics Details" icon="icons/analyzer/analysis.ico"
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.MetricsView"
 			id="org.eclipse.mdht.cda.xml.ui.views.metricsview">
