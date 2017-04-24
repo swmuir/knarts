@@ -63,19 +63,19 @@
 	<extension point="org.eclipse.ui.views">
 		<category name="CDA Analysis" id="cdaanalysis">
 		</category>
-		<view name="Section Entries" icon="icons/analyzer/analysis.ico"
+		<view name="Entries" icon="icons/analyzer/analysis.ico"
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.EntriesView"
 			id="org.eclipse.mdht.cda.xml.ui.views.entriesview">
 		</view>
-		<view name="Section Narrative" icon="icons/analyzer/analysis.ico"
+		<view name="Narrative" icon="icons/analyzer/analysis.ico"
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.NarrativeView"
 			id="org.eclipse.mdht.cda.xml.ui.views.narrativeview">
 		</view>
-		<view name="Section Issues" icon="icons/analyzer/analysis.ico"
+		<view name="Issues" icon="icons/analyzer/analysis.ico"
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.ValidationsView"
 			id="org.eclipse.mdht.cda.xml.ui.views.validationsview">
 		</view>
-		<view name="Section Contents" icon="icons/analyzer/analysis.ico"
+		<view name="Contents" icon="icons/analyzer/analysis.ico"
 			category="cdaanalysis" class="org.eclipse.mdht.cda.xml.ui.views.RawView"
 			id="org.eclipse.mdht.cda.xml.ui.views.rawview">
 		</view>

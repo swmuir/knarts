@@ -41,11 +41,15 @@ import org.eclipse.mdht.uml.hl7.datatypes.CE;
 import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.EN;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ;
 import org.eclipse.mdht.uml.hl7.datatypes.IVL_TS;
+import org.eclipse.mdht.uml.hl7.datatypes.IVXB_PQ;
+import org.eclipse.mdht.uml.hl7.datatypes.PQ;
 import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
 import org.eclipse.mdht.uml.hl7.datatypes.URL;
 import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch;
+import org.eclipse.mdht.uml.hl7.rim.Participation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
@@ -87,6 +91,30 @@ public class EntriesView extends ViewPart {
 			return "<tr><td>" + object.eClass().getName() + "</td><td>" + getPath(object) + "</td></tr>";
 		}
 
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseParticipation(org.eclipse.mdht.uml.hl7.rim.Participation)
+		 */
+		@Override
+		public String caseParticipation(Participation object) {
+			StringBuffer sb = new StringBuffer();
+			sb.append(getHeader(object));
+
+			sb.append("<tr><td colspan=\"2\" >");
+			sb.append(
+				"<table width=\"100%\"  border=\"1\" style=\"margin-left: " + 0 +
+						"%\"  > <colgroup><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 70%;\"></colgroup><tbody>");
+
+			sb.append("<tr><td>").append("typeCode").append("</td><td>").append(object.getTypeCode()).append(
+				"</td></tr>");
+
+			sb.append("</tbody></table>");
+			sb.append("</td></tr>");
+
+			return sb.toString();
+		}
+
 		StringBuffer result = null;
 
 		/*
@@ -96,8 +124,8 @@ public class EntriesView extends ViewPart {
 		 */
 		@Override
 		public String caseClinicalStatement(ClinicalStatement object) {
-			return "<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
-					"</td></tr>";
+			return "<tr bgcolor=\"LIGHTGRAY\" ><td colspan=\"2\">" + object.eClass().getName() + " :: <i>" +
+					getPath(object) + "</i></td></tr>";
 		}
 
 		/*
@@ -108,9 +136,7 @@ public class EntriesView extends ViewPart {
 		@Override
 		public String caseEntry(Entry object) {
 			StringBuffer sb = new StringBuffer();
-			sb.append(
-				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
-						"</td></tr>");
+			sb.append(getHeader(object));
 
 			sb.append("<tr><td colspan=\"2\" >");
 			sb.append(
@@ -128,6 +154,11 @@ public class EntriesView extends ViewPart {
 			return sb.toString();
 		}
 
+		private static String getHeader(EObject eObject) {
+			return "<tr bgcolor=\"LIGHTGRAY\" ><td colspan=\"2\" >" + eObject.eClass().getName() + " :: <i>" +
+					getPath(eObject) + "</i></td></tr>";
+		}
+
 		/*
 		 * (non-Javadoc)
 		 *
@@ -137,9 +168,7 @@ public class EntriesView extends ViewPart {
 		public String caseEntryRelationship(EntryRelationship object) {
 
 			StringBuffer sb = new StringBuffer();
-			sb.append(
-				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
-						"</td></tr>");
+			sb.append(getHeader(object));
 
 			sb.append("<tr><td colspan=\"2\" >");
 			sb.append(
@@ -182,9 +211,7 @@ public class EntriesView extends ViewPart {
 				return "";
 			}
 			StringBuffer sb = new StringBuffer();
-			sb.append(
-				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
-						"</td></tr>");
+			sb.append(getHeader(object));
 			return sb.toString();
 
 		}
@@ -241,7 +268,7 @@ public class EntriesView extends ViewPart {
 			}
 			String path = getPath(eObject);
 			// System.out.println(path);
-			result.append("<tr><td>Location</td><td><small>").append(path).append("</small></td></tr>");
+			result.append("<tr><td>Location</td><td>").append(path).append("</td></tr>");
 
 			super.doSwitch(eObject);
 			result.append("</tbody></table>");
@@ -256,8 +283,57 @@ public class EntriesView extends ViewPart {
 		 */
 		@Override
 		public String caseTS(TS object) {
-			result.append("<tr><td>").append("root").append("</td><td>").append(object.getValue()).append("</td></tr>");
-			result.append("<tr><td>").append("nullFlavorTS").append("</td><td>").append(object.isNullFlavorDefined()
+			result.append("<tr><td>").append("value").append("</td><td>").append(object.getValue()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#casePQ(org.eclipse.mdht.uml.hl7.datatypes.PQ)
+		 */
+		@Override
+		public String casePQ(PQ object) {
+
+			result.append("<tr><td>").append("value").append("</td><td>").append(object.getValue()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("unit").append("</td><td>").append(object.getUnit()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		@Override
+		public String caseIVXB_PQ(IVXB_PQ object) {
+
+			result.append("<tr><td>").append("value").append("</td><td>").append(object.getValue()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("unit").append("</td><td>").append(object.getUnit()).append("</td></tr>");
+			result.append("<tr><td>").append("unit").append("</td><td>").append(object.getInclusive()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseIVL_PQ(org.eclipse.mdht.uml.hl7.datatypes.IVL_PQ)
+		 */
+		@Override
+		public String caseIVL_PQ(IVL_PQ object) {
+			result.append("<tr><td>").append("value").append("</td><td>").append(object.getValue()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("unit").append("</td><td>").append(object.getUnit()).append("</td></tr>");
+
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
 					? object.getNullFlavor()
 					: "null").append("</td></tr>");
 			return "";
@@ -382,14 +458,14 @@ public class EntriesView extends ViewPart {
 		if (cd != null) {
 
 			result.append("<tr ").append(rowStyle).append(" >");
-			result.append("<td><small>").append(cd.eContainingFeature().getName()).append("</small></td>");
-			result.append("<td><small>").append((cd.getCode() != null
+			result.append("<td>").append(cd.eContainingFeature().getName()).append("</td>");
+			result.append("<td>").append((cd.getCode() != null
 					? cd.getCode()
-					: "")).append("</small></td>");
-			result.append("<td><small>").append((cd.getDisplayName() != null
+					: "")).append("</td>");
+			result.append("<td>").append((cd.getDisplayName() != null
 					? cd.getDisplayName()
-					: "")).append("</small></td>");
-			result.append("<td><small>").append(cd.getOriginalText() != null
+					: "")).append("</td>");
+			result.append("<td>").append(cd.getOriginalText() != null
 					? cd.getOriginalText().getText()
 					: "");
 
@@ -404,16 +480,16 @@ public class EntriesView extends ViewPart {
 				}
 
 			}
-			result.append("</small></td>");
-			result.append("<td><small>").append((cd.getCodeSystemName() != null
+			result.append("</td>");
+			result.append("<td>").append((cd.getCodeSystemName() != null
 					? cd.getCodeSystemName()
-					: "")).append("</small></td>");
-			result.append("<td><small>").append((cd.getCodeSystem() != null
+					: "")).append("</td>");
+			result.append("<td>").append((cd.getCodeSystem() != null
 					? cd.getCodeSystem()
-					: "")).append("</small></td>");
-			result.append("<td><small>").append((cd.getCodeSystemVersion() != null
+					: "")).append("</td>");
+			result.append("<td>").append((cd.getCodeSystemVersion() != null
 					? cd.getCodeSystemVersion()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
 			result.append("</tr>");
 
@@ -433,11 +509,11 @@ public class EntriesView extends ViewPart {
 		result.append("<tr><td>").append(getClinicalStatementDetails(procedure)).append("</td></tr>");
 
 		for (II ii : procedure.getIds()) {
-			result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
+			result.append("<tr><td>").append(ii.getRoot()).append("</td></tr>");
 		}
 
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Value(s)</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th>Attribute</th><th>Value(s)</th></tr></thead> <tbody>");
 		if (procedure.getStatusCode() != null) {
 			result.append(getCDRow(procedure.getStatusCode(), ""));
 		}
@@ -466,11 +542,11 @@ public class EntriesView extends ViewPart {
 		result.append("<tr><td>").append(getClinicalStatementDetails(organizer)).append("</td></tr>");
 
 		for (II ii : organizer.getIds()) {
-			result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
+			result.append("<tr><td>").append(ii.getRoot()).append("</td></tr>");
 		}
 
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th>Attribute</th><th>Code</th><th>DisplayName</th><th>OriginalText</th><th>CodeSystemName</th><th>CodeSystem</th><th>CodeSystemVersion</th></tr></thead> <tbody>");
 		if (organizer.getStatusCode() != null) {
 			result.append(getCDRow(organizer.getStatusCode(), ""));
 		}
@@ -500,11 +576,11 @@ public class EntriesView extends ViewPart {
 		result.append("<tr><td>").append(getClinicalStatementDetails(observation)).append("</td></tr>");
 
 		for (II ii : observation.getIds()) {
-			result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
+			result.append("<tr><td>").append(ii.getRoot()).append("</td></tr>");
 		}
 
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th>Attribute</th><th>Code</th><th>DisplayName</th><th>OriginalText</th><th>CodeSystemName</th><th>CodeSystem</th><th>CodeSystemVersion</th></tr></thead> <tbody>");
 
 		if (observation.getClassCode() != null) {
 			result.append(getCDRow(observation.getClassCode(), "ClassCode"));
@@ -558,7 +634,7 @@ public class EntriesView extends ViewPart {
 
 		result.append("<tr><td>").append(getClinicalStatementDetails(encounter)).append("</td></tr>");
 		result.append(
-			"<tr><td><table width=\"100%\"><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead><tbody>");
+			"<tr><td><table width=\"100%\"><thead><tr><th>Attribute</th><th>Code</th><th>DisplayName</th><th>OriginalText</th><th>CodeSystemName</th><th>CodeSystem</th><th>CodeSystemVersion</th></tr></thead><tbody>");
 		result.append("</tbody></table>");
 
 		return result;
@@ -569,7 +645,7 @@ public class EntriesView extends ViewPart {
 		StringBuffer result = new StringBuffer();
 
 		result.append(
-			"<table  width=\"100%\"  ><thead><tr style=\"background-color:#F0F0F0\" ><th><small>Clinical Statement</small></th><th><small>Template ID(s)</small></th></tr></thead><tbody>");
+			"<table  width=\"100%\"  ><thead><tr style=\"background-color:#F0F0F0\" ><th>Clinical Statement</th><th>Template ID(s)</th></tr></thead><tbody>");
 		// style=\"background-color:#F0F0F0\"
 		StringBuffer templateIds = new StringBuffer();
 		for (II ii : cs.getTemplateIds()) {
@@ -587,14 +663,14 @@ public class EntriesView extends ViewPart {
 
 		cs.getClassCode();
 
-		result.append("<tr><td><small>").append(prefix).append(cs.eClass().getName()).append(
-			"</small></td><td><small>").append(templateIds).append("</small></td></tr>");
+		result.append("<tr><td>").append(prefix).append(cs.eClass().getName()).append("</td><td>").append(
+			templateIds).append("</td></tr>");
 
 		result.append(
-			"<thead><tr style=\"background-color:#F0F0F0\" ><th><small>Class Code</small></th><th><small>Mood Code</small></th></tr></thead>");
+			"<thead><tr style=\"background-color:#F0F0F0\" ><th>Class Code</th><th>Mood Code</th></tr></thead>");
 
-		result.append("<tr><td><small>").append("").append(cs.getClassCode().getLiteral()).append(
-			"</small></td><td><small>").append(cs.getMoodCode().getLiteral()).append("</small></td></tr>");
+		result.append("<tr><td>").append("").append(cs.getClassCode().getLiteral()).append("</td><td>").append(
+			cs.getMoodCode().getLiteral()).append("</td></tr>");
 
 		result.append("</tbody></table>");
 
@@ -641,7 +717,7 @@ public class EntriesView extends ViewPart {
 		result.append("<tr><td colspan=\"30\" >").append(getClinicalStatementDetails(act)).append("</td></tr>");
 
 		result.append(
-			"<tr><td><table  width=\"100%\" ><thead><tr><th><small>Attribute</small></th><th><small>Value(s)</small></th></tr></thead> <tbody>");
+			"<tr><td><table  width=\"100%\" ><thead><tr><th>Attribute</th><th>Value(s)</th></tr></thead> <tbody>");
 		if (act.getClassCode() != null) {
 			result.append(getCDRow(act.getClassCode(), "ClassCode"));
 		}
@@ -692,18 +768,18 @@ public class EntriesView extends ViewPart {
 		if (effectiveTime != null) {
 
 			result.append("<tr ").append(" >");
-			result.append("<td><small>").append(effectiveTime.eContainingFeature().getName()).append("</small></td>");
-			result.append("<td><small>").append((effectiveTime.getValue() != null
+			result.append("<td>").append(effectiveTime.eContainingFeature().getName()).append("</td>");
+			result.append("<td>").append((effectiveTime.getValue() != null
 					? effectiveTime.getValue()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
-			result.append("<td><small>").append((effectiveTime.getLow() != null
+			result.append("<td>").append((effectiveTime.getLow() != null
 					? effectiveTime.getLow().getValue()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
-			result.append("<td><small>").append((effectiveTime.getHigh() != null
+			result.append("<td>").append((effectiveTime.getHigh() != null
 					? effectiveTime.getHigh().getValue()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 			result.append("</tr>");
 
 		}
@@ -721,13 +797,13 @@ public class EntriesView extends ViewPart {
 		if (ii != null) {
 
 			result.append("<tr ").append(" >");
-			result.append("<td><small>").append(ii.eContainingFeature().getName()).append("</small></td>");
-			result.append("<td><small>").append((ii.getExtension() != null
+			result.append("<td>").append(ii.eContainingFeature().getName()).append("</td>");
+			result.append("<td>").append((ii.getExtension() != null
 					? ii.getExtension()
-					: "")).append("</small></td>");
-			result.append("<td><small>").append((ii.getRoot() != null
+					: "")).append("</td>");
+			result.append("<td>").append((ii.getRoot() != null
 					? ii.getRoot()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
 			result.append("</tr>");
 
@@ -746,10 +822,10 @@ public class EntriesView extends ViewPart {
 		if (negationInd != null) {
 
 			result.append("<tr ").append(" >");
-			result.append("<td><small>").append(attribute).append("</small></td>");
-			result.append("<td><small>").append((negationInd != null
+			result.append("<td>").append(attribute).append("</td>");
+			result.append("<td>").append((negationInd != null
 					? negationInd
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
 			result.append("</tr>");
 
@@ -769,10 +845,10 @@ public class EntriesView extends ViewPart {
 		if (classCode != null) {
 
 			result.append("<tr ").append(" >");
-			result.append("<td><small>").append(attribute).append("</small></td>");
-			result.append("<td><small>").append((classCode != null
+			result.append("<td>").append(attribute).append("</td>");
+			result.append("<td>").append((classCode != null
 					? classCode.getLiteral()
-					: "")).append("</small></td>");
+					: "")).append("</td>");
 
 			result.append("</tr>");
 
@@ -796,7 +872,7 @@ public class EntriesView extends ViewPart {
 		}
 
 		result.append(
-			"<tr><td colspan=\"30\" ><table  width=\"100%\"  ><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead> <tbody>");
+			"<tr><td colspan=\"30\" ><table  width=\"100%\"  ><thead><tr><th>Attribute</th><th>Code</th><th>DisplayName</th><th>OriginalText</th><th>CodeSystemName</th><th>CodeSystem</th><th>CodeSystemVersion</th></tr></thead> <tbody>");
 		if (substanceAdministration.getStatusCode() != null) {
 			result.append(getCDRow(substanceAdministration.getStatusCode(), ""));
 		}
@@ -871,24 +947,25 @@ public class EntriesView extends ViewPart {
 					DataTypeTableSwitch dataTypeTableSwitch = new DataTypeTableSwitch();
 					CDATableSwitch cdaTableSwitch = new CDATableSwitch();
 					dataTypeTableSwitch.setMargin(0);
-					sbe.append("<html><head></head><body><table  width=\"100%\"  ><tbody>");
+					sbe.append(
+						"<html><head><STYLE TYPE=\"text/css\"><!--TD{font-family: Arial; font-size: 8pt;}---></STYLE></head><body><table  width=\"100%\"  ><tbody>");
 					sbe.append("<tr><td>").append(cdaTableSwitch.doSwitch(section)).append("</td></tr>");
 					String path = getPath(section);
 					TreeIterator<EObject> eAllContents = section.eAllContents();
 					while (eAllContents.hasNext()) {
 						EObject next = eAllContents.next();
 						if (next instanceof ANY) {
-							sbe.append("<tr><td colspan=\"2\" >").append(dataTypeTableSwitch.doSwitch(next)).append(
-								"</td></tr>");
+							sbe.append("<tr><font size=\"1\"><td colspan=\"2\" >").append(
+								dataTypeTableSwitch.doSwitch(next)).append("</td></tr>");
 
 						} else {
 							String result = cdaTableSwitch.doSwitch(next);
 							dataTypeTableSwitch.setMargin(dataTypeTableSwitch.getMargin() + 1);
 							if (!StringUtils.isEmpty(result)) {
 								sbe.append(cdaTableSwitch.doSwitch(next));
-								path = getPath(next);
-								System.out.println(path);
-								// sbe.append("<tr><td>Location</td><td>").append(path).append("</td></tr>");
+								// path = getPath(next);
+								// System.out.println(path);
+								// // sbe.append("<tr><td>Location</td><td>").append(path).append("</td></tr>");
 							}
 
 						}

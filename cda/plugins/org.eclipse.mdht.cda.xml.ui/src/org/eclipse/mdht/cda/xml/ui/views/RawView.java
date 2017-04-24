@@ -185,8 +185,6 @@ public class RawView extends ViewPart {
 						sectionContent = String.format(
 							"<html><head><style>p { text-align: center; color: red;} </style></head><body>SECTION CONTENT<br/><span style=\"color:green\"><pre>%s</pre></span></body></html>",
 							sectionContent);
-
-						System.out.println(sectionContent);
 						browser.setText(sectionContent);
 					} catch (Exception e) {
 						e.printStackTrace();
