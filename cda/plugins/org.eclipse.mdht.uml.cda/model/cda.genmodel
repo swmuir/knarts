@@ -1580,6 +1580,8 @@
           createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Encounter/statusCode"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Encounter/effectiveTime"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Encounter/sDTCDischargeDispositionCode"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cda.ecore#//Encounter/priorityCode"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -1603,8 +1605,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Encounter/nullFlavor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Encounter/classCode"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Encounter/moodCode"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Encounter/sDTCDischargeDispositionCode"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cda.ecore#//Specimen">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"

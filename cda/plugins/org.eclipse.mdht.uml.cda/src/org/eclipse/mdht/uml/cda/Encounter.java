@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2009, 2011 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
 package org.eclipse.mdht.uml.cda;
 
 import org.eclipse.emf.common.util.EList;
@@ -38,6 +28,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getText <em>Text</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getStatusCode <em>Status Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getEffectiveTime <em>Effective Time</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getSDTCDischargeDispositionCodes <em>SDTC Discharge Disposition Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getPriorityCode <em>Priority Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getSpecimens <em>Specimen</em>}</li>
@@ -51,7 +42,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getMoodCode <em>Mood Code</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getSDTCDischargeDispositionCodes <em>SDTC Discharge Disposition Code</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter()
@@ -246,10 +236,27 @@ public interface Encounter extends ClinicalStatement {
 	void setEffectiveTime(IVL_TS value);
 
 	/**
+	 * Returns the value of the '<em><b>SDTC Discharge Disposition Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.hl7.datatypes.CE}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Discharge Disposition Code</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Discharge Disposition Code</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_SDTCDischargeDispositionCode()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='dischargeDispositionCode' namespace='urn:hl7-org:sdtc'"
+	 * @generated
+	 */
+	EList<CE> getSDTCDischargeDispositionCodes();
+
+	/**
 	 * Returns the value of the '<em><b>Priority Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Priority Code</em>' reference isn't clear,
+	 * If the meaning of the '<em>Priority Code</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -602,22 +609,5 @@ public interface Encounter extends ClinicalStatement {
 	 * @generated
 	 */
 	boolean isSetMoodCode();
-
-	/**
-	 * Returns the value of the '<em><b>SDTC Discharge Disposition Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.hl7.datatypes.CE}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>SDTC Discharge Disposition Code</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>SDTC Discharge Disposition Code</em>' containment reference list.
-	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_SDTCDischargeDispositionCode()
-	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="name='dischargeDispositionCode' namespace='urn:hl7-org:sdtc' kind='element'"
-	 * @generated
-	 */
-	EList<CE> getSDTCDischargeDispositionCodes();
 
 } // Encounter

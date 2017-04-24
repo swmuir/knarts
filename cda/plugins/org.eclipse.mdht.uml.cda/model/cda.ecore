@@ -5088,6 +5088,14 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCDischargeDispositionCode"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="dischargeDispositionCode"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="priorityCode" ordered="false"
         eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CE"
         containment="true">
@@ -5158,15 +5166,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="moodCode" ordered="false"
         lowerBound="1" eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//x_DocumentEncounterMood"
         unsettable="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCDischargeDispositionCode"
-        ordered="false" upperBound="-1" eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CE"
-        containment="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="name" value="dischargeDispositionCode"/>
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
-        <details key="kind" value="element"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specimen" eSuperTypes="../../org.eclipse.mdht.uml.hl7.rim/model/rim.ecore#//Participation">
     <eOperations name="typeCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

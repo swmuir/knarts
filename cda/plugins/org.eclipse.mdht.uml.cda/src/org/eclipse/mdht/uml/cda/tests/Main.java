@@ -17,12 +17,14 @@ import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAFactory;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
+import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Organization;
 import org.eclipse.mdht.uml.cda.Patient;
 import org.eclipse.mdht.uml.cda.PatientRole;
 import org.eclipse.mdht.uml.cda.Person;
 import org.eclipse.mdht.uml.cda.RecordTarget;
+import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.ValidationResult;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
@@ -95,6 +97,17 @@ public class Main {
 		name = DatatypesFactory.eINSTANCE.createPN();
 		name.addGiven("Bob").addFamily("Dolin").addSuffix("MD");
 		assignedPerson.getNames().add(name);
+
+		Section section = CDAFactory.eINSTANCE.createSection();
+		Encounter encounter = CDAFactory.eINSTANCE.createEncounter();
+
+		encounter.setPriorityCode(DatatypesFactory.eINSTANCE.createCE("code", "system"));
+		encounter.setEffectiveTime(DatatypesFactory.eINSTANCE.createIVL_TS("low", "high"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("code", "system"));
+		encounter.addAct(CDAFactory.eINSTANCE.createAct());
+
+		section.addEncounter(encounter);
+		doc.addSection(section);
 
 		System.out.println("***** Constructed example *****");
 		CDAUtil.save(doc, System.out);

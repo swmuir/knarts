@@ -1,17 +1,6 @@
-/*******************************************************************************
- * Copyright (c) 2009, 2011 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
 package org.eclipse.mdht.uml.cda.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -58,6 +47,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getStatusCode <em>Status Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getEffectiveTime <em>Effective Time</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getSDTCDischargeDispositionCodes <em>SDTC Discharge Disposition Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getPriorityCode <em>Priority Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getSpecimens <em>Specimen</em>}</li>
@@ -71,7 +61,6 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getMoodCode <em>Mood Code</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getSDTCDischargeDispositionCodes <em>SDTC Discharge Disposition Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,6 +145,16 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 	 * @ordered
 	 */
 	protected IVL_TS effectiveTime;
+
+	/**
+	 * The cached value of the '{@link #getSDTCDischargeDispositionCodes() <em>SDTC Discharge Disposition Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCDischargeDispositionCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CE> sDTCDischargeDispositionCodes;
 
 	/**
 	 * The cached value of the '{@link #getPriorityCode() <em>Priority Code</em>}' containment reference.
@@ -343,16 +342,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 	 * @ordered
 	 */
 	protected boolean moodCodeESet;
-
-	/**
-	 * The cached value of the '{@link #getSDTCDischargeDispositionCodes() <em>SDTC Discharge Disposition Code</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSDTCDischargeDispositionCodes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CE> sDTCDischargeDispositionCodes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -684,6 +673,19 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				new ENotificationImpl(
 					this, Notification.SET, CDAPackage.ENCOUNTER__EFFECTIVE_TIME, newEffectiveTime, newEffectiveTime));
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CE> getSDTCDischargeDispositionCodes() {
+		if (sDTCDischargeDispositionCodes == null) {
+			sDTCDischargeDispositionCodes = new EObjectContainmentEList<CE>(
+				CE.class, this, CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE);
+		}
+		return sDTCDischargeDispositionCodes;
 	}
 
 	/**
@@ -1073,19 +1075,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CE> getSDTCDischargeDispositionCodes() {
-		if (sDTCDischargeDispositionCodes == null) {
-			sDTCDischargeDispositionCodes = new EObjectContainmentEList<CE>(
-				CE.class, this, CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE);
-		}
-		return sDTCDischargeDispositionCodes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1105,6 +1094,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return basicSetStatusCode(null, msgs);
 			case CDAPackage.ENCOUNTER__EFFECTIVE_TIME:
 				return basicSetEffectiveTime(null, msgs);
+			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
+				return ((InternalEList<?>) getSDTCDischargeDispositionCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENCOUNTER__PRIORITY_CODE:
 				return basicSetPriorityCode(null, msgs);
 			case CDAPackage.ENCOUNTER__SUBJECT:
@@ -1125,8 +1116,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENCOUNTER__PRECONDITION:
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
-			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
-				return ((InternalEList<?>) getSDTCDischargeDispositionCodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1155,6 +1144,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return getStatusCode();
 			case CDAPackage.ENCOUNTER__EFFECTIVE_TIME:
 				return getEffectiveTime();
+			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
+				return getSDTCDischargeDispositionCodes();
 			case CDAPackage.ENCOUNTER__PRIORITY_CODE:
 				return getPriorityCode();
 			case CDAPackage.ENCOUNTER__SUBJECT:
@@ -1181,8 +1172,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return getClassCode();
 			case CDAPackage.ENCOUNTER__MOOD_CODE:
 				return getMoodCode();
-			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
-				return getSDTCDischargeDispositionCodes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1222,6 +1211,10 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return;
 			case CDAPackage.ENCOUNTER__EFFECTIVE_TIME:
 				setEffectiveTime((IVL_TS) newValue);
+				return;
+			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
+				getSDTCDischargeDispositionCodes().clear();
+				getSDTCDischargeDispositionCodes().addAll((Collection<? extends CE>) newValue);
 				return;
 			case CDAPackage.ENCOUNTER__PRIORITY_CODE:
 				setPriorityCode((CE) newValue);
@@ -1270,10 +1263,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 			case CDAPackage.ENCOUNTER__MOOD_CODE:
 				setMoodCode((x_DocumentEncounterMood) newValue);
 				return;
-			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
-				getSDTCDischargeDispositionCodes().clear();
-				getSDTCDischargeDispositionCodes().addAll((Collection<? extends CE>) newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1309,6 +1298,9 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return;
 			case CDAPackage.ENCOUNTER__EFFECTIVE_TIME:
 				setEffectiveTime((IVL_TS) null);
+				return;
+			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
+				getSDTCDischargeDispositionCodes().clear();
 				return;
 			case CDAPackage.ENCOUNTER__PRIORITY_CODE:
 				setPriorityCode((CE) null);
@@ -1349,9 +1341,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 			case CDAPackage.ENCOUNTER__MOOD_CODE:
 				unsetMoodCode();
 				return;
-			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
-				getSDTCDischargeDispositionCodes().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1380,6 +1369,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return statusCode != null;
 			case CDAPackage.ENCOUNTER__EFFECTIVE_TIME:
 				return effectiveTime != null;
+			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
+				return sDTCDischargeDispositionCodes != null && !sDTCDischargeDispositionCodes.isEmpty();
 			case CDAPackage.ENCOUNTER__PRIORITY_CODE:
 				return priorityCode != null;
 			case CDAPackage.ENCOUNTER__SUBJECT:
@@ -1406,8 +1397,6 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return isSetClassCode();
 			case CDAPackage.ENCOUNTER__MOOD_CODE:
 				return isSetMoodCode();
-			case CDAPackage.ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE:
-				return sDTCDischargeDispositionCodes != null && !sDTCDischargeDispositionCodes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

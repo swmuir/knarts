@@ -7248,15 +7248,6 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * @generated
 	 */
 	public EReference getEncounter_PriorityCode() {
-		return (EReference) getEncounter().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEncounter_Subject() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(9);
 	}
 
@@ -7265,7 +7256,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Specimen() {
+	public EReference getEncounter_Subject() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(10);
 	}
 
@@ -7274,7 +7265,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Performer() {
+	public EReference getEncounter_Specimen() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(11);
 	}
 
@@ -7283,7 +7274,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Author() {
+	public EReference getEncounter_Performer() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(12);
 	}
 
@@ -7292,7 +7283,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Informant() {
+	public EReference getEncounter_Author() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(13);
 	}
 
@@ -7301,7 +7292,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Participant() {
+	public EReference getEncounter_Informant() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(14);
 	}
 
@@ -7310,7 +7301,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_EntryRelationship() {
+	public EReference getEncounter_Participant() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(15);
 	}
 
@@ -7319,7 +7310,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Reference() {
+	public EReference getEncounter_EntryRelationship() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(16);
 	}
 
@@ -7328,7 +7319,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEncounter_Precondition() {
+	public EReference getEncounter_Reference() {
 		return (EReference) getEncounter().getEStructuralFeatures().get(17);
 	}
 
@@ -7337,8 +7328,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_NullFlavor() {
-		return (EAttribute) getEncounter().getEStructuralFeatures().get(18);
+	public EReference getEncounter_Precondition() {
+		return (EReference) getEncounter().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -7346,7 +7337,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_ClassCode() {
+	public EAttribute getEncounter_NullFlavor() {
 		return (EAttribute) getEncounter().getEStructuralFeatures().get(19);
 	}
 
@@ -7355,7 +7346,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_MoodCode() {
+	public EAttribute getEncounter_ClassCode() {
 		return (EAttribute) getEncounter().getEStructuralFeatures().get(20);
 	}
 
@@ -7364,8 +7355,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEncounter_MoodCode() {
+		return (EAttribute) getEncounter().getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEncounter_SDTCDischargeDispositionCode() {
-		return (EReference) getEncounter().getEStructuralFeatures().get(21);
+		return (EReference) getEncounter().getEStructuralFeatures().get(8);
 	}
 
 	/**

@@ -6091,13 +6091,22 @@ public interface CDAPackage extends EPackage {
 	int ENCOUNTER__EFFECTIVE_TIME = CLINICAL_STATEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>SDTC Discharge Disposition Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The feature id for the '<em><b>Priority Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__PRIORITY_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 8;
+	int ENCOUNTER__PRIORITY_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Subject</b></em>' containment reference.
@@ -6106,7 +6115,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__SUBJECT = CLINICAL_STATEMENT_FEATURE_COUNT + 9;
+	int ENCOUNTER__SUBJECT = CLINICAL_STATEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Specimen</b></em>' containment reference list.
@@ -6115,7 +6124,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__SPECIMEN = CLINICAL_STATEMENT_FEATURE_COUNT + 10;
+	int ENCOUNTER__SPECIMEN = CLINICAL_STATEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Performer</b></em>' containment reference list.
@@ -6124,7 +6133,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__PERFORMER = CLINICAL_STATEMENT_FEATURE_COUNT + 11;
+	int ENCOUNTER__PERFORMER = CLINICAL_STATEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' containment reference list.
@@ -6133,7 +6142,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__AUTHOR = CLINICAL_STATEMENT_FEATURE_COUNT + 12;
+	int ENCOUNTER__AUTHOR = CLINICAL_STATEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Informant</b></em>' containment reference list.
@@ -6142,7 +6151,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__INFORMANT = CLINICAL_STATEMENT_FEATURE_COUNT + 13;
+	int ENCOUNTER__INFORMANT = CLINICAL_STATEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Participant</b></em>' containment reference list.
@@ -6151,7 +6160,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__PARTICIPANT = CLINICAL_STATEMENT_FEATURE_COUNT + 14;
+	int ENCOUNTER__PARTICIPANT = CLINICAL_STATEMENT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Entry Relationship</b></em>' containment reference list.
@@ -6160,7 +6169,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__ENTRY_RELATIONSHIP = CLINICAL_STATEMENT_FEATURE_COUNT + 15;
+	int ENCOUNTER__ENTRY_RELATIONSHIP = CLINICAL_STATEMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' containment reference list.
@@ -6169,7 +6178,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__REFERENCE = CLINICAL_STATEMENT_FEATURE_COUNT + 16;
+	int ENCOUNTER__REFERENCE = CLINICAL_STATEMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Precondition</b></em>' containment reference list.
@@ -6178,7 +6187,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 17;
+	int ENCOUNTER__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -6187,7 +6196,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 18;
+	int ENCOUNTER__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -6196,7 +6205,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 19;
+	int ENCOUNTER__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -6205,16 +6214,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
-
-	/**
-	 * The feature id for the '<em><b>SDTC Discharge Disposition Code</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENCOUNTER__SDTC_DISCHARGE_DISPOSITION_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
+	int ENCOUNTER__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Encounter</em>' class.
