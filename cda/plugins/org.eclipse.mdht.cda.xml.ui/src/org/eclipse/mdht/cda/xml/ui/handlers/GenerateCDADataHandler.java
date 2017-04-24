@@ -948,7 +948,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static class GetValue extends DatatypesSwitch<String> {
+	public static class GetValue extends DatatypesSwitch<String> {
 
 		Section section;
 
@@ -2129,7 +2129,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	static int serializePatient(HSSFRow row, int offset, PatientRole patientRole) {
 
 		HSSFCell cell = row.createCell(offset++);
+		cell.setCellValue(row.getRowNum() - 2);
 
+		cell = row.createCell(offset++);
 		StringBuffer sb = new StringBuffer();
 		for (II ii : patientRole.getIds()) {
 			sb.append(getKey2(ii));

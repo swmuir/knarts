@@ -11,12 +11,19 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.views;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.ClinicalStatement;
 import org.eclipse.mdht.uml.cda.Component4;
+import org.eclipse.mdht.uml.cda.DocumentRoot;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.Entry;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
@@ -26,14 +33,19 @@ import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.Procedure;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.SubstanceAdministration;
+import org.eclipse.mdht.uml.cda.util.CDASwitch;
+import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
+import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.EN;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
 import org.eclipse.mdht.uml.hl7.datatypes.IVL_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
+import org.eclipse.mdht.uml.hl7.datatypes.URL;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
@@ -44,6 +56,325 @@ import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
 
 public class EntriesView extends ViewPart {
+
+	private static String getPath(EObject eObject) {
+		String path = "";
+		while (eObject != null && !(eObject instanceof DocumentRoot) && !(eObject instanceof Section)) {
+			EStructuralFeature feature = eObject.eContainingFeature();
+			EObject container = eObject.eContainer();
+			Object value = container.eGet(feature);
+			if (feature.isMany()) {
+				List<?> list = (List<?>) value;
+				int index = list.indexOf(eObject) + 1;
+				path = "/" + feature.getName() + "[" + index + "]" + path;
+			} else {
+				path = "/" + feature.getName() + "[1]" + path;
+			}
+			eObject = eObject.eContainer();
+		}
+		return path;
+	}
+
+	static class CDATableSwitch extends CDASwitch<String> {
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseSection(org.eclipse.mdht.uml.cda.Section)
+		 */
+		@Override
+		public String caseSection(Section object) {
+			return "<tr><td>" + object.eClass().getName() + "</td><td>" + getPath(object) + "</td></tr>";
+		}
+
+		StringBuffer result = null;
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseClinicalStatement(org.eclipse.mdht.uml.cda.ClinicalStatement)
+		 */
+		@Override
+		public String caseClinicalStatement(ClinicalStatement object) {
+			return "<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
+					"</td></tr>";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseEntry(org.eclipse.mdht.uml.cda.Entry)
+		 */
+		@Override
+		public String caseEntry(Entry object) {
+			StringBuffer sb = new StringBuffer();
+			sb.append(
+				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
+						"</td></tr>");
+
+			sb.append("<tr><td colspan=\"2\" >");
+			sb.append(
+				"<table width=\"100%\"  border=\"1\" style=\"margin-left: " + 0 +
+						"%\"  > <colgroup><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 70%;\"></colgroup><tbody>");
+
+			sb.append("<tr><td>").append("typeCode").append("</td><td>").append(object.getTypeCode()).append(
+				"</td></tr>");
+			sb.append("<tr><td>").append("contextConductionInd").append("</td><td>").append(
+				object.getContextConductionInd()).append("</td></tr>");
+			sb.append("</tbody></table>");
+			sb.append("</td></tr>");
+			object.getTypeCode();
+			object.getContextConductionInd();
+			return sb.toString();
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseEntryRelationship(org.eclipse.mdht.uml.cda.EntryRelationship)
+		 */
+		@Override
+		public String caseEntryRelationship(EntryRelationship object) {
+
+			StringBuffer sb = new StringBuffer();
+			sb.append(
+				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
+						"</td></tr>");
+
+			sb.append("<tr><td colspan=\"2\" >");
+			sb.append(
+				"<table width=\"100%\"  border=\"1\" style=\"margin-left: " + 0 +
+						"%\"  > <colgroup><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 70%;\"></colgroup><tbody>");
+
+			sb.append("<tr><td>").append("typeCode").append("</td><td>").append(object.getTypeCode()).append(
+				"</td></tr>");
+			sb.append("<tr><td>").append("contextConductionInd").append("</td><td>").append(
+				object.getContextConductionInd()).append("</td></tr>");
+
+			sb.append("</tbody></table>");
+			sb.append("</td></tr>");
+			object.getTypeCode();
+			object.getContextConductionInd();
+
+			return sb.toString();
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#caseANY(org.eclipse.mdht.uml.hl7.datatypes.ANY)
+		 */
+		@Override
+		public String caseANY(ANY object) {
+
+			return "";
+			// super.caseANY(object);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.cda.util.CDASwitch#defaultCase(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public String defaultCase(EObject object) {
+			if (object instanceof AnyType) {
+				return "";
+			}
+			StringBuffer sb = new StringBuffer();
+			sb.append(
+				"<tr bgcolor=\"LIGHTGRAY\" ><td>" + object.eClass().getName() + "</td><td>" + getPath(object) +
+						"</td></tr>");
+			return sb.toString();
+
+		}
+
+		@Override
+		public String doSwitch(EObject eObject) {
+			result = new StringBuffer();
+			result.append(super.doSwitch(eObject));
+			return result.toString();
+		}
+
+	}
+
+	static class DataTypeTableSwitch extends DatatypesSwitch<String> {
+
+		int margin;
+
+		/**
+		 * @return the margin
+		 */
+		public int getMargin() {
+			return margin;
+		}
+
+		/**
+		 * @param margin
+		 *            the margin to set
+		 */
+		public void setMargin(int margin) {
+			this.margin = margin;
+		}
+
+		StringBuffer result = null;
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.emf.ecore.util.Switch#doSwitch(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public String doSwitch(EObject eObject) {
+			result = new StringBuffer();
+			String m = String.valueOf(10);
+
+			result.append(
+				"<table width=\"100%\"  border=\"1\" style=\"margin-left: " + 0 +
+						"%\"  > <colgroup><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 70%;\"></colgroup><tbody>");
+			if (eObject.eContainingFeature() != null) {
+				result.append("<tr><td>Element</td><td><b>").append(eObject.eContainingFeature().getName()).append(
+					"</b></td></tr>");
+
+			} else {
+				result.append("<tr><td>Element</td><td>UNKNONWN</td></tr>");
+			}
+			String path = getPath(eObject);
+			// System.out.println(path);
+			result.append("<tr><td>Location</td><td><small>").append(path).append("</small></td></tr>");
+
+			super.doSwitch(eObject);
+			result.append("</tbody></table>");
+			return result.toString();
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseTS(org.eclipse.mdht.uml.hl7.datatypes.TS)
+		 */
+		@Override
+		public String caseTS(TS object) {
+			result.append("<tr><td>").append("root").append("</td><td>").append(object.getValue()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavorTS").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#casePN(org.eclipse.mdht.uml.hl7.datatypes.PN)
+		 */
+		@Override
+		public String caseEN(EN object) {
+
+			result.append("<tr><td>").append("root").append("</td><td>").append(
+				org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.getValues(object)).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavorTS").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseII(org.eclipse.mdht.uml.hl7.datatypes.II)
+		 */
+		@Override
+		public String caseII(II object) {
+			result.append("<tr><td>").append("root").append("</td><td>").append(object.getRoot()).append("</td></tr>");
+			result.append("<tr><td>").append("extension").append("</td><td>").append(object.getExtension()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("assigningAuthorityName").append("</td><td>").append(
+				object.getAssigningAuthorityName()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavorII").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+
+			return result.toString();
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public String defaultCase(EObject object) {
+			result.append("<tr><td>").append("Class Name (MissingSwitch)").append("</td><td>").append(
+				object.eClass().getName()).append("</td></tr>");
+
+			return result.toString();
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseAD(org.eclipse.mdht.uml.hl7.datatypes.AD)
+		 */
+		@Override
+		public String caseAD(AD object) {
+			result.append("<tr><td>").append("text").append("</td><td>").append(object.getText()).append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseCD(org.eclipse.mdht.uml.hl7.datatypes.CD)
+		 */
+		@Override
+		public String caseCD(CD object) {
+			result.append("<tr><td>").append("code").append("</td><td>").append(object.getCode()).append("</td></tr>");
+			result.append("<tr><td>").append("displayName").append("</td><td>").append(object.getDisplayName()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("codeSystem").append("</td><td>").append(object.getCodeSystem()).append(
+				"</td></tr>");
+			result.append("<tr><td>").append("codeSystemName").append("</td><td>").append(
+				object.getCodeSystemName()).append("</td></tr>");
+			result.append("<tr><td>").append("codeSystemVersion").append("</td><td>").append(
+				object.getCodeSystemVersion()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseED(org.eclipse.mdht.uml.hl7.datatypes.ED)
+		 */
+		@Override
+		public String caseED(ED object) {
+			result.append("<tr><td>").append("text").append("</td><td>").append(object.getText()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+
+			return "";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch#caseTEL(org.eclipse.mdht.uml.hl7.datatypes.TEL)
+		 */
+		@Override
+		public String caseURL(URL object) {
+			result.append("<tr><td>").append("code").append("</td><td>").append(object.getValue()).append("</td></tr>");
+			result.append("<tr><td>").append("nullFlavor").append("</td><td>").append(object.isNullFlavorDefined()
+					? object.getNullFlavor()
+					: "null").append("</td></tr>");
+
+			return "";
+		}
+
+	}
 
 	private static StringBuffer getCDRow(CD cd, String rowStyle) {
 		StringBuffer result = new StringBuffer();
@@ -199,20 +530,6 @@ public class EntriesView extends ViewPart {
 			}
 		}
 
-		// result.append("<tr>");
-		// result.append("<td><small>Class Code ").append(cs.getClassCode() != null
-		// ? cs.getClassCode().getName()
-		// : "");
-		// result.append("</small></td>");
-		// result.append("<td><small>Mood Code ").append(cs.getMoodCode() != null
-		// ? cs.getMoodCode().getName()
-		// : "");
-		// result.append("</small></td>");
-		//
-		// result.append("<td><small>Negation Indicator ").append(cs.getNegationInd() != null
-		// ? cs.getNegationInd().booleanValue()
-		// : "");
-
 		for (II ii : observation.getIds()) {
 			result.append(getCDRow(ii, ""));
 			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
@@ -240,32 +557,13 @@ public class EntriesView extends ViewPart {
 		result.append("<table width=\"100%\"  ><tbody>");
 
 		result.append("<tr><td>").append(getClinicalStatementDetails(encounter)).append("</td></tr>");
-
-		// for (II ii : encounter.getIds()) {
-		// result.append("<tr><td><small>").append(ii.getRoot()).append("</small></td></tr>");
-		// }
-		//
 		result.append(
 			"<tr><td><table width=\"100%\"><thead><tr><th><small>Attribute</small></th><th><small>Code</small></th><th><small>DisplayName</small></th><th><small>OriginalText</small></th><th><small>CodeSystemName</small></th><th><small>CodeSystem</small></th><th><small>CodeSystemVersion</small></th></tr></thead><tbody>");
-		// if (encounter.getStatusCode() != null) {
-		// result.append(getCDRow(encounter.getStatusCode(), ""));
-		// }
-		// if (encounter.getCode() != null) {
-		// result.append(getCDRow(encounter.getCode(), ""));
-		// }
-		//
-		// result.append("</tbody></table></td></tr>");
-		//
-		// for (EntryRelationship er : encounter.getEntryRelationships()) {
-		// result.append("<tr><td>").append(getEntryRelationshipDetails(er)).append("</td></tr>");
-		// }
-
 		result.append("</tbody></table>");
 
 		return result;
 	}
 
-	// #FFFFAA #FFFFAA style=\"background-color:#FFFFAA\"
 	private static StringBuffer getClinicalStatementDetails(ClinicalStatement cs) {
 
 		StringBuffer result = new StringBuffer();
@@ -289,18 +587,6 @@ public class EntriesView extends ViewPart {
 
 		cs.getClassCode();
 
-		// cs.getClassCode();
-		//
-		// cs.getMoodCode();
-		//
-		// cs.getRealmCodes();
-		//
-		// cs.getTemplateIds();
-		//
-		// cs.getTypeId();
-
-		// result.append("<tr><td><small>").append(templateIds).append("</small></td></tr>");
-
 		result.append("<tr><td><small>").append(prefix).append(cs.eClass().getName()).append(
 			"</small></td><td><small>").append(templateIds).append("</small></td></tr>");
 
@@ -309,18 +595,6 @@ public class EntriesView extends ViewPart {
 
 		result.append("<tr><td><small>").append("").append(cs.getClassCode().getLiteral()).append(
 			"</small></td><td><small>").append(cs.getMoodCode().getLiteral()).append("</small></td></tr>");
-
-		// result.append("<tr><td><small>").append(prefix).append("classCode").append("</small></td><td><small>").append(
-		// "").append("</small></td></tr>");
-		// result.append("<tr><td><small>").append(prefix).append("moodCode").append("</small></td><td><small>").append(
-		// "").append("</small></td></tr>");
-
-		// result.append("</small></td>");
-		// result.append("</tr>");
-
-		// result.append("<tr><td><small>").append(cs.getClassCode() != null
-		// ? cs.getClassCode().getName()
-		// : "").append("</small></td><td><small>").append(templateIds).append("</small></td></tr>");
 
 		result.append("</tbody></table>");
 
@@ -380,20 +654,6 @@ public class EntriesView extends ViewPart {
 			result.append(getCDRow(act.getNegationInd(), "ClassCode"));
 		}
 
-		// result.append("<tr>");
-		// result.append("<td><small>Class Code ").append(cs.getClassCode() != null
-		// ? cs.getClassCode().getName()
-		// : "");
-		// result.append("</small></td>");
-		// result.append("<td><small>Mood Code ").append(cs.getMoodCode() != null
-		// ? cs.getMoodCode().getName()
-		// : "");
-		// result.append("</small></td>");
-		//
-		// result.append("<td><small>Negation Indicator ").append(cs.getNegationInd() != null
-		// ? cs.getNegationInd().booleanValue()
-		// : "");
-
 		if (act.getStatusCode() != null) {
 			result.append(getCDRow(act.getStatusCode(), ""));
 		}
@@ -403,7 +663,6 @@ public class EntriesView extends ViewPart {
 
 		for (II ii : act.getIds()) {
 			result.append(getCDRow(ii, ""));
-			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
 		}
 
 		if (act.getEffectiveTime() != null) {
@@ -569,13 +828,8 @@ public class EntriesView extends ViewPart {
 
 		}
 
-		// if (substanceAdministration.getCode() != null) {
-		// result.append(getCDRow(substanceAdministration.getCode(), ""));
-		// }
-
 		for (II ii : substanceAdministration.getIds()) {
 			result.append(getCDRow(ii, ""));
-			// result.append("<tr><td colspan=\"30\" >").append(ii.getRoot()).append("</td></tr>");
 		}
 		for (SXCM_TS sxcm_ts : substanceAdministration.getEffectiveTimes()) {
 			if (sxcm_ts instanceof IVL_TS) {
@@ -596,24 +850,13 @@ public class EntriesView extends ViewPart {
 		return result;
 	}
 
-	// /**
-	// * @param sxcm_ts
-	// * @param rowStyle
-	// * @return
-	// */
-	// private static Object getCDRow(SXCM_TS sxcm_ts, String rowStyle) {
-	//
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-
 	/**
 	 * @param name
 	 * @param rowStyle
 	 * @return
 	 */
 	private static Object getCDRow(EN name, String rowStyle) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -625,59 +868,30 @@ public class EntriesView extends ViewPart {
 				if (event.item.getData() instanceof Section) {
 					Section section = (Section) event.item.getData();
 					StringBuffer sbe = new StringBuffer();
-					sbe.append(
-						"<html><head><style type=\"text/css\">table{border-collapse:collapse;}table, td, th{border:1px solid black;}</style></head><body><table  width=\"100%\" border=\"1\" ><tbody>");
-					int entryCtr = 1;
-					for (Entry entry : section.getEntries()) {
-						if (entry.getAct() != null) {
-
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(getActDetails(entry.getAct())).append("</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
-						}
-
-						if (entry.getObservation() != null) {
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(getObservationDetails(entry.getObservation())).append(
+					DataTypeTableSwitch dataTypeTableSwitch = new DataTypeTableSwitch();
+					CDATableSwitch cdaTableSwitch = new CDATableSwitch();
+					dataTypeTableSwitch.setMargin(0);
+					sbe.append("<html><head></head><body><table  width=\"100%\"  ><tbody>");
+					sbe.append("<tr><td>").append(cdaTableSwitch.doSwitch(section)).append("</td></tr>");
+					String path = getPath(section);
+					TreeIterator<EObject> eAllContents = section.eAllContents();
+					while (eAllContents.hasNext()) {
+						EObject next = eAllContents.next();
+						if (next instanceof ANY) {
+							sbe.append("<tr><td colspan=\"2\" >").append(dataTypeTableSwitch.doSwitch(next)).append(
 								"</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
-						}
 
-						if (entry.getOrganizer() != null) {
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(getOrganizerDetails(entry.getOrganizer())).append(
-								"</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
-						}
+						} else {
+							String result = cdaTableSwitch.doSwitch(next);
+							dataTypeTableSwitch.setMargin(dataTypeTableSwitch.getMargin() + 1);
+							if (!StringUtils.isEmpty(result)) {
+								sbe.append(cdaTableSwitch.doSwitch(next));
+								path = getPath(next);
+								System.out.println(path);
+								// sbe.append("<tr><td>Location</td><td>").append(path).append("</td></tr>");
+							}
 
-						if (entry.getProcedure() != null) {
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(getProcedureDetails(entry.getProcedure())).append(
-								"</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
 						}
-
-						if (entry.getEncounter() != null) {
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(getEncountersDetails(entry.getEncounter())).append(
-								"</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
-						}
-
-						if (entry.getSubstanceAdministration() != null) {
-							sbe.append("<tr><td><h3 style=\"background-color:#B9D3EE\" > Entry ").append(
-								entryCtr++).append("</h3></td></tr>");
-							sbe.append("<tr><td>").append(
-								getSubstanceAdministrationDetails(entry.getSubstanceAdministration())).append(
-									"</td></tr>");
-							sbe.append("<tr><td>&nbsp;</td></tr>");
-						}
-
 					}
 					sbe.append("</tbody></table></body></html>");
 					browser.setText(sbe.toString());
