@@ -70,9 +70,12 @@ import org.eclipse.mdht.uml.cda.Consumable;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.ManufacturedProduct;
 import org.eclipse.mdht.uml.cda.Observation;
+import org.eclipse.mdht.uml.cda.Organization;
 import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.Patient;
 import org.eclipse.mdht.uml.cda.PatientRole;
+import org.eclipse.mdht.uml.cda.Performer2;
+import org.eclipse.mdht.uml.cda.Procedure;
 import org.eclipse.mdht.uml.cda.ReferenceRange;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
@@ -128,6 +131,10 @@ import org.openhealthtools.mdht.uml.cda.consol.MedicationsSectionEntriesOptional
 import org.openhealthtools.mdht.uml.cda.consol.ProblemConcernAct;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemSectionEntriesOptional;
+import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityAct;
+import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityObservation;
+import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityProcedure;
+import org.openhealthtools.mdht.uml.cda.consol.ProceduresSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.ReactionObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ResultObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ResultOrganizer;
@@ -160,31 +167,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		protected Control createDialogArea(Composite parent) {
 
-			// Display display = new Display();
-			// Image image = new Image (display, 16, 16);
-			// Color color = display.getSystemColor(SWT.COLOR_RED);
-			// GC gc = new GC(image);
-			// gc.setBackground(color);
-			// gc.fillRectangle(image.getBounds());
-			// gc.dispose();
-			// Shell shell = new Shell(display);
 			Label label = new Label(parent, SWT.BORDER);
 
 			label.setText("Total Files " + files.size());
-
-			// this.cre
-			// Rectangle clientArea = shell.getClientArea();
-			// label.setLocation(clientArea.x, clientArea.y);
-			// label.setImage(image);
-			// label.pack();
-			// shell.pack();
-			// shell.open();
-			// while (!shell.isDisposed()) {
-			// if (!display.readAndDispatch())
-			// display.sleep();
-			// }
-			// image.dispose();
-			// display.dispose();
 
 			final ScrolledComposite composite = new ScrolledComposite(parent, SWT.V_SCROLL);
 			composite.setLayout(new GridLayout());
@@ -229,15 +214,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
 				valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
 			}
-
-			// for (String key : randmonIds.keySet()) {
-			// // If null flavor - we get null keys
-			// if (!StringUtils.isEmpty(key)) {
-			// final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
-			// valueSetsUpdatedItem.setText(new String[] { key, randmonIds.get(key) });
-			// }
-			//
-			// }
 
 			return composite;
 		}
@@ -390,6 +366,30 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
+	static class ProcedureByEncounterPredicate implements Predicate<Procedure> {
+
+		Encounter encounter;
+
+		/**
+		 * @param encounter
+		 */
+		public ProcedureByEncounterPredicate(Encounter encounter) {
+			super();
+			this.encounter = encounter;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
+		 */
+		@Override
+		public boolean apply(Procedure procedure) {
+			return matchesEncounter(encounter, procedure);
+		}
+
+	}
+
 	static class ActByEncounterPredicate implements Predicate<Act> {
 
 		Encounter encounter;
@@ -434,6 +434,75 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public boolean apply(Organizer organizer) {
 			return matchesEncounter(encounter, organizer);
+		}
+
+	}
+
+	static class ObservationByEncounterPredicate implements Predicate<Observation> {
+
+		Encounter encounter;
+
+		/**
+		 * @param encounter
+		 */
+		public ObservationByEncounterPredicate(Encounter encounter) {
+			super();
+			this.encounter = encounter;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
+		 */
+		@Override
+		public boolean apply(Observation observation) {
+			return matchesEncounter(encounter, observation);
+		}
+
+		/**
+		 * @param encounter2
+		 * @param observation
+		 * @return
+		 */
+		private boolean matchesEncounter(Encounter encounter2, Observation observation) {
+			for (II ii : observation.getIds()) {
+				for (II iii : encounter.getIds()) {
+					if (getKey(ii).equals(getKey(iii))) {
+						return true;
+					}
+				}
+			}
+
+			Date observationTime = null;
+
+			if (observation.getEffectiveTime() != null) {
+				IVL_TS ivlts = observation.getEffectiveTime();
+				if (observationTime == null && ivlts.getLow() != null &&
+						!StringUtils.isEmpty(ivlts.getLow().getValue())) {
+					observationTime = getDate(ivlts.getLow().getValue());
+				}
+
+				if (observationTime == null && ivlts.getHigh() != null &&
+						!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+					observationTime = getDate(ivlts.getHigh().getValue());
+				}
+			}
+
+			if (observationTime == null) {
+				for (Author author : observation.getAuthors()) {
+					if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+						observationTime = getDate(author.getTime().getValue());
+					}
+				}
+			}
+
+			if (observationTime != null) {
+				return isWithinEncounterDateRate(encounter, observationTime);
+			}
+
+			return false;
+
 		}
 
 	}
@@ -690,17 +759,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		Set<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sets = new HashSet<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct>();
 
 		for (Encounter encounter : encounters) {
-			// FilterAllergyProblemActByEncounter f = new FilterAllergyProblemActByEncounter(encounter);
-
-			// query.getClinicalStatements(AllergyProblemAct.class, f);
-			//
-			// List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, f);
-
-			// ActByEncounterPredicate asdfasdf;
-			// asdfasdfff;
-
 			ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-			@SuppressWarnings("unchecked")
+
 			Collection<AllergyProblemAct> byEncouter = Collections2.filter(sas, predicate);
 
 			for (AllergyProblemAct sa : byEncouter) {
@@ -718,41 +778,40 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				serializeFileName(row, offset, fileName);
 
 				sets.add(sa);
-				// sas.remove(sa);
 			}
 		}
 
-		if (serviceEvent != null) {
-			FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-			// List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-
-			for (AllergyProblemAct sa : sas) {
-
-				if (!sas.contains(sa)) {
-
-					int offset = 0;
-
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
-
-					offset = serializePatient(row, offset, patientRole);
-
-					offset = serializeServiceEvent(row, offset, serviceEvent);
-
-					offset = serializeAllergyProblemAct(row, offset, sa);
-
-					serializeFileName(row, offset, fileName);
-					sets.add(sa);
-					// sas.remove(sa);
-				}
-			}
-
-		}
+		// if (serviceEvent != null) {
+		// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
+		// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
+		//
+		// for (AllergyProblemAct sa : sas) {
+		//
+		// if (!sas.contains(sa)) {
+		//
+		// int offset = 0;
+		//
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		//
+		// offset = serializePatient(row, offset, patientRole);
+		//
+		// offset = serializeServiceEvent(row, offset, serviceEvent);
+		//
+		// offset = serializeAllergyProblemAct(row, offset, sa);
+		//
+		// serializeFileName(row, offset, fileName);
+		// sets.add(sa);
+		// // sas.remove(sa);
+		// }
+		// }
+		//
+		// }
 		for (AllergyProblemAct sa : sas) {
 
 			if (sets.add(sa)) {
 				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
 				int offset = serializePatient(row, 0, patientRole);
-				offset = serializeAllergyProblemAct(row, 6, sa);
+				offset = serializeAllergyProblemAct(row, encounterOffset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -766,14 +825,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		Set<ResultOrganizer> sets = new HashSet<ResultOrganizer>();
 
 		for (Encounter encounter : encounters) {
-			FilterAllergyProblemActByEncounter f = new FilterAllergyProblemActByEncounter(encounter);
-
-			// query.getClinicalStatements(AllergyProblemAct.class, f);
-			//
-			// List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, f);
-
 			OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
-			@SuppressWarnings("unchecked")
+
 			Collection<ResultOrganizer> byEncouter = Collections2.filter(results, predicate);
 
 			for (ResultOrganizer sa : byEncouter) {
@@ -833,7 +886,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (ResultObservation resultObservation : sa.getResultObservations()) {
 					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
 					int offset = serializePatient(row, 0, patientRole);
-					offset = serializeOrganizer(row, 7, sa, true);
+					offset = serializeOrganizer(row, encounterOffset, sa, true);
 					offset = serializeObservation(row, offset, resultObservation);
 					serializeFileName(row, offset, fileName);
 				}
@@ -1285,6 +1338,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (Encounter encounter : encounters) {
 			SubstanceAdministrationByEncounterPredicate predicate = new SubstanceAdministrationByEncounterPredicate(
 				encounter);
+
 			@SuppressWarnings("unchecked")
 			Collection<SubstanceAdministration> byEncouter = (Collection<SubstanceAdministration>) Collections2.filter(
 				sas, predicate);
@@ -1343,7 +1397,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				row.createCell(4).setCellValue("NO ENCOUNTER");
 
-				offset = serializeSubstanceAdministration(row, 7, sa);
+				offset = serializeSubstanceAdministration(row, encounterOffset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -1353,16 +1407,19 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static int createAllergyHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		// All Des Verify Date Event Type Reaction Severity Source
-		row2.createCell(offset++).setCellValue("Allergy ID");
-		row2.createCell(offset++).setCellValue("Allergy Event Type");
-		row2.createCell(offset++).setCellValue("Allergy Description");
-		row2.createCell(offset++).setCellValue("Allergy Verify Date");
+		int firstColumn = offset;
+		row1.createCell(firstColumn).setCellValue("Allergy");
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Event Type");
+		row2.createCell(offset++).setCellValue("Description");
+		row2.createCell(offset++).setCellValue("Verify Date");
 
-		row2.createCell(offset++).setCellValue("Allergy Reaction");
-		row2.createCell(offset++).setCellValue("Allergy Severity");
-		row2.createCell(offset++).setCellValue("Allergy Status");
-		row2.createCell(offset++).setCellValue("Allergy Source");
-		row2.createCell(offset++).setCellValue("Section Name");
+		row2.createCell(offset++).setCellValue("Reaction");
+		row2.createCell(offset++).setCellValue("Severity");
+		row2.createCell(offset++).setCellValue("Status");
+		row2.createCell(offset++).setCellValue("Source");
+		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section");
 		// row.createCell(offset++).setCellValue("Allergy Prescription");
 		return offset;
 	}
@@ -1395,19 +1452,24 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	static int createEncounterHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		int firstColumn = offset;
 		row1.createCell(offset).setCellValue("Encounter");
-		row2.createCell(offset++).setCellValue("Encounter ID");
-		row2.createCell(offset++).setCellValue("Encounter Date");
-		row2.createCell(offset++).setCellValue("Encountner Category");
-		row2.createCell(offset++).setCellValue("Encoutner Description");
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Date");
+		row2.createCell(offset++).setCellValue("Category");
+		row2.createCell(offset++).setCellValue("Description");
 		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-		row2.createCell(offset++).setCellValue("Section Name");
+		row2.createCell(offset++).setCellValue("Section");
 		return offset;
 	};
 
 	static int createPatientHeader(HSSFRow row1, HSSFRow row2, int offset) {
 
-		row2.createCell(offset++).setCellValue("Patient ID");
-		row2.createCell(offset++).setCellValue("Patient DOB");
+		row2.createCell(offset++).setCellValue("Record");
+		int start = offset;
+		row1.createCell(start).setCellValue("Patient");
+		row2.createCell(offset++).setCellValue("ID");
+		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, start, offset));
+		row2.createCell(offset++).setCellValue("DOB");
+
 		return offset;
 	}
 
@@ -1851,6 +1913,46 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
+	private static boolean matchesEncounter(Encounter encounter, Procedure procedure) {
+
+		for (II ii : procedure.getIds()) {
+			for (II iii : encounter.getIds()) {
+				if (getKey(ii).equals(getKey(iii))) {
+					return true;
+				}
+			}
+		}
+
+		Date observationTime = null;
+
+		if (procedure.getEffectiveTime() != null) {
+			IVL_TS ivlts = procedure.getEffectiveTime();
+			if (observationTime == null && ivlts.getLow() != null && !StringUtils.isEmpty(ivlts.getLow().getValue())) {
+				observationTime = getDate(ivlts.getLow().getValue());
+			}
+
+			if (observationTime == null && ivlts.getHigh() != null &&
+					!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+				observationTime = getDate(ivlts.getHigh().getValue());
+			}
+		}
+
+		if (observationTime == null) {
+			for (Author author : procedure.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					observationTime = getDate(author.getTime().getValue());
+				}
+			}
+		}
+
+		if (observationTime != null) {
+			return isWithinEncounterDateRate(encounter, observationTime);
+		}
+
+		return false;
+
+	}
+
 	// iterative breadth-first traversal of diagnostic tree using queue
 	private static void processDiagnostic(Diagnostic diagnostic, ValidationHandler handler) {
 		Queue<Diagnostic> queue = new LinkedList<Diagnostic>();
@@ -2092,9 +2194,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		} else {
 			row.createCell(offset++).setCellValue("");
 		}
+		encounterOffset = offset;
 		return offset;
 
 	}
+
+	private static int encounterOffset = 0;
 
 	/**
 	 * @param row
@@ -2424,6 +2529,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 								throws InvocationTargetException, InterruptedException {
 
 							try {
+								@SuppressWarnings("unchecked")
 								Iterator<Object> iter = iss.iterator();
 								while (iter.hasNext() && !monitor.isCanceled()) {
 
@@ -2760,13 +2866,15 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			int offset = serializePatient(row, 0, patientRole);
 
-			row.createCell(2).setCellValue("NO ENCOUNTER");
+			row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
-			if (section != null) {
-				row.createCell(6).setCellValue(section.getTitle().getText());
-			} else {
-				row.createCell(6).setCellValue("");
-			}
+			row.createCell(encounterOffset).setCellValue("NO ENTRIES");
+
+			// if (section != null) {
+			// row.createCell(6).setCellValue(section.getTitle().getText());
+			// } else {
+			// row.createCell(6).setCellValue("");
+			// }
 
 			ByteArrayOutputStream fa = new ByteArrayOutputStream();
 			;
@@ -2775,20 +2883,67 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			try {
 				CDAUtil.saveSnippet(EcoreUtil.copy(section.getText()), fa);
-
-				// row.createCell(7).setc
-				row.createCell(7).setCellValue(fa.toString());
+				row.createCell(10).setCellValue(fa.toString());
 			} catch (Exception e) {
-				row.createCell(7).setCellValue(e.getMessage());
+				row.createCell(10).setCellValue(e.getMessage());
+			}
+			//
+			// row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 2, 5));
+			// row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 7, 17));
+			//
+			// // serializeFileName(row, 16, fileName);
+			// // serializeFileName(row, 17, fileName);
+			// serializeFileName(row, 18, fileName);
+			// serializeFileName(row, 19, fileName);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseProceduresSectionEntriesOptional(org.openhealthtools.mdht.uml.cda.consol.
+		 * ProceduresSectionEntriesOptional)
+		 */
+		@Override
+		public Boolean caseProceduresSectionEntriesOptional(ProceduresSectionEntriesOptional section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				HSSFRow row1 = sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(1);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterHeader(row1, row2, offset);
+				createProcedureHeader(row1, row2, offset);
+			}
+			if (section.getProcedureActivityActs() != null && !section.getProcedureActivityActs().isEmpty()) {
+
+				appendActToProcedureSheet(
+					query, sheet, patientRole, serviceEvent, section.getProcedureActivityActs(), encounters, fileName);
+
 			}
 
-			row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 2, 5));
-			row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 7, 17));
+			if (section.getProcedureActivityObservations() != null &&
+					!section.getProcedureActivityObservations().isEmpty()) {
 
-			// serializeFileName(row, 16, fileName);
-			// serializeFileName(row, 17, fileName);
-			serializeFileName(row, 18, fileName);
-			// serializeFileName(row, 19, fileName);
+				appendObservationToProcedureSheet(
+					query, sheet, patientRole, serviceEvent, section.getProcedureActivityObservations(), encounters,
+					fileName);
+
+			}
+
+			if (section.getProcedureActivityProcedures() != null &&
+					!section.getProcedureActivityProcedures().isEmpty()) {
+
+				appendProcedureToProcedureSheet(
+					query, sheet, patientRole, serviceEvent, section.getProcedureActivityProcedures(), encounters,
+					fileName);
+
+			}
+
+			// else {
+			// appendEmptySection(query, sheet, patientRole, serviceEvent, section, fileName);
+			// }
+
+			return Boolean.TRUE;
 		}
 
 		@Override
@@ -2859,7 +3014,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			for (Encounter encounter : encounters) {
 
 				OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
-				@SuppressWarnings("unchecked")
+
 				Collection<VitalSignsOrganizer> byEncouter = Collections2.filter(vitalSignsOrganizers, predicate);
 
 				for (VitalSignsOrganizer organizer : byEncouter) {
@@ -2884,7 +3039,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					for (VitalSignObservation observation : sa.getVitalSignObservations()) {
 						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
 						int offset = serializePatient(row, 0, patientRole);
-						offset = serializeOrganizer(row, 7, sa, false);
+						offset = serializeOrganizer(row, encounterOffset, sa, false);
 						offset = serializeObservation(row, offset, observation);
 						serializeFileName(row, offset, fileName);
 					}
@@ -2911,7 +3066,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			for (Encounter encounter : encounters) {
 				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-				@SuppressWarnings("unchecked")
+
 				Collection<ProblemConcernAct> byEncouter = Collections2.filter(problemConcerns, predicate);
 
 				for (ProblemConcernAct sa : byEncouter) {
@@ -2962,7 +3117,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				if (sets.add(sa)) {
 					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
 					int offset = serializePatient(row, 0, patientRole);
-					offset = serializeProblemConcernAct(row, 7, sa);
+					offset = serializeProblemConcernAct(row, encounterOffset, sa);
 					serializeFileName(row, offset, fileName);
 				}
 
@@ -3422,7 +3577,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 		offset = 2;
-		for (EClass sectionclass : sortedKeys) {
+		for (@SuppressWarnings("unused")
+		EClass sectionclass : sortedKeys) {
 			HSSFCell cell = row1.createCell(offset++);
 
 			;
@@ -3443,6 +3599,511 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		fileOut.close();
 		monitor.subTask(
 			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+
+	}
+
+	/**
+	 * @param query
+	 * @param sheet
+	 * @param patientRole
+	 * @param serviceEvent
+	 * @param procedureActivityProcedures
+	 * @param encounters
+	 * @param fileName
+	 */
+	public static void appendProcedureToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+			ServiceEvent serviceEvent, EList<ProcedureActivityProcedure> procedureActivityProcedures,
+			List<Encounter> encounters, String fileName) {
+		Set<ProcedureActivityProcedure> sets = new HashSet<ProcedureActivityProcedure>();
+
+		for (Encounter encounter : encounters) {
+			ProcedureByEncounterPredicate predicate = new ProcedureByEncounterPredicate(encounter);
+
+			Collection<ProcedureActivityProcedure> byEncouter = Collections2.filter(
+				procedureActivityProcedures, predicate);
+
+			for (ProcedureActivityProcedure sa : byEncouter) {
+
+				int offset = 0;
+
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+
+				offset = serializePatient(row, offset, patientRole);
+
+				offset = serializeEncounter(row, offset, encounter);
+
+				offset = serializeProcedureActivityProcedure(row, offset, sa);
+
+				serializeFileName(row, offset, fileName);
+
+				sets.add(sa);
+			}
+		}
+
+		for (ProcedureActivityProcedure sa : procedureActivityProcedures) {
+
+			if (sets.add(sa)) {
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				int offset = serializePatient(row, 0, patientRole);
+				offset = serializeProcedureActivityProcedure(row, encounterOffset, sa);
+				serializeFileName(row, offset, fileName);
+			}
+
+		}
+
+	}
+
+	private static int appendCode(HSSFRow row, int offset, Section setion, CD cd) {
+
+		if (cd != null) {
+
+			row.createCell(offset++).setCellValue(getValueAsString(setion, cd));
+
+			row.createCell(offset++).setCellValue(cd.getCode());
+
+			row.createCell(offset++).setCellValue(cd.getCodeSystem());
+
+			row.createCell(offset++).setCellValue(cd.getCodeSystemName());
+		} else {
+			row.createCell(offset++).setCellValue("");
+			row.createCell(offset++).setCellValue("");
+			row.createCell(offset++).setCellValue("");
+			row.createCell(offset++).setCellValue("");
+
+		}
+
+		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param sa
+	 * @return
+	 */
+	private static int serializeProcedureActivityProcedure(HSSFRow row, int offset,
+			ProcedureActivityProcedure procedureActivityProcedure) {
+		StringBuffer sb = new StringBuffer();
+		for (II ii : procedureActivityProcedure.getIds()) {
+			sb.append(getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = getDate(getValueAsString(procedureActivityProcedure.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		// row.createCell(offset++).setCellValue(
+		// getAnyValue(procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode()));
+
+		offset = appendCode(row, offset, procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode());
+
+		/*
+		 * boolean hasCode = false;
+		 * if (substanceAdministration.getConsumable() != null) {
+		 * Consumable consumable = substanceAdministration.getConsumable();
+		 *
+		 * if (consumable.getManufacturedProduct() != null) {
+		 * ManufacturedProduct manufacturedProduct = consumable.getManufacturedProduct();
+		 *
+		 * if (manufacturedProduct.getManufacturedMaterial() != null) {
+		 *
+		 * if (manufacturedProduct.getManufacturedMaterial().getCode() != null) {
+		 *
+		 * row.createCell(offset++).setCellValue(
+		 * getValueAsString(
+		 * substanceAdministration.getSection(),
+		 * manufacturedProduct.getManufacturedMaterial().getCode()));
+		 *
+		 * row.createCell(offset++).setCellValue(
+		 * manufacturedProduct.getManufacturedMaterial().getCode().getCode());
+		 *
+		 * row.createCell(offset++).setCellValue(
+		 * manufacturedProduct.getManufacturedMaterial().getCode().getCodeSystem());
+		 *
+		 * row.createCell(offset++).setCellValue(
+		 * manufacturedProduct.getManufacturedMaterial().getCode().getCodeSystemName());
+		 *
+		 * hasCode = true;
+		 *
+		 * }
+		 *
+		 * }
+		 *
+		 * }
+		 *
+		 * }
+		 *
+		 * if (!hasCode) {
+		 * row.createCell(offset++).setCellValue("");
+		 * row.createCell(offset++).setCellValue("");
+		 * row.createCell(offset++).setCellValue("");
+		 * row.createCell(offset++).setCellValue("");
+		 *
+		 * }
+		 */
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : procedureActivityProcedure.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		if (procedureActivityProcedure.getSection() != null) {
+			row.createCell(offset++).setCellValue(procedureActivityProcedure.getSection().getTitle().getText());
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		return offset;
+	}
+
+	/**
+	 * @param query
+	 * @param sheet
+	 * @param patientRole
+	 * @param serviceEvent
+	 * @param procedureActivityObservations
+	 * @param encounters
+	 * @param fileName
+	 */
+	public static void appendObservationToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+			ServiceEvent serviceEvent, EList<ProcedureActivityObservation> procedureActivityObservations,
+			List<Encounter> encounters, String fileName) {
+
+		Set<ProcedureActivityObservation> sets = new HashSet<ProcedureActivityObservation>();
+
+		for (Encounter encounter : encounters) {
+			ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
+
+			Collection<ProcedureActivityObservation> byEncouter = Collections2.filter(
+				procedureActivityObservations, predicate);
+
+			for (ProcedureActivityObservation sa : byEncouter) {
+
+				int offset = 0;
+
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+
+				offset = serializePatient(row, offset, patientRole);
+
+				offset = serializeEncounter(row, offset, encounter);
+
+				offset = serializeProcedureActivityObservation(row, offset, sa);
+
+				serializeFileName(row, offset, fileName);
+
+				sets.add(sa);
+			}
+		}
+
+		for (ProcedureActivityObservation sa : procedureActivityObservations) {
+
+			if (sets.add(sa)) {
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				int offset = serializePatient(row, 0, patientRole);
+				offset = serializeProcedureActivityObservation(row, encounterOffset, sa);
+				serializeFileName(row, offset, fileName);
+			}
+
+		}
+
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param sa
+	 * @return
+	 */
+	private static int serializeProcedureActivityObservation(HSSFRow row, int offset,
+			ProcedureActivityObservation procedureActivityObservation) {
+
+		StringBuffer sb = new StringBuffer();
+		for (II ii : procedureActivityObservation.getIds()) {
+			sb.append(getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = getDate(getValueAsString(procedureActivityObservation.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = appendCode(
+			row, offset, procedureActivityObservation.getSection(), procedureActivityObservation.getCode());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : procedureActivityObservation.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		if (procedureActivityObservation.getSection() != null) {
+			row.createCell(offset++).setCellValue(procedureActivityObservation.getSection().getTitle().getText());
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		return offset;
+	}
+
+	/**
+	 * @param query
+	 * @param sheet
+	 * @param patientRole
+	 * @param serviceEvent
+	 * @param procedureActivityActs
+	 * @param encounters
+	 * @param fileName
+	 */
+	public static void appendActToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+			ServiceEvent serviceEvent, EList<ProcedureActivityAct> procedureActivityActs, List<Encounter> encounters,
+			String fileName) {
+
+		Set<ProcedureActivityAct> sets = new HashSet<ProcedureActivityAct>();
+
+		for (Encounter encounter : encounters) {
+			ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
+
+			Collection<ProcedureActivityAct> byEncouter = Collections2.filter(procedureActivityActs, predicate);
+
+			for (ProcedureActivityAct sa : byEncouter) {
+
+				int offset = 0;
+
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+
+				offset = serializePatient(row, offset, patientRole);
+
+				offset = serializeEncounter(row, offset, encounter);
+
+				offset = serializeProcedureActivityAct(row, offset, sa);
+
+				serializeFileName(row, offset, fileName);
+
+				sets.add(sa);
+			}
+		}
+
+		// if (serviceEvent != null) {
+		// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
+		// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
+		//
+		// for (ProblemConcernAct sa : problemConcerns) {
+		//
+		// if (!problemConcerns.contains(sa)) {
+		//
+		// int offset = 0;
+		//
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		//
+		// offset = serializePatient(row, offset, patientRole);
+		//
+		// offset = serializeServiceEvent(row, offset, serviceEvent);
+		//
+		// offset = serializeProblemConcernAct(row, offset, sa);
+		//
+		// serializeFileName(row, offset, fileName);
+		// sets.add(sa);
+		// // sas.remove(sa);
+		// }
+		// }
+		//
+		// }
+		for (ProcedureActivityAct sa : procedureActivityActs) {
+
+			if (sets.add(sa)) {
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				int offset = serializePatient(row, 0, patientRole);
+				offset = serializeProcedureActivityAct(row, encounterOffset, sa);
+				serializeFileName(row, offset, fileName);
+			}
+
+		}
+
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param sa
+	 * @return
+	 */
+	private static int serializeProcedureActivityAct(HSSFRow row, int offset,
+			ProcedureActivityAct procedureActivityAct) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : procedureActivityAct.getIds()) {
+			sb.append(getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = getDate(getValueAsString(procedureActivityAct.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = appendCode(row, offset, procedureActivityAct.getSection(), procedureActivityAct.getCode());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : procedureActivityAct.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		if (procedureActivityAct.getSection() != null) {
+			row.createCell(offset++).setCellValue(procedureActivityAct.getSection().getTitle().getText());
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		// if (procedureActivityAct.getSection() != null) {
+		// row.createCell(offset++).setCellValue(procedureActivityAct.getSection().getTitle().getText());
+		// } else {
+		// row.createCell(offset++).setCellValue("");
+		// }
+
+		// for (ProblemObservation problemObservation : procedureActivityAct.getProblemObservations()) {
+		// offset = serializeObservation(row, offset, problemObservation);
+		//
+		// String organization = "";
+		// String person = "";
+		// if (!problemObservation.getAuthors().isEmpty()) {
+		//
+		// for (Author a : problemObservation.getAuthors()) {
+		// if (a.getAssignedAuthor() != null) {
+		// AssignedAuthor aa = a.getAssignedAuthor();
+		// if (aa.getRepresentedOrganization() != null) {
+		// for (ON on : aa.getRepresentedOrganization().getNames()) {
+		// organization = getValues(on);
+		// }
+		// }
+		//
+		// if (aa.getAssignedPerson() != null) {
+		// for (PN pn : aa.getAssignedPerson().getNames()) {
+		// person = getValues(pn);
+		// }
+		// }
+		// }
+		//
+		// }
+		//
+		// }
+		//
+		// // no range so go back one column
+		// // bit of a hack
+		// offset--;
+		//
+		// row.createCell(offset++).setCellValue(organization);
+		//
+		// row.createCell(offset++).setCellValue(person);
+		//
+		// break;
+		// }
+
+		return offset;
+	}
+
+	/**
+	 * @param row1
+	 * @param row2
+	 * @param offset
+	 */
+	public static int createProcedureHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		int firstColumn = offset;
+		row1.createCell(offset).setCellValue("Procedure");
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Date");
+		row2.createCell(offset++).setCellValue("Description");
+		row2.createCell(offset++).setCellValue("Code");
+		row2.createCell(offset++).setCellValue("Code System");
+		row2.createCell(offset++).setCellValue("Code System Name");
+		row2.createCell(offset++).setCellValue("Performer");
+		row2.createCell(offset++).setCellValue("Organization");
+		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section");
+		// int secondColumn = offset;
+		// row1.createCell(secondColumn).setCellValue("Concern");
+		// row2.createCell(offset++).setCellValue("ID");
+		// row2.createCell(offset++).setCellValue("Date");
+		// row2.createCell(offset++).setCellValue("Type");
+		// row2.createCell(offset++).setCellValue("Description");
+		// row2.createCell(offset++).setCellValue("Code");
+		// row2.createCell(offset++).setCellValue("Organization");
+		// row2.createCell(offset++).setCellValue("Author");
+		// row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+		// row2.createCell(offset++).setCellValue("Range");
+		//
+		// row2.createCell(offset++).setCellValue("Section Name");
+		return offset;
 
 	}
 
