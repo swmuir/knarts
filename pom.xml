@@ -53,6 +53,12 @@
 			<url>http://oht-modeling.sourceforge.net/updates/ccda2</url>
 		</repository>
 
+		<repository>
+			<id>nebula</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/nebula/releases/latest</url>
+		</repository>
+
 
 	</repositories>
 

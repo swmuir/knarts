@@ -216,7 +216,7 @@ public abstract class TransformPropertyConstraint extends TransformAbstract {
 	// Nested types
 	//
 
-	protected final class PropertyContext {
+	public final class PropertyContext {
 		private final Property property;
 
 		// need to preserve the order in which constraints are added to the map
@@ -312,7 +312,7 @@ public abstract class TransformPropertyConstraint extends TransformAbstract {
 		}
 	}
 
-	protected abstract class PropertyConstraintHandler {
+	public abstract class PropertyConstraintHandler {
 		private final ValidationStereotypeKind kind;
 
 		private final String suffix;
