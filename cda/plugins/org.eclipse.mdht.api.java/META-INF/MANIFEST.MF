@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Java
 Bundle-SymbolicName: org.eclipse.mdht.api.java;singleton:=true
-Bundle-Version: 2.5.16.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: org.eclipse.mdht.api.java.Activator
 Require-Bundle: org.eclipse.ocl.uml,
  org.eclipse.ocl.ecore,
