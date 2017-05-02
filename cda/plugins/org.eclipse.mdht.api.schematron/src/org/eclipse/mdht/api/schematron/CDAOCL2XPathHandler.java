@@ -1,12 +1,12 @@
 package org.eclipse.mdht.api.schematron;
 
 import org.eclipse.emf.ecore.EModelElement;
+import org.eclipse.mdht.api.CDAOCLHandler;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 import org.eclipse.ocl.expressions.OperationCallExp;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
-import org.eclipse.mdht.api.CDAOCLHandler;
-import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 
 public class CDAOCL2XPathHandler<PK, C, O extends EModelElement, P, EL, PM, S, COA, SSA, CT, CLS, E> extends CDAOCLHandler<PK, C, O, P, EL, PM, S, COA, SSA, CT, CLS, E> {
 
@@ -23,6 +23,9 @@ public class CDAOCL2XPathHandler<PK, C, O extends EModelElement, P, EL, PM, S, C
 		}
 		if ("isDefined".equals(opName)) {
 			return trafo.step(trafo.transform(op.getSource()), "attribute::node()[name() = " + trafo.transform(op.getArgument().get(0)) + "]");
+		}
+		if ("isClassCodeDefined".equals(opName)) {
+			return trafo.step(trafo.transform(op.getSource()), "attribute::node()[name() = " + "classCode" + "]");
 		}
 		if ("getAllSections".equals(opName)) {
 			return trafo.transform(op.getSource()) + "//" + trafo.nsPrefix("section");

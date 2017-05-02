@@ -72,8 +72,8 @@ public abstract class OCL2ProgrammingLanguageTransformation<PK, C, O extends EMo
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	protected String transformDomainSpecific(OperationCallExp<C, O> op, String opName) {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	protected String  transformDomainSpecific(OperationCallExp op, String opName) {
 		if ("size".equals(opName)) {
 			if ("String".equals(getName(op.getSource().getType())))
 				return length("One(" + transform(op.getSource()) + ")");
@@ -93,8 +93,8 @@ public abstract class OCL2ProgrammingLanguageTransformation<PK, C, O extends EMo
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public String transform(OCLExpression<C> exp) {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String transform(OCLExpression exp) {
 		if (exp instanceof EnumLiteralExp) {
 			EnumLiteralExp<C, EL> enumLiteralExp = (EnumLiteralExp<C, EL>) exp;
 			return getName(enumLiteralExp.getType()) + "." + getName(enumLiteralExp.getReferredEnumLiteral());

@@ -13,6 +13,7 @@ import org.eclipse.mdht.uml.cda.transform.TransformLogicalConstraint;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.uml2.uml.Constraint;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.OpaqueExpression;
 
 public class APITransformLogicalConstraint extends TransformLogicalConstraint {
@@ -40,4 +41,10 @@ public class APITransformLogicalConstraint extends TransformLogicalConstraint {
 		}
 		return result;
 	}
+
+	@Override
+	public void removeModelElement(Element element) {
+		// don't remove Analysis constraint as we create placeholders for them in the generated APIs
+	}
+
 }

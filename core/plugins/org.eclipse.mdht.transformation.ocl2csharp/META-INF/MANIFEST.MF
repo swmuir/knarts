@@ -7,9 +7,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.mdht.transformation.ocl,
  org.eclipse.ocl.uml,
  org.eclipse.ocl.ecore,
- org.eclipse.ui,
  org.eclipse.equinox.registry,
- org.eclipse.mdht.uml.ui.properties,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.mdht.transformation.ocl2csharp

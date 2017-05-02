@@ -25,10 +25,6 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 import org.eclipse.ocl.ecore.SendSignalAction;
 
-/**
- * @author Joe
- * 
- */
 public class OCL2JavaTransformationForEcore extends OCL2JavaTransformation<EPackage, EClassifier, EOperation, EStructuralFeature, EEnumLiteral, EParameter, EObject, CallOperationAction, SendSignalAction, Constraint, EClass, EObject> {
 
 	public OCL2JavaTransformationForEcore(ResourceSet rset) {
@@ -48,5 +44,10 @@ public class OCL2JavaTransformationForEcore extends OCL2JavaTransformation<EPack
 	@Override
 	boolean isPrimitive(EStructuralFeature referredProperty) {
 		return !referredProperty.getEType().getName().startsWith("E");
+	}
+
+	@Override
+	public String transform(EClassifier context, String oclString) {
+		return super.transform(context, oclString);
 	}
 }

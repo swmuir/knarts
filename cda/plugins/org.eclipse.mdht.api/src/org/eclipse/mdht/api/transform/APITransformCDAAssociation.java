@@ -9,6 +9,7 @@
  */
 package org.eclipse.mdht.api.transform;
 
+import org.eclipse.mdht.uml.cda.transform.TransformCDAAssociation;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.uml2.uml.Association;
@@ -16,7 +17,10 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Element;
 
-public class APITransformCDAAssociation extends APITransformCDAAssociationRectified {
+/**
+ * Let the constrained element be the association and not the containing class
+ */
+public class APITransformCDAAssociation extends TransformCDAAssociation {
 
 	private Class constrainedClass;
 
@@ -46,4 +50,13 @@ public class APITransformCDAAssociation extends APITransformCDAAssociationRectif
 		}
 		return result;
 	}
+	
+	public boolean enableVariation_UseOriginalLowerbound() {
+		return !Boolean.getBoolean("USE_IMPLIED_LOWERBOUND");
+	}
+	
+	public boolean enableVariation_UseOriginalType() {
+		return true;
+	}
+	
 }

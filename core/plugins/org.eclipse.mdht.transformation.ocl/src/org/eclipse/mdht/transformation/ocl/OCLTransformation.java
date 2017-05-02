@@ -102,7 +102,7 @@ abstract public class OCLTransformation<PK, C, O extends EModelElement, P, EL, P
 	 * @return returns the string representation of the target language's equivalent for the given expression
 	 */
 	@SuppressWarnings("unchecked")
-	public String transform(org.eclipse.ocl.expressions.OCLExpression<C> exp) {
+	public String transform(OCLExpression<C> exp) {
 		if (exp instanceof OperationCallExp) {
 			OperationCallExp<C, O> op = (OperationCallExp<C, O>) exp;
 			String opName = getName(op.getReferredOperation());
@@ -172,7 +172,13 @@ abstract public class OCLTransformation<PK, C, O extends EModelElement, P, EL, P
 				return result;
 			}
 			if ("=".equals(opName) || "<=".equals(opName) || ">=".equals(opName) || "<".equals(opName) || ">".equals(opName) || "<>".equals(opName)) {
+				if ("=".equals(opName) && op.getSource().getType() instanceof CollectionType && op.getArgument().get(0).getType() instanceof CollectionType) {
+					return deepEqual(opName, transform(op.getSource()), transform(op.getArgument().get(0)));
+				}
 				return compare(opName, transform(op.getSource()), transform(op.getArgument().get(0)));
+			}
+			if ("asSequence".equals(opName)) {
+				return transform(op.getSource());
 			}
 
 			C eClass = (C) op.getReferredOperation().eContainer();
@@ -295,6 +301,18 @@ abstract public class OCLTransformation<PK, C, O extends EModelElement, P, EL, P
 	 * @return
 	 */
 	public String compare(String operator, String lhs, String rhs) {
+		return lhs + " " + op(operator) + " " + rhs;
+	}
+
+	/**
+	 * Compares the two list of values using the given operator
+	 * 
+	 * @param operator
+	 * @param lhs
+	 * @param rhs
+	 * @return
+	 */
+	public String deepEqual(String operator, String lhs, String rhs) {
 		return lhs + " " + op(operator) + " " + rhs;
 	}
 

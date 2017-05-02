@@ -542,7 +542,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
-			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "org.openhealthtools.mdht.metamodel.traceability.editor", 0, null, new Object[] { editingDomain.getResourceSet() });
+			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "org.eclipse.mdht.metamodel.traceability.editor", 0, null, new Object[] { editingDomain.getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
@@ -901,11 +901,11 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "org.openhealthtools.mdht.metamodel.traceability.editor", 0, getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception == null ? (Object) resource : exception });
+			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.mdht.metamodel.traceability.editor", 0, getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception == null ? (Object) resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
 		} else if (exception != null) {
-			return new BasicDiagnostic(Diagnostic.ERROR, "org.openhealthtools.mdht.metamodel.traceability.editor", 0, getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
+			return new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.mdht.metamodel.traceability.editor", 0, getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
 		} else {
 			return Diagnostic.OK_INSTANCE;
 		}
@@ -956,7 +956,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 					}
 				};
 				viewerPane.createControl(getContainer());
-				PlatformUI.getWorkbench().getHelpSystem().setHelp(viewerPane.getControl(), "org.openhealthtools.mdht.metamodel.traceability.editor.EMFTree");
+				PlatformUI.getWorkbench().getHelpSystem().setHelp(viewerPane.getControl(), "org.eclipse.mdht.metamodel.traceability.editor.EMFTree");
 
 				selectionViewer = (TreeViewer) viewerPane.getViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
@@ -1041,7 +1041,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 			composite.setLayout(new GridLayout());
 			composite.setLayoutData(new GridData(GridData.FILL_BOTH | GridData.HORIZONTAL_ALIGN_BEGINNING));
 			if (help != null)
-				PlatformUI.getWorkbench().getHelpSystem().setHelp(composite, "org.openhealthtools.mdht.metamodel.traceability.editor." + help);
+				PlatformUI.getWorkbench().getHelpSystem().setHelp(composite, "org.eclipse.mdht.metamodel.traceability.editor." + help);
 
 			TraceabilityViewer viewer = new TraceabilityViewer(this, composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION, new TraceabilityViewerFactory(getNamespace(), autoExpandLevel != -1, getAllColumns(), columns));
 
@@ -1119,7 +1119,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 				updateTables();
 			}
 		});
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(errButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tablecustomization");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(errButton, "org.eclipse.mdht.metamodel.traceability.editor.tablecustomization");
 
 		final Button allButton = viewer.allButton = new Button(traceabilityFilters, SWT.CHECK);
 		allButton.setToolTipText("Show all values (i.e. do not blank out repetitions)");
@@ -1133,7 +1133,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 				updateTables();
 			}
 		});
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(allButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tablecustomization");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(allButton, "org.eclipse.mdht.metamodel.traceability.editor.tablecustomization");
 
 		final Button treeButton = viewer.treeButton = new Button(traceabilityFilters, SWT.CHECK);
 		treeButton.setToolTipText("Enable trees");
@@ -1147,7 +1147,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 				updateTables();
 			}
 		});
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(treeButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tablecustomization");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(treeButton, "org.eclipse.mdht.metamodel.traceability.editor.tablecustomization");
 
 		if (showDiffControls) {
 			final Button equalButton = viewer.equalButton = new Button(traceabilityFilters, SWT.CHECK);
@@ -1162,7 +1162,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 					updateTables();
 				}
 			});
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(equalButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tracedifffiltering");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(equalButton, "org.eclipse.mdht.metamodel.traceability.editor.tracedifffiltering");
 
 			final Button unequalButton = viewer.unequalButton = new Button(traceabilityFilters, SWT.CHECK);
 			unequalButton.setToolTipText("Show traces common in all models but differing in at least attribute value");
@@ -1177,7 +1177,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 					updateTables();
 				}
 			});
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(unequalButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tracedifffiltering");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(unequalButton, "org.eclipse.mdht.metamodel.traceability.editor.tracedifffiltering");
 
 			final Button plusButton = viewer.plusButton = new Button(traceabilityFilters, SWT.CHECK);
 			if (0 < this.traceDiffs.getComparedTraces().size())
@@ -1193,7 +1193,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 					updateTables();
 				}
 			});
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(plusButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tracedifffiltering");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(plusButton, "org.eclipse.mdht.metamodel.traceability.editor.tracedifffiltering");
 
 			final Button minusButton = viewer.minusButton = new Button(traceabilityFilters, SWT.CHECK);
 			if (1 < this.traceDiffs.getComparedTraces().size())
@@ -1209,7 +1209,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 					updateTables();
 				}
 			});
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(minusButton, "org.openhealthtools.mdht.metamodel.traceability.editor.tracedifffiltering");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(minusButton, "org.eclipse.mdht.metamodel.traceability.editor.tracedifffiltering");
 
 		}
 
@@ -1219,7 +1219,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 			layout = new GridLayout(4, false);
 			layout.horizontalSpacing = 6;
 			filterControls.setLayout(layout);
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(filterControls, "org.openhealthtools.mdht.metamodel.traceability.editor.filterexpression");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(filterControls, "org.eclipse.mdht.metamodel.traceability.editor.filterexpression");
 
 			Label label = new Label(filterControls, SWT.NONE);
 			label.setText("Filter:");
@@ -1290,7 +1290,7 @@ public abstract class TraceabilityEditor extends MultiPageEditorPart implements 
 			layout = new GridLayout(4, false);
 			layout.horizontalSpacing = 6;
 			filterControls.setLayout(layout);
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(filterControls, "org.openhealthtools.mdht.metamodel.traceability.editor.searchexpression");
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(filterControls, "org.eclipse.mdht.metamodel.traceability.editor.searchexpression");
 
 			Label label = new Label(filterControls, SWT.NONE);
 			label.setText("Search:");

@@ -6,7 +6,6 @@ Bundle-Version: 3.0.0.qualifier
 Require-Bundle: org.eclipse.mdht.transformation.ocl,
  org.eclipse.ocl.uml,
  org.eclipse.ocl.ecore,
- org.eclipse.ui,
  org.eclipse.equinox.registry,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

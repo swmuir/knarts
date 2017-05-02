@@ -73,7 +73,7 @@ public class GenerateXMLAction extends GenerateAPIAction {
 	}
 
 	@Override
-	protected File genfolder(File modelFolder, String suffix) {
+	protected File genfolder(File modelFolder) {
 		return new File(modelFolder, "samples");
 	}
 

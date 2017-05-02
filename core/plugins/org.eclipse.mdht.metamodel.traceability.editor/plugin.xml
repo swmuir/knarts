@@ -91,7 +91,7 @@
          point="org.eclipse.help.contexts">
       <contexts
             file="contexts.xml"
-            plugin="org.openhealthtools.mdht.metamodel.traceability.editor">
+            plugin="org.eclipse.mdht.metamodel.traceability.editor">
       </contexts>
    </extension>
 

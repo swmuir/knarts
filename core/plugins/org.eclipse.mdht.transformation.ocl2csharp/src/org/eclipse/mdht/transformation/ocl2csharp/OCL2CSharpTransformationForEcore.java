@@ -23,15 +23,16 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 import org.eclipse.ocl.ecore.SendSignalAction;
 
-/**
- * @author Joe
- * 
- */
 public class OCL2CSharpTransformationForEcore extends OCL2CSharpTransformation<EPackage, EClassifier, EOperation, EStructuralFeature, EEnumLiteral, EParameter, EObject, CallOperationAction, SendSignalAction, Constraint, EClass, EObject> {
 
 	@Override
 	public org.eclipse.ocl.OCL<EPackage, EClassifier, EOperation, EStructuralFeature, EEnumLiteral, EParameter, EObject, CallOperationAction, SendSignalAction, Constraint, EClass, EObject> getOCLInstance() {
 		return OCL.newInstance();
+	}
+
+	@Override
+	public String transform(EClassifier context, String oclString) {
+		return super.transform(context, oclString);
 	}
 
 }

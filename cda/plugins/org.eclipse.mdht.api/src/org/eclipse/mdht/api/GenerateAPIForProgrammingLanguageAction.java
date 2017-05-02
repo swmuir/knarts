@@ -38,6 +38,9 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+/**
+ * Action to generate API files for a yet-to-specify target programming language
+ */
 abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAPIAction {
 
 	protected String getEntityMimeType() {
@@ -55,9 +58,16 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 	}
 
 	private String getFacadeNamespace(Type context) {
+		String packagePrefix = "facade";
 		if (context == null)
-			return "facade";
-		return "facade." + context.getNamespace().getQualifiedName().toLowerCase().replace("::", ".");
+			return packagePrefix;
+		if (context.getPackage() != null) {
+			String version = getStereotype(context.getPackage(), "version");
+			if (version != null) {
+				packagePrefix += "." + toValidFileName(version);
+			}
+		}
+		return packagePrefix + "." + context.getNamespace().getQualifiedName().toLowerCase().replace("::", ".");
 	}
 
 	/**
@@ -71,11 +81,8 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 		monitor = new SubProgressMonitor(monitor, 80);
 		monitor.beginTask("", classes.size());
 
-		StringBuilder sampleCode = new StringBuilder();
-
-		String sampleFileName = getFacadeNamespace(umlClinicalDocument) + ".SampleGenerator";
-		addStandardImports(sampleCode, sampleFileName, null);
-
+		resolvePathmapsInResourceURIs();
+		
 		String errorMessageTemplate = getStereotype(pack, "errorMessageTemplate");
 		String summaryRowTemplate = getStereotype(pack, "summaryRowTemplate");
 
@@ -209,7 +216,7 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 
 				code.append("\t\tpublic void Init()\n");
 				code.append("\t\t{\n");
-				if (templateId != null && templateIdProperty != null) {
+				if (templateId != null && templateIdProperty != null && templateIdProperty.getType() instanceof Class) {
 					setOrAdd(code, CDACommonUtils.findAttribute((Class) templateIdProperty.getType(), "root"), "\"" + templateId + "\"", getGetOrCreateGetter(templateIdProperty) + "().self");
 				}
 				initProperties(clazz, code, "self.", atts);
@@ -279,12 +286,19 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 		Collections.sort(summaryRows);
 		summary.append(StringUtils.join(summaryRows, ""));
 		summary.append("</table>\n");
+		printMetaData(pack, "", "<br>", "<br>", summary);
 		CDACommonUtils.stringToFile(summary.toString(), summaryFile);
 
 		if (umlClinicalDocument == null) {
 			monitor.done();
 			return;
 		}
+
+		StringBuilder sampleCode = new StringBuilder();
+
+		String sampleFileName = getFacadeNamespace(umlClinicalDocument) + ".SampleGenerator";
+		addStandardImports(sampleCode, sampleFileName, null);
+
 		sampleCode.append("        public static " + getFacadeClass(umlClinicalDocument) + " GetSample()\n");
 		sampleCode.append("        {\n\n");
 		sampleCode.append("            " + getFacadeClass(umlClinicalDocument) + " doc = new " + getFacadeClass(umlClinicalDocument) + "();\n\n");
@@ -318,6 +332,7 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 	}
 
 	protected void setOrAdd(StringBuilder pattern, Property baseProperty, String value, String self) {
+		if (baseProperty==null) return;
 		pattern.append("\t\t\t" + setOrAdd(baseProperty, value, self));
 	}
 
@@ -328,7 +343,7 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 	protected String getFacadePropertyName(Property property) {
 		if ("mixed".equals(property.getName()))
 			return "Text";
-		return WordUtils.capitalize(property.getName());
+		return WordUtils.capitalize(property.getName().trim());
 	}
 
 	private String getGetOrCreateGetter(Property property) {
@@ -446,15 +461,15 @@ abstract public class GenerateAPIForProgrammingLanguageAction extends GenerateAP
 					pattern.append("\t\t\t" + getGetOrCreateGetter(property) + "();\n");
 				}
 				CodeSystemConstraint codeSystemConstraint = CDACommonUtils.getCodeSystemConstraint(property);
-				if (codeSystemConstraint != null && codeSystemConstraint.getCode() != null) {
+				if (codeSystemConstraint != null && codeSystemConstraint.getCode() != null && baseProperty.getType() instanceof Class) {
 					setOrAdd(pattern, CDACommonUtils.findAttribute((Class) baseProperty.getType(), "code"), "\"" + codeSystemConstraint.getCode() + "\"", getGetOrCreateGetter(property) + "().self");
 					// pattern.append("\t\t\t" + self + baseProperty.getName() + ".code = SetOrAdd(" + self + baseProperty.getName() + ".code, \"" + codeSystemConstraint.getCode() + "\");\n");
 				}
-				if (codeSystemConstraint != null && getCodeSystem(codeSystemConstraint) != null) {
+				if (codeSystemConstraint != null && getCodeSystem(codeSystemConstraint) != null && baseProperty.getType() instanceof Class) {
 					setOrAdd(pattern, CDACommonUtils.findAttribute((Class) baseProperty.getType(), "codeSystem"), "\"" + getCodeSystem(codeSystemConstraint) + "\"", getGetOrCreateGetter(property) + "().self");
 				}
 				TextValue textValue = CDACommonUtils.getTextValue(property);
-				if (textValue != null && textValue.getValue() != null) {
+				if (textValue != null && textValue.getValue() != null && baseProperty.getType() instanceof Class) {
 					String text = textValue.getValue().trim();
 					setOrAdd(pattern, CDACommonUtils.findAttribute((Class) baseProperty.getType(), "mixed"), "\"" + text + "\"", getGetOrCreateGetter(property) + "().self");
 					// pattern.append("\t\t\t" + self + baseProperty.getName() + ".Text = SetOrAdd(" + self + baseProperty.getName() + ".Text, \"" + text + "\");\n");
