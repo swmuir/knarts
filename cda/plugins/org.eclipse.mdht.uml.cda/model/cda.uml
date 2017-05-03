@@ -8507,23 +8507,23 @@
   <Ecore:EReference xmi:id="_GnOXYZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_fRJBEExwEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_GnOXYp72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_fRJBE0xwEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_Iy_rYJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_AsZwkUxpEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_Iy_rYZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_F_EFwEo0Ed6c3qsAxlFHaQ"/>
-  <Ecore:EReference xmi:id="_IzJcYJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_MZl5MEo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_Iy_rYZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_F_EFwEo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_IzJcYJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_MZl5MEo0Ed6c3qsAxlFHaQ"/>
   <Ecore:EReference xmi:id="_IzJcYZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_KWYtIUxqEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_IzJcYp72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_DKBLQEo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_IzJcYp72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_DKBLQEo0Ed6c3qsAxlFHaQ"/>
   <Ecore:EReference xmi:id="_IzTNYJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_PEqsEUxoEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_IzTNYZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_h0gPUUxoEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_IzTNYp72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_jKTaEUxnEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_IzTNY572Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_iLevcExpEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_IzTNZJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_OtQk8Eo0Ed6c3qsAxlFHaQ"/>
-  <Ecore:EReference xmi:id="_IzTNZZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_B19SQExsEd6h-an5IXo-DA"/>
+  <Ecore:EReference xmi:id="_IzTNZJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_OtQk8Eo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_IzTNZZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_B19SQExsEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_IzTNZp72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_E2gO8ExoEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_IzTNZ572Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_wasAIUxpEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_IzTNaJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_KAZ0QEo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_IzTNaJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_KAZ0QEo0Ed6c3qsAxlFHaQ"/>
   <Ecore:EReference xmi:id="_IzTNaZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_LxP-EExpEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_IzTNap72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_B2GcMkxsEd6h-an5IXo-DA"/>
-  <Ecore:EReference xmi:id="_IzTNa572Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_H4XJsEo0Ed6c3qsAxlFHaQ"/>
-  <Ecore:EReference xmi:id="_IzTNbJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_B2GcNUxsEd6h-an5IXo-DA"/>
+  <Ecore:EReference xmi:id="_IzTNap72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_B2GcMkxsEd6h-an5IXo-DA"/>
+  <Ecore:EReference xmi:id="_IzTNa572Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_H4XJsEo0Ed6c3qsAxlFHaQ"/>
+  <Ecore:EReference xmi:id="_IzTNbJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" xmlFeatureKind="Element" base_Property="_B2GcNUxsEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_KfebUJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_Jpvt8UoXEd6c3qsAxlFHaQ"/>
   <Ecore:EReference xmi:id="_KfoMUJ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_fRJBFkxwEd6h-an5IXo-DA"/>
   <Ecore:EReference xmi:id="_KfoMUZ72Ed6BCKDGgDgllw" xmlNamespace="##targetNamespace" base_Property="_fRJBHExwEd6h-an5IXo-DA"/>
@@ -9039,7 +9039,7 @@
   <Ecore:EReference xmi:id="_yczXkAPjEeGdM61FsLhcmQ" xmlName="deceasedInd" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_rS5VoAPjEeGdM61FsLhcmQ"/>
   <Ecore:EReference xmi:id="_T7cRkAPkEeGdM61FsLhcmQ" xmlName="deceasedTime" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_LJEdAAPkEeGdM61FsLhcmQ"/>
   <Ecore:EReference xmi:id="_wjqvUFZvEeGCdLgBm6VHOQ" xmlName="id" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_jSS_4FZvEeGCdLgBm6VHOQ"/>
-  <Ecore:EReference xmi:id="_utLkkI_8EeKDcJPVSJHobw" xmlName="dischargeDispositionCode" xmlNamespace="urn:hl7-org:sdtc" base_Property="_eCTm4I_1EeKDcJPVSJHobw"/>
+  <Ecore:EReference xmi:id="_utLkkI_8EeKDcJPVSJHobw" xmlName="dischargeDispositionCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_eCTm4I_1EeKDcJPVSJHobw"/>
   <Ecore:EAttribute xmi:id="_g7DKcONLEeKLC7zu0C2K8Q" xmlName="ID" xmlFeatureKind="Attribute" base_Property="_pFDz8ONKEeKLC7zu0C2K8Q"/>
   <Ecore:EReference xmi:id="_ACvagBzlEeSMr-NWzQuDBw" xmlName="signatureText" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_tvz1sBzkEeSMr-NWzQuDBw"/>
   <Ecore:EReference xmi:id="_4Q-R4BzlEeSMr-NWzQuDBw" xmlName="signatureText" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_vHSJgBzlEeSMr-NWzQuDBw"/>

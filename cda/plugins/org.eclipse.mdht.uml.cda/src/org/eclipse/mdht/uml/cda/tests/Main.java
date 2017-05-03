@@ -11,6 +11,7 @@
 package org.eclipse.mdht.uml.cda.tests;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
@@ -18,6 +19,7 @@ import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAFactory;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Encounter;
+import org.eclipse.mdht.uml.cda.Entry;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Organization;
 import org.eclipse.mdht.uml.cda.Patient;
@@ -35,6 +37,51 @@ import org.eclipse.mdht.uml.hl7.datatypes.ST;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
 
 public class Main {
+
+	public static void testSDTCDischargeDispositionCodes() throws Exception {
+		ClinicalDocument doc = CDAFactory.eINSTANCE.createClinicalDocument();
+		Section section = CDAFactory.eINSTANCE.createSection();
+		doc.addSection(section);
+		Encounter encounter = CDAFactory.eINSTANCE.createEncounter();
+
+		encounter.setEffectiveTime(DatatypesFactory.eINSTANCE.createIVL_TS());
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("1", "1"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("2", "1"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("3", "1"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("4", "1"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("5", "1"));
+		encounter.getSDTCDischargeDispositionCodes().add(DatatypesFactory.eINSTANCE.createCE("6", "1"));
+
+		encounter.setPriorityCode(DatatypesFactory.eINSTANCE.createCE());
+		section.addEncounter(encounter);
+
+		// saveData("foobar.xml", doc);
+		CDAUtil.save(doc, new FileOutputStream("samples/sdtcdischargedispositioncodes.xml"));
+
+		// ClinicalDocument clinicalDocument = loadData("foobar.xml");
+
+		ClinicalDocument clinicalDocument = CDAUtil.load(
+			new FileInputStream("samples/sdtcdischargedispositioncodes.xml"));
+
+		for (Section s : clinicalDocument.getSections()) {
+
+			for (Entry e : s.getEntries()) {
+
+				if (e.getEncounter() != null) {
+
+					for (CE ce : e.getEncounter().getSDTCDischargeDispositionCodes()) {
+						System.out.println("Test Codes " + ce.getCode());
+					}
+
+				}
+
+			}
+
+		}
+
+		CDAUtil.save(clinicalDocument, new FileOutputStream("samples/sdtcdischargedispositioncodes2.xml"));
+	}
+
 	public static void main(String[] args) throws Exception {
 		ClinicalDocument doc = CDAFactory.eINSTANCE.createClinicalDocument();
 
@@ -141,5 +188,8 @@ public class Main {
 		} else {
 			System.out.println("Document is invalid");
 		}
+
+		testSDTCDischargeDispositionCodes();
+
 	}
 }
