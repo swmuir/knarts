@@ -36,7 +36,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -767,11 +766,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
-				offset = serializeEncounter(row, offset, encounter);
+				offset = serializeEncounterID(row, offset, encounter);
 
 				offset = serializeAllergyProblemAct(row, offset, sa);
 
@@ -791,7 +790,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -809,9 +808,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (AllergyProblemAct sa : sas) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
-				offset = serializeAllergyProblemAct(row, encounterOffset, sa);
+				offset = serializeAllergyProblemAct(row, ++offset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -834,7 +833,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (ResultObservation resultObservation : sa.getResultObservations()) {
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
@@ -865,7 +864,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -884,9 +883,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				for (ResultObservation resultObservation : sa.getResultObservations()) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
-					offset = serializeOrganizer(row, encounterOffset, sa, true);
+					offset = serializeOrganizer(row, ++offset, sa, true);
 					offset = serializeObservation(row, offset, resultObservation);
 					serializeFileName(row, offset, fileName);
 				}
@@ -910,7 +909,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * row2.createCell(offset++).setCellValue("Test");
 		 * row2.createCell(offset++).setCellValue("Description");
 		 * row2.createCell(offset++).setCellValue("Result");
-		 * row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+		 * // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
 		 * row2.createCell(offset++).setCellValue("Range");
 		 *
 		 */
@@ -1094,7 +1093,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		/*
 		 *
-		 * row1.createCell(offset).setCellValue("Panel");
+		 * // undo to go back to two rows for headers row1.createCell(offset).setCellValue("Panel");
 		 * row2.createCell(offset++).setCellValue("ID");
 		 * row2.createCell(offset++).setCellValue("Date");
 		 * row2.createCell(offset++).setCellValue("Type");
@@ -1236,7 +1235,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (Encounter encoutner : encounters) {
 
 			if (encoutner.getEffectiveTime() != null) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeEncounter(row, offset, encoutner);
 				serializeFileName(row, offset, fileName);
@@ -1347,11 +1346,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
-				offset = serializeEncounter(row, offset, encounter);
+				offset = serializeEncounterID(row, offset, encounter);
 
 				offset = serializeSubstanceAdministration(row, offset, sa);
 
@@ -1373,7 +1372,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -1391,13 +1390,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (SubstanceAdministration sa : sas) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				int offset = serializePatient(row, 0, patientRole);
 
 				row.createCell(4).setCellValue("NO ENCOUNTER");
 
-				offset = serializeSubstanceAdministration(row, encounterOffset, sa);
+				offset = serializeSubstanceAdministration(row, ++offset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -1408,7 +1407,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	static int createAllergyHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		// All Des Verify Date Event Type Reaction Severity Source
 		int firstColumn = offset;
-		row1.createCell(firstColumn).setCellValue("Allergy");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(firstColumn).setCellValue("Allergy");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Event Type");
 		row2.createCell(offset++).setCellValue("Description");
@@ -1418,46 +1417,55 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Severity");
 		row2.createCell(offset++).setCellValue("Status");
 		row2.createCell(offset++).setCellValue("Source");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-		row2.createCell(offset++).setCellValue("Section");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
+		// 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section Title");
 		// row.createCell(offset++).setCellValue("Allergy Prescription");
 		return offset;
 	}
 
 	static int createResultsHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		int firstColumn = offset;
-		row1.createCell(offset).setCellValue("Panel");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(offset).setCellValue("Panel");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		row2.createCell(offset++).setCellValue("Type");
 		row2.createCell(offset++).setCellValue("Specimen");
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Author");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-		row2.createCell(offset++).setCellValue("Section");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
+		// 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section Title");
 		int secondColumn = offset;
-		row1.createCell(secondColumn).setCellValue("Result");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(secondColumn).setCellValue("Result");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		row2.createCell(offset++).setCellValue("Test");
 		row2.createCell(offset++).setCellValue("Description");
 		row2.createCell(offset++).setCellValue("Result");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
+		// 0, secondColumn, offset));
 		row2.createCell(offset++).setCellValue("Range");
 		//
 		// row2.createCell(offset++).setCellValue("Section Name");
 		return offset;
 	};
 
+	static int createEncounterIDHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		row2.createCell(offset++).setCellValue("Encounter ID");
+		return offset;
+	};
+
 	static int createEncounterHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		int firstColumn = offset;
-		row1.createCell(offset).setCellValue("Encounter");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(offset).setCellValue("Encounter");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		row2.createCell(offset++).setCellValue("Category");
 		row2.createCell(offset++).setCellValue("Description");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-		row2.createCell(offset++).setCellValue("Section");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
+		// 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section Title");
 		return offset;
 	};
 
@@ -1465,9 +1473,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row2.createCell(offset++).setCellValue("Record");
 		int start = offset;
-		row1.createCell(start).setCellValue("Patient");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(start).setCellValue("Patient");
 		row2.createCell(offset++).setCellValue("ID");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, start, offset));
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
+		// 0, start, offset));
 		row2.createCell(offset++).setCellValue("DOB");
 
 		return offset;
@@ -1483,7 +1492,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static int createSubstanceAdministrationHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		int firstColumn = offset;
-		row1.createCell(offset).setCellValue("Medications");
+		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(offset).setCellValue("Medications");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Name");
 		row2.createCell(offset++).setCellValue("Code");
@@ -1494,7 +1503,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Expiration");
 		row2.createCell(offset++).setCellValue("Provider");
 		row2.createCell(offset++).setCellValue("Prescription");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+		// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
 		row2.createCell(offset++).setCellValue("Section Name");
 
 		return offset;
@@ -2131,6 +2140,21 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
+	static int serializeEncounterID(HSSFRow row, int offset, Encounter encounter) {
+
+		HSSFCell cell = row.createCell(offset++);
+
+		StringBuffer sb = new StringBuffer();
+		for (II ii : encounter.getIds()) {
+			sb.append(getKey2(ii));
+		}
+
+		cell.setCellValue(sb.toString());
+
+		return offset;
+
+	}
+
 	static int serializeEncounter(HSSFRow row, int offset, Encounter encounter) {
 
 		HSSFCell cell = row.createCell(offset++);
@@ -2194,12 +2218,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		} else {
 			row.createCell(offset++).setCellValue("");
 		}
-		encounterOffset = offset;
+		// ++offset = offset;
 		return offset;
 
 	}
 
-	private static int encounterOffset = 0;
+	// private static int ++offset = 0;
 
 	/**
 	 * @param row
@@ -2234,7 +2258,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	static int serializePatient(HSSFRow row, int offset, PatientRole patientRole) {
 
 		HSSFCell cell = row.createCell(offset++);
-		cell.setCellValue(row.getRowNum() - 2);
+		cell.setCellValue(row.getRowNum() - 1);
 
 		cell = row.createCell(offset++);
 		StringBuffer sb = new StringBuffer();
@@ -2599,31 +2623,32 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		HSSFSheet patientsSheet = wb.createSheet("Patients");
 
-		HSSFRow row1 = patientsSheet.createRow(0);
-		HSSFRow row2 = patientsSheet.createRow(1);
+		HSSFRow row1 = null; // patientsSheet.createRow(0);
+		HSSFRow row2 = patientsSheet.createRow(0);
+
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
 		HSSFSheet encountersSheet = wb.createSheet("Encounters");
 
-		row1 = encountersSheet.createRow(0);
-		row2 = encountersSheet.createRow(1);
+		row1 = null; // encountersSheet.createRow(0);
+		row2 = encountersSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createEncounterHeader(row1, row2, offset);
 
 		HSSFSheet allergySheet = wb.createSheet("Allergies");
-		row1 = allergySheet.createRow(0);
-		row2 = allergySheet.createRow(1);
+		row1 = null; /// allergySheet.createRow(0);
+		row2 = allergySheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
-		offset = createEncounterHeader(row1, row2, offset);
+		offset = createEncounterIDHeader(row1, row2, offset);
 		createAllergyHeader(row1, row2, offset);
 
 		HSSFSheet substanceAdministrationsSheet = wb.createSheet("Medications");
 
-		row1 = substanceAdministrationsSheet.createRow(0);
-		row2 = substanceAdministrationsSheet.createRow(1);
+		row1 = null; // substanceAdministrationsSheet.createRow(0);
+		row2 = substanceAdministrationsSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
-		offset = createEncounterHeader(row1, row2, offset);
+		offset = createEncounterIDHeader(row1, row2, offset);
 		createSubstanceAdministrationHeader(row1, row2, offset);
 
 		for (IResource resource : folder.members()) {
@@ -2730,10 +2755,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseMedicationsSectionEntriesOptional(MedicationsSectionEntriesOptional section) {
 
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createSubstanceAdministrationHeader(row1, row2, offset);
 			}
 
@@ -2756,10 +2781,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseMedicationsAdministeredSection(MedicationsAdministeredSection section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createSubstanceAdministrationHeader(row1, row2, offset);
 			}
 
@@ -2784,11 +2809,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseImmunizationsSectionEntriesOptional(ImmunizationsSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createSubstanceAdministrationHeader(row1, row2, offset);
 			}
 			if (section.getImmunizationActivities() != null && !section.getImmunizationActivities().isEmpty()) {
@@ -2812,11 +2837,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseAllergiesSectionEntriesOptional(AllergiesSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createAllergyHeader(row1, row2, offset);
 			}
 			if (section.getAllergyProblemActs() != null && !section.getAllergyProblemActs().isEmpty()) {
@@ -2832,11 +2857,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseProblemSectionEntriesOptional(ProblemSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createProblemHeader(row1, row2, offset);
 			}
 			if (section.getProblemConcerns() != null && !section.getProblemConcerns().isEmpty()) {
@@ -2862,13 +2887,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		private void appendEmptySection(Query query2, HSSFSheet sheet2, PatientRole patientRole2,
 				ServiceEvent serviceEvent2, Section section, String fileName2) {
 
-			HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+			HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 			int offset = serializePatient(row, 0, patientRole);
 
 			row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
-			row.createCell(encounterOffset).setCellValue("NO ENTRIES");
+			row.createCell(++offset).setCellValue("NO ENTRIES");
 
 			// if (section != null) {
 			// row.createCell(6).setCellValue(section.getTitle().getText());
@@ -2907,11 +2932,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseProceduresSectionEntriesOptional(ProceduresSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createProcedureHeader(row1, row2, offset);
 			}
 			if (section.getProcedureActivityActs() != null && !section.getProcedureActivityActs().isEmpty()) {
@@ -2950,11 +2975,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseVitalSignsSectionEntriesOptional(VitalSignsSectionEntriesOptional section) {
 			if (section.getVitalSignsOrganizers() != null && !section.getVitalSignsOrganizers().isEmpty()) {
 
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createVitalSignsHeader(row1, row2, offset);
 
 				appendToVitalSignsSheet(
@@ -2972,23 +2997,23 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 */
 		private int createVitalSignsHeader(HSSFRow row1, HSSFRow row2, int offset) {
 			int firstColumn = offset;
-			row1.createCell(offset).setCellValue("Panel");
+			// undo to go back to two rows for headers row1.createCell(offset).setCellValue("Panel");
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			row2.createCell(offset++).setCellValue("Type");
 			// row2.createCell(offset++).setCellValue("Specimen");
 			row2.createCell(offset++).setCellValue("Organization");
 			row2.createCell(offset++).setCellValue("Author");
-			row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-			row2.createCell(offset++).setCellValue("Section");
+			// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+			row2.createCell(offset++).setCellValue("Section Title");
 			int secondColumn = offset;
-			row1.createCell(secondColumn).setCellValue("Vital Sign");
+			// undo to go back to two rows for headers row1.createCell(secondColumn).setCellValue("Vital Sign");
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			row2.createCell(offset++).setCellValue("Test");
 			row2.createCell(offset++).setCellValue("Description");
 			row2.createCell(offset++).setCellValue("Result");
-			row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+			// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
 			row2.createCell(offset++).setCellValue("Range");
 			//
 			// row2.createCell(offset++).setCellValue("Section Name");
@@ -3020,9 +3045,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (VitalSignsOrganizer organizer : byEncouter) {
 
 					for (VitalSignObservation observation : organizer.getVitalSignObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
-						offset = serializeEncounter(row, offset, encounter);
+						offset = serializeEncounterID(row, offset, encounter);
 						offset = serializeOrganizer(row, offset, organizer, false);
 						offset = serializeObservation(row, offset, observation);
 						serializeFileName(row, offset, fileName);
@@ -3037,9 +3062,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					for (VitalSignObservation observation : sa.getVitalSignObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
-						offset = serializeOrganizer(row, encounterOffset, sa, false);
+						offset = serializeOrganizer(row, ++offset, sa, false);
 						offset = serializeObservation(row, offset, observation);
 						serializeFileName(row, offset, fileName);
 					}
@@ -3073,11 +3098,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
-					offset = serializeEncounter(row, offset, encounter);
+					offset = serializeEncounterID(row, offset, encounter);
 
 					offset = serializeProblemConcernAct(row, offset, sa);
 
@@ -3097,7 +3122,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// int offset = 0;
 			//
-			// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+			// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
 			// offset = serializePatient(row, offset, patientRole);
 			//
@@ -3115,9 +3140,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			for (ProblemConcernAct sa : problemConcerns) {
 
 				if (sets.add(sa)) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
-					offset = serializeProblemConcernAct(row, encounterOffset, sa);
+					offset = serializeProblemConcernAct(row, ++offset, sa);
 					serializeFileName(row, offset, fileName);
 				}
 
@@ -3319,14 +3344,14 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 */
 		private int createProblemHeader(HSSFRow row1, HSSFRow row2, int offset) {
 			int firstColumn = offset;
-			row1.createCell(offset).setCellValue("Problem");
+			// undo to go back to two rows for headers row1.createCell(offset).setCellValue("Problem");
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			row2.createCell(offset++).setCellValue("Type");
-			row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-			row2.createCell(offset++).setCellValue("Section");
+			// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+			row2.createCell(offset++).setCellValue("Section Title");
 			int secondColumn = offset;
-			row1.createCell(secondColumn).setCellValue("Concern");
+			// undo to go back to two rows for headers row1.createCell(secondColumn).setCellValue("Concern");
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			row2.createCell(offset++).setCellValue("Type");
@@ -3334,7 +3359,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			row2.createCell(offset++).setCellValue("Code");
 			row2.createCell(offset++).setCellValue("Organization");
 			row2.createCell(offset++).setCellValue("Author");
-			row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+			// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
 			// row2.createCell(offset++).setCellValue("Range");
 			//
 			// row2.createCell(offset++).setCellValue("Section Name");
@@ -3366,11 +3391,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (!resultOrganizers.isEmpty()) {
 
-				HSSFRow row1 = sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(1);
+				HSSFRow row1 = null; // sheet.createRow(0);
+				HSSFRow row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterHeader(row1, row2, offset);
+				offset = createEncounterIDHeader(row1, row2, offset);
 				createResultsHeader(row1, row2, offset);
 
 				appendToResultsSheet(query, sheet, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
@@ -3419,15 +3444,15 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		HSSFSheet patientsSheet = wb.createSheet("Patients");
 
-		HSSFRow row1 = patientsSheet.createRow(0);
-		HSSFRow row2 = patientsSheet.createRow(1);
+		HSSFRow row1 = null; // patientsSheet.createRow(0);
+		HSSFRow row2 = patientsSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
 		HSSFSheet encountersSheet = wb.createSheet("Encounters");
 
-		row1 = encountersSheet.createRow(0);
-		row2 = encountersSheet.createRow(1);
+		row1 = null; // encountersSheet.createRow(0);
+		row2 = encountersSheet.createRow(0);
 
 		offset = createPatientHeader(row1, row2, 0);
 		createEncounterHeader(row1, row2, offset);
@@ -3543,7 +3568,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 		offset = 1;
-		row1.createCell(offset++).setCellValue("Document Type");
+		// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
 		for (EClass sectionclass : sortedKeys) {
 
 			HSSFCell cell = row1.createCell(offset++);
@@ -3626,11 +3651,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
-				offset = serializeEncounter(row, offset, encounter);
+				offset = serializeEncounterID(row, offset, encounter);
 
 				offset = serializeProcedureActivityProcedure(row, offset, sa);
 
@@ -3643,9 +3668,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityProcedure sa : procedureActivityProcedures) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
-				offset = serializeProcedureActivityProcedure(row, encounterOffset, sa);
+				offset = serializeProcedureActivityProcedure(row, ++offset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -3806,11 +3831,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
-				offset = serializeEncounter(row, offset, encounter);
+				offset = serializeEncounterID(row, offset, encounter);
 
 				offset = serializeProcedureActivityObservation(row, offset, sa);
 
@@ -3823,9 +3848,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityObservation sa : procedureActivityObservations) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
-				offset = serializeProcedureActivityObservation(row, encounterOffset, sa);
+				offset = serializeProcedureActivityObservation(row, ++offset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -3917,11 +3942,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
-				offset = serializeEncounter(row, offset, encounter);
+				offset = serializeEncounterID(row, offset, encounter);
 
 				offset = serializeProcedureActivityAct(row, offset, sa);
 
@@ -3941,7 +3966,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -3959,9 +3984,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityAct sa : procedureActivityActs) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows() + 1);
+				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
-				offset = serializeProcedureActivityAct(row, encounterOffset, sa);
+				offset = serializeProcedureActivityAct(row, ++offset, sa);
 				serializeFileName(row, offset, fileName);
 			}
 
@@ -4079,7 +4104,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 */
 	public static int createProcedureHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		int firstColumn = offset;
-		row1.createCell(offset).setCellValue("Procedure");
+		// undo to go back to two rows for headers row1.createCell(offset).setCellValue("Procedure");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		row2.createCell(offset++).setCellValue("Description");
@@ -4088,10 +4113,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Code System Name");
 		row2.createCell(offset++).setCellValue("Performer");
 		row2.createCell(offset++).setCellValue("Organization");
-		row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
-		row2.createCell(offset++).setCellValue("Section");
+		// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, firstColumn, offset));
+		row2.createCell(offset++).setCellValue("Section Title");
 		// int secondColumn = offset;
-		// row1.createCell(secondColumn).setCellValue("Concern");
+		// // undo to go back to two rows for headers row1.createCell(secondColumn).setCellValue("Concern");
 		// row2.createCell(offset++).setCellValue("ID");
 		// row2.createCell(offset++).setCellValue("Date");
 		// row2.createCell(offset++).setCellValue("Type");
@@ -4099,7 +4124,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		// row2.createCell(offset++).setCellValue("Code");
 		// row2.createCell(offset++).setCellValue("Organization");
 		// row2.createCell(offset++).setCellValue("Author");
-		// row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
+		// // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
 		// row2.createCell(offset++).setCellValue("Range");
 		//
 		// row2.createCell(offset++).setCellValue("Section Name");

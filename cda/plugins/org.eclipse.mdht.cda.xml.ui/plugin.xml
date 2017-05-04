@@ -88,15 +88,22 @@
 	<extension point="org.eclipse.ui.editors">
 		<editor class="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer"
 			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-			extensions="xml" icon="icons/analyzer/sample.gif"
+			extensions="xml" icon="icons/analyzer/editor_area.gif"
 			id="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer" name="CDA Analyzer">
 		</editor>
 
 		<editor class="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer2"
 			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-			extensions="xml" icon="icons/analyzer/sample.gif"
+			extensions="xml" icon="icons/analyzer/metharg_obj.gif"
 			id="org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer2" name="CDA Metrics">
 		</editor>
+		
+		<editor class="org.eclipse.mdht.cda.xml.ui.editors.CDAXSL"
+			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+			extensions="xml" icon="icons/analyzer/internal_browser.gif"
+			id="org.eclipse.mdht.cda.xml.ui.editors.CDAXSL" name="CDA XSL">
+		</editor>
+		
 	</extension>
 
 	<extension point="org.eclipse.ui.menus">

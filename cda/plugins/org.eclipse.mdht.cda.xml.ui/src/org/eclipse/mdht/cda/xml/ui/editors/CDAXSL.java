@@ -9,7 +9,7 @@
  *     seanmuir - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.mdht.cda.xml.ui.handlers;
+package org.eclipse.mdht.cda.xml.ui.editors;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,7 +19,6 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Iterator;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -29,42 +28,119 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.URIUtil;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.cda.xml.ui.internal.Logger;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.browser.IWebBrowser;
-import org.eclipse.ui.handlers.HandlerUtil;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
 import org.osgi.framework.Bundle;
 
 /**
  * @author seanmuir
  *
  */
-public class OpenUsingStyleSheet extends AbstractHandler {
+public class CDAXSL extends EditorPart {
+
+	Browser browser;
+
+	IFile source;
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime.IProgressMonitor)
+	 */
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.EditorPart#doSaveAs()
+	 */
+	@Override
+	public void doSaveAs() {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.EditorPart#init(org.eclipse.ui.IEditorSite, org.eclipse.ui.IEditorInput)
+	 */
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		setSite(site);
+		setInput(input);
+
+		if (input instanceof IFileEditorInput) {
+			IFileEditorInput fileInput = (IFileEditorInput) input;
+			source = fileInput.getFile();
+		}
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.EditorPart#isDirty()
+	 */
+	@Override
+	public boolean isDirty() {
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
+	 */
+	@Override
+	public boolean isSaveAsAllowed() {
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+	 */
+	@Override
+	public void createPartControl(Composite parent) {
+
+		browser = new Browser(parent, SWT.BORDER);
+		try {
+			open(browser, source);
+		} catch (Exception e) {
+			Logger.logException(e);
+		}
+	}
 
 	/**
-	 * @TODO dd Eclipse Preference for xsl
+	 * Opens use IWebBrowser which is different from Browser so some duplication
 	 *
-	 *       Opens use IWebBrowser which is different from Browser so some duplication
+	 * Using Browser to set parent composite
 	 *
-	 * @see org.eclipse.mdht.cda.xml.ui.editors.CDAXSL.open(Browser, IFile)
+	 * @TOOO Add Eclipse Preference for xsl
 	 * @param browser
 	 * @param sourceFile
 	 * @throws Exception
 	 */
-	private static void open(final IWebBrowser browser, IFile sourceFile) throws Exception {
+	private static void open(Browser browser, IFile sourceFile) throws Exception {
 
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
-		URL fileURL = bundle.getEntry("resources/xsl/vha/cda.xsl"); // "resources/xsl/CDA.xsl");
+		URL fileURL = bundle.getEntry("resources/xsl/vha/cda.xsl");
 
 		// Create Temporary File
 		File tempFile = File.createTempFile(sourceFile.getName(), ".html");
@@ -86,49 +162,7 @@ public class OpenUsingStyleSheet extends AbstractHandler {
 
 		applyXSL(sourceFile, tempFile, fileURL);
 
-		browser.openURL(tempFile.toURI().toURL());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
-	 */
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-
-		try {
-
-			ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
-			if (selection instanceof IStructuredSelection) {
-
-				final IStructuredSelection iss = (IStructuredSelection) selection;
-
-				@SuppressWarnings("unchecked")
-				Iterator<Object> iter = iss.iterator();
-				while (iter.hasNext()) {
-
-					Object o = iter.next();
-					if (o instanceof IFile) {
-
-						IFile sourceFile = (IFile) o;
-
-						final IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport().createBrowser(
-							Activator.PLUGIN_ID);
-
-						open(browser, sourceFile);
-
-					}
-				}
-
-			}
-
-		} catch (Exception e) {
-			Logger.logException(e);
-		}
-		;
-
-		return null;
+		browser.setUrl(tempFile.toURI().toURL().toString());
 	}
 
 	private static void applyXSL(IFile cdaFileName, File temporaryFile, URL styleSheetURL) throws Exception {
@@ -138,6 +172,16 @@ public class OpenUsingStyleSheet extends AbstractHandler {
 		Source source = new StreamSource(cdaFileName.getContents());
 		Result result = new StreamResult(new FileOutputStream(temporaryFile));
 		xformer.transform(source, result);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+	 */
+	@Override
+	public void setFocus() {
+
 	}
 
 }

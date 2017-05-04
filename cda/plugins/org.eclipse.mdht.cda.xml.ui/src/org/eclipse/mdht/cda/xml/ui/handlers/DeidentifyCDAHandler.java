@@ -16,6 +16,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -81,6 +83,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 public class DeidentifyCDAHandler extends AbstractHandler {
+
+	public static final SimpleDateFormat DATE_FORMAT3 = new SimpleDateFormat("yyyyMMdd");
 
 	public class DeIdentificationDialog extends TitleAreaDialog {
 
@@ -172,7 +176,15 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	}
 
+	public String getKey(String prefix, II ii) {
+		return prefix + "\t" + getKey(ii);
+	}
+
 	HashSet<String> names = new HashSet<String>();
+
+	public String getKey(String prefix, EN pn) {
+		return prefix + "\t" + getKey(pn);
+	}
 
 	public String getKey(EN pn) {
 
@@ -221,7 +233,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	final HashMap<String, String> randmonIds = new HashMap<String, String>();
 
-	public void deidentifyCDA(IFile file) throws Exception {
+	public void deidentifyCDA(final IFile file) throws Exception {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
@@ -245,7 +257,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 				if ((!"2.16.840.1.113883.1.3".equals(ii.getRoot())) && ii.getExtension() != null &&
 						ii.getExtension().trim().length() > 0) {
-					String key = getKey(ii);
+					String key = getKey(file.getName(), ii);
 					if (!randmonIds.containsKey(key)) {
 						if (ii.getExtension() != null) {
 							randmonIds.put(key, RandomStringUtils.randomNumeric(ii.getExtension().length()));
@@ -290,7 +302,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 					return false;
 				}
 
-				String key = getKey(pn);
+				String key = getKey(file.getName(), pn);
 
 				if (!randmonIds.containsKey(key)) {
 
@@ -530,14 +542,17 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
 
-										indexfile = folder.getFile("Index.txt");
+										indexfile = folder.getFile(
+											DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
 
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
 										processFolder(folder, monitor);
 
 									}
 									if (o instanceof IFile) {
-										indexfile = ((IFolder) ((IFile) o).getParent()).getFile("Index.txt");
+										indexfile = ((IFolder) ((IFile) o).getParent()).getFile(
+											DATE_FORMAT3.format(new Date()) +
+													((IFolder) ((IFile) o).getParent()).getName() + ".txt");
 										deidentifyCDA((IFile) o);
 									}
 									if (indexfile != null) {
@@ -546,7 +561,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 										for (String key : randmonIds.keySet()) {
 
 											if (!StringUtils.isEmpty(key)) {
-												sb2.append(key).append(" = ").append(randmonIds.get(key)).append(
+												sb2.append(key).append("\t").append(randmonIds.get(key)).append(
 													'\r').append('\n');
 											}
 
