@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.mdht.uml.term.core.profile.*;
 import org.eclipse.mdht.uml.term.core.profile.BindingKind;
 import org.eclipse.mdht.uml.term.core.profile.CD;
 import org.eclipse.mdht.uml.term.core.profile.CR;
@@ -115,6 +116,87 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 	 *
 	 * @generated
 	 */
+	public Extensibility createExtensibilityFromString(EDataType eDataType, String initialValue) {
+		Extensibility result = Extensibility.get(initialValue);
+		if (result == null) {
+			throw new IllegalArgumentException(
+				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public String convertExtensibilityToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public Guidance createGuidanceFromString(EDataType eDataType, String initialValue) {
+		Guidance result = Guidance.get(initialValue);
+		if (result == null) {
+			throw new IllegalArgumentException(
+				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public String convertGuidanceToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public ValueSetBinding createValueSetBindingFromString(EDataType eDataType, String initialValue) {
+		ValueSetBinding result = ValueSetBinding.get(initialValue);
+		if (result == null) {
+			throw new IllegalArgumentException(
+				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public String convertValueSetBindingToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
@@ -124,6 +206,12 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 				return convertValueSetTypeToString(eDataType, instanceValue);
 			case TermPackage.STATUS_KIND:
 				return convertStatusKindToString(eDataType, instanceValue);
+			case TermPackage.EXTENSIBILITY:
+				return convertExtensibilityToString(eDataType, instanceValue);
+			case TermPackage.GUIDANCE:
+				return convertGuidanceToString(eDataType, instanceValue);
+			case TermPackage.VALUE_SET_BINDING:
+				return convertValueSetBindingToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -173,6 +261,10 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 				return createValueSetContextBinding();
 			case TermPackage.USAGE_CONTEXT:
 				return createUsageContext();
+			case TermPackage.VALUE_SET_CONSTRAINTS:
+				return createValueSetConstraints();
+			case TermPackage.NULL_VALUE_SET_CONSTRAINT:
+				return createNullValueSetConstraint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -274,6 +366,12 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 				return createValueSetTypeFromString(eDataType, initialValue);
 			case TermPackage.STATUS_KIND:
 				return createStatusKindFromString(eDataType, initialValue);
+			case TermPackage.EXTENSIBILITY:
+				return createExtensibilityFromString(eDataType, initialValue);
+			case TermPackage.GUIDANCE:
+				return createGuidanceFromString(eDataType, initialValue);
+			case TermPackage.VALUE_SET_BINDING:
+				return createValueSetBindingFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -304,6 +402,28 @@ public class TermFactoryImpl extends EFactoryImpl implements TermFactory {
 	public UsageContext createUsageContext() {
 		UsageContextImpl usageContext = new UsageContextImpl();
 		return usageContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public ValueSetConstraints createValueSetConstraints() {
+		ValueSetConstraintsImpl valueSetConstraints = new ValueSetConstraintsImpl();
+		return valueSetConstraints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public NullValueSetConstraint createNullValueSetConstraint() {
+		NullValueSetConstraintImpl nullValueSetConstraint = new NullValueSetConstraintImpl();
+		return nullValueSetConstraint;
 	}
 
 	/**

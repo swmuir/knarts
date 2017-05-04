@@ -18,52 +18,52 @@
     </elementImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_F4hEcB2AEd-K0s3ZNwpcow" name="CD">
       <ownedAttribute xmi:id="_F4hEdR2AEd-K0s3ZNwpcow" name="qualifier" visibility="private" type="_a6uS8B2AEd-K0s3ZNwpcow" aggregation="composite">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEdh2AEd-K0s3ZNwpcow" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEdx2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEdh2AEd-K0s3ZNwpcow" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEeB2AEd-K0s3ZNwpcow" name="translation" visibility="private" type="_F4hEcB2AEd-K0s3ZNwpcow" aggregation="composite">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEeR2AEd-K0s3ZNwpcow" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEeh2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEeR2AEd-K0s3ZNwpcow" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEex2AEd-K0s3ZNwpcow" name="code" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEfB2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEfR2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEfB2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEfh2AEd-K0s3ZNwpcow" name="codeSystem" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEfx2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEgB2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEfx2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEgR2AEd-K0s3ZNwpcow" name="codeSystemName" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEgh2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEgx2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEgh2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEhB2AEd-K0s3ZNwpcow" name="codeSystemVersion" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEhR2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEhh2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEhR2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_F4hEhx2AEd-K0s3ZNwpcow" name="displayName" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEiB2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4hEiR2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4hEiB2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_a6uS8B2AEd-K0s3ZNwpcow" name="CR">
       <ownedAttribute xmi:id="_a6uS8h2AEd-K0s3ZNwpcow" name="name" visibility="private" type="_F4hEcB2AEd-K0s3ZNwpcow" aggregation="composite">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS8x2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a6uS9B2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS8x2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_a6uS9R2AEd-K0s3ZNwpcow" name="value" visibility="private" type="_F4hEcB2AEd-K0s3ZNwpcow" aggregation="composite">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS9h2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a6uS9x2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS9h2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_a6uS-B2AEd-K0s3ZNwpcow" name="inverted" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS-R2AEd-K0s3ZNwpcow" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a6uS-h2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6uS-R2AEd-K0s3ZNwpcow" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_CqgLYBzzEd-_DcMhO5t7TQ" name="BindingKind">
@@ -79,9 +79,12 @@
       <ownedLiteral xmi:id="_ZNHfYCCmEd-RxoWH9gAx2A" name="Inactive"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_tDzWAB1xEd-DaIarnYb4TQ" name="ConceptDomainConstraint">
+      <ownedComment xmi:id="_im9GoC5xEeeqc-vHaR4t_w">
+        <body>A Domain Binding is an unimplementable terminology binding that is a declaration that binds a Concept Domain to (usually) one or more model elements. As such a Domain Binding simply describes a scope that characterizes a value set binding (specified elsewhere or in future) for the associated model elements.</body>
+      </ownedComment>
       <ownedAttribute xmi:id="__a2eYCCpEd-RxoWH9gAx2A" name="reference" type="_P6M34B2YEd-L1oNCLqPFJA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__a2eYSCpEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__a2eYiCpEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__a2eYSCpEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_inbd8B2WEd-L1oNCLqPFJA" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -97,8 +100,8 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_m7zPQJmWEd6OiP9GTesZug" name="CodeSystemConstraint">
       <ownedAttribute xmi:id="_61k8YCCpEd-RxoWH9gAx2A" name="reference" type="_6Qu1EB2XEd-L1oNCLqPFJA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_61k8YSCpEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_61k8YiCpEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_61k8YSCpEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_rp2SwJmWEd6OiP9GTesZug" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -113,8 +116,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yw5S8JmaEd6OiP9GTesZug"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_-sOX8BzyEd-_DcMhO5t7TQ" name="binding" type="_CqgLYBzzEd-_DcMhO5t7TQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xG4KUBz3Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xG4KURz3Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xG4KUBz3Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_pLKCwJmWEd6OiP9GTesZug" name="code">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -125,8 +128,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZNqHcJmaEd6OiP9GTesZug"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6X_LEB2AEd-K0s3ZNwpcow" name="qualifier" type="_a6uS8B2AEd-K0s3ZNwpcow">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__kWiQB2AEd-K0s3ZNwpcow" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__B-N8B2AEd-K0s3ZNwpcow"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__kWiQB2AEd-K0s3ZNwpcow" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_sMFO0Bz4Ed-fgI-TlbqKdQ" name="base_Property" association="_sL9TABz4Ed-fgI-TlbqKdQ">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
@@ -134,8 +137,8 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_w72YUBzyEd-_DcMhO5t7TQ" name="ValueSetConstraint">
       <ownedAttribute xmi:id="_b81V0Rz0Ed-_DcMhO5t7TQ" name="reference" type="_e9b84BzwEd-WH9Qw4coEMg">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b81V0hz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b81V0xz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b81V0hz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_w75boRzyEd-_DcMhO5t7TQ" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -150,32 +153,45 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w75bphzyEd-_DcMhO5t7TQ"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_A3k1MBzzEd-_DcMhO5t7TQ" name="binding" type="_CqgLYBzzEd-_DcMhO5t7TQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y2OoEBz3Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y2PPIBz3Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y2OoEBz3Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6icQYhz4Ed-fgI-TlbqKdQ" name="base_Property" association="_6icQYBz4Ed-fgI-TlbqKdQ">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_uwU2wC5yEeeqc-vHaR4t_w" name="extensibility" type="_YR-aYC5yEeeqc-vHaR4t_w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uwU2wS5yEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uwU2wi5yEeeqc-vHaR4t_w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_XnLUcC5zEeeqc-vHaR4t_w" name="guidance" type="_7Hhc8C5yEeeqc-vHaR4t_w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XnL7gC5zEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XnL7gS5zEeeqc-vHaR4t_w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_d3L58C5zEeeqc-vHaR4t_w" name="uri">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d3MhAC5zEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d3MhAS5zEeeqc-vHaR4t_w" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_P6M34B2YEd-L1oNCLqPFJA" name="ConceptDomain">
       <ownedAttribute xmi:id="_P6M34R2YEd-L1oNCLqPFJA" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M34h2YEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P6M34x2YEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M34h2YEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_cqNGwCClEd-RxoWH9gAx2A" name="fullName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cqNGwSClEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cqNGwiClEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cqNGwSClEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_P6M35B2YEd-L1oNCLqPFJA" name="status" type="_QP9-MCCmEd-RxoWH9gAx2A">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M35R2YEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P6M35h2YEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M35R2YEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_P6M35x2YEd-L1oNCLqPFJA" name="statusDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M36B2YEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P6M36R2YEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P6M36B2YEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_Yh67oR2YEd-L1oNCLqPFJA" name="base_Class" association="_Yh6UkB2YEd-L1oNCLqPFJA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
@@ -185,47 +201,47 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_6Qu1EB2XEd-L1oNCLqPFJA" name="CodeSystemVersion">
       <ownedAttribute xmi:id="_6Qu1ER2XEd-L1oNCLqPFJA" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1Eh2XEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Qu1Ex2XEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1Eh2XEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_YTpEQCCnEd-RxoWH9gAx2A" name="version">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YTpEQSCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YTpEQiCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YTpEQSCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_Z97twCClEd-RxoWH9gAx2A" name="fullName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z97twSClEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z97twiClEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z97twSClEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6Qu1Fx2XEd-L1oNCLqPFJA" name="source">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1GB2XEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Qu1GR2XEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1GB2XEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6Qu1Gh2XEd-L1oNCLqPFJA" name="url">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1Gx2XEd-L1oNCLqPFJA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Qu1HB2XEd-L1oNCLqPFJA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Qu1Gx2XEd-L1oNCLqPFJA" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_7DGs8CCnEd-RxoWH9gAx2A" name="effectiveDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7DGs8SCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7DGs8iCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7DGs8SCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_7DGs8yCnEd-RxoWH9gAx2A" name="releaseDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7DGs9CCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7DGs9SCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7DGs9CCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_luaAQCCnEd-RxoWH9gAx2A" name="status" type="_QP9-MCCmEd-RxoWH9gAx2A">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_luaAQSCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_luaAQiCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_luaAQSCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_luanUCCnEd-RxoWH9gAx2A" name="statusDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_luanUSCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_luanUiCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_luanUSCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_PxH_sSCeEd-qXIhUbGWC6A" name="base_Enumeration" association="_PxDHMCCeEd-qXIhUbGWC6A">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
@@ -250,70 +266,70 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_e9b84BzwEd-WH9Qw4coEMg" name="ValueSetVersion">
       <ownedAttribute xmi:id="_SYR9wBzxEd-_DcMhO5t7TQ" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WcLbkBzyEd-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WcMCoBzyEd-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WcLbkBzyEd-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_SFjKUCCnEd-RxoWH9gAx2A" name="version">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SFjKUSCnEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SFjKUiCnEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SFjKUSCnEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_XTybsCClEd-RxoWH9gAx2A" name="fullName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XTybsSClEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XTybsiClEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XTybsSClEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_QPZwQBzyEd-_DcMhO5t7TQ" name="source">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YB7RYBzyEd-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YB74cBzyEd-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YB7RYBzyEd-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_pdfecBz0Ed-_DcMhO5t7TQ" name="url">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pdfecRz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pdfechz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pdfecRz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_psx3oBz0Ed-_DcMhO5t7TQ" name="definition">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_psx3oRz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_psx3ohz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_psx3oRz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_pxxFUBz0Ed-_DcMhO5t7TQ" name="effectiveDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pxxFURz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pxxFUhz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pxxFURz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_5MUNoCCrEd-RxoWH9gAx2A" name="expirationDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5MUNoSCrEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5MUNoiCrEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5MUNoSCrEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_8bEUgCCeEd-qXIhUbGWC6A" name="releaseDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8bEUgSCeEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8bEUgiCeEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8bEUgSCeEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="__BhGcCCrEd-RxoWH9gAx2A" name="revisionDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__BhGcSCrEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__BhGciCrEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__BhGcSCrEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_zxVekCCeEd-qXIhUbGWC6A" name="status" type="_QP9-MCCmEd-RxoWH9gAx2A">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxVekSCeEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zxVekiCeEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxVekSCeEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_zxVekyCeEd-qXIhUbGWC6A" name="statusDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxWFoCCeEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zxWFoSCeEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxWFoCCeEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_wN4NIBz0Ed-_DcMhO5t7TQ" name="type" type="_p5f6cBzzEd-_DcMhO5t7TQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wN40MBz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wN40MRz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wN40MBz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_wYED4Bz0Ed-_DcMhO5t7TQ" name="binding" type="_CqgLYBzzEd-_DcMhO5t7TQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wYED4Rz0Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wYED4hz0Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wYED4Rz0Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_GspVMCCjEd-RxoWH9gAx2A" name="codeSystem" type="_6Qu1EB2XEd-L1oNCLqPFJA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JkByACCjEd-RxoWH9gAx2A"/>
@@ -341,13 +357,13 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_sfEHIBz2Ed-_DcMhO5t7TQ" name="ValueSetCode">
       <ownedAttribute xmi:id="_sfEHIRz2Ed-_DcMhO5t7TQ" name="conceptName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sfEHIhz2Ed-_DcMhO5t7TQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sfEHIxz2Ed-_DcMhO5t7TQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sfEHIhz2Ed-_DcMhO5t7TQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_Ou77MCCkEd-RxoWH9gAx2A" name="usageNote">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ou77MSCkEd-RxoWH9gAx2A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ou77MiCkEd-RxoWH9gAx2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ou77MSCkEd-RxoWH9gAx2A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_UPq_4CCkEd-RxoWH9gAx2A" name="codeSystem" type="_6Qu1EB2XEd-L1oNCLqPFJA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WsyikCCkEd-RxoWH9gAx2A"/>
@@ -371,17 +387,17 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_bxw8gCCdEd-qXIhUbGWC6A" name="UsageContext">
       <ownedAttribute xmi:id="_44T04CCdEd-qXIhUbGWC6A" name="identifier">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44T04SCdEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44VqECCdEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44T04SCdEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_44WRICCdEd-qXIhUbGWC6A" name="status" type="_QP9-MCCmEd-RxoWH9gAx2A">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44WRISCdEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44WRIiCdEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44WRISCdEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_44WRIyCdEd-qXIhUbGWC6A" name="statusDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44WRJCCdEd-qXIhUbGWC6A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44WRJSCdEd-qXIhUbGWC6A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44WRJCCdEd-qXIhUbGWC6A" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_JinZkiCfEd-qXIhUbGWC6A" name="base_Class" association="_JinZkCCfEd-qXIhUbGWC6A">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
@@ -413,6 +429,145 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_JinZkCCfEd-qXIhUbGWC6A" name="Class_UsageContext" memberEnd="_JinZkSCfEd-qXIhUbGWC6A _JinZkiCfEd-qXIhUbGWC6A">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_JinZkSCfEd-qXIhUbGWC6A" name="extension_UsageContext" type="_bxw8gCCdEd-qXIhUbGWC6A" aggregation="composite" association="_JinZkCCfEd-qXIhUbGWC6A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_pZKPsC5wEeeqc-vHaR4t_w" name="ValueSetConstraints">
+      <ownedAttribute xmi:id="_qH_roC5wEeeqc-vHaR4t_w" name="base_Property" association="_qH-dgC5wEeeqc-vHaR4t_w">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_sIUkoC5wEeeqc-vHaR4t_w" name="valueSetConstraint" type="_w72YUBzyEd-_DcMhO5t7TQ" association="_sIVLsi5wEeeqc-vHaR4t_w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sIVLsC5wEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sIVLsS5wEeeqc-vHaR4t_w" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_qH-dgC5wEeeqc-vHaR4t_w" name="Property_ValueSetConstraints" memberEnd="_qH_EkC5wEeeqc-vHaR4t_w _qH_roC5wEeeqc-vHaR4t_w">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_qH_EkC5wEeeqc-vHaR4t_w" name="extension_ValueSetConstraints" type="_pZKPsC5wEeeqc-vHaR4t_w" aggregation="composite" association="_qH-dgC5wEeeqc-vHaR4t_w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_sIVLsi5wEeeqc-vHaR4t_w" memberEnd="_sIUkoC5wEeeqc-vHaR4t_w _sIVLsy5wEeeqc-vHaR4t_w">
+      <ownedEnd xmi:id="_sIVLsy5wEeeqc-vHaR4t_w" type="_pZKPsC5wEeeqc-vHaR4t_w" association="_sIVLsi5wEeeqc-vHaR4t_w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="__TqYIC5wEeeqc-vHaR4t_w" name="ValueSetBinding">
+      <ownedComment xmi:id="_LPNkIC5xEeeqc-vHaR4t_w">
+        <body>A Value Set Binding describes an implementable terminology binding that has two flavors
+
+A Direct Value Set Binding is a declaration that binds a value set directly to a model element and when this is done, all jurisdictions must remain conformant to the binding which can still allow change as noted in our binding semantics. [V3 Model Binding]
+
+An Indirect Value Set Binding is a declaration that binds a value set to a Concept Domain that exists to describe the intended model element scope. This Concept Domain will be (usually) tied to one or more model elements via a previously specified Domain Binding. In this case the Indirect Value Set Binding is essentially transferred through the Concept Domain to the associated model elements. [V3 Context Binding]</body>
+      </ownedComment>
+      <ownedLiteral xmi:id="_EvaPIC5xEeeqc-vHaR4t_w" name="Direct">
+        <ownedComment xmi:id="_Qb5rcC5xEeeqc-vHaR4t_w">
+          <body>A Direct Value Set Binding is a declaration that binds a value set directly to a model element and when this is done, all jurisdictions must remain conformant to the binding which can still allow change as noted in our binding semantics. [V3 Model Binding]</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_HUxu4C5xEeeqc-vHaR4t_w" name="Indirect">
+        <ownedComment xmi:id="_RoMfcC5xEeeqc-vHaR4t_w">
+          <body>An Indirect Value Set Binding is a declaration that binds a value set to a Concept Domain that exists to describe the intended model element scope. This Concept Domain will be (usually) tied to one or more model elements via a previously specified Domain Binding. In this case the Indirect Value Set Binding is essentially transferred through the Concept Domain to the associated model elements. [V3 Context Binding]</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_4Dv_YC5xEeeqc-vHaR4t_w" name="NullValueSetConstraint">
+      <ownedAttribute xmi:id="_4Dv_YS5xEeeqc-vHaR4t_w" name="reference" type="_e9b84BzwEd-WH9Qw4coEMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Dv_Yi5xEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4Dv_Yy5xEeeqc-vHaR4t_w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4Dv_ZC5xEeeqc-vHaR4t_w" name="identifier">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Dv_ZS5xEeeqc-vHaR4t_w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4Dv_Zi5xEeeqc-vHaR4t_w" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Dv_Zy5xEeeqc-vHaR4t_w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4Dv_aC5xEeeqc-vHaR4t_w" name="version">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Dv_aS5xEeeqc-vHaR4t_w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4Dv_ai5xEeeqc-vHaR4t_w" name="binding" type="_CqgLYBzzEd-_DcMhO5t7TQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Dv_ay5xEeeqc-vHaR4t_w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4Dv_bC5xEeeqc-vHaR4t_w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4Dv_bS5xEeeqc-vHaR4t_w" name="base_Property">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_YR-aYC5yEeeqc-vHaR4t_w" name="Extensibility">
+      <ownedComment xmi:id="_egEUUC5yEeeqc-vHaR4t_w">
+        <body>Extensibility defines constraints that can be used to clarify how to support conformance testing
+
+Extensibility NEA: Coding No Exception codes Allowed (This is similar to V3 CNE)
+	Sending/Creating perspective
+		SHALL only employ values that exist in the expansion
+	Receiving/Consuming perspective
+		SHALL accept without asserting an error any value that exists in the expansion
+		SHALL assert an error for any other value in the data element that does not exist in the expansion.
+
+Extensibility CEA: Coding with Exception codes Allowed
+	This means any coded value that is consistent with the value set scope can be sent. Not all codes sent, or received, will be in the 	deterministic value set expansion. This is like V3 CWE. The expansion set for the bound value set will function as a MIN value set – all 	implementers are intended to support the set.
+
+	Conformance testing of this Extensibility is up to the implementer - some characteristics of the concepts in the value set may be 	computably conformance testable (perhaps through the use of code system inferencing, but not all.
+
+	Sending perspective:
+		SHALL send from expansion if idea is in the expansion
+		MAY send a valid extended &quot;exception code&quot; if idea is not in the expansion
+			Send a code and an identification of code system (can be local)
+			Send text and no code
+	Receiving Perspective
+		SHALL be able to identify when received code is in the expansion and not report an error
+		MAY Identify when a data instance contains content not in the expansion but is a valid exception code</body>
+      </ownedComment>
+      <ownedLiteral xmi:id="_Z7mDkC5yEeeqc-vHaR4t_w" name="NEA"/>
+      <ownedLiteral xmi:id="_bZ8Q4C5yEeeqc-vHaR4t_w" name="CEA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_7Hhc8C5yEeeqc-vHaR4t_w" name="Guidance ">
+      <ownedComment xmi:id="_jWdmEC5zEeeqc-vHaR4t_w">
+        <body>The further constraints may be applied in a downstream use of the specified binding and yet still be considered conformant with the original binding: Binding needs to specify how to allow a change in the defined expansion. The binding syntax will describe the value set expansion specification and also state if subsequent implementation guides can use a different value set or must only use the specified value set.
+
+
+
+FIXED The value set defined SHALL be fully implemented with &quot;no more&quot; additional concepts, and &quot;no less&quot; concepts than those included in the defined value set expansion.
+Note that a FIXED binding MAY specify only a value set identifier and so be quite dynamic in the specified expansion set to which the implementers are tied at a given time.
+A &quot;downstream&quot; conformant IG based on this binding SHALL be FIXED.
+
+CLOSED A conformant implementation SHALL use 1..N concepts from the expansion as defined by the bound value set but MAY create a new value set that defines an expansion that is a formal subset.
+Again, a CLOSED binding can allow dynamic expansions.
+A &quot;downstream&quot; conformant IG based on this binding MUST be CLOSED or FIXED.
+
+EXTEND A conformant implementation must use all concepts from the expansion as defined by the bound value set but may add additional concepts for exchange
+This binding is essentially a combination of FIXED + the current idea of Coded With Extensions (V3 CWE)
+The intention is that the new concepts introduced do not represent the same ideas as those already available as long as the implementer has access to the code system used.
+A &quot;downstream&quot; conformant IG based on this binding MUST be either EXTEND, CLOSED or FIXED.
+Additional concepts can be exchanged in one of two ways. The allowed approach needs a syntax TDB so it's clear which way is allowed
+If the binding is CEA then the additional concept can be sent as an &quot;Exception value&quot; to the existing defined value set. This means a new value set identifier is not needed but the except code is clearly identified as not in the value set.
+Define a new value set is defined in the IG that includes all the concepts in the original EXTEND binding (perhaps by referencing that value set in the new definition) plus adds additional concepts.
+
+RESTRICT A conformant implementation SHALL use 0..N concepts from the expansion as defined by the bound value set but may add additional concepts for exchange
+This binding is essentially a combination of CLOSED + EXTEND. This is computably similar to an OPEN binding but is intended to be more restrictive to communicate - essentially to a human that is interpreting the binding - that this binding does not give the freedom of OPEN, but instead requires use of the concepts already defined in the expansion set if possible, and very tight alignment to the particular concepts noted in the original binding.
+The intention is that the new concepts introduced can not represent the same ideas as those already available as long as the implementer has access to the code system used.
+A &quot;downstream&quot; conformant IG based on this binding MUST be either RESTRICT, CLOSED or FIXED.
+Additional concepts can be exchanged in one of two ways. The allowed approach needs a syntax TDB so it's clear which way is allowed
+If the binding is CEA then the additional concept can be sent as an &quot;Exception value&quot; to the existing defined value set. This means a new value set identifier is not needed but the except code is clearly identified as not in the value set.
+Define a new value set is defined in the IG that includes all the concepts in the original RESTRICT binding (perhaps by referencing that value set in the new definition) plus adds additional concepts.
+
+OPEN A conformant implementation may use 0..N concepts from the expansion as defined by the bound value set (i.e.; the implementation does not have to use all the concepts in the defined expansion) and may also add additional concepts for exchange.
+This binding is essentially a combination of CLOSED + the current idea of Coded With Extensions (V3 CWE)
+This is the most permissive Binding
+The intention is that the new concepts introduced do not represent the same ideas as those already available as long as the implementer has access to the code system used.
+A &quot;downstream&quot; conformant IG based on this binding can be of any type.
+Additional concepts can be exchanged in one of two ways. The allowed approach needs a syntax TDB so it's clear which way is allowed
+If the binding is CEA then the additional concept can be sent as an &quot;Exception value&quot; to the existing defined value set. This means a new value set identifier is not needed but the except code is clearly identified as not in the value set.
+A new value set is defined in the IG that includes the concepts desired from the original CLOSED binding (perhaps by referencing that value set in the new definition with additional functions to remove the concepts not wanted) plus adds additional concepts.
+
+In addition to the value set binding guidance verbs above, a MAX Content Value Set Guidance MAY be specified.
+
+A MAX Content Value Set Guidance describes a value set of concepts from which the Content Value Set MUST be a subset. This value set will be technically &quot;implementable&quot; in that is describes a defined expansion set of concepts, but it is not intended to be the functional expansion set of implemented exchangeable concepts, i.e. it IS NOT the Content Value Set Binding. The MAX Value Set Guidance is only guidance to a subsequent Content Value Set Binding.
+A MAX Content Value Set Guidance SHALL be specified in one of the following two ways:
+Specify one or more code system(s). This SHALL mean that the current, and any subsequent conformant Content Value Set Binding will be drawn from the specified code systems.
+Specify an implementable value set as noted above. Note: when a MAX Content Value Set Guidance specifies an actual &quot;implementable value set,&quot; that value set is not the Content Value set Binding, which must be specified separately.</body>
+      </ownedComment>
+      <ownedLiteral xmi:id="_8hoqgC5yEeeqc-vHaR4t_w" name="FIXED"/>
+      <ownedLiteral xmi:id="_-GP34C5yEeeqc-vHaR4t_w" name="CLOSED"/>
+      <ownedLiteral xmi:id="__wX3YC5yEeeqc-vHaR4t_w" name="EXTEND"/>
+      <ownedLiteral xmi:id="_BC9goC5zEeeqc-vHaR4t_w" name="RESTRICT"/>
+      <ownedLiteral xmi:id="_DPFZ8C5zEeeqc-vHaR4t_w" name="OPEN"/>
     </packagedElement>
     <profileApplication xmi:id="_9NNawCCsEd-RxoWH9gAx2A">
       <eAnnotations xmi:id="_9NOo4CCsEd-RxoWH9gAx2A" source="http://www.eclipse.org/uml2/2.0.0/UML">

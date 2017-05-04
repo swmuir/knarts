@@ -104,6 +104,26 @@ public interface TermFactory extends EFactory {
 	UsageContext createUsageContext();
 
 	/**
+	 * Returns a new object of class '<em>Value Set Constraints</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @return a new object of class '<em>Value Set Constraints</em>'.
+	 * @generated
+	 */
+	ValueSetConstraints createValueSetConstraints();
+
+	/**
+	 * Returns a new object of class '<em>Null Value Set Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @return a new object of class '<em>Null Value Set Constraint</em>'.
+	 * @generated
+	 */
+	NullValueSetConstraint createNullValueSetConstraint();
+
+	/**
 	 * Returns a new object of class '<em>Value Set Code</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

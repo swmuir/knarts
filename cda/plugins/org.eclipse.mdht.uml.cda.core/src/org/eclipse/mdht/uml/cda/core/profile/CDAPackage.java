@@ -2602,76 +2602,6 @@ public interface CDAPackage extends EPackage {
 	int VALUE_SET_CONSTRAINT = 15;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__MESSAGE = VALIDATION__MESSAGE;
-
-	/**
-	 * The feature id for the '<em><b>Severity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__SEVERITY = VALIDATION__SEVERITY;
-
-	/**
-	 * The feature id for the '<em><b>Rule Id</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__RULE_ID = VALIDATION__RULE_ID;
-
-	/**
-	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__MANDATORY = VALIDATION__MANDATORY;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__KIND = VALIDATION__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Strict</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__STRICT = VALIDATION__STRICT;
-
-	/**
-	 * The feature id for the '<em><b>Negation Indicator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET_CONSTRAINT__NEGATION_INDICATOR = VALIDATION__NEGATION_INDICATOR;
-
-	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2679,7 +2609,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__REFERENCE = VALIDATION_FEATURE_COUNT + 0;
+	int VALUE_SET_CONSTRAINT__REFERENCE = TermPackage.VALUE_SET_CONSTRAINT__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
@@ -2689,7 +2619,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__IDENTIFIER = VALIDATION_FEATURE_COUNT + 1;
+	int VALUE_SET_CONSTRAINT__IDENTIFIER = TermPackage.VALUE_SET_CONSTRAINT__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2699,7 +2629,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__NAME = VALIDATION_FEATURE_COUNT + 2;
+	int VALUE_SET_CONSTRAINT__NAME = TermPackage.VALUE_SET_CONSTRAINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -2709,7 +2639,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__VERSION = VALIDATION_FEATURE_COUNT + 3;
+	int VALUE_SET_CONSTRAINT__VERSION = TermPackage.VALUE_SET_CONSTRAINT__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Binding</b></em>' attribute.
@@ -2719,7 +2649,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__BINDING = VALIDATION_FEATURE_COUNT + 4;
+	int VALUE_SET_CONSTRAINT__BINDING = TermPackage.VALUE_SET_CONSTRAINT__BINDING;
 
 	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
@@ -2729,7 +2659,107 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT__BASE_PROPERTY = VALIDATION_FEATURE_COUNT + 5;
+	int VALUE_SET_CONSTRAINT__BASE_PROPERTY = TermPackage.VALUE_SET_CONSTRAINT__BASE_PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Extensibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__EXTENSIBILITY = TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Guidance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__GUIDANCE = TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__URI = TermPackage.VALUE_SET_CONSTRAINT__URI;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__MESSAGE = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__SEVERITY = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Rule Id</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__RULE_ID = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__MANDATORY = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__KIND = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Strict</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__STRICT = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Negation Indicator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET_CONSTRAINT__NEGATION_INDICATOR = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Value Set Constraint</em>' class.
@@ -2739,7 +2769,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_CONSTRAINT_FEATURE_COUNT = VALIDATION_FEATURE_COUNT + 6;
+	int VALUE_SET_CONSTRAINT_FEATURE_COUNT = TermPackage.VALUE_SET_CONSTRAINT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.core.profile.impl.ActRelationshipImpl <em>Act Relationship</em>}' class.

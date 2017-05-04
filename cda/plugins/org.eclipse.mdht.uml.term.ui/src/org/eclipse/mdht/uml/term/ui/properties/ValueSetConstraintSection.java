@@ -13,6 +13,9 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.term.ui.properties;
 
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.commands.operations.IUndoableOperation;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IAdaptable;
@@ -21,6 +24,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -31,6 +35,8 @@ import org.eclipse.mdht.uml.common.ui.dialogs.DialogLaunchUtil;
 import org.eclipse.mdht.uml.common.ui.search.IElementFilter;
 import org.eclipse.mdht.uml.common.ui.util.UMLUIUtil;
 import org.eclipse.mdht.uml.term.core.profile.BindingKind;
+import org.eclipse.mdht.uml.term.core.profile.Extensibility;
+import org.eclipse.mdht.uml.term.core.profile.Guidance;
 import org.eclipse.mdht.uml.term.core.profile.TermPackage;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
@@ -56,6 +62,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
@@ -75,6 +82,70 @@ import org.eclipse.uml2.uml.UMLPackage;
  */
 public class ValueSetConstraintSection extends ResettableModelerPropertySection {
 
+	private class ComboEnumeration {
+
+		private CCombo enumerationCombo;
+
+		private boolean modified = false;
+
+		/**
+		 * @return the enumerationCombo
+		 */
+		public CCombo getEnumerationCombo() {
+			return enumerationCombo;
+		}
+
+		/**
+		 * @param cCombo
+		 * @param enumerator
+		 */
+		public ComboEnumeration(Composite composite, Control top, Control left, String name, List values) {
+			super();
+
+			/* ---- binding combo ---- */
+
+			enumerationCombo = getWidgetFactory().createCCombo(composite, SWT.FLAT | SWT.READ_ONLY | SWT.BORDER);
+
+			// enumerationCombo.setToolTipText("tool tip here");
+
+			for (Object object : values) {
+				if (object instanceof Enumerator) {
+					Enumerator enumerator = (Enumerator) object;
+					enumerationCombo.add(enumerator.getLiteral(), enumerator.getValue());
+				}
+
+			}
+
+			enumerationCombo.addSelectionListener(new SelectionListener() {
+				public void widgetDefaultSelected(SelectionEvent e) {
+					modified = true;
+					modifyFields();
+				}
+
+				public void widgetSelected(SelectionEvent e) {
+					modified = true;
+					modifyFields();
+				}
+			});
+
+			CLabel bindingLabel = getWidgetFactory().createCLabel(composite, name); // $NON-NLS-1$
+			FormData data = new FormData();
+			if (left != null) {
+				data.left = new FormAttachment(left, 0);
+			} else {
+				data.left = new FormAttachment(0, 0);
+			}
+			data.top = new FormAttachment(top, 0);
+			bindingLabel.setLayoutData(data);
+
+			data = new FormData();
+			data.left = new FormAttachment(bindingLabel, 0);
+			data.top = new FormAttachment(top, 0);
+			enumerationCombo.setLayoutData(data);
+		}
+
+	}
+
 	private Property property;
 
 	private Text idText;
@@ -93,11 +164,17 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 
 	private boolean bindingModified = false;
 
-	private CLabel valueSetRefLabel;
+	private Text valueSetRefText;
+
+	private boolean valueSetRefTextModified = false;
 
 	private Button valueSetRefButton;
 
 	private Button valueSetRefDeleteButton;
+
+	ComboEnumeration guidanceEnumeration = null;
+
+	ComboEnumeration extensibilityEnumeration = null;
 
 	private ModifyListener modifyListener = new ModifyListener() {
 		public void modifyText(final ModifyEvent event) {
@@ -110,6 +187,11 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 			if (versionText == event.getSource()) {
 				versionModified = true;
 			}
+
+			if (valueSetRefText == event.getSource()) {
+				valueSetRefTextModified = true;
+			}
+
 		}
 	};
 
@@ -127,7 +209,7 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 
 	private FocusListener focusListener = new FocusListener() {
 		public void focusGained(FocusEvent e) {
-			// do nothing
+			modifyFields();
 		}
 
 		public void focusLost(FocusEvent event) {
@@ -136,7 +218,9 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 	};
 
 	private void modifyFields() {
-		if (!(idModified || nameModified || versionModified || bindingModified)) {
+		if (!(idModified || nameModified || versionModified || bindingModified || valueSetRefTextModified ||
+				(guidanceEnumeration != null & guidanceEnumeration.modified) ||
+				(extensibilityEnumeration != null & extensibilityEnumeration.modified))) {
 			return;
 		}
 
@@ -154,6 +238,9 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 
 					Stereotype stereotype = TermProfileUtil.getAppliedStereotype(
 						property, ITermProfileConstants.VALUE_SET_CONSTRAINT);
+
+					ValueSetConstraint valueSetConstraint = (ValueSetConstraint) property.getStereotypeApplication(
+						stereotype);
 
 					if (stereotype == null) {
 						return Status.CANCEL_STATUS;
@@ -193,6 +280,13 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 										: null);
 
 						}
+					} else if (valueSetRefTextModified) {
+						valueSetRefTextModified = false;
+						this.setLabel("Set valueSetRefTextModified");
+
+						if (valueSetConstraint != null) {
+							valueSetConstraint.setUri(valueSetRefText.getText().trim());
+						}
 					} else if (bindingModified) {
 						bindingModified = false;
 						this.setLabel("Set Binding");
@@ -207,6 +301,36 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 									stereotype, ITermProfileConstants.VALUE_SET_CONSTRAINT_BINDING, literal);
 							}
 						}
+					} else if ((guidanceEnumeration != null & guidanceEnumeration.modified)) {
+
+						this.setLabel("Set Guidance");
+						if (valueSetConstraint != null) {
+
+							if (guidanceEnumeration.getEnumerationCombo().getSelectionIndex() == 0) {
+								valueSetConstraint.setGuidance(null);
+							} else {
+								valueSetConstraint.setGuidance(
+									Guidance.get(guidanceEnumeration.getEnumerationCombo().getSelectionIndex()));
+							}
+							guidanceEnumeration.modified = false;
+						}
+
+					} else if ((extensibilityEnumeration != null & extensibilityEnumeration.modified)) {
+
+						this.setLabel("Set Extensibility");
+						if (valueSetConstraint != null) {
+
+							if (extensibilityEnumeration.getEnumerationCombo().getSelectionIndex() == 0) {
+								valueSetConstraint.setExtensibility(null);
+							} else {
+								valueSetConstraint.setExtensibility(
+									Extensibility.get(
+										extensibilityEnumeration.getEnumerationCombo().getSelectionIndex()));
+							}
+
+							extensibilityEnumeration.modified = false;
+						}
+
 					} else {
 						return Status.CANCEL_STATUS;
 					}
@@ -369,11 +493,14 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 		layout.spacing = ITabbedPropertyConstants.VMARGIN + 1;
 		composite.setLayout(layout);
 
-		int numberOfRows = 3;
 		FormData data = null;
 
 		/* ------ ValueSet reference ------ */
-		valueSetRefLabel = getWidgetFactory().createCLabel(composite, ""); //$NON-NLS-1$
+		valueSetRefText = getWidgetFactory().createText(composite, ""); //$NON-NLS-1$
+
+		valueSetRefText.addModifyListener(modifyListener);
+		valueSetRefText.addKeyListener(keyListener);
+		valueSetRefText.addFocusListener(focusListener);
 
 		valueSetRefButton = getWidgetFactory().createButton(composite, "Select Value Set...", SWT.PUSH); //$NON-NLS-1$
 		valueSetRefButton.addSelectionListener(new SelectionAdapter() {
@@ -391,59 +518,66 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 			}
 		});
 
+		// Row 1
 		data = new FormData();
 		data.left = new FormAttachment(0, 0);
 		data.height = buttonHeight;
-		data.top = new FormAttachment(0, numberOfRows);
+		data.top = new FormAttachment(0, 0);
 		valueSetRefButton.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(valueSetRefButton, 0);
 		data.height = buttonHeight;
-		data.top = new FormAttachment(valueSetRefButton, 0, SWT.CENTER);
+		data.top = new FormAttachment(0, 0); // data.top = new FormAttachment(valueSetRefButton, 0, SWT.CENTER);
 		valueSetRefDeleteButton.setLayoutData(data);
 
 		/* ---- Restore Defaults button ---- */
 		createRestoreDefaultsButton(composite);
 		data = new FormData();
 		data.right = new FormAttachment(100, 0);
-		data.top = new FormAttachment(valueSetRefLabel, 0, SWT.CENTER);
+		data.top = new FormAttachment(0, 0);// data.top = new FormAttachment(valueSetRefText, 0, SWT.CENTER);
 		restoreDefaultsButton.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(valueSetRefDeleteButton, 0);
 		data.right = new FormAttachment(restoreDefaultsButton, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(valueSetRefButton, 0, SWT.CENTER);
-		valueSetRefLabel.setLayoutData(data);
-
+		data.top = new FormAttachment(0, 0); // data.top = new FormAttachment(valueSetRefButton, 0, SWT.CENTER);
+		valueSetRefText.setLayoutData(data);
+		// Row 2
 		/* ------ Name field ------ */
 		nameText = getWidgetFactory().createText(composite, ""); //$NON-NLS-1$
 		CLabel nameLabel = getWidgetFactory().createCLabel(composite, "Name:"); //$NON-NLS-1$
 		data = new FormData();
 		data.left = new FormAttachment(0, 0);
-		data.top = new FormAttachment(nameText, 0, SWT.CENTER);
+		data.top = new FormAttachment(valueSetRefText, 0); // data.top = new FormAttachment(valueSetRefText, 0, SWT.CENTER);
 		nameLabel.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(nameLabel, 0);
 		data.right = new FormAttachment(50, 0);
-		data.top = new FormAttachment(1, numberOfRows, ITabbedPropertyConstants.VSPACE);
+		data.top = new FormAttachment(valueSetRefText, 0); // new FormAttachment(0, 0); // data.top = new FormAttachment(1,
+															// ITabbedPropertyConstants.VSPACE);
 		nameText.setLayoutData(data);
+
+		nameText.addModifyListener(modifyListener);
+		nameText.addKeyListener(keyListener);
+		nameText.addFocusListener(focusListener);
 
 		/* ------ ID field ------ */
 		idText = getWidgetFactory().createText(composite, ""); //$NON-NLS-1$
 		CLabel idLabel = getWidgetFactory().createCLabel(composite, "ID:"); //$NON-NLS-1$
 		data = new FormData();
 		data.left = new FormAttachment(nameText, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(nameText, 0, SWT.CENTER);
+		data.top = new FormAttachment(valueSetRefText, 0);// data.top = new FormAttachment(valueSetRefText, 0, SWT.CENTER);
 		idLabel.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(idLabel, 0);
 		data.right = new FormAttachment(100, 0);
-		data.top = new FormAttachment(1, numberOfRows, ITabbedPropertyConstants.VSPACE);
+		data.top = new FormAttachment(valueSetRefText, 0);// data.top = new FormAttachment(valueSetRefText, 0, ITabbedPropertyConstants.VSPACE);
 		idText.setLayoutData(data);
 
+		// Row 3
 		/* ---- binding combo ---- */
 		bindingCombo = getWidgetFactory().createCCombo(composite, SWT.FLAT | SWT.READ_ONLY | SWT.BORDER);
 		bindingCombo.setItems(new String[] { "Static", "Dynamic" });
@@ -462,12 +596,12 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 		CLabel bindingLabel = getWidgetFactory().createCLabel(composite, "Binding:"); //$NON-NLS-1$
 		data = new FormData();
 		data.left = new FormAttachment(0, 0);
-		data.top = new FormAttachment(bindingCombo, 0, SWT.CENTER);
+		data.top = new FormAttachment(nameText, 0); // data.top = new FormAttachment(bindingCombo, 0, SWT.CENTER);
 		bindingLabel.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(bindingLabel, 0);
-		data.top = new FormAttachment(2, numberOfRows, ITabbedPropertyConstants.VSPACE);
+		data.top = new FormAttachment(nameText, 0); // data.top = new FormAttachment(30, 50, ITabbedPropertyConstants.VSPACE);
 		bindingCombo.setLayoutData(data);
 
 		/* ------ Version field ------ */
@@ -475,14 +609,22 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 		CLabel versionLabel = getWidgetFactory().createCLabel(composite, "Version:"); //$NON-NLS-1$
 		data = new FormData();
 		data.left = new FormAttachment(bindingCombo, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(versionText, 0, SWT.CENTER);
+		data.top = new FormAttachment(nameText, 0); // data.top = new FormAttachment(versionText, 0, SWT.CENTER);
 		versionLabel.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(versionLabel, 0);
 		data.right = new FormAttachment(50, 0);
-		data.top = new FormAttachment(2, numberOfRows, ITabbedPropertyConstants.VSPACE);
+		data.top = new FormAttachment(nameText, 0); // data.top = new FormAttachment(30, 50, ITabbedPropertyConstants.VSPACE);
 		versionText.setLayoutData(data);
+
+		guidanceEnumeration = new ComboEnumeration(composite, versionText, null, "Guidance : ", Guidance.VALUES);
+
+		extensibilityEnumeration = new ComboEnumeration(
+			composite, versionText, guidanceEnumeration.getEnumerationCombo(), "Extensibility : ",
+			Extensibility.VALUES);
+
+		// addHiddenTextFieldToForm(composite);
 
 	}
 
@@ -529,8 +671,33 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 
 	}
 
+	private void setText(Text text, String value) {
+		System.out.println(value);
+		text.removeModifyListener(modifyListener);
+		text.removeKeyListener(keyListener);
+		text.removeFocusListener(focusListener);
+		text.setText(StringUtils.isEmpty(value)
+				? ""
+				: value);
+		text.addModifyListener(modifyListener);
+		text.addKeyListener(keyListener);
+		text.addFocusListener(focusListener);
+	}
+
 	@Override
 	public void refresh() {
+
+		// Fix related to a bug. See addHiddenTextFieldToForm() javadoc
+		// if (fake != null && !fake.isDisposed()) {
+		// fake.setFocus();
+		// }
+
+		// if (true) {
+		// setText(valueSetRefText, "aaaaa");
+		//
+		// valueSetRefText.setFocus();
+		// return;
+		// }
 		Profile ctsProfile = TermProfileUtil.getTerminologyProfile(property.eResource().getResourceSet());
 		if (ctsProfile == null) {
 			return;
@@ -544,62 +711,87 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 		if (valueSetConstraint != null && valueSetConstraint.getReference() != null) {
 			valueSet = valueSetConstraint.getReference();
 			referenceEnum = valueSet.getBase_Enumeration();
-			valueSetRefLabel.setText(valueSet.getEnumerationQualifiedName());
-			valueSetRefLabel.layout();
+			valueSetRefText.setText(valueSet.getEnumerationQualifiedName());
+			valueSetRefText.setEnabled(false);
+			valueSetRefText.setEditable(false);
+			// valueSetRefText.layout();
 		} else {
-			valueSetRefLabel.setText("");
+			valueSetRefText.setEditable(true);
+
+			setText(valueSetRefText, valueSetConstraint.getUri());
+
+			valueSetRefText.setFocus();
+
+			// if (!StringUtils.isEmpty(valueSetConstraint.getUri())) {
+			// valueSetRefText.setText(valueSetConstraint.getUri());
+			// } else {
+			// valueSetRefText.setText("");
+			// }
+
 		}
 
-		idText.removeModifyListener(modifyListener);
-		idText.removeKeyListener(keyListener);
-		idText.removeFocusListener(focusListener);
-		if (valueSetConstraint != null) {
-			String id = valueSet == null
-					? valueSetConstraint.getIdentifier()
-					: valueSet.getIdentifier();
-			idText.setText(id != null
-					? id
-					: "");
-		} else {
-			idText.setText("");
-		}
-		idText.addModifyListener(modifyListener);
-		idText.addKeyListener(keyListener);
-		idText.addFocusListener(focusListener);
+		// idText.setFocus();
 
-		nameText.removeModifyListener(modifyListener);
-		nameText.removeKeyListener(keyListener);
-		nameText.removeFocusListener(focusListener);
-		if (valueSetConstraint != null) {
-			String name = valueSet == null
-					? valueSetConstraint.getName()
-					: valueSet.getEnumerationName();
-			nameText.setText(name != null
-					? name
-					: "");
-		} else {
-			nameText.setText("");
-		}
-		nameText.addModifyListener(modifyListener);
-		nameText.addKeyListener(keyListener);
-		nameText.addFocusListener(focusListener);
+		String id = valueSet == null
+				? valueSetConstraint.getIdentifier()
+				: valueSet.getIdentifier();
+		// idText.setText(id != null
+		// ? id
+		// : "");
+		setText(idText, id);
 
-		versionText.removeModifyListener(modifyListener);
-		versionText.removeKeyListener(keyListener);
-		versionText.removeFocusListener(focusListener);
-		if (valueSetConstraint != null) {
-			String version = valueSet == null
-					? valueSetConstraint.getVersion()
-					: valueSet.getVersion();
-			versionText.setText(version != null
-					? version
-					: "");
-		} else {
-			versionText.setText("");
-		}
-		versionText.addModifyListener(modifyListener);
-		versionText.addKeyListener(keyListener);
-		versionText.addFocusListener(focusListener);
+		// idText.removeModifyListener(modifyListener);
+		// idText.removeKeyListener(keyListener);
+		// idText.removeFocusListener(focusListener);
+		// if (valueSetConstraint != null) {
+		//
+		// } else {
+		// idText.setText("");
+		// }
+		// idText.addModifyListener(modifyListener);
+		// idText.addKeyListener(keyListener);
+		// idText.addFocusListener(focusListener);
+
+		// nameText.removeModifyListener(modifyListener);
+		// nameText.removeKeyListener(keyListener);
+		// nameText.removeFocusListener(focusListener);
+		// if (valueSetConstraint != null) {
+		String name = valueSet == null
+				? valueSetConstraint.getName()
+				: valueSet.getEnumerationName();
+
+		setText(nameText, name);
+		// nameText.setText(name != null
+		// ? name
+		// : "");
+		// } else {
+		// nameText.setText("");
+		// }
+		// nameText.addModifyListener(modifyListener);
+		// nameText.addKeyListener(keyListener);
+		// nameText.addFocusListener(focusListener);
+
+		String version = valueSet == null
+				? valueSetConstraint.getVersion()
+				: valueSet.getVersion();
+		setText(versionText, version);
+
+		// versionText.removeModifyListener(modifyListener);
+		// versionText.removeKeyListener(keyListener);
+		// versionText.removeFocusListener(focusListener);
+		// if (valueSetConstraint != null) {
+		// String version = valueSet == null
+		// ? valueSetConstraint.getVersion()
+		// : valueSet.getVersion();
+		// versionText.setText(version != null
+		// ? version
+		// : "");
+		// } else {
+		// versionText.setText("");
+		// }
+		// versionText.addModifyListener(modifyListener);
+		// versionText.addKeyListener(keyListener);
+		// versionText.addFocusListener(focusListener);
 
 		bindingCombo.select(0);
 		if (valueSetConstraint != null) {
@@ -614,20 +806,32 @@ public class ValueSetConstraintSection extends ResettableModelerPropertySection 
 			}
 		}
 
+		if (guidanceEnumeration != null) {
+			guidanceEnumeration.getEnumerationCombo().select(
+				Guidance.get(valueSetConstraint.getGuidance().getLiteral()).getValue());
+		}
+
+		if (extensibilityEnumeration != null) {
+			extensibilityEnumeration.getEnumerationCombo().select(
+				Extensibility.get(valueSetConstraint.getExtensibility().getLiteral()).getValue());
+		}
+
 		if (isReadOnly()) {
-			valueSetRefLabel.setEnabled(false);
+			valueSetRefText.setEnabled(false);
 			idText.setEnabled(false);
 			nameText.setEnabled(false);
 			versionText.setEnabled(false);
 			bindingCombo.setEnabled(false);
 		} else {
-			valueSetRefLabel.setEnabled(true);
+			valueSetRefText.setEnabled(true);
 			idText.setEnabled(referenceEnum == null);
 			nameText.setEnabled(referenceEnum == null);
 			versionText.setEnabled(referenceEnum == null);
 			bindingCombo.setEnabled(referenceEnum == null);
 			restoreDefaultsButton.setEnabled(valueSetConstraint != null);
 		}
+
+		nameText.setFocus();
 
 	}
 

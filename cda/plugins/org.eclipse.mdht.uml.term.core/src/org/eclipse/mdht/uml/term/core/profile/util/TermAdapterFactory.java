@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.mdht.uml.term.core.profile.*;
 import org.eclipse.mdht.uml.term.core.profile.CD;
 import org.eclipse.mdht.uml.term.core.profile.CR;
 import org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint;
@@ -112,6 +113,16 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseValueSetConstraints(ValueSetConstraints object) {
+			return createValueSetConstraintsAdapter();
+		}
+
+		@Override
+		public Adapter caseNullValueSetConstraint(NullValueSetConstraint object) {
+			return createNullValueSetConstraintAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -161,8 +172,8 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint
-	 * <em>Code System Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint <em>Code System
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -207,8 +218,8 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint
-	 * <em>Concept Domain Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint <em>Concept Domain
+	 * Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -266,6 +277,38 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints <em>Value Set
+	 * Constraints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints
+	 * @generated
+	 */
+	public Adapter createValueSetConstraintsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.NullValueSetConstraint <em>Null Value Set
+	 * Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.term.core.profile.NullValueSetConstraint
+	 * @generated
+	 */
+	public Adapter createNullValueSetConstraintAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode <em>Value Set Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -296,8 +339,8 @@ public class TermAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding
-	 * <em>Value Set Context Binding</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding <em>Value Set Context
+	 * Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.

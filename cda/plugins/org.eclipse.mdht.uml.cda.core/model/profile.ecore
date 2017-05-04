@@ -152,7 +152,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConceptDomainConstraint" eSuperTypes="#//Validation ../../org.eclipse.mdht.uml.term.core/model/profile.ecore#//ConceptDomainConstraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="CodeSystemConstraint" eSuperTypes="../../org.eclipse.mdht.uml.term.core/model/profile.ecore#//CodeSystemConstraint #//Validation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ValueSetConstraint" eSuperTypes="#//Validation ../../org.eclipse.mdht.uml.term.core/model/profile.ecore#//ValueSetConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueSetConstraint" eSuperTypes="../../org.eclipse.mdht.uml.term.core/model/profile.ecore#//ValueSetConstraint #//Validation"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActRelationship">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Association" ordered="false"
         lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Association"/>

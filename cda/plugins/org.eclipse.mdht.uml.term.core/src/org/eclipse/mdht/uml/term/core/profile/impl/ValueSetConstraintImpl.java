@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.mdht.uml.term.core.profile.BindingKind;
+import org.eclipse.mdht.uml.term.core.profile.Extensibility;
+import org.eclipse.mdht.uml.term.core.profile.Guidance;
 import org.eclipse.mdht.uml.term.core.profile.TermPackage;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
@@ -37,6 +39,9 @@ import org.eclipse.uml2.uml.Property;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getBinding <em>Binding</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getBase_Property <em>Base Property</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getExtensibility <em>Extensibility</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getGuidance <em>Guidance</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.impl.ValueSetConstraintImpl#getUri <em>Uri</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +158,72 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 	protected Property base_Property;
 
 	/**
+	 * The default value of the '{@link #getExtensibility() <em>Extensibility</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getExtensibility()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Extensibility EXTENSIBILITY_EDEFAULT = Extensibility.NEA;
+
+	/**
+	 * The cached value of the '{@link #getExtensibility() <em>Extensibility</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getExtensibility()
+	 * @generated
+	 * @ordered
+	 */
+	protected Extensibility extensibility = EXTENSIBILITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGuidance() <em>Guidance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getGuidance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Guidance GUIDANCE_EDEFAULT = Guidance.FIXED;
+
+	/**
+	 * The cached value of the '{@link #getGuidance() <em>Guidance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getGuidance()
+	 * @generated
+	 * @ordered
+	 */
+	protected Guidance guidance = GUIDANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uri = URI_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -209,6 +280,12 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 					return getBase_Property();
 				}
 				return basicGetBase_Property();
+			case TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY:
+				return getExtensibility();
+			case TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE:
+				return getGuidance();
+			case TermPackage.VALUE_SET_CONSTRAINT__URI:
+				return getUri();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,6 +317,14 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 				return binding != BINDING_EDEFAULT;
 			case TermPackage.VALUE_SET_CONSTRAINT__BASE_PROPERTY:
 				return base_Property != null;
+			case TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY:
+				return extensibility != EXTENSIBILITY_EDEFAULT;
+			case TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE:
+				return guidance != GUIDANCE_EDEFAULT;
+			case TermPackage.VALUE_SET_CONSTRAINT__URI:
+				return URI_EDEFAULT == null
+						? uri != null
+						: !URI_EDEFAULT.equals(uri);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,6 +355,15 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 				return;
 			case TermPackage.VALUE_SET_CONSTRAINT__BASE_PROPERTY:
 				setBase_Property((Property) newValue);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY:
+				setExtensibility((Extensibility) newValue);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE:
+				setGuidance((Guidance) newValue);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__URI:
+				setUri((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -312,6 +406,15 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 				return;
 			case TermPackage.VALUE_SET_CONSTRAINT__BASE_PROPERTY:
 				setBase_Property((Property) null);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY:
+				setExtensibility(EXTENSIBILITY_EDEFAULT);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE:
+				setGuidance(GUIDANCE_EDEFAULT);
+				return;
+			case TermPackage.VALUE_SET_CONSTRAINT__URI:
+				setUri(URI_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -424,6 +527,87 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 	 *
 	 * @generated
 	 */
+	public Extensibility getExtensibility() {
+		return extensibility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public void setExtensibility(Extensibility newExtensibility) {
+		Extensibility oldExtensibility = extensibility;
+		extensibility = newExtensibility == null
+				? EXTENSIBILITY_EDEFAULT
+				: newExtensibility;
+		if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, TermPackage.VALUE_SET_CONSTRAINT__EXTENSIBILITY, oldExtensibility,
+					extensibility));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public Guidance getGuidance() {
+		return guidance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public void setGuidance(Guidance newGuidance) {
+		Guidance oldGuidance = guidance;
+		guidance = newGuidance == null
+				? GUIDANCE_EDEFAULT
+				: newGuidance;
+		if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, TermPackage.VALUE_SET_CONSTRAINT__GUIDANCE, oldGuidance, guidance));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public String getUri() {
+		return uri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public void setUri(String newUri) {
+		String oldUri = uri;
+		uri = newUri;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, TermPackage.VALUE_SET_CONSTRAINT__URI, oldUri, uri));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
 	public void setBinding(BindingKind newBinding) {
 		BindingKind oldBinding = binding;
 		binding = newBinding == null
@@ -520,6 +704,12 @@ public class ValueSetConstraintImpl extends EObjectImpl implements ValueSetConst
 		result.append(version);
 		result.append(", binding: ");
 		result.append(binding);
+		result.append(", extensibility: ");
+		result.append(extensibility);
+		result.append(", guidance: ");
+		result.append(guidance);
+		result.append(", uri: ");
+		result.append(uri);
 		result.append(')');
 		return result.toString();
 	}

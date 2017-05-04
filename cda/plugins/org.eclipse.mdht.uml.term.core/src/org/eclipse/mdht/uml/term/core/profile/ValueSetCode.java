@@ -100,8 +100,8 @@ public interface ValueSetCode extends EObject {
 	String getUsageNote();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getBase_EnumerationLiteral <em>Base Enumeration Literal</em>}
-	 * ' reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetCode#getBase_EnumerationLiteral <em>Base Enumeration
+	 * Literal</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *

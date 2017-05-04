@@ -30,6 +30,9 @@ import org.eclipse.uml2.uml.Property;
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBinding <em>Binding</em>}</li>
  * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBase_Property <em>Base Property</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getExtensibility <em>Extensibility</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getGuidance <em>Guidance</em>}</li>
+ * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getUri <em>Uri</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint()
@@ -146,6 +149,99 @@ public interface ValueSetConstraint extends EObject {
 	 * @generated
 	 */
 	void setBase_Property(Property value);
+
+	/**
+	 * Returns the value of the '<em><b>Extensibility</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.mdht.uml.term.core.profile.Extensibility}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extensibility</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the value of the '<em>Extensibility</em>' attribute.
+	 * @see org.eclipse.mdht.uml.term.core.profile.Extensibility
+	 * @see #setExtensibility(Extensibility)
+	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Extensibility()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	Extensibility getExtensibility();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getExtensibility <em>Extensibility</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @param value
+	 *            the new value of the '<em>Extensibility</em>' attribute.
+	 * @see org.eclipse.mdht.uml.term.core.profile.Extensibility
+	 * @see #getExtensibility()
+	 * @generated
+	 */
+	void setExtensibility(Extensibility value);
+
+	/**
+	 * Returns the value of the '<em><b>Guidance</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.mdht.uml.term.core.profile.Guidance}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Guidance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the value of the '<em>Guidance</em>' attribute.
+	 * @see org.eclipse.mdht.uml.term.core.profile.Guidance
+	 * @see #setGuidance(Guidance)
+	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Guidance()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	Guidance getGuidance();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getGuidance <em>Guidance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @param value
+	 *            the new value of the '<em>Guidance</em>' attribute.
+	 * @see org.eclipse.mdht.uml.term.core.profile.Guidance
+	 * @see #getGuidance()
+	 * @generated
+	 */
+	void setGuidance(Guidance value);
+
+	/**
+	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uri</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the value of the '<em>Uri</em>' attribute.
+	 * @see #setUri(String)
+	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraint_Uri()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getUri();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getUri <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @param value
+	 *            the new value of the '<em>Uri</em>' attribute.
+	 * @see #getUri()
+	 * @generated
+	 */
+	void setUri(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint#getBinding <em>Binding</em>}' attribute.

@@ -1258,8 +1258,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 		conceptDomainConstraintEClass.getESuperTypes().add(theTermPackage.getConceptDomainConstraint());
 		codeSystemConstraintEClass.getESuperTypes().add(theTermPackage.getCodeSystemConstraint());
 		codeSystemConstraintEClass.getESuperTypes().add(this.getValidation());
-		valueSetConstraintEClass.getESuperTypes().add(this.getValidation());
 		valueSetConstraintEClass.getESuperTypes().add(theTermPackage.getValueSetConstraint());
+		valueSetConstraintEClass.getESuperTypes().add(this.getValidation());
 		logicalConstraintEClass.getESuperTypes().add(this.getConstraintValidation());
 
 		// Initialize classes and features; add operations and parameters

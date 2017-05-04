@@ -692,10 +692,10 @@ public class CDASwitch<T> extends Switch<T> {
 				ValueSetConstraint valueSetConstraint = (ValueSetConstraint) theEObject;
 				T result = caseValueSetConstraint(valueSetConstraint);
 				if (result == null) {
-					result = caseValidation(valueSetConstraint);
+					result = caseTerm_ValueSetConstraint(valueSetConstraint);
 				}
 				if (result == null) {
-					result = caseTerm_ValueSetConstraint(valueSetConstraint);
+					result = caseValidation(valueSetConstraint);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);

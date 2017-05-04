@@ -24,12 +24,17 @@ import org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint;
 import org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion;
 import org.eclipse.mdht.uml.term.core.profile.ConceptDomain;
 import org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint;
+import org.eclipse.mdht.uml.term.core.profile.Extensibility;
+import org.eclipse.mdht.uml.term.core.profile.Guidance;
+import org.eclipse.mdht.uml.term.core.profile.NullValueSetConstraint;
 import org.eclipse.mdht.uml.term.core.profile.StatusKind;
 import org.eclipse.mdht.uml.term.core.profile.TermFactory;
 import org.eclipse.mdht.uml.term.core.profile.TermPackage;
 import org.eclipse.mdht.uml.term.core.profile.UsageContext;
+import org.eclipse.mdht.uml.term.core.profile.ValueSetBinding;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetCode;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
+import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetContextBinding;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetType;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
@@ -181,6 +186,22 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 *
 	 * @generated
 	 */
+	private EClass valueSetConstraintsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	private EClass nullValueSetConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
 	private EEnum bindingKindEEnum = null;
 
 	/**
@@ -198,6 +219,30 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 * @generated
 	 */
 	private EEnum statusKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	private EEnum extensibilityEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	private EEnum guidanceEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	private EEnum valueSetBindingEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,6 +360,9 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 		createEAttribute(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__VERSION);
 		createEAttribute(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__BINDING);
 		createEReference(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__BASE_PROPERTY);
+		createEAttribute(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__EXTENSIBILITY);
+		createEAttribute(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__GUIDANCE);
+		createEAttribute(valueSetConstraintEClass, VALUE_SET_CONSTRAINT__URI);
 
 		valueSetVersionEClass = createEClass(VALUE_SET_VERSION);
 		createEAttribute(valueSetVersionEClass, VALUE_SET_VERSION__IDENTIFIER);
@@ -353,10 +401,25 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 		createEAttribute(usageContextEClass, USAGE_CONTEXT__STATUS_DATE);
 		createEReference(usageContextEClass, USAGE_CONTEXT__BASE_CLASS);
 
+		valueSetConstraintsEClass = createEClass(VALUE_SET_CONSTRAINTS);
+		createEReference(valueSetConstraintsEClass, VALUE_SET_CONSTRAINTS__BASE_PROPERTY);
+		createEReference(valueSetConstraintsEClass, VALUE_SET_CONSTRAINTS__VALUE_SET_CONSTRAINT);
+
+		nullValueSetConstraintEClass = createEClass(NULL_VALUE_SET_CONSTRAINT);
+		createEReference(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__REFERENCE);
+		createEAttribute(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__IDENTIFIER);
+		createEAttribute(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__NAME);
+		createEAttribute(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__VERSION);
+		createEAttribute(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__BINDING);
+		createEReference(nullValueSetConstraintEClass, NULL_VALUE_SET_CONSTRAINT__BASE_PROPERTY);
+
 		// Create enums
 		bindingKindEEnum = createEEnum(BINDING_KIND);
 		valueSetTypeEEnum = createEEnum(VALUE_SET_TYPE);
 		statusKindEEnum = createEEnum(STATUS_KIND);
+		extensibilityEEnum = createEEnum(EXTENSIBILITY);
+		guidanceEEnum = createEEnum(GUIDANCE);
+		valueSetBindingEEnum = createEEnum(VALUE_SET_BINDING);
 	}
 
 	/**
@@ -825,6 +888,36 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 *
 	 * @generated
 	 */
+	public EEnum getExtensibility() {
+		return extensibilityEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EEnum getGuidance() {
+		return guidanceEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EEnum getValueSetBinding() {
+		return valueSetBindingEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
 	public TermFactory getTermFactory() {
 		return (TermFactory) getEFactoryInstance();
 	}
@@ -847,6 +940,106 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 */
 	public EReference getUsageContext_Base_Class() {
 		return (EReference) usageContextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EClass getValueSetConstraints() {
+		return valueSetConstraintsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EReference getValueSetConstraints_Base_Property() {
+		return (EReference) valueSetConstraintsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EReference getValueSetConstraints_ValueSetConstraint() {
+		return (EReference) valueSetConstraintsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EClass getNullValueSetConstraint() {
+		return nullValueSetConstraintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EReference getNullValueSetConstraint_Reference() {
+		return (EReference) nullValueSetConstraintEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getNullValueSetConstraint_Identifier() {
+		return (EAttribute) nullValueSetConstraintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getNullValueSetConstraint_Name() {
+		return (EAttribute) nullValueSetConstraintEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getNullValueSetConstraint_Version() {
+		return (EAttribute) nullValueSetConstraintEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getNullValueSetConstraint_Binding() {
+		return (EAttribute) nullValueSetConstraintEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EReference getNullValueSetConstraint_Base_Property() {
+		return (EReference) nullValueSetConstraintEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -947,6 +1140,36 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	 */
 	public EReference getValueSetConstraint_Base_Property() {
 		return (EReference) valueSetConstraintEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getValueSetConstraint_Extensibility() {
+		return (EAttribute) valueSetConstraintEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getValueSetConstraint_Guidance() {
+		return (EAttribute) valueSetConstraintEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public EAttribute getValueSetConstraint_Uri() {
+		return (EAttribute) valueSetConstraintEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1470,6 +1693,16 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			getValueSetConstraint_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1,
 			ValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetConstraint_Extensibility(), this.getExtensibility(), "extensibility", null, 0, 1,
+			ValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetConstraint_Guidance(), this.getGuidance(), "guidance", null, 0, 1, ValueSetConstraint.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getValueSetConstraint_Uri(), theTypesPackage.getString(), "uri", null, 0, 1, ValueSetConstraint.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(
 			valueSetVersionEClass, ValueSetVersion.class, "ValueSetVersion", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1601,6 +1834,46 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, !IS_ORDERED);
 
+		initEClass(
+			valueSetConstraintsEClass, ValueSetConstraints.class, "ValueSetConstraints", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getValueSetConstraints_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1,
+			ValueSetConstraints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(
+			getValueSetConstraints_ValueSetConstraint(), this.getValueSetConstraint(), null, "valueSetConstraint", null,
+			0, -1, ValueSetConstraints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(
+			nullValueSetConstraintEClass, NullValueSetConstraint.class, "NullValueSetConstraint", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getNullValueSetConstraint_Reference(), this.getValueSetVersion(), null, "reference", null, 0, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getNullValueSetConstraint_Identifier(), theTypesPackage.getString(), "identifier", null, 0, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getNullValueSetConstraint_Name(), theTypesPackage.getString(), "name", null, 0, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getNullValueSetConstraint_Version(), theTypesPackage.getString(), "version", null, 0, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getNullValueSetConstraint_Binding(), this.getBindingKind(), "binding", null, 0, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, !IS_ORDERED);
+		initEReference(
+			getNullValueSetConstraint_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1,
+			NullValueSetConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(bindingKindEEnum, BindingKind.class, "BindingKind");
 		addEEnumLiteral(bindingKindEEnum, BindingKind.STATIC);
@@ -1613,6 +1886,21 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 		initEEnum(statusKindEEnum, StatusKind.class, "StatusKind");
 		addEEnumLiteral(statusKindEEnum, StatusKind.ACTIVE);
 		addEEnumLiteral(statusKindEEnum, StatusKind.INACTIVE);
+
+		initEEnum(extensibilityEEnum, Extensibility.class, "Extensibility");
+		addEEnumLiteral(extensibilityEEnum, Extensibility.NEA);
+		addEEnumLiteral(extensibilityEEnum, Extensibility.CEA);
+
+		initEEnum(guidanceEEnum, Guidance.class, "Guidance");
+		addEEnumLiteral(guidanceEEnum, Guidance.FIXED);
+		addEEnumLiteral(guidanceEEnum, Guidance.CLOSED);
+		addEEnumLiteral(guidanceEEnum, Guidance.EXTEND);
+		addEEnumLiteral(guidanceEEnum, Guidance.RESTRICT);
+		addEEnumLiteral(guidanceEEnum, Guidance.OPEN);
+
+		initEEnum(valueSetBindingEEnum, ValueSetBinding.class, "ValueSetBinding");
+		addEEnumLiteral(valueSetBindingEEnum, ValueSetBinding.DIRECT);
+		addEEnumLiteral(valueSetBindingEEnum, ValueSetBinding.INDIRECT);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1632,6 +1920,7 @@ public class TermPackageImpl extends EPackageImpl implements TermPackage {
 	protected void createUMLAnnotations() {
 		String source = "http://www.eclipse.org/uml2/2.0.0/UML";
 		addAnnotation(this, source, new String[] { "originalName", "Terminology" });
+		addAnnotation(guidanceEEnum, source, new String[] { "originalName", "Guidance " });
 	}
 
 } // TermPackageImpl

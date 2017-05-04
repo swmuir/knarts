@@ -22,5 +22,5 @@ package org.eclipse.mdht.uml.cda.core.profile;
  * @model
  * @generated
  */
-public interface ValueSetConstraint extends Validation, org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint {
+public interface ValueSetConstraint extends org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint, Validation {
 } // ValueSetConstraint

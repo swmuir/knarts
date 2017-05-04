@@ -15,6 +15,7 @@ package org.eclipse.mdht.uml.term.core.profile.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.mdht.uml.term.core.profile.*;
 import org.eclipse.mdht.uml.term.core.profile.CD;
 import org.eclipse.mdht.uml.term.core.profile.CR;
 import org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint;
@@ -199,6 +200,40 @@ public class TermSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Set Constraints</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 *
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Set Constraints</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueSetConstraints(ValueSetConstraints object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Null Value Set Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 *
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Null Value Set Constraint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNullValueSetConstraint(NullValueSetConstraint object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Value Set Code</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -378,6 +413,22 @@ public class TermSwitch<T> extends Switch<T> {
 			case TermPackage.USAGE_CONTEXT: {
 				UsageContext usageContext = (UsageContext) theEObject;
 				T result = caseUsageContext(usageContext);
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case TermPackage.VALUE_SET_CONSTRAINTS: {
+				ValueSetConstraints valueSetConstraints = (ValueSetConstraints) theEObject;
+				T result = caseValueSetConstraints(valueSetConstraints);
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case TermPackage.NULL_VALUE_SET_CONSTRAINT: {
+				NullValueSetConstraint nullValueSetConstraint = (NullValueSetConstraint) theEObject;
+				T result = caseNullValueSetConstraint(nullValueSetConstraint);
 				if (result == null) {
 					result = defaultCase(theEObject);
 				}
