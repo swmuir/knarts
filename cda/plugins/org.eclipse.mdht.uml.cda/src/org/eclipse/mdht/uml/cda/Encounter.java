@@ -291,7 +291,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -318,7 +318,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -335,7 +335,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -352,7 +352,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -369,7 +369,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -386,7 +386,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -403,7 +403,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();
@@ -420,7 +420,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -437,7 +437,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();
@@ -458,6 +458,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @see #setNullFlavor(NullFlavor)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_NullFlavor()
 	 * @model unsettable="true" ordered="false"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	NullFlavor getNullFlavor();
@@ -514,6 +515,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @see #setClassCode(ActClass)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_ClassCode()
 	 * @model unsettable="true" required="true" ordered="false"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	ActClass getClassCode();
@@ -570,6 +572,7 @@ public interface Encounter extends ClinicalStatement {
 	 * @see #setMoodCode(x_DocumentEncounterMood)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_MoodCode()
 	 * @model unsettable="true" required="true" ordered="false"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	x_DocumentEncounterMood getMoodCode();
