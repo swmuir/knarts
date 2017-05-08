@@ -967,11 +967,14 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		// Date
 		cell.setCellValue(sb.toString());
 
-		// Test
-		row.createCell(offset++).setCellValue(
-			getValueAsString(resultObservation.getSection(), resultObservation.getCode()));
-		// Description
-		row.createCell(offset++).setCellValue(getValue(resultObservation.getSection(), resultObservation.getText()));
+		offset = appendCode(
+			row, offset, resultObservation.getSection(), resultObservation.getCode(), resultObservation.getText());
+
+		// // Test
+		// row.createCell(offset++).setCellValue(
+		// getValueAsString(resultObservation.getSection(), resultObservation.getCode()));
+		// // Description
+		// row.createCell(offset++).setCellValue(getValue(resultObservation.getSection(), resultObservation.getText()));
 
 		// Result
 		String value = "";
@@ -2621,7 +2624,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		HSSFWorkbook wb = new HSSFWorkbook();
 		int offset = 0;
 
-		HSSFSheet patientsSheet = wb.createSheet("Patients");
+		HSSFSheet patientsSheet = wb.createSheet("Documents");
 
 		HSSFRow row1 = null; // patientsSheet.createRow(0);
 		HSSFRow row2 = patientsSheet.createRow(0);
@@ -2895,12 +2898,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			row.createCell(++offset).setCellValue("NO ENTRIES");
 
-			// if (section != null) {
-			// row.createCell(6).setCellValue(section.getTitle().getText());
-			// } else {
-			// row.createCell(6).setCellValue("");
-			// }
-
 			ByteArrayOutputStream fa = new ByteArrayOutputStream();
 			;
 			Section s = CDAFactory.eINSTANCE.createSection();
@@ -2908,18 +2905,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			try {
 				CDAUtil.saveSnippet(EcoreUtil.copy(section.getText()), fa);
-				row.createCell(10).setCellValue(fa.toString());
+				row.createCell(20).setCellValue(fa.toString());
 			} catch (Exception e) {
-				row.createCell(10).setCellValue(e.getMessage());
+				row.createCell(20).setCellValue(e.getMessage());
 			}
-			//
-			// row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 2, 5));
-			// row.getSheet().addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 7, 17));
-			//
-			// // serializeFileName(row, 16, fileName);
-			// // serializeFileName(row, 17, fileName);
-			// serializeFileName(row, 18, fileName);
-			// serializeFileName(row, 19, fileName);
 		}
 
 		/*
@@ -3357,6 +3346,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			row2.createCell(offset++).setCellValue("Type");
 			row2.createCell(offset++).setCellValue("Description");
 			row2.createCell(offset++).setCellValue("Code");
+			row2.createCell(offset++).setCellValue("Code System");
+			row2.createCell(offset++).setCellValue("Code Name");
+			row2.createCell(offset++).setCellValue("Text");
 			row2.createCell(offset++).setCellValue("Organization");
 			row2.createCell(offset++).setCellValue("Author");
 			// undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0, 0, secondColumn, offset));
@@ -3440,12 +3432,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		int offset = 0;
 
+		HSSFSheet documentsSheet = wb.createSheet("Documents");
+
 		HSSFSheet sectionsSheet = wb.createSheet("Sections");
 
-		HSSFSheet patientsSheet = wb.createSheet("Patients");
-
 		HSSFRow row1 = null; // patientsSheet.createRow(0);
-		HSSFRow row2 = patientsSheet.createRow(0);
+		HSSFRow row2 = documentsSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
@@ -3494,7 +3486,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 							// useServiceEvent = false;
 						} else {
 						}
-						appendToPatientSheet(query, patientsSheet, patientRole, file.getName());
+						appendToPatientSheet(query, documentsSheet, patientRole, file.getName());
 						appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
 
 						for (Section section : query.getAllSections()) {
@@ -3678,11 +3670,26 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	private static int appendCode(HSSFRow row, int offset, Section setion, CD cd) {
+	// int appendCode(HSSFRow row, int offset, Section section, CD code, ED ed) {
+	//
+	// row.createCell(offset++).setCellValue(getValueAsString(section, code));
+	//
+	// row.createCell(offset++).setCellValue(getValueAsString(section, code));
+	//
+	// // Description
+	// row.createCell(offset++).setCellValue(getValue(section, ed));
+	//
+	// return offset;
+	//
+	// }
+
+	private static int appendCode(HSSFRow row, int offset, Section setion, CD cd, ED ed) {
 
 		if (cd != null) {
 
 			row.createCell(offset++).setCellValue(getValueAsString(setion, cd));
+
+			row.createCell(offset++).setCellValue(getValue(setion, ed));
 
 			row.createCell(offset++).setCellValue(cd.getCode());
 
@@ -3690,6 +3697,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			row.createCell(offset++).setCellValue(cd.getCodeSystemName());
 		} else {
+			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
@@ -3727,7 +3735,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		// row.createCell(offset++).setCellValue(
 		// getAnyValue(procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode()));
 
-		offset = appendCode(row, offset, procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode());
+		offset = appendCode(
+			row, offset, procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode(),
+			procedureActivityProcedure.getText());
 
 		/*
 		 * boolean hasCode = false;
@@ -3884,7 +3894,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 		offset = appendCode(
-			row, offset, procedureActivityObservation.getSection(), procedureActivityObservation.getCode());
+			row, offset, procedureActivityObservation.getSection(), procedureActivityObservation.getCode(),
+			procedureActivityObservation.getText());
 
 		String organizationValue = "";
 		String personValue = "";
@@ -4019,7 +4030,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			row.createCell(offset++).setCellValue("");
 		}
 
-		offset = appendCode(row, offset, procedureActivityAct.getSection(), procedureActivityAct.getCode());
+		offset = appendCode(
+			row, offset, procedureActivityAct.getSection(), procedureActivityAct.getCode(),
+			procedureActivityAct.getText());
 
 		String organizationValue = "";
 		String personValue = "";
