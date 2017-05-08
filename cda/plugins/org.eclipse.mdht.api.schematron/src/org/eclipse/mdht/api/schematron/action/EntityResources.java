@@ -12,7 +12,8 @@ public class EntityResources {
 
 	public String fileName;
 	public StringBuilder xpathResource;
-	public StringBuilder asserts = new StringBuilder();
+	public List<String> rules = new ArrayList<String>();
+	public List<StringBuilder> asserts = new ArrayList<StringBuilder>();
 	public String entId;
 	public String patternId;
 	public List<String> assertNames = new ArrayList<String>();

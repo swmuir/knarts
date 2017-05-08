@@ -16,4 +16,12 @@
       </objectContribution>
    </extension>
    
+   <extension
+      point="org.eclipse.mdht.uml.ui.properties.ConstraintEditor">
+      <editor
+         component="org.eclipse.mdht.api.schematron.XPathConstraintEditor"
+         language="XPath">
+      </editor>
+   </extension>
+   
 </plugin>

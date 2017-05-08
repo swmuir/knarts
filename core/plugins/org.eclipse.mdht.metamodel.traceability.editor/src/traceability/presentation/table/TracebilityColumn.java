@@ -17,19 +17,8 @@ public class TracebilityColumn extends XViewerColumn {
 
 	private boolean alwaysShow;
 
-//	public TracebilityColumn(String id, String name, int width, int align, boolean show, SortDataType sortDataType, boolean multiColumnEditable, String description) {
-//		super(id, name, width, align, show, sortDataType, multiColumnEditable, description);
-//	}
-
-	public TracebilityColumn(Object xViewer, String xml) {
-		super(xViewer, xml);
-		// TODO Auto-generated constructor stub
-	}
-
-	public TracebilityColumn(String id, String name, int width, XViewerAlign align, boolean show,
-			SortDataType sortDataType, boolean multiColumnEditable, String description) {
+	public TracebilityColumn(String id, String name, int width, XViewerAlign align, boolean show, SortDataType sortDataType, boolean multiColumnEditable, String description) {
 		super(id, name, width, align, show, sortDataType, multiColumnEditable, description);
-		// TODO Auto-generated constructor stub
 	}
 
 	public TracebilityColumn() {

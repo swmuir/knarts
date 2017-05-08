@@ -9,6 +9,7 @@
  */
 package org.eclipse.mdht.api.transform;
 
+import org.eclipse.mdht.uml.cda.transform.TransformCDAPropertyConstraint;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationStereotypeKind;
@@ -16,7 +17,10 @@ import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Property;
 
-public class APITransformCDAPropertyConstraint extends APITransformCDAPropertyConstraintRectified {
+/**
+ * Let the constrained element be the property and not the containing class
+ */
+public class APITransformCDAPropertyConstraint extends TransformCDAPropertyConstraint {
 
 	public APITransformCDAPropertyConstraint(TransformerOptions options, IBaseModelReflection baseModelReflection) {
 		super(options, baseModelReflection);
@@ -36,4 +40,9 @@ public class APITransformCDAPropertyConstraint extends APITransformCDAPropertyCo
 		}
 		return result;
 	}
+	
+	public boolean enableVariation_UseOriginalLowerbound() {
+		return !Boolean.getBoolean("USE_IMPLIED_LOWERBOUND");
+	}
+	
 }

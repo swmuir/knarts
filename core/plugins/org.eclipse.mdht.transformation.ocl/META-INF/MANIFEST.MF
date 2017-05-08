@@ -10,7 +10,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.mapping,
  org.eclipse.emf.mapping.ecore2xml,
  org.apache.commons.lang;visibility:=reexport,
- org.eclipse.core.resources,
  org.eclipse.ocl.ecore,
  org.eclipse.ocl.uml
 Export-Package: org.eclipse.mdht.transformation.ocl

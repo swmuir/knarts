@@ -16,6 +16,13 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.WordUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.mdht.api.GenerateAPIForProgrammingLanguageAction;
+import org.eclipse.mdht.api.java.Activator;
+import org.eclipse.mdht.api.java.CDAOCL2JavaHandler;
+import org.eclipse.mdht.transformation.ocl.OCLTransformation;
+import org.eclipse.mdht.transformation.ocl2java.OCL2JavaTransformationForUML;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
+import org.eclipse.mdht.uml.cda.core.util.ICDAProfileConstants;
 import org.eclipse.uml2.uml.CallOperationAction;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -31,13 +38,6 @@ import org.eclipse.uml2.uml.SendSignalAction;
 import org.eclipse.uml2.uml.State;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
-import org.eclipse.mdht.api.GenerateAPIForProgrammingLanguageAction;
-import org.eclipse.mdht.api.java.Activator;
-import org.eclipse.mdht.api.java.CDAOCL2JavaHandler;
-import org.eclipse.mdht.transformation.ocl.OCLTransformation;
-import org.eclipse.mdht.transformation.ocl2java.OCL2JavaTransformationForUML;
-import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
-import org.eclipse.mdht.uml.cda.core.util.ICDAProfileConstants;
 
 public class GenerateJavaAction extends GenerateAPIForProgrammingLanguageAction {
 
@@ -62,10 +62,10 @@ public class GenerateJavaAction extends GenerateAPIForProgrammingLanguageAction 
 		code.append("import org.eclipse.emf.common.util.Diagnostic;\n");
 		code.append("import org.eclipse.emf.common.util.DiagnosticChain;\n");
 		code.append("import org.eclipse.emf.ecore.util.FeatureMapUtil;\n");
-		code.append("import org.openhealthtools.mdht.uml.cda.*;\n");
-		code.append("import org.openhealthtools.mdht.uml.cda.util.CDAUtil;\n");
-		code.append("import org.openhealthtools.mdht.uml.hl7.datatypes.*;\n");
-		code.append("import org.openhealthtools.mdht.uml.hl7.vocab.*;\n");
+		code.append("import org.eclipse.mdht.uml.cda.*;\n");
+		code.append("import org.eclipse.mdht.uml.cda.util.CDAUtil;\n");
+		code.append("import org.eclipse.mdht.uml.hl7.datatypes.*;\n");
+		code.append("import org.eclipse.mdht.uml.hl7.vocab.*;\n");
 		code.append("\n");
 		code.append("public class " + qualifiedClassName.substring(index + 1) + (extendsClass != null ? " extends " + extendsClass : "") + " {\n");
 		code.append("\n");
@@ -77,7 +77,7 @@ public class GenerateJavaAction extends GenerateAPIForProgrammingLanguageAction 
 	}
 
 	@Override
-	protected File genfolder(File modelFolder, String suffix) {
+	protected File genfolder(File modelFolder) {
 		String folder = System.getProperty("JAVA_TARGET_FOLDER");
 		if (folder != null)
 			return new File(folder);

@@ -11,7 +11,6 @@
 package org.eclipse.mdht.transformation.ocl2xpath;
 
 import org.eclipse.emf.ecore.EModelElement;
-import org.eclipse.mdht.transformation.ocl.OCLTransformation;
 import org.eclipse.ocl.expressions.BooleanLiteralExp;
 import org.eclipse.ocl.expressions.EnumLiteralExp;
 import org.eclipse.ocl.expressions.IfExp;
@@ -19,6 +18,8 @@ import org.eclipse.ocl.expressions.NullLiteralExp;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.expressions.OperationCallExp;
 import org.eclipse.ocl.uml.PropertyCallExp;
+
+import org.eclipse.mdht.transformation.ocl.OCLTransformation;
 
 /**
  * Transformation from OCL to XPath (UML or Ecore OCL is used by subclasses of this class by binding the type parameters)
@@ -65,6 +66,12 @@ abstract public class OCL2XPathTransformation<PK, C, O extends EModelElement, P,
 			}
 			if ("excluding".equals(opName)) {
 				return predicate(transform(op.getSource()), ". != " + transform(op.getArgument().get(0)));
+			}
+			if ("first".equals(opName) || "last".equals(opName)) {
+				return predicate(transform(op.getSource()), opName + "()");
+			}
+			if ("at".equals(opName)) {
+				return predicate(transform(op.getSource()), transform(op.getArgument().get(0)));
 			}
 
 		}
@@ -181,6 +188,7 @@ abstract public class OCL2XPathTransformation<PK, C, O extends EModelElement, P,
 		result = result.replace("[. and ", "["); // cosmetic
 		result = result.replace("[true()]", ""); // cosmetic
 		result = result.replace("[.]", ""); // cosmetic
+		result = result.replace("/.[", "["); // cosmetic
 		return result;
 	}
 
@@ -207,6 +215,10 @@ abstract public class OCL2XPathTransformation<PK, C, O extends EModelElement, P,
 		if ("<>".equals(operator))
 			return not(super.compare("=", lhs, rhs));
 		return super.compare(operator, lhs, rhs);
+	}
+
+	public String deepEqual(String operator, String lhs, String rhs) {
+		return "deep-equal(" + lhs + "," + rhs + ")";
 	}
 
 	public String referVar(String variable) {

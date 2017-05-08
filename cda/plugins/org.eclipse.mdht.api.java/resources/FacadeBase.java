@@ -19,6 +19,11 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 /**
  * Copyright: NEHTA 2014-2015 Author: Joerg Kiegeland, Distributed Models Pty
  * Ltd
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  */
 
 // / <summary>
@@ -52,6 +57,7 @@ abstract public class FacadeBase {
 	static public <T> T One(T item) {
 		return item;
 	}
+	
 
 	// / For a singleton set, returns the one and only element
 	static public <T> T One(Stream<T> list) {
@@ -75,7 +81,7 @@ abstract public class FacadeBase {
 	}
 
 	// / Flattens nested set structures
-	static public <T extends EObject> Stream<T> Flatten(Stream<Stream<T>> list) {
+	static public <T> Stream<T> Flatten(Stream<Stream<T>> list) {
 		return list.flatMap(x -> x);
 	}
 
@@ -109,7 +115,7 @@ abstract public class FacadeBase {
 
 	protected FeatureMap getValueForFeaturemap(String value) {
 		/**
-		 * @see org.openhealthtools.mdht.uml.cda.operations.SectionOperations#createStrucDocText()
+		 * @see org.eclipse.mdht.uml.cda.operations.SectionOperations#createStrucDocText()
 		 */
 		Resource.Factory factory = new GenericXMLResourceFactoryImpl();
 		XMLResource resource = (XMLResource) factory.createResource(null);

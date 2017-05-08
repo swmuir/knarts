@@ -13,6 +13,9 @@ import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.mdht.uml.transform.ecore.TransformAbstract;
 
+/**
+ * Placeholder to not perform any specific transformation
+ */
 public class APITransformNothing extends TransformAbstract {
 
 	public APITransformNothing(TransformerOptions options, IBaseModelReflection baseModelReflection) {

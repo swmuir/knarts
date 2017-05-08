@@ -26,7 +26,9 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.gmf.runtime.diagram.ui.properties,
  org.eclipse.uml2.uml,
- org.eclipse.mdht.metamodel.traceability
+ org.eclipse.mdht.metamodel.traceability,
+ org.eclipse.jgit,
+ org.eclipse.egit.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.mdht.api

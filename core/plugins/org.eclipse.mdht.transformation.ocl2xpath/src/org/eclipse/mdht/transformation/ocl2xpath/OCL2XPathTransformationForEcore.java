@@ -34,4 +34,9 @@ public class OCL2XPathTransformationForEcore extends OCL2XPathTransformation<EPa
 		return OCL.newInstance();
 	}
 
+	@Override
+	public String transform(EClassifier context, String oclString) {
+		return super.transform(context, oclString);
+	}
+
 }

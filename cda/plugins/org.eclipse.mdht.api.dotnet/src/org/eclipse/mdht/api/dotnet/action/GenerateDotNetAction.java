@@ -15,6 +15,12 @@ import java.io.IOException;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.mdht.api.GenerateAPIForProgrammingLanguageAction;
+import org.eclipse.mdht.api.dotnet.Activator;
+import org.eclipse.mdht.api.dotnet.CDAOCL2CSharpHandler;
+import org.eclipse.mdht.transformation.ocl.OCLTransformation;
+import org.eclipse.mdht.transformation.ocl2csharp.OCL2CSharpTransformationForUML;
+import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 import org.eclipse.uml2.uml.CallOperationAction;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -27,12 +33,6 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.SendSignalAction;
 import org.eclipse.uml2.uml.State;
 import org.eclipse.uml2.uml.Type;
-import org.eclipse.mdht.api.GenerateAPIForProgrammingLanguageAction;
-import org.eclipse.mdht.api.dotnet.Activator;
-import org.eclipse.mdht.api.dotnet.CDAOCL2CSharpHandler;
-import org.eclipse.mdht.transformation.ocl.OCLTransformation;
-import org.eclipse.mdht.transformation.ocl2csharp.OCL2CSharpTransformationForUML;
-import org.eclipse.mdht.uml.cda.core.util.CDACommonUtils;
 
 public class GenerateDotNetAction extends GenerateAPIForProgrammingLanguageAction {
 
@@ -42,7 +42,7 @@ public class GenerateDotNetAction extends GenerateAPIForProgrammingLanguageActio
 	}
 
 	@Override
-	protected File genfolder(File modelFolder, String suffix) {
+	protected File genfolder(File modelFolder) {
 		String folder = System.getProperty("DOTNET_TARGET_FOLDER");
 		if (folder != null)
 			return new File(folder);

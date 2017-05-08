@@ -1,14 +1,12 @@
-/*******************************************************************************
- * Copyright (c) 2012 Christian W. Damus and others.
+/**
+ * Copyright: NEHTA 2015
+ * Author: Joerg Kiegeland, Distributed Models Pty Ltd 
+ * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Christian W. Damus - initial API and implementation
- *     
- *******************************************************************************/
+ */
 package org.eclipse.mdht.api.transform;
 
 import static org.eclipse.mdht.uml.transform.ecore.BaseEcoreTransformationBuilder.adapt;
@@ -17,19 +15,20 @@ import org.eclipse.mdht.transform.core.IRule;
 import org.eclipse.mdht.transform.core.ITransformation;
 import org.eclipse.mdht.transform.core.TransformationBuilder;
 import org.eclipse.mdht.uml.cda.transform.CDAInitializeContextRule;
+import org.eclipse.mdht.uml.cda.transform.EcoreTransformationBuilder;
 import org.eclipse.mdht.uml.cda.transform.TransformClinicalDocument;
 import org.eclipse.mdht.uml.cda.transform.TransformTemplateIdentifier;
 import org.eclipse.mdht.uml.transform.ecore.BaseEcoreTransformationBuilder;
-import org.eclipse.mdht.uml.transform.ecore.BaseEcoreTransformationBuilder.IRuleOverrideProvider;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreTransformIDs;
 import org.eclipse.mdht.uml.transform.ecore.ProcessDeletedElementsFragment;
 import org.eclipse.mdht.uml.transform.ecore.TransformAssociation;
 import org.eclipse.mdht.uml.transform.ecore.TransformConstraint;
 import org.eclipse.mdht.uml.transform.ecore.TransformPackage;
 import org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint;
+import org.eclipse.mdht.uml.transform.ecore.BaseEcoreTransformationBuilder.IRuleOverrideProvider;
 
 /**
- * A transformation builder that creates the standard configuration of a UML-to-Ecore transformation. Clients may further configure this transformation to suit their specialized needs.
+ * A transformation builder that has a parallel configuration to {@link EcoreTransformationBuilder} however particularly adjusts the OCL to accommodate requirements for Schematron and Facade generation later on.
  */
 public class APITransformationBuilder extends TransformationBuilder {
 

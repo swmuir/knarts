@@ -13,6 +13,8 @@ package org.eclipse.mdht.transformation.ocl2java;
 import org.apache.commons.lang.WordUtils;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.mdht.transformation.ocl.OCL2ProgrammingLanguageTransformation;
+import org.eclipse.ocl.expressions.OCLExpression;
+import org.eclipse.ocl.expressions.OperationCallExp;
 
 public abstract class OCL2JavaTransformation<PK, C, O extends EModelElement, P, EL, PM, S, COA, SSA, CT, CLS, E> extends OCL2ProgrammingLanguageTransformation<PK, C, O, P, EL, PM, S, COA, SSA, CT, CLS, E> {
 
@@ -28,6 +30,10 @@ public abstract class OCL2JavaTransformation<PK, C, O extends EModelElement, P, 
 	@Override
 	public String contains(String set, String item) {
 		return set + ".collect(Collectors.toList()).contains(" + item + ")";
+	}
+
+	public String deepEqual(String operator, String lhs, String rhs) {
+		return lhs + ".collect(Collectors.toList())" + ".equals(" + rhs + ".collect(Collectors.toList())" + ")";
 	}
 
 	@Override
@@ -77,7 +83,7 @@ public abstract class OCL2JavaTransformation<PK, C, O extends EModelElement, P, 
 		C type = getType(referredProperty);
 		String prefix = "Boolean".equals(getName(type)) && isPrimitive(referredProperty) ? "is" : "get";
 		String result = prefix + WordUtils.capitalize(name);
-		if (getOCLInstance().getEnvironment().getUMLReflection().isMany(referredProperty) && !"text".equals(name))
+		if (getOCLInstance().getEnvironment().getUMLReflection().isMany(referredProperty) && !"text".equals(name) && !"any".equals(name))
 			result += "s";
 		result = result.replaceAll("ys$", "ies");
 		result = result.replaceAll("xs$", "xes");
@@ -90,5 +96,29 @@ public abstract class OCL2JavaTransformation<PK, C, O extends EModelElement, P, 
 	@Override
 	public String typeof(String typeName) {
 		return typeName + ".class";
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public String transform(OCLExpression exp) {
+
+		if (exp instanceof OperationCallExp) {
+			OperationCallExp<C, O> op = (OperationCallExp<C, O>) exp;
+			String opName = getName(op.getReferredOperation());
+
+			if ("first".equals(opName)) {
+				return transform(op.getSource()) + ".first()";
+			}
+
+			if ("last".equals(opName)) {
+				return transform(op.getSource()) + ".reduce((a,b)->b)";
+			}
+
+			if ("at".equals(opName)) {
+				return transform(op.getSource()) + ".get(" + transform(op.getArgument().get(0)) + ")";
+			}
+		}
+
+		return super.transform(exp);
 	}
 }
