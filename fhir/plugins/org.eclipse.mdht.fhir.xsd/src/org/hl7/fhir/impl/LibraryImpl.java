@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,6 +39,13 @@ import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,6 +85,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "Library", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Library")
 public class LibraryImpl extends DomainResourceImpl implements Library {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -358,6 +372,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -401,6 +416,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.LIBRARY__IDENTIFIER);
@@ -413,6 +429,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -456,6 +473,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -499,6 +517,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -542,6 +561,8 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -585,6 +606,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -628,6 +650,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -671,6 +694,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -714,6 +738,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -757,6 +782,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -800,6 +826,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -843,6 +870,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -886,6 +914,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -929,6 +958,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -1015,6 +1045,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.LIBRARY__USE_CONTEXT);
@@ -1027,6 +1058,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.LIBRARY__JURISDICTION);
@@ -1039,6 +1071,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.LIBRARY__TOPIC);
@@ -1051,6 +1084,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Contributor> getContributor() {
 		if (contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, FhirPackage.LIBRARY__CONTRIBUTOR);
@@ -1063,6 +1097,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.LIBRARY__CONTACT);
@@ -1075,6 +1110,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -1118,6 +1154,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.LIBRARY__RELATED_ARTIFACT);
@@ -1130,6 +1167,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ParameterDefinition> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<ParameterDefinition>(ParameterDefinition.class, this, FhirPackage.LIBRARY__PARAMETER);
@@ -1142,6 +1180,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirement> getDataRequirement() {
 		if (dataRequirement == null) {
 			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.LIBRARY__DATA_REQUIREMENT);
@@ -1154,6 +1193,7 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getContent() {
 		if (content == null) {
 			content = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.LIBRARY__CONTENT);

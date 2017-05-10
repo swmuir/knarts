@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,10 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DigitalMediaTypeImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,6 +70,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "Media", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Media")
 public class MediaImpl extends DomainResourceImpl implements Media {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -276,6 +287,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDIA__IDENTIFIER);
@@ -288,6 +300,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDIA__BASED_ON);
@@ -300,6 +313,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DigitalMediaTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public DigitalMediaType getType() {
 		return type;
 	}
@@ -515,6 +530,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -644,6 +660,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDIA__REASON_CODE);
@@ -742,6 +759,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getHeight() {
 		return height;
 	}
@@ -785,6 +803,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getWidth() {
 		return width;
 	}
@@ -828,6 +847,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getFrames() {
 		return frames;
 	}
@@ -871,6 +891,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getDuration() {
 		return duration;
 	}
@@ -914,6 +935,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Attachment getContent() {
 		return content;
 	}
@@ -957,6 +979,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDIA__NOTE);

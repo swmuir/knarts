@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.QuantityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Quantity' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(QuantityImplAdapter.class)
 public interface Quantity extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.

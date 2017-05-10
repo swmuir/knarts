@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CoverageGrouping;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +42,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "CoverageGrouping", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CoverageGrouping")
 public class CoverageGroupingImpl extends BackboneElementImpl implements CoverageGrouping {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
@@ -182,6 +189,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getGroup() {
 		return group;
 	}
@@ -225,6 +233,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getGroupDisplay() {
 		return groupDisplay;
 	}
@@ -268,6 +277,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubGroup() {
 		return subGroup;
 	}
@@ -311,6 +321,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubGroupDisplay() {
 		return subGroupDisplay;
 	}
@@ -354,6 +365,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPlan() {
 		return plan;
 	}
@@ -397,6 +409,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPlanDisplay() {
 		return planDisplay;
 	}
@@ -440,6 +453,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubPlan() {
 		return subPlan;
 	}
@@ -483,6 +497,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubPlanDisplay() {
 		return subPlanDisplay;
 	}
@@ -569,6 +584,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getClassDisplay() {
 		return classDisplay;
 	}
@@ -612,6 +628,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubClass() {
 		return subClass;
 	}
@@ -655,6 +672,7 @@ public class CoverageGroupingImpl extends BackboneElementImpl implements Coverag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSubClassDisplay() {
 		return subClassDisplay;
 	}

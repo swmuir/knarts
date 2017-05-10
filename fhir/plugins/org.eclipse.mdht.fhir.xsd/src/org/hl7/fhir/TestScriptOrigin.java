@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptOriginImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Origin' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptOriginImplAdapter.class)
 public interface TestScriptOrigin extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Index</b></em>' containment reference.

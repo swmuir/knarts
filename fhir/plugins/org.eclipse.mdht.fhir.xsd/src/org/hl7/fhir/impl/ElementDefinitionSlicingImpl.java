@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,9 @@ import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SlicingRules;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.SlicingRulesImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +46,8 @@ import org.hl7.fhir.SlicingRules;
  *
  * @generated
  */
+@XmlType(name = "ElementDefinitionSlicing", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ElementDefinitionSlicing")
 public class ElementDefinitionSlicingImpl extends ElementImpl implements ElementDefinitionSlicing {
 	/**
 	 * The cached value of the '{@link #getDiscriminator() <em>Discriminator</em>}' containment reference list.
@@ -103,6 +113,7 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ElementDefinitionDiscriminator> getDiscriminator() {
 		if (discriminator == null) {
 			discriminator = new EObjectContainmentEList<ElementDefinitionDiscriminator>(ElementDefinitionDiscriminator.class, this, FhirPackage.ELEMENT_DEFINITION_SLICING__DISCRIMINATOR);
@@ -115,6 +126,7 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -158,6 +170,7 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getOrdered() {
 		return ordered;
 	}
@@ -201,6 +214,8 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SlicingRulesImplAdapter.class)
+	@XmlElement(required = true)
 	public SlicingRules getRules() {
 		return rules;
 	}

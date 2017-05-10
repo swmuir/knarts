@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +54,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "EnrollmentResponse", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EnrollmentResponse")
 public class EnrollmentResponseImpl extends DomainResourceImpl implements EnrollmentResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -161,6 +171,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER);
@@ -173,6 +184,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -302,6 +314,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -345,6 +358,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}

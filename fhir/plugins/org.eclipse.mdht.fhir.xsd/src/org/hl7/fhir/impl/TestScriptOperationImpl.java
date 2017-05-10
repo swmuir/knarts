@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,12 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptOperation;
 import org.hl7.fhir.TestScriptRequestHeader;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.ContentTypeImplAdapter;
+import org.hl7.fhir.jaxb.FHIRDefinedTypeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +64,8 @@ import org.hl7.fhir.TestScriptRequestHeader;
  *
  * @generated
  */
+@XmlType(name = "TestScriptOperation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptOperation")
 public class TestScriptOperationImpl extends BackboneElementImpl implements TestScriptOperation {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -281,6 +294,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FHIRDefinedTypeImplAdapter.class)
 	public FHIRDefinedType getResource() {
 		return resource;
 	}
@@ -324,6 +338,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLabel() {
 		return label;
 	}
@@ -367,6 +382,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -410,6 +426,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContentTypeImplAdapter.class)
 	public ContentType getAccept() {
 		return accept;
 	}
@@ -453,6 +470,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContentTypeImplAdapter.class)
 	public ContentType getContentType() {
 		return contentType;
 	}
@@ -496,6 +514,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getDestination() {
 		return destination;
 	}
@@ -539,6 +558,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getEncodeRequestUrl() {
 		return encodeRequestUrl;
 	}
@@ -582,6 +602,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getOrigin() {
 		return origin;
 	}
@@ -625,6 +646,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getParams() {
 		return params;
 	}
@@ -668,6 +690,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TestScriptRequestHeader> getRequestHeader() {
 		if (requestHeader == null) {
 			requestHeader = new EObjectContainmentEList<TestScriptRequestHeader>(TestScriptRequestHeader.class, this, FhirPackage.TEST_SCRIPT_OPERATION__REQUEST_HEADER);
@@ -680,6 +703,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getRequestId() {
 		return requestId;
 	}
@@ -723,6 +747,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getResponseId() {
 		return responseId;
 	}
@@ -766,6 +791,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getSourceId() {
 		return sourceId;
 	}
@@ -809,6 +835,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getTargetId() {
 		return targetId;
 	}
@@ -852,6 +879,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUrl() {
 		return url;
 	}

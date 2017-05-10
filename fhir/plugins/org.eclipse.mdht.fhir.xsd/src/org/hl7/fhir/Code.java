@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Code</b></em>'.
@@ -25,6 +29,7 @@ import java.lang.String;
  * @model extendedMetaData="name='code' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CodeImplAdapter.class)
 public interface Code extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

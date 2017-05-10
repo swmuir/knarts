@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,8 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.EligibilityResponseBenefitBalance;
 import org.hl7.fhir.EligibilityResponseFinancial;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +50,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "EligibilityResponseBenefitBalance", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EligibilityResponseBenefitBalance")
 public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl implements EligibilityResponseBenefitBalance {
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -158,6 +167,7 @@ public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCategory() {
 		return category;
 	}
@@ -244,6 +254,7 @@ public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExcluded() {
 		return excluded;
 	}
@@ -287,6 +298,7 @@ public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -330,6 +342,7 @@ public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -502,6 +515,7 @@ public class EligibilityResponseBenefitBalanceImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EligibilityResponseFinancial> getFinancial() {
 		if (financial == null) {
 			financial = new EObjectContainmentEList<EligibilityResponseFinancial>(EligibilityResponseFinancial.class, this, FhirPackage.ELIGIBILITY_RESPONSE_BENEFIT_BALANCE__FINANCIAL);

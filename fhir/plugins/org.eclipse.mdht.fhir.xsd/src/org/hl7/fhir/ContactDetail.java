@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ContactDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ContactDetail' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ContactDetailImplAdapter.class)
 public interface ContactDetail extends Element {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.ClaimResponseDetail;
 import org.hl7.fhir.ClaimResponseSubDetail;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +45,8 @@ import org.hl7.fhir.PositiveInt;
  *
  * @generated
  */
+@XmlType(name = "ClaimResponseDetail", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimResponseDetail")
 public class ClaimResponseDetailImpl extends BackboneElementImpl implements ClaimResponseDetail {
 	/**
 	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference.
@@ -104,6 +112,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequenceLinkId() {
 		return sequenceLinkId;
 	}
@@ -147,6 +157,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER);
@@ -159,6 +171,7 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimResponseAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ClaimResponseAdjudication>(ClaimResponseAdjudication.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__ADJUDICATION);
@@ -171,6 +184,7 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimResponseSubDetail> getSubDetail() {
 		if (subDetail == null) {
 			subDetail = new EObjectContainmentEList<ClaimResponseSubDetail>(ClaimResponseSubDetail.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__SUB_DETAIL);

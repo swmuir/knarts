@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +40,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ClinicalImpressionInvestigation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClinicalImpressionInvestigation")
 public class ClinicalImpressionInvestigationImpl extends BackboneElementImpl implements ClinicalImpressionInvestigation {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -81,6 +87,7 @@ public class ClinicalImpressionInvestigationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -124,6 +131,7 @@ public class ClinicalImpressionInvestigationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION_INVESTIGATION__ITEM);

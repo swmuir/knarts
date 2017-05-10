@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,9 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ProcessResponse;
 import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +59,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ProcessResponse", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ProcessResponse")
 public class ProcessResponseImpl extends DomainResourceImpl implements ProcessResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -206,6 +216,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCESS_RESPONSE__IDENTIFIER);
@@ -218,6 +229,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -261,6 +273,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -433,6 +446,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -605,6 +619,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ProcessResponseProcessNote> getProcessNote() {
 		if (processNote == null) {
 			processNote = new EObjectContainmentEList<ProcessResponseProcessNote>(ProcessResponseProcessNote.class, this, FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE);
@@ -617,6 +632,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getError() {
 		if (error == null) {
 			error = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCESS_RESPONSE__ERROR);
@@ -629,6 +645,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getCommunicationRequest() {
 		if (communicationRequest == null) {
 			communicationRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCESS_RESPONSE__COMMUNICATION_REQUEST);

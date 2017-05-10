@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.RangeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Range' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(RangeImplAdapter.class)
 public interface Range extends Element {
 	/**
 	 * Returns the value of the '<em><b>Low</b></em>' containment reference.

@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ClaimResponseDetail1ImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ClaimResponse.Detail1' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ClaimResponseDetail1ImplAdapter.class)
 public interface ClaimResponseDetail1 extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.

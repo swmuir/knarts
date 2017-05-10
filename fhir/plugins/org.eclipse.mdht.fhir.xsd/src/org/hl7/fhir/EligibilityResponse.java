@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.EligibilityResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='EligibilityResponse' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(EligibilityResponseImplAdapter.class)
 public interface EligibilityResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

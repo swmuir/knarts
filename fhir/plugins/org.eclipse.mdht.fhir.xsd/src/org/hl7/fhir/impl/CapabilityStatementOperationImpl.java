@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +34,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementOperation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementOperation")
 public class CapabilityStatementOperationImpl extends BackboneElementImpl implements CapabilityStatementOperation {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -73,6 +81,8 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -116,6 +126,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getDefinition() {
 		return definition;
 	}

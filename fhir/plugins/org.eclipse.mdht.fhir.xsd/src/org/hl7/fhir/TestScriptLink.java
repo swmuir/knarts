@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Link' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptLinkImplAdapter.class)
 public interface TestScriptLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +40,8 @@ import org.hl7.fhir.MeasureReportStratum;
  *
  * @generated
  */
+@XmlType(name = "MeasureReportStratifier", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureReportStratifier")
 public class MeasureReportStratifierImpl extends BackboneElementImpl implements MeasureReportStratifier {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -124,6 +130,7 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureReportStratum> getStratum() {
 		if (stratum == null) {
 			stratum = new EObjectContainmentEList<MeasureReportStratum>(MeasureReportStratum.class, this, FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM);

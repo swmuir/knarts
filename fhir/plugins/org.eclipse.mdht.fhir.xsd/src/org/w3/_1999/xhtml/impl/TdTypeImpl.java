@@ -6,6 +6,9 @@ import java.math.BigInteger;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -48,6 +51,8 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "TdType", namespace = "http://www.w3.org/1999/xhtml")
+@XmlRootElement(name = "TdType")
 public class TdTypeImpl extends FlowImpl implements TdType {
 	/**
 	 * The default value of the '{@link #getAbbr1() <em>Abbr1</em>}' attribute.

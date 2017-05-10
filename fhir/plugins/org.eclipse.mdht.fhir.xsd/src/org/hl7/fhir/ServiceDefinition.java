@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ServiceDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +52,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ServiceDefinition' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ServiceDefinitionImplAdapter.class)
 public interface ServiceDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

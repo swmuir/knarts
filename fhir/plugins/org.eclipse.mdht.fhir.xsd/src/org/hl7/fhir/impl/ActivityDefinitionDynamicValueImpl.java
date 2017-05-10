@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ActivityDefinitionDynamicValue;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +34,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "ActivityDefinitionDynamicValue", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ActivityDefinitionDynamicValue")
 public class ActivityDefinitionDynamicValueImpl extends BackboneElementImpl implements ActivityDefinitionDynamicValue {
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -94,6 +101,7 @@ public class ActivityDefinitionDynamicValueImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -137,6 +145,7 @@ public class ActivityDefinitionDynamicValueImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -180,6 +189,7 @@ public class ActivityDefinitionDynamicValueImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLanguage() {
 		return language;
 	}
@@ -223,6 +233,7 @@ public class ActivityDefinitionDynamicValueImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}

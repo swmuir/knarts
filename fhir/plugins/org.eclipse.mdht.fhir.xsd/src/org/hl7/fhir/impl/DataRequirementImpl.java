@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,9 @@ import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +49,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "DataRequirement", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DataRequirement")
 public class DataRequirementImpl extends ElementImpl implements DataRequirement {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -116,6 +126,8 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getType() {
 		return type;
 	}
@@ -159,6 +171,8 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getProfile() {
 		if (profile == null) {
 			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DATA_REQUIREMENT__PROFILE);
@@ -171,6 +185,8 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getMustSupport() {
 		if (mustSupport == null) {
 			mustSupport = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT);
@@ -183,6 +199,7 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirementCodeFilter> getCodeFilter() {
 		if (codeFilter == null) {
 			codeFilter = new EObjectContainmentEList<DataRequirementCodeFilter>(DataRequirementCodeFilter.class, this, FhirPackage.DATA_REQUIREMENT__CODE_FILTER);
@@ -195,6 +212,7 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirementDateFilter> getDateFilter() {
 		if (dateFilter == null) {
 			dateFilter = new EObjectContainmentEList<DataRequirementDateFilter>(DataRequirementDateFilter.class, this, FhirPackage.DATA_REQUIREMENT__DATE_FILTER);

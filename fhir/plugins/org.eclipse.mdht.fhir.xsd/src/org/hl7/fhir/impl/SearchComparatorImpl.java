@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +28,8 @@ import org.hl7.fhir.SearchComparatorList;
  *
  * @generated
  */
+@XmlType(name = "SearchComparator", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SearchComparator")
 public class SearchComparatorImpl extends ElementImpl implements SearchComparator {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

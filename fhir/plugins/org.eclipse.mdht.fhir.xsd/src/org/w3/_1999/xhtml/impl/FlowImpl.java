@@ -4,6 +4,12 @@ package org.w3._1999.xhtml.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -59,6 +65,40 @@ import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.VarType;
 import org.w3._1999.xhtml.XhtmlPackage;
+import org.w3._1999.xhtml.jaxb.ATypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.AbbrTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.AcronymTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.AddressTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BdoTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BigTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BlockquoteTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.CiteTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.CodeTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.DfnTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.DlTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.EmTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H1TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H2TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H3TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H4TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H5TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.H6TypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.ITypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.KbdTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.MapTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.PTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.QTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SampTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SmallTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SpanTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.StrongTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SubTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SupTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.TtTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.VarTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +154,9 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "Flow", namespace = "http://www.w3.org/1999/xhtml")
+@XmlSeeAlso({ DdTypeImpl.class, LiTypeImpl.class, ThTypeImpl.class, TdTypeImpl.class, DivTypeImpl.class })
+@XmlRootElement(name = "Flow")
 public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -170,6 +213,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PTypeImplAdapter.class)
+	@XmlElement
 	public EList<PType> getP() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_P());
 	}
@@ -179,6 +224,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H1TypeImplAdapter.class)
+	@XmlElement
 	public EList<H1Type> getH1() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H1());
 	}
@@ -188,6 +235,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H2TypeImplAdapter.class)
+	@XmlElement
 	public EList<H2Type> getH2() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H2());
 	}
@@ -197,6 +246,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H3TypeImplAdapter.class)
+	@XmlElement
 	public EList<H3Type> getH3() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H3());
 	}
@@ -206,6 +257,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H4TypeImplAdapter.class)
+	@XmlElement
 	public EList<H4Type> getH4() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H4());
 	}
@@ -215,6 +268,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H5TypeImplAdapter.class)
+	@XmlElement
 	public EList<H5Type> getH5() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H5());
 	}
@@ -224,6 +279,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(H6TypeImplAdapter.class)
+	@XmlElement
 	public EList<H6Type> getH6() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_H6());
 	}
@@ -233,6 +290,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DivTypeImplAdapter.class)
+	@XmlElement
 	public EList<DivType> getDiv() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Div());
 	}
@@ -242,6 +301,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UlType> getUl() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Ul());
 	}
@@ -251,6 +311,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<OlType> getOl() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Ol());
 	}
@@ -260,6 +321,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DlTypeImplAdapter.class)
+	@XmlElement
 	public EList<DlType> getDl() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Dl());
 	}
@@ -269,6 +332,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PreTypeImplAdapter.class)
+	@XmlElement
 	public EList<PreType> getPre() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Pre());
 	}
@@ -278,6 +343,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<HrType> getHr() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Hr());
 	}
@@ -287,6 +353,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BlockquoteTypeImplAdapter.class)
+	@XmlElement
 	public EList<BlockquoteType> getBlockquote() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Blockquote());
 	}
@@ -296,6 +364,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AddressTypeImplAdapter.class)
+	@XmlElement
 	public EList<AddressType> getAddress() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Address());
 	}
@@ -305,6 +375,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TableType> getTable() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Table());
 	}
@@ -314,6 +385,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ATypeImplAdapter.class)
+	@XmlElement
 	public EList<AType> getA() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_A());
 	}
@@ -323,6 +396,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<BrType> getBr() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Br());
 	}
@@ -332,6 +406,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SpanTypeImplAdapter.class)
+	@XmlElement
 	public EList<SpanType> getSpan() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Span());
 	}
@@ -341,6 +417,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BdoTypeImplAdapter.class)
+	@XmlElement
 	public EList<BdoType> getBdo() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Bdo());
 	}
@@ -350,6 +428,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MapTypeImplAdapter.class)
+	@XmlElement
 	public EList<MapType> getMap() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Map());
 	}
@@ -359,6 +439,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ImgType> getImg() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Img());
 	}
@@ -368,6 +449,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TtTypeImplAdapter.class)
+	@XmlElement
 	public EList<TtType> getTt() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Tt());
 	}
@@ -377,6 +460,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ITypeImplAdapter.class)
+	@XmlElement
 	public EList<IType> getI() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_I());
 	}
@@ -386,6 +471,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BTypeImplAdapter.class)
+	@XmlElement
 	public EList<BType> getB() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_B());
 	}
@@ -395,6 +482,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BigTypeImplAdapter.class)
+	@XmlElement
 	public EList<BigType> getBig() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Big());
 	}
@@ -404,6 +493,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SmallTypeImplAdapter.class)
+	@XmlElement
 	public EList<SmallType> getSmall() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Small());
 	}
@@ -413,6 +504,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EmTypeImplAdapter.class)
+	@XmlElement
 	public EList<EmType> getEm() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Em());
 	}
@@ -422,6 +515,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StrongTypeImplAdapter.class)
+	@XmlElement
 	public EList<StrongType> getStrong() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Strong());
 	}
@@ -431,6 +526,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DfnTypeImplAdapter.class)
+	@XmlElement
 	public EList<DfnType> getDfn() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Dfn());
 	}
@@ -440,6 +537,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeTypeImplAdapter.class)
+	@XmlElement
 	public EList<CodeType> getCode() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Code());
 	}
@@ -449,6 +548,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(QTypeImplAdapter.class)
+	@XmlElement
 	public EList<QType> getQ() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Q());
 	}
@@ -458,6 +559,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SampTypeImplAdapter.class)
+	@XmlElement
 	public EList<SampType> getSamp() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Samp());
 	}
@@ -467,6 +570,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(KbdTypeImplAdapter.class)
+	@XmlElement
 	public EList<KbdType> getKbd() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Kbd());
 	}
@@ -476,6 +581,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(VarTypeImplAdapter.class)
+	@XmlElement
 	public EList<VarType> getVar() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Var());
 	}
@@ -485,6 +592,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CiteTypeImplAdapter.class)
+	@XmlElement
 	public EList<CiteType> getCite() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Cite());
 	}
@@ -494,6 +603,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AbbrTypeImplAdapter.class)
+	@XmlElement
 	public EList<AbbrType> getAbbr() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Abbr());
 	}
@@ -503,6 +614,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AcronymTypeImplAdapter.class)
+	@XmlElement
 	public EList<AcronymType> getAcronym() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Acronym());
 	}
@@ -512,6 +625,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SubTypeImplAdapter.class)
+	@XmlElement
 	public EList<SubType> getSub() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Sub());
 	}
@@ -521,6 +636,8 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SupTypeImplAdapter.class)
+	@XmlElement
 	public EList<SupType> getSup() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getFlow_Sup());
 	}

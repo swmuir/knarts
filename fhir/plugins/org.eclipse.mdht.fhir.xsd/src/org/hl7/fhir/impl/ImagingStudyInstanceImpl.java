@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImagingStudyInstance;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.OidImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +39,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "ImagingStudyInstance", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImagingStudyInstance")
 public class ImagingStudyInstanceImpl extends BackboneElementImpl implements ImagingStudyInstance {
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
@@ -96,6 +106,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
+	@XmlElement(required = true)
 	public Oid getUid() {
 		return uid;
 	}
@@ -139,6 +151,7 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getNumber() {
 		return number;
 	}
@@ -182,6 +195,8 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
+	@XmlElement(required = true)
 	public Oid getSopClass() {
 		return sopClass;
 	}
@@ -225,6 +240,7 @@ public class ImagingStudyInstanceImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}

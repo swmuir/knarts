@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MedicationContentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Medication.Content' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MedicationContentImplAdapter.class)
 public interface MedicationContent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Item Codeable Concept</b></em>' containment reference.

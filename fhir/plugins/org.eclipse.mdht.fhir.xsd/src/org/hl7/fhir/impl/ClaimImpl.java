@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +41,9 @@ import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Use;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
+import org.hl7.fhir.jaxb.UseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,6 +87,8 @@ import org.hl7.fhir.Use;
  *
  * @generated
  */
+@XmlType(name = "Claim", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Claim")
 public class ClaimImpl extends DomainResourceImpl implements Claim {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -404,6 +414,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CLAIM__IDENTIFIER);
@@ -416,6 +427,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -502,6 +514,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSubType() {
 		if (subType == null) {
 			subType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM__SUB_TYPE);
@@ -514,6 +527,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UseImplAdapter.class)
 	public Use getUse() {
 		return use;
 	}
@@ -643,6 +657,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -944,6 +959,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimRelated> getRelated() {
 		if (related == null) {
 			related = new EObjectContainmentEList<ClaimRelated>(ClaimRelated.class, this, FhirPackage.CLAIM__RELATED);
@@ -1171,6 +1187,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimCareTeam> getCareTeam() {
 		if (careTeam == null) {
 			careTeam = new EObjectContainmentEList<ClaimCareTeam>(ClaimCareTeam.class, this, FhirPackage.CLAIM__CARE_TEAM);
@@ -1183,6 +1200,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimInformation> getInformation() {
 		if (information == null) {
 			information = new EObjectContainmentEList<ClaimInformation>(ClaimInformation.class, this, FhirPackage.CLAIM__INFORMATION);
@@ -1195,6 +1213,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimDiagnosis> getDiagnosis() {
 		if (diagnosis == null) {
 			diagnosis = new EObjectContainmentEList<ClaimDiagnosis>(ClaimDiagnosis.class, this, FhirPackage.CLAIM__DIAGNOSIS);
@@ -1207,6 +1226,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimProcedure> getProcedure() {
 		if (procedure == null) {
 			procedure = new EObjectContainmentEList<ClaimProcedure>(ClaimProcedure.class, this, FhirPackage.CLAIM__PROCEDURE);
@@ -1219,6 +1239,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimInsurance> getInsurance() {
 		if (insurance == null) {
 			insurance = new EObjectContainmentEList<ClaimInsurance>(ClaimInsurance.class, this, FhirPackage.CLAIM__INSURANCE);
@@ -1360,6 +1381,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ClaimItem>(ClaimItem.class, this, FhirPackage.CLAIM__ITEM);

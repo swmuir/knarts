@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestReportParticipant;
 import org.hl7.fhir.TestReportParticipantType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TestReportParticipantTypeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +38,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "TestReportParticipant", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestReportParticipant")
 public class TestReportParticipantImpl extends BackboneElementImpl implements TestReportParticipant {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -85,6 +95,8 @@ public class TestReportParticipantImpl extends BackboneElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TestReportParticipantTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public TestReportParticipantType getType() {
 		return type;
 	}
@@ -128,6 +140,8 @@ public class TestReportParticipantImpl extends BackboneElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getUri() {
 		return uri;
 	}
@@ -171,6 +185,7 @@ public class TestReportParticipantImpl extends BackboneElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}

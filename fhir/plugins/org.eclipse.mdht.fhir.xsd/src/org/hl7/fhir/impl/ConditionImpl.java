@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +36,11 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.ConditionClinicalStatusCodesImplAdapter;
+import org.hl7.fhir.jaxb.ConditionVerificationStatusImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +79,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Condition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Condition")
 public class ConditionImpl extends DomainResourceImpl implements Condition {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -344,6 +356,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CONDITION__IDENTIFIER);
@@ -356,6 +369,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConditionClinicalStatusCodesImplAdapter.class)
 	public ConditionClinicalStatusCodes getClinicalStatus() {
 		return clinicalStatus;
 	}
@@ -399,6 +413,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConditionVerificationStatusImplAdapter.class)
 	public ConditionVerificationStatus getVerificationStatus() {
 		return verificationStatus;
 	}
@@ -442,6 +457,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION__CATEGORY);
@@ -540,6 +556,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getBodySite() {
 		if (bodySite == null) {
 			bodySite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION__BODY_SITE);
@@ -552,6 +569,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -638,6 +656,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOnsetDateTime() {
 		return onsetDateTime;
 	}
@@ -810,6 +829,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOnsetString() {
 		return onsetString;
 	}
@@ -853,6 +873,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAbatementDateTime() {
 		return abatementDateTime;
 	}
@@ -939,6 +960,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAbatementBoolean() {
 		return abatementBoolean;
 	}
@@ -1068,6 +1090,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAbatementString() {
 		return abatementString;
 	}
@@ -1111,6 +1134,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAssertedDate() {
 		return assertedDate;
 	}
@@ -1240,6 +1264,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConditionEvidence> getEvidence() {
 		if (evidence == null) {
 			evidence = new EObjectContainmentEList<ConditionEvidence>(ConditionEvidence.class, this, FhirPackage.CONDITION__EVIDENCE);
@@ -1252,6 +1277,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CONDITION__NOTE);

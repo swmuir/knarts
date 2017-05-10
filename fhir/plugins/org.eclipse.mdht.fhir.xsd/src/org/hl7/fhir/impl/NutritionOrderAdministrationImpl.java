@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,6 +35,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "NutritionOrderAdministration", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "NutritionOrderAdministration")
 public class NutritionOrderAdministrationImpl extends BackboneElementImpl implements NutritionOrderAdministration {
 	/**
 	 * The cached value of the '{@link #getSchedule() <em>Schedule</em>}' containment reference.

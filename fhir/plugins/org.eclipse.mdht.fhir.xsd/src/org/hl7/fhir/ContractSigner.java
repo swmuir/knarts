@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ContractSignerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Contract.Signer' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ContractSignerImplAdapter.class)
 public interface ContractSigner extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

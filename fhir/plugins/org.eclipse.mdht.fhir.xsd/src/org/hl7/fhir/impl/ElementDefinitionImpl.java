@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -62,6 +67,23 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.OidImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.PropertyRepresentationImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -234,6 +256,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ElementDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ElementDefinition")
 public class ElementDefinitionImpl extends ElementImpl implements ElementDefinition {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -1849,6 +1873,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -1892,6 +1918,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PropertyRepresentationImplAdapter.class)
+	@XmlElement
 	public EList<PropertyRepresentation> getRepresentation() {
 		if (representation == null) {
 			representation = new EObjectContainmentEList<PropertyRepresentation>(PropertyRepresentation.class, this, FhirPackage.ELEMENT_DEFINITION__REPRESENTATION);
@@ -1904,6 +1932,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSliceName() {
 		return sliceName;
 	}
@@ -1947,6 +1976,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLabel() {
 		return label;
 	}
@@ -1990,6 +2020,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.ELEMENT_DEFINITION__CODE);
@@ -2045,6 +2076,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getShort() {
 		return short_;
 	}
@@ -2088,6 +2120,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDefinition() {
 		return definition;
 	}
@@ -2131,6 +2164,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getComment() {
 		return comment;
 	}
@@ -2174,6 +2208,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getRequirements() {
 		return requirements;
 	}
@@ -2217,6 +2252,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getAlias() {
 		if (alias == null) {
 			alias = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ELEMENT_DEFINITION__ALIAS);
@@ -2229,6 +2266,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getMin() {
 		return min;
 	}
@@ -2272,6 +2310,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}
@@ -2358,6 +2397,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getContentReference() {
 		return contentReference;
 	}
@@ -2401,6 +2441,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ElementDefinitionType> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<ElementDefinitionType>(ElementDefinitionType.class, this, FhirPackage.ELEMENT_DEFINITION__TYPE);
@@ -2413,6 +2454,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getDefaultValueBase64Binary() {
 		return defaultValueBase64Binary;
 	}
@@ -2456,6 +2498,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDefaultValueBoolean() {
 		return defaultValueBoolean;
 	}
@@ -2499,6 +2542,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getDefaultValueCode() {
 		return defaultValueCode;
 	}
@@ -2542,6 +2586,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDefaultValueDate() {
 		return defaultValueDate;
 	}
@@ -2585,6 +2630,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDefaultValueDateTime() {
 		return defaultValueDateTime;
 	}
@@ -2628,6 +2674,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDefaultValueDecimal() {
 		return defaultValueDecimal;
 	}
@@ -2671,6 +2718,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getDefaultValueId() {
 		return defaultValueId;
 	}
@@ -2714,6 +2762,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getDefaultValueInstant() {
 		return defaultValueInstant;
 	}
@@ -2757,6 +2806,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getDefaultValueInteger() {
 		return defaultValueInteger;
 	}
@@ -2800,6 +2850,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDefaultValueMarkdown() {
 		return defaultValueMarkdown;
 	}
@@ -2843,6 +2894,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getDefaultValueOid() {
 		return defaultValueOid;
 	}
@@ -2886,6 +2938,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getDefaultValuePositiveInt() {
 		return defaultValuePositiveInt;
 	}
@@ -2929,6 +2982,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDefaultValueString() {
 		return defaultValueString;
 	}
@@ -2972,6 +3026,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getDefaultValueTime() {
 		return defaultValueTime;
 	}
@@ -3015,6 +3070,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getDefaultValueUnsignedInt() {
 		return defaultValueUnsignedInt;
 	}
@@ -3058,6 +3114,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefaultValueUri() {
 		return defaultValueUri;
 	}
@@ -4047,6 +4104,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getMeaningWhenMissing() {
 		return meaningWhenMissing;
 	}
@@ -4090,6 +4148,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOrderMeaning() {
 		return orderMeaning;
 	}
@@ -4133,6 +4192,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getFixedBase64Binary() {
 		return fixedBase64Binary;
 	}
@@ -4176,6 +4236,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getFixedBoolean() {
 		return fixedBoolean;
 	}
@@ -4219,6 +4280,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getFixedCode() {
 		return fixedCode;
 	}
@@ -4262,6 +4324,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getFixedDate() {
 		return fixedDate;
 	}
@@ -4305,6 +4368,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getFixedDateTime() {
 		return fixedDateTime;
 	}
@@ -4348,6 +4412,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFixedDecimal() {
 		return fixedDecimal;
 	}
@@ -4391,6 +4456,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getFixedId() {
 		return fixedId;
 	}
@@ -4434,6 +4500,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getFixedInstant() {
 		return fixedInstant;
 	}
@@ -4477,6 +4544,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getFixedInteger() {
 		return fixedInteger;
 	}
@@ -4520,6 +4588,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getFixedMarkdown() {
 		return fixedMarkdown;
 	}
@@ -4563,6 +4632,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getFixedOid() {
 		return fixedOid;
 	}
@@ -4606,6 +4676,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getFixedPositiveInt() {
 		return fixedPositiveInt;
 	}
@@ -4649,6 +4720,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getFixedString() {
 		return fixedString;
 	}
@@ -4692,6 +4764,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getFixedTime() {
 		return fixedTime;
 	}
@@ -4735,6 +4808,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getFixedUnsignedInt() {
 		return fixedUnsignedInt;
 	}
@@ -4778,6 +4852,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getFixedUri() {
 		return fixedUri;
 	}
@@ -5767,6 +5842,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getPatternBase64Binary() {
 		return patternBase64Binary;
 	}
@@ -5810,6 +5886,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getPatternBoolean() {
 		return patternBoolean;
 	}
@@ -5853,6 +5930,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getPatternCode() {
 		return patternCode;
 	}
@@ -5896,6 +5974,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getPatternDate() {
 		return patternDate;
 	}
@@ -5939,6 +6018,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getPatternDateTime() {
 		return patternDateTime;
 	}
@@ -5982,6 +6062,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPatternDecimal() {
 		return patternDecimal;
 	}
@@ -6025,6 +6106,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getPatternId() {
 		return patternId;
 	}
@@ -6068,6 +6150,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getPatternInstant() {
 		return patternInstant;
 	}
@@ -6111,6 +6194,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getPatternInteger() {
 		return patternInteger;
 	}
@@ -6154,6 +6238,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPatternMarkdown() {
 		return patternMarkdown;
 	}
@@ -6197,6 +6282,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getPatternOid() {
 		return patternOid;
 	}
@@ -6240,6 +6326,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getPatternPositiveInt() {
 		return patternPositiveInt;
 	}
@@ -6283,6 +6370,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPatternString() {
 		return patternString;
 	}
@@ -6326,6 +6414,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getPatternTime() {
 		return patternTime;
 	}
@@ -6369,6 +6458,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getPatternUnsignedInt() {
 		return patternUnsignedInt;
 	}
@@ -6412,6 +6502,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getPatternUri() {
 		return patternUri;
 	}
@@ -7401,6 +7492,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ElementDefinitionExample> getExample() {
 		if (example == null) {
 			example = new EObjectContainmentEList<ElementDefinitionExample>(ElementDefinitionExample.class, this, FhirPackage.ELEMENT_DEFINITION__EXAMPLE);
@@ -7413,6 +7505,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getMinValueDate() {
 		return minValueDate;
 	}
@@ -7456,6 +7549,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getMinValueDateTime() {
 		return minValueDateTime;
 	}
@@ -7499,6 +7593,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getMinValueInstant() {
 		return minValueInstant;
 	}
@@ -7542,6 +7637,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getMinValueTime() {
 		return minValueTime;
 	}
@@ -7585,6 +7681,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getMinValueDecimal() {
 		return minValueDecimal;
 	}
@@ -7628,6 +7725,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMinValueInteger() {
 		return minValueInteger;
 	}
@@ -7671,6 +7769,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getMinValuePositiveInt() {
 		return minValuePositiveInt;
 	}
@@ -7714,6 +7813,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getMinValueUnsignedInt() {
 		return minValueUnsignedInt;
 	}
@@ -7800,6 +7900,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getMaxValueDate() {
 		return maxValueDate;
 	}
@@ -7843,6 +7944,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getMaxValueDateTime() {
 		return maxValueDateTime;
 	}
@@ -7886,6 +7988,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getMaxValueInstant() {
 		return maxValueInstant;
 	}
@@ -7929,6 +8032,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getMaxValueTime() {
 		return maxValueTime;
 	}
@@ -7972,6 +8076,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getMaxValueDecimal() {
 		return maxValueDecimal;
 	}
@@ -8015,6 +8120,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMaxValueInteger() {
 		return maxValueInteger;
 	}
@@ -8058,6 +8164,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getMaxValuePositiveInt() {
 		return maxValuePositiveInt;
 	}
@@ -8101,6 +8208,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getMaxValueUnsignedInt() {
 		return maxValueUnsignedInt;
 	}
@@ -8187,6 +8295,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMaxLength() {
 		return maxLength;
 	}
@@ -8230,6 +8339,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement
 	public EList<Id> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<Id>(Id.class, this, FhirPackage.ELEMENT_DEFINITION__CONDITION);
@@ -8242,6 +8353,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ElementDefinitionConstraint> getConstraint() {
 		if (constraint == null) {
 			constraint = new EObjectContainmentEList<ElementDefinitionConstraint>(ElementDefinitionConstraint.class, this, FhirPackage.ELEMENT_DEFINITION__CONSTRAINT);
@@ -8254,6 +8366,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getMustSupport() {
 		return mustSupport;
 	}
@@ -8297,6 +8410,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIsModifier() {
 		return isModifier;
 	}
@@ -8340,6 +8454,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIsSummary() {
 		return isSummary;
 	}
@@ -8426,6 +8541,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ElementDefinitionMapping> getMapping() {
 		if (mapping == null) {
 			mapping = new EObjectContainmentEList<ElementDefinitionMapping>(ElementDefinitionMapping.class, this, FhirPackage.ELEMENT_DEFINITION__MAPPING);

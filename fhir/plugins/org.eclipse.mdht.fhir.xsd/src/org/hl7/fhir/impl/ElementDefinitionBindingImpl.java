@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,9 @@ import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.BindingStrengthImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +40,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ElementDefinitionBinding", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ElementDefinitionBinding")
 public class ElementDefinitionBindingImpl extends ElementImpl implements ElementDefinitionBinding {
 	/**
 	 * The cached value of the '{@link #getStrength() <em>Strength</em>}' containment reference.
@@ -97,6 +107,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BindingStrengthImplAdapter.class)
+	@XmlElement(required = true)
 	public BindingStrength getStrength() {
 		return strength;
 	}
@@ -140,6 +152,7 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -183,6 +196,7 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueSetUri() {
 		return valueSetUri;
 	}

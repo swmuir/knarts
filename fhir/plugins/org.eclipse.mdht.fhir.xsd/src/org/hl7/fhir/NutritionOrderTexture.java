@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.NutritionOrderTextureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='NutritionOrder.Texture' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(NutritionOrderTextureImplAdapter.class)
 public interface NutritionOrderTexture extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,6 +37,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +72,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Encounter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Encounter")
 public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -301,6 +309,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENCOUNTER__IDENTIFIER);
@@ -313,6 +322,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EncounterStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public EncounterStatus getStatus() {
 		return status;
 	}
@@ -356,6 +367,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EncounterStatusHistory> getStatusHistory() {
 		if (statusHistory == null) {
 			statusHistory = new EObjectContainmentEList<EncounterStatusHistory>(EncounterStatusHistory.class, this, FhirPackage.ENCOUNTER__STATUS_HISTORY);
@@ -411,6 +423,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EncounterClassHistory> getClassHistory() {
 		if (classHistory == null) {
 			classHistory = new EObjectContainmentEList<EncounterClassHistory>(EncounterClassHistory.class, this, FhirPackage.ENCOUNTER__CLASS_HISTORY);
@@ -423,6 +436,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__TYPE);
@@ -521,6 +535,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEpisodeOfCare() {
 		if (episodeOfCare == null) {
 			episodeOfCare = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__EPISODE_OF_CARE);
@@ -533,6 +548,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getIncomingReferral() {
 		if (incomingReferral == null) {
 			incomingReferral = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__INCOMING_REFERRAL);
@@ -545,6 +561,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EncounterParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<EncounterParticipant>(EncounterParticipant.class, this, FhirPackage.ENCOUNTER__PARTICIPANT);
@@ -686,6 +703,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__REASON);
@@ -698,6 +716,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EncounterDiagnosis> getDiagnosis() {
 		if (diagnosis == null) {
 			diagnosis = new EObjectContainmentEList<EncounterDiagnosis>(EncounterDiagnosis.class, this, FhirPackage.ENCOUNTER__DIAGNOSIS);
@@ -710,6 +729,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAccount() {
 		if (account == null) {
 			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__ACCOUNT);
@@ -765,6 +785,7 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EncounterLocation> getLocation() {
 		if (location == null) {
 			location = new EObjectContainmentEList<EncounterLocation>(EncounterLocation.class, this, FhirPackage.ENCOUNTER__LOCATION);

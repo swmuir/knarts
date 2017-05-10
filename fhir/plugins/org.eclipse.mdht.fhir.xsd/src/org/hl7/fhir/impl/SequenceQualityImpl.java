@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +21,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QualityType;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SequenceQuality;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.QualityTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +51,8 @@ import org.hl7.fhir.SequenceQuality;
  *
  * @generated
  */
+@XmlType(name = "SequenceQuality", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SequenceQuality")
 public class SequenceQualityImpl extends BackboneElementImpl implements SequenceQuality {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -208,6 +218,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(QualityTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public QualityType getType() {
 		return type;
 	}
@@ -294,6 +306,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getStart() {
 		return start;
 	}
@@ -337,6 +350,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getEnd() {
 		return end;
 	}
@@ -466,6 +480,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getTruthTP() {
 		return truthTP;
 	}
@@ -509,6 +524,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getQueryTP() {
 		return queryTP;
 	}
@@ -552,6 +568,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getTruthFN() {
 		return truthFN;
 	}
@@ -595,6 +612,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getQueryFP() {
 		return queryFP;
 	}
@@ -638,6 +656,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getGtFP() {
 		return gtFP;
 	}
@@ -681,6 +700,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPrecision() {
 		return precision;
 	}
@@ -724,6 +744,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getRecall() {
 		return recall;
 	}
@@ -767,6 +788,7 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFScore() {
 		return fScore;
 	}

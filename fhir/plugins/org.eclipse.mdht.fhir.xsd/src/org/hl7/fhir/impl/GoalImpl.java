@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,9 @@ import org.hl7.fhir.GoalStatus;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.GoalStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +63,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Goal", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Goal")
 public class GoalImpl extends DomainResourceImpl implements Goal {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -240,6 +250,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.GOAL__IDENTIFIER);
@@ -252,6 +263,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(GoalStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public GoalStatus getStatus() {
 		return status;
 	}
@@ -295,6 +308,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__CATEGORY);
@@ -350,6 +364,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getDescription() {
 		return description;
 	}
@@ -436,6 +451,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -565,6 +581,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getStatusDate() {
 		return statusDate;
 	}
@@ -608,6 +625,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getStatusReason() {
 		return statusReason;
 	}
@@ -694,6 +712,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAddresses() {
 		if (addresses == null) {
 			addresses = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GOAL__ADDRESSES);
@@ -706,6 +725,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.GOAL__NOTE);
@@ -718,6 +738,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getOutcomeCode() {
 		if (outcomeCode == null) {
 			outcomeCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__OUTCOME_CODE);
@@ -730,6 +751,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getOutcomeReference() {
 		if (outcomeReference == null) {
 			outcomeReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GOAL__OUTCOME_REFERENCE);

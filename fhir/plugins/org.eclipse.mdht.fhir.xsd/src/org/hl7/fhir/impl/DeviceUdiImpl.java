@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +19,10 @@ import org.hl7.fhir.DeviceUdi;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.UDIEntryType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UDIEntryTypeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +43,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "DeviceUdi", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DeviceUdi")
 public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	/**
 	 * The cached value of the '{@link #getDeviceIdentifier() <em>Device Identifier</em>}' containment reference.
@@ -130,6 +140,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDeviceIdentifier() {
 		return deviceIdentifier;
 	}
@@ -173,6 +184,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -216,6 +228,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getJurisdiction() {
 		return jurisdiction;
 	}
@@ -259,6 +272,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCarrierHRF() {
 		return carrierHRF;
 	}
@@ -302,6 +316,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getCarrierAIDC() {
 		return carrierAIDC;
 	}
@@ -345,6 +360,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getIssuer() {
 		return issuer;
 	}
@@ -388,6 +404,7 @@ public class DeviceUdiImpl extends BackboneElementImpl implements DeviceUdi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UDIEntryTypeImplAdapter.class)
 	public UDIEntryType getEntryType() {
 		return entryType;
 	}

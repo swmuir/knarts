@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ClaimPayee", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimPayee")
 public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -86,6 +92,7 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}

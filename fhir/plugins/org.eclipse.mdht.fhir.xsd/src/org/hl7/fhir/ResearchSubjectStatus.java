@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ResearchSubjectStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ResearchSubjectStatus' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ResearchSubjectStatusImplAdapter.class)
 public interface ResearchSubjectStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

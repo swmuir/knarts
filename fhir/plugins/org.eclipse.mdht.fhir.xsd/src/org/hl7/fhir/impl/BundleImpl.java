@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.BundleTypeImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +51,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "Bundle", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Bundle")
 public class BundleImpl extends ResourceImpl implements Bundle {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -172,6 +181,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BundleTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public BundleType getType() {
 		return type;
 	}
@@ -215,6 +226,7 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getTotal() {
 		return total;
 	}
@@ -258,6 +270,7 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<BundleLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<BundleLink>(BundleLink.class, this, FhirPackage.BUNDLE__LINK);
@@ -270,6 +283,7 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<BundleEntry> getEntry() {
 		if (entry == null) {
 			entry = new EObjectContainmentEList<BundleEntry>(BundleEntry.class, this, FhirPackage.BUNDLE__ENTRY);

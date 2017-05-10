@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestReportParticipantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestReport.Participant' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestReportParticipantImplAdapter.class)
 public interface TestReportParticipant extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

@@ -2,11 +2,14 @@
  */
 package org.w3._1999.xhtml;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.w3._1999.xhtml.jaxb.AContentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +57,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='a.content' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(AContentImplAdapter.class)
 public interface AContent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.

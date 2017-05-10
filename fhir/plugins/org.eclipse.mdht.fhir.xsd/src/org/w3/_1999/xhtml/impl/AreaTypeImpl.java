@@ -6,6 +6,10 @@ import java.math.BigInteger;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -45,6 +49,8 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "AreaType", namespace = "http://www.w3.org/1999/xhtml")
+@XmlRootElement(name = "AreaType")
 public class AreaTypeImpl extends MinimalEObjectImpl.Container implements AreaType {
 	/**
 	 * The default value of the '{@link #getAccesskey() <em>Accesskey</em>}' attribute.
@@ -398,6 +404,7 @@ public class AreaTypeImpl extends MinimalEObjectImpl.Container implements AreaTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public String getAlt() {
 		return alt;
 	}

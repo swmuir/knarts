@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,6 +22,9 @@ import org.hl7.fhir.Id;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.Resource;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +42,18 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Resource", namespace = "http://hl7.org/fhir")
+@XmlSeeAlso({ EncounterImpl.class, EnrollmentResponseImpl.class, MedicationImpl.class, AppointmentResponseImpl.class, StructureDefinitionImpl.class, ProvenanceImpl.class, RequestGroupImpl.class, PatientImpl.class, EligibilityResponseImpl.class, BinaryImpl.class, ScheduleImpl.class, DeviceMetricImpl.class,
+		CommunicationRequestImpl.class, MedicationStatementImpl.class, DeviceComponentImpl.class, EndpointImpl.class, CompartmentDefinitionImpl.class, AdverseEventImpl.class, ConsentImpl.class, ClaimResponseImpl.class, DiagnosticReportImpl.class, ConceptMapImpl.class, MedicationRequestImpl.class, GuidanceResponseImpl.class,
+		DeviceImpl.class, DeviceUseStatementImpl.class, SearchParameterImpl.class, EligibilityRequestImpl.class, CapabilityStatementImpl.class, AppointmentImpl.class, OrganizationImpl.class, DocumentReferenceImpl.class, ContractImpl.class, SupplyRequestImpl.class, VisionPrescriptionImpl.class, ProcedureRequestImpl.class,
+		DataElementImpl.class, SequenceImpl.class, OperationDefinitionImpl.class, ParametersImpl.class, GraphDefinitionImpl.class, PractitionerImpl.class, CarePlanImpl.class, AccountImpl.class, RelatedPersonImpl.class, AuditEventImpl.class, RiskAssessmentImpl.class, MeasureImpl.class, StructureMapImpl.class,
+		DomainResourceImpl.class, SpecimenImpl.class, MeasureReportImpl.class, PaymentNoticeImpl.class, EpisodeOfCareImpl.class, MessageDefinitionImpl.class, ResearchStudyImpl.class, PaymentReconciliationImpl.class, CommunicationImpl.class, LinkageImpl.class, ImagingStudyImpl.class, MediaImpl.class, SlotImpl.class,
+		MedicationAdministrationImpl.class, BundleImpl.class, ListImpl.class, EnrollmentRequestImpl.class, GroupImpl.class, AllergyIntoleranceImpl.class, ImmunizationRecommendationImpl.class, PersonImpl.class, SupplyDeliveryImpl.class, TaskImpl.class, ExplanationOfBenefitImpl.class, BasicImpl.class, DocumentManifestImpl.class,
+		ClinicalImpressionImpl.class, MedicationDispenseImpl.class, OperationOutcomeImpl.class, NutritionOrderImpl.class, PlanDefinitionImpl.class, HealthcareServiceImpl.class, ProcessRequestImpl.class, ImmunizationImpl.class, TestScriptImpl.class, CompositionImpl.class, SubstanceImpl.class, ImplementationGuideImpl.class,
+		ConditionImpl.class, ServiceDefinitionImpl.class, LibraryImpl.class, FamilyMemberHistoryImpl.class, CareTeamImpl.class, QuestionnaireResponseImpl.class, DetectedIssueImpl.class, ClaimImpl.class, QuestionnaireImpl.class, CodeSystemImpl.class, ObservationImpl.class, ProcessResponseImpl.class, ImagingManifestImpl.class,
+		FlagImpl.class, CoverageImpl.class, ReferralRequestImpl.class, TestReportImpl.class, ActivityDefinitionImpl.class, NamingSystemImpl.class, ValueSetImpl.class, ExpansionProfileImpl.class, ProcedureImpl.class, BodySiteImpl.class, GoalImpl.class, ChargeItemImpl.class, PractitionerRoleImpl.class, SubscriptionImpl.class,
+		MessageHeaderImpl.class, LocationImpl.class, DeviceRequestImpl.class, ResearchSubjectImpl.class })
+@XmlRootElement(name = "Resource")
 public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
@@ -99,6 +119,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getId() {
 		return id;
 	}
@@ -185,6 +206,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getImplicitRules() {
 		return implicitRules;
 	}
@@ -228,6 +250,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getLanguage() {
 		return language;
 	}

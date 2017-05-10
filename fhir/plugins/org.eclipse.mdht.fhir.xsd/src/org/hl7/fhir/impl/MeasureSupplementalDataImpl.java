@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureSupplementalData;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +44,8 @@ import org.hl7.fhir.MeasureSupplementalData;
  *
  * @generated
  */
+@XmlType(name = "MeasureSupplementalData", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureSupplementalData")
 public class MeasureSupplementalDataImpl extends BackboneElementImpl implements MeasureSupplementalData {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -146,6 +154,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getUsage() {
 		if (usage == null) {
 			usage = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__USAGE);
@@ -158,6 +167,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCriteria() {
 		return criteria;
 	}
@@ -201,6 +211,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}

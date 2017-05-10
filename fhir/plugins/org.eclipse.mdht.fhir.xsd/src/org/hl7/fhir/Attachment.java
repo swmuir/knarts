@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.AttachmentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +34,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Attachment' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AttachmentImplAdapter.class)
 public interface Attachment extends Element {
 	/**
 	 * Returns the value of the '<em><b>Content Type</b></em>' containment reference.

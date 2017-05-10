@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MedicationAdministrationPerformerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='MedicationAdministration.Performer' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MedicationAdministrationPerformerImplAdapter.class)
 public interface MedicationAdministrationPerformer extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.

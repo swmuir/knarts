@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,14 @@ import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +68,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "QuestionnaireResponseAnswer", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "QuestionnaireResponseAnswer")
 public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl implements QuestionnaireResponseAnswer {
 	/**
 	 * The cached value of the '{@link #getValueBoolean() <em>Value Boolean</em>}' containment reference.
@@ -210,6 +225,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -253,6 +269,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValueDecimal() {
 		return valueDecimal;
 	}
@@ -296,6 +313,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -339,6 +357,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getValueDate() {
 		return valueDate;
 	}
@@ -382,6 +401,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -425,6 +445,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -468,6 +489,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -511,6 +533,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueUri() {
 		return valueUri;
 	}
@@ -726,6 +749,7 @@ public class QuestionnaireResponseAnswerImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<QuestionnaireResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER__ITEM);

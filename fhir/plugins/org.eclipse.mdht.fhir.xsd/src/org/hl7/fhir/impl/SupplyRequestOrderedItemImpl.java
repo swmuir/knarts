@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +35,8 @@ import org.hl7.fhir.SupplyRequestOrderedItem;
  *
  * @generated
  */
+@XmlType(name = "SupplyRequestOrderedItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SupplyRequestOrderedItem")
 public class SupplyRequestOrderedItemImpl extends BackboneElementImpl implements SupplyRequestOrderedItem {
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -86,6 +92,7 @@ public class SupplyRequestOrderedItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Quantity getQuantity() {
 		return quantity;
 	}

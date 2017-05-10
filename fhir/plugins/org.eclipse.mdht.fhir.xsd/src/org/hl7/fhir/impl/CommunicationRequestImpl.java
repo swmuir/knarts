@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +71,8 @@ import org.hl7.fhir.RequestStatus;
  *
  * @generated
  */
+@XmlType(name = "CommunicationRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CommunicationRequest")
 public class CommunicationRequestImpl extends DomainResourceImpl implements CommunicationRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -298,6 +308,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.COMMUNICATION_REQUEST__IDENTIFIER);
@@ -310,6 +321,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__BASED_ON);
@@ -322,6 +334,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__REPLACES);
@@ -377,6 +390,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -420,6 +435,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__CATEGORY);
@@ -432,6 +448,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -475,6 +492,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getMedium() {
 		if (medium == null) {
 			medium = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__MEDIUM);
@@ -530,6 +548,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRecipient() {
 		if (recipient == null) {
 			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__RECIPIENT);
@@ -542,6 +561,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__TOPIC);
@@ -597,6 +617,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CommunicationRequestPayload> getPayload() {
 		if (payload == null) {
 			payload = new EObjectContainmentEList<CommunicationRequestPayload>(CommunicationRequestPayload.class, this, FhirPackage.COMMUNICATION_REQUEST__PAYLOAD);
@@ -609,6 +630,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -695,6 +717,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -824,6 +847,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__REASON_CODE);
@@ -836,6 +860,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE);
@@ -848,6 +873,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.COMMUNICATION_REQUEST__NOTE);

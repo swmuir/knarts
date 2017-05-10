@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,8 @@ import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.ProvenanceEntityRole;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.ProvenanceEntityRoleImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +49,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ProvenanceEntity", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ProvenanceEntity")
 public class ProvenanceEntityImpl extends BackboneElementImpl implements ProvenanceEntity {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
@@ -117,6 +126,8 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ProvenanceEntityRoleImplAdapter.class)
+	@XmlElement(required = true)
 	public ProvenanceEntityRole getRole() {
 		return role;
 	}
@@ -160,6 +171,7 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getWhatUri() {
 		return whatUri;
 	}
@@ -289,6 +301,7 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ProvenanceAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ProvenanceAgent>(ProvenanceAgent.class, this, FhirPackage.PROVENANCE_ENTITY__AGENT);

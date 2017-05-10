@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,6 +22,10 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageSignificanceCategory;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.jaxb.EventCapabilityModeImplAdapter;
+import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +46,8 @@ import org.hl7.fhir.ResourceType;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementEvent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementEvent")
 public class CapabilityStatementEventImpl extends BackboneElementImpl implements CapabilityStatementEvent {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -132,6 +143,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getCode() {
 		return code;
 	}
@@ -175,6 +187,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MessageSignificanceCategoryImplAdapter.class)
 	public MessageSignificanceCategory getCategory() {
 		return category;
 	}
@@ -218,6 +231,8 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EventCapabilityModeImplAdapter.class)
+	@XmlElement(required = true)
 	public EventCapabilityMode getMode() {
 		return mode;
 	}
@@ -261,6 +276,8 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ResourceType getFocus() {
 		return focus;
 	}
@@ -304,6 +321,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getRequest() {
 		return request;
 	}
@@ -347,6 +365,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getResponse() {
 		return response;
 	}
@@ -390,6 +409,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}

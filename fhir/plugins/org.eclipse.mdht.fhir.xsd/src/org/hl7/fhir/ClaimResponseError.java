@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ClaimResponseErrorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ClaimResponse.Error' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ClaimResponseErrorImplAdapter.class)
 public interface ClaimResponseError extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence Link Id</b></em>' containment reference.

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,8 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ListEntry;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +39,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ListEntry", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ListEntry")
 public class ListEntryImpl extends BackboneElementImpl implements ListEntry {
 	/**
 	 * The cached value of the '{@link #getFlag() <em>Flag</em>}' containment reference.
@@ -140,6 +149,7 @@ public class ListEntryImpl extends BackboneElementImpl implements ListEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDeleted() {
 		return deleted;
 	}
@@ -183,6 +193,7 @@ public class ListEntryImpl extends BackboneElementImpl implements ListEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -226,6 +237,7 @@ public class ListEntryImpl extends BackboneElementImpl implements ListEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getItem() {
 		return item;
 	}

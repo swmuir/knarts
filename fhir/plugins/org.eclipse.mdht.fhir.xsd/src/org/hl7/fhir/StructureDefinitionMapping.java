@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.StructureDefinitionMappingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='StructureDefinition.Mapping' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(StructureDefinitionMappingImplAdapter.class)
 public interface StructureDefinitionMapping extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identity</b></em>' containment reference.

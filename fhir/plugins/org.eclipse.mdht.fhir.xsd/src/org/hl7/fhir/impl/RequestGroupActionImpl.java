@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,6 +40,13 @@ import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.ActionCardinalityBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionPrecheckBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionRequiredBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +82,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "RequestGroupAction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "RequestGroupAction")
 public class RequestGroupActionImpl extends BackboneElementImpl implements RequestGroupAction {
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
@@ -315,6 +329,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLabel() {
 		return label;
 	}
@@ -358,6 +373,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -401,6 +417,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -444,6 +461,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTextEquivalent() {
 		return textEquivalent;
 	}
@@ -487,6 +505,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REQUEST_GROUP_ACTION__CODE);
@@ -499,6 +518,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getDocumentation() {
 		if (documentation == null) {
 			documentation = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.REQUEST_GROUP_ACTION__DOCUMENTATION);
@@ -511,6 +531,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RequestGroupCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<RequestGroupCondition>(RequestGroupCondition.class, this, FhirPackage.REQUEST_GROUP_ACTION__CONDITION);
@@ -523,6 +544,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RequestGroupRelatedAction> getRelatedAction() {
 		if (relatedAction == null) {
 			relatedAction = new EObjectContainmentEList<RequestGroupRelatedAction>(RequestGroupRelatedAction.class, this, FhirPackage.REQUEST_GROUP_ACTION__RELATED_ACTION);
@@ -535,6 +557,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -750,6 +773,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP_ACTION__PARTICIPANT);
@@ -805,6 +829,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
 	public ActionGroupingBehavior getGroupingBehavior() {
 		return groupingBehavior;
 	}
@@ -848,6 +873,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
 	public ActionSelectionBehavior getSelectionBehavior() {
 		return selectionBehavior;
 	}
@@ -891,6 +917,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionRequiredBehaviorImplAdapter.class)
 	public ActionRequiredBehavior getRequiredBehavior() {
 		return requiredBehavior;
 	}
@@ -934,6 +961,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionPrecheckBehaviorImplAdapter.class)
 	public ActionPrecheckBehavior getPrecheckBehavior() {
 		return precheckBehavior;
 	}
@@ -977,6 +1005,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionCardinalityBehaviorImplAdapter.class)
 	public ActionCardinalityBehavior getCardinalityBehavior() {
 		return cardinalityBehavior;
 	}
@@ -1063,6 +1092,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RequestGroupAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<RequestGroupAction>(RequestGroupAction.class, this, FhirPackage.REQUEST_GROUP_ACTION__ACTION);

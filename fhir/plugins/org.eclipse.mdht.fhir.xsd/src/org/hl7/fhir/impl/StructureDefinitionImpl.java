@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +41,17 @@ import org.hl7.fhir.StructureDefinitionSnapshot;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.ExtensionContextImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.StructureDefinitionKindImplAdapter;
+import org.hl7.fhir.jaxb.TypeDerivationRuleImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +93,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "StructureDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "StructureDefinition")
 public class StructureDefinitionImpl extends DomainResourceImpl implements StructureDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -382,6 +400,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -425,6 +445,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.STRUCTURE_DEFINITION__IDENTIFIER);
@@ -437,6 +458,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -480,6 +502,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -523,6 +547,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -566,6 +591,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -609,6 +636,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -652,6 +680,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -695,6 +724,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -738,6 +768,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.STRUCTURE_DEFINITION__CONTACT);
@@ -750,6 +781,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -793,6 +825,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.STRUCTURE_DEFINITION__USE_CONTEXT);
@@ -805,6 +838,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.STRUCTURE_DEFINITION__JURISDICTION);
@@ -817,6 +851,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -860,6 +895,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -903,6 +939,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getKeyword() {
 		if (keyword == null) {
 			keyword = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.STRUCTURE_DEFINITION__KEYWORD);
@@ -915,6 +952,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getFhirVersion() {
 		return fhirVersion;
 	}
@@ -958,6 +996,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<StructureDefinitionMapping> getMapping() {
 		if (mapping == null) {
 			mapping = new EObjectContainmentEList<StructureDefinitionMapping>(StructureDefinitionMapping.class, this, FhirPackage.STRUCTURE_DEFINITION__MAPPING);
@@ -970,6 +1009,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StructureDefinitionKindImplAdapter.class)
+	@XmlElement(required = true)
 	public StructureDefinitionKind getKind() {
 		return kind;
 	}
@@ -1013,6 +1054,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getAbstract() {
 		return abstract_;
 	}
@@ -1056,6 +1099,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ExtensionContextImplAdapter.class)
 	public ExtensionContext getContextType() {
 		return contextType;
 	}
@@ -1099,6 +1143,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getContext() {
 		if (context == null) {
 			context = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.STRUCTURE_DEFINITION__CONTEXT);
@@ -1111,6 +1157,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getContextInvariant() {
 		if (contextInvariant == null) {
 			contextInvariant = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.STRUCTURE_DEFINITION__CONTEXT_INVARIANT);
@@ -1123,6 +1171,8 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getType() {
 		return type;
 	}
@@ -1166,6 +1216,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getBaseDefinition() {
 		return baseDefinition;
 	}
@@ -1209,6 +1260,7 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TypeDerivationRuleImplAdapter.class)
 	public TypeDerivationRule getDerivation() {
 		return derivation;
 	}

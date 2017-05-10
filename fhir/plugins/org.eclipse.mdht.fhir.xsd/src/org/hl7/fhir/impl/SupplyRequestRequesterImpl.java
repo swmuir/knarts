@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +32,8 @@ import org.hl7.fhir.SupplyRequestRequester;
  *
  * @generated
  */
+@XmlType(name = "SupplyRequestRequester", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SupplyRequestRequester")
 public class SupplyRequestRequesterImpl extends BackboneElementImpl implements SupplyRequestRequester {
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference.
@@ -73,6 +79,7 @@ public class SupplyRequestRequesterImpl extends BackboneElementImpl implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getAgent() {
 		return agent;
 	}

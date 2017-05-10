@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,12 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetParameter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +46,8 @@ import org.hl7.fhir.ValueSetParameter;
  *
  * @generated
  */
+@XmlType(name = "ValueSetParameter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ValueSetParameter")
 public class ValueSetParameterImpl extends BackboneElementImpl implements ValueSetParameter {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -130,6 +143,8 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -173,6 +188,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -216,6 +232,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -259,6 +276,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -302,6 +320,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValueDecimal() {
 		return valueDecimal;
 	}
@@ -345,6 +364,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueUri() {
 		return valueUri;
 	}
@@ -388,6 +408,7 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getValueCode() {
 		return valueCode;
 	}

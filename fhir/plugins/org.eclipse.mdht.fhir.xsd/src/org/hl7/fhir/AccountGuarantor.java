@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.AccountGuarantorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Account.Guarantor' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AccountGuarantorImplAdapter.class)
 public interface AccountGuarantor extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Party</b></em>' containment reference.

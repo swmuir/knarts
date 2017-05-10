@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.SearchParameterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +51,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='SearchParameter' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(SearchParameterImplAdapter.class)
 public interface SearchParameter extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

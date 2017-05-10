@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,11 @@ import org.hl7.fhir.StructureMapParameter;
 import org.hl7.fhir.StructureMapTarget;
 import org.hl7.fhir.StructureMapTargetListMode;
 import org.hl7.fhir.StructureMapTransform;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.StructureMapContextTypeImplAdapter;
+import org.hl7.fhir.jaxb.StructureMapTargetListModeImplAdapter;
+import org.hl7.fhir.jaxb.StructureMapTransformImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +55,8 @@ import org.hl7.fhir.StructureMapTransform;
  *
  * @generated
  */
+@XmlType(name = "StructureMapTarget", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "StructureMapTarget")
 public class StructureMapTargetImpl extends BackboneElementImpl implements StructureMapTarget {
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
@@ -150,6 +162,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getContext() {
 		return context;
 	}
@@ -193,6 +206,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StructureMapContextTypeImplAdapter.class)
 	public StructureMapContextType getContextType() {
 		return contextType;
 	}
@@ -236,6 +250,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getElement() {
 		return element;
 	}
@@ -279,6 +294,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getVariable() {
 		return variable;
 	}
@@ -322,6 +338,8 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StructureMapTargetListModeImplAdapter.class)
+	@XmlElement
 	public EList<StructureMapTargetListMode> getListMode() {
 		if (listMode == null) {
 			listMode = new EObjectContainmentEList<StructureMapTargetListMode>(StructureMapTargetListMode.class, this, FhirPackage.STRUCTURE_MAP_TARGET__LIST_MODE);
@@ -334,6 +352,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getListRuleId() {
 		return listRuleId;
 	}
@@ -377,6 +396,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StructureMapTransformImplAdapter.class)
 	public StructureMapTransform getTransform() {
 		return transform;
 	}
@@ -420,6 +440,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<StructureMapParameter> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<StructureMapParameter>(StructureMapParameter.class, this, FhirPackage.STRUCTURE_MAP_TARGET__PARAMETER);

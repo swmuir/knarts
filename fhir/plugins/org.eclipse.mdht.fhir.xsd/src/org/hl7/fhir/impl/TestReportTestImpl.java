@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestReportAction1;
 import org.hl7.fhir.TestReportTest;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +42,8 @@ import org.hl7.fhir.TestReportTest;
  *
  * @generated
  */
+@XmlType(name = "TestReportTest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestReportTest")
 public class TestReportTestImpl extends BackboneElementImpl implements TestReportTest {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -91,6 +99,7 @@ public class TestReportTestImpl extends BackboneElementImpl implements TestRepor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -134,6 +143,7 @@ public class TestReportTestImpl extends BackboneElementImpl implements TestRepor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -177,6 +187,7 @@ public class TestReportTestImpl extends BackboneElementImpl implements TestRepor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<TestReportAction1> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<TestReportAction1>(TestReportAction1.class, this, FhirPackage.TEST_REPORT_TEST__ACTION);

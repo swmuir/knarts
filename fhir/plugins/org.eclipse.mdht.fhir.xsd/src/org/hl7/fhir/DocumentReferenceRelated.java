@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DocumentReferenceRelatedImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='DocumentReference.Related' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DocumentReferenceRelatedImplAdapter.class)
 public interface DocumentReferenceRelated extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

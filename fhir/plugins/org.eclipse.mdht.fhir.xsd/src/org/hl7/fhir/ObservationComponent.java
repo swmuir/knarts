@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ObservationComponentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Observation.Component' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ObservationComponentImplAdapter.class)
 public interface ObservationComponent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

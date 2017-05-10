@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +36,13 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,6 +79,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "ExpansionProfile", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ExpansionProfile")
 public class ExpansionProfileImpl extends DomainResourceImpl implements ExpansionProfile {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -322,6 +336,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -408,6 +423,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -451,6 +467,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -494,6 +511,8 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -537,6 +556,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -580,6 +600,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -623,6 +644,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -666,6 +688,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.EXPANSION_PROFILE__CONTACT);
@@ -678,6 +701,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -721,6 +745,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.EXPANSION_PROFILE__USE_CONTEXT);
@@ -733,6 +758,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPANSION_PROFILE__JURISDICTION);
@@ -745,6 +771,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ExpansionProfileFixedVersion> getFixedVersion() {
 		if (fixedVersion == null) {
 			fixedVersion = new EObjectContainmentEList<ExpansionProfileFixedVersion>(ExpansionProfileFixedVersion.class, this, FhirPackage.EXPANSION_PROFILE__FIXED_VERSION);
@@ -800,6 +827,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIncludeDesignations() {
 		return includeDesignations;
 	}
@@ -886,6 +914,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIncludeDefinition() {
 		return includeDefinition;
 	}
@@ -929,6 +958,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActiveOnly() {
 		return activeOnly;
 	}
@@ -972,6 +1002,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExcludeNested() {
 		return excludeNested;
 	}
@@ -1015,6 +1046,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExcludeNotForUI() {
 		return excludeNotForUI;
 	}
@@ -1058,6 +1090,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExcludePostCoordinated() {
 		return excludePostCoordinated;
 	}
@@ -1101,6 +1134,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getDisplayLanguage() {
 		return displayLanguage;
 	}
@@ -1144,6 +1178,7 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getLimitedExpansion() {
 		return limitedExpansion;
 	}

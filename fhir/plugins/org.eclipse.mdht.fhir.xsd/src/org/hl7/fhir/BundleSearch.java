@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.BundleSearchImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Bundle.Search' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(BundleSearchImplAdapter.class)
 public interface BundleSearch extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.

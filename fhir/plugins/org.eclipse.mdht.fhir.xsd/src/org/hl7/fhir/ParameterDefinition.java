@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ParameterDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ParameterDefinition' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ParameterDefinitionImplAdapter.class)
 public interface ParameterDefinition extends Element {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

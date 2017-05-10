@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +21,11 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuantityComparator;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.QuantityComparatorImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +44,9 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Quantity", namespace = "http://hl7.org/fhir")
+@XmlSeeAlso({ MoneyImpl.class, DurationImpl.class, AgeImpl.class, DistanceImpl.class, CountImpl.class })
+@XmlRootElement(name = "Quantity")
 public class QuantityImpl extends ElementImpl implements Quantity {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -109,6 +122,7 @@ public class QuantityImpl extends ElementImpl implements Quantity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValue() {
 		return value;
 	}
@@ -152,6 +166,7 @@ public class QuantityImpl extends ElementImpl implements Quantity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(QuantityComparatorImplAdapter.class)
 	public QuantityComparator getComparator() {
 		return comparator;
 	}
@@ -195,6 +210,7 @@ public class QuantityImpl extends ElementImpl implements Quantity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUnit() {
 		return unit;
 	}
@@ -238,6 +254,7 @@ public class QuantityImpl extends ElementImpl implements Quantity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSystem() {
 		return system;
 	}
@@ -281,6 +298,7 @@ public class QuantityImpl extends ElementImpl implements Quantity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getCode() {
 		return code;
 	}

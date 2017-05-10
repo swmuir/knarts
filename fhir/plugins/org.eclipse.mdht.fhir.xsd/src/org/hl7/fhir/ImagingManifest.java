@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ImagingManifestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ImagingManifest' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImagingManifestImplAdapter.class)
 public interface ImagingManifest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

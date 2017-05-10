@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,8 @@ import org.hl7.fhir.PractitionerRole;
 import org.hl7.fhir.PractitionerRoleAvailableTime;
 import org.hl7.fhir.PractitionerRoleNotAvailable;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +60,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "PractitionerRole", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PractitionerRole")
 public class PractitionerRoleImpl extends DomainResourceImpl implements PractitionerRole {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -218,6 +227,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PRACTITIONER_ROLE__IDENTIFIER);
@@ -230,6 +240,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -402,6 +413,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER_ROLE__CODE);
@@ -414,6 +426,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSpecialty() {
 		if (specialty == null) {
 			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER_ROLE__SPECIALTY);
@@ -426,6 +439,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getLocation() {
 		if (location == null) {
 			location = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PRACTITIONER_ROLE__LOCATION);
@@ -438,6 +452,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getHealthcareService() {
 		if (healthcareService == null) {
 			healthcareService = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PRACTITIONER_ROLE__HEALTHCARE_SERVICE);
@@ -450,6 +465,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PRACTITIONER_ROLE__TELECOM);
@@ -462,6 +478,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PractitionerRoleAvailableTime> getAvailableTime() {
 		if (availableTime == null) {
 			availableTime = new EObjectContainmentEList<PractitionerRoleAvailableTime>(PractitionerRoleAvailableTime.class, this, FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME);
@@ -474,6 +491,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PractitionerRoleNotAvailable> getNotAvailable() {
 		if (notAvailable == null) {
 			notAvailable = new EObjectContainmentEList<PractitionerRoleNotAvailable>(PractitionerRoleNotAvailable.class, this, FhirPackage.PRACTITIONER_ROLE__NOT_AVAILABLE);
@@ -486,6 +504,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAvailabilityExceptions() {
 		return availabilityExceptions;
 	}
@@ -529,6 +548,7 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PRACTITIONER_ROLE__ENDPOINT);

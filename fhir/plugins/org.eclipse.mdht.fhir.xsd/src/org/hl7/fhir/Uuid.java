@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.UuidImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Uuid</b></em>'.
@@ -26,6 +30,7 @@ import java.lang.String;
  * @model extendedMetaData="name='uuid' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(UuidImplAdapter.class)
 public interface Uuid extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -4,7 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.ecore.EObject;
+import org.w3._1999.xhtml.jaxb.HrTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='hr_._type' kind='empty'"
  * @generated
  */
+@XmlJavaTypeAdapter(HrTypeImplAdapter.class)
 public interface HrType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

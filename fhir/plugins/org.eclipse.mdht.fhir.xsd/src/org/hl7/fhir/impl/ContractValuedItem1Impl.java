@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,6 +23,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +47,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ContractValuedItem1", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ContractValuedItem1")
 public class ContractValuedItem1Impl extends BackboneElementImpl implements ContractValuedItem1 {
 	/**
 	 * The cached value of the '{@link #getEntityCodeableConcept() <em>Entity Codeable Concept</em>}' containment reference.
@@ -285,6 +293,7 @@ public class ContractValuedItem1Impl extends BackboneElementImpl implements Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveTime() {
 		return effectiveTime;
 	}
@@ -414,6 +423,7 @@ public class ContractValuedItem1Impl extends BackboneElementImpl implements Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -457,6 +467,7 @@ public class ContractValuedItem1Impl extends BackboneElementImpl implements Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPoints() {
 		return points;
 	}

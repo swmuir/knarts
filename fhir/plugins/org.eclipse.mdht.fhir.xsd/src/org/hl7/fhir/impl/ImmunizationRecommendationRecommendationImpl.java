@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,8 @@ import org.hl7.fhir.ImmunizationRecommendationProtocol;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +54,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ImmunizationRecommendationRecommendation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImmunizationRecommendationRecommendation")
 public class ImmunizationRecommendationRecommendationImpl extends BackboneElementImpl implements ImmunizationRecommendationRecommendation {
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -162,6 +171,8 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -291,6 +302,7 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getDoseNumber() {
 		return doseNumber;
 	}
@@ -334,6 +346,7 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getForecastStatus() {
 		return forecastStatus;
 	}
@@ -377,6 +390,7 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ImmunizationRecommendationDateCriterion> getDateCriterion() {
 		if (dateCriterion == null) {
 			dateCriterion = new EObjectContainmentEList<ImmunizationRecommendationDateCriterion>(ImmunizationRecommendationDateCriterion.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION);
@@ -432,6 +446,7 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingImmunization() {
 		if (supportingImmunization == null) {
 			supportingImmunization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION);
@@ -444,6 +459,7 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingPatientInformation() {
 		if (supportingPatientInformation == null) {
 			supportingPatientInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_PATIENT_INFORMATION);

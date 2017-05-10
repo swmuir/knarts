@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ImagingStudyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +46,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ImagingStudy' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImagingStudyImplAdapter.class)
 public interface ImagingStudy extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.SequenceReferenceSeqImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Sequence.ReferenceSeq' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(SequenceReferenceSeqImplAdapter.class)
 public interface SequenceReferenceSeq extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Chromosome</b></em>' containment reference.

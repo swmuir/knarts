@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +32,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationAdministrationPerformer", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationAdministrationPerformer")
 public class MedicationAdministrationPerformerImpl extends BackboneElementImpl implements MedicationAdministrationPerformer {
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference.
@@ -73,6 +79,7 @@ public class MedicationAdministrationPerformerImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getActor() {
 		return actor;
 	}

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,9 @@ import org.hl7.fhir.CompartmentType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GraphCompartmentRule;
 import org.hl7.fhir.GraphDefinitionCompartment;
+import org.hl7.fhir.jaxb.CompartmentTypeImplAdapter;
+import org.hl7.fhir.jaxb.GraphCompartmentRuleImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +39,8 @@ import org.hl7.fhir.GraphDefinitionCompartment;
  *
  * @generated
  */
+@XmlType(name = "GraphDefinitionCompartment", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "GraphDefinitionCompartment")
 public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implements GraphDefinitionCompartment {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -96,6 +106,8 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CompartmentTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public CompartmentType getCode() {
 		return code;
 	}
@@ -139,6 +151,8 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(GraphCompartmentRuleImplAdapter.class)
+	@XmlElement(required = true)
 	public GraphCompartmentRule getRule() {
 		return rule;
 	}
@@ -182,6 +196,7 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}
@@ -225,6 +240,7 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}

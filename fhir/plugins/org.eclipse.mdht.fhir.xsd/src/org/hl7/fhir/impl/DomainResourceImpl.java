@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -39,6 +44,18 @@ import org.hl7.fhir.ResourceContainer;
  *
  * @generated
  */
+@XmlType(name = "DomainResource", namespace = "http://hl7.org/fhir")
+@XmlSeeAlso({ EncounterImpl.class, EnrollmentResponseImpl.class, MedicationImpl.class, AppointmentResponseImpl.class, StructureDefinitionImpl.class, ProvenanceImpl.class, RequestGroupImpl.class, PatientImpl.class, EligibilityResponseImpl.class, ScheduleImpl.class, DeviceMetricImpl.class, CommunicationRequestImpl.class,
+		MedicationStatementImpl.class, DeviceComponentImpl.class, EndpointImpl.class, CompartmentDefinitionImpl.class, AdverseEventImpl.class, ConsentImpl.class, ClaimResponseImpl.class, DiagnosticReportImpl.class, ConceptMapImpl.class, MedicationRequestImpl.class, GuidanceResponseImpl.class, DeviceImpl.class,
+		DeviceUseStatementImpl.class, SearchParameterImpl.class, EligibilityRequestImpl.class, CapabilityStatementImpl.class, AppointmentImpl.class, OrganizationImpl.class, DocumentReferenceImpl.class, ContractImpl.class, SupplyRequestImpl.class, VisionPrescriptionImpl.class, ProcedureRequestImpl.class, DataElementImpl.class,
+		SequenceImpl.class, OperationDefinitionImpl.class, GraphDefinitionImpl.class, PractitionerImpl.class, CarePlanImpl.class, AccountImpl.class, RelatedPersonImpl.class, AuditEventImpl.class, RiskAssessmentImpl.class, MeasureImpl.class, StructureMapImpl.class, SpecimenImpl.class, MeasureReportImpl.class,
+		PaymentNoticeImpl.class, EpisodeOfCareImpl.class, MessageDefinitionImpl.class, ResearchStudyImpl.class, PaymentReconciliationImpl.class, CommunicationImpl.class, LinkageImpl.class, ImagingStudyImpl.class, MediaImpl.class, SlotImpl.class, MedicationAdministrationImpl.class, ListImpl.class, EnrollmentRequestImpl.class,
+		GroupImpl.class, AllergyIntoleranceImpl.class, ImmunizationRecommendationImpl.class, PersonImpl.class, SupplyDeliveryImpl.class, TaskImpl.class, ExplanationOfBenefitImpl.class, BasicImpl.class, DocumentManifestImpl.class, ClinicalImpressionImpl.class, MedicationDispenseImpl.class, OperationOutcomeImpl.class,
+		NutritionOrderImpl.class, PlanDefinitionImpl.class, HealthcareServiceImpl.class, ProcessRequestImpl.class, ImmunizationImpl.class, TestScriptImpl.class, CompositionImpl.class, SubstanceImpl.class, ImplementationGuideImpl.class, ConditionImpl.class, ServiceDefinitionImpl.class, LibraryImpl.class,
+		FamilyMemberHistoryImpl.class, CareTeamImpl.class, QuestionnaireResponseImpl.class, DetectedIssueImpl.class, ClaimImpl.class, QuestionnaireImpl.class, CodeSystemImpl.class, ObservationImpl.class, ProcessResponseImpl.class, ImagingManifestImpl.class, FlagImpl.class, CoverageImpl.class, ReferralRequestImpl.class,
+		TestReportImpl.class, ActivityDefinitionImpl.class, NamingSystemImpl.class, ValueSetImpl.class, ExpansionProfileImpl.class, ProcedureImpl.class, BodySiteImpl.class, GoalImpl.class, ChargeItemImpl.class, PractitionerRoleImpl.class, SubscriptionImpl.class, MessageHeaderImpl.class, LocationImpl.class, DeviceRequestImpl.class,
+		ResearchSubjectImpl.class })
+@XmlRootElement(name = "DomainResource")
 public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -147,6 +164,7 @@ public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ResourceContainer> getContained() {
 		if (contained == null) {
 			contained = new EObjectContainmentEList<ResourceContainer>(ResourceContainer.class, this, FhirPackage.DOMAIN_RESOURCE__CONTAINED);
@@ -159,6 +177,7 @@ public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Extension> getExtension() {
 		if (extension == null) {
 			extension = new EObjectContainmentEList<Extension>(Extension.class, this, FhirPackage.DOMAIN_RESOURCE__EXTENSION);
@@ -171,6 +190,7 @@ public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Extension> getModifierExtension() {
 		if (modifierExtension == null) {
 			modifierExtension = new EObjectContainmentEList<Extension>(Extension.class, this, FhirPackage.DOMAIN_RESOURCE__MODIFIER_EXTENSION);

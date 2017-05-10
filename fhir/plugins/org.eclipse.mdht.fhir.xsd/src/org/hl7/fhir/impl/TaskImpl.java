@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,6 +38,12 @@ import org.hl7.fhir.TaskRequester;
 import org.hl7.fhir.TaskRestriction;
 import org.hl7.fhir.TaskStatus;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TaskStatusImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +85,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Task", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Task")
 public class TaskImpl extends DomainResourceImpl implements Task {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -379,6 +392,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.TASK__IDENTIFIER);
@@ -391,6 +405,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefinitionUri() {
 		return definitionUri;
 	}
@@ -477,6 +492,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__BASED_ON);
@@ -532,6 +548,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__PART_OF);
@@ -544,6 +561,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TaskStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public TaskStatus getStatus() {
 		return status;
 	}
@@ -673,6 +692,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestIntent getIntent() {
 		return intent;
 	}
@@ -716,6 +737,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -802,6 +824,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -1017,6 +1040,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -1060,6 +1084,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getLastModified() {
 		return lastModified;
 	}
@@ -1146,6 +1171,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getPerformerType() {
 		if (performerType == null) {
 			performerType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.TASK__PERFORMER_TYPE);
@@ -1244,6 +1270,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.TASK__NOTE);
@@ -1256,6 +1283,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRelevantHistory() {
 		if (relevantHistory == null) {
 			relevantHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__RELEVANT_HISTORY);
@@ -1311,6 +1339,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TaskInput> getInput() {
 		if (input == null) {
 			input = new EObjectContainmentEList<TaskInput>(TaskInput.class, this, FhirPackage.TASK__INPUT);
@@ -1323,6 +1352,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TaskOutput> getOutput() {
 		if (output == null) {
 			output = new EObjectContainmentEList<TaskOutput>(TaskOutput.class, this, FhirPackage.TASK__OUTPUT);

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DiagnosticReportImageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='DiagnosticReport.Image' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DiagnosticReportImageImplAdapter.class)
 public interface DiagnosticReportImage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.EventCapabilityMode;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.EventCapabilityModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementSupportedMessage", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementSupportedMessage")
 public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl implements CapabilityStatementSupportedMessage {
 	/**
 	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference.
@@ -74,6 +82,8 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EventCapabilityModeImplAdapter.class)
+	@XmlElement(required = true)
 	public EventCapabilityMode getMode() {
 		return mode;
 	}
@@ -117,6 +127,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getDefinition() {
 		return definition;
 	}

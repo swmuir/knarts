@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ContactPointImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ContactPoint' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ContactPointImplAdapter.class)
 public interface ContactPoint extends Element {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.

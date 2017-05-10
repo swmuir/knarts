@@ -4,6 +4,10 @@ package org.w3._1999.xhtml.impl;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -42,6 +46,8 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "ImgType", namespace = "http://www.w3.org/1999/xhtml")
+@XmlRootElement(name = "ImgType")
 public class ImgTypeImpl extends MinimalEObjectImpl.Container implements ImgType {
 	/**
 	 * The default value of the '{@link #getAlt() <em>Alt</em>}' attribute.
@@ -365,6 +371,7 @@ public class ImgTypeImpl extends MinimalEObjectImpl.Container implements ImgType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public String getAlt() {
 		return alt;
 	}
@@ -604,6 +611,7 @@ public class ImgTypeImpl extends MinimalEObjectImpl.Container implements ImgType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public String getSrc() {
 		return src;
 	}

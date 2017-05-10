@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.AuditEventDetail;
 import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +35,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "AuditEventDetail", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AuditEventDetail")
 public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEventDetail {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -73,6 +82,8 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getType() {
 		return type;
 	}
@@ -116,6 +127,8 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
+	@XmlElement(required = true)
 	public Base64Binary getValue() {
 		return value;
 	}

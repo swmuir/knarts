@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MedicationBatchImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Medication.Batch' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MedicationBatchImplAdapter.class)
 public interface MedicationBatch extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Lot Number</b></em>' containment reference.

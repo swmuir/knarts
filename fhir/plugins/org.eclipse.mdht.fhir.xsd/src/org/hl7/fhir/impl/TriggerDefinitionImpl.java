@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,6 +23,10 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
 import org.hl7.fhir.TriggerType;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TriggerTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +47,8 @@ import org.hl7.fhir.TriggerType;
  *
  * @generated
  */
+@XmlType(name = "TriggerDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TriggerDefinition")
 public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinition {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -133,6 +144,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TriggerTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public TriggerType getType() {
 		return type;
 	}
@@ -176,6 +189,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getEventName() {
 		return eventName;
 	}
@@ -305,6 +319,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getEventTimingDate() {
 		return eventTimingDate;
 	}
@@ -348,6 +363,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEventTimingDateTime() {
 		return eventTimingDateTime;
 	}

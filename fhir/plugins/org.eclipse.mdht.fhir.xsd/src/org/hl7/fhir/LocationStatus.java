@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.LocationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='LocationStatus' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(LocationStatusImplAdapter.class)
 public interface LocationStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

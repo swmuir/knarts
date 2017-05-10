@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DeviceUdiImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Device.Udi' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DeviceUdiImplAdapter.class)
 public interface DeviceUdi extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Device Identifier</b></em>' containment reference.

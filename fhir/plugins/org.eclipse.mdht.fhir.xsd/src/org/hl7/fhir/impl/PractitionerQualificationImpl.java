@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,6 +44,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "PractitionerQualification", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PractitionerQualification")
 public class PractitionerQualificationImpl extends BackboneElementImpl implements PractitionerQualification {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -105,6 +111,7 @@ public class PractitionerQualificationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PRACTITIONER_QUALIFICATION__IDENTIFIER);
@@ -117,6 +124,7 @@ public class PractitionerQualificationImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}

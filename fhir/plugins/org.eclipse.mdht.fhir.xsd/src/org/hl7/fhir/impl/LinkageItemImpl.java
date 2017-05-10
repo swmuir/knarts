@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.LinkageItem;
 import org.hl7.fhir.LinkageType;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.LinkageTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "LinkageItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "LinkageItem")
 public class LinkageItemImpl extends BackboneElementImpl implements LinkageItem {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -74,6 +82,8 @@ public class LinkageItemImpl extends BackboneElementImpl implements LinkageItem 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(LinkageTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public LinkageType getType() {
 		return type;
 	}
@@ -117,6 +127,7 @@ public class LinkageItemImpl extends BackboneElementImpl implements LinkageItem 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getResource() {
 		return resource;
 	}

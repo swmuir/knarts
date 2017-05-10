@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImmunizationVaccinationProtocol;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +50,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ImmunizationVaccinationProtocol", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImmunizationVaccinationProtocol")
 public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl implements ImmunizationVaccinationProtocol {
 	/**
 	 * The cached value of the '{@link #getDoseSequence() <em>Dose Sequence</em>}' containment reference.
@@ -148,6 +157,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getDoseSequence() {
 		return doseSequence;
 	}
@@ -191,6 +201,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -277,6 +288,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSeries() {
 		return series;
 	}
@@ -320,6 +332,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getSeriesDoses() {
 		return seriesDoses;
 	}
@@ -363,6 +376,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<CodeableConcept> getTargetDisease() {
 		if (targetDisease == null) {
 			targetDisease = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_VACCINATION_PROTOCOL__TARGET_DISEASE);
@@ -375,6 +389,7 @@ public class ImmunizationVaccinationProtocolImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getDoseStatus() {
 		return doseStatus;
 	}

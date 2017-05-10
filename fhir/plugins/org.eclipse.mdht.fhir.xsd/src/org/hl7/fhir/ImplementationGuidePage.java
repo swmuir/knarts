@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ImplementationGuidePageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ImplementationGuide.Page' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImplementationGuidePageImplAdapter.class)
 public interface ImplementationGuidePage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.

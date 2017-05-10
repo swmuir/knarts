@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +40,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ConditionStage", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ConditionStage")
 public class ConditionStageImpl extends BackboneElementImpl implements ConditionStage {
 	/**
 	 * The cached value of the '{@link #getSummary() <em>Summary</em>}' containment reference.
@@ -124,6 +130,7 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAssessment() {
 		if (assessment == null) {
 			assessment = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONDITION_STAGE__ASSESSMENT);

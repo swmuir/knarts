@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,13 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.UnitsOfTime;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.EventTimingImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
+import org.hl7.fhir.jaxb.UnitsOfTimeImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +70,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "TimingRepeat", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TimingRepeat")
 public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	/**
 	 * The cached value of the '{@link #getBoundsDuration() <em>Bounds Duration</em>}' containment reference.
@@ -382,6 +396,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getCount() {
 		return count;
 	}
@@ -425,6 +440,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getCountMax() {
 		return countMax;
 	}
@@ -468,6 +484,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDuration() {
 		return duration;
 	}
@@ -511,6 +528,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDurationMax() {
 		return durationMax;
 	}
@@ -554,6 +572,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnitsOfTimeImplAdapter.class)
 	public UnitsOfTime getDurationUnit() {
 		return durationUnit;
 	}
@@ -597,6 +616,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getFrequency() {
 		return frequency;
 	}
@@ -640,6 +660,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getFrequencyMax() {
 		return frequencyMax;
 	}
@@ -683,6 +704,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPeriod() {
 		return period;
 	}
@@ -726,6 +748,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPeriodMax() {
 		return periodMax;
 	}
@@ -769,6 +792,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnitsOfTimeImplAdapter.class)
 	public UnitsOfTime getPeriodUnit() {
 		return periodUnit;
 	}
@@ -812,6 +836,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement
 	public EList<Code> getDayOfWeek() {
 		if (dayOfWeek == null) {
 			dayOfWeek = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.TIMING_REPEAT__DAY_OF_WEEK);
@@ -824,6 +850,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
+	@XmlElement
 	public EList<Time> getTimeOfDay() {
 		if (timeOfDay == null) {
 			timeOfDay = new EObjectContainmentEList<Time>(Time.class, this, FhirPackage.TIMING_REPEAT__TIME_OF_DAY);
@@ -836,6 +864,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EventTimingImplAdapter.class)
+	@XmlElement
 	public EList<EventTiming> getWhen() {
 		if (when == null) {
 			when = new EObjectContainmentEList<EventTiming>(EventTiming.class, this, FhirPackage.TIMING_REPEAT__WHEN);
@@ -848,6 +878,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getOffset() {
 		return offset;
 	}

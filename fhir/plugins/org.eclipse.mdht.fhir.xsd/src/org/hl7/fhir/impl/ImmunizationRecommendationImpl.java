@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,6 +42,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ImmunizationRecommendation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImmunizationRecommendation")
 public class ImmunizationRecommendationImpl extends DomainResourceImpl implements ImmunizationRecommendation {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -93,6 +99,7 @@ public class ImmunizationRecommendationImpl extends DomainResourceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION__IDENTIFIER);
@@ -105,6 +112,7 @@ public class ImmunizationRecommendationImpl extends DomainResourceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -148,6 +156,7 @@ public class ImmunizationRecommendationImpl extends DomainResourceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<ImmunizationRecommendationRecommendation> getRecommendation() {
 		if (recommendation == null) {
 			recommendation = new EObjectContainmentEList<ImmunizationRecommendationRecommendation>(ImmunizationRecommendationRecommendation.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION__RECOMMENDATION);

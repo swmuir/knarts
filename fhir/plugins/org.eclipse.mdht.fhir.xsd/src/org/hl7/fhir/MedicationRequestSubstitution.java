@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MedicationRequestSubstitutionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='MedicationRequest.Substitution' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MedicationRequestSubstitutionImplAdapter.class)
 public interface MedicationRequestSubstitution extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Allowed</b></em>' containment reference.

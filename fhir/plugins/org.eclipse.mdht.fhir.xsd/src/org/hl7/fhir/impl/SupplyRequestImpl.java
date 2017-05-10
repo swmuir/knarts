@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.SupplyRequestOrderedItem;
 import org.hl7.fhir.SupplyRequestRequester;
 import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.SupplyRequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +65,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "SupplyRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SupplyRequest")
 public class SupplyRequestImpl extends DomainResourceImpl implements SupplyRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -275,6 +285,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SupplyRequestStatusImplAdapter.class)
 	public SupplyRequestStatus getStatus() {
 		return status;
 	}
@@ -361,6 +372,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -447,6 +459,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -576,6 +589,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -662,6 +676,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupplier() {
 		if (supplier == null) {
 			supplier = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_REQUEST__SUPPLIER);

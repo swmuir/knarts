@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DistanceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,5 +21,6 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Distance' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DistanceImplAdapter.class)
 public interface Distance extends Quantity {
 } // Distance

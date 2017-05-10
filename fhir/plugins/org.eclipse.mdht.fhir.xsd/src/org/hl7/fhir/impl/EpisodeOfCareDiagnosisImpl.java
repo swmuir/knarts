@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,7 @@ import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +37,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "EpisodeOfCareDiagnosis", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EpisodeOfCareDiagnosis")
 public class EpisodeOfCareDiagnosisImpl extends BackboneElementImpl implements EpisodeOfCareDiagnosis {
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -86,6 +94,7 @@ public class EpisodeOfCareDiagnosisImpl extends BackboneElementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getCondition() {
 		return condition;
 	}
@@ -172,6 +181,7 @@ public class EpisodeOfCareDiagnosisImpl extends BackboneElementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getRank() {
 		return rank;
 	}

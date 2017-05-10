@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,9 @@ import org.hl7.fhir.DataElementMapping;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +39,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "DataElementMapping", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DataElementMapping")
 public class DataElementMappingImpl extends BackboneElementImpl implements DataElementMapping {
 	/**
 	 * The cached value of the '{@link #getIdentity() <em>Identity</em>}' containment reference.
@@ -96,6 +106,8 @@ public class DataElementMappingImpl extends BackboneElementImpl implements DataE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getIdentity() {
 		return identity;
 	}
@@ -139,6 +151,7 @@ public class DataElementMappingImpl extends BackboneElementImpl implements DataE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUri() {
 		return uri;
 	}
@@ -182,6 +195,7 @@ public class DataElementMappingImpl extends BackboneElementImpl implements DataE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -225,6 +239,7 @@ public class DataElementMappingImpl extends BackboneElementImpl implements DataE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

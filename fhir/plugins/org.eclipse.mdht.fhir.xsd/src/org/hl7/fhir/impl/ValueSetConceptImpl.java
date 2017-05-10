@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,8 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ValueSetConcept;
 import org.hl7.fhir.ValueSetDesignation;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +44,8 @@ import org.hl7.fhir.ValueSetDesignation;
  *
  * @generated
  */
+@XmlType(name = "ValueSetConcept", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ValueSetConcept")
 public class ValueSetConceptImpl extends BackboneElementImpl implements ValueSetConcept {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -92,6 +101,8 @@ public class ValueSetConceptImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -135,6 +146,7 @@ public class ValueSetConceptImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -178,6 +190,7 @@ public class ValueSetConceptImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ValueSetDesignation> getDesignation() {
 		if (designation == null) {
 			designation = new EObjectContainmentEList<ValueSetDesignation>(ValueSetDesignation.class, this, FhirPackage.VALUE_SET_CONCEPT__DESIGNATION);

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MedicationDispenseStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +76,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationDispense", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationDispense")
 public class MedicationDispenseImpl extends DomainResourceImpl implements MedicationDispense {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -353,6 +363,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICATION_DISPENSE__IDENTIFIER);
@@ -365,6 +376,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__PART_OF);
@@ -377,6 +389,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MedicationDispenseStatusImplAdapter.class)
 	public MedicationDispenseStatus getStatus() {
 		return status;
 	}
@@ -635,6 +648,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__SUPPORTING_INFORMATION);
@@ -647,6 +661,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MedicationDispensePerformer> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<MedicationDispensePerformer>(MedicationDispensePerformer.class, this, FhirPackage.MEDICATION_DISPENSE__PERFORMER);
@@ -659,6 +674,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAuthorizingPrescription() {
 		if (authorizingPrescription == null) {
 			authorizingPrescription = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__AUTHORIZING_PRESCRIPTION);
@@ -800,6 +816,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getWhenPrepared() {
 		return whenPrepared;
 	}
@@ -843,6 +860,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getWhenHandedOver() {
 		return whenHandedOver;
 	}
@@ -929,6 +947,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReceiver() {
 		if (receiver == null) {
 			receiver = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__RECEIVER);
@@ -941,6 +960,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_DISPENSE__NOTE);
@@ -953,6 +973,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Dosage> getDosageInstruction() {
 		if (dosageInstruction == null) {
 			dosageInstruction = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.MEDICATION_DISPENSE__DOSAGE_INSTRUCTION);
@@ -1008,6 +1029,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDetectedIssue() {
 		if (detectedIssue == null) {
 			detectedIssue = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__DETECTED_ISSUE);
@@ -1020,6 +1042,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getNotDone() {
 		return notDone;
 	}
@@ -1149,6 +1172,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
 			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY);

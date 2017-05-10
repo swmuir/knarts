@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,8 @@ import org.hl7.fhir.CompositionAttester;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.CompositionAttestationModeImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +45,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CompositionAttester", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CompositionAttester")
 public class CompositionAttesterImpl extends BackboneElementImpl implements CompositionAttester {
 	/**
 	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference list.
@@ -93,6 +102,8 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CompositionAttestationModeImplAdapter.class)
+	@XmlElement(required = true)
 	public EList<CompositionAttestationMode> getMode() {
 		if (mode == null) {
 			mode = new EObjectContainmentEList<CompositionAttestationMode>(CompositionAttestationMode.class, this, FhirPackage.COMPOSITION_ATTESTER__MODE);
@@ -105,6 +116,7 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTime() {
 		return time;
 	}

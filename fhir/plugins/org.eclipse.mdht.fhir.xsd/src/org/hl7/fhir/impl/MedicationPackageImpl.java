@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,6 +42,8 @@ import org.hl7.fhir.MedicationPackage;
  *
  * @generated
  */
+@XmlType(name = "MedicationPackage", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationPackage")
 public class MedicationPackageImpl extends BackboneElementImpl implements MedicationPackage {
 	/**
 	 * The cached value of the '{@link #getContainer() <em>Container</em>}' containment reference.
@@ -136,6 +142,7 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MedicationContent> getContent() {
 		if (content == null) {
 			content = new EObjectContainmentEList<MedicationContent>(MedicationContent.class, this, FhirPackage.MEDICATION_PACKAGE__CONTENT);
@@ -148,6 +155,7 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MedicationBatch> getBatch() {
 		if (batch == null) {
 			batch = new EObjectContainmentEList<MedicationBatch>(MedicationBatch.class, this, FhirPackage.MEDICATION_PACKAGE__BATCH);

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,10 @@ import org.hl7.fhir.CodeSystemProperty;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PropertyType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.PropertyTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +41,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "CodeSystemProperty", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CodeSystemProperty")
 public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeSystemProperty {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -97,6 +108,8 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -140,6 +153,7 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUri() {
 		return uri;
 	}
@@ -183,6 +197,7 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -226,6 +241,8 @@ public class CodeSystemPropertyImpl extends BackboneElementImpl implements CodeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PropertyTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public PropertyType getType() {
 		return type;
 	}

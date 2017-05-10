@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.Coding;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +49,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "DataRequirementCodeFilter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DataRequirementCodeFilter")
 public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRequirementCodeFilter {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -127,6 +136,8 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -170,6 +181,7 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueSetString() {
 		return valueSetString;
 	}
@@ -256,6 +268,8 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement
 	public EList<Code> getValueCode() {
 		if (valueCode == null) {
 			valueCode = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE);
@@ -268,6 +282,7 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getValueCoding() {
 		if (valueCoding == null) {
 			valueCoding = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING);
@@ -280,6 +295,7 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getValueCodeableConcept() {
 		if (valueCodeableConcept == null) {
 			valueCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT);

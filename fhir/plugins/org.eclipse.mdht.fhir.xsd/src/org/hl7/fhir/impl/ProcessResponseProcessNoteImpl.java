@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ProcessResponseProcessNote;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +33,8 @@ import org.hl7.fhir.ProcessResponseProcessNote;
  *
  * @generated
  */
+@XmlType(name = "ProcessResponseProcessNote", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ProcessResponseProcessNote")
 public class ProcessResponseProcessNoteImpl extends BackboneElementImpl implements ProcessResponseProcessNote {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -116,6 +123,7 @@ public class ProcessResponseProcessNoteImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}

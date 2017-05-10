@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +65,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ActivityDefinition' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ActivityDefinitionImplAdapter.class)
 public interface ActivityDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

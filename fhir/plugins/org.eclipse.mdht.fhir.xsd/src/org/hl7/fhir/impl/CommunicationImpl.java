@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,9 @@ import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.EventStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +67,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Communication", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Communication")
 public class CommunicationImpl extends DomainResourceImpl implements Communication {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -284,6 +294,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.COMMUNICATION__IDENTIFIER);
@@ -296,6 +307,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__DEFINITION);
@@ -308,6 +320,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__BASED_ON);
@@ -320,6 +333,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__PART_OF);
@@ -332,6 +346,8 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EventStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public EventStatus getStatus() {
 		return status;
 	}
@@ -375,6 +391,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getNotDone() {
 		return notDone;
 	}
@@ -461,6 +478,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION__CATEGORY);
@@ -473,6 +491,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getMedium() {
 		if (medium == null) {
 			medium = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION__MEDIUM);
@@ -528,6 +547,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRecipient() {
 		if (recipient == null) {
 			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__RECIPIENT);
@@ -540,6 +560,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__TOPIC);
@@ -595,6 +616,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getSent() {
 		return sent;
 	}
@@ -638,6 +660,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getReceived() {
 		return received;
 	}
@@ -724,6 +747,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION__REASON_CODE);
@@ -736,6 +760,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__REASON_REFERENCE);
@@ -748,6 +773,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CommunicationPayload> getPayload() {
 		if (payload == null) {
 			payload = new EObjectContainmentEList<CommunicationPayload>(CommunicationPayload.class, this, FhirPackage.COMMUNICATION__PAYLOAD);
@@ -760,6 +786,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.COMMUNICATION__NOTE);

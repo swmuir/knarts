@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.CapabilityStatementResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='CapabilityStatement.Resource' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CapabilityStatementResourceImplAdapter.class)
 public interface CapabilityStatementResource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

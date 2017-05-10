@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptParam3;
 import org.hl7.fhir.TestScriptRule3;
+import org.hl7.fhir.jaxb.IdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +42,8 @@ import org.hl7.fhir.TestScriptRule3;
  *
  * @generated
  */
+@XmlType(name = "TestScriptRule3", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptRule3")
 public class TestScriptRule3Impl extends BackboneElementImpl implements TestScriptRule3 {
 	/**
 	 * The cached value of the '{@link #getRuleId() <em>Rule Id</em>}' containment reference.
@@ -81,6 +89,8 @@ public class TestScriptRule3Impl extends BackboneElementImpl implements TestScri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getRuleId() {
 		return ruleId;
 	}
@@ -124,6 +134,7 @@ public class TestScriptRule3Impl extends BackboneElementImpl implements TestScri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TestScriptParam3> getParam() {
 		if (param == null) {
 			param = new EObjectContainmentEList<TestScriptParam3>(TestScriptParam3.class, this, FhirPackage.TEST_SCRIPT_RULE3__PARAM);

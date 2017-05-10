@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DeviceRequestRequesterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='DeviceRequest.Requester' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DeviceRequestRequesterImplAdapter.class)
 public interface DeviceRequestRequester extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference.

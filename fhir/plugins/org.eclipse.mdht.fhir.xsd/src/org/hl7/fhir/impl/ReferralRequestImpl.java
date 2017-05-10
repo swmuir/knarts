@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,11 @@ import org.hl7.fhir.ReferralRequestRequester;
 import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +76,8 @@ import org.hl7.fhir.RequestStatus;
  *
  * @generated
  */
+@XmlType(name = "ReferralRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ReferralRequest")
 public class ReferralRequestImpl extends DomainResourceImpl implements ReferralRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -331,6 +343,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.REFERRAL_REQUEST__IDENTIFIER);
@@ -343,6 +356,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__DEFINITION);
@@ -355,6 +369,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__BASED_ON);
@@ -367,6 +382,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__REPLACES);
@@ -422,6 +438,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -465,6 +483,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestIntent getIntent() {
 		return intent;
 	}
@@ -551,6 +571,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -594,6 +615,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getServiceRequested() {
 		if (serviceRequested == null) {
 			serviceRequested = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED);
@@ -606,6 +628,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -692,6 +715,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -778,6 +802,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -907,6 +932,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRecipient() {
 		if (recipient == null) {
 			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__RECIPIENT);
@@ -919,6 +945,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REFERRAL_REQUEST__REASON_CODE);
@@ -931,6 +958,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE);
@@ -943,6 +971,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -986,6 +1015,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingInfo() {
 		if (supportingInfo == null) {
 			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__SUPPORTING_INFO);
@@ -998,6 +1028,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.REFERRAL_REQUEST__NOTE);
@@ -1010,6 +1041,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRelevantHistory() {
 		if (relevantHistory == null) {
 			relevantHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY);

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,10 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DiagnosticReportStatusImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +69,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "DiagnosticReport", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DiagnosticReport")
 public class DiagnosticReportImpl extends DomainResourceImpl implements DiagnosticReport {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -265,6 +276,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER);
@@ -277,6 +289,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__BASED_ON);
@@ -289,6 +302,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DiagnosticReportStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public DiagnosticReportStatus getStatus() {
 		return status;
 	}
@@ -375,6 +390,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -504,6 +520,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveDateTime() {
 		return effectiveDateTime;
 	}
@@ -590,6 +607,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getIssued() {
 		return issued;
 	}
@@ -633,6 +651,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DiagnosticReportPerformer> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<DiagnosticReportPerformer>(DiagnosticReportPerformer.class, this, FhirPackage.DIAGNOSTIC_REPORT__PERFORMER);
@@ -645,6 +664,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSpecimen() {
 		if (specimen == null) {
 			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN);
@@ -657,6 +677,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getResult() {
 		if (result == null) {
 			result = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__RESULT);
@@ -669,6 +690,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getImagingStudy() {
 		if (imagingStudy == null) {
 			imagingStudy = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY);
@@ -681,6 +703,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DiagnosticReportImage> getImage() {
 		if (image == null) {
 			image = new EObjectContainmentEList<DiagnosticReportImage>(DiagnosticReportImage.class, this, FhirPackage.DIAGNOSTIC_REPORT__IMAGE);
@@ -693,6 +716,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getConclusion() {
 		return conclusion;
 	}
@@ -736,6 +760,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCodedDiagnosis() {
 		if (codedDiagnosis == null) {
 			codedDiagnosis = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS);
@@ -748,6 +773,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getPresentedForm() {
 		if (presentedForm == null) {
 			presentedForm = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM);

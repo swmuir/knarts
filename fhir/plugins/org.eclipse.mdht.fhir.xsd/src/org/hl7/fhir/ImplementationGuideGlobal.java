@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ImplementationGuideGlobalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ImplementationGuide.Global' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImplementationGuideGlobalImplAdapter.class)
 public interface ImplementationGuideGlobal extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

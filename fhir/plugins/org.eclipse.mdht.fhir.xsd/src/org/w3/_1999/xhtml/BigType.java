@@ -4,6 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.w3._1999.xhtml.jaxb.BigTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Big Type</b></em>'.
@@ -26,6 +30,7 @@ import java.util.List;
  * @model extendedMetaData="name='big_._type' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(BigTypeImplAdapter.class)
 public interface BigType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

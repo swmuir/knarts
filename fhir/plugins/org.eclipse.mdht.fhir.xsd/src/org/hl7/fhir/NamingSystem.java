@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.NamingSystemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='NamingSystem' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(NamingSystemImplAdapter.class)
 public interface NamingSystem extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

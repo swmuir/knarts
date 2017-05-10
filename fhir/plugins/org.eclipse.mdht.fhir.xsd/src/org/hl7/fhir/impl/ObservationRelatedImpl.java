@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ObservationRelated;
 import org.hl7.fhir.ObservationRelationshipType;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.ObservationRelationshipTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ObservationRelated", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ObservationRelated")
 public class ObservationRelatedImpl extends BackboneElementImpl implements ObservationRelated {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -74,6 +82,7 @@ public class ObservationRelatedImpl extends BackboneElementImpl implements Obser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ObservationRelationshipTypeImplAdapter.class)
 	public ObservationRelationshipType getType() {
 		return type;
 	}
@@ -117,6 +126,7 @@ public class ObservationRelatedImpl extends BackboneElementImpl implements Obser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getTarget() {
 		return target;
 	}

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,8 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemDesignation;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +37,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "CodeSystemDesignation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CodeSystemDesignation")
 public class CodeSystemDesignationImpl extends BackboneElementImpl implements CodeSystemDesignation {
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' containment reference.
@@ -85,6 +94,7 @@ public class CodeSystemDesignationImpl extends BackboneElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getLanguage() {
 		return language;
 	}
@@ -171,6 +181,8 @@ public class CodeSystemDesignationImpl extends BackboneElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}

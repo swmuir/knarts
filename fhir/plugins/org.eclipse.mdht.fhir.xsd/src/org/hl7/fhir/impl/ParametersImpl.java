@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,6 +35,8 @@ import org.hl7.fhir.ParametersParameter;
  *
  * @generated
  */
+@XmlType(name = "Parameters", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Parameters")
 public class ParametersImpl extends ResourceImpl implements Parameters {
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
@@ -66,6 +72,7 @@ public class ParametersImpl extends ResourceImpl implements Parameters {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ParametersParameter> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<ParametersParameter>(ParametersParameter.class, this, FhirPackage.PARAMETERS__PARAMETER);

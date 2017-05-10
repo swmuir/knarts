@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestScriptOrigin;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +34,8 @@ import org.hl7.fhir.TestScriptOrigin;
  *
  * @generated
  */
+@XmlType(name = "TestScriptOrigin", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptOrigin")
 public class TestScriptOriginImpl extends BackboneElementImpl implements TestScriptOrigin {
 	/**
 	 * The cached value of the '{@link #getIndex() <em>Index</em>}' containment reference.
@@ -73,6 +81,8 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getIndex() {
 		return index;
 	}
@@ -116,6 +126,7 @@ public class TestScriptOriginImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getProfile() {
 		return profile;
 	}

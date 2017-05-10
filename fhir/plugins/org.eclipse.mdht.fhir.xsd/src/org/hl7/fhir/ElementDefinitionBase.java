@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ElementDefinitionBaseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Base' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ElementDefinitionBaseImplAdapter.class)
 public interface ElementDefinitionBase extends Element {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

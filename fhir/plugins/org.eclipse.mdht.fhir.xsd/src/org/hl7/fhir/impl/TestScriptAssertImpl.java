@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +25,15 @@ import org.hl7.fhir.TestScriptAssert;
 import org.hl7.fhir.TestScriptRequestMethodCode;
 import org.hl7.fhir.TestScriptRule2;
 import org.hl7.fhir.TestScriptRuleset1;
+import org.hl7.fhir.jaxb.AssertionDirectionTypeImplAdapter;
+import org.hl7.fhir.jaxb.AssertionOperatorTypeImplAdapter;
+import org.hl7.fhir.jaxb.AssertionResponseTypesImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.ContentTypeImplAdapter;
+import org.hl7.fhir.jaxb.FHIRDefinedTypeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TestScriptRequestMethodCodeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +71,8 @@ import org.hl7.fhir.TestScriptRuleset1;
  *
  * @generated
  */
+@XmlType(name = "TestScriptAssert", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptAssert")
 public class TestScriptAssertImpl extends BackboneElementImpl implements TestScriptAssert {
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
@@ -323,6 +338,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLabel() {
 		return label;
 	}
@@ -366,6 +382,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -409,6 +426,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AssertionDirectionTypeImplAdapter.class)
 	public AssertionDirectionType getDirection() {
 		return direction;
 	}
@@ -452,6 +470,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCompareToSourceId() {
 		return compareToSourceId;
 	}
@@ -495,6 +514,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCompareToSourceExpression() {
 		return compareToSourceExpression;
 	}
@@ -538,6 +558,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCompareToSourcePath() {
 		return compareToSourcePath;
 	}
@@ -581,6 +602,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContentTypeImplAdapter.class)
 	public ContentType getContentType() {
 		return contentType;
 	}
@@ -624,6 +646,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}
@@ -667,6 +690,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getHeaderField() {
 		return headerField;
 	}
@@ -710,6 +734,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMinimumId() {
 		return minimumId;
 	}
@@ -753,6 +778,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getNavigationLinks() {
 		return navigationLinks;
 	}
@@ -796,6 +822,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AssertionOperatorTypeImplAdapter.class)
 	public AssertionOperatorType getOperator() {
 		return operator;
 	}
@@ -839,6 +866,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -882,6 +910,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TestScriptRequestMethodCodeImplAdapter.class)
 	public TestScriptRequestMethodCode getRequestMethod() {
 		return requestMethod;
 	}
@@ -925,6 +954,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRequestURL() {
 		return requestURL;
 	}
@@ -968,6 +998,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FHIRDefinedTypeImplAdapter.class)
 	public FHIRDefinedType getResource() {
 		return resource;
 	}
@@ -1011,6 +1042,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AssertionResponseTypesImplAdapter.class)
 	public AssertionResponseTypes getResponse() {
 		return response;
 	}
@@ -1054,6 +1086,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getResponseCode() {
 		return responseCode;
 	}
@@ -1183,6 +1216,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getSourceId() {
 		return sourceId;
 	}
@@ -1226,6 +1260,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getValidateProfileId() {
 		return validateProfileId;
 	}
@@ -1269,6 +1304,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}
@@ -1312,6 +1348,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getWarningOnly() {
 		return warningOnly;
 	}

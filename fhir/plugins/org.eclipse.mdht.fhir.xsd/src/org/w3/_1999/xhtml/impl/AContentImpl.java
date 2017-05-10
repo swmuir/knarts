@@ -4,6 +4,12 @@ package org.w3._1999.xhtml.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -42,6 +48,27 @@ import org.w3._1999.xhtml.SupType;
 import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.VarType;
 import org.w3._1999.xhtml.XhtmlPackage;
+import org.w3._1999.xhtml.jaxb.AbbrTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.AcronymTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BdoTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.BigTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.CiteTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.CodeTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.DfnTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.EmTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.ITypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.KbdTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.MapTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.QTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SampTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SmallTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SpanTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.StrongTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SubTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.SupTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.TtTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.VarTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +107,9 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "AContent", namespace = "http://www.w3.org/1999/xhtml")
+@XmlSeeAlso({ ATypeImpl.class })
+@XmlRootElement(name = "AContent")
 public class AContentImpl extends MinimalEObjectImpl.Container implements AContent {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -136,6 +166,7 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<BrType> getBr() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Br());
 	}
@@ -145,6 +176,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SpanTypeImplAdapter.class)
+	@XmlElement
 	public EList<SpanType> getSpan() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Span());
 	}
@@ -154,6 +187,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BdoTypeImplAdapter.class)
+	@XmlElement
 	public EList<BdoType> getBdo() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Bdo());
 	}
@@ -163,6 +198,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MapTypeImplAdapter.class)
+	@XmlElement
 	public EList<MapType> getMap() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Map());
 	}
@@ -172,6 +209,7 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ImgType> getImg() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Img());
 	}
@@ -181,6 +219,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TtTypeImplAdapter.class)
+	@XmlElement
 	public EList<TtType> getTt() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Tt());
 	}
@@ -190,6 +230,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ITypeImplAdapter.class)
+	@XmlElement
 	public EList<IType> getI() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_I());
 	}
@@ -199,6 +241,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BTypeImplAdapter.class)
+	@XmlElement
 	public EList<BType> getB() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_B());
 	}
@@ -208,6 +252,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BigTypeImplAdapter.class)
+	@XmlElement
 	public EList<BigType> getBig() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Big());
 	}
@@ -217,6 +263,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SmallTypeImplAdapter.class)
+	@XmlElement
 	public EList<SmallType> getSmall() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Small());
 	}
@@ -226,6 +274,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EmTypeImplAdapter.class)
+	@XmlElement
 	public EList<EmType> getEm() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Em());
 	}
@@ -235,6 +285,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StrongTypeImplAdapter.class)
+	@XmlElement
 	public EList<StrongType> getStrong() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Strong());
 	}
@@ -244,6 +296,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DfnTypeImplAdapter.class)
+	@XmlElement
 	public EList<DfnType> getDfn() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Dfn());
 	}
@@ -253,6 +307,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeTypeImplAdapter.class)
+	@XmlElement
 	public EList<CodeType> getCode() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Code());
 	}
@@ -262,6 +318,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(QTypeImplAdapter.class)
+	@XmlElement
 	public EList<QType> getQ() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Q());
 	}
@@ -271,6 +329,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SampTypeImplAdapter.class)
+	@XmlElement
 	public EList<SampType> getSamp() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Samp());
 	}
@@ -280,6 +340,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(KbdTypeImplAdapter.class)
+	@XmlElement
 	public EList<KbdType> getKbd() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Kbd());
 	}
@@ -289,6 +351,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(VarTypeImplAdapter.class)
+	@XmlElement
 	public EList<VarType> getVar() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Var());
 	}
@@ -298,6 +362,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CiteTypeImplAdapter.class)
+	@XmlElement
 	public EList<CiteType> getCite() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Cite());
 	}
@@ -307,6 +373,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AbbrTypeImplAdapter.class)
+	@XmlElement
 	public EList<AbbrType> getAbbr() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Abbr());
 	}
@@ -316,6 +384,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AcronymTypeImplAdapter.class)
+	@XmlElement
 	public EList<AcronymType> getAcronym() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Acronym());
 	}
@@ -325,6 +395,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SubTypeImplAdapter.class)
+	@XmlElement
 	public EList<SubType> getSub() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Sub());
 	}
@@ -334,6 +406,8 @@ public class AContentImpl extends MinimalEObjectImpl.Container implements AConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SupTypeImplAdapter.class)
+	@XmlElement
 	public EList<SupType> getSup() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getAContent_Sup());
 	}

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,8 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +39,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "DataRequirementDateFilter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DataRequirementDateFilter")
 public class DataRequirementDateFilterImpl extends ElementImpl implements DataRequirementDateFilter {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -97,6 +106,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -140,6 +151,7 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}

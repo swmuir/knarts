@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,12 @@ import org.hl7.fhir.OperationDefinitionParameter;
 import org.hl7.fhir.OperationParameterUse;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SearchParamType;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.FHIRAllTypesImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.OperationParameterUseImplAdapter;
+import org.hl7.fhir.jaxb.SearchParamTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +59,8 @@ import org.hl7.fhir.SearchParamType;
  *
  * @generated
  */
+@XmlType(name = "OperationDefinitionParameter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OperationDefinitionParameter")
 public class OperationDefinitionParameterImpl extends BackboneElementImpl implements OperationDefinitionParameter {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -173,6 +186,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getName() {
 		return name;
 	}
@@ -216,6 +231,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OperationParameterUseImplAdapter.class)
+	@XmlElement(required = true)
 	public OperationParameterUse getUse() {
 		return use;
 	}
@@ -259,6 +276,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getMin() {
 		return min;
 	}
@@ -302,6 +321,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}
@@ -345,6 +366,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -388,6 +410,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FHIRAllTypesImplAdapter.class)
 	public FHIRAllTypes getType() {
 		return type;
 	}
@@ -431,6 +454,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SearchParamTypeImplAdapter.class)
 	public SearchParamType getSearchType() {
 		return searchType;
 	}
@@ -560,6 +584,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<OperationDefinitionParameter> getPart() {
 		if (part == null) {
 			part = new EObjectContainmentEList<OperationDefinitionParameter>(OperationDefinitionParameter.class, this, FhirPackage.OPERATION_DEFINITION_PARAMETER__PART);

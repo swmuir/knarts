@@ -4,6 +4,9 @@ package org.hl7.fhir.impl;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +29,8 @@ import org.hl7.fhir.Id;
  *
  * @generated
  */
+@XmlType(name = "Id", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Id")
 public class IdImpl extends ElementImpl implements Id {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

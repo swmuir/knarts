@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,10 @@ import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +55,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Signature", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Signature")
 public class SignatureImpl extends ElementImpl implements Signature {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -151,6 +162,7 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<Coding> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.SIGNATURE__TYPE);
@@ -163,6 +175,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
+	@XmlElement(required = true)
 	public Instant getWhen() {
 		return when;
 	}
@@ -206,6 +220,7 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getWhoUri() {
 		return whoUri;
 	}
@@ -292,6 +307,7 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getOnBehalfOfUri() {
 		return onBehalfOfUri;
 	}
@@ -378,6 +394,7 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getContentType() {
 		return contentType;
 	}
@@ -421,6 +438,7 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getBlob() {
 		return blob;
 	}

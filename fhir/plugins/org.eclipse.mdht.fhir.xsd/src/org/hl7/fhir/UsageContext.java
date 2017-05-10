@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.UsageContextImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='UsageContext' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(UsageContextImplAdapter.class)
 public interface UsageContext extends Element {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

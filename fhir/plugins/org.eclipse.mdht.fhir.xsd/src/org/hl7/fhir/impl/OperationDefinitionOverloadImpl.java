@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.OperationDefinitionOverload;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +40,8 @@ import org.hl7.fhir.OperationDefinitionOverload;
  *
  * @generated
  */
+@XmlType(name = "OperationDefinitionOverload", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OperationDefinitionOverload")
 public class OperationDefinitionOverloadImpl extends BackboneElementImpl implements OperationDefinitionOverload {
 	/**
 	 * The cached value of the '{@link #getParameterName() <em>Parameter Name</em>}' containment reference list.
@@ -79,6 +87,8 @@ public class OperationDefinitionOverloadImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getParameterName() {
 		if (parameterName == null) {
 			parameterName = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.OPERATION_DEFINITION_OVERLOAD__PARAMETER_NAME);
@@ -91,6 +101,7 @@ public class OperationDefinitionOverloadImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

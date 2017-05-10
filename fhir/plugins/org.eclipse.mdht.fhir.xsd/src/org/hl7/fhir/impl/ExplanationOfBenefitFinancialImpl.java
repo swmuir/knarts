@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,8 @@ import org.hl7.fhir.ExplanationOfBenefitFinancial;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +41,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "ExplanationOfBenefitFinancial", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ExplanationOfBenefitFinancial")
 public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl implements ExplanationOfBenefitFinancial {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -119,6 +128,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -162,6 +172,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getAllowedUnsignedInt() {
 		return allowedUnsignedInt;
 	}
@@ -205,6 +216,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAllowedString() {
 		return allowedString;
 	}
@@ -291,6 +303,7 @@ public class ExplanationOfBenefitFinancialImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getUsedUnsignedInt() {
 		return usedUnsignedInt;
 	}

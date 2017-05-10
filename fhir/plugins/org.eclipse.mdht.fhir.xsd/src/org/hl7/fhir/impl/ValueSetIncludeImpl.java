@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,8 @@ import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetConcept;
 import org.hl7.fhir.ValueSetFilter;
 import org.hl7.fhir.ValueSetInclude;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +47,8 @@ import org.hl7.fhir.ValueSetInclude;
  *
  * @generated
  */
+@XmlType(name = "ValueSetInclude", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ValueSetInclude")
 public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSetInclude {
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
@@ -115,6 +124,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSystem() {
 		return system;
 	}
@@ -158,6 +168,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -201,6 +212,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ValueSetConcept> getConcept() {
 		if (concept == null) {
 			concept = new EObjectContainmentEList<ValueSetConcept>(ValueSetConcept.class, this, FhirPackage.VALUE_SET_INCLUDE__CONCEPT);
@@ -213,6 +225,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ValueSetFilter> getFilter() {
 		if (filter == null) {
 			filter = new EObjectContainmentEList<ValueSetFilter>(ValueSetFilter.class, this, FhirPackage.VALUE_SET_INCLUDE__FILTER);
@@ -225,6 +238,8 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getValueSet() {
 		if (valueSet == null) {
 			valueSet = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.VALUE_SET_INCLUDE__VALUE_SET);

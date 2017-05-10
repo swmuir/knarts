@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,6 +38,15 @@ import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeSystemContentModeImplAdapter;
+import org.hl7.fhir.jaxb.CodeSystemHierarchyMeaningImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,6 +85,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "CodeSystem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CodeSystem")
 public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -346,6 +362,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -432,6 +449,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -475,6 +493,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -518,6 +537,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -561,6 +581,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -604,6 +626,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -647,6 +670,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -690,6 +714,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -733,6 +758,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CODE_SYSTEM__CONTACT);
@@ -745,6 +771,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -788,6 +815,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.CODE_SYSTEM__USE_CONTEXT);
@@ -800,6 +828,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CODE_SYSTEM__JURISDICTION);
@@ -812,6 +841,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -855,6 +885,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -898,6 +929,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getCaseSensitive() {
 		return caseSensitive;
 	}
@@ -941,6 +973,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueSet() {
 		return valueSet;
 	}
@@ -984,6 +1017,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeSystemHierarchyMeaningImplAdapter.class)
 	public CodeSystemHierarchyMeaning getHierarchyMeaning() {
 		return hierarchyMeaning;
 	}
@@ -1027,6 +1061,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getCompositional() {
 		return compositional;
 	}
@@ -1070,6 +1105,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getVersionNeeded() {
 		return versionNeeded;
 	}
@@ -1113,6 +1149,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeSystemContentModeImplAdapter.class)
+	@XmlElement(required = true)
 	public CodeSystemContentMode getContent() {
 		return content;
 	}
@@ -1156,6 +1194,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getCount() {
 		return count;
 	}
@@ -1199,6 +1238,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeSystemFilter> getFilter() {
 		if (filter == null) {
 			filter = new EObjectContainmentEList<CodeSystemFilter>(CodeSystemFilter.class, this, FhirPackage.CODE_SYSTEM__FILTER);
@@ -1211,6 +1251,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeSystemProperty> getProperty() {
 		if (property == null) {
 			property = new EObjectContainmentEList<CodeSystemProperty>(CodeSystemProperty.class, this, FhirPackage.CODE_SYSTEM__PROPERTY);
@@ -1223,6 +1264,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeSystemConcept> getConcept() {
 		if (concept == null) {
 			concept = new EObjectContainmentEList<CodeSystemConcept>(CodeSystemConcept.class, this, FhirPackage.CODE_SYSTEM__CONCEPT);

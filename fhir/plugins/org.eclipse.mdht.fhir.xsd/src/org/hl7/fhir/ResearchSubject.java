@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ResearchSubjectImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +34,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ResearchSubject' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ResearchSubjectImplAdapter.class)
 public interface ResearchSubject extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

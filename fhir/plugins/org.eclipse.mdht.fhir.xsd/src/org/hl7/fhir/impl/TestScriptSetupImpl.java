@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,6 +35,8 @@ import org.hl7.fhir.TestScriptSetup;
  *
  * @generated
  */
+@XmlType(name = "TestScriptSetup", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptSetup")
 public class TestScriptSetupImpl extends BackboneElementImpl implements TestScriptSetup {
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
@@ -66,6 +72,7 @@ public class TestScriptSetupImpl extends BackboneElementImpl implements TestScri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<TestScriptAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<TestScriptAction>(TestScriptAction.class, this, FhirPackage.TEST_SCRIPT_SETUP__ACTION);

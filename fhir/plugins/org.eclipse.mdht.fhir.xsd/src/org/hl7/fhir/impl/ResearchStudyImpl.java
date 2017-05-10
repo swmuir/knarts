@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
 import org.hl7.fhir.ResearchStudyStatus;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.ResearchStudyStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +70,8 @@ import org.hl7.fhir.ResearchStudyStatus;
  *
  * @generated
  */
+@XmlType(name = "ResearchStudy", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ResearchStudy")
 public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStudy {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -287,6 +297,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.RESEARCH_STUDY__IDENTIFIER);
@@ -299,6 +310,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -342,6 +354,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getProtocol() {
 		if (protocol == null) {
 			protocol = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__PROTOCOL);
@@ -354,6 +367,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__PART_OF);
@@ -366,6 +380,8 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResearchStudyStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ResearchStudyStatus getStatus() {
 		return status;
 	}
@@ -409,6 +425,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__CATEGORY);
@@ -421,6 +438,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getFocus() {
 		if (focus == null) {
 			focus = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__FOCUS);
@@ -433,6 +451,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.RESEARCH_STUDY__CONTACT);
@@ -445,6 +464,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.RESEARCH_STUDY__RELATED_ARTIFACT);
@@ -457,6 +477,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getKeyword() {
 		if (keyword == null) {
 			keyword = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__KEYWORD);
@@ -469,6 +490,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__JURISDICTION);
@@ -481,6 +503,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -524,6 +547,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEnrollment() {
 		if (enrollment == null) {
 			enrollment = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__ENROLLMENT);
@@ -665,6 +689,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSite() {
 		if (site == null) {
 			site = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__SITE);
@@ -720,6 +745,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.RESEARCH_STUDY__NOTE);
@@ -732,6 +758,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ResearchStudyArm> getArm() {
 		if (arm == null) {
 			arm = new EObjectContainmentEList<ResearchStudyArm>(ResearchStudyArm.class, this, FhirPackage.RESEARCH_STUDY__ARM);

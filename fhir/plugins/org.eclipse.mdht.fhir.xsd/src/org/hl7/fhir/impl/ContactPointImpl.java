@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +20,10 @@ import org.hl7.fhir.ContactPointUse;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.jaxb.ContactPointSystemImplAdapter;
+import org.hl7.fhir.jaxb.ContactPointUseImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +42,8 @@ import org.hl7.fhir.PositiveInt;
  *
  * @generated
  */
+@XmlType(name = "ContactPoint", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ContactPoint")
 public class ContactPointImpl extends ElementImpl implements ContactPoint {
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
@@ -109,6 +119,7 @@ public class ContactPointImpl extends ElementImpl implements ContactPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContactPointSystemImplAdapter.class)
 	public ContactPointSystem getSystem() {
 		return system;
 	}
@@ -152,6 +163,7 @@ public class ContactPointImpl extends ElementImpl implements ContactPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}
@@ -195,6 +207,7 @@ public class ContactPointImpl extends ElementImpl implements ContactPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContactPointUseImplAdapter.class)
 	public ContactPointUse getUse() {
 		return use;
 	}
@@ -238,6 +251,7 @@ public class ContactPointImpl extends ElementImpl implements ContactPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getRank() {
 		return rank;
 	}

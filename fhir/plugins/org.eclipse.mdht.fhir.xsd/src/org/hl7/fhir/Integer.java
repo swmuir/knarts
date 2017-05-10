@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='integer' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 public interface Integer extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptFixtureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Fixture' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptFixtureImplAdapter.class)
 public interface TestScriptFixture extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Autocreate</b></em>' containment reference.

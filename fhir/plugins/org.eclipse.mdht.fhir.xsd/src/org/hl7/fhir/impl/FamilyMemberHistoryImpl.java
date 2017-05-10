@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +36,12 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FamilyHistoryStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +81,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "FamilyMemberHistory", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "FamilyMemberHistory")
 public class FamilyMemberHistoryImpl extends DomainResourceImpl implements FamilyMemberHistory {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -355,6 +368,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER);
@@ -367,6 +381,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION);
@@ -379,6 +394,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FamilyHistoryStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public FamilyHistoryStatus getStatus() {
 		return status;
 	}
@@ -422,6 +439,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getNotDone() {
 		return notDone;
 	}
@@ -508,6 +526,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -551,6 +570,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -594,6 +614,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -637,6 +658,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getRelationship() {
 		return relationship;
 	}
@@ -680,6 +702,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -766,6 +789,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBornDate() {
 		return bornDate;
 	}
@@ -809,6 +833,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBornString() {
 		return bornString;
 	}
@@ -938,6 +963,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAgeString() {
 		return ageString;
 	}
@@ -981,6 +1007,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getEstimatedAge() {
 		return estimatedAge;
 	}
@@ -1024,6 +1051,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDeceasedBoolean() {
 		return deceasedBoolean;
 	}
@@ -1153,6 +1181,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDeceasedDate() {
 		return deceasedDate;
 	}
@@ -1196,6 +1225,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDeceasedString() {
 		return deceasedString;
 	}
@@ -1239,6 +1269,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE);
@@ -1251,6 +1282,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE);
@@ -1263,6 +1295,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__NOTE);
@@ -1275,6 +1308,7 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<FamilyMemberHistoryCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<FamilyMemberHistoryCondition>(FamilyMemberHistoryCondition.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION);

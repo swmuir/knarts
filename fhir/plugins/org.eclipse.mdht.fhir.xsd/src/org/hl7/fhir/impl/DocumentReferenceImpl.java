@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,11 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DocumentReferenceStatusImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +69,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "DocumentReference", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DocumentReference")
 public class DocumentReferenceImpl extends DomainResourceImpl implements DocumentReference {
 	/**
 	 * The cached value of the '{@link #getMasterIdentifier() <em>Master Identifier</em>}' containment reference.
@@ -297,6 +309,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER);
@@ -309,6 +322,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public DocumentReferenceStatus getStatus() {
 		return status;
 	}
@@ -352,6 +367,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CompositionStatusImplAdapter.class)
 	public CompositionStatus getDocStatus() {
 		return docStatus;
 	}
@@ -395,6 +411,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -524,6 +541,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -567,6 +585,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
+	@XmlElement(required = true)
 	public Instant getIndexed() {
 		return indexed;
 	}
@@ -610,6 +630,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAuthor() {
 		if (author == null) {
 			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE__AUTHOR);
@@ -708,6 +729,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DocumentReferenceRelatesTo> getRelatesTo() {
 		if (relatesTo == null) {
 			relatesTo = new EObjectContainmentEList<DocumentReferenceRelatesTo>(DocumentReferenceRelatesTo.class, this, FhirPackage.DOCUMENT_REFERENCE__RELATES_TO);
@@ -720,6 +742,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -763,6 +786,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DOCUMENT_REFERENCE__SECURITY_LABEL);
@@ -775,6 +799,7 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<DocumentReferenceContent> getContent() {
 		if (content == null) {
 			content = new EObjectContainmentEList<DocumentReferenceContent>(DocumentReferenceContent.class, this, FhirPackage.DOCUMENT_REFERENCE__CONTENT);

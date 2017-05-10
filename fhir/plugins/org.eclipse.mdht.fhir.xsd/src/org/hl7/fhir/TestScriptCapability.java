@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.TestScriptCapabilityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='TestScript.Capability' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptCapabilityImplAdapter.class)
 public interface TestScriptCapability extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' containment reference.

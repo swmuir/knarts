@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.MetaImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Meta' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MetaImplAdapter.class)
 public interface Meta extends Element {
 	/**
 	 * Returns the value of the '<em><b>Version Id</b></em>' containment reference.

@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.StructureMapRuleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='StructureMap.Rule' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(StructureMapRuleImplAdapter.class)
 public interface StructureMapRule extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

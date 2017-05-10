@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MeasurePopulationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Measure.Population' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MeasurePopulationImplAdapter.class)
 public interface MeasurePopulation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

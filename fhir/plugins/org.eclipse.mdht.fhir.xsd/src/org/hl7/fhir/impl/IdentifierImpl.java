@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,6 +21,9 @@ import org.hl7.fhir.IdentifierUse;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.IdentifierUseImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +43,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Identifier", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Identifier")
 public class IdentifierImpl extends ElementImpl implements Identifier {
 	/**
 	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
@@ -121,6 +130,7 @@ public class IdentifierImpl extends ElementImpl implements Identifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdentifierUseImplAdapter.class)
 	public IdentifierUse getUse() {
 		return use;
 	}
@@ -207,6 +217,7 @@ public class IdentifierImpl extends ElementImpl implements Identifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSystem() {
 		return system;
 	}
@@ -250,6 +261,7 @@ public class IdentifierImpl extends ElementImpl implements Identifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}

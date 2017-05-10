@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +18,8 @@ import org.hl7.fhir.ClaimResponseProcessNote;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +37,8 @@ import org.hl7.fhir.PositiveInt;
  *
  * @generated
  */
+@XmlType(name = "ClaimResponseProcessNote", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimResponseProcessNote")
 public class ClaimResponseProcessNoteImpl extends BackboneElementImpl implements ClaimResponseProcessNote {
 	/**
 	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
@@ -96,6 +104,7 @@ public class ClaimResponseProcessNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getNumber() {
 		return number;
 	}
@@ -182,6 +191,7 @@ public class ClaimResponseProcessNoteImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}

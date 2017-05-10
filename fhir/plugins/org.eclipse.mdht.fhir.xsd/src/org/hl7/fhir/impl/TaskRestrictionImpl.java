@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.TaskRestriction;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +44,8 @@ import org.hl7.fhir.TaskRestriction;
  *
  * @generated
  */
+@XmlType(name = "TaskRestriction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TaskRestriction")
 public class TaskRestrictionImpl extends BackboneElementImpl implements TaskRestriction {
 	/**
 	 * The cached value of the '{@link #getRepetitions() <em>Repetitions</em>}' containment reference.
@@ -93,6 +101,7 @@ public class TaskRestrictionImpl extends BackboneElementImpl implements TaskRest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getRepetitions() {
 		return repetitions;
 	}
@@ -179,6 +188,7 @@ public class TaskRestrictionImpl extends BackboneElementImpl implements TaskRest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRecipient() {
 		if (recipient == null) {
 			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK_RESTRICTION__RECIPIENT);

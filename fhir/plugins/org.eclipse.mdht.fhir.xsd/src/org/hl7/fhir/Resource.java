@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.ecore.EObject;
+import org.hl7.fhir.jaxb.ResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Resource' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ResourceImplAdapter.class)
 public interface Resource extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' containment reference.

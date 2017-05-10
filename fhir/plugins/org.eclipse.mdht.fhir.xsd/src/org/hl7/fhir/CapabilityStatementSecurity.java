@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.CapabilityStatementSecurityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='CapabilityStatement.Security' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CapabilityStatementSecurityImplAdapter.class)
 public interface CapabilityStatementSecurity extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Cors</b></em>' containment reference.

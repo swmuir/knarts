@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,9 @@ import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.jaxb.AllergyIntoleranceSeverityImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +51,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "AllergyIntoleranceReaction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AllergyIntoleranceReaction")
 public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implements AllergyIntoleranceReaction {
 	/**
 	 * The cached value of the '{@link #getSubstance() <em>Substance</em>}' containment reference.
@@ -181,6 +191,7 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<CodeableConcept> getManifestation() {
 		if (manifestation == null) {
 			manifestation = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION);
@@ -193,6 +204,7 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -236,6 +248,7 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOnset() {
 		return onset;
 	}
@@ -279,6 +292,7 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AllergyIntoleranceSeverityImplAdapter.class)
 	public AllergyIntoleranceSeverity getSeverity() {
 		return severity;
 	}
@@ -365,6 +379,7 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.ALLERGY_INTOLERANCE_REACTION__NOTE);

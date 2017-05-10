@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +34,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Reference", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Reference")
 public class ReferenceImpl extends ElementImpl implements Reference {
 	/**
 	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
@@ -84,6 +91,7 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getReference() {
 		return reference;
 	}
@@ -170,6 +178,7 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}

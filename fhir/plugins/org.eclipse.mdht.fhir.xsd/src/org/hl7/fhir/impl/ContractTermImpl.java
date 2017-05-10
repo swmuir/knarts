@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +60,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ContractTerm", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ContractTerm")
 public class ContractTermImpl extends BackboneElementImpl implements ContractTerm {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -251,6 +260,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getIssued() {
 		return issued;
 	}
@@ -423,6 +433,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT_TERM__TOPIC);
@@ -435,6 +446,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_TERM__ACTION);
@@ -447,6 +459,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getActionReason() {
 		if (actionReason == null) {
 			actionReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_TERM__ACTION_REASON);
@@ -459,6 +472,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONTRACT_TERM__SECURITY_LABEL);
@@ -471,6 +485,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractAgent1> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ContractAgent1>(ContractAgent1.class, this, FhirPackage.CONTRACT_TERM__AGENT);
@@ -483,6 +498,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -526,6 +542,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractValuedItem1> getValuedItem() {
 		if (valuedItem == null) {
 			valuedItem = new EObjectContainmentEList<ContractValuedItem1>(ContractValuedItem1.class, this, FhirPackage.CONTRACT_TERM__VALUED_ITEM);
@@ -538,6 +555,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractTerm> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<ContractTerm>(ContractTerm.class, this, FhirPackage.CONTRACT_TERM__GROUP);

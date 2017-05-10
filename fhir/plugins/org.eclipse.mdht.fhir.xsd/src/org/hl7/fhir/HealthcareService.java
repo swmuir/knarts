@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.HealthcareServiceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +51,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='HealthcareService' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(HealthcareServiceImplAdapter.class)
 public interface HealthcareService extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,10 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.EndpointStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +61,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Endpoint", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Endpoint")
 public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -187,6 +198,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENDPOINT__IDENTIFIER);
@@ -199,6 +211,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EndpointStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public EndpointStatus getStatus() {
 		return status;
 	}
@@ -242,6 +256,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getConnectionType() {
 		return connectionType;
 	}
@@ -285,6 +300,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -371,6 +387,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.ENDPOINT__CONTACT);
@@ -426,6 +443,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<CodeableConcept> getPayloadType() {
 		if (payloadType == null) {
 			payloadType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENDPOINT__PAYLOAD_TYPE);
@@ -438,6 +456,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement
 	public EList<Code> getPayloadMimeType() {
 		if (payloadMimeType == null) {
 			payloadMimeType = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.ENDPOINT__PAYLOAD_MIME_TYPE);
@@ -450,6 +470,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getAddress() {
 		return address;
 	}
@@ -493,6 +515,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getHeader() {
 		if (header == null) {
 			header = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ENDPOINT__HEADER);

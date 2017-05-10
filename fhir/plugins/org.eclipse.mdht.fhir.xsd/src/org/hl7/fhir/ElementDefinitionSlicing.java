@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ElementDefinitionSlicingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ElementDefinition.Slicing' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ElementDefinitionSlicingImplAdapter.class)
 public interface ElementDefinitionSlicing extends Element {
 	/**
 	 * Returns the value of the '<em><b>Discriminator</b></em>' containment reference list.

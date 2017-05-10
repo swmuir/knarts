@@ -4,6 +4,9 @@ package org.hl7.fhir.impl;
 
 import java.lang.Integer;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +28,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "Integer", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Integer")
 public class IntegerImpl extends ElementImpl implements org.hl7.fhir.Integer {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

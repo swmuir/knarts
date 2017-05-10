@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.SequenceQualityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Sequence.Quality' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(SequenceQualityImplAdapter.class)
 public interface SequenceQuality extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

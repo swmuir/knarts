@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DeviceUseStatementStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +60,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "DeviceUseStatement", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DeviceUseStatement")
 public class DeviceUseStatementImpl extends DomainResourceImpl implements DeviceUseStatement {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -208,6 +217,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER);
@@ -220,6 +230,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DeviceUseStatementStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public DeviceUseStatementStatus getStatus() {
 		return status;
 	}
@@ -263,6 +275,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -435,6 +448,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -478,6 +492,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getRecordedOn() {
 		return recordedOn;
 	}
@@ -564,6 +579,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getDevice() {
 		return device;
 	}
@@ -607,6 +623,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getIndication() {
 		if (indication == null) {
 			indication = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_USE_STATEMENT__INDICATION);
@@ -662,6 +679,7 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.DEVICE_USE_STATEMENT__NOTE);

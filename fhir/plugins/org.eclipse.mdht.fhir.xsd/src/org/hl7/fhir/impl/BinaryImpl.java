@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,8 @@ import org.hl7.fhir.Binary;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +38,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Binary", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Binary")
 public class BinaryImpl extends ResourceImpl implements Binary {
 	/**
 	 * The cached value of the '{@link #getContentType() <em>Content Type</em>}' containment reference.
@@ -86,6 +95,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getContentType() {
 		return contentType;
 	}
@@ -172,6 +183,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
+	@XmlElement(required = true)
 	public Base64Binary getContent() {
 		return content;
 	}

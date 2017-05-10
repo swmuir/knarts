@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ConsentExceptImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Consent.Except' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ConsentExceptImplAdapter.class)
 public interface ConsentExcept extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ParticipantRequired;
 import org.hl7.fhir.ParticipationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.ParticipantRequiredImplAdapter;
+import org.hl7.fhir.jaxb.ParticipationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +47,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "AppointmentParticipant", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AppointmentParticipant")
 public class AppointmentParticipantImpl extends BackboneElementImpl implements AppointmentParticipant {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -105,6 +114,7 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT_PARTICIPANT__TYPE);
@@ -160,6 +170,7 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ParticipantRequiredImplAdapter.class)
 	public ParticipantRequired getRequired() {
 		return required;
 	}
@@ -203,6 +214,8 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ParticipationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ParticipationStatus getStatus() {
 		return status;
 	}

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +21,9 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.RelatedArtifactTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +43,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "RelatedArtifact", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "RelatedArtifact")
 public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -120,6 +130,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RelatedArtifactTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public RelatedArtifactType getType() {
 		return type;
 	}
@@ -163,6 +175,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -206,6 +219,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCitation() {
 		return citation;
 	}
@@ -249,6 +263,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
