@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.fhir.transform;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -51,6 +52,7 @@ import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
+import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.ExtensionContext;
@@ -70,6 +72,7 @@ import org.hl7.fhir.StructureDefinitionKind;
 import org.hl7.fhir.StructureDefinitionKindList;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeDerivationRuleList;
+import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 
 public class ModelExporter implements ModelConstants {
@@ -199,7 +202,7 @@ public class ModelExporter implements ModelConstants {
 		differential.getElement().add(elementDef);
 		String path = baseType.getName();
 		elementDef.setPath(createFhirString(path));
-		elementDef.setMin(createFhirInteger(0));
+		elementDef.setMin(createFhirUnsignedInt(0));
 		elementDef.setMax(createFhirString("*"));
 		if (!umlClass.getName().equals(baseType.getName())) {
 			elementDef.setSliceName(createFhirString(umlClass.getName()));
@@ -262,7 +265,7 @@ public class ModelExporter implements ModelConstants {
 		}
 		
 		if (minOccurs != null) {
-			elementDef.setMin(createFhirInteger(minOccurs));
+			elementDef.setMin(createFhirUnsignedInt(minOccurs));
 		}
 		if (maxOccurs != null) {
 			elementDef.setMax(createFhirString(maxOccurs == -1 ? "*" : Integer.toString(maxOccurs)));
@@ -350,7 +353,7 @@ public class ModelExporter implements ModelConstants {
 		}
 		String comments = getComment(property, FHIRPackage.eINSTANCE.getComments());
 		if (comments != null) {
-			elementDef.setComments(createMarkdown(comments));
+			elementDef.setComment(createMarkdown(comments));
 		}
 		
 		return elementDef;
@@ -625,7 +628,9 @@ public class ModelExporter implements ModelConstants {
 			slicing = FhirFactory.eINSTANCE.createElementDefinitionSlicing();
 			
 			for (String discriminator : slicingStereotype.getDiscriminators()) {
-				slicing.getDiscriminator().add(createFhirString(discriminator));
+				ElementDefinitionDiscriminator fhirElementDefinitionDiscriminator = FhirFactory.eINSTANCE.createElementDefinitionDiscriminator();
+				fhirElementDefinitionDiscriminator.setPath(createFhirString(discriminator));
+				slicing.getDiscriminator().add(fhirElementDefinitionDiscriminator);
 			}
 			if (slicingStereotype.getRules() != null) {
 				SlicingRules slicingRules = FhirFactory.eINSTANCE.createSlicingRules();
@@ -691,6 +696,12 @@ public class ModelExporter implements ModelConstants {
 		org.hl7.fhir.Integer fhirInteger = FhirFactory.eINSTANCE.createInteger();
 		fhirInteger.setValue(value);
 		return fhirInteger;
+	}
+	
+	private UnsignedInt createFhirUnsignedInt(int value) {
+		UnsignedInt fhirUnsignedInt = FhirFactory.eINSTANCE.createUnsignedInt();
+		fhirUnsignedInt.setValue(BigInteger.valueOf(value));
+		return fhirUnsignedInt;
 	}
 
 	private org.hl7.fhir.Code createFhirCode(String value) {
