@@ -18,13 +18,13 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.Subscription#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link org.hl7.fhir.Subscription#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.Subscription#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Subscription#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.Subscription#getEnd <em>End</em>}</li>
+ *   <li>{@link org.hl7.fhir.Subscription#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Subscription#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getChannel <em>Channel</em>}</li>
- *   <li>{@link org.hl7.fhir.Subscription#getEnd <em>End</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getTag <em>Tag</em>}</li>
  * </ul>
  *
@@ -34,30 +34,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Subscription extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The rules that the server should use to determine when to generate notifications for this subscription.
+	 * The status of the subscription, which marks the server state for managing the subscription.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Criteria</em>' containment reference.
-	 * @see #setCriteria(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubscription_Criteria()
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(SubscriptionStatus)
+	 * @see org.hl7.fhir.FhirPackage#getSubscription_Status()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='criteria' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCriteria();
+	SubscriptionStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getCriteria <em>Criteria</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Criteria</em>' containment reference.
-	 * @see #getCriteria()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setCriteria(org.hl7.fhir.String value);
+	void setStatus(SubscriptionStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
@@ -74,6 +74,32 @@ public interface Subscription extends DomainResource {
 	 * @generated
 	 */
 	EList<ContactPoint> getContact();
+
+	/**
+	 * Returns the value of the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The time for the server to turn the subscription off.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>End</em>' containment reference.
+	 * @see #setEnd(Instant)
+	 * @see org.hl7.fhir.FhirPackage#getSubscription_End()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='end' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Instant getEnd();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getEnd <em>End</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>End</em>' containment reference.
+	 * @see #getEnd()
+	 * @generated
+	 */
+	void setEnd(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
@@ -102,30 +128,30 @@ public interface Subscription extends DomainResource {
 	void setReason(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the subscription, which marks the server state for managing the subscription.
+	 * The rules that the server should use to determine when to generate notifications for this subscription.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(SubscriptionStatus)
-	 * @see org.hl7.fhir.FhirPackage#getSubscription_Status()
+	 * @return the value of the '<em>Criteria</em>' containment reference.
+	 * @see #setCriteria(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSubscription_Criteria()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='criteria' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SubscriptionStatus getStatus();
+	org.hl7.fhir.String getCriteria();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getStatus <em>Status</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getCriteria <em>Criteria</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
+	 * @param value the new value of the '<em>Criteria</em>' containment reference.
+	 * @see #getCriteria()
 	 * @generated
 	 */
-	void setStatus(SubscriptionStatus value);
+	void setCriteria(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Error</b></em>' containment reference.
@@ -178,32 +204,6 @@ public interface Subscription extends DomainResource {
 	 * @generated
 	 */
 	void setChannel(SubscriptionChannel value);
-
-	/**
-	 * Returns the value of the '<em><b>End</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The time for the server to turn the subscription off.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>End</em>' containment reference.
-	 * @see #setEnd(Instant)
-	 * @see org.hl7.fhir.FhirPackage#getSubscription_End()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='end' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Instant getEnd();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Subscription#getEnd <em>End</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End</em>' containment reference.
-	 * @see #getEnd()
-	 * @generated
-	 */
-	void setEnd(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Tag</b></em>' containment reference list.

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -25,8 +25,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getItem <em>Item</em>}</li>
  * </ul>
@@ -68,7 +68,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
+	 * The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ProcedureRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_BasedOn()
@@ -84,7 +84,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a procedure or observation that this questionnaire was performed as part of the execution of.
+	 * A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Parent()
@@ -99,7 +99,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the Questionnaire resource that defines the form for which answers are being provided.
+	 * The Questionnaire that defines and organizes the questions for which answers are being provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Questionnaire</em>' containment reference.
 	 * @see #setQuestionnaire(Reference)
@@ -125,7 +125,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The lifecycle status of the questionnaire response as a whole.
+	 * The position of the questionnaire response within its overall lifecycle.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(QuestionnaireResponseStatus)
@@ -177,7 +177,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care with primary association to the questionnaire.
+	 * The encounter or episode of care with primary association to the questionnaire response.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference.
 	 * @see #setContext(Reference)
@@ -197,6 +197,32 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * @generated
 	 */
 	void setContext(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Authored</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date and/or time that this set of answers were last changed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authored</em>' containment reference.
+	 * @see #setAuthored(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Authored()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authored' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getAuthored();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Authored</em>' containment reference.
+	 * @see #getAuthored()
+	 * @generated
+	 */
+	void setAuthored(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
@@ -223,32 +249,6 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * @generated
 	 */
 	void setAuthor(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Authored</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date and/or time that this version of the questionnaire response was authored.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Authored</em>' containment reference.
-	 * @see #setAuthored(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Authored()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='authored' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getAuthored();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Authored</em>' containment reference.
-	 * @see #getAuthored()
-	 * @generated
-	 */
-	void setAuthored(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
@@ -282,7 +282,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Corresponds to a group or question item from the original questionnaire.
+	 * A group or question item from the original questionnaire for which answers are provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Item()

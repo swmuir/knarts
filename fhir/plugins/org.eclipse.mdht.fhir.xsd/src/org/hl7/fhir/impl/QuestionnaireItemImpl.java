@@ -23,7 +23,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Instant;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuestionnaireEnableWhen;
 import org.hl7.fhir.QuestionnaireItem;
@@ -43,7 +42,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getLinkId <em>Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getConcept <em>Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getType <em>Type</em>}</li>
@@ -59,7 +58,6 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialInteger <em>Initial Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialDate <em>Initial Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialDateTime <em>Initial Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialInstant <em>Initial Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialTime <em>Initial Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialString <em>Initial String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialUri <em>Initial Uri</em>}</li>
@@ -94,14 +92,14 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	protected Uri definition;
 
 	/**
-	 * The cached value of the '{@link #getConcept() <em>Concept</em>}' containment reference list.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConcept()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> concept;
+	protected EList<Coding> code;
 
 	/**
 	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' containment reference.
@@ -252,16 +250,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * @ordered
 	 */
 	protected DateTime initialDateTime;
-
-	/**
-	 * The cached value of the '{@link #getInitialInstant() <em>Initial Instant</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialInstant()
-	 * @generated
-	 * @ordered
-	 */
-	protected Instant initialInstant;
 
 	/**
 	 * The cached value of the '{@link #getInitialTime() <em>Initial Time</em>}' containment reference.
@@ -453,11 +441,11 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getConcept() {
-		if (concept == null) {
-			concept = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT);
+	public EList<Coding> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.QUESTIONNAIRE_ITEM__CODE);
 		}
-		return concept;
+		return code;
 	}
 
 	/**
@@ -1048,49 +1036,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instant getInitialInstant() {
-		return initialInstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialInstant(Instant newInitialInstant, NotificationChain msgs) {
-		Instant oldInitialInstant = initialInstant;
-		initialInstant = newInitialInstant;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT, oldInitialInstant, newInitialInstant);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialInstant(Instant newInitialInstant) {
-		if (newInitialInstant != initialInstant) {
-			NotificationChain msgs = null;
-			if (initialInstant != null)
-				msgs = ((InternalEObject)initialInstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT, null, msgs);
-			if (newInitialInstant != null)
-				msgs = ((InternalEObject)newInitialInstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT, null, msgs);
-			msgs = basicSetInitialInstant(newInitialInstant, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT, newInitialInstant, newInitialInstant));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Time getInitialTime() {
 		return initialTime;
 	}
@@ -1411,8 +1356,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return basicSetLinkId(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
 				return basicSetDefinition(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
-				return ((InternalEList<?>)getConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__CODE:
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
 				return basicSetPrefix(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__TEXT:
@@ -1443,8 +1388,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return basicSetInitialDate(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
 				return basicSetInitialDateTime(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT:
-				return basicSetInitialInstant(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
 				return basicSetInitialTime(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
@@ -1477,8 +1420,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return getLinkId();
 			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
 				return getDefinition();
-			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
-				return getConcept();
+			case FhirPackage.QUESTIONNAIRE_ITEM__CODE:
+				return getCode();
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
 				return getPrefix();
 			case FhirPackage.QUESTIONNAIRE_ITEM__TEXT:
@@ -1509,8 +1452,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return getInitialDate();
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
 				return getInitialDateTime();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT:
-				return getInitialInstant();
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
 				return getInitialTime();
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
@@ -1546,9 +1487,9 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
 				setDefinition((Uri)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
-				getConcept().clear();
-				getConcept().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM__CODE:
+				getCode().clear();
+				getCode().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
 				setPrefix((org.hl7.fhir.String)newValue);
@@ -1597,9 +1538,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
 				setInitialDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT:
-				setInitialInstant((Instant)newValue);
-				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
 				setInitialTime((Time)newValue);
 				return;
@@ -1643,8 +1581,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
 				setDefinition((Uri)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
-				getConcept().clear();
+			case FhirPackage.QUESTIONNAIRE_ITEM__CODE:
+				getCode().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
 				setPrefix((org.hl7.fhir.String)null);
@@ -1691,9 +1629,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
 				setInitialDateTime((DateTime)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT:
-				setInitialInstant((Instant)null);
-				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
 				setInitialTime((Time)null);
 				return;
@@ -1734,8 +1669,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return linkId != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__DEFINITION:
 				return definition != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__CONCEPT:
-				return concept != null && !concept.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_ITEM__CODE:
+				return code != null && !code.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_ITEM__PREFIX:
 				return prefix != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__TEXT:
@@ -1766,8 +1701,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return initialDate != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
 				return initialDateTime != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INSTANT:
-				return initialInstant != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
 				return initialTime != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:

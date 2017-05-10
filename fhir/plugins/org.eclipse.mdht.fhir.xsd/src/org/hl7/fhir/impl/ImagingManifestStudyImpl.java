@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.ImagingManifestBaseLocation;
 import org.hl7.fhir.ImagingManifestSeries;
 import org.hl7.fhir.ImagingManifestStudy;
 import org.hl7.fhir.Oid;
@@ -34,7 +33,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestStudyImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestStudyImpl#getImagingStudy <em>Imaging Study</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingManifestStudyImpl#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingManifestStudyImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestStudyImpl#getSeries <em>Series</em>}</li>
  * </ul>
  *
@@ -62,14 +61,14 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 	protected Reference imagingStudy;
 
 	/**
-	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' containment reference list.
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseLocation()
+	 * @see #getEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImagingManifestBaseLocation> baseLocation;
+	protected EList<Reference> endpoint;
 
 	/**
 	 * The cached value of the '{@link #getSeries() <em>Series</em>}' containment reference list.
@@ -191,11 +190,11 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImagingManifestBaseLocation> getBaseLocation() {
-		if (baseLocation == null) {
-			baseLocation = new EObjectContainmentEList<ImagingManifestBaseLocation>(ImagingManifestBaseLocation.class, this, FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION);
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT);
 		}
-		return baseLocation;
+		return endpoint;
 	}
 
 	/**
@@ -222,8 +221,8 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 				return basicSetUid(null, msgs);
 			case FhirPackage.IMAGING_MANIFEST_STUDY__IMAGING_STUDY:
 				return basicSetImagingStudy(null, msgs);
-			case FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION:
-				return ((InternalEList<?>)getBaseLocation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_MANIFEST_STUDY__SERIES:
 				return ((InternalEList<?>)getSeries()).basicRemove(otherEnd, msgs);
 		}
@@ -242,8 +241,8 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 				return getUid();
 			case FhirPackage.IMAGING_MANIFEST_STUDY__IMAGING_STUDY:
 				return getImagingStudy();
-			case FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION:
-				return getBaseLocation();
+			case FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT:
+				return getEndpoint();
 			case FhirPackage.IMAGING_MANIFEST_STUDY__SERIES:
 				return getSeries();
 		}
@@ -265,9 +264,9 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 			case FhirPackage.IMAGING_MANIFEST_STUDY__IMAGING_STUDY:
 				setImagingStudy((Reference)newValue);
 				return;
-			case FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION:
-				getBaseLocation().clear();
-				getBaseLocation().addAll((Collection<? extends ImagingManifestBaseLocation>)newValue);
+			case FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.IMAGING_MANIFEST_STUDY__SERIES:
 				getSeries().clear();
@@ -291,8 +290,8 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 			case FhirPackage.IMAGING_MANIFEST_STUDY__IMAGING_STUDY:
 				setImagingStudy((Reference)null);
 				return;
-			case FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION:
-				getBaseLocation().clear();
+			case FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT:
+				getEndpoint().clear();
 				return;
 			case FhirPackage.IMAGING_MANIFEST_STUDY__SERIES:
 				getSeries().clear();
@@ -313,8 +312,8 @@ public class ImagingManifestStudyImpl extends BackboneElementImpl implements Ima
 				return uid != null;
 			case FhirPackage.IMAGING_MANIFEST_STUDY__IMAGING_STUDY:
 				return imagingStudy != null;
-			case FhirPackage.IMAGING_MANIFEST_STUDY__BASE_LOCATION:
-				return baseLocation != null && !baseLocation.isEmpty();
+			case FhirPackage.IMAGING_MANIFEST_STUDY__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 			case FhirPackage.IMAGING_MANIFEST_STUDY__SERIES:
 				return series != null && !series.isEmpty();
 		}

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.
+ * Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -78,7 +78,7 @@ public interface DataRequirement extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.
+	 * Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. Note that the value for this element can be a path to allow references to nested elements. In that case, all the elements along the path must be supported.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Must Support</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDataRequirement_MustSupport()

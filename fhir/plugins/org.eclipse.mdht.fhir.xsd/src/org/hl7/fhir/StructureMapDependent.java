@@ -58,7 +58,7 @@ public interface StructureMapDependent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Names of variables to pass to the rule or group.
+	 * Variable to pass to the rule or group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Variable</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureMapDependent_Variable()

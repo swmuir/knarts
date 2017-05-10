@@ -115,7 +115,7 @@ public interface Slot extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The style of appointment or patient that has been booked in the slot (not service type).
+	 * The style of appointment or patient that may be booked in the slot (not service type).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Appointment Type</em>' containment reference.
 	 * @see #setAppointmentType(CodeableConcept)

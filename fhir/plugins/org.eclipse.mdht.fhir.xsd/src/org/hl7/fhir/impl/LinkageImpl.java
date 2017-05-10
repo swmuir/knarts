@@ -30,6 +30,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.LinkageImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LinkageImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LinkageImpl#getItem <em>Item</em>}</li>
  * </ul>
@@ -37,6 +38,16 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class LinkageImpl extends DomainResourceImpl implements Linkage {
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
+
 	/**
 	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -74,6 +85,49 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getLinkage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LINKAGE__ACTIVE, oldActive, newActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
+			NotificationChain msgs = null;
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LINKAGE__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LINKAGE__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LINKAGE__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -139,6 +193,8 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.LINKAGE__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.LINKAGE__AUTHOR:
 				return basicSetAuthor(null, msgs);
 			case FhirPackage.LINKAGE__ITEM:
@@ -155,6 +211,8 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.LINKAGE__ACTIVE:
+				return getActive();
 			case FhirPackage.LINKAGE__AUTHOR:
 				return getAuthor();
 			case FhirPackage.LINKAGE__ITEM:
@@ -172,6 +230,9 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.LINKAGE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.LINKAGE__AUTHOR:
 				setAuthor((Reference)newValue);
 				return;
@@ -191,6 +252,9 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.LINKAGE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.LINKAGE__AUTHOR:
 				setAuthor((Reference)null);
 				return;
@@ -209,6 +273,8 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.LINKAGE__ACTIVE:
+				return active != null;
 			case FhirPackage.LINKAGE__AUTHOR:
 				return author != null;
 			case FhirPackage.LINKAGE__ITEM:

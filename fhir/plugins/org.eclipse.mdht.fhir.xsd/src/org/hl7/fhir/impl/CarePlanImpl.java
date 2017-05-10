@@ -20,10 +20,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CarePlan;
 import org.hl7.fhir.CarePlanActivity;
-import org.hl7.fhir.CarePlanRelatedPlan;
+import org.hl7.fhir.CarePlanIntent;
 import org.hl7.fhir.CarePlanStatus;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
@@ -38,19 +37,22 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getReplaces <em>Replaces</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getModified <em>Modified</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getCareTeam <em>Care Team</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getAddresses <em>Addresses</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getSupport <em>Support</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getRelatedPlan <em>Related Plan</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getActivity <em>Activity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getNote <em>Note</em>}</li>
@@ -70,6 +72,46 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> definition;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getReplaces() <em>Replaces</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> replaces;
+
+	/**
+	 * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPartOf()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> partOf;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +122,16 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected CarePlanStatus status;
 
 	/**
+	 * The cached value of the '{@link #getIntent() <em>Intent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIntent()
+	 * @generated
+	 * @ordered
+	 */
+	protected CarePlanIntent intent;
+
+	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +140,16 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> category;
+
+	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -130,16 +192,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected Period period;
 
 	/**
-	 * The cached value of the '{@link #getModified() <em>Modified</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModified()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime modified;
-
-	/**
 	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,34 +222,14 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected EList<Reference> addresses;
 
 	/**
-	 * The cached value of the '{@link #getSupport() <em>Support</em>}' containment reference list.
+	 * The cached value of the '{@link #getSupportingInfo() <em>Supporting Info</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSupport()
+	 * @see #getSupportingInfo()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> support;
-
-	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference definition;
-
-	/**
-	 * The cached value of the '{@link #getRelatedPlan() <em>Related Plan</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelatedPlan()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CarePlanRelatedPlan> relatedPlan;
+	protected EList<Reference> supportingInfo;
 
 	/**
 	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' containment reference list.
@@ -220,14 +252,14 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected EList<CarePlanActivity> activity;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotation note;
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +290,54 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CARE_PLAN__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getDefinition() {
+		if (definition == null) {
+			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__DEFINITION);
+		}
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__BASED_ON);
+		}
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReplaces() {
+		if (replaces == null) {
+			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__REPLACES);
+		}
+		return replaces;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getPartOf() {
+		if (partOf == null) {
+			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__PART_OF);
+		}
+		return partOf;
 	}
 
 	/**
@@ -308,11 +388,97 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CarePlanIntent getIntent() {
+		return intent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIntent(CarePlanIntent newIntent, NotificationChain msgs) {
+		CarePlanIntent oldIntent = intent;
+		intent = newIntent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__INTENT, oldIntent, newIntent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIntent(CarePlanIntent newIntent) {
+		if (newIntent != intent) {
+			NotificationChain msgs = null;
+			if (intent != null)
+				msgs = ((InternalEObject)intent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__INTENT, null, msgs);
+			if (newIntent != null)
+				msgs = ((InternalEObject)newIntent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__INTENT, null, msgs);
+			msgs = basicSetIntent(newIntent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__INTENT, newIntent, newIntent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_PLAN__CATEGORY);
 		}
 		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__TITLE, newTitle, newTitle));
 	}
 
 	/**
@@ -492,49 +658,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getModified() {
-		return modified;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetModified(DateTime newModified, NotificationChain msgs) {
-		DateTime oldModified = modified;
-		modified = newModified;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__MODIFIED, oldModified, newModified);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModified(DateTime newModified) {
-		if (newModified != modified) {
-			NotificationChain msgs = null;
-			if (modified != null)
-				msgs = ((InternalEObject)modified).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__MODIFIED, null, msgs);
-			if (newModified != null)
-				msgs = ((InternalEObject)newModified).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__MODIFIED, null, msgs);
-			msgs = basicSetModified(newModified, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__MODIFIED, newModified, newModified));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getAuthor() {
 		if (author == null) {
 			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__AUTHOR);
@@ -571,66 +694,11 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getSupport() {
-		if (support == null) {
-			support = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__SUPPORT);
+	public EList<Reference> getSupportingInfo() {
+		if (supportingInfo == null) {
+			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__SUPPORTING_INFO);
 		}
-		return support;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getDefinition() {
-		return definition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
-		definition = newDefinition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__DEFINITION, oldDefinition, newDefinition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefinition(Reference newDefinition) {
-		if (newDefinition != definition) {
-			NotificationChain msgs = null;
-			if (definition != null)
-				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__DEFINITION, null, msgs);
-			if (newDefinition != null)
-				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__DEFINITION, null, msgs);
-			msgs = basicSetDefinition(newDefinition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__DEFINITION, newDefinition, newDefinition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CarePlanRelatedPlan> getRelatedPlan() {
-		if (relatedPlan == null) {
-			relatedPlan = new EObjectContainmentEList<CarePlanRelatedPlan>(CarePlanRelatedPlan.class, this, FhirPackage.CARE_PLAN__RELATED_PLAN);
-		}
-		return relatedPlan;
+		return supportingInfo;
 	}
 
 	/**
@@ -662,42 +730,11 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotation getNote() {
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_PLAN__NOTE);
+		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNote(Annotation newNote, NotificationChain msgs) {
-		Annotation oldNote = note;
-		note = newNote;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__NOTE, oldNote, newNote);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNote(Annotation newNote) {
-		if (newNote != note) {
-			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -710,10 +747,22 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__DEFINITION:
+				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__REPLACES:
+				return ((InternalEList<?>)getReplaces()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__PART_OF:
+				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.CARE_PLAN__INTENT:
+				return basicSetIntent(null, msgs);
 			case FhirPackage.CARE_PLAN__CATEGORY:
 				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.CARE_PLAN__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CARE_PLAN__SUBJECT:
@@ -722,26 +771,20 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				return basicSetContext(null, msgs);
 			case FhirPackage.CARE_PLAN__PERIOD:
 				return basicSetPeriod(null, msgs);
-			case FhirPackage.CARE_PLAN__MODIFIED:
-				return basicSetModified(null, msgs);
 			case FhirPackage.CARE_PLAN__AUTHOR:
 				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__CARE_TEAM:
 				return ((InternalEList<?>)getCareTeam()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__ADDRESSES:
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CARE_PLAN__SUPPORT:
-				return ((InternalEList<?>)getSupport()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return basicSetDefinition(null, msgs);
-			case FhirPackage.CARE_PLAN__RELATED_PLAN:
-				return ((InternalEList<?>)getRelatedPlan()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__SUPPORTING_INFO:
+				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__GOAL:
 				return ((InternalEList<?>)getGoal()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__ACTIVITY:
 				return ((InternalEList<?>)getActivity()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__NOTE:
-				return basicSetNote(null, msgs);
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -756,10 +799,22 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.CARE_PLAN__DEFINITION:
+				return getDefinition();
+			case FhirPackage.CARE_PLAN__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.CARE_PLAN__REPLACES:
+				return getReplaces();
+			case FhirPackage.CARE_PLAN__PART_OF:
+				return getPartOf();
 			case FhirPackage.CARE_PLAN__STATUS:
 				return getStatus();
+			case FhirPackage.CARE_PLAN__INTENT:
+				return getIntent();
 			case FhirPackage.CARE_PLAN__CATEGORY:
 				return getCategory();
+			case FhirPackage.CARE_PLAN__TITLE:
+				return getTitle();
 			case FhirPackage.CARE_PLAN__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CARE_PLAN__SUBJECT:
@@ -768,20 +823,14 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				return getContext();
 			case FhirPackage.CARE_PLAN__PERIOD:
 				return getPeriod();
-			case FhirPackage.CARE_PLAN__MODIFIED:
-				return getModified();
 			case FhirPackage.CARE_PLAN__AUTHOR:
 				return getAuthor();
 			case FhirPackage.CARE_PLAN__CARE_TEAM:
 				return getCareTeam();
 			case FhirPackage.CARE_PLAN__ADDRESSES:
 				return getAddresses();
-			case FhirPackage.CARE_PLAN__SUPPORT:
-				return getSupport();
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return getDefinition();
-			case FhirPackage.CARE_PLAN__RELATED_PLAN:
-				return getRelatedPlan();
+			case FhirPackage.CARE_PLAN__SUPPORTING_INFO:
+				return getSupportingInfo();
 			case FhirPackage.CARE_PLAN__GOAL:
 				return getGoal();
 			case FhirPackage.CARE_PLAN__ACTIVITY:
@@ -805,12 +854,34 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.CARE_PLAN__DEFINITION:
+				getDefinition().clear();
+				getDefinition().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CARE_PLAN__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CARE_PLAN__REPLACES:
+				getReplaces().clear();
+				getReplaces().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CARE_PLAN__PART_OF:
+				getPartOf().clear();
+				getPartOf().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.CARE_PLAN__STATUS:
 				setStatus((CarePlanStatus)newValue);
+				return;
+			case FhirPackage.CARE_PLAN__INTENT:
+				setIntent((CarePlanIntent)newValue);
 				return;
 			case FhirPackage.CARE_PLAN__CATEGORY:
 				getCategory().clear();
 				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CARE_PLAN__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CARE_PLAN__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -824,9 +895,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			case FhirPackage.CARE_PLAN__PERIOD:
 				setPeriod((Period)newValue);
 				return;
-			case FhirPackage.CARE_PLAN__MODIFIED:
-				setModified((DateTime)newValue);
-				return;
 			case FhirPackage.CARE_PLAN__AUTHOR:
 				getAuthor().clear();
 				getAuthor().addAll((Collection<? extends Reference>)newValue);
@@ -839,16 +907,9 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				getAddresses().clear();
 				getAddresses().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.CARE_PLAN__SUPPORT:
-				getSupport().clear();
-				getSupport().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				setDefinition((Reference)newValue);
-				return;
-			case FhirPackage.CARE_PLAN__RELATED_PLAN:
-				getRelatedPlan().clear();
-				getRelatedPlan().addAll((Collection<? extends CarePlanRelatedPlan>)newValue);
+			case FhirPackage.CARE_PLAN__SUPPORTING_INFO:
+				getSupportingInfo().clear();
+				getSupportingInfo().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CARE_PLAN__GOAL:
 				getGoal().clear();
@@ -859,7 +920,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				getActivity().addAll((Collection<? extends CarePlanActivity>)newValue);
 				return;
 			case FhirPackage.CARE_PLAN__NOTE:
-				setNote((Annotation)newValue);
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -876,11 +938,29 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.CARE_PLAN__DEFINITION:
+				getDefinition().clear();
+				return;
+			case FhirPackage.CARE_PLAN__BASED_ON:
+				getBasedOn().clear();
+				return;
+			case FhirPackage.CARE_PLAN__REPLACES:
+				getReplaces().clear();
+				return;
+			case FhirPackage.CARE_PLAN__PART_OF:
+				getPartOf().clear();
+				return;
 			case FhirPackage.CARE_PLAN__STATUS:
 				setStatus((CarePlanStatus)null);
 				return;
+			case FhirPackage.CARE_PLAN__INTENT:
+				setIntent((CarePlanIntent)null);
+				return;
 			case FhirPackage.CARE_PLAN__CATEGORY:
 				getCategory().clear();
+				return;
+			case FhirPackage.CARE_PLAN__TITLE:
+				setTitle((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CARE_PLAN__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -894,9 +974,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			case FhirPackage.CARE_PLAN__PERIOD:
 				setPeriod((Period)null);
 				return;
-			case FhirPackage.CARE_PLAN__MODIFIED:
-				setModified((DateTime)null);
-				return;
 			case FhirPackage.CARE_PLAN__AUTHOR:
 				getAuthor().clear();
 				return;
@@ -906,14 +983,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			case FhirPackage.CARE_PLAN__ADDRESSES:
 				getAddresses().clear();
 				return;
-			case FhirPackage.CARE_PLAN__SUPPORT:
-				getSupport().clear();
-				return;
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				setDefinition((Reference)null);
-				return;
-			case FhirPackage.CARE_PLAN__RELATED_PLAN:
-				getRelatedPlan().clear();
+			case FhirPackage.CARE_PLAN__SUPPORTING_INFO:
+				getSupportingInfo().clear();
 				return;
 			case FhirPackage.CARE_PLAN__GOAL:
 				getGoal().clear();
@@ -922,7 +993,7 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				getActivity().clear();
 				return;
 			case FhirPackage.CARE_PLAN__NOTE:
-				setNote((Annotation)null);
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -938,10 +1009,22 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.CARE_PLAN__DEFINITION:
+				return definition != null && !definition.isEmpty();
+			case FhirPackage.CARE_PLAN__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.CARE_PLAN__REPLACES:
+				return replaces != null && !replaces.isEmpty();
+			case FhirPackage.CARE_PLAN__PART_OF:
+				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.CARE_PLAN__STATUS:
 				return status != null;
+			case FhirPackage.CARE_PLAN__INTENT:
+				return intent != null;
 			case FhirPackage.CARE_PLAN__CATEGORY:
 				return category != null && !category.isEmpty();
+			case FhirPackage.CARE_PLAN__TITLE:
+				return title != null;
 			case FhirPackage.CARE_PLAN__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CARE_PLAN__SUBJECT:
@@ -950,26 +1033,20 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				return context != null;
 			case FhirPackage.CARE_PLAN__PERIOD:
 				return period != null;
-			case FhirPackage.CARE_PLAN__MODIFIED:
-				return modified != null;
 			case FhirPackage.CARE_PLAN__AUTHOR:
 				return author != null && !author.isEmpty();
 			case FhirPackage.CARE_PLAN__CARE_TEAM:
 				return careTeam != null && !careTeam.isEmpty();
 			case FhirPackage.CARE_PLAN__ADDRESSES:
 				return addresses != null && !addresses.isEmpty();
-			case FhirPackage.CARE_PLAN__SUPPORT:
-				return support != null && !support.isEmpty();
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return definition != null;
-			case FhirPackage.CARE_PLAN__RELATED_PLAN:
-				return relatedPlan != null && !relatedPlan.isEmpty();
+			case FhirPackage.CARE_PLAN__SUPPORTING_INFO:
+				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.CARE_PLAN__GOAL:
 				return goal != null && !goal.isEmpty();
 			case FhirPackage.CARE_PLAN__ACTIVITY:
 				return activity != null && !activity.isEmpty();
 			case FhirPackage.CARE_PLAN__NOTE:
-				return note != null;
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,8 +17,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.CarePlanActivity#getActionResulting <em>Action Resulting</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlanActivity#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanActivity#getOutcomeCodeableConcept <em>Outcome Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanActivity#getOutcomeReference <em>Outcome Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanActivity#getProgress <em>Progress</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanActivity#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanActivity#getDetail <em>Detail</em>}</li>
@@ -30,46 +30,36 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CarePlanActivity extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Action Resulting</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Outcome Codeable Concept</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the outcome at the point when the status of the activity is assessed.  For example, the outcome of an education activity could be patient understands (or not).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Outcome Codeable Concept</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanActivity_OutcomeCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='outcomeCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getOutcomeCodeableConcept();
+
+	/**
+	 * Returns the value of the '<em><b>Outcome Reference</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
+	 * Details of the outcome or action resulting from the activity.  The reference to an "event" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a “request” resource).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Resulting</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanActivity_ActionResulting()
+	 * @return the value of the '<em>Outcome Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanActivity_OutcomeReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actionResulting' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='outcomeReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getActionResulting();
-
-	/**
-	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Results of the careplan activity.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanActivity_Outcome()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getOutcome();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlanActivity#getOutcome <em>Outcome</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Outcome</em>' containment reference.
-	 * @see #getOutcome()
-	 * @generated
-	 */
-	void setOutcome(CodeableConcept value);
+	EList<Reference> getOutcomeReference();
 
 	/**
 	 * Returns the value of the '<em><b>Progress</b></em>' containment reference list.

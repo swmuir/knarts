@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.ActionConditionKind;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.PlanActionConditionKind;
 import org.hl7.fhir.PlanDefinitionCondition;
 
 /**
@@ -39,7 +39,7 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected PlanActionConditionKind kind;
+	protected ActionConditionKind kind;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -95,7 +95,7 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlanActionConditionKind getKind() {
+	public ActionConditionKind getKind() {
 		return kind;
 	}
 
@@ -104,8 +104,8 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetKind(PlanActionConditionKind newKind, NotificationChain msgs) {
-		PlanActionConditionKind oldKind = kind;
+	public NotificationChain basicSetKind(ActionConditionKind newKind, NotificationChain msgs) {
+		ActionConditionKind oldKind = kind;
 		kind = newKind;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_CONDITION__KIND, oldKind, newKind);
@@ -119,7 +119,7 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKind(PlanActionConditionKind newKind) {
+	public void setKind(ActionConditionKind newKind) {
 		if (newKind != kind) {
 			NotificationChain msgs = null;
 			if (kind != null)
@@ -311,7 +311,7 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.PLAN_DEFINITION_CONDITION__KIND:
-				setKind((PlanActionConditionKind)newValue);
+				setKind((ActionConditionKind)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_CONDITION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -335,7 +335,7 @@ public class PlanDefinitionConditionImpl extends BackboneElementImpl implements 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.PLAN_DEFINITION_CONDITION__KIND:
-				setKind((PlanActionConditionKind)null);
+				setKind((ActionConditionKind)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_CONDITION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);

@@ -25,6 +25,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.StructureMapStructureImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapStructureImpl#getMode <em>Mode</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapStructureImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapStructureImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
@@ -50,6 +51,16 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * @ordered
 	 */
 	protected StructureMapModelMode mode;
+
+	/**
+	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String alias;
 
 	/**
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
@@ -171,6 +182,49 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getAlias() {
+		return alias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAlias(org.hl7.fhir.String newAlias, NotificationChain msgs) {
+		org.hl7.fhir.String oldAlias = alias;
+		alias = newAlias;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS, oldAlias, newAlias);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlias(org.hl7.fhir.String newAlias) {
+		if (newAlias != alias) {
+			NotificationChain msgs = null;
+			if (alias != null)
+				msgs = ((InternalEObject)alias).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS, null, msgs);
+			if (newAlias != null)
+				msgs = ((InternalEObject)newAlias).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS, null, msgs);
+			msgs = basicSetAlias(newAlias, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS, newAlias, newAlias));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -221,6 +275,8 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 				return basicSetUrl(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				return basicSetMode(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS:
+				return basicSetAlias(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__DOCUMENTATION:
 				return basicSetDocumentation(null, msgs);
 		}
@@ -239,6 +295,8 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 				return getUrl();
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				return getMode();
+			case FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS:
+				return getAlias();
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__DOCUMENTATION:
 				return getDocumentation();
 		}
@@ -258,6 +316,9 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 				return;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				setMode((StructureMapModelMode)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS:
+				setAlias((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)newValue);
@@ -280,6 +341,9 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				setMode((StructureMapModelMode)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS:
+				setAlias((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)null);
 				return;
@@ -299,6 +363,8 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 				return url != null;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				return mode != null;
+			case FhirPackage.STRUCTURE_MAP_STRUCTURE__ALIAS:
+				return alias != null;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__DOCUMENTATION:
 				return documentation != null;
 		}

@@ -43,11 +43,11 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getAssessor <em>Assessor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getAssessor <em>Assessor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getProblem <em>Problem</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getInvestigation <em>Investigation</em>}</li>
@@ -114,24 +114,14 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getAssessor() <em>Assessor</em>}' containment reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssessor()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference assessor;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
+	protected Reference context;
 
 	/**
 	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
@@ -154,14 +144,24 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	protected Period effectivePeriod;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getAssessor() <em>Assessor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssessor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference assessor;
 
 	/**
 	 * The cached value of the '{@link #getPrevious() <em>Previous</em>}' containment reference.
@@ -471,8 +471,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getAssessor() {
-		return assessor;
+	public Reference getContext() {
+		return context;
 	}
 
 	/**
@@ -480,11 +480,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAssessor(Reference newAssessor, NotificationChain msgs) {
-		Reference oldAssessor = assessor;
-		assessor = newAssessor;
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, oldAssessor, newAssessor);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -495,61 +495,18 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAssessor(Reference newAssessor) {
-		if (newAssessor != assessor) {
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (assessor != null)
-				msgs = ((InternalEObject)assessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, null, msgs);
-			if (newAssessor != null)
-				msgs = ((InternalEObject)newAssessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, null, msgs);
-			msgs = basicSetAssessor(newAssessor, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, newAssessor, newAssessor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__DATE, newDate, newDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -643,8 +600,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public DateTime getDate() {
+		return date;
 	}
 
 	/**
@@ -652,11 +609,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__DATE, oldDate, newDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -667,18 +624,61 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getAssessor() {
+		return assessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAssessor(Reference newAssessor, NotificationChain msgs) {
+		Reference oldAssessor = assessor;
+		assessor = newAssessor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, oldAssessor, newAssessor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAssessor(Reference newAssessor) {
+		if (newAssessor != assessor) {
+			NotificationChain msgs = null;
+			if (assessor != null)
+				msgs = ((InternalEObject)assessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, null, msgs);
+			if (newAssessor != null)
+				msgs = ((InternalEObject)newAssessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, null, msgs);
+			msgs = basicSetAssessor(newAssessor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ASSESSOR, newAssessor, newAssessor));
 	}
 
 	/**
@@ -881,16 +881,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
-				return basicSetAssessor(null, msgs);
-			case FhirPackage.CLINICAL_IMPRESSION__DATE:
-				return basicSetDate(null, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
 				return basicSetEffectivePeriod(null, msgs);
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__DATE:
+				return basicSetDate(null, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
+				return basicSetAssessor(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__PREVIOUS:
 				return basicSetPrevious(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__PROBLEM:
@@ -933,16 +933,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return getDescription();
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return getSubject();
-			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
-				return getAssessor();
-			case FhirPackage.CLINICAL_IMPRESSION__DATE:
-				return getDate();
+			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
+				return getContext();
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return getEffectiveDateTime();
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
 				return getEffectivePeriod();
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return getContext();
+			case FhirPackage.CLINICAL_IMPRESSION__DATE:
+				return getDate();
+			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
+				return getAssessor();
 			case FhirPackage.CLINICAL_IMPRESSION__PREVIOUS:
 				return getPrevious();
 			case FhirPackage.CLINICAL_IMPRESSION__PROBLEM:
@@ -992,11 +992,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
-				setAssessor((Reference)newValue);
-				return;
-			case FhirPackage.CLINICAL_IMPRESSION__DATE:
-				setDate((DateTime)newValue);
+			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
+				setContext((Reference)newValue);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)newValue);
@@ -1004,8 +1001,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)newValue);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.CLINICAL_IMPRESSION__DATE:
+				setDate((DateTime)newValue);
+				return;
+			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
+				setAssessor((Reference)newValue);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__PREVIOUS:
 				setPrevious((Reference)newValue);
@@ -1072,11 +1072,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
-				setAssessor((Reference)null);
-				return;
-			case FhirPackage.CLINICAL_IMPRESSION__DATE:
-				setDate((DateTime)null);
+			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
+				setContext((Reference)null);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)null);
@@ -1084,8 +1081,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)null);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.CLINICAL_IMPRESSION__DATE:
+				setDate((DateTime)null);
+				return;
+			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
+				setAssessor((Reference)null);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__PREVIOUS:
 				setPrevious((Reference)null);
@@ -1139,16 +1139,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return description != null;
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return subject != null;
-			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
-				return assessor != null;
-			case FhirPackage.CLINICAL_IMPRESSION__DATE:
-				return date != null;
+			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
+				return context != null;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return effectiveDateTime != null;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
 				return effectivePeriod != null;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return context != null;
+			case FhirPackage.CLINICAL_IMPRESSION__DATE:
+				return date != null;
+			case FhirPackage.CLINICAL_IMPRESSION__ASSESSOR:
+				return assessor != null;
 			case FhirPackage.CLINICAL_IMPRESSION__PREVIOUS:
 				return previous != null;
 			case FhirPackage.CLINICAL_IMPRESSION__PROBLEM:

@@ -24,15 +24,31 @@ import org.eclipse.emf.ecore.xml.type.util.XMLTypeUtil;
 import org.eclipse.emf.ecore.xml.type.util.XMLTypeValidator;
 
 import org.hl7.fhir.Account;
+import org.hl7.fhir.AccountCoverage;
 import org.hl7.fhir.AccountGuarantor;
 import org.hl7.fhir.AccountStatus;
 import org.hl7.fhir.AccountStatusList;
+import org.hl7.fhir.ActionCardinalityBehavior;
+import org.hl7.fhir.ActionCardinalityBehaviorList;
+import org.hl7.fhir.ActionConditionKind;
+import org.hl7.fhir.ActionConditionKindList;
+import org.hl7.fhir.ActionGroupingBehavior;
+import org.hl7.fhir.ActionGroupingBehaviorList;
 import org.hl7.fhir.ActionList;
 import org.hl7.fhir.ActionListList;
+import org.hl7.fhir.ActionParticipantType;
+import org.hl7.fhir.ActionParticipantTypeList;
+import org.hl7.fhir.ActionPrecheckBehavior;
+import org.hl7.fhir.ActionPrecheckBehaviorList;
+import org.hl7.fhir.ActionRelationshipType;
+import org.hl7.fhir.ActionRelationshipTypeList;
+import org.hl7.fhir.ActionRequiredBehavior;
+import org.hl7.fhir.ActionRequiredBehaviorList;
+import org.hl7.fhir.ActionSelectionBehavior;
+import org.hl7.fhir.ActionSelectionBehaviorList;
 import org.hl7.fhir.ActivityDefinition;
-import org.hl7.fhir.ActivityDefinitionCategory;
-import org.hl7.fhir.ActivityDefinitionCategoryList;
 import org.hl7.fhir.ActivityDefinitionDynamicValue;
+import org.hl7.fhir.ActivityDefinitionParticipant;
 import org.hl7.fhir.Address;
 import org.hl7.fhir.AddressType;
 import org.hl7.fhir.AddressTypeList;
@@ -40,14 +56,18 @@ import org.hl7.fhir.AddressUse;
 import org.hl7.fhir.AddressUseList;
 import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.AdministrativeGenderList;
+import org.hl7.fhir.AdverseEvent;
+import org.hl7.fhir.AdverseEventCategory;
+import org.hl7.fhir.AdverseEventCategoryList;
+import org.hl7.fhir.AdverseEventCausality;
+import org.hl7.fhir.AdverseEventCausalityList;
+import org.hl7.fhir.AdverseEventSuspectEntity;
 import org.hl7.fhir.Age;
 import org.hl7.fhir.AggregationMode;
 import org.hl7.fhir.AggregationModeList;
 import org.hl7.fhir.AllergyIntolerance;
 import org.hl7.fhir.AllergyIntoleranceCategory;
 import org.hl7.fhir.AllergyIntoleranceCategoryList;
-import org.hl7.fhir.AllergyIntoleranceCertainty;
-import org.hl7.fhir.AllergyIntoleranceCertaintyList;
 import org.hl7.fhir.AllergyIntoleranceClinicalStatus;
 import org.hl7.fhir.AllergyIntoleranceClinicalStatusList;
 import org.hl7.fhir.AllergyIntoleranceCriticality;
@@ -116,18 +136,24 @@ import org.hl7.fhir.CapabilityStatementRest;
 import org.hl7.fhir.CapabilityStatementSearchParam;
 import org.hl7.fhir.CapabilityStatementSecurity;
 import org.hl7.fhir.CapabilityStatementSoftware;
+import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.CarePlan;
 import org.hl7.fhir.CarePlanActivity;
 import org.hl7.fhir.CarePlanActivityStatus;
 import org.hl7.fhir.CarePlanActivityStatusList;
 import org.hl7.fhir.CarePlanDetail;
-import org.hl7.fhir.CarePlanRelatedPlan;
-import org.hl7.fhir.CarePlanRelationship;
-import org.hl7.fhir.CarePlanRelationshipList;
+import org.hl7.fhir.CarePlanIntent;
+import org.hl7.fhir.CarePlanIntentList;
 import org.hl7.fhir.CarePlanStatus;
 import org.hl7.fhir.CarePlanStatusList;
 import org.hl7.fhir.CareTeam;
 import org.hl7.fhir.CareTeamParticipant;
+import org.hl7.fhir.CareTeamStatus;
+import org.hl7.fhir.CareTeamStatusList;
+import org.hl7.fhir.ChargeItem;
+import org.hl7.fhir.ChargeItemParticipant;
+import org.hl7.fhir.ChargeItemStatus;
+import org.hl7.fhir.ChargeItemStatusList;
 import org.hl7.fhir.Claim;
 import org.hl7.fhir.ClaimAccident;
 import org.hl7.fhir.ClaimCareTeam;
@@ -138,7 +164,6 @@ import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
 import org.hl7.fhir.ClaimProcedure;
-import org.hl7.fhir.ClaimProsthesis;
 import org.hl7.fhir.ClaimRelated;
 import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
@@ -148,8 +173,8 @@ import org.hl7.fhir.ClaimResponseDetail1;
 import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
-import org.hl7.fhir.ClaimResponseNote;
 import org.hl7.fhir.ClaimResponsePayment;
+import org.hl7.fhir.ClaimResponseProcessNote;
 import org.hl7.fhir.ClaimResponseSubDetail;
 import org.hl7.fhir.ClaimSubDetail;
 import org.hl7.fhir.ClinicalImpression;
@@ -174,21 +199,17 @@ import org.hl7.fhir.Communication;
 import org.hl7.fhir.CommunicationPayload;
 import org.hl7.fhir.CommunicationRequest;
 import org.hl7.fhir.CommunicationRequestPayload;
-import org.hl7.fhir.CommunicationRequestStatus;
-import org.hl7.fhir.CommunicationRequestStatusList;
-import org.hl7.fhir.CommunicationStatus;
-import org.hl7.fhir.CommunicationStatusList;
+import org.hl7.fhir.CommunicationRequestRequester;
 import org.hl7.fhir.CompartmentDefinition;
 import org.hl7.fhir.CompartmentDefinitionResource;
 import org.hl7.fhir.CompartmentType;
 import org.hl7.fhir.CompartmentTypeList;
-import org.hl7.fhir.CompositeMeasureScoring;
-import org.hl7.fhir.CompositeMeasureScoringList;
 import org.hl7.fhir.Composition;
 import org.hl7.fhir.CompositionAttestationMode;
 import org.hl7.fhir.CompositionAttestationModeList;
 import org.hl7.fhir.CompositionAttester;
 import org.hl7.fhir.CompositionEvent;
+import org.hl7.fhir.CompositionRelatesTo;
 import org.hl7.fhir.CompositionSection;
 import org.hl7.fhir.CompositionStatus;
 import org.hl7.fhir.CompositionStatusList;
@@ -198,8 +219,13 @@ import org.hl7.fhir.ConceptMapElement;
 import org.hl7.fhir.ConceptMapEquivalence;
 import org.hl7.fhir.ConceptMapEquivalenceList;
 import org.hl7.fhir.ConceptMapGroup;
+import org.hl7.fhir.ConceptMapGroupUnmappedMode;
+import org.hl7.fhir.ConceptMapGroupUnmappedModeList;
 import org.hl7.fhir.ConceptMapTarget;
+import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.Condition;
+import org.hl7.fhir.ConditionClinicalStatusCodes;
+import org.hl7.fhir.ConditionClinicalStatusCodesList;
 import org.hl7.fhir.ConditionEvidence;
 import org.hl7.fhir.ConditionStage;
 import org.hl7.fhir.ConditionVerificationStatus;
@@ -208,16 +234,21 @@ import org.hl7.fhir.ConditionalDeleteStatus;
 import org.hl7.fhir.ConditionalDeleteStatusList;
 import org.hl7.fhir.ConditionalReadStatus;
 import org.hl7.fhir.ConditionalReadStatusList;
+import org.hl7.fhir.ConfidentialityClassification;
+import org.hl7.fhir.ConfidentialityClassificationList;
 import org.hl7.fhir.Consent;
 import org.hl7.fhir.ConsentActor;
+import org.hl7.fhir.ConsentActor1;
 import org.hl7.fhir.ConsentData;
+import org.hl7.fhir.ConsentData1;
 import org.hl7.fhir.ConsentDataMeaning;
 import org.hl7.fhir.ConsentDataMeaningList;
 import org.hl7.fhir.ConsentExcept;
 import org.hl7.fhir.ConsentExceptType;
 import org.hl7.fhir.ConsentExceptTypeList;
-import org.hl7.fhir.ConsentStatus;
-import org.hl7.fhir.ConsentStatusList;
+import org.hl7.fhir.ConsentPolicy;
+import org.hl7.fhir.ConsentState;
+import org.hl7.fhir.ConsentStateList;
 import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ConstraintSeverityList;
 import org.hl7.fhir.ContactDetail;
@@ -233,6 +264,8 @@ import org.hl7.fhir.ContractAgent;
 import org.hl7.fhir.ContractAgent1;
 import org.hl7.fhir.ContractFriendly;
 import org.hl7.fhir.ContractLegal;
+import org.hl7.fhir.ContractResourceStatusCodes;
+import org.hl7.fhir.ContractResourceStatusCodesList;
 import org.hl7.fhir.ContractRule;
 import org.hl7.fhir.ContractSigner;
 import org.hl7.fhir.ContractTerm;
@@ -243,7 +276,7 @@ import org.hl7.fhir.ContributorType;
 import org.hl7.fhir.ContributorTypeList;
 import org.hl7.fhir.Count;
 import org.hl7.fhir.Coverage;
-import org.hl7.fhir.CoverageGroup;
+import org.hl7.fhir.CoverageGrouping;
 import org.hl7.fhir.DataElement;
 import org.hl7.fhir.DataElementMapping;
 import org.hl7.fhir.DataElementStringency;
@@ -275,17 +308,21 @@ import org.hl7.fhir.DeviceMetricColor;
 import org.hl7.fhir.DeviceMetricColorList;
 import org.hl7.fhir.DeviceMetricOperationalStatus;
 import org.hl7.fhir.DeviceMetricOperationalStatusList;
-import org.hl7.fhir.DeviceStatus;
-import org.hl7.fhir.DeviceStatusList;
-import org.hl7.fhir.DeviceUseRequest;
+import org.hl7.fhir.DeviceRequest;
+import org.hl7.fhir.DeviceRequestRequester;
+import org.hl7.fhir.DeviceUdi;
 import org.hl7.fhir.DeviceUseStatement;
+import org.hl7.fhir.DeviceUseStatementStatus;
+import org.hl7.fhir.DeviceUseStatementStatusList;
 import org.hl7.fhir.DiagnosticReport;
 import org.hl7.fhir.DiagnosticReportImage;
+import org.hl7.fhir.DiagnosticReportPerformer;
 import org.hl7.fhir.DiagnosticReportStatus;
 import org.hl7.fhir.DiagnosticReportStatusList;
-import org.hl7.fhir.DiagnosticRequest;
 import org.hl7.fhir.DigitalMediaType;
 import org.hl7.fhir.DigitalMediaTypeList;
+import org.hl7.fhir.DiscriminatorType;
+import org.hl7.fhir.DiscriminatorTypeList;
 import org.hl7.fhir.Distance;
 import org.hl7.fhir.DocumentManifest;
 import org.hl7.fhir.DocumentManifestContent;
@@ -303,13 +340,14 @@ import org.hl7.fhir.DocumentRelationshipType;
 import org.hl7.fhir.DocumentRelationshipTypeList;
 import org.hl7.fhir.DocumentRoot;
 import org.hl7.fhir.DomainResource;
-import org.hl7.fhir.DosageInstruction;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.Element;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBase;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
+import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionExample;
 import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.ElementDefinitionSlicing;
@@ -321,6 +359,8 @@ import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.EligibilityResponseFinancial;
 import org.hl7.fhir.EligibilityResponseInsurance;
 import org.hl7.fhir.Encounter;
+import org.hl7.fhir.EncounterClassHistory;
+import org.hl7.fhir.EncounterDiagnosis;
 import org.hl7.fhir.EncounterHospitalization;
 import org.hl7.fhir.EncounterLocation;
 import org.hl7.fhir.EncounterLocationStatus;
@@ -335,11 +375,14 @@ import org.hl7.fhir.EndpointStatusList;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.EnrollmentResponse;
 import org.hl7.fhir.EpisodeOfCare;
+import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.EpisodeOfCareStatus;
 import org.hl7.fhir.EpisodeOfCareStatusHistory;
 import org.hl7.fhir.EpisodeOfCareStatusList;
 import org.hl7.fhir.EventCapabilityMode;
 import org.hl7.fhir.EventCapabilityModeList;
+import org.hl7.fhir.EventStatus;
+import org.hl7.fhir.EventStatusList;
 import org.hl7.fhir.EventTiming;
 import org.hl7.fhir.EventTimingList;
 import org.hl7.fhir.ExpansionProfile;
@@ -363,11 +406,10 @@ import org.hl7.fhir.ExplanationOfBenefitFinancial;
 import org.hl7.fhir.ExplanationOfBenefitInformation;
 import org.hl7.fhir.ExplanationOfBenefitInsurance;
 import org.hl7.fhir.ExplanationOfBenefitItem;
-import org.hl7.fhir.ExplanationOfBenefitNote;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
 import org.hl7.fhir.ExplanationOfBenefitPayment;
 import org.hl7.fhir.ExplanationOfBenefitProcedure;
-import org.hl7.fhir.ExplanationOfBenefitProsthesis;
+import org.hl7.fhir.ExplanationOfBenefitProcessNote;
 import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.ExplanationOfBenefitStatus;
 import org.hl7.fhir.ExplanationOfBenefitStatusList;
@@ -375,6 +417,14 @@ import org.hl7.fhir.ExplanationOfBenefitSubDetail;
 import org.hl7.fhir.Extension;
 import org.hl7.fhir.ExtensionContext;
 import org.hl7.fhir.ExtensionContextList;
+import org.hl7.fhir.FHIRAllTypes;
+import org.hl7.fhir.FHIRAllTypesList;
+import org.hl7.fhir.FHIRDefinedType;
+import org.hl7.fhir.FHIRDefinedTypeList;
+import org.hl7.fhir.FHIRDeviceStatus;
+import org.hl7.fhir.FHIRDeviceStatusList;
+import org.hl7.fhir.FHIRSubstanceStatus;
+import org.hl7.fhir.FHIRSubstanceStatusList;
 import org.hl7.fhir.FamilyHistoryStatus;
 import org.hl7.fhir.FamilyHistoryStatusList;
 import org.hl7.fhir.FamilyMemberHistory;
@@ -382,13 +432,21 @@ import org.hl7.fhir.FamilyMemberHistoryCondition;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FilterOperator;
 import org.hl7.fhir.FilterOperatorList;
+import org.hl7.fhir.FinancialResourceStatusCodes;
+import org.hl7.fhir.FinancialResourceStatusCodesList;
 import org.hl7.fhir.Flag;
 import org.hl7.fhir.FlagStatus;
 import org.hl7.fhir.FlagStatusList;
 import org.hl7.fhir.Goal;
-import org.hl7.fhir.GoalOutcome;
 import org.hl7.fhir.GoalStatus;
 import org.hl7.fhir.GoalStatusList;
+import org.hl7.fhir.GoalTarget;
+import org.hl7.fhir.GraphCompartmentRule;
+import org.hl7.fhir.GraphCompartmentRuleList;
+import org.hl7.fhir.GraphDefinition;
+import org.hl7.fhir.GraphDefinitionCompartment;
+import org.hl7.fhir.GraphDefinitionLink;
+import org.hl7.fhir.GraphDefinitionTarget;
 import org.hl7.fhir.Group;
 import org.hl7.fhir.GroupCharacteristic;
 import org.hl7.fhir.GroupMember;
@@ -414,23 +472,22 @@ import org.hl7.fhir.IdentifierUseList;
 import org.hl7.fhir.IdentityAssuranceLevel;
 import org.hl7.fhir.IdentityAssuranceLevelList;
 import org.hl7.fhir.ImagingManifest;
-import org.hl7.fhir.ImagingManifestBaseLocation;
-import org.hl7.fhir.ImagingManifestBaseLocation1;
 import org.hl7.fhir.ImagingManifestInstance;
 import org.hl7.fhir.ImagingManifestSeries;
 import org.hl7.fhir.ImagingManifestStudy;
 import org.hl7.fhir.ImagingStudy;
-import org.hl7.fhir.ImagingStudyBaseLocation;
-import org.hl7.fhir.ImagingStudyBaseLocation1;
 import org.hl7.fhir.ImagingStudyInstance;
 import org.hl7.fhir.ImagingStudySeries;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationExplanation;
+import org.hl7.fhir.ImmunizationPractitioner;
 import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationRecommendation;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
 import org.hl7.fhir.ImmunizationRecommendationProtocol;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
+import org.hl7.fhir.ImmunizationStatusCodes;
+import org.hl7.fhir.ImmunizationStatusCodesList;
 import org.hl7.fhir.ImmunizationVaccinationProtocol;
 import org.hl7.fhir.ImplementationGuide;
 import org.hl7.fhir.ImplementationGuideDependency;
@@ -468,57 +525,53 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MeasmntPrinciple;
 import org.hl7.fhir.MeasmntPrincipleList;
 import org.hl7.fhir.Measure;
-import org.hl7.fhir.MeasureDataUsage;
-import org.hl7.fhir.MeasureDataUsageList;
 import org.hl7.fhir.MeasureGroup;
 import org.hl7.fhir.MeasurePopulation;
-import org.hl7.fhir.MeasurePopulationType;
-import org.hl7.fhir.MeasurePopulationTypeList;
 import org.hl7.fhir.MeasureReport;
 import org.hl7.fhir.MeasureReportGroup;
-import org.hl7.fhir.MeasureReportGroup1;
-import org.hl7.fhir.MeasureReportGroup2;
 import org.hl7.fhir.MeasureReportPopulation;
 import org.hl7.fhir.MeasureReportPopulation1;
 import org.hl7.fhir.MeasureReportStatus;
 import org.hl7.fhir.MeasureReportStatusList;
 import org.hl7.fhir.MeasureReportStratifier;
-import org.hl7.fhir.MeasureReportSupplementalData;
+import org.hl7.fhir.MeasureReportStratum;
 import org.hl7.fhir.MeasureReportType;
 import org.hl7.fhir.MeasureReportTypeList;
-import org.hl7.fhir.MeasureScoring;
-import org.hl7.fhir.MeasureScoringList;
 import org.hl7.fhir.MeasureStratifier;
 import org.hl7.fhir.MeasureSupplementalData;
-import org.hl7.fhir.MeasureType;
-import org.hl7.fhir.MeasureTypeList;
 import org.hl7.fhir.Media;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationAdministration;
 import org.hl7.fhir.MedicationAdministrationDosage;
+import org.hl7.fhir.MedicationAdministrationPerformer;
 import org.hl7.fhir.MedicationAdministrationStatus;
 import org.hl7.fhir.MedicationAdministrationStatusList;
 import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationContent;
 import org.hl7.fhir.MedicationDispense;
+import org.hl7.fhir.MedicationDispensePerformer;
 import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseStatusList;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.MedicationIngredient;
 import org.hl7.fhir.MedicationPackage;
-import org.hl7.fhir.MedicationProduct;
 import org.hl7.fhir.MedicationRequest;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
+import org.hl7.fhir.MedicationRequestIntent;
+import org.hl7.fhir.MedicationRequestIntentList;
+import org.hl7.fhir.MedicationRequestPriority;
+import org.hl7.fhir.MedicationRequestPriorityList;
+import org.hl7.fhir.MedicationRequestRequester;
 import org.hl7.fhir.MedicationRequestStatus;
 import org.hl7.fhir.MedicationRequestStatusList;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.MedicationStatement;
-import org.hl7.fhir.MedicationStatementCategory;
-import org.hl7.fhir.MedicationStatementCategoryList;
-import org.hl7.fhir.MedicationStatementNotTaken;
-import org.hl7.fhir.MedicationStatementNotTakenList;
 import org.hl7.fhir.MedicationStatementStatus;
 import org.hl7.fhir.MedicationStatementStatusList;
+import org.hl7.fhir.MedicationStatementTaken;
+import org.hl7.fhir.MedicationStatementTakenList;
+import org.hl7.fhir.MedicationStatus;
+import org.hl7.fhir.MedicationStatusList;
 import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
@@ -543,15 +596,15 @@ import org.hl7.fhir.NarrativeStatus;
 import org.hl7.fhir.NarrativeStatusList;
 import org.hl7.fhir.NoteType;
 import org.hl7.fhir.NoteTypeList;
+import org.hl7.fhir.NutritionOrder;
+import org.hl7.fhir.NutritionOrderAdministration;
+import org.hl7.fhir.NutritionOrderEnteralFormula;
+import org.hl7.fhir.NutritionOrderNutrient;
+import org.hl7.fhir.NutritionOrderOralDiet;
 import org.hl7.fhir.NutritionOrderStatus;
 import org.hl7.fhir.NutritionOrderStatusList;
-import org.hl7.fhir.NutritionRequest;
-import org.hl7.fhir.NutritionRequestAdministration;
-import org.hl7.fhir.NutritionRequestEnteralFormula;
-import org.hl7.fhir.NutritionRequestNutrient;
-import org.hl7.fhir.NutritionRequestOralDiet;
-import org.hl7.fhir.NutritionRequestSupplement;
-import org.hl7.fhir.NutritionRequestTexture;
+import org.hl7.fhir.NutritionOrderSupplement;
+import org.hl7.fhir.NutritionOrderTexture;
 import org.hl7.fhir.Observation;
 import org.hl7.fhir.ObservationComponent;
 import org.hl7.fhir.ObservationReferenceRange;
@@ -588,52 +641,33 @@ import org.hl7.fhir.PatientLink;
 import org.hl7.fhir.PaymentNotice;
 import org.hl7.fhir.PaymentReconciliation;
 import org.hl7.fhir.PaymentReconciliationDetail;
-import org.hl7.fhir.PaymentReconciliationNote;
+import org.hl7.fhir.PaymentReconciliationProcessNote;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Person;
 import org.hl7.fhir.PersonLink;
-import org.hl7.fhir.PlanActionCardinalityBehavior;
-import org.hl7.fhir.PlanActionCardinalityBehaviorList;
-import org.hl7.fhir.PlanActionConditionKind;
-import org.hl7.fhir.PlanActionConditionKindList;
-import org.hl7.fhir.PlanActionGroupingBehavior;
-import org.hl7.fhir.PlanActionGroupingBehaviorList;
-import org.hl7.fhir.PlanActionParticipantType;
-import org.hl7.fhir.PlanActionParticipantTypeList;
-import org.hl7.fhir.PlanActionPrecheckBehavior;
-import org.hl7.fhir.PlanActionPrecheckBehaviorList;
-import org.hl7.fhir.PlanActionRelationshipType;
-import org.hl7.fhir.PlanActionRelationshipTypeList;
-import org.hl7.fhir.PlanActionRequiredBehavior;
-import org.hl7.fhir.PlanActionRequiredBehaviorList;
-import org.hl7.fhir.PlanActionSelectionBehavior;
-import org.hl7.fhir.PlanActionSelectionBehaviorList;
 import org.hl7.fhir.PlanDefinition;
-import org.hl7.fhir.PlanDefinitionActionDefinition;
+import org.hl7.fhir.PlanDefinitionAction;
 import org.hl7.fhir.PlanDefinitionCondition;
 import org.hl7.fhir.PlanDefinitionDynamicValue;
+import org.hl7.fhir.PlanDefinitionGoal;
+import org.hl7.fhir.PlanDefinitionParticipant;
 import org.hl7.fhir.PlanDefinitionRelatedAction;
+import org.hl7.fhir.PlanDefinitionTarget;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Practitioner;
 import org.hl7.fhir.PractitionerQualification;
 import org.hl7.fhir.PractitionerRole;
-import org.hl7.fhir.PractitionerRole1;
 import org.hl7.fhir.PractitionerRoleAvailableTime;
 import org.hl7.fhir.PractitionerRoleNotAvailable;
 import org.hl7.fhir.Procedure;
 import org.hl7.fhir.ProcedureFocalDevice;
 import org.hl7.fhir.ProcedurePerformer;
 import org.hl7.fhir.ProcedureRequest;
-import org.hl7.fhir.ProcedureRequestPriority;
-import org.hl7.fhir.ProcedureRequestPriorityList;
-import org.hl7.fhir.ProcedureRequestStatus;
-import org.hl7.fhir.ProcedureRequestStatusList;
-import org.hl7.fhir.ProcedureStatus;
-import org.hl7.fhir.ProcedureStatusList;
+import org.hl7.fhir.ProcedureRequestRequester;
 import org.hl7.fhir.ProcessRequest;
 import org.hl7.fhir.ProcessRequestItem;
 import org.hl7.fhir.ProcessResponse;
-import org.hl7.fhir.ProcessResponseNote;
+import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.PropertyRepresentation;
 import org.hl7.fhir.PropertyRepresentationList;
 import org.hl7.fhir.PropertyType;
@@ -661,8 +695,6 @@ import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.QuestionnaireResponseStatus;
 import org.hl7.fhir.QuestionnaireResponseStatusList;
-import org.hl7.fhir.QuestionnaireStatus;
-import org.hl7.fhir.QuestionnaireStatusList;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
@@ -670,11 +702,8 @@ import org.hl7.fhir.ReferenceHandlingPolicy;
 import org.hl7.fhir.ReferenceHandlingPolicyList;
 import org.hl7.fhir.ReferenceVersionRules;
 import org.hl7.fhir.ReferenceVersionRulesList;
-import org.hl7.fhir.ReferralCategory;
-import org.hl7.fhir.ReferralCategoryList;
 import org.hl7.fhir.ReferralRequest;
-import org.hl7.fhir.ReferralStatus;
-import org.hl7.fhir.ReferralStatusList;
+import org.hl7.fhir.ReferralRequestRequester;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
 import org.hl7.fhir.RelatedArtifactTypeList;
@@ -687,6 +716,12 @@ import org.hl7.fhir.RequestGroup;
 import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestIntentList;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestPriorityList;
+import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.RequestStatusList;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
 import org.hl7.fhir.ResearchStudyStatus;
@@ -696,6 +731,8 @@ import org.hl7.fhir.ResearchSubjectStatus;
 import org.hl7.fhir.ResearchSubjectStatusList;
 import org.hl7.fhir.Resource;
 import org.hl7.fhir.ResourceContainer;
+import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.ResourceTypeList;
 import org.hl7.fhir.ResourceVersionPolicy;
 import org.hl7.fhir.ResourceVersionPolicyList;
 import org.hl7.fhir.ResponseType;
@@ -718,14 +755,9 @@ import org.hl7.fhir.SearchParamTypeList;
 import org.hl7.fhir.SearchParameter;
 import org.hl7.fhir.SearchParameterComponent;
 import org.hl7.fhir.Sequence;
-import org.hl7.fhir.SequenceInner;
-import org.hl7.fhir.SequenceOuter;
 import org.hl7.fhir.SequenceQuality;
 import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
-import org.hl7.fhir.SequenceStructureVariant;
-import org.hl7.fhir.SequenceType;
-import org.hl7.fhir.SequenceTypeList;
 import org.hl7.fhir.SequenceVariant;
 import org.hl7.fhir.ServiceDefinition;
 import org.hl7.fhir.Signature;
@@ -737,9 +769,9 @@ import org.hl7.fhir.SlotStatusList;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.SpecimenCollection;
 import org.hl7.fhir.SpecimenContainer;
+import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
 import org.hl7.fhir.SpecimenStatusList;
-import org.hl7.fhir.SpecimenTreatment;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
@@ -751,18 +783,22 @@ import org.hl7.fhir.StructureMapContextType;
 import org.hl7.fhir.StructureMapContextTypeList;
 import org.hl7.fhir.StructureMapDependent;
 import org.hl7.fhir.StructureMapGroup;
+import org.hl7.fhir.StructureMapGroupTypeMode;
+import org.hl7.fhir.StructureMapGroupTypeModeList;
 import org.hl7.fhir.StructureMapInput;
 import org.hl7.fhir.StructureMapInputMode;
 import org.hl7.fhir.StructureMapInputModeList;
-import org.hl7.fhir.StructureMapListMode;
-import org.hl7.fhir.StructureMapListModeList;
 import org.hl7.fhir.StructureMapModelMode;
 import org.hl7.fhir.StructureMapModelModeList;
 import org.hl7.fhir.StructureMapParameter;
 import org.hl7.fhir.StructureMapRule;
 import org.hl7.fhir.StructureMapSource;
+import org.hl7.fhir.StructureMapSourceListMode;
+import org.hl7.fhir.StructureMapSourceListModeList;
 import org.hl7.fhir.StructureMapStructure;
 import org.hl7.fhir.StructureMapTarget;
+import org.hl7.fhir.StructureMapTargetListMode;
+import org.hl7.fhir.StructureMapTargetListModeList;
 import org.hl7.fhir.StructureMapTransform;
 import org.hl7.fhir.StructureMapTransformList;
 import org.hl7.fhir.Subscription;
@@ -777,10 +813,12 @@ import org.hl7.fhir.SubstanceInstance;
 import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
 import org.hl7.fhir.SupplyDeliveryStatusList;
+import org.hl7.fhir.SupplyDeliverySuppliedItem;
 import org.hl7.fhir.SupplyRequest;
+import org.hl7.fhir.SupplyRequestOrderedItem;
+import org.hl7.fhir.SupplyRequestRequester;
 import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.SupplyRequestStatusList;
-import org.hl7.fhir.SupplyRequestWhen;
 import org.hl7.fhir.SystemRestfulInteraction;
 import org.hl7.fhir.SystemRestfulInteractionList;
 import org.hl7.fhir.SystemVersionProcessingMode;
@@ -796,13 +834,15 @@ import org.hl7.fhir.TestReport;
 import org.hl7.fhir.TestReportAction;
 import org.hl7.fhir.TestReportAction1;
 import org.hl7.fhir.TestReportAction2;
+import org.hl7.fhir.TestReportActionResult;
+import org.hl7.fhir.TestReportActionResultList;
 import org.hl7.fhir.TestReportAssert;
 import org.hl7.fhir.TestReportOperation;
 import org.hl7.fhir.TestReportParticipant;
 import org.hl7.fhir.TestReportParticipantType;
 import org.hl7.fhir.TestReportParticipantTypeList;
-import org.hl7.fhir.TestReportResultCodes;
-import org.hl7.fhir.TestReportResultCodesList;
+import org.hl7.fhir.TestReportResult;
+import org.hl7.fhir.TestReportResultList;
 import org.hl7.fhir.TestReportSetup;
 import org.hl7.fhir.TestReportStatus;
 import org.hl7.fhir.TestReportStatusList;
@@ -825,6 +865,8 @@ import org.hl7.fhir.TestScriptParam1;
 import org.hl7.fhir.TestScriptParam2;
 import org.hl7.fhir.TestScriptParam3;
 import org.hl7.fhir.TestScriptRequestHeader;
+import org.hl7.fhir.TestScriptRequestMethodCode;
+import org.hl7.fhir.TestScriptRequestMethodCodeList;
 import org.hl7.fhir.TestScriptRule;
 import org.hl7.fhir.TestScriptRule1;
 import org.hl7.fhir.TestScriptRule2;
@@ -845,6 +887,8 @@ import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeDerivationRuleList;
 import org.hl7.fhir.TypeRestfulInteraction;
 import org.hl7.fhir.TypeRestfulInteractionList;
+import org.hl7.fhir.UDIEntryType;
+import org.hl7.fhir.UDIEntryTypeList;
 import org.hl7.fhir.UnitsOfTime;
 import org.hl7.fhir.UnitsOfTimeList;
 import org.hl7.fhir.UnknownContentCode;
@@ -864,6 +908,10 @@ import org.hl7.fhir.ValueSetExpansion;
 import org.hl7.fhir.ValueSetFilter;
 import org.hl7.fhir.ValueSetInclude;
 import org.hl7.fhir.ValueSetParameter;
+import org.hl7.fhir.VisionBase;
+import org.hl7.fhir.VisionBaseList;
+import org.hl7.fhir.VisionEyes;
+import org.hl7.fhir.VisionEyesList;
 import org.hl7.fhir.VisionPrescription;
 import org.hl7.fhir.VisionPrescriptionDispense;
 import org.hl7.fhir.XPathUsageType;
@@ -952,18 +1000,36 @@ public class FhirValidator extends EObjectValidator {
 		switch (classifierID) {
 			case FhirPackage.ACCOUNT:
 				return validateAccount((Account)value, diagnostics, context);
+			case FhirPackage.ACCOUNT_COVERAGE:
+				return validateAccountCoverage((AccountCoverage)value, diagnostics, context);
 			case FhirPackage.ACCOUNT_GUARANTOR:
 				return validateAccountGuarantor((AccountGuarantor)value, diagnostics, context);
 			case FhirPackage.ACCOUNT_STATUS:
 				return validateAccountStatus((AccountStatus)value, diagnostics, context);
+			case FhirPackage.ACTION_CARDINALITY_BEHAVIOR:
+				return validateActionCardinalityBehavior((ActionCardinalityBehavior)value, diagnostics, context);
+			case FhirPackage.ACTION_CONDITION_KIND:
+				return validateActionConditionKind((ActionConditionKind)value, diagnostics, context);
+			case FhirPackage.ACTION_GROUPING_BEHAVIOR:
+				return validateActionGroupingBehavior((ActionGroupingBehavior)value, diagnostics, context);
 			case FhirPackage.ACTION_LIST:
 				return validateActionList((ActionList)value, diagnostics, context);
+			case FhirPackage.ACTION_PARTICIPANT_TYPE:
+				return validateActionParticipantType((ActionParticipantType)value, diagnostics, context);
+			case FhirPackage.ACTION_PRECHECK_BEHAVIOR:
+				return validateActionPrecheckBehavior((ActionPrecheckBehavior)value, diagnostics, context);
+			case FhirPackage.ACTION_RELATIONSHIP_TYPE:
+				return validateActionRelationshipType((ActionRelationshipType)value, diagnostics, context);
+			case FhirPackage.ACTION_REQUIRED_BEHAVIOR:
+				return validateActionRequiredBehavior((ActionRequiredBehavior)value, diagnostics, context);
+			case FhirPackage.ACTION_SELECTION_BEHAVIOR:
+				return validateActionSelectionBehavior((ActionSelectionBehavior)value, diagnostics, context);
 			case FhirPackage.ACTIVITY_DEFINITION:
 				return validateActivityDefinition((ActivityDefinition)value, diagnostics, context);
-			case FhirPackage.ACTIVITY_DEFINITION_CATEGORY:
-				return validateActivityDefinitionCategory((ActivityDefinitionCategory)value, diagnostics, context);
 			case FhirPackage.ACTIVITY_DEFINITION_DYNAMIC_VALUE:
 				return validateActivityDefinitionDynamicValue((ActivityDefinitionDynamicValue)value, diagnostics, context);
+			case FhirPackage.ACTIVITY_DEFINITION_PARTICIPANT:
+				return validateActivityDefinitionParticipant((ActivityDefinitionParticipant)value, diagnostics, context);
 			case FhirPackage.ADDRESS:
 				return validateAddress((Address)value, diagnostics, context);
 			case FhirPackage.ADDRESS_TYPE:
@@ -972,6 +1038,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateAddressUse((AddressUse)value, diagnostics, context);
 			case FhirPackage.ADMINISTRATIVE_GENDER:
 				return validateAdministrativeGender((AdministrativeGender)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT:
+				return validateAdverseEvent((AdverseEvent)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CATEGORY:
+				return validateAdverseEventCategory((AdverseEventCategory)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CAUSALITY:
+				return validateAdverseEventCausality((AdverseEventCausality)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_SUSPECT_ENTITY:
+				return validateAdverseEventSuspectEntity((AdverseEventSuspectEntity)value, diagnostics, context);
 			case FhirPackage.AGE:
 				return validateAge((Age)value, diagnostics, context);
 			case FhirPackage.AGGREGATION_MODE:
@@ -980,8 +1054,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateAllergyIntolerance((AllergyIntolerance)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY:
 				return validateAllergyIntoleranceCategory((AllergyIntoleranceCategory)value, diagnostics, context);
-			case FhirPackage.ALLERGY_INTOLERANCE_CERTAINTY:
-				return validateAllergyIntoleranceCertainty((AllergyIntoleranceCertainty)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS:
 				return validateAllergyIntoleranceClinicalStatus((AllergyIntoleranceClinicalStatus)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY:
@@ -1090,6 +1162,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateCapabilityStatementSecurity((CapabilityStatementSecurity)value, diagnostics, context);
 			case FhirPackage.CAPABILITY_STATEMENT_SOFTWARE:
 				return validateCapabilityStatementSoftware((CapabilityStatementSoftware)value, diagnostics, context);
+			case FhirPackage.CAPABILITY_STATEMENT_SUPPORTED_MESSAGE:
+				return validateCapabilityStatementSupportedMessage((CapabilityStatementSupportedMessage)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN:
 				return validateCarePlan((CarePlan)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_ACTIVITY:
@@ -1098,16 +1172,22 @@ public class FhirValidator extends EObjectValidator {
 				return validateCarePlanActivityStatus((CarePlanActivityStatus)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_DETAIL:
 				return validateCarePlanDetail((CarePlanDetail)value, diagnostics, context);
-			case FhirPackage.CARE_PLAN_RELATED_PLAN:
-				return validateCarePlanRelatedPlan((CarePlanRelatedPlan)value, diagnostics, context);
-			case FhirPackage.CARE_PLAN_RELATIONSHIP:
-				return validateCarePlanRelationship((CarePlanRelationship)value, diagnostics, context);
+			case FhirPackage.CARE_PLAN_INTENT:
+				return validateCarePlanIntent((CarePlanIntent)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_STATUS:
 				return validateCarePlanStatus((CarePlanStatus)value, diagnostics, context);
 			case FhirPackage.CARE_TEAM:
 				return validateCareTeam((CareTeam)value, diagnostics, context);
 			case FhirPackage.CARE_TEAM_PARTICIPANT:
 				return validateCareTeamParticipant((CareTeamParticipant)value, diagnostics, context);
+			case FhirPackage.CARE_TEAM_STATUS:
+				return validateCareTeamStatus((CareTeamStatus)value, diagnostics, context);
+			case FhirPackage.CHARGE_ITEM:
+				return validateChargeItem((ChargeItem)value, diagnostics, context);
+			case FhirPackage.CHARGE_ITEM_PARTICIPANT:
+				return validateChargeItemParticipant((ChargeItemParticipant)value, diagnostics, context);
+			case FhirPackage.CHARGE_ITEM_STATUS:
+				return validateChargeItemStatus((ChargeItemStatus)value, diagnostics, context);
 			case FhirPackage.CLAIM:
 				return validateClaim((Claim)value, diagnostics, context);
 			case FhirPackage.CLAIM_ACCIDENT:
@@ -1128,8 +1208,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateClaimPayee((ClaimPayee)value, diagnostics, context);
 			case FhirPackage.CLAIM_PROCEDURE:
 				return validateClaimProcedure((ClaimProcedure)value, diagnostics, context);
-			case FhirPackage.CLAIM_PROSTHESIS:
-				return validateClaimProsthesis((ClaimProsthesis)value, diagnostics, context);
 			case FhirPackage.CLAIM_RELATED:
 				return validateClaimRelated((ClaimRelated)value, diagnostics, context);
 			case FhirPackage.CLAIM_RESPONSE:
@@ -1148,10 +1226,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateClaimResponseInsurance((ClaimResponseInsurance)value, diagnostics, context);
 			case FhirPackage.CLAIM_RESPONSE_ITEM:
 				return validateClaimResponseItem((ClaimResponseItem)value, diagnostics, context);
-			case FhirPackage.CLAIM_RESPONSE_NOTE:
-				return validateClaimResponseNote((ClaimResponseNote)value, diagnostics, context);
 			case FhirPackage.CLAIM_RESPONSE_PAYMENT:
 				return validateClaimResponsePayment((ClaimResponsePayment)value, diagnostics, context);
+			case FhirPackage.CLAIM_RESPONSE_PROCESS_NOTE:
+				return validateClaimResponseProcessNote((ClaimResponseProcessNote)value, diagnostics, context);
 			case FhirPackage.CLAIM_RESPONSE_SUB_DETAIL:
 				return validateClaimResponseSubDetail((ClaimResponseSubDetail)value, diagnostics, context);
 			case FhirPackage.CLAIM_SUB_DETAIL:
@@ -1194,18 +1272,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateCommunicationRequest((CommunicationRequest)value, diagnostics, context);
 			case FhirPackage.COMMUNICATION_REQUEST_PAYLOAD:
 				return validateCommunicationRequestPayload((CommunicationRequestPayload)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_REQUEST_STATUS:
-				return validateCommunicationRequestStatus((CommunicationRequestStatus)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_STATUS:
-				return validateCommunicationStatus((CommunicationStatus)value, diagnostics, context);
+			case FhirPackage.COMMUNICATION_REQUEST_REQUESTER:
+				return validateCommunicationRequestRequester((CommunicationRequestRequester)value, diagnostics, context);
 			case FhirPackage.COMPARTMENT_DEFINITION:
 				return validateCompartmentDefinition((CompartmentDefinition)value, diagnostics, context);
 			case FhirPackage.COMPARTMENT_DEFINITION_RESOURCE:
 				return validateCompartmentDefinitionResource((CompartmentDefinitionResource)value, diagnostics, context);
 			case FhirPackage.COMPARTMENT_TYPE:
 				return validateCompartmentType((CompartmentType)value, diagnostics, context);
-			case FhirPackage.COMPOSITE_MEASURE_SCORING:
-				return validateCompositeMeasureScoring((CompositeMeasureScoring)value, diagnostics, context);
 			case FhirPackage.COMPOSITION:
 				return validateComposition((Composition)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_ATTESTATION_MODE:
@@ -1214,6 +1288,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateCompositionAttester((CompositionAttester)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_EVENT:
 				return validateCompositionEvent((CompositionEvent)value, diagnostics, context);
+			case FhirPackage.COMPOSITION_RELATES_TO:
+				return validateCompositionRelatesTo((CompositionRelatesTo)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_SECTION:
 				return validateCompositionSection((CompositionSection)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_STATUS:
@@ -1228,34 +1304,48 @@ public class FhirValidator extends EObjectValidator {
 				return validateConceptMapEquivalence((ConceptMapEquivalence)value, diagnostics, context);
 			case FhirPackage.CONCEPT_MAP_GROUP:
 				return validateConceptMapGroup((ConceptMapGroup)value, diagnostics, context);
+			case FhirPackage.CONCEPT_MAP_GROUP_UNMAPPED_MODE:
+				return validateConceptMapGroupUnmappedMode((ConceptMapGroupUnmappedMode)value, diagnostics, context);
 			case FhirPackage.CONCEPT_MAP_TARGET:
 				return validateConceptMapTarget((ConceptMapTarget)value, diagnostics, context);
+			case FhirPackage.CONCEPT_MAP_UNMAPPED:
+				return validateConceptMapUnmapped((ConceptMapUnmapped)value, diagnostics, context);
 			case FhirPackage.CONDITION:
 				return validateCondition((Condition)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_DELETE_STATUS:
 				return validateConditionalDeleteStatus((ConditionalDeleteStatus)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_READ_STATUS:
 				return validateConditionalReadStatus((ConditionalReadStatus)value, diagnostics, context);
+			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES:
+				return validateConditionClinicalStatusCodes((ConditionClinicalStatusCodes)value, diagnostics, context);
 			case FhirPackage.CONDITION_EVIDENCE:
 				return validateConditionEvidence((ConditionEvidence)value, diagnostics, context);
 			case FhirPackage.CONDITION_STAGE:
 				return validateConditionStage((ConditionStage)value, diagnostics, context);
 			case FhirPackage.CONDITION_VERIFICATION_STATUS:
 				return validateConditionVerificationStatus((ConditionVerificationStatus)value, diagnostics, context);
+			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION:
+				return validateConfidentialityClassification((ConfidentialityClassification)value, diagnostics, context);
 			case FhirPackage.CONSENT:
 				return validateConsent((Consent)value, diagnostics, context);
 			case FhirPackage.CONSENT_ACTOR:
 				return validateConsentActor((ConsentActor)value, diagnostics, context);
+			case FhirPackage.CONSENT_ACTOR1:
+				return validateConsentActor1((ConsentActor1)value, diagnostics, context);
 			case FhirPackage.CONSENT_DATA:
 				return validateConsentData((ConsentData)value, diagnostics, context);
+			case FhirPackage.CONSENT_DATA1:
+				return validateConsentData1((ConsentData1)value, diagnostics, context);
 			case FhirPackage.CONSENT_DATA_MEANING:
 				return validateConsentDataMeaning((ConsentDataMeaning)value, diagnostics, context);
 			case FhirPackage.CONSENT_EXCEPT:
 				return validateConsentExcept((ConsentExcept)value, diagnostics, context);
 			case FhirPackage.CONSENT_EXCEPT_TYPE:
 				return validateConsentExceptType((ConsentExceptType)value, diagnostics, context);
-			case FhirPackage.CONSENT_STATUS:
-				return validateConsentStatus((ConsentStatus)value, diagnostics, context);
+			case FhirPackage.CONSENT_POLICY:
+				return validateConsentPolicy((ConsentPolicy)value, diagnostics, context);
+			case FhirPackage.CONSENT_STATE:
+				return validateConsentState((ConsentState)value, diagnostics, context);
 			case FhirPackage.CONSTRAINT_SEVERITY:
 				return validateConstraintSeverity((ConstraintSeverity)value, diagnostics, context);
 			case FhirPackage.CONTACT_DETAIL:
@@ -1278,6 +1368,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateContractFriendly((ContractFriendly)value, diagnostics, context);
 			case FhirPackage.CONTRACT_LEGAL:
 				return validateContractLegal((ContractLegal)value, diagnostics, context);
+			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES:
+				return validateContractResourceStatusCodes((ContractResourceStatusCodes)value, diagnostics, context);
 			case FhirPackage.CONTRACT_RULE:
 				return validateContractRule((ContractRule)value, diagnostics, context);
 			case FhirPackage.CONTRACT_SIGNER:
@@ -1296,8 +1388,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateCount((Count)value, diagnostics, context);
 			case FhirPackage.COVERAGE:
 				return validateCoverage((Coverage)value, diagnostics, context);
-			case FhirPackage.COVERAGE_GROUP:
-				return validateCoverageGroup((CoverageGroup)value, diagnostics, context);
+			case FhirPackage.COVERAGE_GROUPING:
+				return validateCoverageGrouping((CoverageGrouping)value, diagnostics, context);
 			case FhirPackage.DATA_ELEMENT:
 				return validateDataElement((DataElement)value, diagnostics, context);
 			case FhirPackage.DATA_ELEMENT_MAPPING:
@@ -1344,22 +1436,28 @@ public class FhirValidator extends EObjectValidator {
 				return validateDeviceMetricColor((DeviceMetricColor)value, diagnostics, context);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS:
 				return validateDeviceMetricOperationalStatus((DeviceMetricOperationalStatus)value, diagnostics, context);
-			case FhirPackage.DEVICE_STATUS:
-				return validateDeviceStatus((DeviceStatus)value, diagnostics, context);
-			case FhirPackage.DEVICE_USE_REQUEST:
-				return validateDeviceUseRequest((DeviceUseRequest)value, diagnostics, context);
+			case FhirPackage.DEVICE_REQUEST:
+				return validateDeviceRequest((DeviceRequest)value, diagnostics, context);
+			case FhirPackage.DEVICE_REQUEST_REQUESTER:
+				return validateDeviceRequestRequester((DeviceRequestRequester)value, diagnostics, context);
+			case FhirPackage.DEVICE_UDI:
+				return validateDeviceUdi((DeviceUdi)value, diagnostics, context);
 			case FhirPackage.DEVICE_USE_STATEMENT:
 				return validateDeviceUseStatement((DeviceUseStatement)value, diagnostics, context);
+			case FhirPackage.DEVICE_USE_STATEMENT_STATUS:
+				return validateDeviceUseStatementStatus((DeviceUseStatementStatus)value, diagnostics, context);
 			case FhirPackage.DIAGNOSTIC_REPORT:
 				return validateDiagnosticReport((DiagnosticReport)value, diagnostics, context);
 			case FhirPackage.DIAGNOSTIC_REPORT_IMAGE:
 				return validateDiagnosticReportImage((DiagnosticReportImage)value, diagnostics, context);
+			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER:
+				return validateDiagnosticReportPerformer((DiagnosticReportPerformer)value, diagnostics, context);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS:
 				return validateDiagnosticReportStatus((DiagnosticReportStatus)value, diagnostics, context);
-			case FhirPackage.DIAGNOSTIC_REQUEST:
-				return validateDiagnosticRequest((DiagnosticRequest)value, diagnostics, context);
 			case FhirPackage.DIGITAL_MEDIA_TYPE:
 				return validateDigitalMediaType((DigitalMediaType)value, diagnostics, context);
+			case FhirPackage.DISCRIMINATOR_TYPE:
+				return validateDiscriminatorType((DiscriminatorType)value, diagnostics, context);
 			case FhirPackage.DISTANCE:
 				return validateDistance((Distance)value, diagnostics, context);
 			case FhirPackage.DOCUMENT_MANIFEST:
@@ -1388,8 +1486,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateDocumentRoot((DocumentRoot)value, diagnostics, context);
 			case FhirPackage.DOMAIN_RESOURCE:
 				return validateDomainResource((DomainResource)value, diagnostics, context);
-			case FhirPackage.DOSAGE_INSTRUCTION:
-				return validateDosageInstruction((DosageInstruction)value, diagnostics, context);
+			case FhirPackage.DOSAGE:
+				return validateDosage((Dosage)value, diagnostics, context);
 			case FhirPackage.DURATION:
 				return validateDuration((Duration)value, diagnostics, context);
 			case FhirPackage.ELEMENT:
@@ -1402,6 +1500,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateElementDefinitionBinding((ElementDefinitionBinding)value, diagnostics, context);
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT:
 				return validateElementDefinitionConstraint((ElementDefinitionConstraint)value, diagnostics, context);
+			case FhirPackage.ELEMENT_DEFINITION_DISCRIMINATOR:
+				return validateElementDefinitionDiscriminator((ElementDefinitionDiscriminator)value, diagnostics, context);
 			case FhirPackage.ELEMENT_DEFINITION_EXAMPLE:
 				return validateElementDefinitionExample((ElementDefinitionExample)value, diagnostics, context);
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING:
@@ -1424,6 +1524,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateEligibilityResponseInsurance((EligibilityResponseInsurance)value, diagnostics, context);
 			case FhirPackage.ENCOUNTER:
 				return validateEncounter((Encounter)value, diagnostics, context);
+			case FhirPackage.ENCOUNTER_CLASS_HISTORY:
+				return validateEncounterClassHistory((EncounterClassHistory)value, diagnostics, context);
+			case FhirPackage.ENCOUNTER_DIAGNOSIS:
+				return validateEncounterDiagnosis((EncounterDiagnosis)value, diagnostics, context);
 			case FhirPackage.ENCOUNTER_HOSPITALIZATION:
 				return validateEncounterHospitalization((EncounterHospitalization)value, diagnostics, context);
 			case FhirPackage.ENCOUNTER_LOCATION:
@@ -1446,12 +1550,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateEnrollmentResponse((EnrollmentResponse)value, diagnostics, context);
 			case FhirPackage.EPISODE_OF_CARE:
 				return validateEpisodeOfCare((EpisodeOfCare)value, diagnostics, context);
+			case FhirPackage.EPISODE_OF_CARE_DIAGNOSIS:
+				return validateEpisodeOfCareDiagnosis((EpisodeOfCareDiagnosis)value, diagnostics, context);
 			case FhirPackage.EPISODE_OF_CARE_STATUS:
 				return validateEpisodeOfCareStatus((EpisodeOfCareStatus)value, diagnostics, context);
 			case FhirPackage.EPISODE_OF_CARE_STATUS_HISTORY:
 				return validateEpisodeOfCareStatusHistory((EpisodeOfCareStatusHistory)value, diagnostics, context);
 			case FhirPackage.EVENT_CAPABILITY_MODE:
 				return validateEventCapabilityMode((EventCapabilityMode)value, diagnostics, context);
+			case FhirPackage.EVENT_STATUS:
+				return validateEventStatus((EventStatus)value, diagnostics, context);
 			case FhirPackage.EVENT_TIMING:
 				return validateEventTiming((EventTiming)value, diagnostics, context);
 			case FhirPackage.EXPANSION_PROFILE:
@@ -1496,16 +1604,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateExplanationOfBenefitInsurance((ExplanationOfBenefitInsurance)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM:
 				return validateExplanationOfBenefitItem((ExplanationOfBenefitItem)value, diagnostics, context);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_NOTE:
-				return validateExplanationOfBenefitNote((ExplanationOfBenefitNote)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE:
 				return validateExplanationOfBenefitPayee((ExplanationOfBenefitPayee)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYMENT:
 				return validateExplanationOfBenefitPayment((ExplanationOfBenefitPayment)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCEDURE:
 				return validateExplanationOfBenefitProcedure((ExplanationOfBenefitProcedure)value, diagnostics, context);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_PROSTHESIS:
-				return validateExplanationOfBenefitProsthesis((ExplanationOfBenefitProsthesis)value, diagnostics, context);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_PROCESS_NOTE:
+				return validateExplanationOfBenefitProcessNote((ExplanationOfBenefitProcessNote)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED:
 				return validateExplanationOfBenefitRelated((ExplanationOfBenefitRelated)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS:
@@ -1522,18 +1628,38 @@ public class FhirValidator extends EObjectValidator {
 				return validateFamilyMemberHistory((FamilyMemberHistory)value, diagnostics, context);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION:
 				return validateFamilyMemberHistoryCondition((FamilyMemberHistoryCondition)value, diagnostics, context);
+			case FhirPackage.FHIR_ALL_TYPES:
+				return validateFHIRAllTypes((FHIRAllTypes)value, diagnostics, context);
+			case FhirPackage.FHIR_DEFINED_TYPE:
+				return validateFHIRDefinedType((FHIRDefinedType)value, diagnostics, context);
+			case FhirPackage.FHIR_DEVICE_STATUS:
+				return validateFHIRDeviceStatus((FHIRDeviceStatus)value, diagnostics, context);
+			case FhirPackage.FHIR_SUBSTANCE_STATUS:
+				return validateFHIRSubstanceStatus((FHIRSubstanceStatus)value, diagnostics, context);
 			case FhirPackage.FILTER_OPERATOR:
 				return validateFilterOperator((FilterOperator)value, diagnostics, context);
+			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES:
+				return validateFinancialResourceStatusCodes((FinancialResourceStatusCodes)value, diagnostics, context);
 			case FhirPackage.FLAG:
 				return validateFlag((Flag)value, diagnostics, context);
 			case FhirPackage.FLAG_STATUS:
 				return validateFlagStatus((FlagStatus)value, diagnostics, context);
 			case FhirPackage.GOAL:
 				return validateGoal((Goal)value, diagnostics, context);
-			case FhirPackage.GOAL_OUTCOME:
-				return validateGoalOutcome((GoalOutcome)value, diagnostics, context);
 			case FhirPackage.GOAL_STATUS:
 				return validateGoalStatus((GoalStatus)value, diagnostics, context);
+			case FhirPackage.GOAL_TARGET:
+				return validateGoalTarget((GoalTarget)value, diagnostics, context);
+			case FhirPackage.GRAPH_COMPARTMENT_RULE:
+				return validateGraphCompartmentRule((GraphCompartmentRule)value, diagnostics, context);
+			case FhirPackage.GRAPH_DEFINITION:
+				return validateGraphDefinition((GraphDefinition)value, diagnostics, context);
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT:
+				return validateGraphDefinitionCompartment((GraphDefinitionCompartment)value, diagnostics, context);
+			case FhirPackage.GRAPH_DEFINITION_LINK:
+				return validateGraphDefinitionLink((GraphDefinitionLink)value, diagnostics, context);
+			case FhirPackage.GRAPH_DEFINITION_TARGET:
+				return validateGraphDefinitionTarget((GraphDefinitionTarget)value, diagnostics, context);
 			case FhirPackage.GROUP:
 				return validateGroup((Group)value, diagnostics, context);
 			case FhirPackage.GROUP_CHARACTERISTIC:
@@ -1570,10 +1696,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateIdentityAssuranceLevel((IdentityAssuranceLevel)value, diagnostics, context);
 			case FhirPackage.IMAGING_MANIFEST:
 				return validateImagingManifest((ImagingManifest)value, diagnostics, context);
-			case FhirPackage.IMAGING_MANIFEST_BASE_LOCATION:
-				return validateImagingManifestBaseLocation((ImagingManifestBaseLocation)value, diagnostics, context);
-			case FhirPackage.IMAGING_MANIFEST_BASE_LOCATION1:
-				return validateImagingManifestBaseLocation1((ImagingManifestBaseLocation1)value, diagnostics, context);
 			case FhirPackage.IMAGING_MANIFEST_INSTANCE:
 				return validateImagingManifestInstance((ImagingManifestInstance)value, diagnostics, context);
 			case FhirPackage.IMAGING_MANIFEST_SERIES:
@@ -1582,10 +1704,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateImagingManifestStudy((ImagingManifestStudy)value, diagnostics, context);
 			case FhirPackage.IMAGING_STUDY:
 				return validateImagingStudy((ImagingStudy)value, diagnostics, context);
-			case FhirPackage.IMAGING_STUDY_BASE_LOCATION:
-				return validateImagingStudyBaseLocation((ImagingStudyBaseLocation)value, diagnostics, context);
-			case FhirPackage.IMAGING_STUDY_BASE_LOCATION1:
-				return validateImagingStudyBaseLocation1((ImagingStudyBaseLocation1)value, diagnostics, context);
 			case FhirPackage.IMAGING_STUDY_INSTANCE:
 				return validateImagingStudyInstance((ImagingStudyInstance)value, diagnostics, context);
 			case FhirPackage.IMAGING_STUDY_SERIES:
@@ -1594,6 +1712,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateImmunization((Immunization)value, diagnostics, context);
 			case FhirPackage.IMMUNIZATION_EXPLANATION:
 				return validateImmunizationExplanation((ImmunizationExplanation)value, diagnostics, context);
+			case FhirPackage.IMMUNIZATION_PRACTITIONER:
+				return validateImmunizationPractitioner((ImmunizationPractitioner)value, diagnostics, context);
 			case FhirPackage.IMMUNIZATION_REACTION:
 				return validateImmunizationReaction((ImmunizationReaction)value, diagnostics, context);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION:
@@ -1604,6 +1724,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateImmunizationRecommendationProtocol((ImmunizationRecommendationProtocol)value, diagnostics, context);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION:
 				return validateImmunizationRecommendationRecommendation((ImmunizationRecommendationRecommendation)value, diagnostics, context);
+			case FhirPackage.IMMUNIZATION_STATUS_CODES:
+				return validateImmunizationStatusCodes((ImmunizationStatusCodes)value, diagnostics, context);
 			case FhirPackage.IMMUNIZATION_VACCINATION_PROTOCOL:
 				return validateImmunizationVaccinationProtocol((ImmunizationVaccinationProtocol)value, diagnostics, context);
 			case FhirPackage.IMPLEMENTATION_GUIDE:
@@ -1660,22 +1782,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateMeasmntPrinciple((MeasmntPrinciple)value, diagnostics, context);
 			case FhirPackage.MEASURE:
 				return validateMeasure((Measure)value, diagnostics, context);
-			case FhirPackage.MEASURE_DATA_USAGE:
-				return validateMeasureDataUsage((MeasureDataUsage)value, diagnostics, context);
 			case FhirPackage.MEASURE_GROUP:
 				return validateMeasureGroup((MeasureGroup)value, diagnostics, context);
 			case FhirPackage.MEASURE_POPULATION:
 				return validateMeasurePopulation((MeasurePopulation)value, diagnostics, context);
-			case FhirPackage.MEASURE_POPULATION_TYPE:
-				return validateMeasurePopulationType((MeasurePopulationType)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT:
 				return validateMeasureReport((MeasureReport)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_GROUP:
 				return validateMeasureReportGroup((MeasureReportGroup)value, diagnostics, context);
-			case FhirPackage.MEASURE_REPORT_GROUP1:
-				return validateMeasureReportGroup1((MeasureReportGroup1)value, diagnostics, context);
-			case FhirPackage.MEASURE_REPORT_GROUP2:
-				return validateMeasureReportGroup2((MeasureReportGroup2)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_POPULATION:
 				return validateMeasureReportPopulation((MeasureReportPopulation)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_POPULATION1:
@@ -1684,18 +1798,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateMeasureReportStatus((MeasureReportStatus)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_STRATIFIER:
 				return validateMeasureReportStratifier((MeasureReportStratifier)value, diagnostics, context);
-			case FhirPackage.MEASURE_REPORT_SUPPLEMENTAL_DATA:
-				return validateMeasureReportSupplementalData((MeasureReportSupplementalData)value, diagnostics, context);
+			case FhirPackage.MEASURE_REPORT_STRATUM:
+				return validateMeasureReportStratum((MeasureReportStratum)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_TYPE:
 				return validateMeasureReportType((MeasureReportType)value, diagnostics, context);
-			case FhirPackage.MEASURE_SCORING:
-				return validateMeasureScoring((MeasureScoring)value, diagnostics, context);
 			case FhirPackage.MEASURE_STRATIFIER:
 				return validateMeasureStratifier((MeasureStratifier)value, diagnostics, context);
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA:
 				return validateMeasureSupplementalData((MeasureSupplementalData)value, diagnostics, context);
-			case FhirPackage.MEASURE_TYPE:
-				return validateMeasureType((MeasureType)value, diagnostics, context);
 			case FhirPackage.MEDIA:
 				return validateMedia((Media)value, diagnostics, context);
 			case FhirPackage.MEDICATION:
@@ -1704,6 +1814,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateMedicationAdministration((MedicationAdministration)value, diagnostics, context);
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE:
 				return validateMedicationAdministrationDosage((MedicationAdministrationDosage)value, diagnostics, context);
+			case FhirPackage.MEDICATION_ADMINISTRATION_PERFORMER:
+				return validateMedicationAdministrationPerformer((MedicationAdministrationPerformer)value, diagnostics, context);
 			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS:
 				return validateMedicationAdministrationStatus((MedicationAdministrationStatus)value, diagnostics, context);
 			case FhirPackage.MEDICATION_BATCH:
@@ -1712,6 +1824,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateMedicationContent((MedicationContent)value, diagnostics, context);
 			case FhirPackage.MEDICATION_DISPENSE:
 				return validateMedicationDispense((MedicationDispense)value, diagnostics, context);
+			case FhirPackage.MEDICATION_DISPENSE_PERFORMER:
+				return validateMedicationDispensePerformer((MedicationDispensePerformer)value, diagnostics, context);
 			case FhirPackage.MEDICATION_DISPENSE_STATUS:
 				return validateMedicationDispenseStatus((MedicationDispenseStatus)value, diagnostics, context);
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION:
@@ -1720,24 +1834,28 @@ public class FhirValidator extends EObjectValidator {
 				return validateMedicationIngredient((MedicationIngredient)value, diagnostics, context);
 			case FhirPackage.MEDICATION_PACKAGE:
 				return validateMedicationPackage((MedicationPackage)value, diagnostics, context);
-			case FhirPackage.MEDICATION_PRODUCT:
-				return validateMedicationProduct((MedicationProduct)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST:
 				return validateMedicationRequest((MedicationRequest)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST:
 				return validateMedicationRequestDispenseRequest((MedicationRequestDispenseRequest)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_INTENT:
+				return validateMedicationRequestIntent((MedicationRequestIntent)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_PRIORITY:
+				return validateMedicationRequestPriority((MedicationRequestPriority)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_REQUESTER:
+				return validateMedicationRequestRequester((MedicationRequestRequester)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST_STATUS:
 				return validateMedicationRequestStatus((MedicationRequestStatus)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION:
 				return validateMedicationRequestSubstitution((MedicationRequestSubstitution)value, diagnostics, context);
 			case FhirPackage.MEDICATION_STATEMENT:
 				return validateMedicationStatement((MedicationStatement)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_CATEGORY:
-				return validateMedicationStatementCategory((MedicationStatementCategory)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_NOT_TAKEN:
-				return validateMedicationStatementNotTaken((MedicationStatementNotTaken)value, diagnostics, context);
 			case FhirPackage.MEDICATION_STATEMENT_STATUS:
 				return validateMedicationStatementStatus((MedicationStatementStatus)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATEMENT_TAKEN:
+				return validateMedicationStatementTaken((MedicationStatementTaken)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATUS:
+				return validateMedicationStatus((MedicationStatus)value, diagnostics, context);
 			case FhirPackage.MESSAGE_DEFINITION:
 				return validateMessageDefinition((MessageDefinition)value, diagnostics, context);
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE:
@@ -1774,22 +1892,22 @@ public class FhirValidator extends EObjectValidator {
 				return validateNarrativeStatus((NarrativeStatus)value, diagnostics, context);
 			case FhirPackage.NOTE_TYPE:
 				return validateNoteType((NoteType)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER:
+				return validateNutritionOrder((NutritionOrder)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_ADMINISTRATION:
+				return validateNutritionOrderAdministration((NutritionOrderAdministration)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_ENTERAL_FORMULA:
+				return validateNutritionOrderEnteralFormula((NutritionOrderEnteralFormula)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_NUTRIENT:
+				return validateNutritionOrderNutrient((NutritionOrderNutrient)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_ORAL_DIET:
+				return validateNutritionOrderOralDiet((NutritionOrderOralDiet)value, diagnostics, context);
 			case FhirPackage.NUTRITION_ORDER_STATUS:
 				return validateNutritionOrderStatus((NutritionOrderStatus)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST:
-				return validateNutritionRequest((NutritionRequest)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_ADMINISTRATION:
-				return validateNutritionRequestAdministration((NutritionRequestAdministration)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_ENTERAL_FORMULA:
-				return validateNutritionRequestEnteralFormula((NutritionRequestEnteralFormula)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_NUTRIENT:
-				return validateNutritionRequestNutrient((NutritionRequestNutrient)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_ORAL_DIET:
-				return validateNutritionRequestOralDiet((NutritionRequestOralDiet)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_SUPPLEMENT:
-				return validateNutritionRequestSupplement((NutritionRequestSupplement)value, diagnostics, context);
-			case FhirPackage.NUTRITION_REQUEST_TEXTURE:
-				return validateNutritionRequestTexture((NutritionRequestTexture)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_SUPPLEMENT:
+				return validateNutritionOrderSupplement((NutritionOrderSupplement)value, diagnostics, context);
+			case FhirPackage.NUTRITION_ORDER_TEXTURE:
+				return validateNutritionOrderTexture((NutritionOrderTexture)value, diagnostics, context);
 			case FhirPackage.OBSERVATION:
 				return validateObservation((Observation)value, diagnostics, context);
 			case FhirPackage.OBSERVATION_COMPONENT:
@@ -1850,40 +1968,30 @@ public class FhirValidator extends EObjectValidator {
 				return validatePaymentReconciliation((PaymentReconciliation)value, diagnostics, context);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL:
 				return validatePaymentReconciliationDetail((PaymentReconciliationDetail)value, diagnostics, context);
-			case FhirPackage.PAYMENT_RECONCILIATION_NOTE:
-				return validatePaymentReconciliationNote((PaymentReconciliationNote)value, diagnostics, context);
+			case FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE:
+				return validatePaymentReconciliationProcessNote((PaymentReconciliationProcessNote)value, diagnostics, context);
 			case FhirPackage.PERIOD:
 				return validatePeriod((Period)value, diagnostics, context);
 			case FhirPackage.PERSON:
 				return validatePerson((Person)value, diagnostics, context);
 			case FhirPackage.PERSON_LINK:
 				return validatePersonLink((PersonLink)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CARDINALITY_BEHAVIOR:
-				return validatePlanActionCardinalityBehavior((PlanActionCardinalityBehavior)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CONDITION_KIND:
-				return validatePlanActionConditionKind((PlanActionConditionKind)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_GROUPING_BEHAVIOR:
-				return validatePlanActionGroupingBehavior((PlanActionGroupingBehavior)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PARTICIPANT_TYPE:
-				return validatePlanActionParticipantType((PlanActionParticipantType)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PRECHECK_BEHAVIOR:
-				return validatePlanActionPrecheckBehavior((PlanActionPrecheckBehavior)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_RELATIONSHIP_TYPE:
-				return validatePlanActionRelationshipType((PlanActionRelationshipType)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_REQUIRED_BEHAVIOR:
-				return validatePlanActionRequiredBehavior((PlanActionRequiredBehavior)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_SELECTION_BEHAVIOR:
-				return validatePlanActionSelectionBehavior((PlanActionSelectionBehavior)value, diagnostics, context);
 			case FhirPackage.PLAN_DEFINITION:
 				return validatePlanDefinition((PlanDefinition)value, diagnostics, context);
-			case FhirPackage.PLAN_DEFINITION_ACTION_DEFINITION:
-				return validatePlanDefinitionActionDefinition((PlanDefinitionActionDefinition)value, diagnostics, context);
+			case FhirPackage.PLAN_DEFINITION_ACTION:
+				return validatePlanDefinitionAction((PlanDefinitionAction)value, diagnostics, context);
 			case FhirPackage.PLAN_DEFINITION_CONDITION:
 				return validatePlanDefinitionCondition((PlanDefinitionCondition)value, diagnostics, context);
 			case FhirPackage.PLAN_DEFINITION_DYNAMIC_VALUE:
 				return validatePlanDefinitionDynamicValue((PlanDefinitionDynamicValue)value, diagnostics, context);
+			case FhirPackage.PLAN_DEFINITION_GOAL:
+				return validatePlanDefinitionGoal((PlanDefinitionGoal)value, diagnostics, context);
+			case FhirPackage.PLAN_DEFINITION_PARTICIPANT:
+				return validatePlanDefinitionParticipant((PlanDefinitionParticipant)value, diagnostics, context);
 			case FhirPackage.PLAN_DEFINITION_RELATED_ACTION:
 				return validatePlanDefinitionRelatedAction((PlanDefinitionRelatedAction)value, diagnostics, context);
+			case FhirPackage.PLAN_DEFINITION_TARGET:
+				return validatePlanDefinitionTarget((PlanDefinitionTarget)value, diagnostics, context);
 			case FhirPackage.POSITIVE_INT:
 				return validatePositiveInt((PositiveInt)value, diagnostics, context);
 			case FhirPackage.PRACTITIONER:
@@ -1892,8 +2000,6 @@ public class FhirValidator extends EObjectValidator {
 				return validatePractitionerQualification((PractitionerQualification)value, diagnostics, context);
 			case FhirPackage.PRACTITIONER_ROLE:
 				return validatePractitionerRole((PractitionerRole)value, diagnostics, context);
-			case FhirPackage.PRACTITIONER_ROLE1:
-				return validatePractitionerRole1((PractitionerRole1)value, diagnostics, context);
 			case FhirPackage.PRACTITIONER_ROLE_AVAILABLE_TIME:
 				return validatePractitionerRoleAvailableTime((PractitionerRoleAvailableTime)value, diagnostics, context);
 			case FhirPackage.PRACTITIONER_ROLE_NOT_AVAILABLE:
@@ -1906,20 +2012,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateProcedurePerformer((ProcedurePerformer)value, diagnostics, context);
 			case FhirPackage.PROCEDURE_REQUEST:
 				return validateProcedureRequest((ProcedureRequest)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_PRIORITY:
-				return validateProcedureRequestPriority((ProcedureRequestPriority)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_STATUS:
-				return validateProcedureRequestStatus((ProcedureRequestStatus)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_STATUS:
-				return validateProcedureStatus((ProcedureStatus)value, diagnostics, context);
+			case FhirPackage.PROCEDURE_REQUEST_REQUESTER:
+				return validateProcedureRequestRequester((ProcedureRequestRequester)value, diagnostics, context);
 			case FhirPackage.PROCESS_REQUEST:
 				return validateProcessRequest((ProcessRequest)value, diagnostics, context);
 			case FhirPackage.PROCESS_REQUEST_ITEM:
 				return validateProcessRequestItem((ProcessRequestItem)value, diagnostics, context);
 			case FhirPackage.PROCESS_RESPONSE:
 				return validateProcessResponse((ProcessResponse)value, diagnostics, context);
-			case FhirPackage.PROCESS_RESPONSE_NOTE:
-				return validateProcessResponseNote((ProcessResponseNote)value, diagnostics, context);
+			case FhirPackage.PROCESS_RESPONSE_PROCESS_NOTE:
+				return validateProcessResponseProcessNote((ProcessResponseProcessNote)value, diagnostics, context);
 			case FhirPackage.PROPERTY_REPRESENTATION:
 				return validatePropertyRepresentation((PropertyRepresentation)value, diagnostics, context);
 			case FhirPackage.PROPERTY_TYPE:
@@ -1958,8 +2060,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateQuestionnaireResponseItem((QuestionnaireResponseItem)value, diagnostics, context);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS:
 				return validateQuestionnaireResponseStatus((QuestionnaireResponseStatus)value, diagnostics, context);
-			case FhirPackage.QUESTIONNAIRE_STATUS:
-				return validateQuestionnaireStatus((QuestionnaireStatus)value, diagnostics, context);
 			case FhirPackage.RANGE:
 				return validateRange((Range)value, diagnostics, context);
 			case FhirPackage.RATIO:
@@ -1970,12 +2070,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateReferenceHandlingPolicy((ReferenceHandlingPolicy)value, diagnostics, context);
 			case FhirPackage.REFERENCE_VERSION_RULES:
 				return validateReferenceVersionRules((ReferenceVersionRules)value, diagnostics, context);
-			case FhirPackage.REFERRAL_CATEGORY:
-				return validateReferralCategory((ReferralCategory)value, diagnostics, context);
 			case FhirPackage.REFERRAL_REQUEST:
 				return validateReferralRequest((ReferralRequest)value, diagnostics, context);
-			case FhirPackage.REFERRAL_STATUS:
-				return validateReferralStatus((ReferralStatus)value, diagnostics, context);
+			case FhirPackage.REFERRAL_REQUEST_REQUESTER:
+				return validateReferralRequestRequester((ReferralRequestRequester)value, diagnostics, context);
 			case FhirPackage.RELATED_ARTIFACT:
 				return validateRelatedArtifact((RelatedArtifact)value, diagnostics, context);
 			case FhirPackage.RELATED_ARTIFACT_TYPE:
@@ -1994,6 +2092,12 @@ public class FhirValidator extends EObjectValidator {
 				return validateRequestGroupCondition((RequestGroupCondition)value, diagnostics, context);
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION:
 				return validateRequestGroupRelatedAction((RequestGroupRelatedAction)value, diagnostics, context);
+			case FhirPackage.REQUEST_INTENT:
+				return validateRequestIntent((RequestIntent)value, diagnostics, context);
+			case FhirPackage.REQUEST_PRIORITY:
+				return validateRequestPriority((RequestPriority)value, diagnostics, context);
+			case FhirPackage.REQUEST_STATUS:
+				return validateRequestStatus((RequestStatus)value, diagnostics, context);
 			case FhirPackage.RESEARCH_STUDY:
 				return validateResearchStudy((ResearchStudy)value, diagnostics, context);
 			case FhirPackage.RESEARCH_STUDY_ARM:
@@ -2008,6 +2112,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateResource((Resource)value, diagnostics, context);
 			case FhirPackage.RESOURCE_CONTAINER:
 				return validateResourceContainer((ResourceContainer)value, diagnostics, context);
+			case FhirPackage.RESOURCE_TYPE:
+				return validateResourceType((ResourceType)value, diagnostics, context);
 			case FhirPackage.RESOURCE_VERSION_POLICY:
 				return validateResourceVersionPolicy((ResourceVersionPolicy)value, diagnostics, context);
 			case FhirPackage.RESPONSE_TYPE:
@@ -2038,20 +2144,12 @@ public class FhirValidator extends EObjectValidator {
 				return validateSearchParamType((SearchParamType)value, diagnostics, context);
 			case FhirPackage.SEQUENCE:
 				return validateSequence((Sequence)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_INNER:
-				return validateSequenceInner((SequenceInner)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_OUTER:
-				return validateSequenceOuter((SequenceOuter)value, diagnostics, context);
 			case FhirPackage.SEQUENCE_QUALITY:
 				return validateSequenceQuality((SequenceQuality)value, diagnostics, context);
 			case FhirPackage.SEQUENCE_REFERENCE_SEQ:
 				return validateSequenceReferenceSeq((SequenceReferenceSeq)value, diagnostics, context);
 			case FhirPackage.SEQUENCE_REPOSITORY:
 				return validateSequenceRepository((SequenceRepository)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_STRUCTURE_VARIANT:
-				return validateSequenceStructureVariant((SequenceStructureVariant)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_TYPE:
-				return validateSequenceType((SequenceType)value, diagnostics, context);
 			case FhirPackage.SEQUENCE_VARIANT:
 				return validateSequenceVariant((SequenceVariant)value, diagnostics, context);
 			case FhirPackage.SERVICE_DEFINITION:
@@ -2070,10 +2168,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateSpecimenCollection((SpecimenCollection)value, diagnostics, context);
 			case FhirPackage.SPECIMEN_CONTAINER:
 				return validateSpecimenContainer((SpecimenContainer)value, diagnostics, context);
+			case FhirPackage.SPECIMEN_PROCESSING:
+				return validateSpecimenProcessing((SpecimenProcessing)value, diagnostics, context);
 			case FhirPackage.SPECIMEN_STATUS:
 				return validateSpecimenStatus((SpecimenStatus)value, diagnostics, context);
-			case FhirPackage.SPECIMEN_TREATMENT:
-				return validateSpecimenTreatment((SpecimenTreatment)value, diagnostics, context);
 			case FhirPackage.STRING:
 				return validateString((org.hl7.fhir.String)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_DEFINITION:
@@ -2094,12 +2192,12 @@ public class FhirValidator extends EObjectValidator {
 				return validateStructureMapDependent((StructureMapDependent)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_GROUP:
 				return validateStructureMapGroup((StructureMapGroup)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_GROUP_TYPE_MODE:
+				return validateStructureMapGroupTypeMode((StructureMapGroupTypeMode)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_INPUT:
 				return validateStructureMapInput((StructureMapInput)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_INPUT_MODE:
 				return validateStructureMapInputMode((StructureMapInputMode)value, diagnostics, context);
-			case FhirPackage.STRUCTURE_MAP_LIST_MODE:
-				return validateStructureMapListMode((StructureMapListMode)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_MODEL_MODE:
 				return validateStructureMapModelMode((StructureMapModelMode)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_PARAMETER:
@@ -2108,10 +2206,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateStructureMapRule((StructureMapRule)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_SOURCE:
 				return validateStructureMapSource((StructureMapSource)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_SOURCE_LIST_MODE:
+				return validateStructureMapSourceListMode((StructureMapSourceListMode)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE:
 				return validateStructureMapStructure((StructureMapStructure)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_TARGET:
 				return validateStructureMapTarget((StructureMapTarget)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_TARGET_LIST_MODE:
+				return validateStructureMapTargetListMode((StructureMapTargetListMode)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_TRANSFORM:
 				return validateStructureMapTransform((StructureMapTransform)value, diagnostics, context);
 			case FhirPackage.SUBSCRIPTION:
@@ -2132,12 +2234,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateSupplyDelivery((SupplyDelivery)value, diagnostics, context);
 			case FhirPackage.SUPPLY_DELIVERY_STATUS:
 				return validateSupplyDeliveryStatus((SupplyDeliveryStatus)value, diagnostics, context);
+			case FhirPackage.SUPPLY_DELIVERY_SUPPLIED_ITEM:
+				return validateSupplyDeliverySuppliedItem((SupplyDeliverySuppliedItem)value, diagnostics, context);
 			case FhirPackage.SUPPLY_REQUEST:
 				return validateSupplyRequest((SupplyRequest)value, diagnostics, context);
+			case FhirPackage.SUPPLY_REQUEST_ORDERED_ITEM:
+				return validateSupplyRequestOrderedItem((SupplyRequestOrderedItem)value, diagnostics, context);
+			case FhirPackage.SUPPLY_REQUEST_REQUESTER:
+				return validateSupplyRequestRequester((SupplyRequestRequester)value, diagnostics, context);
 			case FhirPackage.SUPPLY_REQUEST_STATUS:
 				return validateSupplyRequestStatus((SupplyRequestStatus)value, diagnostics, context);
-			case FhirPackage.SUPPLY_REQUEST_WHEN:
-				return validateSupplyRequestWhen((SupplyRequestWhen)value, diagnostics, context);
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION:
 				return validateSystemRestfulInteraction((SystemRestfulInteraction)value, diagnostics, context);
 			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE:
@@ -2162,6 +2268,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateTestReportAction1((TestReportAction1)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_ACTION2:
 				return validateTestReportAction2((TestReportAction2)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_ACTION_RESULT:
+				return validateTestReportActionResult((TestReportActionResult)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_ASSERT:
 				return validateTestReportAssert((TestReportAssert)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_OPERATION:
@@ -2170,8 +2278,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateTestReportParticipant((TestReportParticipant)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_PARTICIPANT_TYPE:
 				return validateTestReportParticipantType((TestReportParticipantType)value, diagnostics, context);
-			case FhirPackage.TEST_REPORT_RESULT_CODES:
-				return validateTestReportResultCodes((TestReportResultCodes)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_RESULT:
+				return validateTestReportResult((TestReportResult)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_SETUP:
 				return validateTestReportSetup((TestReportSetup)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_STATUS:
@@ -2214,6 +2322,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateTestScriptParam3((TestScriptParam3)value, diagnostics, context);
 			case FhirPackage.TEST_SCRIPT_REQUEST_HEADER:
 				return validateTestScriptRequestHeader((TestScriptRequestHeader)value, diagnostics, context);
+			case FhirPackage.TEST_SCRIPT_REQUEST_METHOD_CODE:
+				return validateTestScriptRequestMethodCode((TestScriptRequestMethodCode)value, diagnostics, context);
 			case FhirPackage.TEST_SCRIPT_RULE:
 				return validateTestScriptRule((TestScriptRule)value, diagnostics, context);
 			case FhirPackage.TEST_SCRIPT_RULE1:
@@ -2248,6 +2358,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateTypeDerivationRule((TypeDerivationRule)value, diagnostics, context);
 			case FhirPackage.TYPE_RESTFUL_INTERACTION:
 				return validateTypeRestfulInteraction((TypeRestfulInteraction)value, diagnostics, context);
+			case FhirPackage.UDI_ENTRY_TYPE:
+				return validateUDIEntryType((UDIEntryType)value, diagnostics, context);
 			case FhirPackage.UNITS_OF_TIME:
 				return validateUnitsOfTime((UnitsOfTime)value, diagnostics, context);
 			case FhirPackage.UNKNOWN_CONTENT_CODE:
@@ -2280,6 +2392,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateValueSetInclude((ValueSetInclude)value, diagnostics, context);
 			case FhirPackage.VALUE_SET_PARAMETER:
 				return validateValueSetParameter((ValueSetParameter)value, diagnostics, context);
+			case FhirPackage.VISION_BASE:
+				return validateVisionBase((VisionBase)value, diagnostics, context);
+			case FhirPackage.VISION_EYES:
+				return validateVisionEyes((VisionEyes)value, diagnostics, context);
 			case FhirPackage.VISION_PRESCRIPTION:
 				return validateVisionPrescription((VisionPrescription)value, diagnostics, context);
 			case FhirPackage.VISION_PRESCRIPTION_DISPENSE:
@@ -2288,22 +2404,38 @@ public class FhirValidator extends EObjectValidator {
 				return validateXPathUsageType((XPathUsageType)value, diagnostics, context);
 			case FhirPackage.ACCOUNT_STATUS_LIST:
 				return validateAccountStatusList((AccountStatusList)value, diagnostics, context);
+			case FhirPackage.ACTION_CARDINALITY_BEHAVIOR_LIST:
+				return validateActionCardinalityBehaviorList((ActionCardinalityBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_CONDITION_KIND_LIST:
+				return validateActionConditionKindList((ActionConditionKindList)value, diagnostics, context);
+			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST:
+				return validateActionGroupingBehaviorList((ActionGroupingBehaviorList)value, diagnostics, context);
 			case FhirPackage.ACTION_LIST_LIST:
 				return validateActionListList((ActionListList)value, diagnostics, context);
-			case FhirPackage.ACTIVITY_DEFINITION_CATEGORY_LIST:
-				return validateActivityDefinitionCategoryList((ActivityDefinitionCategoryList)value, diagnostics, context);
+			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST:
+				return validateActionParticipantTypeList((ActionParticipantTypeList)value, diagnostics, context);
+			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST:
+				return validateActionPrecheckBehaviorList((ActionPrecheckBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_RELATIONSHIP_TYPE_LIST:
+				return validateActionRelationshipTypeList((ActionRelationshipTypeList)value, diagnostics, context);
+			case FhirPackage.ACTION_REQUIRED_BEHAVIOR_LIST:
+				return validateActionRequiredBehaviorList((ActionRequiredBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_SELECTION_BEHAVIOR_LIST:
+				return validateActionSelectionBehaviorList((ActionSelectionBehaviorList)value, diagnostics, context);
 			case FhirPackage.ADDRESS_TYPE_LIST:
 				return validateAddressTypeList((AddressTypeList)value, diagnostics, context);
 			case FhirPackage.ADDRESS_USE_LIST:
 				return validateAddressUseList((AddressUseList)value, diagnostics, context);
 			case FhirPackage.ADMINISTRATIVE_GENDER_LIST:
 				return validateAdministrativeGenderList((AdministrativeGenderList)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CATEGORY_LIST:
+				return validateAdverseEventCategoryList((AdverseEventCategoryList)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CAUSALITY_LIST:
+				return validateAdverseEventCausalityList((AdverseEventCausalityList)value, diagnostics, context);
 			case FhirPackage.AGGREGATION_MODE_LIST:
 				return validateAggregationModeList((AggregationModeList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST:
 				return validateAllergyIntoleranceCategoryList((AllergyIntoleranceCategoryList)value, diagnostics, context);
-			case FhirPackage.ALLERGY_INTOLERANCE_CERTAINTY_LIST:
-				return validateAllergyIntoleranceCertaintyList((AllergyIntoleranceCertaintyList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST:
 				return validateAllergyIntoleranceClinicalStatusList((AllergyIntoleranceClinicalStatusList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST:
@@ -2336,42 +2468,46 @@ public class FhirValidator extends EObjectValidator {
 				return validateCapabilityStatementKindList((CapabilityStatementKindList)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_ACTIVITY_STATUS_LIST:
 				return validateCarePlanActivityStatusList((CarePlanActivityStatusList)value, diagnostics, context);
-			case FhirPackage.CARE_PLAN_RELATIONSHIP_LIST:
-				return validateCarePlanRelationshipList((CarePlanRelationshipList)value, diagnostics, context);
+			case FhirPackage.CARE_PLAN_INTENT_LIST:
+				return validateCarePlanIntentList((CarePlanIntentList)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_STATUS_LIST:
 				return validateCarePlanStatusList((CarePlanStatusList)value, diagnostics, context);
+			case FhirPackage.CARE_TEAM_STATUS_LIST:
+				return validateCareTeamStatusList((CareTeamStatusList)value, diagnostics, context);
+			case FhirPackage.CHARGE_ITEM_STATUS_LIST:
+				return validateChargeItemStatusList((ChargeItemStatusList)value, diagnostics, context);
 			case FhirPackage.CLINICAL_IMPRESSION_STATUS_LIST:
 				return validateClinicalImpressionStatusList((ClinicalImpressionStatusList)value, diagnostics, context);
 			case FhirPackage.CODE_SYSTEM_CONTENT_MODE_LIST:
 				return validateCodeSystemContentModeList((CodeSystemContentModeList)value, diagnostics, context);
 			case FhirPackage.CODE_SYSTEM_HIERARCHY_MEANING_LIST:
 				return validateCodeSystemHierarchyMeaningList((CodeSystemHierarchyMeaningList)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_REQUEST_STATUS_LIST:
-				return validateCommunicationRequestStatusList((CommunicationRequestStatusList)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_STATUS_LIST:
-				return validateCommunicationStatusList((CommunicationStatusList)value, diagnostics, context);
 			case FhirPackage.COMPARTMENT_TYPE_LIST:
 				return validateCompartmentTypeList((CompartmentTypeList)value, diagnostics, context);
-			case FhirPackage.COMPOSITE_MEASURE_SCORING_LIST:
-				return validateCompositeMeasureScoringList((CompositeMeasureScoringList)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_ATTESTATION_MODE_LIST:
 				return validateCompositionAttestationModeList((CompositionAttestationModeList)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_STATUS_LIST:
 				return validateCompositionStatusList((CompositionStatusList)value, diagnostics, context);
 			case FhirPackage.CONCEPT_MAP_EQUIVALENCE_LIST:
 				return validateConceptMapEquivalenceList((ConceptMapEquivalenceList)value, diagnostics, context);
+			case FhirPackage.CONCEPT_MAP_GROUP_UNMAPPED_MODE_LIST:
+				return validateConceptMapGroupUnmappedModeList((ConceptMapGroupUnmappedModeList)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_DELETE_STATUS_LIST:
 				return validateConditionalDeleteStatusList((ConditionalDeleteStatusList)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST:
 				return validateConditionalReadStatusList((ConditionalReadStatusList)value, diagnostics, context);
+			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST:
+				return validateConditionClinicalStatusCodesList((ConditionClinicalStatusCodesList)value, diagnostics, context);
 			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST:
 				return validateConditionVerificationStatusList((ConditionVerificationStatusList)value, diagnostics, context);
+			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST:
+				return validateConfidentialityClassificationList((ConfidentialityClassificationList)value, diagnostics, context);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST:
 				return validateConsentDataMeaningList((ConsentDataMeaningList)value, diagnostics, context);
 			case FhirPackage.CONSENT_EXCEPT_TYPE_LIST:
 				return validateConsentExceptTypeList((ConsentExceptTypeList)value, diagnostics, context);
-			case FhirPackage.CONSENT_STATUS_LIST:
-				return validateConsentStatusList((ConsentStatusList)value, diagnostics, context);
+			case FhirPackage.CONSENT_STATE_LIST:
+				return validateConsentStateList((ConsentStateList)value, diagnostics, context);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST:
 				return validateConstraintSeverityList((ConstraintSeverityList)value, diagnostics, context);
 			case FhirPackage.CONTACT_POINT_SYSTEM_LIST:
@@ -2380,6 +2516,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateContactPointUseList((ContactPointUseList)value, diagnostics, context);
 			case FhirPackage.CONTENT_TYPE_LIST:
 				return validateContentTypeList((ContentTypeList)value, diagnostics, context);
+			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST:
+				return validateContractResourceStatusCodesList((ContractResourceStatusCodesList)value, diagnostics, context);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST:
 				return validateContributorTypeList((ContributorTypeList)value, diagnostics, context);
 			case FhirPackage.DATA_ELEMENT_STRINGENCY_LIST:
@@ -2398,12 +2536,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateDeviceMetricColorList((DeviceMetricColorList)value, diagnostics, context);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST:
 				return validateDeviceMetricOperationalStatusList((DeviceMetricOperationalStatusList)value, diagnostics, context);
-			case FhirPackage.DEVICE_STATUS_LIST:
-				return validateDeviceStatusList((DeviceStatusList)value, diagnostics, context);
+			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST:
+				return validateDeviceUseStatementStatusList((DeviceUseStatementStatusList)value, diagnostics, context);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST:
 				return validateDiagnosticReportStatusList((DiagnosticReportStatusList)value, diagnostics, context);
 			case FhirPackage.DIGITAL_MEDIA_TYPE_LIST:
 				return validateDigitalMediaTypeList((DigitalMediaTypeList)value, diagnostics, context);
+			case FhirPackage.DISCRIMINATOR_TYPE_LIST:
+				return validateDiscriminatorTypeList((DiscriminatorTypeList)value, diagnostics, context);
 			case FhirPackage.DOCUMENT_MODE_LIST:
 				return validateDocumentModeList((DocumentModeList)value, diagnostics, context);
 			case FhirPackage.DOCUMENT_REFERENCE_STATUS_LIST:
@@ -2420,6 +2560,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateEpisodeOfCareStatusList((EpisodeOfCareStatusList)value, diagnostics, context);
 			case FhirPackage.EVENT_CAPABILITY_MODE_LIST:
 				return validateEventCapabilityModeList((EventCapabilityModeList)value, diagnostics, context);
+			case FhirPackage.EVENT_STATUS_LIST:
+				return validateEventStatusList((EventStatusList)value, diagnostics, context);
 			case FhirPackage.EVENT_TIMING_LIST:
 				return validateEventTimingList((EventTimingList)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST:
@@ -2428,12 +2570,24 @@ public class FhirValidator extends EObjectValidator {
 				return validateExtensionContextList((ExtensionContextList)value, diagnostics, context);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST:
 				return validateFamilyHistoryStatusList((FamilyHistoryStatusList)value, diagnostics, context);
+			case FhirPackage.FHIR_ALL_TYPES_LIST:
+				return validateFHIRAllTypesList((FHIRAllTypesList)value, diagnostics, context);
+			case FhirPackage.FHIR_DEFINED_TYPE_LIST:
+				return validateFHIRDefinedTypeList((FHIRDefinedTypeList)value, diagnostics, context);
+			case FhirPackage.FHIR_DEVICE_STATUS_LIST:
+				return validateFHIRDeviceStatusList((FHIRDeviceStatusList)value, diagnostics, context);
+			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST:
+				return validateFHIRSubstanceStatusList((FHIRSubstanceStatusList)value, diagnostics, context);
 			case FhirPackage.FILTER_OPERATOR_LIST:
 				return validateFilterOperatorList((FilterOperatorList)value, diagnostics, context);
+			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST:
+				return validateFinancialResourceStatusCodesList((FinancialResourceStatusCodesList)value, diagnostics, context);
 			case FhirPackage.FLAG_STATUS_LIST:
 				return validateFlagStatusList((FlagStatusList)value, diagnostics, context);
 			case FhirPackage.GOAL_STATUS_LIST:
 				return validateGoalStatusList((GoalStatusList)value, diagnostics, context);
+			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST:
+				return validateGraphCompartmentRuleList((GraphCompartmentRuleList)value, diagnostics, context);
 			case FhirPackage.GROUP_TYPE_LIST:
 				return validateGroupTypeList((GroupTypeList)value, diagnostics, context);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST:
@@ -2448,6 +2602,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateIdentifierUseList((IdentifierUseList)value, diagnostics, context);
 			case FhirPackage.IDENTITY_ASSURANCE_LEVEL_LIST:
 				return validateIdentityAssuranceLevelList((IdentityAssuranceLevelList)value, diagnostics, context);
+			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST:
+				return validateImmunizationStatusCodesList((ImmunizationStatusCodesList)value, diagnostics, context);
 			case FhirPackage.INSTANCE_AVAILABILITY_LIST:
 				return validateInstanceAvailabilityList((InstanceAvailabilityList)value, diagnostics, context);
 			case FhirPackage.ISSUE_SEVERITY_LIST:
@@ -2468,30 +2624,26 @@ public class FhirValidator extends EObjectValidator {
 				return validateLocationStatusList((LocationStatusList)value, diagnostics, context);
 			case FhirPackage.MEASMNT_PRINCIPLE_LIST:
 				return validateMeasmntPrincipleList((MeasmntPrincipleList)value, diagnostics, context);
-			case FhirPackage.MEASURE_DATA_USAGE_LIST:
-				return validateMeasureDataUsageList((MeasureDataUsageList)value, diagnostics, context);
-			case FhirPackage.MEASURE_POPULATION_TYPE_LIST:
-				return validateMeasurePopulationTypeList((MeasurePopulationTypeList)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST:
 				return validateMeasureReportStatusList((MeasureReportStatusList)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST:
 				return validateMeasureReportTypeList((MeasureReportTypeList)value, diagnostics, context);
-			case FhirPackage.MEASURE_SCORING_LIST:
-				return validateMeasureScoringList((MeasureScoringList)value, diagnostics, context);
-			case FhirPackage.MEASURE_TYPE_LIST:
-				return validateMeasureTypeList((MeasureTypeList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST:
 				return validateMedicationAdministrationStatusList((MedicationAdministrationStatusList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST:
 				return validateMedicationDispenseStatusList((MedicationDispenseStatusList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST:
+				return validateMedicationRequestIntentList((MedicationRequestIntentList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_PRIORITY_LIST:
+				return validateMedicationRequestPriorityList((MedicationRequestPriorityList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST:
 				return validateMedicationRequestStatusList((MedicationRequestStatusList)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_CATEGORY_LIST:
-				return validateMedicationStatementCategoryList((MedicationStatementCategoryList)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_NOT_TAKEN_LIST:
-				return validateMedicationStatementNotTakenList((MedicationStatementNotTakenList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST:
 				return validateMedicationStatementStatusList((MedicationStatementStatusList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATEMENT_TAKEN_LIST:
+				return validateMedicationStatementTakenList((MedicationStatementTakenList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATUS_LIST:
+				return validateMedicationStatusList((MedicationStatusList)value, diagnostics, context);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST:
 				return validateMessageSignificanceCategoryList((MessageSignificanceCategoryList)value, diagnostics, context);
 			case FhirPackage.NAME_USE_LIST:
@@ -2518,28 +2670,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateParticipantRequiredList((ParticipantRequiredList)value, diagnostics, context);
 			case FhirPackage.PARTICIPATION_STATUS_LIST:
 				return validateParticipationStatusList((ParticipationStatusList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CARDINALITY_BEHAVIOR_LIST:
-				return validatePlanActionCardinalityBehaviorList((PlanActionCardinalityBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CONDITION_KIND_LIST:
-				return validatePlanActionConditionKindList((PlanActionConditionKindList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_GROUPING_BEHAVIOR_LIST:
-				return validatePlanActionGroupingBehaviorList((PlanActionGroupingBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PARTICIPANT_TYPE_LIST:
-				return validatePlanActionParticipantTypeList((PlanActionParticipantTypeList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PRECHECK_BEHAVIOR_LIST:
-				return validatePlanActionPrecheckBehaviorList((PlanActionPrecheckBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_RELATIONSHIP_TYPE_LIST:
-				return validatePlanActionRelationshipTypeList((PlanActionRelationshipTypeList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_REQUIRED_BEHAVIOR_LIST:
-				return validatePlanActionRequiredBehaviorList((PlanActionRequiredBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_SELECTION_BEHAVIOR_LIST:
-				return validatePlanActionSelectionBehaviorList((PlanActionSelectionBehaviorList)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_PRIORITY_LIST:
-				return validateProcedureRequestPriorityList((ProcedureRequestPriorityList)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_STATUS_LIST:
-				return validateProcedureRequestStatusList((ProcedureRequestStatusList)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_STATUS_LIST:
-				return validateProcedureStatusList((ProcedureStatusList)value, diagnostics, context);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST:
 				return validatePropertyRepresentationList((PropertyRepresentationList)value, diagnostics, context);
 			case FhirPackage.PROPERTY_TYPE_LIST:
@@ -2556,26 +2686,28 @@ public class FhirValidator extends EObjectValidator {
 				return validateQuestionnaireItemTypeList((QuestionnaireItemTypeList)value, diagnostics, context);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST:
 				return validateQuestionnaireResponseStatusList((QuestionnaireResponseStatusList)value, diagnostics, context);
-			case FhirPackage.QUESTIONNAIRE_STATUS_LIST:
-				return validateQuestionnaireStatusList((QuestionnaireStatusList)value, diagnostics, context);
 			case FhirPackage.REFERENCE_HANDLING_POLICY_LIST:
 				return validateReferenceHandlingPolicyList((ReferenceHandlingPolicyList)value, diagnostics, context);
 			case FhirPackage.REFERENCE_VERSION_RULES_LIST:
 				return validateReferenceVersionRulesList((ReferenceVersionRulesList)value, diagnostics, context);
-			case FhirPackage.REFERRAL_CATEGORY_LIST:
-				return validateReferralCategoryList((ReferralCategoryList)value, diagnostics, context);
-			case FhirPackage.REFERRAL_STATUS_LIST:
-				return validateReferralStatusList((ReferralStatusList)value, diagnostics, context);
 			case FhirPackage.RELATED_ARTIFACT_TYPE_LIST:
 				return validateRelatedArtifactTypeList((RelatedArtifactTypeList)value, diagnostics, context);
 			case FhirPackage.REMITTANCE_OUTCOME_LIST:
 				return validateRemittanceOutcomeList((RemittanceOutcomeList)value, diagnostics, context);
 			case FhirPackage.REPOSITORY_TYPE_LIST:
 				return validateRepositoryTypeList((RepositoryTypeList)value, diagnostics, context);
+			case FhirPackage.REQUEST_INTENT_LIST:
+				return validateRequestIntentList((RequestIntentList)value, diagnostics, context);
+			case FhirPackage.REQUEST_PRIORITY_LIST:
+				return validateRequestPriorityList((RequestPriorityList)value, diagnostics, context);
+			case FhirPackage.REQUEST_STATUS_LIST:
+				return validateRequestStatusList((RequestStatusList)value, diagnostics, context);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST:
 				return validateResearchStudyStatusList((ResearchStudyStatusList)value, diagnostics, context);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST:
 				return validateResearchSubjectStatusList((ResearchSubjectStatusList)value, diagnostics, context);
+			case FhirPackage.RESOURCE_TYPE_LIST:
+				return validateResourceTypeList((ResourceTypeList)value, diagnostics, context);
 			case FhirPackage.RESOURCE_VERSION_POLICY_LIST:
 				return validateResourceVersionPolicyList((ResourceVersionPolicyList)value, diagnostics, context);
 			case FhirPackage.RESPONSE_TYPE_LIST:
@@ -2590,8 +2722,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateSearchModifierCodeList((SearchModifierCodeList)value, diagnostics, context);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST:
 				return validateSearchParamTypeList((SearchParamTypeList)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_TYPE_LIST:
-				return validateSequenceTypeList((SequenceTypeList)value, diagnostics, context);
 			case FhirPackage.SLICING_RULES_LIST:
 				return validateSlicingRulesList((SlicingRulesList)value, diagnostics, context);
 			case FhirPackage.SLOT_STATUS_LIST:
@@ -2602,12 +2732,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateStructureDefinitionKindList((StructureDefinitionKindList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_CONTEXT_TYPE_LIST:
 				return validateStructureMapContextTypeList((StructureMapContextTypeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_GROUP_TYPE_MODE_LIST:
+				return validateStructureMapGroupTypeModeList((StructureMapGroupTypeModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_INPUT_MODE_LIST:
 				return validateStructureMapInputModeList((StructureMapInputModeList)value, diagnostics, context);
-			case FhirPackage.STRUCTURE_MAP_LIST_MODE_LIST:
-				return validateStructureMapListModeList((StructureMapListModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_MODEL_MODE_LIST:
 				return validateStructureMapModelModeList((StructureMapModelModeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_SOURCE_LIST_MODE_LIST:
+				return validateStructureMapSourceListModeList((StructureMapSourceListModeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_TARGET_LIST_MODE_LIST:
+				return validateStructureMapTargetListModeList((StructureMapTargetListModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_TRANSFORM_LIST:
 				return validateStructureMapTransformList((StructureMapTransformList)value, diagnostics, context);
 			case FhirPackage.SUBSCRIPTION_CHANNEL_TYPE_LIST:
@@ -2624,44 +2758,70 @@ public class FhirValidator extends EObjectValidator {
 				return validateSystemVersionProcessingModeList((SystemVersionProcessingModeList)value, diagnostics, context);
 			case FhirPackage.TASK_STATUS_LIST:
 				return validateTaskStatusList((TaskStatusList)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST:
+				return validateTestReportActionResultList((TestReportActionResultList)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_PARTICIPANT_TYPE_LIST:
 				return validateTestReportParticipantTypeList((TestReportParticipantTypeList)value, diagnostics, context);
-			case FhirPackage.TEST_REPORT_RESULT_CODES_LIST:
-				return validateTestReportResultCodesList((TestReportResultCodesList)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_RESULT_LIST:
+				return validateTestReportResultList((TestReportResultList)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_STATUS_LIST:
 				return validateTestReportStatusList((TestReportStatusList)value, diagnostics, context);
+			case FhirPackage.TEST_SCRIPT_REQUEST_METHOD_CODE_LIST:
+				return validateTestScriptRequestMethodCodeList((TestScriptRequestMethodCodeList)value, diagnostics, context);
 			case FhirPackage.TRIGGER_TYPE_LIST:
 				return validateTriggerTypeList((TriggerTypeList)value, diagnostics, context);
 			case FhirPackage.TYPE_DERIVATION_RULE_LIST:
 				return validateTypeDerivationRuleList((TypeDerivationRuleList)value, diagnostics, context);
 			case FhirPackage.TYPE_RESTFUL_INTERACTION_LIST:
 				return validateTypeRestfulInteractionList((TypeRestfulInteractionList)value, diagnostics, context);
+			case FhirPackage.UDI_ENTRY_TYPE_LIST:
+				return validateUDIEntryTypeList((UDIEntryTypeList)value, diagnostics, context);
 			case FhirPackage.UNITS_OF_TIME_LIST:
 				return validateUnitsOfTimeList((UnitsOfTimeList)value, diagnostics, context);
 			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST:
 				return validateUnknownContentCodeList((UnknownContentCodeList)value, diagnostics, context);
 			case FhirPackage.USE_LIST:
 				return validateUseList((UseList)value, diagnostics, context);
+			case FhirPackage.VISION_BASE_LIST:
+				return validateVisionBaseList((VisionBaseList)value, diagnostics, context);
+			case FhirPackage.VISION_EYES_LIST:
+				return validateVisionEyesList((VisionEyesList)value, diagnostics, context);
 			case FhirPackage.XPATH_USAGE_TYPE_LIST:
 				return validateXPathUsageTypeList((XPathUsageTypeList)value, diagnostics, context);
 			case FhirPackage.ACCOUNT_STATUS_LIST_OBJECT:
 				return validateAccountStatusListObject((AccountStatusList)value, diagnostics, context);
+			case FhirPackage.ACTION_CARDINALITY_BEHAVIOR_LIST_OBJECT:
+				return validateActionCardinalityBehaviorListObject((ActionCardinalityBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_CONDITION_KIND_LIST_OBJECT:
+				return validateActionConditionKindListObject((ActionConditionKindList)value, diagnostics, context);
+			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST_OBJECT:
+				return validateActionGroupingBehaviorListObject((ActionGroupingBehaviorList)value, diagnostics, context);
 			case FhirPackage.ACTION_LIST_LIST_OBJECT:
 				return validateActionListListObject((ActionListList)value, diagnostics, context);
-			case FhirPackage.ACTIVITY_DEFINITION_CATEGORY_LIST_OBJECT:
-				return validateActivityDefinitionCategoryListObject((ActivityDefinitionCategoryList)value, diagnostics, context);
+			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST_OBJECT:
+				return validateActionParticipantTypeListObject((ActionParticipantTypeList)value, diagnostics, context);
+			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST_OBJECT:
+				return validateActionPrecheckBehaviorListObject((ActionPrecheckBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_RELATIONSHIP_TYPE_LIST_OBJECT:
+				return validateActionRelationshipTypeListObject((ActionRelationshipTypeList)value, diagnostics, context);
+			case FhirPackage.ACTION_REQUIRED_BEHAVIOR_LIST_OBJECT:
+				return validateActionRequiredBehaviorListObject((ActionRequiredBehaviorList)value, diagnostics, context);
+			case FhirPackage.ACTION_SELECTION_BEHAVIOR_LIST_OBJECT:
+				return validateActionSelectionBehaviorListObject((ActionSelectionBehaviorList)value, diagnostics, context);
 			case FhirPackage.ADDRESS_TYPE_LIST_OBJECT:
 				return validateAddressTypeListObject((AddressTypeList)value, diagnostics, context);
 			case FhirPackage.ADDRESS_USE_LIST_OBJECT:
 				return validateAddressUseListObject((AddressUseList)value, diagnostics, context);
 			case FhirPackage.ADMINISTRATIVE_GENDER_LIST_OBJECT:
 				return validateAdministrativeGenderListObject((AdministrativeGenderList)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CATEGORY_LIST_OBJECT:
+				return validateAdverseEventCategoryListObject((AdverseEventCategoryList)value, diagnostics, context);
+			case FhirPackage.ADVERSE_EVENT_CAUSALITY_LIST_OBJECT:
+				return validateAdverseEventCausalityListObject((AdverseEventCausalityList)value, diagnostics, context);
 			case FhirPackage.AGGREGATION_MODE_LIST_OBJECT:
 				return validateAggregationModeListObject((AggregationModeList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST_OBJECT:
 				return validateAllergyIntoleranceCategoryListObject((AllergyIntoleranceCategoryList)value, diagnostics, context);
-			case FhirPackage.ALLERGY_INTOLERANCE_CERTAINTY_LIST_OBJECT:
-				return validateAllergyIntoleranceCertaintyListObject((AllergyIntoleranceCertaintyList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST_OBJECT:
 				return validateAllergyIntoleranceClinicalStatusListObject((AllergyIntoleranceClinicalStatusList)value, diagnostics, context);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST_OBJECT:
@@ -2700,10 +2860,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateCapabilityStatementKindListObject((CapabilityStatementKindList)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_ACTIVITY_STATUS_LIST_OBJECT:
 				return validateCarePlanActivityStatusListObject((CarePlanActivityStatusList)value, diagnostics, context);
-			case FhirPackage.CARE_PLAN_RELATIONSHIP_LIST_OBJECT:
-				return validateCarePlanRelationshipListObject((CarePlanRelationshipList)value, diagnostics, context);
+			case FhirPackage.CARE_PLAN_INTENT_LIST_OBJECT:
+				return validateCarePlanIntentListObject((CarePlanIntentList)value, diagnostics, context);
 			case FhirPackage.CARE_PLAN_STATUS_LIST_OBJECT:
 				return validateCarePlanStatusListObject((CarePlanStatusList)value, diagnostics, context);
+			case FhirPackage.CARE_TEAM_STATUS_LIST_OBJECT:
+				return validateCareTeamStatusListObject((CareTeamStatusList)value, diagnostics, context);
+			case FhirPackage.CHARGE_ITEM_STATUS_LIST_OBJECT:
+				return validateChargeItemStatusListObject((ChargeItemStatusList)value, diagnostics, context);
 			case FhirPackage.CLINICAL_IMPRESSION_STATUS_LIST_OBJECT:
 				return validateClinicalImpressionStatusListObject((ClinicalImpressionStatusList)value, diagnostics, context);
 			case FhirPackage.CODE_PRIMITIVE:
@@ -2712,32 +2876,32 @@ public class FhirValidator extends EObjectValidator {
 				return validateCodeSystemContentModeListObject((CodeSystemContentModeList)value, diagnostics, context);
 			case FhirPackage.CODE_SYSTEM_HIERARCHY_MEANING_LIST_OBJECT:
 				return validateCodeSystemHierarchyMeaningListObject((CodeSystemHierarchyMeaningList)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_REQUEST_STATUS_LIST_OBJECT:
-				return validateCommunicationRequestStatusListObject((CommunicationRequestStatusList)value, diagnostics, context);
-			case FhirPackage.COMMUNICATION_STATUS_LIST_OBJECT:
-				return validateCommunicationStatusListObject((CommunicationStatusList)value, diagnostics, context);
 			case FhirPackage.COMPARTMENT_TYPE_LIST_OBJECT:
 				return validateCompartmentTypeListObject((CompartmentTypeList)value, diagnostics, context);
-			case FhirPackage.COMPOSITE_MEASURE_SCORING_LIST_OBJECT:
-				return validateCompositeMeasureScoringListObject((CompositeMeasureScoringList)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_ATTESTATION_MODE_LIST_OBJECT:
 				return validateCompositionAttestationModeListObject((CompositionAttestationModeList)value, diagnostics, context);
 			case FhirPackage.COMPOSITION_STATUS_LIST_OBJECT:
 				return validateCompositionStatusListObject((CompositionStatusList)value, diagnostics, context);
 			case FhirPackage.CONCEPT_MAP_EQUIVALENCE_LIST_OBJECT:
 				return validateConceptMapEquivalenceListObject((ConceptMapEquivalenceList)value, diagnostics, context);
+			case FhirPackage.CONCEPT_MAP_GROUP_UNMAPPED_MODE_LIST_OBJECT:
+				return validateConceptMapGroupUnmappedModeListObject((ConceptMapGroupUnmappedModeList)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_DELETE_STATUS_LIST_OBJECT:
 				return validateConditionalDeleteStatusListObject((ConditionalDeleteStatusList)value, diagnostics, context);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST_OBJECT:
 				return validateConditionalReadStatusListObject((ConditionalReadStatusList)value, diagnostics, context);
+			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST_OBJECT:
+				return validateConditionClinicalStatusCodesListObject((ConditionClinicalStatusCodesList)value, diagnostics, context);
 			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST_OBJECT:
 				return validateConditionVerificationStatusListObject((ConditionVerificationStatusList)value, diagnostics, context);
+			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST_OBJECT:
+				return validateConfidentialityClassificationListObject((ConfidentialityClassificationList)value, diagnostics, context);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST_OBJECT:
 				return validateConsentDataMeaningListObject((ConsentDataMeaningList)value, diagnostics, context);
 			case FhirPackage.CONSENT_EXCEPT_TYPE_LIST_OBJECT:
 				return validateConsentExceptTypeListObject((ConsentExceptTypeList)value, diagnostics, context);
-			case FhirPackage.CONSENT_STATUS_LIST_OBJECT:
-				return validateConsentStatusListObject((ConsentStatusList)value, diagnostics, context);
+			case FhirPackage.CONSENT_STATE_LIST_OBJECT:
+				return validateConsentStateListObject((ConsentStateList)value, diagnostics, context);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST_OBJECT:
 				return validateConstraintSeverityListObject((ConstraintSeverityList)value, diagnostics, context);
 			case FhirPackage.CONTACT_POINT_SYSTEM_LIST_OBJECT:
@@ -2746,6 +2910,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateContactPointUseListObject((ContactPointUseList)value, diagnostics, context);
 			case FhirPackage.CONTENT_TYPE_LIST_OBJECT:
 				return validateContentTypeListObject((ContentTypeList)value, diagnostics, context);
+			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST_OBJECT:
+				return validateContractResourceStatusCodesListObject((ContractResourceStatusCodesList)value, diagnostics, context);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST_OBJECT:
 				return validateContributorTypeListObject((ContributorTypeList)value, diagnostics, context);
 			case FhirPackage.DATA_ELEMENT_STRINGENCY_LIST_OBJECT:
@@ -2774,12 +2940,14 @@ public class FhirValidator extends EObjectValidator {
 				return validateDeviceMetricColorListObject((DeviceMetricColorList)value, diagnostics, context);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST_OBJECT:
 				return validateDeviceMetricOperationalStatusListObject((DeviceMetricOperationalStatusList)value, diagnostics, context);
-			case FhirPackage.DEVICE_STATUS_LIST_OBJECT:
-				return validateDeviceStatusListObject((DeviceStatusList)value, diagnostics, context);
+			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST_OBJECT:
+				return validateDeviceUseStatementStatusListObject((DeviceUseStatementStatusList)value, diagnostics, context);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST_OBJECT:
 				return validateDiagnosticReportStatusListObject((DiagnosticReportStatusList)value, diagnostics, context);
 			case FhirPackage.DIGITAL_MEDIA_TYPE_LIST_OBJECT:
 				return validateDigitalMediaTypeListObject((DigitalMediaTypeList)value, diagnostics, context);
+			case FhirPackage.DISCRIMINATOR_TYPE_LIST_OBJECT:
+				return validateDiscriminatorTypeListObject((DiscriminatorTypeList)value, diagnostics, context);
 			case FhirPackage.DOCUMENT_MODE_LIST_OBJECT:
 				return validateDocumentModeListObject((DocumentModeList)value, diagnostics, context);
 			case FhirPackage.DOCUMENT_REFERENCE_STATUS_LIST_OBJECT:
@@ -2796,6 +2964,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateEpisodeOfCareStatusListObject((EpisodeOfCareStatusList)value, diagnostics, context);
 			case FhirPackage.EVENT_CAPABILITY_MODE_LIST_OBJECT:
 				return validateEventCapabilityModeListObject((EventCapabilityModeList)value, diagnostics, context);
+			case FhirPackage.EVENT_STATUS_LIST_OBJECT:
+				return validateEventStatusListObject((EventStatusList)value, diagnostics, context);
 			case FhirPackage.EVENT_TIMING_LIST_OBJECT:
 				return validateEventTimingListObject((EventTimingList)value, diagnostics, context);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST_OBJECT:
@@ -2804,12 +2974,24 @@ public class FhirValidator extends EObjectValidator {
 				return validateExtensionContextListObject((ExtensionContextList)value, diagnostics, context);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST_OBJECT:
 				return validateFamilyHistoryStatusListObject((FamilyHistoryStatusList)value, diagnostics, context);
+			case FhirPackage.FHIR_ALL_TYPES_LIST_OBJECT:
+				return validateFHIRAllTypesListObject((FHIRAllTypesList)value, diagnostics, context);
+			case FhirPackage.FHIR_DEFINED_TYPE_LIST_OBJECT:
+				return validateFHIRDefinedTypeListObject((FHIRDefinedTypeList)value, diagnostics, context);
+			case FhirPackage.FHIR_DEVICE_STATUS_LIST_OBJECT:
+				return validateFHIRDeviceStatusListObject((FHIRDeviceStatusList)value, diagnostics, context);
+			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST_OBJECT:
+				return validateFHIRSubstanceStatusListObject((FHIRSubstanceStatusList)value, diagnostics, context);
 			case FhirPackage.FILTER_OPERATOR_LIST_OBJECT:
 				return validateFilterOperatorListObject((FilterOperatorList)value, diagnostics, context);
+			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST_OBJECT:
+				return validateFinancialResourceStatusCodesListObject((FinancialResourceStatusCodesList)value, diagnostics, context);
 			case FhirPackage.FLAG_STATUS_LIST_OBJECT:
 				return validateFlagStatusListObject((FlagStatusList)value, diagnostics, context);
 			case FhirPackage.GOAL_STATUS_LIST_OBJECT:
 				return validateGoalStatusListObject((GoalStatusList)value, diagnostics, context);
+			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST_OBJECT:
+				return validateGraphCompartmentRuleListObject((GraphCompartmentRuleList)value, diagnostics, context);
 			case FhirPackage.GROUP_TYPE_LIST_OBJECT:
 				return validateGroupTypeListObject((GroupTypeList)value, diagnostics, context);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST_OBJECT:
@@ -2826,6 +3008,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateIdentityAssuranceLevelListObject((IdentityAssuranceLevelList)value, diagnostics, context);
 			case FhirPackage.ID_PRIMITIVE:
 				return validateIdPrimitive((String)value, diagnostics, context);
+			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST_OBJECT:
+				return validateImmunizationStatusCodesListObject((ImmunizationStatusCodesList)value, diagnostics, context);
 			case FhirPackage.INSTANCE_AVAILABILITY_LIST_OBJECT:
 				return validateInstanceAvailabilityListObject((InstanceAvailabilityList)value, diagnostics, context);
 			case FhirPackage.INSTANT_PRIMITIVE:
@@ -2854,30 +3038,26 @@ public class FhirValidator extends EObjectValidator {
 				return validateMarkdownPrimitive((String)value, diagnostics, context);
 			case FhirPackage.MEASMNT_PRINCIPLE_LIST_OBJECT:
 				return validateMeasmntPrincipleListObject((MeasmntPrincipleList)value, diagnostics, context);
-			case FhirPackage.MEASURE_DATA_USAGE_LIST_OBJECT:
-				return validateMeasureDataUsageListObject((MeasureDataUsageList)value, diagnostics, context);
-			case FhirPackage.MEASURE_POPULATION_TYPE_LIST_OBJECT:
-				return validateMeasurePopulationTypeListObject((MeasurePopulationTypeList)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST_OBJECT:
 				return validateMeasureReportStatusListObject((MeasureReportStatusList)value, diagnostics, context);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST_OBJECT:
 				return validateMeasureReportTypeListObject((MeasureReportTypeList)value, diagnostics, context);
-			case FhirPackage.MEASURE_SCORING_LIST_OBJECT:
-				return validateMeasureScoringListObject((MeasureScoringList)value, diagnostics, context);
-			case FhirPackage.MEASURE_TYPE_LIST_OBJECT:
-				return validateMeasureTypeListObject((MeasureTypeList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST_OBJECT:
 				return validateMedicationAdministrationStatusListObject((MedicationAdministrationStatusList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST_OBJECT:
 				return validateMedicationDispenseStatusListObject((MedicationDispenseStatusList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST_OBJECT:
+				return validateMedicationRequestIntentListObject((MedicationRequestIntentList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_REQUEST_PRIORITY_LIST_OBJECT:
+				return validateMedicationRequestPriorityListObject((MedicationRequestPriorityList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST_OBJECT:
 				return validateMedicationRequestStatusListObject((MedicationRequestStatusList)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_CATEGORY_LIST_OBJECT:
-				return validateMedicationStatementCategoryListObject((MedicationStatementCategoryList)value, diagnostics, context);
-			case FhirPackage.MEDICATION_STATEMENT_NOT_TAKEN_LIST_OBJECT:
-				return validateMedicationStatementNotTakenListObject((MedicationStatementNotTakenList)value, diagnostics, context);
 			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST_OBJECT:
 				return validateMedicationStatementStatusListObject((MedicationStatementStatusList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATEMENT_TAKEN_LIST_OBJECT:
+				return validateMedicationStatementTakenListObject((MedicationStatementTakenList)value, diagnostics, context);
+			case FhirPackage.MEDICATION_STATUS_LIST_OBJECT:
+				return validateMedicationStatusListObject((MedicationStatusList)value, diagnostics, context);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST_OBJECT:
 				return validateMessageSignificanceCategoryListObject((MessageSignificanceCategoryList)value, diagnostics, context);
 			case FhirPackage.NAME_USE_LIST_OBJECT:
@@ -2906,30 +3086,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateParticipantRequiredListObject((ParticipantRequiredList)value, diagnostics, context);
 			case FhirPackage.PARTICIPATION_STATUS_LIST_OBJECT:
 				return validateParticipationStatusListObject((ParticipationStatusList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CARDINALITY_BEHAVIOR_LIST_OBJECT:
-				return validatePlanActionCardinalityBehaviorListObject((PlanActionCardinalityBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_CONDITION_KIND_LIST_OBJECT:
-				return validatePlanActionConditionKindListObject((PlanActionConditionKindList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_GROUPING_BEHAVIOR_LIST_OBJECT:
-				return validatePlanActionGroupingBehaviorListObject((PlanActionGroupingBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PARTICIPANT_TYPE_LIST_OBJECT:
-				return validatePlanActionParticipantTypeListObject((PlanActionParticipantTypeList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_PRECHECK_BEHAVIOR_LIST_OBJECT:
-				return validatePlanActionPrecheckBehaviorListObject((PlanActionPrecheckBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_RELATIONSHIP_TYPE_LIST_OBJECT:
-				return validatePlanActionRelationshipTypeListObject((PlanActionRelationshipTypeList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_REQUIRED_BEHAVIOR_LIST_OBJECT:
-				return validatePlanActionRequiredBehaviorListObject((PlanActionRequiredBehaviorList)value, diagnostics, context);
-			case FhirPackage.PLAN_ACTION_SELECTION_BEHAVIOR_LIST_OBJECT:
-				return validatePlanActionSelectionBehaviorListObject((PlanActionSelectionBehaviorList)value, diagnostics, context);
 			case FhirPackage.POSITIVE_INT_PRIMITIVE:
 				return validatePositiveIntPrimitive((BigInteger)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_PRIORITY_LIST_OBJECT:
-				return validateProcedureRequestPriorityListObject((ProcedureRequestPriorityList)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_REQUEST_STATUS_LIST_OBJECT:
-				return validateProcedureRequestStatusListObject((ProcedureRequestStatusList)value, diagnostics, context);
-			case FhirPackage.PROCEDURE_STATUS_LIST_OBJECT:
-				return validateProcedureStatusListObject((ProcedureStatusList)value, diagnostics, context);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST_OBJECT:
 				return validatePropertyRepresentationListObject((PropertyRepresentationList)value, diagnostics, context);
 			case FhirPackage.PROPERTY_TYPE_LIST_OBJECT:
@@ -2946,26 +3104,28 @@ public class FhirValidator extends EObjectValidator {
 				return validateQuestionnaireItemTypeListObject((QuestionnaireItemTypeList)value, diagnostics, context);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST_OBJECT:
 				return validateQuestionnaireResponseStatusListObject((QuestionnaireResponseStatusList)value, diagnostics, context);
-			case FhirPackage.QUESTIONNAIRE_STATUS_LIST_OBJECT:
-				return validateQuestionnaireStatusListObject((QuestionnaireStatusList)value, diagnostics, context);
 			case FhirPackage.REFERENCE_HANDLING_POLICY_LIST_OBJECT:
 				return validateReferenceHandlingPolicyListObject((ReferenceHandlingPolicyList)value, diagnostics, context);
 			case FhirPackage.REFERENCE_VERSION_RULES_LIST_OBJECT:
 				return validateReferenceVersionRulesListObject((ReferenceVersionRulesList)value, diagnostics, context);
-			case FhirPackage.REFERRAL_CATEGORY_LIST_OBJECT:
-				return validateReferralCategoryListObject((ReferralCategoryList)value, diagnostics, context);
-			case FhirPackage.REFERRAL_STATUS_LIST_OBJECT:
-				return validateReferralStatusListObject((ReferralStatusList)value, diagnostics, context);
 			case FhirPackage.RELATED_ARTIFACT_TYPE_LIST_OBJECT:
 				return validateRelatedArtifactTypeListObject((RelatedArtifactTypeList)value, diagnostics, context);
 			case FhirPackage.REMITTANCE_OUTCOME_LIST_OBJECT:
 				return validateRemittanceOutcomeListObject((RemittanceOutcomeList)value, diagnostics, context);
 			case FhirPackage.REPOSITORY_TYPE_LIST_OBJECT:
 				return validateRepositoryTypeListObject((RepositoryTypeList)value, diagnostics, context);
+			case FhirPackage.REQUEST_INTENT_LIST_OBJECT:
+				return validateRequestIntentListObject((RequestIntentList)value, diagnostics, context);
+			case FhirPackage.REQUEST_PRIORITY_LIST_OBJECT:
+				return validateRequestPriorityListObject((RequestPriorityList)value, diagnostics, context);
+			case FhirPackage.REQUEST_STATUS_LIST_OBJECT:
+				return validateRequestStatusListObject((RequestStatusList)value, diagnostics, context);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST_OBJECT:
 				return validateResearchStudyStatusListObject((ResearchStudyStatusList)value, diagnostics, context);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST_OBJECT:
 				return validateResearchSubjectStatusListObject((ResearchSubjectStatusList)value, diagnostics, context);
+			case FhirPackage.RESOURCE_TYPE_LIST_OBJECT:
+				return validateResourceTypeListObject((ResourceTypeList)value, diagnostics, context);
 			case FhirPackage.RESOURCE_VERSION_POLICY_LIST_OBJECT:
 				return validateResourceVersionPolicyListObject((ResourceVersionPolicyList)value, diagnostics, context);
 			case FhirPackage.RESPONSE_TYPE_LIST_OBJECT:
@@ -2982,8 +3142,6 @@ public class FhirValidator extends EObjectValidator {
 				return validateSearchModifierCodeListObject((SearchModifierCodeList)value, diagnostics, context);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST_OBJECT:
 				return validateSearchParamTypeListObject((SearchParamTypeList)value, diagnostics, context);
-			case FhirPackage.SEQUENCE_TYPE_LIST_OBJECT:
-				return validateSequenceTypeListObject((SequenceTypeList)value, diagnostics, context);
 			case FhirPackage.SLICING_RULES_LIST_OBJECT:
 				return validateSlicingRulesListObject((SlicingRulesList)value, diagnostics, context);
 			case FhirPackage.SLOT_STATUS_LIST_OBJECT:
@@ -2996,12 +3154,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateStructureDefinitionKindListObject((StructureDefinitionKindList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_CONTEXT_TYPE_LIST_OBJECT:
 				return validateStructureMapContextTypeListObject((StructureMapContextTypeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_GROUP_TYPE_MODE_LIST_OBJECT:
+				return validateStructureMapGroupTypeModeListObject((StructureMapGroupTypeModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_INPUT_MODE_LIST_OBJECT:
 				return validateStructureMapInputModeListObject((StructureMapInputModeList)value, diagnostics, context);
-			case FhirPackage.STRUCTURE_MAP_LIST_MODE_LIST_OBJECT:
-				return validateStructureMapListModeListObject((StructureMapListModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_MODEL_MODE_LIST_OBJECT:
 				return validateStructureMapModelModeListObject((StructureMapModelModeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_SOURCE_LIST_MODE_LIST_OBJECT:
+				return validateStructureMapSourceListModeListObject((StructureMapSourceListModeList)value, diagnostics, context);
+			case FhirPackage.STRUCTURE_MAP_TARGET_LIST_MODE_LIST_OBJECT:
+				return validateStructureMapTargetListModeListObject((StructureMapTargetListModeList)value, diagnostics, context);
 			case FhirPackage.STRUCTURE_MAP_TRANSFORM_LIST_OBJECT:
 				return validateStructureMapTransformListObject((StructureMapTransformList)value, diagnostics, context);
 			case FhirPackage.SUBSCRIPTION_CHANNEL_TYPE_LIST_OBJECT:
@@ -3018,12 +3180,16 @@ public class FhirValidator extends EObjectValidator {
 				return validateSystemVersionProcessingModeListObject((SystemVersionProcessingModeList)value, diagnostics, context);
 			case FhirPackage.TASK_STATUS_LIST_OBJECT:
 				return validateTaskStatusListObject((TaskStatusList)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST_OBJECT:
+				return validateTestReportActionResultListObject((TestReportActionResultList)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_PARTICIPANT_TYPE_LIST_OBJECT:
 				return validateTestReportParticipantTypeListObject((TestReportParticipantTypeList)value, diagnostics, context);
-			case FhirPackage.TEST_REPORT_RESULT_CODES_LIST_OBJECT:
-				return validateTestReportResultCodesListObject((TestReportResultCodesList)value, diagnostics, context);
+			case FhirPackage.TEST_REPORT_RESULT_LIST_OBJECT:
+				return validateTestReportResultListObject((TestReportResultList)value, diagnostics, context);
 			case FhirPackage.TEST_REPORT_STATUS_LIST_OBJECT:
 				return validateTestReportStatusListObject((TestReportStatusList)value, diagnostics, context);
+			case FhirPackage.TEST_SCRIPT_REQUEST_METHOD_CODE_LIST_OBJECT:
+				return validateTestScriptRequestMethodCodeListObject((TestScriptRequestMethodCodeList)value, diagnostics, context);
 			case FhirPackage.TIME_PRIMITIVE:
 				return validateTimePrimitive((XMLGregorianCalendar)value, diagnostics, context);
 			case FhirPackage.TRIGGER_TYPE_LIST_OBJECT:
@@ -3032,6 +3198,8 @@ public class FhirValidator extends EObjectValidator {
 				return validateTypeDerivationRuleListObject((TypeDerivationRuleList)value, diagnostics, context);
 			case FhirPackage.TYPE_RESTFUL_INTERACTION_LIST_OBJECT:
 				return validateTypeRestfulInteractionListObject((TypeRestfulInteractionList)value, diagnostics, context);
+			case FhirPackage.UDI_ENTRY_TYPE_LIST_OBJECT:
+				return validateUDIEntryTypeListObject((UDIEntryTypeList)value, diagnostics, context);
 			case FhirPackage.UNITS_OF_TIME_LIST_OBJECT:
 				return validateUnitsOfTimeListObject((UnitsOfTimeList)value, diagnostics, context);
 			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST_OBJECT:
@@ -3044,6 +3212,10 @@ public class FhirValidator extends EObjectValidator {
 				return validateUseListObject((UseList)value, diagnostics, context);
 			case FhirPackage.UUID_PRIMITIVE:
 				return validateUuidPrimitive((String)value, diagnostics, context);
+			case FhirPackage.VISION_BASE_LIST_OBJECT:
+				return validateVisionBaseListObject((VisionBaseList)value, diagnostics, context);
+			case FhirPackage.VISION_EYES_LIST_OBJECT:
+				return validateVisionEyesListObject((VisionEyesList)value, diagnostics, context);
 			case FhirPackage.XPATH_USAGE_TYPE_LIST_OBJECT:
 				return validateXPathUsageTypeListObject((XPathUsageTypeList)value, diagnostics, context);
 			default:
@@ -3058,6 +3230,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateAccount(Account account, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(account, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAccountCoverage(AccountCoverage accountCoverage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(accountCoverage, diagnostics, context);
 	}
 
 	/**
@@ -3083,8 +3264,80 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateActionCardinalityBehavior(ActionCardinalityBehavior actionCardinalityBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionCardinalityBehavior, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionConditionKind(ActionConditionKind actionConditionKind, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionConditionKind, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionGroupingBehavior(ActionGroupingBehavior actionGroupingBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionGroupingBehavior, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateActionList(ActionList actionList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(actionList, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionParticipantType(ActionParticipantType actionParticipantType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionParticipantType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionPrecheckBehavior(ActionPrecheckBehavior actionPrecheckBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionPrecheckBehavior, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRelationshipType(ActionRelationshipType actionRelationshipType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionRelationshipType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRequiredBehavior(ActionRequiredBehavior actionRequiredBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionRequiredBehavior, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionSelectionBehavior(ActionSelectionBehavior actionSelectionBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionSelectionBehavior, diagnostics, context);
 	}
 
 	/**
@@ -3101,8 +3354,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActivityDefinitionCategory(ActivityDefinitionCategory activityDefinitionCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(activityDefinitionCategory, diagnostics, context);
+	public boolean validateActivityDefinitionDynamicValue(ActivityDefinitionDynamicValue activityDefinitionDynamicValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(activityDefinitionDynamicValue, diagnostics, context);
 	}
 
 	/**
@@ -3110,8 +3363,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActivityDefinitionDynamicValue(ActivityDefinitionDynamicValue activityDefinitionDynamicValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(activityDefinitionDynamicValue, diagnostics, context);
+	public boolean validateActivityDefinitionParticipant(ActivityDefinitionParticipant activityDefinitionParticipant, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(activityDefinitionParticipant, diagnostics, context);
 	}
 
 	/**
@@ -3155,6 +3408,42 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAdverseEvent(AdverseEvent adverseEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(adverseEvent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAdverseEventCategory(AdverseEventCategory adverseEventCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(adverseEventCategory, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAdverseEventCausality(AdverseEventCausality adverseEventCausality, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(adverseEventCausality, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAdverseEventSuspectEntity(AdverseEventSuspectEntity adverseEventSuspectEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(adverseEventSuspectEntity, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateAge(Age age, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(age, diagnostics, context);
 	}
@@ -3184,15 +3473,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateAllergyIntoleranceCategory(AllergyIntoleranceCategory allergyIntoleranceCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(allergyIntoleranceCategory, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAllergyIntoleranceCertainty(AllergyIntoleranceCertainty allergyIntoleranceCertainty, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(allergyIntoleranceCertainty, diagnostics, context);
 	}
 
 	/**
@@ -3686,6 +3966,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateCapabilityStatementSupportedMessage(CapabilityStatementSupportedMessage capabilityStatementSupportedMessage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(capabilityStatementSupportedMessage, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateCarePlan(CarePlan carePlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(carePlan, diagnostics, context);
 	}
@@ -3722,17 +4011,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCarePlanRelatedPlan(CarePlanRelatedPlan carePlanRelatedPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(carePlanRelatedPlan, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCarePlanRelationship(CarePlanRelationship carePlanRelationship, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(carePlanRelationship, diagnostics, context);
+	public boolean validateCarePlanIntent(CarePlanIntent carePlanIntent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(carePlanIntent, diagnostics, context);
 	}
 
 	/**
@@ -3760,6 +4040,42 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateCareTeamParticipant(CareTeamParticipant careTeamParticipant, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(careTeamParticipant, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCareTeamStatus(CareTeamStatus careTeamStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(careTeamStatus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChargeItem(ChargeItem chargeItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(chargeItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChargeItemParticipant(ChargeItemParticipant chargeItemParticipant, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(chargeItemParticipant, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChargeItemStatus(ChargeItemStatus chargeItemStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(chargeItemStatus, diagnostics, context);
 	}
 
 	/**
@@ -3857,15 +4173,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateClaimProsthesis(ClaimProsthesis claimProsthesis, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(claimProsthesis, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateClaimRelated(ClaimRelated claimRelated, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(claimRelated, diagnostics, context);
 	}
@@ -3947,8 +4254,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateClaimResponseNote(ClaimResponseNote claimResponseNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(claimResponseNote, diagnostics, context);
+	public boolean validateClaimResponsePayment(ClaimResponsePayment claimResponsePayment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(claimResponsePayment, diagnostics, context);
 	}
 
 	/**
@@ -3956,8 +4263,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateClaimResponsePayment(ClaimResponsePayment claimResponsePayment, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(claimResponsePayment, diagnostics, context);
+	public boolean validateClaimResponseProcessNote(ClaimResponseProcessNote claimResponseProcessNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(claimResponseProcessNote, diagnostics, context);
 	}
 
 	/**
@@ -4154,17 +4461,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCommunicationRequestStatus(CommunicationRequestStatus communicationRequestStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(communicationRequestStatus, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCommunicationStatus(CommunicationStatus communicationStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(communicationStatus, diagnostics, context);
+	public boolean validateCommunicationRequestRequester(CommunicationRequestRequester communicationRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(communicationRequestRequester, diagnostics, context);
 	}
 
 	/**
@@ -4192,15 +4490,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateCompartmentType(CompartmentType compartmentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(compartmentType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCompositeMeasureScoring(CompositeMeasureScoring compositeMeasureScoring, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(compositeMeasureScoring, diagnostics, context);
 	}
 
 	/**
@@ -4237,6 +4526,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateCompositionEvent(CompositionEvent compositionEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(compositionEvent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCompositionRelatesTo(CompositionRelatesTo compositionRelatesTo, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(compositionRelatesTo, diagnostics, context);
 	}
 
 	/**
@@ -4307,8 +4605,26 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConceptMapGroupUnmappedMode(ConceptMapGroupUnmappedMode conceptMapGroupUnmappedMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(conceptMapGroupUnmappedMode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConceptMapTarget(ConceptMapTarget conceptMapTarget, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(conceptMapTarget, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConceptMapUnmapped(ConceptMapUnmapped conceptMapUnmapped, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(conceptMapUnmapped, diagnostics, context);
 	}
 
 	/**
@@ -4343,6 +4659,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConditionClinicalStatusCodes(ConditionClinicalStatusCodes conditionClinicalStatusCodes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(conditionClinicalStatusCodes, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConditionEvidence(ConditionEvidence conditionEvidence, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(conditionEvidence, diagnostics, context);
 	}
@@ -4370,6 +4695,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConfidentialityClassification(ConfidentialityClassification confidentialityClassification, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(confidentialityClassification, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConsent(Consent consent, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(consent, diagnostics, context);
 	}
@@ -4388,8 +4722,26 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConsentActor1(ConsentActor1 consentActor1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consentActor1, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConsentData(ConsentData consentData, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(consentData, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConsentData1(ConsentData1 consentData1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consentData1, diagnostics, context);
 	}
 
 	/**
@@ -4424,8 +4776,17 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateConsentStatus(ConsentStatus consentStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(consentStatus, diagnostics, context);
+	public boolean validateConsentPolicy(ConsentPolicy consentPolicy, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consentPolicy, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConsentState(ConsentState consentState, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consentState, diagnostics, context);
 	}
 
 	/**
@@ -4532,6 +4893,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateContractResourceStatusCodes(ContractResourceStatusCodes contractResourceStatusCodes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(contractResourceStatusCodes, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateContractRule(ContractRule contractRule, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(contractRule, diagnostics, context);
 	}
@@ -4613,8 +4983,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCoverageGroup(CoverageGroup coverageGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(coverageGroup, diagnostics, context);
+	public boolean validateCoverageGrouping(CoverageGrouping coverageGrouping, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(coverageGrouping, diagnostics, context);
 	}
 
 	/**
@@ -4829,8 +5199,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDeviceStatus(DeviceStatus deviceStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(deviceStatus, diagnostics, context);
+	public boolean validateDeviceRequest(DeviceRequest deviceRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(deviceRequest, diagnostics, context);
 	}
 
 	/**
@@ -4838,8 +5208,17 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDeviceUseRequest(DeviceUseRequest deviceUseRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(deviceUseRequest, diagnostics, context);
+	public boolean validateDeviceRequestRequester(DeviceRequestRequester deviceRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(deviceRequestRequester, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDeviceUdi(DeviceUdi deviceUdi, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(deviceUdi, diagnostics, context);
 	}
 
 	/**
@@ -4849,6 +5228,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateDeviceUseStatement(DeviceUseStatement deviceUseStatement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(deviceUseStatement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDeviceUseStatementStatus(DeviceUseStatementStatus deviceUseStatementStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(deviceUseStatementStatus, diagnostics, context);
 	}
 
 	/**
@@ -4874,6 +5262,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateDiagnosticReportPerformer(DiagnosticReportPerformer diagnosticReportPerformer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(diagnosticReportPerformer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateDiagnosticReportStatus(DiagnosticReportStatus diagnosticReportStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(diagnosticReportStatus, diagnostics, context);
 	}
@@ -4883,8 +5280,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDiagnosticRequest(DiagnosticRequest diagnosticRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(diagnosticRequest, diagnostics, context);
+	public boolean validateDigitalMediaType(DigitalMediaType digitalMediaType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(digitalMediaType, diagnostics, context);
 	}
 
 	/**
@@ -4892,8 +5289,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDigitalMediaType(DigitalMediaType digitalMediaType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(digitalMediaType, diagnostics, context);
+	public boolean validateDiscriminatorType(DiscriminatorType discriminatorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(discriminatorType, diagnostics, context);
 	}
 
 	/**
@@ -5027,8 +5424,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDosageInstruction(DosageInstruction dosageInstruction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(dosageInstruction, diagnostics, context);
+	public boolean validateDosage(Dosage dosage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dosage, diagnostics, context);
 	}
 
 	/**
@@ -5083,6 +5480,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateElementDefinitionConstraint(ElementDefinitionConstraint elementDefinitionConstraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(elementDefinitionConstraint, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateElementDefinitionDiscriminator(ElementDefinitionDiscriminator elementDefinitionDiscriminator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(elementDefinitionDiscriminator, diagnostics, context);
 	}
 
 	/**
@@ -5189,6 +5595,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateEncounterClassHistory(EncounterClassHistory encounterClassHistory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(encounterClassHistory, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEncounterDiagnosis(EncounterDiagnosis encounterDiagnosis, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(encounterDiagnosis, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateEncounterHospitalization(EncounterHospitalization encounterHospitalization, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(encounterHospitalization, diagnostics, context);
 	}
@@ -5288,6 +5712,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateEpisodeOfCareDiagnosis(EpisodeOfCareDiagnosis episodeOfCareDiagnosis, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(episodeOfCareDiagnosis, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateEpisodeOfCareStatus(EpisodeOfCareStatus episodeOfCareStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(episodeOfCareStatus, diagnostics, context);
 	}
@@ -5308,6 +5741,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateEventCapabilityMode(EventCapabilityMode eventCapabilityMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(eventCapabilityMode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEventStatus(EventStatus eventStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(eventStatus, diagnostics, context);
 	}
 
 	/**
@@ -5513,15 +5955,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateExplanationOfBenefitNote(ExplanationOfBenefitNote explanationOfBenefitNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(explanationOfBenefitNote, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateExplanationOfBenefitPayee(ExplanationOfBenefitPayee explanationOfBenefitPayee, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(explanationOfBenefitPayee, diagnostics, context);
 	}
@@ -5549,8 +5982,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateExplanationOfBenefitProsthesis(ExplanationOfBenefitProsthesis explanationOfBenefitProsthesis, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(explanationOfBenefitProsthesis, diagnostics, context);
+	public boolean validateExplanationOfBenefitProcessNote(ExplanationOfBenefitProcessNote explanationOfBenefitProcessNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(explanationOfBenefitProcessNote, diagnostics, context);
 	}
 
 	/**
@@ -5630,8 +6063,53 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateFHIRAllTypes(FHIRAllTypes fhirAllTypes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fhirAllTypes, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDefinedType(FHIRDefinedType fhirDefinedType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fhirDefinedType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDeviceStatus(FHIRDeviceStatus fhirDeviceStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fhirDeviceStatus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRSubstanceStatus(FHIRSubstanceStatus fhirSubstanceStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fhirSubstanceStatus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateFilterOperator(FilterOperator filterOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(filterOperator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFinancialResourceStatusCodes(FinancialResourceStatusCodes financialResourceStatusCodes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(financialResourceStatusCodes, diagnostics, context);
 	}
 
 	/**
@@ -5666,8 +6144,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGoalOutcome(GoalOutcome goalOutcome, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(goalOutcome, diagnostics, context);
+	public boolean validateGoalStatus(GoalStatus goalStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(goalStatus, diagnostics, context);
 	}
 
 	/**
@@ -5675,8 +6153,53 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGoalStatus(GoalStatus goalStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(goalStatus, diagnostics, context);
+	public boolean validateGoalTarget(GoalTarget goalTarget, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(goalTarget, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphCompartmentRule(GraphCompartmentRule graphCompartmentRule, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(graphCompartmentRule, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphDefinition(GraphDefinition graphDefinition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(graphDefinition, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphDefinitionCompartment(GraphDefinitionCompartment graphDefinitionCompartment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(graphDefinitionCompartment, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphDefinitionLink(GraphDefinitionLink graphDefinitionLink, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(graphDefinitionLink, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphDefinitionTarget(GraphDefinitionTarget graphDefinitionTarget, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(graphDefinitionTarget, diagnostics, context);
 	}
 
 	/**
@@ -5846,24 +6369,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateImagingManifestBaseLocation(ImagingManifestBaseLocation imagingManifestBaseLocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(imagingManifestBaseLocation, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateImagingManifestBaseLocation1(ImagingManifestBaseLocation1 imagingManifestBaseLocation1, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(imagingManifestBaseLocation1, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateImagingManifestInstance(ImagingManifestInstance imagingManifestInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(imagingManifestInstance, diagnostics, context);
 	}
@@ -5900,24 +6405,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateImagingStudyBaseLocation(ImagingStudyBaseLocation imagingStudyBaseLocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(imagingStudyBaseLocation, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateImagingStudyBaseLocation1(ImagingStudyBaseLocation1 imagingStudyBaseLocation1, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(imagingStudyBaseLocation1, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateImagingStudyInstance(ImagingStudyInstance imagingStudyInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(imagingStudyInstance, diagnostics, context);
 	}
@@ -5947,6 +6434,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateImmunizationExplanation(ImmunizationExplanation immunizationExplanation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(immunizationExplanation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImmunizationPractitioner(ImmunizationPractitioner immunizationPractitioner, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(immunizationPractitioner, diagnostics, context);
 	}
 
 	/**
@@ -5992,6 +6488,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateImmunizationRecommendationRecommendation(ImmunizationRecommendationRecommendation immunizationRecommendationRecommendation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(immunizationRecommendationRecommendation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImmunizationStatusCodes(ImmunizationStatusCodes immunizationStatusCodes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(immunizationStatusCodes, diagnostics, context);
 	}
 
 	/**
@@ -6251,15 +6756,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasureDataUsage(MeasureDataUsage measureDataUsage, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureDataUsage, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMeasureGroup(MeasureGroup measureGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(measureGroup, diagnostics, context);
 	}
@@ -6278,15 +6774,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasurePopulationType(MeasurePopulationType measurePopulationType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measurePopulationType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMeasureReport(MeasureReport measureReport, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(measureReport, diagnostics, context);
 	}
@@ -6298,24 +6785,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateMeasureReportGroup(MeasureReportGroup measureReportGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(measureReportGroup, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureReportGroup1(MeasureReportGroup1 measureReportGroup1, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureReportGroup1, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureReportGroup2(MeasureReportGroup2 measureReportGroup2, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureReportGroup2, diagnostics, context);
 	}
 
 	/**
@@ -6359,8 +6828,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasureReportSupplementalData(MeasureReportSupplementalData measureReportSupplementalData, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureReportSupplementalData, diagnostics, context);
+	public boolean validateMeasureReportStratum(MeasureReportStratum measureReportStratum, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(measureReportStratum, diagnostics, context);
 	}
 
 	/**
@@ -6370,15 +6839,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateMeasureReportType(MeasureReportType measureReportType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(measureReportType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureScoring(MeasureScoring measureScoring, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureScoring, diagnostics, context);
 	}
 
 	/**
@@ -6397,15 +6857,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateMeasureSupplementalData(MeasureSupplementalData measureSupplementalData, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(measureSupplementalData, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureType(MeasureType measureType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measureType, diagnostics, context);
 	}
 
 	/**
@@ -6449,6 +6900,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateMedicationAdministrationPerformer(MedicationAdministrationPerformer medicationAdministrationPerformer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationAdministrationPerformer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateMedicationAdministrationStatus(MedicationAdministrationStatus medicationAdministrationStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(medicationAdministrationStatus, diagnostics, context);
 	}
@@ -6478,6 +6938,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateMedicationDispense(MedicationDispense medicationDispense, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(medicationDispense, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationDispensePerformer(MedicationDispensePerformer medicationDispensePerformer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationDispensePerformer, diagnostics, context);
 	}
 
 	/**
@@ -6521,15 +6990,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMedicationProduct(MedicationProduct medicationProduct, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(medicationProduct, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMedicationRequest(MedicationRequest medicationRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(medicationRequest, diagnostics, context);
 	}
@@ -6541,6 +7001,33 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateMedicationRequestDispenseRequest(MedicationRequestDispenseRequest medicationRequestDispenseRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(medicationRequestDispenseRequest, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationRequestIntent(MedicationRequestIntent medicationRequestIntent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationRequestIntent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationRequestPriority(MedicationRequestPriority medicationRequestPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationRequestPriority, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationRequestRequester(MedicationRequestRequester medicationRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationRequestRequester, diagnostics, context);
 	}
 
 	/**
@@ -6575,26 +7062,26 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMedicationStatementCategory(MedicationStatementCategory medicationStatementCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(medicationStatementCategory, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMedicationStatementNotTaken(MedicationStatementNotTaken medicationStatementNotTaken, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(medicationStatementNotTaken, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMedicationStatementStatus(MedicationStatementStatus medicationStatementStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(medicationStatementStatus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatementTaken(MedicationStatementTaken medicationStatementTaken, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationStatementTaken, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatus(MedicationStatus medicationStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(medicationStatus, diagnostics, context);
 	}
 
 	/**
@@ -6764,6 +7251,51 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateNutritionOrder(NutritionOrder nutritionOrder, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrder, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNutritionOrderAdministration(NutritionOrderAdministration nutritionOrderAdministration, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderAdministration, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNutritionOrderEnteralFormula(NutritionOrderEnteralFormula nutritionOrderEnteralFormula, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderEnteralFormula, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNutritionOrderNutrient(NutritionOrderNutrient nutritionOrderNutrient, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderNutrient, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNutritionOrderOralDiet(NutritionOrderOralDiet nutritionOrderOralDiet, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderOralDiet, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateNutritionOrderStatus(NutritionOrderStatus nutritionOrderStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(nutritionOrderStatus, diagnostics, context);
 	}
@@ -6773,8 +7305,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNutritionRequest(NutritionRequest nutritionRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequest, diagnostics, context);
+	public boolean validateNutritionOrderSupplement(NutritionOrderSupplement nutritionOrderSupplement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderSupplement, diagnostics, context);
 	}
 
 	/**
@@ -6782,53 +7314,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNutritionRequestAdministration(NutritionRequestAdministration nutritionRequestAdministration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestAdministration, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNutritionRequestEnteralFormula(NutritionRequestEnteralFormula nutritionRequestEnteralFormula, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestEnteralFormula, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNutritionRequestNutrient(NutritionRequestNutrient nutritionRequestNutrient, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestNutrient, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNutritionRequestOralDiet(NutritionRequestOralDiet nutritionRequestOralDiet, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestOralDiet, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNutritionRequestSupplement(NutritionRequestSupplement nutritionRequestSupplement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestSupplement, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNutritionRequestTexture(NutritionRequestTexture nutritionRequestTexture, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nutritionRequestTexture, diagnostics, context);
+	public boolean validateNutritionOrderTexture(NutritionOrderTexture nutritionOrderTexture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nutritionOrderTexture, diagnostics, context);
 	}
 
 	/**
@@ -7106,8 +7593,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePaymentReconciliationNote(PaymentReconciliationNote paymentReconciliationNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(paymentReconciliationNote, diagnostics, context);
+	public boolean validatePaymentReconciliationProcessNote(PaymentReconciliationProcessNote paymentReconciliationProcessNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(paymentReconciliationProcessNote, diagnostics, context);
 	}
 
 	/**
@@ -7142,78 +7629,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePlanActionCardinalityBehavior(PlanActionCardinalityBehavior planActionCardinalityBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionCardinalityBehavior, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionConditionKind(PlanActionConditionKind planActionConditionKind, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionConditionKind, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionGroupingBehavior(PlanActionGroupingBehavior planActionGroupingBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionGroupingBehavior, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionParticipantType(PlanActionParticipantType planActionParticipantType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionParticipantType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionPrecheckBehavior(PlanActionPrecheckBehavior planActionPrecheckBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionPrecheckBehavior, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRelationshipType(PlanActionRelationshipType planActionRelationshipType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionRelationshipType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRequiredBehavior(PlanActionRequiredBehavior planActionRequiredBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionRequiredBehavior, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionSelectionBehavior(PlanActionSelectionBehavior planActionSelectionBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planActionSelectionBehavior, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validatePlanDefinition(PlanDefinition planDefinition, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(planDefinition, diagnostics, context);
 	}
@@ -7223,8 +7638,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePlanDefinitionActionDefinition(PlanDefinitionActionDefinition planDefinitionActionDefinition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(planDefinitionActionDefinition, diagnostics, context);
+	public boolean validatePlanDefinitionAction(PlanDefinitionAction planDefinitionAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(planDefinitionAction, diagnostics, context);
 	}
 
 	/**
@@ -7250,8 +7665,35 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validatePlanDefinitionGoal(PlanDefinitionGoal planDefinitionGoal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(planDefinitionGoal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePlanDefinitionParticipant(PlanDefinitionParticipant planDefinitionParticipant, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(planDefinitionParticipant, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validatePlanDefinitionRelatedAction(PlanDefinitionRelatedAction planDefinitionRelatedAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(planDefinitionRelatedAction, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePlanDefinitionTarget(PlanDefinitionTarget planDefinitionTarget, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(planDefinitionTarget, diagnostics, context);
 	}
 
 	/**
@@ -7288,15 +7730,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validatePractitionerRole(PractitionerRole practitionerRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(practitionerRole, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePractitionerRole1(PractitionerRole1 practitionerRole1, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(practitionerRole1, diagnostics, context);
 	}
 
 	/**
@@ -7358,26 +7791,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProcedureRequestPriority(ProcedureRequestPriority procedureRequestPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(procedureRequestPriority, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureRequestStatus(ProcedureRequestStatus procedureRequestStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(procedureRequestStatus, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureStatus(ProcedureStatus procedureStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(procedureStatus, diagnostics, context);
+	public boolean validateProcedureRequestRequester(ProcedureRequestRequester procedureRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(procedureRequestRequester, diagnostics, context);
 	}
 
 	/**
@@ -7412,8 +7827,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProcessResponseNote(ProcessResponseNote processResponseNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(processResponseNote, diagnostics, context);
+	public boolean validateProcessResponseProcessNote(ProcessResponseProcessNote processResponseProcessNote, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(processResponseProcessNote, diagnostics, context);
 	}
 
 	/**
@@ -7592,15 +8007,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateQuestionnaireStatus(QuestionnaireStatus questionnaireStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(questionnaireStatus, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateRange(Range range, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(range, diagnostics, context);
 	}
@@ -7646,15 +8052,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateReferralCategory(ReferralCategory referralCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(referralCategory, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateReferralRequest(ReferralRequest referralRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(referralRequest, diagnostics, context);
 	}
@@ -7664,8 +8061,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateReferralStatus(ReferralStatus referralStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(referralStatus, diagnostics, context);
+	public boolean validateReferralRequestRequester(ReferralRequestRequester referralRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(referralRequestRequester, diagnostics, context);
 	}
 
 	/**
@@ -7754,6 +8151,33 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateRequestIntent(RequestIntent requestIntent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(requestIntent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestPriority(RequestPriority requestPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(requestPriority, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestStatus(RequestStatus requestStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(requestStatus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateResearchStudy(ResearchStudy researchStudy, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(researchStudy, diagnostics, context);
 	}
@@ -7810,6 +8234,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateResourceContainer(ResourceContainer resourceContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(resourceContainer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceType(ResourceType resourceType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(resourceType, diagnostics, context);
 	}
 
 	/**
@@ -7952,24 +8385,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSequenceInner(SequenceInner sequenceInner, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(sequenceInner, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSequenceOuter(SequenceOuter sequenceOuter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(sequenceOuter, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateSequenceQuality(SequenceQuality sequenceQuality, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(sequenceQuality, diagnostics, context);
 	}
@@ -7990,24 +8405,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateSequenceRepository(SequenceRepository sequenceRepository, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(sequenceRepository, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSequenceStructureVariant(SequenceStructureVariant sequenceStructureVariant, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(sequenceStructureVariant, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSequenceType(SequenceType sequenceType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(sequenceType, diagnostics, context);
 	}
 
 	/**
@@ -8096,8 +8493,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSpecimenStatus(SpecimenStatus specimenStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(specimenStatus, diagnostics, context);
+	public boolean validateSpecimenProcessing(SpecimenProcessing specimenProcessing, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(specimenProcessing, diagnostics, context);
 	}
 
 	/**
@@ -8105,8 +8502,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSpecimenTreatment(SpecimenTreatment specimenTreatment, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(specimenTreatment, diagnostics, context);
+	public boolean validateSpecimenStatus(SpecimenStatus specimenStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(specimenStatus, diagnostics, context);
 	}
 
 	/**
@@ -8204,6 +8601,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStructureMapGroupTypeMode(StructureMapGroupTypeMode structureMapGroupTypeMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(structureMapGroupTypeMode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateStructureMapInput(StructureMapInput structureMapInput, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(structureMapInput, diagnostics, context);
 	}
@@ -8215,15 +8621,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateStructureMapInputMode(StructureMapInputMode structureMapInputMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(structureMapInputMode, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateStructureMapListMode(StructureMapListMode structureMapListMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(structureMapListMode, diagnostics, context);
 	}
 
 	/**
@@ -8267,6 +8664,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStructureMapSourceListMode(StructureMapSourceListMode structureMapSourceListMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(structureMapSourceListMode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateStructureMapStructure(StructureMapStructure structureMapStructure, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(structureMapStructure, diagnostics, context);
 	}
@@ -8278,6 +8684,15 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validateStructureMapTarget(StructureMapTarget structureMapTarget, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(structureMapTarget, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStructureMapTargetListMode(StructureMapTargetListMode structureMapTargetListMode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(structureMapTargetListMode, diagnostics, context);
 	}
 
 	/**
@@ -8375,6 +8790,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateSupplyDeliverySuppliedItem(SupplyDeliverySuppliedItem supplyDeliverySuppliedItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(supplyDeliverySuppliedItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateSupplyRequest(SupplyRequest supplyRequest, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(supplyRequest, diagnostics, context);
 	}
@@ -8384,8 +8808,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSupplyRequestStatus(SupplyRequestStatus supplyRequestStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(supplyRequestStatus, diagnostics, context);
+	public boolean validateSupplyRequestOrderedItem(SupplyRequestOrderedItem supplyRequestOrderedItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(supplyRequestOrderedItem, diagnostics, context);
 	}
 
 	/**
@@ -8393,8 +8817,17 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSupplyRequestWhen(SupplyRequestWhen supplyRequestWhen, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(supplyRequestWhen, diagnostics, context);
+	public boolean validateSupplyRequestRequester(SupplyRequestRequester supplyRequestRequester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(supplyRequestRequester, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSupplyRequestStatus(SupplyRequestStatus supplyRequestStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(supplyRequestStatus, diagnostics, context);
 	}
 
 	/**
@@ -8510,6 +8943,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTestReportActionResult(TestReportActionResult testReportActionResult, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(testReportActionResult, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateTestReportAssert(TestReportAssert testReportAssert, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(testReportAssert, diagnostics, context);
 	}
@@ -8546,8 +8988,8 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTestReportResultCodes(TestReportResultCodes testReportResultCodes, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(testReportResultCodes, diagnostics, context);
+	public boolean validateTestReportResult(TestReportResult testReportResult, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(testReportResult, diagnostics, context);
 	}
 
 	/**
@@ -8744,6 +9186,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTestScriptRequestMethodCode(TestScriptRequestMethodCode testScriptRequestMethodCode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(testScriptRequestMethodCode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateTestScriptRule(TestScriptRule testScriptRule, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(testScriptRule, diagnostics, context);
 	}
@@ -8897,6 +9348,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateUDIEntryType(UDIEntryType udiEntryType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(udiEntryType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateUnitsOfTime(UnitsOfTime unitsOfTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitsOfTime, diagnostics, context);
 	}
@@ -9041,6 +9501,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateVisionBase(VisionBase visionBase, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(visionBase, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVisionEyes(VisionEyes visionEyes, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(visionEyes, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateVisionPrescription(VisionPrescription visionPrescription, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(visionPrescription, diagnostics, context);
 	}
@@ -9077,6 +9555,33 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateActionCardinalityBehaviorList(ActionCardinalityBehaviorList actionCardinalityBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionConditionKindList(ActionConditionKindList actionConditionKindList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionGroupingBehaviorList(ActionGroupingBehaviorList actionGroupingBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateActionListList(ActionListList actionListList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9086,7 +9591,43 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActivityDefinitionCategoryList(ActivityDefinitionCategoryList activityDefinitionCategoryList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateActionParticipantTypeList(ActionParticipantTypeList actionParticipantTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionPrecheckBehaviorList(ActionPrecheckBehaviorList actionPrecheckBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRelationshipTypeList(ActionRelationshipTypeList actionRelationshipTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRequiredBehaviorList(ActionRequiredBehaviorList actionRequiredBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionSelectionBehaviorList(ActionSelectionBehaviorList actionSelectionBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9122,6 +9663,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAdverseEventCategoryList(AdverseEventCategoryList adverseEventCategoryList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAdverseEventCausalityList(AdverseEventCausalityList adverseEventCausalityList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateAggregationModeList(AggregationModeList aggregationModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9132,15 +9691,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAllergyIntoleranceCategoryList(AllergyIntoleranceCategoryList allergyIntoleranceCategoryList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAllergyIntoleranceCertaintyList(AllergyIntoleranceCertaintyList allergyIntoleranceCertaintyList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9293,7 +9843,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCarePlanRelationshipList(CarePlanRelationshipList carePlanRelationshipList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateCarePlanIntentList(CarePlanIntentList carePlanIntentList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9303,6 +9853,24 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCarePlanStatusList(CarePlanStatusList carePlanStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCareTeamStatusList(CareTeamStatusList careTeamStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChargeItemStatusList(ChargeItemStatusList chargeItemStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9338,34 +9906,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCommunicationRequestStatusList(CommunicationRequestStatusList communicationRequestStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCommunicationStatusList(CommunicationStatusList communicationStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateCompartmentTypeList(CompartmentTypeList compartmentTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCompositeMeasureScoringList(CompositeMeasureScoringList compositeMeasureScoringList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9401,6 +9942,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConceptMapGroupUnmappedModeList(ConceptMapGroupUnmappedModeList conceptMapGroupUnmappedModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConditionalDeleteStatusList(ConditionalDeleteStatusList conditionalDeleteStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9419,7 +9969,25 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConditionClinicalStatusCodesList(ConditionClinicalStatusCodesList conditionClinicalStatusCodesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConditionVerificationStatusList(ConditionVerificationStatusList conditionVerificationStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfidentialityClassificationList(ConfidentialityClassificationList confidentialityClassificationList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9446,7 +10014,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateConsentStatusList(ConsentStatusList consentStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateConsentStateList(ConsentStateList consentStateList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9483,6 +10051,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateContentTypeList(ContentTypeList contentTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContractResourceStatusCodesList(ContractResourceStatusCodesList contractResourceStatusCodesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9572,7 +10149,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDeviceStatusList(DeviceStatusList deviceStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDeviceUseStatementStatusList(DeviceUseStatementStatusList deviceUseStatementStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9591,6 +10168,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDigitalMediaTypeList(DigitalMediaTypeList digitalMediaTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDiscriminatorTypeList(DiscriminatorTypeList discriminatorTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9671,6 +10257,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateEventStatusList(EventStatusList eventStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateEventTimingList(EventTimingList eventTimingList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9707,7 +10302,52 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateFHIRAllTypesList(FHIRAllTypesList fhirAllTypesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDefinedTypeList(FHIRDefinedTypeList fhirDefinedTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDeviceStatusList(FHIRDeviceStatusList fhirDeviceStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRSubstanceStatusList(FHIRSubstanceStatusList fhirSubstanceStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateFilterOperatorList(FilterOperatorList filterOperatorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFinancialResourceStatusCodesList(FinancialResourceStatusCodesList financialResourceStatusCodesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9726,6 +10366,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGoalStatusList(GoalStatusList goalStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphCompartmentRuleList(GraphCompartmentRuleList graphCompartmentRuleList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9789,6 +10438,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIdentityAssuranceLevelList(IdentityAssuranceLevelList identityAssuranceLevelList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImmunizationStatusCodesList(ImmunizationStatusCodesList immunizationStatusCodesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9887,24 +10545,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasureDataUsageList(MeasureDataUsageList measureDataUsageList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasurePopulationTypeList(MeasurePopulationTypeList measurePopulationTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMeasureReportStatusList(MeasureReportStatusList measureReportStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9915,24 +10555,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateMeasureReportTypeList(MeasureReportTypeList measureReportTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureScoringList(MeasureScoringList measureScoringList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureTypeList(MeasureTypeList measureTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -9959,6 +10581,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateMedicationRequestIntentList(MedicationRequestIntentList medicationRequestIntentList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationRequestPriorityList(MedicationRequestPriorityList medicationRequestPriorityList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateMedicationRequestStatusList(MedicationRequestStatusList medicationRequestStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -9968,25 +10608,25 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMedicationStatementCategoryList(MedicationStatementCategoryList medicationStatementCategoryList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMedicationStatementNotTakenList(MedicationStatementNotTakenList medicationStatementNotTakenList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMedicationStatementStatusList(MedicationStatementStatusList medicationStatementStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatementTakenList(MedicationStatementTakenList medicationStatementTakenList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatusList(MedicationStatusList medicationStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10112,105 +10752,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePlanActionCardinalityBehaviorList(PlanActionCardinalityBehaviorList planActionCardinalityBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionConditionKindList(PlanActionConditionKindList planActionConditionKindList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionGroupingBehaviorList(PlanActionGroupingBehaviorList planActionGroupingBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionParticipantTypeList(PlanActionParticipantTypeList planActionParticipantTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionPrecheckBehaviorList(PlanActionPrecheckBehaviorList planActionPrecheckBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRelationshipTypeList(PlanActionRelationshipTypeList planActionRelationshipTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRequiredBehaviorList(PlanActionRequiredBehaviorList planActionRequiredBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionSelectionBehaviorList(PlanActionSelectionBehaviorList planActionSelectionBehaviorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureRequestPriorityList(ProcedureRequestPriorityList procedureRequestPriorityList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureRequestStatusList(ProcedureRequestStatusList procedureRequestStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureStatusList(ProcedureStatusList procedureStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validatePropertyRepresentationList(PropertyRepresentationList propertyRepresentationList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10283,15 +10824,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateQuestionnaireStatusList(QuestionnaireStatusList questionnaireStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateReferenceHandlingPolicyList(ReferenceHandlingPolicyList referenceHandlingPolicyList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10302,24 +10834,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReferenceVersionRulesList(ReferenceVersionRulesList referenceVersionRulesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateReferralCategoryList(ReferralCategoryList referralCategoryList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateReferralStatusList(ReferralStatusList referralStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10355,6 +10869,33 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateRequestIntentList(RequestIntentList requestIntentList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestPriorityList(RequestPriorityList requestPriorityList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestStatusList(RequestStatusList requestStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateResearchStudyStatusList(ResearchStudyStatusList researchStudyStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10365,6 +10906,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResearchSubjectStatusList(ResearchSubjectStatusList researchSubjectStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceTypeList(ResourceTypeList resourceTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10436,15 +10986,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSequenceTypeList(SequenceTypeList sequenceTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateSlicingRulesList(SlicingRulesList slicingRulesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10490,6 +11031,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStructureMapGroupTypeModeList(StructureMapGroupTypeModeList structureMapGroupTypeModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateStructureMapInputModeList(StructureMapInputModeList structureMapInputModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10499,7 +11049,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStructureMapListModeList(StructureMapListModeList structureMapListModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateStructureMapModelModeList(StructureMapModelModeList structureMapModelModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10508,7 +11058,16 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStructureMapModelModeList(StructureMapModelModeList structureMapModelModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateStructureMapSourceListModeList(StructureMapSourceListModeList structureMapSourceListModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStructureMapTargetListModeList(StructureMapTargetListModeList structureMapTargetListModeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10589,6 +11148,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTestReportActionResultList(TestReportActionResultList testReportActionResultList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateTestReportParticipantTypeList(TestReportParticipantTypeList testReportParticipantTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10598,7 +11166,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTestReportResultCodesList(TestReportResultCodesList testReportResultCodesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTestReportResultList(TestReportResultList testReportResultList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10608,6 +11176,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTestReportStatusList(TestReportStatusList testReportStatusList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTestScriptRequestMethodCodeList(TestScriptRequestMethodCodeList testScriptRequestMethodCodeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10643,6 +11220,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateUDIEntryTypeList(UDIEntryTypeList udiEntryTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateUnitsOfTimeList(UnitsOfTimeList unitsOfTimeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10670,6 +11256,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateVisionBaseList(VisionBaseList visionBaseList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVisionEyesList(VisionEyesList visionEyesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateXPathUsageTypeList(XPathUsageTypeList xPathUsageTypeList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10688,6 +11292,33 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateActionCardinalityBehaviorListObject(ActionCardinalityBehaviorList actionCardinalityBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionConditionKindListObject(ActionConditionKindList actionConditionKindListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionGroupingBehaviorListObject(ActionGroupingBehaviorList actionGroupingBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateActionListListObject(ActionListList actionListListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10697,7 +11328,43 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActivityDefinitionCategoryListObject(ActivityDefinitionCategoryList activityDefinitionCategoryListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateActionParticipantTypeListObject(ActionParticipantTypeList actionParticipantTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionPrecheckBehaviorListObject(ActionPrecheckBehaviorList actionPrecheckBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRelationshipTypeListObject(ActionRelationshipTypeList actionRelationshipTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionRequiredBehaviorListObject(ActionRequiredBehaviorList actionRequiredBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionSelectionBehaviorListObject(ActionSelectionBehaviorList actionSelectionBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10733,6 +11400,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAdverseEventCategoryListObject(AdverseEventCategoryList adverseEventCategoryListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAdverseEventCausalityListObject(AdverseEventCausalityList adverseEventCausalityListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateAggregationModeListObject(AggregationModeList aggregationModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -10743,15 +11428,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAllergyIntoleranceCategoryListObject(AllergyIntoleranceCategoryList allergyIntoleranceCategoryListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAllergyIntoleranceCertaintyListObject(AllergyIntoleranceCertaintyList allergyIntoleranceCertaintyListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10931,7 +11607,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCarePlanRelationshipListObject(CarePlanRelationshipList carePlanRelationshipListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateCarePlanIntentListObject(CarePlanIntentList carePlanIntentListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -10941,6 +11617,24 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCarePlanStatusListObject(CarePlanStatusList carePlanStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCareTeamStatusListObject(CareTeamStatusList careTeamStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChargeItemStatusListObject(ChargeItemStatusList chargeItemStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11024,34 +11718,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCommunicationRequestStatusListObject(CommunicationRequestStatusList communicationRequestStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCommunicationStatusListObject(CommunicationStatusList communicationStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateCompartmentTypeListObject(CompartmentTypeList compartmentTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCompositeMeasureScoringListObject(CompositeMeasureScoringList compositeMeasureScoringListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11087,6 +11754,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConceptMapGroupUnmappedModeListObject(ConceptMapGroupUnmappedModeList conceptMapGroupUnmappedModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConditionalDeleteStatusListObject(ConditionalDeleteStatusList conditionalDeleteStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -11105,7 +11781,25 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateConditionClinicalStatusCodesListObject(ConditionClinicalStatusCodesList conditionClinicalStatusCodesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateConditionVerificationStatusListObject(ConditionVerificationStatusList conditionVerificationStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfidentialityClassificationListObject(ConfidentialityClassificationList confidentialityClassificationListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11132,7 +11826,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateConsentStatusListObject(ConsentStatusList consentStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateConsentStateListObject(ConsentStateList consentStateListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11169,6 +11863,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateContentTypeListObject(ContentTypeList contentTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContractResourceStatusCodesListObject(ContractResourceStatusCodesList contractResourceStatusCodesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11457,7 +12160,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDeviceStatusListObject(DeviceStatusList deviceStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDeviceUseStatementStatusListObject(DeviceUseStatementStatusList deviceUseStatementStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11476,6 +12179,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDigitalMediaTypeListObject(DigitalMediaTypeList digitalMediaTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDiscriminatorTypeListObject(DiscriminatorTypeList discriminatorTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11556,6 +12268,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateEventStatusListObject(EventStatusList eventStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateEventTimingListObject(EventTimingList eventTimingListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -11592,7 +12313,52 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateFHIRAllTypesListObject(FHIRAllTypesList fhirAllTypesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDefinedTypeListObject(FHIRDefinedTypeList fhirDefinedTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRDeviceStatusListObject(FHIRDeviceStatusList fhirDeviceStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFHIRSubstanceStatusListObject(FHIRSubstanceStatusList fhirSubstanceStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateFilterOperatorListObject(FilterOperatorList filterOperatorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFinancialResourceStatusCodesListObject(FinancialResourceStatusCodesList financialResourceStatusCodesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11611,6 +12377,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGoalStatusListObject(GoalStatusList goalStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGraphCompartmentRuleListObject(GraphCompartmentRuleList graphCompartmentRuleListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11738,6 +12513,15 @@ public class FhirValidator extends EObjectValidator {
 		if (!result && diagnostics != null)
 			reportMaxLengthViolation(FhirPackage.eINSTANCE.getIdPrimitive(), idPrimitive, length, 64, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImmunizationStatusCodesListObject(ImmunizationStatusCodesList immunizationStatusCodesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**
@@ -11911,24 +12695,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasureDataUsageListObject(MeasureDataUsageList measureDataUsageListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasurePopulationTypeListObject(MeasurePopulationTypeList measurePopulationTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMeasureReportStatusListObject(MeasureReportStatusList measureReportStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -11939,24 +12705,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateMeasureReportTypeListObject(MeasureReportTypeList measureReportTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureScoringListObject(MeasureScoringList measureScoringListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasureTypeListObject(MeasureTypeList measureTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -11983,6 +12731,24 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateMedicationRequestIntentListObject(MedicationRequestIntentList medicationRequestIntentListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationRequestPriorityListObject(MedicationRequestPriorityList medicationRequestPriorityListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateMedicationRequestStatusListObject(MedicationRequestStatusList medicationRequestStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -11992,25 +12758,25 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMedicationStatementCategoryListObject(MedicationStatementCategoryList medicationStatementCategoryListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMedicationStatementNotTakenListObject(MedicationStatementNotTakenList medicationStatementNotTakenListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateMedicationStatementStatusListObject(MedicationStatementStatusList medicationStatementStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatementTakenListObject(MedicationStatementTakenList medicationStatementTakenListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMedicationStatusListObject(MedicationStatusList medicationStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12184,78 +12950,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePlanActionCardinalityBehaviorListObject(PlanActionCardinalityBehaviorList planActionCardinalityBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionConditionKindListObject(PlanActionConditionKindList planActionConditionKindListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionGroupingBehaviorListObject(PlanActionGroupingBehaviorList planActionGroupingBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionParticipantTypeListObject(PlanActionParticipantTypeList planActionParticipantTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionPrecheckBehaviorListObject(PlanActionPrecheckBehaviorList planActionPrecheckBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRelationshipTypeListObject(PlanActionRelationshipTypeList planActionRelationshipTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionRequiredBehaviorListObject(PlanActionRequiredBehaviorList planActionRequiredBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlanActionSelectionBehaviorListObject(PlanActionSelectionBehaviorList planActionSelectionBehaviorListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validatePositiveIntPrimitive(BigInteger positiveIntPrimitive, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = xmlTypeValidator.validatePositiveInteger_Min(positiveIntPrimitive, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePositiveIntPrimitive_Pattern(positiveIntPrimitive, diagnostics, context);
@@ -12283,33 +12977,6 @@ public class FhirValidator extends EObjectValidator {
 	 */
 	public boolean validatePositiveIntPrimitive_Pattern(BigInteger positiveIntPrimitive, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validatePattern(FhirPackage.eINSTANCE.getPositiveIntPrimitive(), positiveIntPrimitive, POSITIVE_INT_PRIMITIVE__PATTERN__VALUES, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureRequestPriorityListObject(ProcedureRequestPriorityList procedureRequestPriorityListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureRequestStatusListObject(ProcedureRequestStatusList procedureRequestStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcedureStatusListObject(ProcedureStatusList procedureStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
 	}
 
 	/**
@@ -12389,15 +13056,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateQuestionnaireStatusListObject(QuestionnaireStatusList questionnaireStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateReferenceHandlingPolicyListObject(ReferenceHandlingPolicyList referenceHandlingPolicyListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -12408,24 +13066,6 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReferenceVersionRulesListObject(ReferenceVersionRulesList referenceVersionRulesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateReferralCategoryListObject(ReferralCategoryList referralCategoryListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateReferralStatusListObject(ReferralStatusList referralStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12461,6 +13101,33 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateRequestIntentListObject(RequestIntentList requestIntentListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestPriorityListObject(RequestPriorityList requestPriorityListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequestStatusListObject(RequestStatusList requestStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateResearchStudyStatusListObject(ResearchStudyStatusList researchStudyStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -12471,6 +13138,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResearchSubjectStatusListObject(ResearchSubjectStatusList researchSubjectStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceTypeListObject(ResourceTypeList resourceTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12575,15 +13251,6 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSequenceTypeListObject(SequenceTypeList sequenceTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateSlicingRulesListObject(SlicingRulesList slicingRulesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -12653,6 +13320,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStructureMapGroupTypeModeListObject(StructureMapGroupTypeModeList structureMapGroupTypeModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateStructureMapInputModeListObject(StructureMapInputModeList structureMapInputModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -12662,7 +13338,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStructureMapListModeListObject(StructureMapListModeList structureMapListModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateStructureMapModelModeListObject(StructureMapModelModeList structureMapModelModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12671,7 +13347,16 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStructureMapModelModeListObject(StructureMapModelModeList structureMapModelModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateStructureMapSourceListModeListObject(StructureMapSourceListModeList structureMapSourceListModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStructureMapTargetListModeListObject(StructureMapTargetListModeList structureMapTargetListModeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12752,6 +13437,15 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTestReportActionResultListObject(TestReportActionResultList testReportActionResultListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateTestReportParticipantTypeListObject(TestReportParticipantTypeList testReportParticipantTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -12761,7 +13455,7 @@ public class FhirValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTestReportResultCodesListObject(TestReportResultCodesList testReportResultCodesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTestReportResultListObject(TestReportResultList testReportResultListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12771,6 +13465,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTestReportStatusListObject(TestReportStatusList testReportStatusListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTestScriptRequestMethodCodeListObject(TestScriptRequestMethodCodeList testScriptRequestMethodCodeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12831,6 +13534,15 @@ public class FhirValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTypeRestfulInteractionListObject(TypeRestfulInteractionList typeRestfulInteractionListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUDIEntryTypeListObject(UDIEntryTypeList udiEntryTypeListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -12950,6 +13662,24 @@ public class FhirValidator extends EObjectValidator {
 		if (!result && diagnostics != null)
 			reportMinLengthViolation(FhirPackage.eINSTANCE.getUuidPrimitive(), uuidPrimitive, length, 1, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVisionBaseListObject(VisionBaseList visionBaseListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVisionEyesListObject(VisionEyesList visionEyesListObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

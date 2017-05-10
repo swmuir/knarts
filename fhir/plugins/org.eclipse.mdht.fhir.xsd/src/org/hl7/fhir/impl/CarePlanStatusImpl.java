@@ -34,7 +34,7 @@ public class CarePlanStatusImpl extends ElementImpl implements CarePlanStatus {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CarePlanStatusList VALUE_EDEFAULT = CarePlanStatusList.PROPOSED;
+	protected static final CarePlanStatusList VALUE_EDEFAULT = CarePlanStatusList.DRAFT;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

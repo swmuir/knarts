@@ -23,11 +23,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.ClinicalImpression#getAssessor <em>Assessor</em>}</li>
- *   <li>{@link org.hl7.fhir.ClinicalImpression#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getAssessor <em>Assessor</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getPrevious <em>Previous</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getProblem <em>Problem</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getInvestigation <em>Investigation</em>}</li>
@@ -118,7 +118,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it.
+	 * A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -166,56 +166,30 @@ public interface ClinicalImpression extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Assessor</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The clinician performing the assessment.
+	 * The encounter or episode of care this impression was created as part of.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Assessor</em>' containment reference.
-	 * @see #setAssessor(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Assessor()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Context()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='assessor' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getAssessor();
+	Reference getContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getAssessor <em>Assessor</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assessor</em>' containment reference.
-	 * @see #getAssessor()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setAssessor(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates when the documentation of the assessment was complete.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getDate <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
-	 * @generated
-	 */
-	void setDate(DateTime value);
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -272,30 +246,56 @@ public interface ClinicalImpression extends DomainResource {
 	void setEffectivePeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care this impression was created as part of.
+	 * Indicates when the documentation of the assessment was complete.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Context()
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Date()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	DateTime getDate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getDate <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Assessor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The clinician performing the assessment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Assessor</em>' containment reference.
+	 * @see #setAssessor(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Assessor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='assessor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getAssessor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getAssessor <em>Assessor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Assessor</em>' containment reference.
+	 * @see #getAssessor()
+	 * @generated
+	 */
+	void setAssessor(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Previous</b></em>' containment reference.

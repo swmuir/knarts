@@ -31,16 +31,6 @@ public enum GoalStatusList implements Enumerator {
 	PROPOSED(0, "proposed", "proposed"),
 
 	/**
-	 * The '<em><b>Planned</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PLANNED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PLANNED(1, "planned", "planned"),
-
-	/**
 	 * The '<em><b>Accepted</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,17 +38,17 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACCEPTED(2, "accepted", "accepted"),
+	ACCEPTED(1, "accepted", "accepted"),
 
 	/**
-	 * The '<em><b>Rejected</b></em>' literal object.
+	 * The '<em><b>Planned</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #REJECTED_VALUE
+	 * @see #PLANNED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REJECTED(3, "rejected", "rejected"),
+	PLANNED(2, "planned", "planned"),
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal object.
@@ -68,47 +58,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN_PROGRESS(4, "inProgress", "in-progress"),
-
-	/**
-	 * The '<em><b>Achieved</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ACHIEVED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ACHIEVED(5, "achieved", "achieved"),
-
-	/**
-	 * The '<em><b>Sustaining</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SUSTAINING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SUSTAINING(6, "sustaining", "sustaining"),
-
-	/**
-	 * The '<em><b>On Hold</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ON_HOLD_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ON_HOLD(7, "onHold", "on-hold"),
-
-	/**
-	 * The '<em><b>Cancelled</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #CANCELLED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CANCELLED(8, "cancelled", "cancelled"),
+	IN_PROGRESS(3, "inProgress", "in-progress"),
 
 	/**
 	 * The '<em><b>On Target</b></em>' literal object.
@@ -118,7 +68,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ON_TARGET(9, "onTarget", "on-target"),
+	ON_TARGET(4, "onTarget", "on-target"),
 
 	/**
 	 * The '<em><b>Ahead Of Target</b></em>' literal object.
@@ -128,7 +78,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AHEAD_OF_TARGET(10, "aheadOfTarget", "ahead-of-target"),
+	AHEAD_OF_TARGET(5, "aheadOfTarget", "ahead-of-target"),
 
 	/**
 	 * The '<em><b>Behind Target</b></em>' literal object.
@@ -138,7 +88,47 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BEHIND_TARGET(11, "behindTarget", "behind-target"),
+	BEHIND_TARGET(6, "behindTarget", "behind-target"),
+
+	/**
+	 * The '<em><b>Sustaining</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUSTAINING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUSTAINING(7, "sustaining", "sustaining"),
+
+	/**
+	 * The '<em><b>Achieved</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ACHIEVED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ACHIEVED(8, "achieved", "achieved"),
+
+	/**
+	 * The '<em><b>On Hold</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_HOLD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_HOLD(9, "onHold", "on-hold"),
+
+	/**
+	 * The '<em><b>Cancelled</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CANCELLED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CANCELLED(10, "cancelled", "cancelled"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -148,7 +138,17 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(12, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(11, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Rejected</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REJECTED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REJECTED(12, "rejected", "rejected");
 
 	/**
 	 * The '<em><b>Proposed</b></em>' literal value.
@@ -165,20 +165,6 @@ public enum GoalStatusList implements Enumerator {
 	public static final int PROPOSED_VALUE = 0;
 
 	/**
-	 * The '<em><b>Planned</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Planned
-	 * <!-- end-model-doc -->
-	 * @see #PLANNED
-	 * @model name="planned"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PLANNED_VALUE = 1;
-
-	/**
 	 * The '<em><b>Accepted</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,21 +176,21 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACCEPTED_VALUE = 2;
+	public static final int ACCEPTED_VALUE = 1;
 
 	/**
-	 * The '<em><b>Rejected</b></em>' literal value.
+	 * The '<em><b>Planned</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Rejected
+	 * Planned
 	 * <!-- end-model-doc -->
-	 * @see #REJECTED
-	 * @model name="rejected"
+	 * @see #PLANNED
+	 * @model name="planned"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REJECTED_VALUE = 3;
+	public static final int PLANNED_VALUE = 2;
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -218,63 +204,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_PROGRESS_VALUE = 4;
-
-	/**
-	 * The '<em><b>Achieved</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Achieved
-	 * <!-- end-model-doc -->
-	 * @see #ACHIEVED
-	 * @model name="achieved"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ACHIEVED_VALUE = 5;
-
-	/**
-	 * The '<em><b>Sustaining</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Sustaining
-	 * <!-- end-model-doc -->
-	 * @see #SUSTAINING
-	 * @model name="sustaining"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SUSTAINING_VALUE = 6;
-
-	/**
-	 * The '<em><b>On Hold</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * On Hold
-	 * <!-- end-model-doc -->
-	 * @see #ON_HOLD
-	 * @model name="onHold" literal="on-hold"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ON_HOLD_VALUE = 7;
-
-	/**
-	 * The '<em><b>Cancelled</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Cancelled
-	 * <!-- end-model-doc -->
-	 * @see #CANCELLED
-	 * @model name="cancelled"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CANCELLED_VALUE = 8;
+	public static final int IN_PROGRESS_VALUE = 3;
 
 	/**
 	 * The '<em><b>On Target</b></em>' literal value.
@@ -288,7 +218,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ON_TARGET_VALUE = 9;
+	public static final int ON_TARGET_VALUE = 4;
 
 	/**
 	 * The '<em><b>Ahead Of Target</b></em>' literal value.
@@ -302,7 +232,7 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int AHEAD_OF_TARGET_VALUE = 10;
+	public static final int AHEAD_OF_TARGET_VALUE = 5;
 
 	/**
 	 * The '<em><b>Behind Target</b></em>' literal value.
@@ -316,7 +246,63 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BEHIND_TARGET_VALUE = 11;
+	public static final int BEHIND_TARGET_VALUE = 6;
+
+	/**
+	 * The '<em><b>Sustaining</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Sustaining
+	 * <!-- end-model-doc -->
+	 * @see #SUSTAINING
+	 * @model name="sustaining"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUSTAINING_VALUE = 7;
+
+	/**
+	 * The '<em><b>Achieved</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Achieved
+	 * <!-- end-model-doc -->
+	 * @see #ACHIEVED
+	 * @model name="achieved"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACHIEVED_VALUE = 8;
+
+	/**
+	 * The '<em><b>On Hold</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On Hold
+	 * <!-- end-model-doc -->
+	 * @see #ON_HOLD
+	 * @model name="onHold" literal="on-hold"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_HOLD_VALUE = 9;
+
+	/**
+	 * The '<em><b>Cancelled</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Cancelled
+	 * <!-- end-model-doc -->
+	 * @see #CANCELLED
+	 * @model name="cancelled"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CANCELLED_VALUE = 10;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -330,7 +316,21 @@ public enum GoalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 12;
+	public static final int ENTERED_IN_ERROR_VALUE = 11;
+
+	/**
+	 * The '<em><b>Rejected</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Rejected
+	 * <!-- end-model-doc -->
+	 * @see #REJECTED
+	 * @model name="rejected"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REJECTED_VALUE = 12;
 
 	/**
 	 * An array of all the '<em><b>Goal Status List</b></em>' enumerators.
@@ -341,18 +341,18 @@ public enum GoalStatusList implements Enumerator {
 	private static final GoalStatusList[] VALUES_ARRAY =
 		new GoalStatusList[] {
 			PROPOSED,
-			PLANNED,
 			ACCEPTED,
-			REJECTED,
+			PLANNED,
 			IN_PROGRESS,
-			ACHIEVED,
-			SUSTAINING,
-			ON_HOLD,
-			CANCELLED,
 			ON_TARGET,
 			AHEAD_OF_TARGET,
 			BEHIND_TARGET,
+			SUSTAINING,
+			ACHIEVED,
+			ON_HOLD,
+			CANCELLED,
 			ENTERED_IN_ERROR,
+			REJECTED,
 		};
 
 	/**
@@ -410,18 +410,18 @@ public enum GoalStatusList implements Enumerator {
 	public static GoalStatusList get(int value) {
 		switch (value) {
 			case PROPOSED_VALUE: return PROPOSED;
-			case PLANNED_VALUE: return PLANNED;
 			case ACCEPTED_VALUE: return ACCEPTED;
-			case REJECTED_VALUE: return REJECTED;
+			case PLANNED_VALUE: return PLANNED;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
-			case ACHIEVED_VALUE: return ACHIEVED;
-			case SUSTAINING_VALUE: return SUSTAINING;
-			case ON_HOLD_VALUE: return ON_HOLD;
-			case CANCELLED_VALUE: return CANCELLED;
 			case ON_TARGET_VALUE: return ON_TARGET;
 			case AHEAD_OF_TARGET_VALUE: return AHEAD_OF_TARGET;
 			case BEHIND_TARGET_VALUE: return BEHIND_TARGET;
+			case SUSTAINING_VALUE: return SUSTAINING;
+			case ACHIEVED_VALUE: return ACHIEVED;
+			case ON_HOLD_VALUE: return ON_HOLD;
+			case CANCELLED_VALUE: return CANCELLED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case REJECTED_VALUE: return REJECTED;
 		}
 		return null;
 	}

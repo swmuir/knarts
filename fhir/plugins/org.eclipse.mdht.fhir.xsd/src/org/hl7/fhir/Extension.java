@@ -10,7 +10,7 @@ import java.lang.String;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Optional Extensions Element - found in all resources.
+ * Optional Extension Element - found in all resources.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *

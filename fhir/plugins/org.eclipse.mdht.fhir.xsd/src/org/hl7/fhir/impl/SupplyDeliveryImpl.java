@@ -22,10 +22,11 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
-import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
+import org.hl7.fhir.SupplyDeliverySuppliedItem;
+import org.hl7.fhir.Timing;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,15 +37,16 @@ import org.hl7.fhir.SupplyDeliveryStatus;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getSuppliedItemCodeableConcept <em>Supplied Item Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getSuppliedItemReference <em>Supplied Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getSuppliedItem <em>Supplied Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getSupplier <em>Supplier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getWhenPrepared <em>When Prepared</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getTime <em>Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyDeliveryImpl#getReceiver <em>Receiver</em>}</li>
  * </ul>
@@ -61,6 +63,26 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * @ordered
 	 */
 	protected Identifier identifier;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPartOf()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> partOf;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -93,34 +115,44 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
+	 * The cached value of the '{@link #getSuppliedItem() <em>Supplied Item</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuantity()
+	 * @see #getSuppliedItem()
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity quantity;
+	protected SupplyDeliverySuppliedItem suppliedItem;
 
 	/**
-	 * The cached value of the '{@link #getSuppliedItemCodeableConcept() <em>Supplied Item Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSuppliedItemCodeableConcept()
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept suppliedItemCodeableConcept;
+	protected DateTime occurrenceDateTime;
 
 	/**
-	 * The cached value of the '{@link #getSuppliedItemReference() <em>Supplied Item Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrencePeriod() <em>Occurrence Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSuppliedItemReference()
+	 * @see #getOccurrencePeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference suppliedItemReference;
+	protected Period occurrencePeriod;
+
+	/**
+	 * The cached value of the '{@link #getOccurrenceTiming() <em>Occurrence Timing</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrenceTiming()
+	 * @generated
+	 * @ordered
+	 */
+	protected Timing occurrenceTiming;
 
 	/**
 	 * The cached value of the '{@link #getSupplier() <em>Supplier</em>}' containment reference.
@@ -131,26 +163,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * @ordered
 	 */
 	protected Reference supplier;
-
-	/**
-	 * The cached value of the '{@link #getWhenPrepared() <em>When Prepared</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWhenPrepared()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period whenPrepared;
-
-	/**
-	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime time;
 
 	/**
 	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' containment reference.
@@ -232,6 +244,30 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_DELIVERY__BASED_ON);
+		}
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getPartOf() {
+		if (partOf == null) {
+			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_DELIVERY__PART_OF);
+		}
+		return partOf;
 	}
 
 	/**
@@ -368,8 +404,8 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity getQuantity() {
-		return quantity;
+	public SupplyDeliverySuppliedItem getSuppliedItem() {
+		return suppliedItem;
 	}
 
 	/**
@@ -377,11 +413,11 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuantity(Quantity newQuantity, NotificationChain msgs) {
-		Quantity oldQuantity = quantity;
-		quantity = newQuantity;
+	public NotificationChain basicSetSuppliedItem(SupplyDeliverySuppliedItem newSuppliedItem, NotificationChain msgs) {
+		SupplyDeliverySuppliedItem oldSuppliedItem = suppliedItem;
+		suppliedItem = newSuppliedItem;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__QUANTITY, oldQuantity, newQuantity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM, oldSuppliedItem, newSuppliedItem);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -392,18 +428,18 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuantity(Quantity newQuantity) {
-		if (newQuantity != quantity) {
+	public void setSuppliedItem(SupplyDeliverySuppliedItem newSuppliedItem) {
+		if (newSuppliedItem != suppliedItem) {
 			NotificationChain msgs = null;
-			if (quantity != null)
-				msgs = ((InternalEObject)quantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__QUANTITY, null, msgs);
-			if (newQuantity != null)
-				msgs = ((InternalEObject)newQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__QUANTITY, null, msgs);
-			msgs = basicSetQuantity(newQuantity, msgs);
+			if (suppliedItem != null)
+				msgs = ((InternalEObject)suppliedItem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM, null, msgs);
+			if (newSuppliedItem != null)
+				msgs = ((InternalEObject)newSuppliedItem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM, null, msgs);
+			msgs = basicSetSuppliedItem(newSuppliedItem, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__QUANTITY, newQuantity, newQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM, newSuppliedItem, newSuppliedItem));
 	}
 
 	/**
@@ -411,8 +447,8 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getSuppliedItemCodeableConcept() {
-		return suppliedItemCodeableConcept;
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
 	}
 
 	/**
@@ -420,11 +456,11 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSuppliedItemCodeableConcept(CodeableConcept newSuppliedItemCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldSuppliedItemCodeableConcept = suppliedItemCodeableConcept;
-		suppliedItemCodeableConcept = newSuppliedItemCodeableConcept;
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT, oldSuppliedItemCodeableConcept, newSuppliedItemCodeableConcept);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -435,18 +471,18 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSuppliedItemCodeableConcept(CodeableConcept newSuppliedItemCodeableConcept) {
-		if (newSuppliedItemCodeableConcept != suppliedItemCodeableConcept) {
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
 			NotificationChain msgs = null;
-			if (suppliedItemCodeableConcept != null)
-				msgs = ((InternalEObject)suppliedItemCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT, null, msgs);
-			if (newSuppliedItemCodeableConcept != null)
-				msgs = ((InternalEObject)newSuppliedItemCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetSuppliedItemCodeableConcept(newSuppliedItemCodeableConcept, msgs);
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT, newSuppliedItemCodeableConcept, newSuppliedItemCodeableConcept));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
 	}
 
 	/**
@@ -454,8 +490,8 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSuppliedItemReference() {
-		return suppliedItemReference;
+	public Period getOccurrencePeriod() {
+		return occurrencePeriod;
 	}
 
 	/**
@@ -463,11 +499,11 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSuppliedItemReference(Reference newSuppliedItemReference, NotificationChain msgs) {
-		Reference oldSuppliedItemReference = suppliedItemReference;
-		suppliedItemReference = newSuppliedItemReference;
+	public NotificationChain basicSetOccurrencePeriod(Period newOccurrencePeriod, NotificationChain msgs) {
+		Period oldOccurrencePeriod = occurrencePeriod;
+		occurrencePeriod = newOccurrencePeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE, oldSuppliedItemReference, newSuppliedItemReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD, oldOccurrencePeriod, newOccurrencePeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -478,18 +514,61 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSuppliedItemReference(Reference newSuppliedItemReference) {
-		if (newSuppliedItemReference != suppliedItemReference) {
+	public void setOccurrencePeriod(Period newOccurrencePeriod) {
+		if (newOccurrencePeriod != occurrencePeriod) {
 			NotificationChain msgs = null;
-			if (suppliedItemReference != null)
-				msgs = ((InternalEObject)suppliedItemReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE, null, msgs);
-			if (newSuppliedItemReference != null)
-				msgs = ((InternalEObject)newSuppliedItemReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE, null, msgs);
-			msgs = basicSetSuppliedItemReference(newSuppliedItemReference, msgs);
+			if (occurrencePeriod != null)
+				msgs = ((InternalEObject)occurrencePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD, null, msgs);
+			if (newOccurrencePeriod != null)
+				msgs = ((InternalEObject)newOccurrencePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD, null, msgs);
+			msgs = basicSetOccurrencePeriod(newOccurrencePeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE, newSuppliedItemReference, newSuppliedItemReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD, newOccurrencePeriod, newOccurrencePeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Timing getOccurrenceTiming() {
+		return occurrenceTiming;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrenceTiming(Timing newOccurrenceTiming, NotificationChain msgs) {
+		Timing oldOccurrenceTiming = occurrenceTiming;
+		occurrenceTiming = newOccurrenceTiming;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING, oldOccurrenceTiming, newOccurrenceTiming);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrenceTiming(Timing newOccurrenceTiming) {
+		if (newOccurrenceTiming != occurrenceTiming) {
+			NotificationChain msgs = null;
+			if (occurrenceTiming != null)
+				msgs = ((InternalEObject)occurrenceTiming).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING, null, msgs);
+			if (newOccurrenceTiming != null)
+				msgs = ((InternalEObject)newOccurrenceTiming).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING, null, msgs);
+			msgs = basicSetOccurrenceTiming(newOccurrenceTiming, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING, newOccurrenceTiming, newOccurrenceTiming));
 	}
 
 	/**
@@ -533,92 +612,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__SUPPLIER, newSupplier, newSupplier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getWhenPrepared() {
-		return whenPrepared;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWhenPrepared(Period newWhenPrepared, NotificationChain msgs) {
-		Period oldWhenPrepared = whenPrepared;
-		whenPrepared = newWhenPrepared;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED, oldWhenPrepared, newWhenPrepared);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWhenPrepared(Period newWhenPrepared) {
-		if (newWhenPrepared != whenPrepared) {
-			NotificationChain msgs = null;
-			if (whenPrepared != null)
-				msgs = ((InternalEObject)whenPrepared).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED, null, msgs);
-			if (newWhenPrepared != null)
-				msgs = ((InternalEObject)newWhenPrepared).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED, null, msgs);
-			msgs = basicSetWhenPrepared(newWhenPrepared, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED, newWhenPrepared, newWhenPrepared));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getTime() {
-		return time;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTime(DateTime newTime, NotificationChain msgs) {
-		DateTime oldTime = time;
-		time = newTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__TIME, oldTime, newTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTime(DateTime newTime) {
-		if (newTime != time) {
-			NotificationChain msgs = null;
-			if (time != null)
-				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__TIME, null, msgs);
-			if (newTime != null)
-				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__TIME, null, msgs);
-			msgs = basicSetTime(newTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__TIME, newTime, newTime));
 	}
 
 	/**
@@ -686,24 +679,26 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
+				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.SUPPLY_DELIVERY__QUANTITY:
-				return basicSetQuantity(null, msgs);
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT:
-				return basicSetSuppliedItemCodeableConcept(null, msgs);
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE:
-				return basicSetSuppliedItemReference(null, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM:
+				return basicSetSuppliedItem(null, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD:
+				return basicSetOccurrencePeriod(null, msgs);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING:
+				return basicSetOccurrenceTiming(null, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__SUPPLIER:
 				return basicSetSupplier(null, msgs);
-			case FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED:
-				return basicSetWhenPrepared(null, msgs);
-			case FhirPackage.SUPPLY_DELIVERY__TIME:
-				return basicSetTime(null, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__DESTINATION:
 				return basicSetDestination(null, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__RECEIVER:
@@ -722,24 +717,26 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
+				return getPartOf();
 			case FhirPackage.SUPPLY_DELIVERY__STATUS:
 				return getStatus();
 			case FhirPackage.SUPPLY_DELIVERY__PATIENT:
 				return getPatient();
 			case FhirPackage.SUPPLY_DELIVERY__TYPE:
 				return getType();
-			case FhirPackage.SUPPLY_DELIVERY__QUANTITY:
-				return getQuantity();
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT:
-				return getSuppliedItemCodeableConcept();
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE:
-				return getSuppliedItemReference();
+			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM:
+				return getSuppliedItem();
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD:
+				return getOccurrencePeriod();
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING:
+				return getOccurrenceTiming();
 			case FhirPackage.SUPPLY_DELIVERY__SUPPLIER:
 				return getSupplier();
-			case FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED:
-				return getWhenPrepared();
-			case FhirPackage.SUPPLY_DELIVERY__TIME:
-				return getTime();
 			case FhirPackage.SUPPLY_DELIVERY__DESTINATION:
 				return getDestination();
 			case FhirPackage.SUPPLY_DELIVERY__RECEIVER:
@@ -760,6 +757,14 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
 				return;
+			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
+				getPartOf().clear();
+				getPartOf().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.SUPPLY_DELIVERY__STATUS:
 				setStatus((SupplyDeliveryStatus)newValue);
 				return;
@@ -769,23 +774,20 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 			case FhirPackage.SUPPLY_DELIVERY__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__QUANTITY:
-				setQuantity((Quantity)newValue);
+			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM:
+				setSuppliedItem((SupplyDeliverySuppliedItem)newValue);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT:
-				setSuppliedItemCodeableConcept((CodeableConcept)newValue);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE:
-				setSuppliedItemReference((Reference)newValue);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)newValue);
+				return;
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING:
+				setOccurrenceTiming((Timing)newValue);
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__SUPPLIER:
 				setSupplier((Reference)newValue);
-				return;
-			case FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED:
-				setWhenPrepared((Period)newValue);
-				return;
-			case FhirPackage.SUPPLY_DELIVERY__TIME:
-				setTime((DateTime)newValue);
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__DESTINATION:
 				setDestination((Reference)newValue);
@@ -809,6 +811,12 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
+			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
+				getBasedOn().clear();
+				return;
+			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
+				getPartOf().clear();
+				return;
 			case FhirPackage.SUPPLY_DELIVERY__STATUS:
 				setStatus((SupplyDeliveryStatus)null);
 				return;
@@ -818,23 +826,20 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 			case FhirPackage.SUPPLY_DELIVERY__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__QUANTITY:
-				setQuantity((Quantity)null);
+			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM:
+				setSuppliedItem((SupplyDeliverySuppliedItem)null);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT:
-				setSuppliedItemCodeableConcept((CodeableConcept)null);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
 				return;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE:
-				setSuppliedItemReference((Reference)null);
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)null);
+				return;
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING:
+				setOccurrenceTiming((Timing)null);
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__SUPPLIER:
 				setSupplier((Reference)null);
-				return;
-			case FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED:
-				setWhenPrepared((Period)null);
-				return;
-			case FhirPackage.SUPPLY_DELIVERY__TIME:
-				setTime((DateTime)null);
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__DESTINATION:
 				setDestination((Reference)null);
@@ -856,24 +861,26 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
 				return identifier != null;
+			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
+				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.SUPPLY_DELIVERY__STATUS:
 				return status != null;
 			case FhirPackage.SUPPLY_DELIVERY__PATIENT:
 				return patient != null;
 			case FhirPackage.SUPPLY_DELIVERY__TYPE:
 				return type != null;
-			case FhirPackage.SUPPLY_DELIVERY__QUANTITY:
-				return quantity != null;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_CODEABLE_CONCEPT:
-				return suppliedItemCodeableConcept != null;
-			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM_REFERENCE:
-				return suppliedItemReference != null;
+			case FhirPackage.SUPPLY_DELIVERY__SUPPLIED_ITEM:
+				return suppliedItem != null;
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_PERIOD:
+				return occurrencePeriod != null;
+			case FhirPackage.SUPPLY_DELIVERY__OCCURRENCE_TIMING:
+				return occurrenceTiming != null;
 			case FhirPackage.SUPPLY_DELIVERY__SUPPLIER:
 				return supplier != null;
-			case FhirPackage.SUPPLY_DELIVERY__WHEN_PREPARED:
-				return whenPrepared != null;
-			case FhirPackage.SUPPLY_DELIVERY__TIME:
-				return time != null;
 			case FhirPackage.SUPPLY_DELIVERY__DESTINATION:
 				return destination != null;
 			case FhirPackage.SUPPLY_DELIVERY__RECEIVER:

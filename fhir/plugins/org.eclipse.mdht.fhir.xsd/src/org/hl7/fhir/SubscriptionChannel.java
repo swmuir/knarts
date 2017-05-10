@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,29 +107,19 @@ public interface SubscriptionChannel extends BackboneElement {
 	void setPayload(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Header</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional headers / information to send as part of the notification.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Header</em>' containment reference.
-	 * @see #setHeader(org.hl7.fhir.String)
+	 * @return the value of the '<em>Header</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSubscriptionChannel_Header()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='header' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getHeader();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubscriptionChannel#getHeader <em>Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Header</em>' containment reference.
-	 * @see #getHeader()
-	 * @generated
-	 */
-	void setHeader(org.hl7.fhir.String value);
+	EList<org.hl7.fhir.String> getHeader();
 
 } // SubscriptionChannel

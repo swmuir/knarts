@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -29,6 +29,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getNavigationLinks <em>Navigation Links</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptAssert#getRequestMethod <em>Request Method</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getRequestURL <em>Request URL</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponse <em>Response</em>}</li>
@@ -155,7 +156,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+	 * The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compare To Source Expression</em>' containment reference.
 	 * @see #setCompareToSourceExpression(org.hl7.fhir.String)
@@ -233,7 +234,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+	 * The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(org.hl7.fhir.String)
@@ -385,6 +386,32 @@ public interface TestScriptAssert extends BackboneElement {
 	void setPath(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Request Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The request method or HTTP operation code to compare against that used by the client system under test.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request Method</em>' containment reference.
+	 * @see #setRequestMethod(TestScriptRequestMethodCode)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_RequestMethod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestMethod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestScriptRequestMethodCode getRequestMethod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRequestMethod <em>Request Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Method</em>' containment reference.
+	 * @see #getRequestMethod()
+	 * @generated
+	 */
+	void setRequestMethod(TestScriptRequestMethodCode value);
+
+	/**
 	 * Returns the value of the '<em><b>Request URL</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,13 +445,13 @@ public interface TestScriptAssert extends BackboneElement {
 	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(Code)
+	 * @see #setResource(FHIRDefinedType)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Resource()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getResource();
+	FHIRDefinedType getResource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}' containment reference.
@@ -434,7 +461,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @see #getResource()
 	 * @generated
 	 */
-	void setResource(Code value);
+	void setResource(FHIRDefinedType value);
 
 	/**
 	 * Returns the value of the '<em><b>Response</b></em>' containment reference.

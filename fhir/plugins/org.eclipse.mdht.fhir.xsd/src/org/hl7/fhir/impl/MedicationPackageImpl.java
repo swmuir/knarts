@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationContent;
 import org.hl7.fhir.MedicationPackage;
 
@@ -32,6 +33,7 @@ import org.hl7.fhir.MedicationPackage;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationPackageImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationPackageImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationPackageImpl#getBatch <em>Batch</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +58,16 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 	 * @ordered
 	 */
 	protected EList<MedicationContent> content;
+
+	/**
+	 * The cached value of the '{@link #getBatch() <em>Batch</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBatch()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicationBatch> batch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,6 +148,18 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MedicationBatch> getBatch() {
+		if (batch == null) {
+			batch = new EObjectContainmentEList<MedicationBatch>(MedicationBatch.class, this, FhirPackage.MEDICATION_PACKAGE__BATCH);
+		}
+		return batch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -143,6 +167,8 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 				return basicSetContainer(null, msgs);
 			case FhirPackage.MEDICATION_PACKAGE__CONTENT:
 				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_PACKAGE__BATCH:
+				return ((InternalEList<?>)getBatch()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,6 +185,8 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 				return getContainer();
 			case FhirPackage.MEDICATION_PACKAGE__CONTENT:
 				return getContent();
+			case FhirPackage.MEDICATION_PACKAGE__BATCH:
+				return getBatch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,6 +207,10 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 				getContent().clear();
 				getContent().addAll((Collection<? extends MedicationContent>)newValue);
 				return;
+			case FhirPackage.MEDICATION_PACKAGE__BATCH:
+				getBatch().clear();
+				getBatch().addAll((Collection<? extends MedicationBatch>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -197,6 +229,9 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 			case FhirPackage.MEDICATION_PACKAGE__CONTENT:
 				getContent().clear();
 				return;
+			case FhirPackage.MEDICATION_PACKAGE__BATCH:
+				getBatch().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,6 +248,8 @@ public class MedicationPackageImpl extends BackboneElementImpl implements Medica
 				return container != null;
 			case FhirPackage.MEDICATION_PACKAGE__CONTENT:
 				return content != null && !content.isEmpty();
+			case FhirPackage.MEDICATION_PACKAGE__BATCH:
+				return batch != null && !batch.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

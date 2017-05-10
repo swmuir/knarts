@@ -29,6 +29,7 @@ import org.hl7.fhir.OperationDefinitionParameter;
 import org.hl7.fhir.OperationKind;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -246,7 +247,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> resource;
+	protected EList<ResourceType> resource;
 
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
@@ -960,9 +961,9 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getResource() {
+	public EList<ResourceType> getResource() {
 		if (resource == null) {
-			resource = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.OPERATION_DEFINITION__RESOURCE);
+			resource = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.OPERATION_DEFINITION__RESOURCE);
 		}
 		return resource;
 	}
@@ -1301,7 +1302,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				return;
 			case FhirPackage.OPERATION_DEFINITION__RESOURCE:
 				getResource().clear();
-				getResource().addAll((Collection<? extends Code>)newValue);
+				getResource().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__SYSTEM:
 				setSystem((org.hl7.fhir.Boolean)newValue);

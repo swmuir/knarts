@@ -31,6 +31,7 @@ import org.hl7.fhir.FhirPackage;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapElementImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -46,6 +47,16 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 	 * @ordered
 	 */
 	protected Code code;
+
+	/**
+	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String display;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -124,6 +135,49 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getDisplay() {
+		return display;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDisplay(org.hl7.fhir.String newDisplay, NotificationChain msgs) {
+		org.hl7.fhir.String oldDisplay = display;
+		display = newDisplay;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY, oldDisplay, newDisplay);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDisplay(org.hl7.fhir.String newDisplay) {
+		if (newDisplay != display) {
+			NotificationChain msgs = null;
+			if (display != null)
+				msgs = ((InternalEObject)display).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY, null, msgs);
+			if (newDisplay != null)
+				msgs = ((InternalEObject)newDisplay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY, null, msgs);
+			msgs = basicSetDisplay(newDisplay, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY, newDisplay, newDisplay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ConceptMapTarget> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<ConceptMapTarget>(ConceptMapTarget.class, this, FhirPackage.CONCEPT_MAP_ELEMENT__TARGET);
@@ -141,6 +195,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY:
+				return basicSetDisplay(null, msgs);
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
 				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
 		}
@@ -157,6 +213,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return getCode();
+			case FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY:
+				return getDisplay();
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
 				return getTarget();
 		}
@@ -174,6 +232,9 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				setCode((Code)newValue);
+				return;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY:
+				setDisplay((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
 				getTarget().clear();
@@ -194,6 +255,9 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				setCode((Code)null);
 				return;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY:
+				setDisplay((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
 				getTarget().clear();
 				return;
@@ -211,6 +275,8 @@ public class ConceptMapElementImpl extends BackboneElementImpl implements Concep
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_ELEMENT__CODE:
 				return code != null;
+			case FhirPackage.CONCEPT_MAP_ELEMENT__DISPLAY:
+				return display != null;
 			case FhirPackage.CONCEPT_MAP_ELEMENT__TARGET:
 				return target != null && !target.isEmpty();
 		}

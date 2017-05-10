@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.CompositionStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DocumentReference;
 import org.hl7.fhir.DocumentReferenceContent;
@@ -39,16 +40,16 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getMasterIdentifier <em>Master Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCustodian <em>Custodian</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthenticator <em>Authenticator</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getIndexed <em>Indexed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getDocStatus <em>Doc Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getIndexed <em>Indexed</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthenticator <em>Authenticator</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getRelatesTo <em>Relates To</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getSecurityLabel <em>Security Label</em>}</li>
@@ -80,14 +81,24 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubject()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subject;
+	protected DocumentReferenceStatus status;
+
+	/**
+	 * The cached value of the '{@link #getDocStatus() <em>Doc Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected CompositionStatus docStatus;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -110,34 +121,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected CodeableConcept class_;
 
 	/**
-	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAuthor()
+	 * @see #getSubject()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> author;
-
-	/**
-	 * The cached value of the '{@link #getCustodian() <em>Custodian</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCustodian()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference custodian;
-
-	/**
-	 * The cached value of the '{@link #getAuthenticator() <em>Authenticator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAuthenticator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference authenticator;
+	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -160,24 +151,34 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected Instant indexed;
 
 	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected DocumentReferenceStatus status;
+	protected EList<Reference> author;
 
 	/**
-	 * The cached value of the '{@link #getDocStatus() <em>Doc Status</em>}' containment reference.
+	 * The cached value of the '{@link #getAuthenticator() <em>Authenticator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDocStatus()
+	 * @see #getAuthenticator()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept docStatus;
+	protected Reference authenticator;
+
+	/**
+	 * The cached value of the '{@link #getCustodian() <em>Custodian</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustodian()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference custodian;
 
 	/**
 	 * The cached value of the '{@link #getRelatesTo() <em>Relates To</em>}' containment reference list.
@@ -308,8 +309,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
+	public DocumentReferenceStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -317,11 +318,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
+	public NotificationChain basicSetStatus(DocumentReferenceStatus newStatus, NotificationChain msgs) {
+		DocumentReferenceStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__SUBJECT, oldSubject, newSubject);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -332,18 +333,61 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
+	public void setStatus(DocumentReferenceStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__SUBJECT, newSubject, newSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompositionStatus getDocStatus() {
+		return docStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDocStatus(CompositionStatus newDocStatus, NotificationChain msgs) {
+		CompositionStatus oldDocStatus = docStatus;
+		docStatus = newDocStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, oldDocStatus, newDocStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocStatus(CompositionStatus newDocStatus) {
+		if (newDocStatus != docStatus) {
+			NotificationChain msgs = null;
+			if (docStatus != null)
+				msgs = ((InternalEObject)docStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, null, msgs);
+			if (newDocStatus != null)
+				msgs = ((InternalEObject)newDocStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, null, msgs);
+			msgs = basicSetDocStatus(newDocStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, newDocStatus, newDocStatus));
 	}
 
 	/**
@@ -437,11 +481,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getAuthor() {
-		if (author == null) {
-			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE__AUTHOR);
-		}
-		return author;
+	public Reference getSubject() {
+		return subject;
 	}
 
 	/**
@@ -449,20 +490,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getCustodian() {
-		return custodian;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCustodian(Reference newCustodian, NotificationChain msgs) {
-		Reference oldCustodian = custodian;
-		custodian = newCustodian;
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, oldCustodian, newCustodian);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__SUBJECT, oldSubject, newSubject);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -473,61 +505,18 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustodian(Reference newCustodian) {
-		if (newCustodian != custodian) {
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
 			NotificationChain msgs = null;
-			if (custodian != null)
-				msgs = ((InternalEObject)custodian).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, null, msgs);
-			if (newCustodian != null)
-				msgs = ((InternalEObject)newCustodian).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, null, msgs);
-			msgs = basicSetCustodian(newCustodian, msgs);
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, newCustodian, newCustodian));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getAuthenticator() {
-		return authenticator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAuthenticator(Reference newAuthenticator, NotificationChain msgs) {
-		Reference oldAuthenticator = authenticator;
-		authenticator = newAuthenticator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, oldAuthenticator, newAuthenticator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAuthenticator(Reference newAuthenticator) {
-		if (newAuthenticator != authenticator) {
-			NotificationChain msgs = null;
-			if (authenticator != null)
-				msgs = ((InternalEObject)authenticator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, null, msgs);
-			if (newAuthenticator != null)
-				msgs = ((InternalEObject)newAuthenticator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, null, msgs);
-			msgs = basicSetAuthenticator(newAuthenticator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, newAuthenticator, newAuthenticator));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -621,8 +610,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentReferenceStatus getStatus() {
-		return status;
+	public EList<Reference> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE__AUTHOR);
+		}
+		return author;
 	}
 
 	/**
@@ -630,11 +622,20 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(DocumentReferenceStatus newStatus, NotificationChain msgs) {
-		DocumentReferenceStatus oldStatus = status;
-		status = newStatus;
+	public Reference getAuthenticator() {
+		return authenticator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAuthenticator(Reference newAuthenticator, NotificationChain msgs) {
+		Reference oldAuthenticator = authenticator;
+		authenticator = newAuthenticator;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, oldAuthenticator, newAuthenticator);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -645,18 +646,18 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(DocumentReferenceStatus newStatus) {
-		if (newStatus != status) {
+	public void setAuthenticator(Reference newAuthenticator) {
+		if (newAuthenticator != authenticator) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (authenticator != null)
+				msgs = ((InternalEObject)authenticator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, null, msgs);
+			if (newAuthenticator != null)
+				msgs = ((InternalEObject)newAuthenticator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, null, msgs);
+			msgs = basicSetAuthenticator(newAuthenticator, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR, newAuthenticator, newAuthenticator));
 	}
 
 	/**
@@ -664,8 +665,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getDocStatus() {
-		return docStatus;
+	public Reference getCustodian() {
+		return custodian;
 	}
 
 	/**
@@ -673,11 +674,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocStatus(CodeableConcept newDocStatus, NotificationChain msgs) {
-		CodeableConcept oldDocStatus = docStatus;
-		docStatus = newDocStatus;
+	public NotificationChain basicSetCustodian(Reference newCustodian, NotificationChain msgs) {
+		Reference oldCustodian = custodian;
+		custodian = newCustodian;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, oldDocStatus, newDocStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, oldCustodian, newCustodian);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -688,18 +689,18 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocStatus(CodeableConcept newDocStatus) {
-		if (newDocStatus != docStatus) {
+	public void setCustodian(Reference newCustodian) {
+		if (newCustodian != custodian) {
 			NotificationChain msgs = null;
-			if (docStatus != null)
-				msgs = ((InternalEObject)docStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, null, msgs);
-			if (newDocStatus != null)
-				msgs = ((InternalEObject)newDocStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, null, msgs);
-			msgs = basicSetDocStatus(newDocStatus, msgs);
+			if (custodian != null)
+				msgs = ((InternalEObject)custodian).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, null, msgs);
+			if (newCustodian != null)
+				msgs = ((InternalEObject)newCustodian).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, null, msgs);
+			msgs = basicSetCustodian(newCustodian, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS, newDocStatus, newDocStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN, newCustodian, newCustodian));
 	}
 
 	/**
@@ -836,26 +837,26 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return basicSetMasterIdentifier(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
-				return basicSetSubject(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return basicSetClass(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
-				return basicSetCustodian(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
-				return basicSetAuthenticator(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return basicSetCreated(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return basicSetIndexed(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
 				return basicSetDocStatus(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
+				return basicSetType(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
+				return basicSetClass(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
+				return basicSetSubject(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
+				return basicSetCreated(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
+				return basicSetIndexed(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
+				return basicSetAuthenticator(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
+				return basicSetCustodian(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__RELATES_TO:
 				return ((InternalEList<?>)getRelatesTo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__DESCRIPTION:
@@ -882,26 +883,26 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return getMasterIdentifier();
 			case FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
-				return getSubject();
-			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
-				return getType();
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return getClass_();
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return getAuthor();
-			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
-				return getCustodian();
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
-				return getAuthenticator();
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return getCreated();
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return getIndexed();
 			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
 				return getStatus();
 			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
 				return getDocStatus();
+			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
+				return getType();
+			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
+				return getClass_();
+			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
+				return getSubject();
+			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
+				return getCreated();
+			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
+				return getIndexed();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return getAuthor();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
+				return getAuthenticator();
+			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
+				return getCustodian();
 			case FhirPackage.DOCUMENT_REFERENCE__RELATES_TO:
 				return getRelatesTo();
 			case FhirPackage.DOCUMENT_REFERENCE__DESCRIPTION:
@@ -932,8 +933,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
-				setSubject((Reference)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
+				setStatus((DocumentReferenceStatus)newValue);
+				return;
+			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
+				setDocStatus((CompositionStatus)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				setType((CodeableConcept)newValue);
@@ -941,15 +945,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
 				setClass((CodeableConcept)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				getAuthor().clear();
-				getAuthor().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
-				setCustodian((Reference)newValue);
-				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
-				setAuthenticator((Reference)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
+				setSubject((Reference)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				setCreated((DateTime)newValue);
@@ -957,11 +954,15 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
 				setIndexed((Instant)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
-				setStatus((DocumentReferenceStatus)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				getAuthor().clear();
+				getAuthor().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
-				setDocStatus((CodeableConcept)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
+				setAuthenticator((Reference)newValue);
+				return;
+			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
+				setCustodian((Reference)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__RELATES_TO:
 				getRelatesTo().clear();
@@ -999,8 +1000,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
-				setSubject((Reference)null);
+			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
+				setStatus((DocumentReferenceStatus)null);
+				return;
+			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
+				setDocStatus((CompositionStatus)null);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				setType((CodeableConcept)null);
@@ -1008,14 +1012,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
 				setClass((CodeableConcept)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				getAuthor().clear();
-				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
-				setCustodian((Reference)null);
-				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
-				setAuthenticator((Reference)null);
+			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
+				setSubject((Reference)null);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				setCreated((DateTime)null);
@@ -1023,11 +1021,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
 				setIndexed((Instant)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
-				setStatus((DocumentReferenceStatus)null);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				getAuthor().clear();
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
-				setDocStatus((CodeableConcept)null);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
+				setAuthenticator((Reference)null);
+				return;
+			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
+				setCustodian((Reference)null);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__RELATES_TO:
 				getRelatesTo().clear();
@@ -1060,26 +1061,26 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return masterIdentifier != null;
 			case FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
-				return subject != null;
-			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
-				return type != null;
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return class_ != null;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return author != null && !author.isEmpty();
-			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
-				return custodian != null;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
-				return authenticator != null;
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return created != null;
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return indexed != null;
 			case FhirPackage.DOCUMENT_REFERENCE__STATUS:
 				return status != null;
 			case FhirPackage.DOCUMENT_REFERENCE__DOC_STATUS:
 				return docStatus != null;
+			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
+				return type != null;
+			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
+				return class_ != null;
+			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
+				return subject != null;
+			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
+				return created != null;
+			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
+				return indexed != null;
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return author != null && !author.isEmpty();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
+				return authenticator != null;
+			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
+				return custodian != null;
 			case FhirPackage.DOCUMENT_REFERENCE__RELATES_TO:
 				return relatesTo != null && !relatesTo.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE__DESCRIPTION:

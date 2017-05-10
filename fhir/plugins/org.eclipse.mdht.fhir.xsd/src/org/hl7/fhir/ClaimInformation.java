@@ -16,6 +16,7 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.ClaimInformation#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInformation#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInformation#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInformation#getTimingDate <em>Timing Date</em>}</li>
@@ -32,6 +33,32 @@ package org.hl7.fhir;
  * @generated
  */
 public interface ClaimInformation extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Sequence of the information element which serves to provide a link.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sequence</em>' containment reference.
+	 * @see #setSequence(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getClaimInformation_Sequence()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='sequence' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	PositiveInt getSequence();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimInformation#getSequence <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence</em>' containment reference.
+	 * @see #getSequence()
+	 * @generated
+	 */
+	void setSequence(PositiveInt value);
+
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

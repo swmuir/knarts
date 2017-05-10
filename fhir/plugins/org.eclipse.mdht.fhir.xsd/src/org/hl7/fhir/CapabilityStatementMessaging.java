@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getReliableCache <em>Reliable Cache</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getSupportedMessage <em>Supported Message</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getEvent <em>Event</em>}</li>
  * </ul>
  *
@@ -75,7 +76,7 @@ public interface CapabilityStatementMessaging extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, process for becoming an authorized messaging exchange partner.
+	 * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(org.hl7.fhir.String)
@@ -97,6 +98,22 @@ public interface CapabilityStatementMessaging extends BackboneElement {
 	void setDocumentation(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Supported Message</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CapabilityStatementSupportedMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * References to message definitions for messages this system can send or receive.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supported Message</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementMessaging_SupportedMessage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportedMessage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CapabilityStatementSupportedMessage> getSupportedMessage();
+
+	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CapabilityStatementEvent}.
 	 * <!-- begin-user-doc -->
@@ -106,7 +123,7 @@ public interface CapabilityStatementMessaging extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementMessaging_Event()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
 	 * @generated
 	 */

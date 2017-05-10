@@ -48,7 +48,17 @@ public enum ConsentDataMeaningList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEPENDENTS(2, "dependents", "dependents");
+	DEPENDENTS(2, "dependents", "dependents"),
+
+	/**
+	 * The '<em><b>Authoredby</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AUTHOREDBY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	AUTHOREDBY(3, "authoredby", "authoredby");
 
 	/**
 	 * The '<em><b>Instance</b></em>' literal value.
@@ -93,6 +103,20 @@ public enum ConsentDataMeaningList implements Enumerator {
 	public static final int DEPENDENTS_VALUE = 2;
 
 	/**
+	 * The '<em><b>Authoredby</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * AuthoredBy
+	 * <!-- end-model-doc -->
+	 * @see #AUTHOREDBY
+	 * @model name="authoredby"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AUTHOREDBY_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Consent Data Meaning List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +127,7 @@ public enum ConsentDataMeaningList implements Enumerator {
 			INSTANCE,
 			RELATED,
 			DEPENDENTS,
+			AUTHOREDBY,
 		};
 
 	/**
@@ -162,6 +187,7 @@ public enum ConsentDataMeaningList implements Enumerator {
 			case INSTANCE_VALUE: return INSTANCE;
 			case RELATED_VALUE: return RELATED;
 			case DEPENDENTS_VALUE: return DEPENDENTS;
+			case AUTHOREDBY_VALUE: return AUTHOREDBY;
 		}
 		return null;
 	}

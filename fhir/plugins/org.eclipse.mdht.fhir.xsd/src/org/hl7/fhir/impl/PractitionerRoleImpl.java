@@ -37,6 +37,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getCode <em>Code</em>}</li>
@@ -44,7 +45,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getHealthcareService <em>Healthcare Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getTelecom <em>Telecom</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerRoleImpl#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
@@ -73,6 +73,16 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean active;
+
+	/**
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getPractitioner() <em>Practitioner</em>}' containment reference.
@@ -143,16 +153,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * @ordered
 	 */
 	protected EList<ContactPoint> telecom;
-
-	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getAvailableTime() <em>Available Time</em>}' containment reference list.
@@ -266,6 +266,49 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_ROLE__ACTIVE, newActive, newActive));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_ROLE__PERIOD, oldPeriod, newPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
+			NotificationChain msgs = null;
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_ROLE__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_ROLE__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_ROLE__PERIOD, newPeriod, newPeriod));
 	}
 
 	/**
@@ -419,49 +462,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getPeriod() {
-		return period;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
-		Period oldPeriod = period;
-		period = newPeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_ROLE__PERIOD, oldPeriod, newPeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPeriod(Period newPeriod) {
-		if (newPeriod != period) {
-			NotificationChain msgs = null;
-			if (period != null)
-				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_ROLE__PERIOD, null, msgs);
-			if (newPeriod != null)
-				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PRACTITIONER_ROLE__PERIOD, null, msgs);
-			msgs = basicSetPeriod(newPeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PRACTITIONER_ROLE__PERIOD, newPeriod, newPeriod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<PractitionerRoleAvailableTime> getAvailableTime() {
 		if (availableTime == null) {
 			availableTime = new EObjectContainmentEList<PractitionerRoleAvailableTime>(PractitionerRoleAvailableTime.class, this, FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME);
@@ -548,6 +548,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__ACTIVE:
 				return basicSetActive(null, msgs);
+			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
+				return basicSetPeriod(null, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__PRACTITIONER:
 				return basicSetPractitioner(null, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
@@ -562,8 +564,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return ((InternalEList<?>)getHealthcareService()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
-				return basicSetPeriod(null, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME:
 				return ((InternalEList<?>)getAvailableTime()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER_ROLE__NOT_AVAILABLE:
@@ -588,6 +588,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return getIdentifier();
 			case FhirPackage.PRACTITIONER_ROLE__ACTIVE:
 				return getActive();
+			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
+				return getPeriod();
 			case FhirPackage.PRACTITIONER_ROLE__PRACTITIONER:
 				return getPractitioner();
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
@@ -602,8 +604,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return getHealthcareService();
 			case FhirPackage.PRACTITIONER_ROLE__TELECOM:
 				return getTelecom();
-			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
-				return getPeriod();
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME:
 				return getAvailableTime();
 			case FhirPackage.PRACTITIONER_ROLE__NOT_AVAILABLE:
@@ -632,6 +632,9 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__ACTIVE:
 				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
+				setPeriod((Period)newValue);
+				return;
 			case FhirPackage.PRACTITIONER_ROLE__PRACTITIONER:
 				setPractitioner((Reference)newValue);
 				return;
@@ -657,9 +660,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__TELECOM:
 				getTelecom().clear();
 				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
-				return;
-			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
-				setPeriod((Period)newValue);
 				return;
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME:
 				getAvailableTime().clear();
@@ -694,6 +694,9 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 			case FhirPackage.PRACTITIONER_ROLE__ACTIVE:
 				setActive((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
+				setPeriod((Period)null);
+				return;
 			case FhirPackage.PRACTITIONER_ROLE__PRACTITIONER:
 				setPractitioner((Reference)null);
 				return;
@@ -714,9 +717,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return;
 			case FhirPackage.PRACTITIONER_ROLE__TELECOM:
 				getTelecom().clear();
-				return;
-			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
-				setPeriod((Period)null);
 				return;
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME:
 				getAvailableTime().clear();
@@ -746,6 +746,8 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__ACTIVE:
 				return active != null;
+			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
+				return period != null;
 			case FhirPackage.PRACTITIONER_ROLE__PRACTITIONER:
 				return practitioner != null;
 			case FhirPackage.PRACTITIONER_ROLE__ORGANIZATION:
@@ -760,8 +762,6 @@ public class PractitionerRoleImpl extends DomainResourceImpl implements Practiti
 				return healthcareService != null && !healthcareService.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__TELECOM:
 				return telecom != null && !telecom.isEmpty();
-			case FhirPackage.PRACTITIONER_ROLE__PERIOD:
-				return period != null;
 			case FhirPackage.PRACTITIONER_ROLE__AVAILABLE_TIME:
 				return availableTime != null && !availableTime.isEmpty();
 			case FhirPackage.PRACTITIONER_ROLE__NOT_AVAILABLE:

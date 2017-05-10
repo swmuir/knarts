@@ -19,13 +19,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Flag#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Flag#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Flag#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Flag#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Flag#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.Flag#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Flag#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.Flag#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Flag#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Flag#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.Flag#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getFlag()
@@ -48,32 +48,6 @@ public interface Flag extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getFlag_Category()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Flag#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -102,30 +76,56 @@ public interface Flag extends DomainResource {
 	void setStatus(FlagStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
+	 * Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getFlag_Period()
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getFlag_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getPeriod();
+	CodeableConcept getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Flag#getPeriod <em>Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Flag#getCategory <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	void setPeriod(Period value);
+	void setCategory(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The coded value or textual component of the flag to display to the user.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getFlag_Code()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Flag#getCode <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -152,6 +152,32 @@ public interface Flag extends DomainResource {
 	 * @generated
 	 */
 	void setSubject(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period</em>' containment reference.
+	 * @see #setPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getFlag_Period()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Flag#getPeriod <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Period</em>' containment reference.
+	 * @see #getPeriod()
+	 * @generated
+	 */
+	void setPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
@@ -204,31 +230,5 @@ public interface Flag extends DomainResource {
 	 * @generated
 	 */
 	void setAuthor(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The coded value or textual component of the flag to display to the user.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getFlag_Code()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getCode();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Flag#getCode <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(CodeableConcept value);
 
 } // Flag

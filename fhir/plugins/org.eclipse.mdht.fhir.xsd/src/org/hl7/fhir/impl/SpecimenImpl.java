@@ -26,8 +26,8 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.SpecimenCollection;
 import org.hl7.fhir.SpecimenContainer;
+import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
-import org.hl7.fhir.SpecimenTreatment;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +46,7 @@ import org.hl7.fhir.SpecimenTreatment;
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getTreatment <em>Treatment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getProcessing <em>Processing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getNote <em>Note</em>}</li>
  * </ul>
@@ -145,14 +145,14 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	protected SpecimenCollection collection;
 
 	/**
-	 * The cached value of the '{@link #getTreatment() <em>Treatment</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcessing() <em>Processing</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTreatment()
+	 * @see #getProcessing()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecimenTreatment> treatment;
+	protected EList<SpecimenProcessing> processing;
 
 	/**
 	 * The cached value of the '{@link #getContainer() <em>Container</em>}' containment reference list.
@@ -492,11 +492,11 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SpecimenTreatment> getTreatment() {
-		if (treatment == null) {
-			treatment = new EObjectContainmentEList<SpecimenTreatment>(SpecimenTreatment.class, this, FhirPackage.SPECIMEN__TREATMENT);
+	public EList<SpecimenProcessing> getProcessing() {
+		if (processing == null) {
+			processing = new EObjectContainmentEList<SpecimenProcessing>(SpecimenProcessing.class, this, FhirPackage.SPECIMEN__PROCESSING);
 		}
-		return treatment;
+		return processing;
 	}
 
 	/**
@@ -549,8 +549,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return ((InternalEList<?>)getRequest()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return basicSetCollection(null, msgs);
-			case FhirPackage.SPECIMEN__TREATMENT:
-				return ((InternalEList<?>)getTreatment()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN__PROCESSING:
+				return ((InternalEList<?>)getProcessing()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return ((InternalEList<?>)getContainer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__NOTE:
@@ -585,8 +585,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return getRequest();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return getCollection();
-			case FhirPackage.SPECIMEN__TREATMENT:
-				return getTreatment();
+			case FhirPackage.SPECIMEN__PROCESSING:
+				return getProcessing();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return getContainer();
 			case FhirPackage.SPECIMEN__NOTE:
@@ -634,9 +634,9 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)newValue);
 				return;
-			case FhirPackage.SPECIMEN__TREATMENT:
-				getTreatment().clear();
-				getTreatment().addAll((Collection<? extends SpecimenTreatment>)newValue);
+			case FhirPackage.SPECIMEN__PROCESSING:
+				getProcessing().clear();
+				getProcessing().addAll((Collection<? extends SpecimenProcessing>)newValue);
 				return;
 			case FhirPackage.SPECIMEN__CONTAINER:
 				getContainer().clear();
@@ -685,8 +685,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__COLLECTION:
 				setCollection((SpecimenCollection)null);
 				return;
-			case FhirPackage.SPECIMEN__TREATMENT:
-				getTreatment().clear();
+			case FhirPackage.SPECIMEN__PROCESSING:
+				getProcessing().clear();
 				return;
 			case FhirPackage.SPECIMEN__CONTAINER:
 				getContainer().clear();
@@ -724,8 +724,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return request != null && !request.isEmpty();
 			case FhirPackage.SPECIMEN__COLLECTION:
 				return collection != null;
-			case FhirPackage.SPECIMEN__TREATMENT:
-				return treatment != null && !treatment.isEmpty();
+			case FhirPackage.SPECIMEN__PROCESSING:
+				return processing != null && !processing.isEmpty();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return container != null && !container.isEmpty();
 			case FhirPackage.SPECIMEN__NOTE:

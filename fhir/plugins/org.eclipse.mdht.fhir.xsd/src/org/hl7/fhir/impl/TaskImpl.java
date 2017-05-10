@@ -18,13 +18,14 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.Task;
 import org.hl7.fhir.TaskInput;
 import org.hl7.fhir.TaskOutput;
@@ -172,7 +173,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code intent;
+	protected RequestIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -182,7 +183,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code priority;
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -672,7 +673,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getIntent() {
+	public RequestIntent getIntent() {
 		return intent;
 	}
 
@@ -681,8 +682,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIntent(Code newIntent, NotificationChain msgs) {
-		Code oldIntent = intent;
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
 		intent = newIntent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INTENT, oldIntent, newIntent);
@@ -696,7 +697,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntent(Code newIntent) {
+	public void setIntent(RequestIntent newIntent) {
 		if (newIntent != intent) {
 			NotificationChain msgs = null;
 			if (intent != null)
@@ -715,7 +716,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getPriority() {
+	public RequestPriority getPriority() {
 		return priority;
 	}
 
@@ -724,8 +725,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(Code newPriority, NotificationChain msgs) {
-		Code oldPriority = priority;
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__PRIORITY, oldPriority, newPriority);
@@ -739,7 +740,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(Code newPriority) {
+	public void setPriority(RequestPriority newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -1505,10 +1506,10 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				setBusinessStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.TASK__INTENT:
-				setIntent((Code)newValue);
+				setIntent((RequestIntent)newValue);
 				return;
 			case FhirPackage.TASK__PRIORITY:
-				setPriority((Code)newValue);
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.TASK__CODE:
 				setCode((CodeableConcept)newValue);
@@ -1606,10 +1607,10 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				setBusinessStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.TASK__INTENT:
-				setIntent((Code)null);
+				setIntent((RequestIntent)null);
 				return;
 			case FhirPackage.TASK__PRIORITY:
-				setPriority((Code)null);
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.TASK__CODE:
 				setCode((CodeableConcept)null);

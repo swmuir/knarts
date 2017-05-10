@@ -21,6 +21,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuidePageKind;
 import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 
 /**
@@ -81,7 +82,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> type;
+	protected EList<ResourceType> type;
 
 	/**
 	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference list.
@@ -266,9 +267,9 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getType() {
+	public EList<ResourceType> getType() {
 		if (type == null) {
-			type = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
+			type = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
 		}
 		return type;
 	}
@@ -412,7 +413,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
 				getType().clear();
-				getType().addAll((Collection<? extends Code>)newValue);
+				getType().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
 				getPackage().clear();

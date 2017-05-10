@@ -19,18 +19,19 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Composition#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getAttester <em>Attester</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getCustodian <em>Custodian</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getRelatesTo <em>Relates To</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getEvent <em>Event</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getSection <em>Section</em>}</li>
  * </ul>
  *
@@ -66,30 +67,30 @@ public interface Composition extends DomainResource {
 	void setIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The composition editing time, when the composition was last logically changed by the author.
+	 * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Date()
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(CompositionStatus)
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Status()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getDate();
+	CompositionStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getDate <em>Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Composition#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setDate(DateTime value);
+	void setStatus(CompositionStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -144,84 +145,6 @@ public interface Composition extends DomainResource {
 	void setClass(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Official human-readable label for the composition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Title</em>' containment reference.
-	 * @see #setTitle(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Title()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getTitle();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getTitle <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' containment reference.
-	 * @see #getTitle()
-	 * @generated
-	 */
-	void setTitle(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(CompositionStatus)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Status()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CompositionStatus getStatus();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getStatus <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
-	 * @generated
-	 */
-	void setStatus(CompositionStatus value);
-
-	/**
-	 * Returns the value of the '<em><b>Confidentiality</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The code specifying the level of confidentiality of the Composition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Confidentiality</em>' containment reference.
-	 * @see #setConfidentiality(Code)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Confidentiality()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='confidentiality' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Code getConfidentiality();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Confidentiality</em>' containment reference.
-	 * @see #getConfidentiality()
-	 * @generated
-	 */
-	void setConfidentiality(Code value);
-
-	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +171,58 @@ public interface Composition extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Describes the clinical encounter or type of care this documentation is associated with.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEncounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Composition#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	void setEncounter(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The composition editing time, when the composition was last logically changed by the author.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Date()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Composition#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
+
+	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -262,6 +237,58 @@ public interface Composition extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getAuthor();
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Official human-readable label for the composition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Title</em>' containment reference.
+	 * @see #setTitle(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Title()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Composition#getTitle <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' containment reference.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Confidentiality</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The code specifying the level of confidentiality of the Composition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Confidentiality</em>' containment reference.
+	 * @see #setConfidentiality(ConfidentialityClassification)
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Confidentiality()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='confidentiality' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ConfidentialityClassification getConfidentiality();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Confidentiality</em>' containment reference.
+	 * @see #getConfidentiality()
+	 * @generated
+	 */
+	void setConfidentiality(ConfidentialityClassification value);
 
 	/**
 	 * Returns the value of the '<em><b>Attester</b></em>' containment reference list.
@@ -306,6 +333,22 @@ public interface Composition extends DomainResource {
 	void setCustodian(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Relates To</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CompositionRelatesTo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Relationships that this composition has with other compositions or documents that already exist.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relates To</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getComposition_RelatesTo()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relatesTo' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CompositionRelatesTo> getRelatesTo();
+
+	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CompositionEvent}.
 	 * <!-- begin-user-doc -->
@@ -320,32 +363,6 @@ public interface Composition extends DomainResource {
 	 * @generated
 	 */
 	EList<CompositionEvent> getEvent();
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes the clinical encounter or type of care this documentation is associated with.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Section</b></em>' containment reference list.

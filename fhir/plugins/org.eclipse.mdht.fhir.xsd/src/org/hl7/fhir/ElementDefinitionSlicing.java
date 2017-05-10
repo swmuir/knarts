@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ElementDefinitionSlicing extends Element {
 	/**
 	 * Returns the value of the '<em><b>Discriminator</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * The list contents are of type {@link org.hl7.fhir.ElementDefinitionDiscriminator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -43,7 +43,7 @@ public interface ElementDefinitionSlicing extends Element {
 	 *        extendedMetaData="kind='element' name='discriminator' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<org.hl7.fhir.String> getDiscriminator();
+	EList<ElementDefinitionDiscriminator> getDiscriminator();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

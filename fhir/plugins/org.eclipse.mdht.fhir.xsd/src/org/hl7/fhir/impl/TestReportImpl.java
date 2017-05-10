@@ -24,6 +24,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.TestReport;
 import org.hl7.fhir.TestReportParticipant;
+import org.hl7.fhir.TestReportResult;
 import org.hl7.fhir.TestReportSetup;
 import org.hl7.fhir.TestReportStatus;
 import org.hl7.fhir.TestReportTeardown;
@@ -40,9 +41,10 @@ import org.hl7.fhir.TestReportTest;
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getTestScript <em>Test Script</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getScore <em>Score</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getTester <em>Tester</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getTestScript <em>Test Script</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestReportImpl#getSetup <em>Setup</em>}</li>
@@ -84,6 +86,26 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	protected TestReportStatus status;
 
 	/**
+	 * The cached value of the '{@link #getTestScript() <em>Test Script</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTestScript()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference testScript;
+
+	/**
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected TestReportResult result;
+
+	/**
 	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,16 +124,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String tester;
-
-	/**
-	 * The cached value of the '{@link #getTestScript() <em>Test Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTestScript()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference testScript;
 
 	/**
 	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
@@ -316,6 +328,92 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getTestScript() {
+		return testScript;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTestScript(Reference newTestScript, NotificationChain msgs) {
+		Reference oldTestScript = testScript;
+		testScript = newTestScript;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__TEST_SCRIPT, oldTestScript, newTestScript);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTestScript(Reference newTestScript) {
+		if (newTestScript != testScript) {
+			NotificationChain msgs = null;
+			if (testScript != null)
+				msgs = ((InternalEObject)testScript).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__TEST_SCRIPT, null, msgs);
+			if (newTestScript != null)
+				msgs = ((InternalEObject)newTestScript).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__TEST_SCRIPT, null, msgs);
+			msgs = basicSetTestScript(newTestScript, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__TEST_SCRIPT, newTestScript, newTestScript));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestReportResult getResult() {
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResult(TestReportResult newResult, NotificationChain msgs) {
+		TestReportResult oldResult = result;
+		result = newResult;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__RESULT, oldResult, newResult);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResult(TestReportResult newResult) {
+		if (newResult != result) {
+			NotificationChain msgs = null;
+			if (result != null)
+				msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__RESULT, null, msgs);
+			if (newResult != null)
+				msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__RESULT, null, msgs);
+			msgs = basicSetResult(newResult, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__RESULT, newResult, newResult));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Decimal getScore() {
 		return score;
 	}
@@ -395,49 +493,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__TESTER, newTester, newTester));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getTestScript() {
-		return testScript;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTestScript(Reference newTestScript, NotificationChain msgs) {
-		Reference oldTestScript = testScript;
-		testScript = newTestScript;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__TEST_SCRIPT, oldTestScript, newTestScript);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTestScript(Reference newTestScript) {
-		if (newTestScript != testScript) {
-			NotificationChain msgs = null;
-			if (testScript != null)
-				msgs = ((InternalEObject)testScript).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__TEST_SCRIPT, null, msgs);
-			if (newTestScript != null)
-				msgs = ((InternalEObject)newTestScript).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_REPORT__TEST_SCRIPT, null, msgs);
-			msgs = basicSetTestScript(newTestScript, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT__TEST_SCRIPT, newTestScript, newTestScript));
 	}
 
 	/**
@@ -607,12 +662,14 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 				return basicSetName(null, msgs);
 			case FhirPackage.TEST_REPORT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
+				return basicSetTestScript(null, msgs);
+			case FhirPackage.TEST_REPORT__RESULT:
+				return basicSetResult(null, msgs);
 			case FhirPackage.TEST_REPORT__SCORE:
 				return basicSetScore(null, msgs);
 			case FhirPackage.TEST_REPORT__TESTER:
 				return basicSetTester(null, msgs);
-			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
-				return basicSetTestScript(null, msgs);
 			case FhirPackage.TEST_REPORT__ISSUED:
 				return basicSetIssued(null, msgs);
 			case FhirPackage.TEST_REPORT__PARTICIPANT:
@@ -641,12 +698,14 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 				return getName();
 			case FhirPackage.TEST_REPORT__STATUS:
 				return getStatus();
+			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
+				return getTestScript();
+			case FhirPackage.TEST_REPORT__RESULT:
+				return getResult();
 			case FhirPackage.TEST_REPORT__SCORE:
 				return getScore();
 			case FhirPackage.TEST_REPORT__TESTER:
 				return getTester();
-			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
-				return getTestScript();
 			case FhirPackage.TEST_REPORT__ISSUED:
 				return getIssued();
 			case FhirPackage.TEST_REPORT__PARTICIPANT:
@@ -679,14 +738,17 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 			case FhirPackage.TEST_REPORT__STATUS:
 				setStatus((TestReportStatus)newValue);
 				return;
+			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
+				setTestScript((Reference)newValue);
+				return;
+			case FhirPackage.TEST_REPORT__RESULT:
+				setResult((TestReportResult)newValue);
+				return;
 			case FhirPackage.TEST_REPORT__SCORE:
 				setScore((Decimal)newValue);
 				return;
 			case FhirPackage.TEST_REPORT__TESTER:
 				setTester((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
-				setTestScript((Reference)newValue);
 				return;
 			case FhirPackage.TEST_REPORT__ISSUED:
 				setIssued((DateTime)newValue);
@@ -726,14 +788,17 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 			case FhirPackage.TEST_REPORT__STATUS:
 				setStatus((TestReportStatus)null);
 				return;
+			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
+				setTestScript((Reference)null);
+				return;
+			case FhirPackage.TEST_REPORT__RESULT:
+				setResult((TestReportResult)null);
+				return;
 			case FhirPackage.TEST_REPORT__SCORE:
 				setScore((Decimal)null);
 				return;
 			case FhirPackage.TEST_REPORT__TESTER:
 				setTester((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
-				setTestScript((Reference)null);
 				return;
 			case FhirPackage.TEST_REPORT__ISSUED:
 				setIssued((DateTime)null);
@@ -768,12 +833,14 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 				return name != null;
 			case FhirPackage.TEST_REPORT__STATUS:
 				return status != null;
+			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
+				return testScript != null;
+			case FhirPackage.TEST_REPORT__RESULT:
+				return result != null;
 			case FhirPackage.TEST_REPORT__SCORE:
 				return score != null;
 			case FhirPackage.TEST_REPORT__TESTER:
 				return tester != null;
-			case FhirPackage.TEST_REPORT__TEST_SCRIPT:
-				return testScript != null;
 			case FhirPackage.TEST_REPORT__ISSUED:
 				return issued != null;
 			case FhirPackage.TEST_REPORT__PARTICIPANT:

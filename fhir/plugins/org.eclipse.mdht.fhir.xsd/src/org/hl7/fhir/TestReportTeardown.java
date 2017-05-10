@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestReport is a resource that includes summary information on the results of executing a TestScript.
+ * A summary of information based on the results of executing a TestScript.
  * <!-- end-model-doc -->
  *
  * <p>

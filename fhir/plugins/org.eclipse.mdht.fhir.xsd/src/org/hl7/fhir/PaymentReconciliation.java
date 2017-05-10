@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getDetail <em>Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getTotal <em>Total</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getProcessNote <em>Process Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation()
@@ -63,13 +63,13 @@ public interface PaymentReconciliation extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getStatus <em>Status</em>}' containment reference.
@@ -79,7 +79,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
@@ -358,19 +358,19 @@ public interface PaymentReconciliation extends DomainResource {
 	void setTotal(Money value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.PaymentReconciliationNote}.
+	 * Returns the value of the '<em><b>Process Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PaymentReconciliationProcessNote}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Suite of notes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Note()
+	 * @return the value of the '<em>Process Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_ProcessNote()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='processNote' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PaymentReconciliationNote> getNote();
+	EList<PaymentReconciliationProcessNote> getProcessNote();
 
 } // PaymentReconciliation

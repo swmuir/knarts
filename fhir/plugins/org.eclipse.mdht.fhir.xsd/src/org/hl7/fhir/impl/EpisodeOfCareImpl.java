@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.EpisodeOfCare;
+import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.EpisodeOfCareStatus;
 import org.hl7.fhir.EpisodeOfCareStatusHistory;
 import org.hl7.fhir.FhirPackage;
@@ -38,7 +39,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getStatusHistory <em>Status History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EpisodeOfCareImpl#getPeriod <em>Period</em>}</li>
@@ -92,14 +93,14 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	protected EList<CodeableConcept> type;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getDiagnosis()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> condition;
+	protected EList<EpisodeOfCareDiagnosis> diagnosis;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -274,11 +275,11 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getCondition() {
-		if (condition == null) {
-			condition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EPISODE_OF_CARE__CONDITION);
+	public EList<EpisodeOfCareDiagnosis> getDiagnosis() {
+		if (diagnosis == null) {
+			diagnosis = new EObjectContainmentEList<EpisodeOfCareDiagnosis>(EpisodeOfCareDiagnosis.class, this, FhirPackage.EPISODE_OF_CARE__DIAGNOSIS);
 		}
-		return condition;
+		return diagnosis;
 	}
 
 	/**
@@ -505,8 +506,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return ((InternalEList<?>)getStatusHistory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EPISODE_OF_CARE__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EPISODE_OF_CARE__CONDITION:
-				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EPISODE_OF_CARE__DIAGNOSIS:
+				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EPISODE_OF_CARE__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.EPISODE_OF_CARE__MANAGING_ORGANIZATION:
@@ -541,8 +542,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return getStatusHistory();
 			case FhirPackage.EPISODE_OF_CARE__TYPE:
 				return getType();
-			case FhirPackage.EPISODE_OF_CARE__CONDITION:
-				return getCondition();
+			case FhirPackage.EPISODE_OF_CARE__DIAGNOSIS:
+				return getDiagnosis();
 			case FhirPackage.EPISODE_OF_CARE__PATIENT:
 				return getPatient();
 			case FhirPackage.EPISODE_OF_CARE__MANAGING_ORGANIZATION:
@@ -585,9 +586,9 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				getType().clear();
 				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.EPISODE_OF_CARE__CONDITION:
-				getCondition().clear();
-				getCondition().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.EPISODE_OF_CARE__DIAGNOSIS:
+				getDiagnosis().clear();
+				getDiagnosis().addAll((Collection<? extends EpisodeOfCareDiagnosis>)newValue);
 				return;
 			case FhirPackage.EPISODE_OF_CARE__PATIENT:
 				setPatient((Reference)newValue);
@@ -637,8 +638,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 			case FhirPackage.EPISODE_OF_CARE__TYPE:
 				getType().clear();
 				return;
-			case FhirPackage.EPISODE_OF_CARE__CONDITION:
-				getCondition().clear();
+			case FhirPackage.EPISODE_OF_CARE__DIAGNOSIS:
+				getDiagnosis().clear();
 				return;
 			case FhirPackage.EPISODE_OF_CARE__PATIENT:
 				setPatient((Reference)null);
@@ -681,8 +682,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 				return statusHistory != null && !statusHistory.isEmpty();
 			case FhirPackage.EPISODE_OF_CARE__TYPE:
 				return type != null && !type.isEmpty();
-			case FhirPackage.EPISODE_OF_CARE__CONDITION:
-				return condition != null && !condition.isEmpty();
+			case FhirPackage.EPISODE_OF_CARE__DIAGNOSIS:
+				return diagnosis != null && !diagnosis.isEmpty();
 			case FhirPackage.EPISODE_OF_CARE__PATIENT:
 				return patient != null;
 			case FhirPackage.EPISODE_OF_CARE__MANAGING_ORGANIZATION:

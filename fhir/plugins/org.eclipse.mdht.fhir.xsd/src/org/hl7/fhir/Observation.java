@@ -19,11 +19,12 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Observation#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getIssued <em>Issued</em>}</li>
@@ -31,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Observation#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueString <em>Value String</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getValueBoolean <em>Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueRange <em>Value Range</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueRatio <em>Value Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueSampledData <em>Value Sampled Data</em>}</li>
@@ -61,7 +63,7 @@ public interface Observation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A unique identifier for the simple observation instance.
+	 * A unique identifier assigned to this observation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservation_Identifier()
@@ -70,6 +72,22 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan, proposal or order that is fulfilled in whole or in part by this event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -166,30 +184,30 @@ public interface Observation extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_Encounter()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_Context()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEncounter();
+	Reference getContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getEncounter <em>Encounter</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setEncounter(Reference value);
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -367,6 +385,33 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	void setValueString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Boolean</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Boolean</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #setValueBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_ValueBoolean()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueBoolean' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getValueBoolean();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getValueBoolean <em>Value Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #getValueBoolean()
+	 * @generated
+	 */
+	void setValueBoolean(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Range</b></em>' containment reference.

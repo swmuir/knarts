@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestProvider <em>Request Provider</em>}</li>
@@ -37,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClaimResponse#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getReserved <em>Reserved</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponse#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getCommunicationRequest <em>Communication Request</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getInsurance <em>Insurance</em>}</li>
  * </ul>
@@ -71,13 +72,13 @@ public interface ClaimResponse extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getStatus <em>Status</em>}' containment reference.
@@ -87,7 +88,33 @@ public interface ClaimResponse extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Patient Resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Patient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
@@ -502,20 +529,20 @@ public interface ClaimResponse extends DomainResource {
 	void setForm(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimResponseNote}.
+	 * Returns the value of the '<em><b>Process Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimResponseProcessNote}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Note text.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Note()
+	 * @return the value of the '<em>Process Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_ProcessNote()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='processNote' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ClaimResponseNote> getNote();
+	EList<ClaimResponseProcessNote> getProcessNote();
 
 	/**
 	 * Returns the value of the '<em><b>Communication Request</b></em>' containment reference list.

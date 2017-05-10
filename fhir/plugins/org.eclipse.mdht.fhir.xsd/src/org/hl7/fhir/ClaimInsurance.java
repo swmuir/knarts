@@ -35,7 +35,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line item.
+	 * Sequence of coverage which serves to provide a link and convey coordination of benefit order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)

@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getLow <em>Low</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getHigh <em>High</em>}</li>
- *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getMeaning <em>Meaning</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getAppliesTo <em>Applies To</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getAge <em>Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationReferenceRange#getText <em>Text</em>}</li>
  * </ul>
@@ -82,20 +83,46 @@ public interface ObservationReferenceRange extends BackboneElement {
 	void setHigh(Quantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Meaning</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getObservationReferenceRange_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationReferenceRange#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Applies To</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
+	 * Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Meaning</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getObservationReferenceRange_Meaning()
+	 * @return the value of the '<em>Applies To</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservationReferenceRange_AppliesTo()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='meaning' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='appliesTo' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getMeaning();
+	EList<CodeableConcept> getAppliesTo();
 
 	/**
 	 * Returns the value of the '<em><b>Age</b></em>' containment reference.

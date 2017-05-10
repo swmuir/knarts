@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getItemCodeableConcept <em>Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getItemReference <em>Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationIngredient#getIsActive <em>Is Active</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getAmount <em>Amount</em>}</li>
  * </ul>
  *
@@ -79,6 +80,32 @@ public interface MedicationIngredient extends BackboneElement {
 	 * @generated
 	 */
 	void setItemReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Active</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indication of whether this ingredient affects the therapeutic action of the drug.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Is Active</em>' containment reference.
+	 * @see #setIsActive(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationIngredient_IsActive()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='isActive' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getIsActive();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationIngredient#getIsActive <em>Is Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Active</em>' containment reference.
+	 * @see #getIsActive()
+	 * @generated
+	 */
+	void setIsActive(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.

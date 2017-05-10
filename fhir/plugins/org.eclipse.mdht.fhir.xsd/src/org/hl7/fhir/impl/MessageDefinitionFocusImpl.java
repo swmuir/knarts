@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageDefinitionFocus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.UnsignedInt;
 
 /**
@@ -41,7 +41,7 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * @generated
 	 * @ordered
 	 */
-	protected Code code;
+	protected ResourceType code;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -97,7 +97,7 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getCode() {
+	public ResourceType getCode() {
 		return code;
 	}
 
@@ -106,8 +106,8 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Code newCode, NotificationChain msgs) {
-		Code oldCode = code;
+	public NotificationChain basicSetCode(ResourceType newCode, NotificationChain msgs) {
+		ResourceType oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION_FOCUS__CODE, oldCode, newCode);
@@ -121,7 +121,7 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Code newCode) {
+	public void setCode(ResourceType newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null)
@@ -313,7 +313,7 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MESSAGE_DEFINITION_FOCUS__CODE:
-				setCode((Code)newValue);
+				setCode((ResourceType)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION_FOCUS__PROFILE:
 				setProfile((Reference)newValue);
@@ -337,7 +337,7 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MESSAGE_DEFINITION_FOCUS__CODE:
-				setCode((Code)null);
+				setCode((ResourceType)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION_FOCUS__PROFILE:
 				setProfile((Reference)null);

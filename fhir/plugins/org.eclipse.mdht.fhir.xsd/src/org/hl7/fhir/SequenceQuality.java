@@ -172,7 +172,7 @@ public interface SequenceQuality extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Method for quality.
+	 * Which method is used to get sequence quality.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Method</em>' containment reference.
 	 * @see #setMethod(CodeableConcept)

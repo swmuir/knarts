@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Address;
 import org.hl7.fhir.ClaimDetail;
 import org.hl7.fhir.ClaimItem;
-import org.hl7.fhir.ClaimProsthesis;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.Decimal;
@@ -61,8 +60,8 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getDetail <em>Detail</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProsthesis <em>Prosthesis</em>}</li>
  * </ul>
  *
  * @generated
@@ -289,6 +288,16 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	protected EList<CodeableConcept> subSite;
 
 	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> encounter;
+
+	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,16 +306,6 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * @ordered
 	 */
 	protected EList<ClaimDetail> detail;
-
-	/**
-	 * The cached value of the '{@link #getProsthesis() <em>Prosthesis</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProsthesis()
-	 * @generated
-	 * @ordered
-	 */
-	protected ClaimProsthesis prosthesis;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1030,54 +1029,23 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getEncounter() {
+		if (encounter == null) {
+			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_ITEM__ENCOUNTER);
+		}
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ClaimDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<ClaimDetail>(ClaimDetail.class, this, FhirPackage.CLAIM_ITEM__DETAIL);
 		}
 		return detail;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClaimProsthesis getProsthesis() {
-		return prosthesis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProsthesis(ClaimProsthesis newProsthesis, NotificationChain msgs) {
-		ClaimProsthesis oldProsthesis = prosthesis;
-		prosthesis = newProsthesis;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROSTHESIS, oldProsthesis, newProsthesis);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProsthesis(ClaimProsthesis newProsthesis) {
-		if (newProsthesis != prosthesis) {
-			NotificationChain msgs = null;
-			if (prosthesis != null)
-				msgs = ((InternalEObject)prosthesis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROSTHESIS, null, msgs);
-			if (newProsthesis != null)
-				msgs = ((InternalEObject)newProsthesis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PROSTHESIS, null, msgs);
-			msgs = basicSetProsthesis(newProsthesis, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PROSTHESIS, newProsthesis, newProsthesis));
 	}
 
 	/**
@@ -1132,10 +1100,10 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return ((InternalEList<?>)getSubSite()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return ((InternalEList<?>)getEncounter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
-				return basicSetProsthesis(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1192,10 +1160,10 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getBodySite();
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return getSubSite();
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return getDetail();
-			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
-				return getProsthesis();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1283,12 +1251,13 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				getSubSite().clear();
 				getSubSite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				getEncounter().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
 				getDetail().addAll((Collection<? extends ClaimDetail>)newValue);
-				return;
-			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
-				setProsthesis((ClaimProsthesis)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1368,11 +1337,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				getSubSite().clear();
 				return;
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
-				return;
-			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
-				setProsthesis((ClaimProsthesis)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1430,10 +1399,10 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return bodySite != null;
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return subSite != null && !subSite.isEmpty();
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return encounter != null && !encounter.isEmpty();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return detail != null && !detail.isEmpty();
-			case FhirPackage.CLAIM_ITEM__PROSTHESIS:
-				return prosthesis != null;
 		}
 		return super.eIsSet(featureID);
 	}

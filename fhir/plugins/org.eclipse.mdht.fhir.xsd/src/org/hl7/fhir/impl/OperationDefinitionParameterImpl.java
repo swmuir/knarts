@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Code;
+import org.hl7.fhir.FHIRAllTypes;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.OperationDefinitionBinding;
 import org.hl7.fhir.OperationDefinitionParameter;
@@ -106,7 +107,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected Code type;
+	protected FHIRAllTypes type;
 
 	/**
 	 * The cached value of the '{@link #getSearchType() <em>Search Type</em>}' containment reference.
@@ -387,7 +388,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getType() {
+	public FHIRAllTypes getType() {
 		return type;
 	}
 
@@ -396,8 +397,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
-		Code oldType = type;
+	public NotificationChain basicSetType(FHIRAllTypes newType, NotificationChain msgs) {
+		FHIRAllTypes oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE, oldType, newType);
@@ -411,7 +412,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Code newType) {
+	public void setType(FHIRAllTypes newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -655,7 +656,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				setDocumentation((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE:
-				setType((Code)newValue);
+				setType((FHIRAllTypes)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__SEARCH_TYPE:
 				setSearchType((SearchParamType)newValue);
@@ -698,7 +699,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				setDocumentation((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE:
-				setType((Code)null);
+				setType((FHIRAllTypes)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__SEARCH_TYPE:
 				setSearchType((SearchParamType)null);

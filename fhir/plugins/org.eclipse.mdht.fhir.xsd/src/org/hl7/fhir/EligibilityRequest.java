@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
+ * The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -65,13 +65,13 @@ public interface EligibilityRequest extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EligibilityRequest#getStatus <em>Status</em>}' containment reference.
@@ -81,7 +81,7 @@ public interface EligibilityRequest extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.

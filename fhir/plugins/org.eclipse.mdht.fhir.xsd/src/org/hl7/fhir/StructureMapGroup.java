@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.StructureMapGroup#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapGroup#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapGroup#getTypeMode <em>Type Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapGroup#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapGroup#getInput <em>Input</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapGroup#getRule <em>Rule</em>}</li>
@@ -34,7 +35,7 @@ public interface StructureMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Descriptive name for a user.
+	 * A unique name for the group for the convenience of human readers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(Id)
@@ -82,11 +83,37 @@ public interface StructureMapGroup extends BackboneElement {
 	void setExtends(Id value);
 
 	/**
+	 * Returns the value of the '<em><b>Type Mode</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this is the default rule set to apply for thie source type, or this combination of types.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type Mode</em>' containment reference.
+	 * @see #setTypeMode(StructureMapGroupTypeMode)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapGroup_TypeMode()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='typeMode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	StructureMapGroupTypeMode getTypeMode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapGroup#getTypeMode <em>Type Mode</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Mode</em>' containment reference.
+	 * @see #getTypeMode()
+	 * @generated
+	 */
+	void setTypeMode(StructureMapGroupTypeMode value);
+
+	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Documentation for this group.
+	 * Additional supporting documentation that explains the purpose of the group and the types of mappings within it.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(org.hl7.fhir.String)

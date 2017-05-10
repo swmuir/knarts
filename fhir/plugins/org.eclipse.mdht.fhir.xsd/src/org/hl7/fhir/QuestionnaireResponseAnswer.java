@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueDate <em>Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueDateTime <em>Value Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueInstant <em>Value Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueUri <em>Value Uri</em>}</li>
@@ -172,33 +171,6 @@ public interface QuestionnaireResponseAnswer extends BackboneElement {
 	 * @generated
 	 */
 	void setValueDateTime(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Value Instant</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Instant</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Instant</em>' containment reference.
-	 * @see #setValueInstant(Instant)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponseAnswer_ValueInstant()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueInstant' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Instant getValueInstant();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponseAnswer#getValueInstant <em>Value Instant</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Instant</em>' containment reference.
-	 * @see #getValueInstant()
-	 * @generated
-	 */
-	void setValueInstant(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Time</b></em>' containment reference.

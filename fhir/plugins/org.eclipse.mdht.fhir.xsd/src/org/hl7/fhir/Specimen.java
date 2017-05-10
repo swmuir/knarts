@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Specimen#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.hl7.fhir.Specimen#getTreatment <em>Treatment</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getProcessing <em>Processing</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getContainer <em>Container</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getNote <em>Note</em>}</li>
  * </ul>
@@ -242,20 +242,20 @@ public interface Specimen extends DomainResource {
 	void setCollection(SpecimenCollection value);
 
 	/**
-	 * Returns the value of the '<em><b>Treatment</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SpecimenTreatment}.
+	 * Returns the value of the '<em><b>Processing</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SpecimenProcessing}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Details concerning treatment and processing steps for the specimen.
+	 * Details concerning processing and processing steps for the specimen.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Treatment</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Treatment()
+	 * @return the value of the '<em>Processing</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Processing()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='treatment' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='processing' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SpecimenTreatment> getTreatment();
+	EList<SpecimenProcessing> getProcessing();
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' containment reference list.

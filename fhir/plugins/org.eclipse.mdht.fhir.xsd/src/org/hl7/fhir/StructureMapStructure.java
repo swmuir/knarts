@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.StructureMapStructure#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapStructure#getMode <em>Mode</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapStructure#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapStructure#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
@@ -77,6 +78,32 @@ public interface StructureMapStructure extends BackboneElement {
 	 * @generated
 	 */
 	void setMode(StructureMapModelMode value);
+
+	/**
+	 * Returns the value of the '<em><b>Alias</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name used for this type in the map.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Alias</em>' containment reference.
+	 * @see #setAlias(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapStructure_Alias()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='alias' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getAlias();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapStructure#getAlias <em>Alias</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alias</em>' containment reference.
+	 * @see #getAlias()
+	 * @generated
+	 */
+	void setAlias(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference.

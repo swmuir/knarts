@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemFilter;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FilterOperator;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +67,7 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> operator;
+	protected EList<FilterOperator> operator;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -188,9 +189,9 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getOperator() {
+	public EList<FilterOperator> getOperator() {
 		if (operator == null) {
-			operator = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.CODE_SYSTEM_FILTER__OPERATOR);
+			operator = new EObjectContainmentEList<FilterOperator>(FilterOperator.class, this, FhirPackage.CODE_SYSTEM_FILTER__OPERATOR);
 		}
 		return operator;
 	}
@@ -295,7 +296,7 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 				return;
 			case FhirPackage.CODE_SYSTEM_FILTER__OPERATOR:
 				getOperator().clear();
-				getOperator().addAll((Collection<? extends Code>)newValue);
+				getOperator().addAll((Collection<? extends FilterOperator>)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM_FILTER__VALUE:
 				setValue((org.hl7.fhir.String)newValue);

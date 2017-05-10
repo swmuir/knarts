@@ -39,16 +39,15 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getConnectionType <em>Connection Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getConnectionType <em>Connection Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getPayloadType <em>Payload Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getPayloadMimeType <em>Payload Mime Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getHeader <em>Header</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EndpointImpl#getPublicKey <em>Public Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +72,16 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * @ordered
 	 */
 	protected EndpointStatus status;
+
+	/**
+	 * The cached value of the '{@link #getConnectionType() <em>Connection Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding connectionType;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -115,16 +124,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	protected Period period;
 
 	/**
-	 * The cached value of the '{@link #getConnectionType() <em>Connection Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConnectionType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding connectionType;
-
-	/**
 	 * The cached value of the '{@link #getPayloadType() <em>Payload Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,16 +162,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * @ordered
 	 */
 	protected EList<org.hl7.fhir.String> header;
-
-	/**
-	 * The cached value of the '{@link #getPublicKey() <em>Public Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublicKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publicKey;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +235,49 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getConnectionType() {
+		return connectionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConnectionType(Coding newConnectionType, NotificationChain msgs) {
+		Coding oldConnectionType = connectionType;
+		connectionType = newConnectionType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__CONNECTION_TYPE, oldConnectionType, newConnectionType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnectionType(Coding newConnectionType) {
+		if (newConnectionType != connectionType) {
+			NotificationChain msgs = null;
+			if (connectionType != null)
+				msgs = ((InternalEObject)connectionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__CONNECTION_TYPE, null, msgs);
+			if (newConnectionType != null)
+				msgs = ((InternalEObject)newConnectionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__CONNECTION_TYPE, null, msgs);
+			msgs = basicSetConnectionType(newConnectionType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__CONNECTION_TYPE, newConnectionType, newConnectionType));
 	}
 
 	/**
@@ -394,49 +426,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getConnectionType() {
-		return connectionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetConnectionType(Coding newConnectionType, NotificationChain msgs) {
-		Coding oldConnectionType = connectionType;
-		connectionType = newConnectionType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__CONNECTION_TYPE, oldConnectionType, newConnectionType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConnectionType(Coding newConnectionType) {
-		if (newConnectionType != connectionType) {
-			NotificationChain msgs = null;
-			if (connectionType != null)
-				msgs = ((InternalEObject)connectionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__CONNECTION_TYPE, null, msgs);
-			if (newConnectionType != null)
-				msgs = ((InternalEObject)newConnectionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__CONNECTION_TYPE, null, msgs);
-			msgs = basicSetConnectionType(newConnectionType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__CONNECTION_TYPE, newConnectionType, newConnectionType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<CodeableConcept> getPayloadType() {
 		if (payloadType == null) {
 			payloadType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENDPOINT__PAYLOAD_TYPE);
@@ -516,49 +505,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPublicKey() {
-		return publicKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublicKey(org.hl7.fhir.String newPublicKey, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublicKey = publicKey;
-		publicKey = newPublicKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__PUBLIC_KEY, oldPublicKey, newPublicKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublicKey(org.hl7.fhir.String newPublicKey) {
-		if (newPublicKey != publicKey) {
-			NotificationChain msgs = null;
-			if (publicKey != null)
-				msgs = ((InternalEObject)publicKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__PUBLIC_KEY, null, msgs);
-			if (newPublicKey != null)
-				msgs = ((InternalEObject)newPublicKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENDPOINT__PUBLIC_KEY, null, msgs);
-			msgs = basicSetPublicKey(newPublicKey, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__PUBLIC_KEY, newPublicKey, newPublicKey));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -566,6 +512,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENDPOINT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
+				return basicSetConnectionType(null, msgs);
 			case FhirPackage.ENDPOINT__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.ENDPOINT__MANAGING_ORGANIZATION:
@@ -574,8 +522,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENDPOINT__PERIOD:
 				return basicSetPeriod(null, msgs);
-			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
-				return basicSetConnectionType(null, msgs);
 			case FhirPackage.ENDPOINT__PAYLOAD_TYPE:
 				return ((InternalEList<?>)getPayloadType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENDPOINT__PAYLOAD_MIME_TYPE:
@@ -584,8 +530,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return basicSetAddress(null, msgs);
 			case FhirPackage.ENDPOINT__HEADER:
 				return ((InternalEList<?>)getHeader()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ENDPOINT__PUBLIC_KEY:
-				return basicSetPublicKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -602,6 +546,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return getIdentifier();
 			case FhirPackage.ENDPOINT__STATUS:
 				return getStatus();
+			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
+				return getConnectionType();
 			case FhirPackage.ENDPOINT__NAME:
 				return getName();
 			case FhirPackage.ENDPOINT__MANAGING_ORGANIZATION:
@@ -610,8 +556,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return getContact();
 			case FhirPackage.ENDPOINT__PERIOD:
 				return getPeriod();
-			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
-				return getConnectionType();
 			case FhirPackage.ENDPOINT__PAYLOAD_TYPE:
 				return getPayloadType();
 			case FhirPackage.ENDPOINT__PAYLOAD_MIME_TYPE:
@@ -620,8 +564,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return getAddress();
 			case FhirPackage.ENDPOINT__HEADER:
 				return getHeader();
-			case FhirPackage.ENDPOINT__PUBLIC_KEY:
-				return getPublicKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,6 +584,9 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 			case FhirPackage.ENDPOINT__STATUS:
 				setStatus((EndpointStatus)newValue);
 				return;
+			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
+				setConnectionType((Coding)newValue);
+				return;
 			case FhirPackage.ENDPOINT__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
@@ -654,9 +599,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return;
 			case FhirPackage.ENDPOINT__PERIOD:
 				setPeriod((Period)newValue);
-				return;
-			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
-				setConnectionType((Coding)newValue);
 				return;
 			case FhirPackage.ENDPOINT__PAYLOAD_TYPE:
 				getPayloadType().clear();
@@ -672,9 +614,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 			case FhirPackage.ENDPOINT__HEADER:
 				getHeader().clear();
 				getHeader().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
-				return;
-			case FhirPackage.ENDPOINT__PUBLIC_KEY:
-				setPublicKey((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -694,6 +633,9 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 			case FhirPackage.ENDPOINT__STATUS:
 				setStatus((EndpointStatus)null);
 				return;
+			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
+				setConnectionType((Coding)null);
+				return;
 			case FhirPackage.ENDPOINT__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
@@ -706,9 +648,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 			case FhirPackage.ENDPOINT__PERIOD:
 				setPeriod((Period)null);
 				return;
-			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
-				setConnectionType((Coding)null);
-				return;
 			case FhirPackage.ENDPOINT__PAYLOAD_TYPE:
 				getPayloadType().clear();
 				return;
@@ -720,9 +659,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return;
 			case FhirPackage.ENDPOINT__HEADER:
 				getHeader().clear();
-				return;
-			case FhirPackage.ENDPOINT__PUBLIC_KEY:
-				setPublicKey((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -740,6 +676,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.ENDPOINT__STATUS:
 				return status != null;
+			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
+				return connectionType != null;
 			case FhirPackage.ENDPOINT__NAME:
 				return name != null;
 			case FhirPackage.ENDPOINT__MANAGING_ORGANIZATION:
@@ -748,8 +686,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.ENDPOINT__PERIOD:
 				return period != null;
-			case FhirPackage.ENDPOINT__CONNECTION_TYPE:
-				return connectionType != null;
 			case FhirPackage.ENDPOINT__PAYLOAD_TYPE:
 				return payloadType != null && !payloadType.isEmpty();
 			case FhirPackage.ENDPOINT__PAYLOAD_MIME_TYPE:
@@ -758,8 +694,6 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				return address != null;
 			case FhirPackage.ENDPOINT__HEADER:
 				return header != null && !header.isEmpty();
-			case FhirPackage.ENDPOINT__PUBLIC_KEY:
-				return publicKey != null;
 		}
 		return super.eIsSet(featureID);
 	}

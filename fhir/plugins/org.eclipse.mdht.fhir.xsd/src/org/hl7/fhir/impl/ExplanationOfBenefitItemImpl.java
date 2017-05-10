@@ -24,7 +24,6 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.ExplanationOfBenefitDetail;
 import org.hl7.fhir.ExplanationOfBenefitItem;
-import org.hl7.fhir.ExplanationOfBenefitProsthesis;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
@@ -62,10 +61,10 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getDetail <em>Detail</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProsthesis <em>Prosthesis</em>}</li>
  * </ul>
  *
  * @generated
@@ -292,6 +291,16 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	protected EList<CodeableConcept> subSite;
 
 	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> encounter;
+
+	/**
 	 * The cached value of the '{@link #getNoteNumber() <em>Note Number</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,16 +329,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @ordered
 	 */
 	protected EList<ExplanationOfBenefitDetail> detail;
-
-	/**
-	 * The cached value of the '{@link #getProsthesis() <em>Prosthesis</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProsthesis()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExplanationOfBenefitProsthesis prosthesis;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1053,6 +1052,18 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getEncounter() {
+		if (encounter == null) {
+			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER);
+		}
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER);
@@ -1082,49 +1093,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			detail = new EObjectContainmentEList<ExplanationOfBenefitDetail>(ExplanationOfBenefitDetail.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL);
 		}
 		return detail;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExplanationOfBenefitProsthesis getProsthesis() {
-		return prosthesis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProsthesis(ExplanationOfBenefitProsthesis newProsthesis, NotificationChain msgs) {
-		ExplanationOfBenefitProsthesis oldProsthesis = prosthesis;
-		prosthesis = newProsthesis;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS, oldProsthesis, newProsthesis);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProsthesis(ExplanationOfBenefitProsthesis newProsthesis) {
-		if (newProsthesis != prosthesis) {
-			NotificationChain msgs = null;
-			if (prosthesis != null)
-				msgs = ((InternalEObject)prosthesis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS, null, msgs);
-			if (newProsthesis != null)
-				msgs = ((InternalEObject)newProsthesis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS, null, msgs);
-			msgs = basicSetProsthesis(newProsthesis, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS, newProsthesis, newProsthesis));
 	}
 
 	/**
@@ -1179,14 +1147,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return ((InternalEList<?>)getSubSite()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return ((InternalEList<?>)getEncounter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return ((InternalEList<?>)getNoteNumber()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:
 				return ((InternalEList<?>)getAdjudication()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS:
-				return basicSetProsthesis(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1243,14 +1211,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return getBodySite();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return getSubSite();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return getNoteNumber();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:
 				return getAdjudication();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL:
 				return getDetail();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS:
-				return getProsthesis();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1338,6 +1306,10 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				getSubSite().clear();
 				getSubSite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				getEncounter().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				getNoteNumber().clear();
 				getNoteNumber().addAll((Collection<? extends PositiveInt>)newValue);
@@ -1349,9 +1321,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL:
 				getDetail().clear();
 				getDetail().addAll((Collection<? extends ExplanationOfBenefitDetail>)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS:
-				setProsthesis((ExplanationOfBenefitProsthesis)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1431,6 +1400,9 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				getSubSite().clear();
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				getNoteNumber().clear();
 				return;
@@ -1439,9 +1411,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL:
 				getDetail().clear();
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS:
-				setProsthesis((ExplanationOfBenefitProsthesis)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1499,14 +1468,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return bodySite != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return subSite != null && !subSite.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return encounter != null && !encounter.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return noteNumber != null && !noteNumber.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:
 				return adjudication != null && !adjudication.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL:
 				return detail != null && !detail.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROSTHESIS:
-				return prosthesis != null;
 		}
 		return super.eIsSet(featureID);
 	}

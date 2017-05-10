@@ -17,6 +17,7 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.ExplanationOfBenefitInformation;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 
@@ -28,6 +29,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInformationImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInformationImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInformationImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInformationImpl#getTimingDate <em>Timing Date</em>}</li>
@@ -42,6 +44,16 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl implements ExplanationOfBenefitInformation {
+	/**
+	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected PositiveInt sequence;
+
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -149,6 +161,49 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getExplanationOfBenefitInformation();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PositiveInt getSequence() {
+		return sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSequence(PositiveInt newSequence, NotificationChain msgs) {
+		PositiveInt oldSequence = sequence;
+		sequence = newSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE, oldSequence, newSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequence(PositiveInt newSequence) {
+		if (newSequence != sequence) {
+			NotificationChain msgs = null;
+			if (sequence != null)
+				msgs = ((InternalEObject)sequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE, null, msgs);
+			if (newSequence != null)
+				msgs = ((InternalEObject)newSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE, null, msgs);
+			msgs = basicSetSequence(newSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE, newSequence, newSequence));
 	}
 
 	/**
@@ -546,6 +601,8 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE:
+				return basicSetSequence(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CODE:
@@ -576,6 +633,8 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE:
+				return getSequence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CATEGORY:
 				return getCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CODE:
@@ -606,6 +665,9 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE:
+				setSequence((PositiveInt)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CATEGORY:
 				setCategory((CodeableConcept)newValue);
 				return;
@@ -645,6 +707,9 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE:
+				setSequence((PositiveInt)null);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CATEGORY:
 				setCategory((CodeableConcept)null);
 				return;
@@ -684,6 +749,8 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__SEQUENCE:
+				return sequence != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CATEGORY:
 				return category != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION__CODE:

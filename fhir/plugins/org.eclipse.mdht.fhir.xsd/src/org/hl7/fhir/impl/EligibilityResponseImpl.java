@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityResponse;
 import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.EligibilityResponseInsurance;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
@@ -71,7 +71,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -219,7 +219,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -228,8 +228,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__STATUS, oldStatus, newStatus);
@@ -243,7 +243,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -758,7 +758,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
@@ -811,7 +811,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				getIdentifier().clear();
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__CREATED:
 				setCreated((DateTime)null);

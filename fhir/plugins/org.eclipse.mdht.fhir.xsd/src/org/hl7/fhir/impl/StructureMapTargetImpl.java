@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.StructureMapContextType;
-import org.hl7.fhir.StructureMapListMode;
 import org.hl7.fhir.StructureMapParameter;
 import org.hl7.fhir.StructureMapTarget;
+import org.hl7.fhir.StructureMapTargetListMode;
 import org.hl7.fhir.StructureMapTransform;
 
 /**
@@ -94,7 +94,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<StructureMapListMode> listMode;
+	protected EList<StructureMapTargetListMode> listMode;
 
 	/**
 	 * The cached value of the '{@link #getListRuleId() <em>List Rule Id</em>}' containment reference.
@@ -322,9 +322,9 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StructureMapListMode> getListMode() {
+	public EList<StructureMapTargetListMode> getListMode() {
 		if (listMode == null) {
-			listMode = new EObjectContainmentEList<StructureMapListMode>(StructureMapListMode.class, this, FhirPackage.STRUCTURE_MAP_TARGET__LIST_MODE);
+			listMode = new EObjectContainmentEList<StructureMapTargetListMode>(StructureMapTargetListMode.class, this, FhirPackage.STRUCTURE_MAP_TARGET__LIST_MODE);
 		}
 		return listMode;
 	}
@@ -506,7 +506,7 @@ public class StructureMapTargetImpl extends BackboneElementImpl implements Struc
 				return;
 			case FhirPackage.STRUCTURE_MAP_TARGET__LIST_MODE:
 				getListMode().clear();
-				getListMode().addAll((Collection<? extends StructureMapListMode>)newValue);
+				getListMode().addAll((Collection<? extends StructureMapTargetListMode>)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_TARGET__LIST_RULE_ID:
 				setListRuleId((Id)newValue);

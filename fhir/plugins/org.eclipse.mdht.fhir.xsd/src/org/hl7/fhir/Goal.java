@@ -26,14 +26,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Goal#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStartCodeableConcept <em>Start Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.Goal#getTargetDate <em>Target Date</em>}</li>
- *   <li>{@link org.hl7.fhir.Goal#getTargetDuration <em>Target Duration</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getExpressedBy <em>Expressed By</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getNote <em>Note</em>}</li>
- *   <li>{@link org.hl7.fhir.Goal#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getOutcomeCode <em>Outcome Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getOutcomeReference <em>Outcome Reference</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getGoal()
@@ -130,7 +130,7 @@ public interface Goal extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Code and/or human-readable description of a specific desired objective of care.
+	 * Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(CodeableConcept)
@@ -232,58 +232,30 @@ public interface Goal extends DomainResource {
 	void setStartCodeableConcept(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target Date</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Date</em>' containment reference.
-	 * @see #setTargetDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getGoal_TargetDate()
+	 * <!-- begin-model-doc -->
+	 * Indicates what should be done by when.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Target</em>' containment reference.
+	 * @see #setTarget(GoalTarget)
+	 * @see org.hl7.fhir.FhirPackage#getGoal_Target()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='targetDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getTargetDate();
+	GoalTarget getTarget();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Goal#getTargetDate <em>Target Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Goal#getTarget <em>Target</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Date</em>' containment reference.
-	 * @see #getTargetDate()
+	 * @param value the new value of the '<em>Target</em>' containment reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTargetDate(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Target Duration</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target Duration</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Duration</em>' containment reference.
-	 * @see #setTargetDuration(Duration)
-	 * @see org.hl7.fhir.FhirPackage#getGoal_TargetDuration()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='targetDuration' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Duration getTargetDuration();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Goal#getTargetDuration <em>Target Duration</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Duration</em>' containment reference.
-	 * @see #getTargetDuration()
-	 * @generated
-	 */
-	void setTargetDuration(Duration value);
+	void setTarget(GoalTarget value);
 
 	/**
 	 * Returns the value of the '<em><b>Status Date</b></em>' containment reference.
@@ -312,20 +284,30 @@ public interface Goal extends DomainResource {
 	void setStatusDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Captures the reason for the current status.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status Reason</em>' containment reference list.
+	 * @return the value of the '<em>Status Reason</em>' containment reference.
+	 * @see #setStatusReason(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getGoal_StatusReason()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getStatusReason();
+	org.hl7.fhir.String getStatusReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Goal#getStatusReason <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason</em>' containment reference.
+	 * @see #getStatusReason()
+	 * @generated
+	 */
+	void setStatusReason(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Expressed By</b></em>' containment reference.
@@ -386,19 +368,35 @@ public interface Goal extends DomainResource {
 	EList<Annotation> getNote();
 
 	/**
-	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.GoalOutcome}.
+	 * Returns the value of the '<em><b>Outcome Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
+	 * Identifies the change (or lack of change) at the point when the status of the goal is assessed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Outcome</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getGoal_Outcome()
+	 * @return the value of the '<em>Outcome Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGoal_OutcomeCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='outcomeCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<GoalOutcome> getOutcome();
+	EList<CodeableConcept> getOutcomeCode();
+
+	/**
+	 * Returns the value of the '<em><b>Outcome Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Details of what's changed (or not changed).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Outcome Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getGoal_OutcomeReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='outcomeReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getOutcomeReference();
 
 } // Goal

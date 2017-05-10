@@ -21,16 +21,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum CarePlanStatusList implements Enumerator {
 	/**
-	 * The '<em><b>Proposed</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PROPOSED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PROPOSED(0, "proposed", "proposed"),
-
-	/**
 	 * The '<em><b>Draft</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +28,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DRAFT(1, "draft", "draft"),
+	DRAFT(0, "draft", "draft"),
 
 	/**
 	 * The '<em><b>Active</b></em>' literal object.
@@ -48,7 +38,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTIVE(2, "active", "active"),
+	ACTIVE(1, "active", "active"),
 
 	/**
 	 * The '<em><b>Suspended</b></em>' literal object.
@@ -58,7 +48,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(3, "suspended", "suspended"),
+	SUSPENDED(2, "suspended", "suspended"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -68,7 +58,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(4, "completed", "completed"),
+	COMPLETED(3, "completed", "completed"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -78,7 +68,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
@@ -88,7 +78,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(6, "cancelled", "cancelled"),
+	CANCELLED(5, "cancelled", "cancelled"),
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
@@ -98,21 +88,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(7, "unknown", "unknown");
-
-	/**
-	 * The '<em><b>Proposed</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Proposed
-	 * <!-- end-model-doc -->
-	 * @see #PROPOSED
-	 * @model name="proposed"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PROPOSED_VALUE = 0;
+	UNKNOWN(6, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Draft</b></em>' literal value.
@@ -126,7 +102,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DRAFT_VALUE = 1;
+	public static final int DRAFT_VALUE = 0;
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -140,7 +116,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTIVE_VALUE = 2;
+	public static final int ACTIVE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Suspended</b></em>' literal value.
@@ -154,7 +130,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 3;
+	public static final int SUSPENDED_VALUE = 2;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -168,7 +144,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 4;
+	public static final int COMPLETED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -182,7 +158,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 5;
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
@@ -196,7 +172,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 6;
+	public static final int CANCELLED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
@@ -210,7 +186,7 @@ public enum CarePlanStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 7;
+	public static final int UNKNOWN_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Care Plan Status List</b></em>' enumerators.
@@ -220,7 +196,6 @@ public enum CarePlanStatusList implements Enumerator {
 	 */
 	private static final CarePlanStatusList[] VALUES_ARRAY =
 		new CarePlanStatusList[] {
-			PROPOSED,
 			DRAFT,
 			ACTIVE,
 			SUSPENDED,
@@ -284,7 +259,6 @@ public enum CarePlanStatusList implements Enumerator {
 	 */
 	public static CarePlanStatusList get(int value) {
 		switch (value) {
-			case PROPOSED_VALUE: return PROPOSED;
 			case DRAFT_VALUE: return DRAFT;
 			case ACTIVE_VALUE: return ACTIVE;
 			case SUSPENDED_VALUE: return SUSPENDED;

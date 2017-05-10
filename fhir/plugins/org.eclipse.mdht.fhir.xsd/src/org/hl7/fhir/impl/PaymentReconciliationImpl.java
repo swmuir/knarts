@@ -17,15 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PaymentReconciliation;
 import org.hl7.fhir.PaymentReconciliationDetail;
-import org.hl7.fhir.PaymentReconciliationNote;
+import org.hl7.fhir.PaymentReconciliationProcessNote;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 
@@ -50,7 +50,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getDetail <em>Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getTotal <em>Total</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getProcessNote <em>Process Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,7 +74,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -187,14 +187,14 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	protected Money total;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcessNote() <em>Process Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNote()
+	 * @see #getProcessNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PaymentReconciliationNote> note;
+	protected EList<PaymentReconciliationProcessNote> processNote;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,7 +232,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -241,8 +241,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__STATUS, oldStatus, newStatus);
@@ -256,7 +256,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -717,11 +717,11 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PaymentReconciliationNote> getNote() {
-		if (note == null) {
-			note = new EObjectContainmentEList<PaymentReconciliationNote>(PaymentReconciliationNote.class, this, FhirPackage.PAYMENT_RECONCILIATION__NOTE);
+	public EList<PaymentReconciliationProcessNote> getProcessNote() {
+		if (processNote == null) {
+			processNote = new EObjectContainmentEList<PaymentReconciliationProcessNote>(PaymentReconciliationProcessNote.class, this, FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE);
 		}
-		return note;
+		return processNote;
 	}
 
 	/**
@@ -758,8 +758,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return basicSetForm(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
 				return basicSetTotal(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__NOTE:
-				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
+				return ((InternalEList<?>)getProcessNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -798,8 +798,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return getForm();
 			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
 				return getTotal();
-			case FhirPackage.PAYMENT_RECONCILIATION__NOTE:
-				return getNote();
+			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
+				return getProcessNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -818,7 +818,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PERIOD:
 				setPeriod((Period)newValue);
@@ -854,9 +854,9 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
 				setTotal((Money)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends PaymentReconciliationNote>)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
+				getProcessNote().clear();
+				getProcessNote().addAll((Collection<? extends PaymentReconciliationProcessNote>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -874,7 +874,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				getIdentifier().clear();
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PERIOD:
 				setPeriod((Period)null);
@@ -909,8 +909,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
 				setTotal((Money)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__NOTE:
-				getNote().clear();
+			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
+				getProcessNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -950,8 +950,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return form != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
 				return total != null;
-			case FhirPackage.PAYMENT_RECONCILIATION__NOTE:
-				return note != null && !note.isEmpty();
+			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
+				return processNote != null && !processNote.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -29,10 +29,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingStudy#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getReferrer <em>Referrer</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getInterpreter <em>Interpreter</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfSeries <em>Number Of Series</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getNumberOfInstances <em>Number Of Instances</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getProcedure <em>Procedure</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getProcedureReference <em>Procedure Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getProcedureCode <em>Procedure Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getSeries <em>Series</em>}</li>
@@ -116,7 +117,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Availability of study (online, offline or nearline).
+	 * Availability of study (online, offline, or nearline).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Availability</em>' containment reference.
 	 * @see #setAvailability(InstanceAvailability)
@@ -184,7 +185,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter at which the request is initiated.
+	 * The encounter or episode at which the request is initiated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference.
 	 * @see #setContext(Reference)
@@ -210,7 +211,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date and Time the study started.
+	 * Date and time the study started.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Started</em>' containment reference.
 	 * @see #setStarted(DateTime)
@@ -290,32 +291,32 @@ public interface ImagingStudy extends DomainResource {
 	EList<Reference> getInterpreter();
 
 	/**
-	 * Returns the value of the '<em><b>Base Location</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyBaseLocation}.
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Methods of accessing  (e.g., retrieving, viewing) the study.
+	 * The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base Location</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_BaseLocation()
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Endpoint()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='baseLocation' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImagingStudyBaseLocation> getBaseLocation();
+	EList<Reference> getEndpoint();
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Series</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Number of Series in Study.
+	 * Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Series</em>' containment reference.
 	 * @see #setNumberOfSeries(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_NumberOfSeries()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='numberOfSeries' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -336,12 +337,12 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Number of SOP Instances in Study.
+	 * Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Instances</em>' containment reference.
 	 * @see #setNumberOfInstances(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_NumberOfInstances()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='numberOfInstances' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -358,27 +359,43 @@ public interface ImagingStudy extends DomainResource {
 	void setNumberOfInstances(UnsignedInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Procedure</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Procedure Reference</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type of procedure performed.
+	 * A reference to the performed Procedure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Procedure</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Procedure()
+	 * @return the value of the '<em>Procedure Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_ProcedureReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='procedure' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='procedureReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getProcedure();
+	EList<Reference> getProcedureReference();
+
+	/**
+	 * Returns the value of the '<em><b>Procedure Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The code for the performed procedure type.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Procedure Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_ProcedureCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='procedureCode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getProcedureCode();
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Description of clinical codition indicating why the ImagingStudy was requested.
+	 * Description of clinical condition indicating why the ImagingStudy was requested.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason</em>' containment reference.
 	 * @see #setReason(CodeableConcept)

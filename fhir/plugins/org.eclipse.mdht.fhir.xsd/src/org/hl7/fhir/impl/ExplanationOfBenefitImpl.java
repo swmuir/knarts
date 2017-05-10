@@ -28,10 +28,10 @@ import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.ExplanationOfBenefitInformation;
 import org.hl7.fhir.ExplanationOfBenefitInsurance;
 import org.hl7.fhir.ExplanationOfBenefitItem;
-import org.hl7.fhir.ExplanationOfBenefitNote;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
 import org.hl7.fhir.ExplanationOfBenefitPayment;
 import org.hl7.fhir.ExplanationOfBenefitProcedure;
+import org.hl7.fhir.ExplanationOfBenefitProcessNote;
 import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.ExplanationOfBenefitStatus;
 import org.hl7.fhir.FhirPackage;
@@ -86,7 +86,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getTotalBenefit <em>Total Benefit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitImpl#getBenefitBalance <em>Benefit Balance</em>}</li>
  * </ul>
  *
@@ -464,14 +464,14 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	protected CodeableConcept form;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcessNote() <em>Process Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNote()
+	 * @see #getProcessNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExplanationOfBenefitNote> note;
+	protected EList<ExplanationOfBenefitProcessNote> processNote;
 
 	/**
 	 * The cached value of the '{@link #getBenefitBalance() <em>Benefit Balance</em>}' containment reference list.
@@ -1819,11 +1819,11 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExplanationOfBenefitNote> getNote() {
-		if (note == null) {
-			note = new EObjectContainmentEList<ExplanationOfBenefitNote>(ExplanationOfBenefitNote.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__NOTE);
+	public EList<ExplanationOfBenefitProcessNote> getProcessNote() {
+		if (processNote == null) {
+			processNote = new EObjectContainmentEList<ExplanationOfBenefitProcessNote>(ExplanationOfBenefitProcessNote.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE);
 		}
-		return note;
+		return processNote;
 	}
 
 	/**
@@ -1920,8 +1920,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return basicSetPayment(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__FORM:
 				return basicSetForm(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT__NOTE:
-				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE:
+				return ((InternalEList<?>)getProcessNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE:
 				return ((InternalEList<?>)getBenefitBalance()).basicRemove(otherEnd, msgs);
 		}
@@ -2010,8 +2010,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return getPayment();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__FORM:
 				return getForm();
-			case FhirPackage.EXPLANATION_OF_BENEFIT__NOTE:
-				return getNote();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE:
+				return getProcessNote();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE:
 				return getBenefitBalance();
 		}
@@ -2147,9 +2147,9 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__FORM:
 				setForm((CodeableConcept)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends ExplanationOfBenefitNote>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE:
+				getProcessNote().clear();
+				getProcessNote().addAll((Collection<? extends ExplanationOfBenefitProcessNote>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE:
 				getBenefitBalance().clear();
@@ -2278,8 +2278,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 			case FhirPackage.EXPLANATION_OF_BENEFIT__FORM:
 				setForm((CodeableConcept)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__NOTE:
-				getNote().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE:
+				getProcessNote().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE:
 				getBenefitBalance().clear();
@@ -2370,8 +2370,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				return payment != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__FORM:
 				return form != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT__NOTE:
-				return note != null && !note.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE:
+				return processNote != null && !processNote.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE:
 				return benefitBalance != null && !benefitBalance.isEmpty();
 		}

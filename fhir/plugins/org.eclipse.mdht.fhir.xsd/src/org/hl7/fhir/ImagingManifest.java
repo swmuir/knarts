@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+ * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -18,11 +18,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ImagingManifest#getUid <em>Uid</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingManifest#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getAuthoringTime <em>Authoring Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingManifest#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getStudy <em>Study</em>}</li>
  * </ul>
@@ -33,30 +32,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImagingManifest extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
+	 * Unique identifier of the DICOM Key Object Selection (KOS) that this resource represents.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Uid</em>' containment reference.
-	 * @see #setUid(Oid)
-	 * @see org.hl7.fhir.FhirPackage#getImagingManifest_Uid()
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getImagingManifest_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Oid getUid();
+	Identifier getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingManifest#getUid <em>Uid</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingManifest#getIdentifier <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uid</em>' containment reference.
-	 * @see #getUid()
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
 	 * @generated
 	 */
-	void setUid(Oid value);
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
@@ -137,37 +136,12 @@ public interface ImagingManifest extends DomainResource {
 	void setAuthor(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The reason for, or significance of, the selection of objects referenced in the resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Title</em>' containment reference.
-	 * @see #setTitle(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getImagingManifest_Title()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getTitle();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingManifest#getTitle <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' containment reference.
-	 * @see #getTitle()
-	 * @generated
-	 */
-	void setTitle(CodeableConcept value);
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Text description of the DICOM SOP instances selected in the ImagingManifest. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
+	 * Free text narrative description of the ImagingManifest.  
+	 * The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions (e.g. Best in Set, Complete Study Content). Note that those values cover the wide range of uses of the DICOM Key Object Selection object, several of which are not supported by ImagingManifest. Specifically, there is no expected behavior associated with descriptions that suggest referenced images be removed or not used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)

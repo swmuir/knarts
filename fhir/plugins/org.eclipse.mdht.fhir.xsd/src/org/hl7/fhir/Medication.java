@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,10 +19,14 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Medication#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getIsBrand <em>Is Brand</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getManufacturer <em>Manufacturer</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getPackage <em>Package</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getImage <em>Image</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedication()
@@ -56,6 +61,32 @@ public interface Medication extends DomainResource {
 	void setCode(CodeableConcept value);
 
 	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code to indicate if the medication is in active use.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(MedicationStatus)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	MedicationStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(MedicationStatus value);
+
+	/**
 	 * Returns the value of the '<em><b>Is Brand</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,11 +113,37 @@ public interface Medication extends DomainResource {
 	void setIsBrand(org.hl7.fhir.Boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Over The Counter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Set to true if the medication can be obtained without an order from a prescriber.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Is Over The Counter</em>' containment reference.
+	 * @see #setIsOverTheCounter(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_IsOverTheCounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='isOverTheCounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getIsOverTheCounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getIsOverTheCounter <em>Is Over The Counter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Over The Counter</em>' containment reference.
+	 * @see #getIsOverTheCounter()
+	 * @generated
+	 */
+	void setIsOverTheCounter(org.hl7.fhir.Boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the details of the manufacturer.
+	 * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Manufacturer</em>' containment reference.
 	 * @see #setManufacturer(Reference)
@@ -108,30 +165,46 @@ public interface Medication extends DomainResource {
 	void setManufacturer(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Product</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information that only applies to products (not packages).
+	 * Describes the form of the item.  Powder; tablets; capsule.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Product</em>' containment reference.
-	 * @see #setProduct(MedicationProduct)
-	 * @see org.hl7.fhir.FhirPackage#getMedication_Product()
+	 * @return the value of the '<em>Form</em>' containment reference.
+	 * @see #setForm(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Form()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='product' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationProduct getProduct();
+	CodeableConcept getForm();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Medication#getProduct <em>Product</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getForm <em>Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Product</em>' containment reference.
-	 * @see #getProduct()
+	 * @param value the new value of the '<em>Form</em>' containment reference.
+	 * @see #getForm()
 	 * @generated
 	 */
-	void setProduct(MedicationProduct value);
+	void setForm(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationIngredient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies a particular constituent of interest in the product.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Ingredient</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Ingredient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ingredient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MedicationIngredient> getIngredient();
 
 	/**
 	 * Returns the value of the '<em><b>Package</b></em>' containment reference.
@@ -158,5 +231,21 @@ public interface Medication extends DomainResource {
 	 * @generated
 	 */
 	void setPackage(MedicationPackage value);
+
+	/**
+	 * Returns the value of the '<em><b>Image</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Photo(s) or graphic representation(s) of the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Image</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Image()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='image' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Attachment> getImage();
 
 } // Medication

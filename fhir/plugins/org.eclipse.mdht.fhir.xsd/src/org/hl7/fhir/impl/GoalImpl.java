@@ -20,11 +20,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
-import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Goal;
-import org.hl7.fhir.GoalOutcome;
 import org.hl7.fhir.GoalStatus;
+import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
@@ -44,14 +43,14 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStartCodeableConcept <em>Start Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTargetDate <em>Target Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTargetDuration <em>Target Duration</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getExpressedBy <em>Expressed By</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getNote <em>Note</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getOutcomeCode <em>Outcome Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getOutcomeReference <em>Outcome Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,24 +137,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected CodeableConcept startCodeableConcept;
 
 	/**
-	 * The cached value of the '{@link #getTargetDate() <em>Target Date</em>}' containment reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetDate()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date targetDate;
-
-	/**
-	 * The cached value of the '{@link #getTargetDuration() <em>Target Duration</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetDuration()
-	 * @generated
-	 * @ordered
-	 */
-	protected Duration targetDuration;
+	protected GoalTarget target;
 
 	/**
 	 * The cached value of the '{@link #getStatusDate() <em>Status Date</em>}' containment reference.
@@ -168,14 +157,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected Date statusDate;
 
 	/**
-	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStatusReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> statusReason;
+	protected org.hl7.fhir.String statusReason;
 
 	/**
 	 * The cached value of the '{@link #getExpressedBy() <em>Expressed By</em>}' containment reference.
@@ -208,14 +197,24 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected EList<Annotation> note;
 
 	/**
-	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference list.
+	 * The cached value of the '{@link #getOutcomeCode() <em>Outcome Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutcome()
+	 * @see #getOutcomeCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GoalOutcome> outcome;
+	protected EList<CodeableConcept> outcomeCode;
+
+	/**
+	 * The cached value of the '{@link #getOutcomeReference() <em>Outcome Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutcomeReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> outcomeReference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -523,8 +522,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getTargetDate() {
-		return targetDate;
+	public GoalTarget getTarget() {
+		return target;
 	}
 
 	/**
@@ -532,11 +531,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetDate(Date newTargetDate, NotificationChain msgs) {
-		Date oldTargetDate = targetDate;
-		targetDate = newTargetDate;
+	public NotificationChain basicSetTarget(GoalTarget newTarget, NotificationChain msgs) {
+		GoalTarget oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DATE, oldTargetDate, newTargetDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -547,61 +546,18 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetDate(Date newTargetDate) {
-		if (newTargetDate != targetDate) {
+	public void setTarget(GoalTarget newTarget) {
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (targetDate != null)
-				msgs = ((InternalEObject)targetDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DATE, null, msgs);
-			if (newTargetDate != null)
-				msgs = ((InternalEObject)newTargetDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DATE, null, msgs);
-			msgs = basicSetTargetDate(newTargetDate, msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET, null, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET, null, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DATE, newTargetDate, newTargetDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Duration getTargetDuration() {
-		return targetDuration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetDuration(Duration newTargetDuration, NotificationChain msgs) {
-		Duration oldTargetDuration = targetDuration;
-		targetDuration = newTargetDuration;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DURATION, oldTargetDuration, newTargetDuration);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetDuration(Duration newTargetDuration) {
-		if (newTargetDuration != targetDuration) {
-			NotificationChain msgs = null;
-			if (targetDuration != null)
-				msgs = ((InternalEObject)targetDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DURATION, null, msgs);
-			if (newTargetDuration != null)
-				msgs = ((InternalEObject)newTargetDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET_DURATION, null, msgs);
-			msgs = basicSetTargetDuration(newTargetDuration, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET_DURATION, newTargetDuration, newTargetDuration));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -652,11 +608,42 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getStatusReason() {
-		if (statusReason == null) {
-			statusReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__STATUS_REASON);
-		}
+	public org.hl7.fhir.String getStatusReason() {
 		return statusReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReason(org.hl7.fhir.String newStatusReason, NotificationChain msgs) {
+		org.hl7.fhir.String oldStatusReason = statusReason;
+		statusReason = newStatusReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS_REASON, oldStatusReason, newStatusReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReason(org.hl7.fhir.String newStatusReason) {
+		if (newStatusReason != statusReason) {
+			NotificationChain msgs = null;
+			if (statusReason != null)
+				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS_REASON, null, msgs);
+			if (newStatusReason != null)
+				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS_REASON, null, msgs);
+			msgs = basicSetStatusReason(newStatusReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS_REASON, newStatusReason, newStatusReason));
 	}
 
 	/**
@@ -731,11 +718,23 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GoalOutcome> getOutcome() {
-		if (outcome == null) {
-			outcome = new EObjectContainmentEList<GoalOutcome>(GoalOutcome.class, this, FhirPackage.GOAL__OUTCOME);
+	public EList<CodeableConcept> getOutcomeCode() {
+		if (outcomeCode == null) {
+			outcomeCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GOAL__OUTCOME_CODE);
 		}
-		return outcome;
+		return outcomeCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getOutcomeReference() {
+		if (outcomeReference == null) {
+			outcomeReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GOAL__OUTCOME_REFERENCE);
+		}
+		return outcomeReference;
 	}
 
 	/**
@@ -762,22 +761,22 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return basicSetStartDate(null, msgs);
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				return basicSetStartCodeableConcept(null, msgs);
-			case FhirPackage.GOAL__TARGET_DATE:
-				return basicSetTargetDate(null, msgs);
-			case FhirPackage.GOAL__TARGET_DURATION:
-				return basicSetTargetDuration(null, msgs);
+			case FhirPackage.GOAL__TARGET:
+				return basicSetTarget(null, msgs);
 			case FhirPackage.GOAL__STATUS_DATE:
 				return basicSetStatusDate(null, msgs);
 			case FhirPackage.GOAL__STATUS_REASON:
-				return ((InternalEList<?>)getStatusReason()).basicRemove(otherEnd, msgs);
+				return basicSetStatusReason(null, msgs);
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				return basicSetExpressedBy(null, msgs);
 			case FhirPackage.GOAL__ADDRESSES:
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GOAL__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
-			case FhirPackage.GOAL__OUTCOME:
-				return ((InternalEList<?>)getOutcome()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GOAL__OUTCOME_CODE:
+				return ((InternalEList<?>)getOutcomeCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GOAL__OUTCOME_REFERENCE:
+				return ((InternalEList<?>)getOutcomeReference()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -806,10 +805,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return getStartDate();
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				return getStartCodeableConcept();
-			case FhirPackage.GOAL__TARGET_DATE:
-				return getTargetDate();
-			case FhirPackage.GOAL__TARGET_DURATION:
-				return getTargetDuration();
+			case FhirPackage.GOAL__TARGET:
+				return getTarget();
 			case FhirPackage.GOAL__STATUS_DATE:
 				return getStatusDate();
 			case FhirPackage.GOAL__STATUS_REASON:
@@ -820,8 +817,10 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return getAddresses();
 			case FhirPackage.GOAL__NOTE:
 				return getNote();
-			case FhirPackage.GOAL__OUTCOME:
-				return getOutcome();
+			case FhirPackage.GOAL__OUTCOME_CODE:
+				return getOutcomeCode();
+			case FhirPackage.GOAL__OUTCOME_REFERENCE:
+				return getOutcomeReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -861,18 +860,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				setStartCodeableConcept((CodeableConcept)newValue);
 				return;
-			case FhirPackage.GOAL__TARGET_DATE:
-				setTargetDate((Date)newValue);
-				return;
-			case FhirPackage.GOAL__TARGET_DURATION:
-				setTargetDuration((Duration)newValue);
+			case FhirPackage.GOAL__TARGET:
+				setTarget((GoalTarget)newValue);
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)newValue);
 				return;
 			case FhirPackage.GOAL__STATUS_REASON:
-				getStatusReason().clear();
-				getStatusReason().addAll((Collection<? extends CodeableConcept>)newValue);
+				setStatusReason((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				setExpressedBy((Reference)newValue);
@@ -885,9 +880,13 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
-			case FhirPackage.GOAL__OUTCOME:
-				getOutcome().clear();
-				getOutcome().addAll((Collection<? extends GoalOutcome>)newValue);
+			case FhirPackage.GOAL__OUTCOME_CODE:
+				getOutcomeCode().clear();
+				getOutcomeCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.GOAL__OUTCOME_REFERENCE:
+				getOutcomeReference().clear();
+				getOutcomeReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -925,17 +924,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				setStartCodeableConcept((CodeableConcept)null);
 				return;
-			case FhirPackage.GOAL__TARGET_DATE:
-				setTargetDate((Date)null);
-				return;
-			case FhirPackage.GOAL__TARGET_DURATION:
-				setTargetDuration((Duration)null);
+			case FhirPackage.GOAL__TARGET:
+				setTarget((GoalTarget)null);
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)null);
 				return;
 			case FhirPackage.GOAL__STATUS_REASON:
-				getStatusReason().clear();
+				setStatusReason((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				setExpressedBy((Reference)null);
@@ -946,8 +942,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__NOTE:
 				getNote().clear();
 				return;
-			case FhirPackage.GOAL__OUTCOME:
-				getOutcome().clear();
+			case FhirPackage.GOAL__OUTCOME_CODE:
+				getOutcomeCode().clear();
+				return;
+			case FhirPackage.GOAL__OUTCOME_REFERENCE:
+				getOutcomeReference().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -977,22 +976,22 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				return startDate != null;
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				return startCodeableConcept != null;
-			case FhirPackage.GOAL__TARGET_DATE:
-				return targetDate != null;
-			case FhirPackage.GOAL__TARGET_DURATION:
-				return targetDuration != null;
+			case FhirPackage.GOAL__TARGET:
+				return target != null;
 			case FhirPackage.GOAL__STATUS_DATE:
 				return statusDate != null;
 			case FhirPackage.GOAL__STATUS_REASON:
-				return statusReason != null && !statusReason.isEmpty();
+				return statusReason != null;
 			case FhirPackage.GOAL__EXPRESSED_BY:
 				return expressedBy != null;
 			case FhirPackage.GOAL__ADDRESSES:
 				return addresses != null && !addresses.isEmpty();
 			case FhirPackage.GOAL__NOTE:
 				return note != null && !note.isEmpty();
-			case FhirPackage.GOAL__OUTCOME:
-				return outcome != null && !outcome.isEmpty();
+			case FhirPackage.GOAL__OUTCOME_CODE:
+				return outcomeCode != null && !outcomeCode.isEmpty();
+			case FhirPackage.GOAL__OUTCOME_REFERENCE:
+				return outcomeReference != null && !outcomeReference.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

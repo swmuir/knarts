@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestReport is a resource that includes summary information on the results of executing a TestScript.
+ * A summary of information based on the results of executing a TestScript.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -21,9 +21,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestReport#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestReport#getTestScript <em>Test Script</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestReport#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getScore <em>Score</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getTester <em>Tester</em>}</li>
- *   <li>{@link org.hl7.fhir.TestReport#getTestScript <em>Test Script</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.TestReport#getSetup <em>Setup</em>}</li>
@@ -93,7 +94,7 @@ public interface TestReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the TestReport.
+	 * The current state of this test report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(TestReportStatus)
@@ -113,6 +114,58 @@ public interface TestReport extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(TestReportStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Test Script</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Test Script</em>' containment reference.
+	 * @see #setTestScript(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTestReport_TestScript()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='testScript' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getTestScript();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestReport#getTestScript <em>Test Script</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test Script</em>' containment reference.
+	 * @see #getTestScript()
+	 * @generated
+	 */
+	void setTestScript(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Result</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The overall result from the execution of the TestScript.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Result</em>' containment reference.
+	 * @see #setResult(TestReportResult)
+	 * @see org.hl7.fhir.FhirPackage#getTestReport_Result()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='result' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestReportResult getResult();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestReport#getResult <em>Result</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Result</em>' containment reference.
+	 * @see #getResult()
+	 * @generated
+	 */
+	void setResult(TestReportResult value);
 
 	/**
 	 * Returns the value of the '<em><b>Score</b></em>' containment reference.
@@ -165,32 +218,6 @@ public interface TestReport extends DomainResource {
 	 * @generated
 	 */
 	void setTester(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Test Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Test Script</em>' containment reference.
-	 * @see #setTestScript(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTestReport_TestScript()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='testScript' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getTestScript();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestReport#getTestScript <em>Test Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Test Script</em>' containment reference.
-	 * @see #getTestScript()
-	 * @generated
-	 */
-	void setTestScript(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.

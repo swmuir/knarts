@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A container for slot(s) of time that may be available for booking appointments.
+ * A container for slots of time that may be available for booking appointments.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -134,30 +134,20 @@ public interface Schedule extends DomainResource {
 	EList<CodeableConcept> getSpecialty();
 
 	/**
-	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Actor</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
+	 * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, PractitionerRole, Device, Patient or RelatedPerson.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Actor</em>' containment reference.
-	 * @see #setActor(Reference)
+	 * @return the value of the '<em>Actor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSchedule_Actor()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='actor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getActor();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Schedule#getActor <em>Actor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Actor</em>' containment reference.
-	 * @see #getActor()
-	 * @generated
-	 */
-	void setActor(Reference value);
+	EList<Reference> getActor();
 
 	/**
 	 * Returns the value of the '<em><b>Planning Horizon</b></em>' containment reference.
@@ -190,7 +180,7 @@ public interface Schedule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
+	 * Comments on the availability to describe any extended information. Such as custom constraints on the slots that may be associated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comment</em>' containment reference.
 	 * @see #setComment(org.hl7.fhir.String)

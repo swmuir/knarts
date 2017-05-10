@@ -2,13 +2,20 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Age;
 import org.hl7.fhir.Annotation;
@@ -99,14 +106,14 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	protected org.hl7.fhir.String onsetString;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotation note;
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -390,42 +397,11 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotation getNote() {
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE);
+		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNote(Annotation newNote, NotificationChain msgs) {
-		Annotation oldNote = note;
-		note = newNote;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE, oldNote, newNote);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNote(Annotation newNote) {
-		if (newNote != note) {
-			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -449,7 +425,7 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_STRING:
 				return basicSetOnsetString(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE:
-				return basicSetNote(null, msgs);
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -485,6 +461,7 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -507,7 +484,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				setOnsetString((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE:
-				setNote((Annotation)newValue);
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -540,7 +518,7 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				setOnsetString((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE:
-				setNote((Annotation)null);
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -567,7 +545,7 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_STRING:
 				return onsetString != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__NOTE:
-				return note != null;
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

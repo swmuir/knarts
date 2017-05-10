@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coverage;
-import org.hl7.fhir.CoverageGroup;
+import org.hl7.fhir.CoverageGrouping;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
@@ -45,7 +45,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getPayor <em>Payor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getGrouping <em>Grouping</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CoverageImpl#getOrder <em>Order</em>}</li>
@@ -74,7 +74,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -157,14 +157,14 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	protected EList<Reference> payor;
 
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
+	 * The cached value of the '{@link #getGrouping() <em>Grouping</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getGrouping()
 	 * @generated
 	 * @ordered
 	 */
-	protected CoverageGroup group;
+	protected CoverageGrouping grouping;
 
 	/**
 	 * The cached value of the '{@link #getDependent() <em>Dependent</em>}' containment reference.
@@ -252,7 +252,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -261,8 +261,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__STATUS, oldStatus, newStatus);
@@ -276,7 +276,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -608,8 +608,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CoverageGroup getGroup() {
-		return group;
+	public CoverageGrouping getGrouping() {
+		return grouping;
 	}
 
 	/**
@@ -617,11 +617,11 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGroup(CoverageGroup newGroup, NotificationChain msgs) {
-		CoverageGroup oldGroup = group;
-		group = newGroup;
+	public NotificationChain basicSetGrouping(CoverageGrouping newGrouping, NotificationChain msgs) {
+		CoverageGrouping oldGrouping = grouping;
+		grouping = newGrouping;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__GROUP, oldGroup, newGroup);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__GROUPING, oldGrouping, newGrouping);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -632,18 +632,18 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGroup(CoverageGroup newGroup) {
-		if (newGroup != group) {
+	public void setGrouping(CoverageGrouping newGrouping) {
+		if (newGrouping != grouping) {
 			NotificationChain msgs = null;
-			if (group != null)
-				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__GROUP, null, msgs);
-			if (newGroup != null)
-				msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__GROUP, null, msgs);
-			msgs = basicSetGroup(newGroup, msgs);
+			if (grouping != null)
+				msgs = ((InternalEObject)grouping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__GROUPING, null, msgs);
+			if (newGrouping != null)
+				msgs = ((InternalEObject)newGrouping).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COVERAGE__GROUPING, null, msgs);
+			msgs = basicSetGrouping(newGrouping, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__GROUP, newGroup, newGroup));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__GROUPING, newGrouping, newGrouping));
 	}
 
 	/**
@@ -858,8 +858,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.COVERAGE__PAYOR:
 				return ((InternalEList<?>)getPayor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COVERAGE__GROUP:
-				return basicSetGroup(null, msgs);
+			case FhirPackage.COVERAGE__GROUPING:
+				return basicSetGrouping(null, msgs);
 			case FhirPackage.COVERAGE__DEPENDENT:
 				return basicSetDependent(null, msgs);
 			case FhirPackage.COVERAGE__SEQUENCE:
@@ -902,8 +902,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return getPeriod();
 			case FhirPackage.COVERAGE__PAYOR:
 				return getPayor();
-			case FhirPackage.COVERAGE__GROUP:
-				return getGroup();
+			case FhirPackage.COVERAGE__GROUPING:
+				return getGrouping();
 			case FhirPackage.COVERAGE__DEPENDENT:
 				return getDependent();
 			case FhirPackage.COVERAGE__SEQUENCE:
@@ -932,7 +932,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.COVERAGE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.COVERAGE__TYPE:
 				setType((CodeableConcept)newValue);
@@ -959,8 +959,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				getPayor().clear();
 				getPayor().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.COVERAGE__GROUP:
-				setGroup((CoverageGroup)newValue);
+			case FhirPackage.COVERAGE__GROUPING:
+				setGrouping((CoverageGrouping)newValue);
 				return;
 			case FhirPackage.COVERAGE__DEPENDENT:
 				setDependent((org.hl7.fhir.String)newValue);
@@ -994,7 +994,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.COVERAGE__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.COVERAGE__TYPE:
 				setType((CodeableConcept)null);
@@ -1020,8 +1020,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 			case FhirPackage.COVERAGE__PAYOR:
 				getPayor().clear();
 				return;
-			case FhirPackage.COVERAGE__GROUP:
-				setGroup((CoverageGroup)null);
+			case FhirPackage.COVERAGE__GROUPING:
+				setGrouping((CoverageGrouping)null);
 				return;
 			case FhirPackage.COVERAGE__DEPENDENT:
 				setDependent((org.hl7.fhir.String)null);
@@ -1070,8 +1070,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				return period != null;
 			case FhirPackage.COVERAGE__PAYOR:
 				return payor != null && !payor.isEmpty();
-			case FhirPackage.COVERAGE__GROUP:
-				return group != null;
+			case FhirPackage.COVERAGE__GROUPING:
+				return grouping != null;
 			case FhirPackage.COVERAGE__DEPENDENT:
 				return dependent != null;
 			case FhirPackage.COVERAGE__SEQUENCE:

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
@@ -26,7 +25,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationExplanation;
+import org.hl7.fhir.ImmunizationPractitioner;
 import org.hl7.fhir.ImmunizationReaction;
+import org.hl7.fhir.ImmunizationStatusCodes;
 import org.hl7.fhir.ImmunizationVaccinationProtocol;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
@@ -41,22 +42,21 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getNotGiven <em>Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getWasNotGiven <em>Was Not Given</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPrimarySource <em>Primary Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReportOrigin <em>Report Origin</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getRequester <em>Requester</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getLotNumber <em>Lot Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getExpirationDate <em>Expiration Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getExplanation <em>Explanation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReaction <em>Reaction</em>}</li>
@@ -84,17 +84,17 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ImmunizationStatusCodes status;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * The cached value of the '{@link #getNotGiven() <em>Not Given</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDate()
+	 * @see #getNotGiven()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime date;
+	protected org.hl7.fhir.Boolean notGiven;
 
 	/**
 	 * The cached value of the '{@link #getVaccineCode() <em>Vaccine Code</em>}' containment reference.
@@ -117,14 +117,24 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected Reference patient;
 
 	/**
-	 * The cached value of the '{@link #getWasNotGiven() <em>Was Not Given</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWasNotGiven()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean wasNotGiven;
+	protected Reference encounter;
+
+	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getPrimarySource() <em>Primary Source</em>}' containment reference.
@@ -147,34 +157,14 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected CodeableConcept reportOrigin;
 
 	/**
-	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPerformer()
+	 * @see #getLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference performer;
-
-	/**
-	 * The cached value of the '{@link #getRequester() <em>Requester</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequester()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference requester;
-
-	/**
-	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEncounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference encounter;
+	protected Reference location;
 
 	/**
 	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference.
@@ -185,16 +175,6 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @ordered
 	 */
 	protected Reference manufacturer;
-
-	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference location;
 
 	/**
 	 * The cached value of the '{@link #getLotNumber() <em>Lot Number</em>}' containment reference.
@@ -245,6 +225,16 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @ordered
 	 */
 	protected Quantity doseQuantity;
+
+	/**
+	 * The cached value of the '{@link #getPractitioner() <em>Practitioner</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPractitioner()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ImmunizationPractitioner> practitioner;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -322,7 +312,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public ImmunizationStatusCodes getStatus() {
 		return status;
 	}
 
@@ -331,8 +321,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ImmunizationStatusCodes newStatus, NotificationChain msgs) {
+		ImmunizationStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__STATUS, oldStatus, newStatus);
@@ -346,7 +336,7 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ImmunizationStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -365,8 +355,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getDate() {
-		return date;
+	public org.hl7.fhir.Boolean getNotGiven() {
+		return notGiven;
 	}
 
 	/**
@@ -374,11 +364,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
+	public NotificationChain basicSetNotGiven(org.hl7.fhir.Boolean newNotGiven, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldNotGiven = notGiven;
+		notGiven = newNotGiven;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, oldDate, newDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__NOT_GIVEN, oldNotGiven, newNotGiven);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -389,18 +379,18 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
+	public void setNotGiven(org.hl7.fhir.Boolean newNotGiven) {
+		if (newNotGiven != notGiven) {
 			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
+			if (notGiven != null)
+				msgs = ((InternalEObject)notGiven).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__NOT_GIVEN, null, msgs);
+			if (newNotGiven != null)
+				msgs = ((InternalEObject)newNotGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__NOT_GIVEN, null, msgs);
+			msgs = basicSetNotGiven(newNotGiven, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, newDate, newDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__NOT_GIVEN, newNotGiven, newNotGiven));
 	}
 
 	/**
@@ -494,8 +484,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getWasNotGiven() {
-		return wasNotGiven;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -503,11 +493,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWasNotGiven(org.hl7.fhir.Boolean newWasNotGiven, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldWasNotGiven = wasNotGiven;
-		wasNotGiven = newWasNotGiven;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN, oldWasNotGiven, newWasNotGiven);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -518,18 +508,61 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWasNotGiven(org.hl7.fhir.Boolean newWasNotGiven) {
-		if (newWasNotGiven != wasNotGiven) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (wasNotGiven != null)
-				msgs = ((InternalEObject)wasNotGiven).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN, null, msgs);
-			if (newWasNotGiven != null)
-				msgs = ((InternalEObject)newWasNotGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN, null, msgs);
-			msgs = basicSetWasNotGiven(newWasNotGiven, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN, newWasNotGiven, newWasNotGiven));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__ENCOUNTER, newEncounter, newEncounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, newDate, newDate));
 	}
 
 	/**
@@ -623,8 +656,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPerformer() {
-		return performer;
+	public Reference getLocation() {
+		return location;
 	}
 
 	/**
@@ -632,11 +665,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPerformer(Reference newPerformer, NotificationChain msgs) {
-		Reference oldPerformer = performer;
-		performer = newPerformer;
+	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
+		Reference oldLocation = location;
+		location = newLocation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__PERFORMER, oldPerformer, newPerformer);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__LOCATION, oldLocation, newLocation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -647,104 +680,18 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPerformer(Reference newPerformer) {
-		if (newPerformer != performer) {
+	public void setLocation(Reference newLocation) {
+		if (newLocation != location) {
 			NotificationChain msgs = null;
-			if (performer != null)
-				msgs = ((InternalEObject)performer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__PERFORMER, null, msgs);
-			if (newPerformer != null)
-				msgs = ((InternalEObject)newPerformer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__PERFORMER, null, msgs);
-			msgs = basicSetPerformer(newPerformer, msgs);
+			if (location != null)
+				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__LOCATION, null, msgs);
+			if (newLocation != null)
+				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__LOCATION, null, msgs);
+			msgs = basicSetLocation(newLocation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__PERFORMER, newPerformer, newPerformer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getRequester() {
-		return requester;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
-		Reference oldRequester = requester;
-		requester = newRequester;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REQUESTER, oldRequester, newRequester);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequester(Reference newRequester) {
-		if (newRequester != requester) {
-			NotificationChain msgs = null;
-			if (requester != null)
-				msgs = ((InternalEObject)requester).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REQUESTER, null, msgs);
-			if (newRequester != null)
-				msgs = ((InternalEObject)newRequester).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__REQUESTER, null, msgs);
-			msgs = basicSetRequester(newRequester, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__REQUESTER, newRequester, newRequester));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getEncounter() {
-		return encounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__ENCOUNTER, oldEncounter, newEncounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
-			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__ENCOUNTER, newEncounter, newEncounter));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__LOCATION, newLocation, newLocation));
 	}
 
 	/**
@@ -788,49 +735,6 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__MANUFACTURER, newManufacturer, newManufacturer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
-		Reference oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__LOCATION, oldLocation, newLocation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocation(Reference newLocation) {
-		if (newLocation != location) {
-			NotificationChain msgs = null;
-			if (location != null)
-				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__LOCATION, null, msgs);
-			if (newLocation != null)
-				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__LOCATION, null, msgs);
-			msgs = basicSetLocation(newLocation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__LOCATION, newLocation, newLocation));
 	}
 
 	/**
@@ -1053,6 +957,18 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ImmunizationPractitioner> getPractitioner() {
+		if (practitioner == null) {
+			practitioner = new EObjectContainmentEList<ImmunizationPractitioner>(ImmunizationPractitioner.class, this, FhirPackage.IMMUNIZATION__PRACTITIONER);
+		}
+		return practitioner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.IMMUNIZATION__NOTE);
@@ -1139,28 +1055,24 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.IMMUNIZATION__DATE:
-				return basicSetDate(null, msgs);
+			case FhirPackage.IMMUNIZATION__NOT_GIVEN:
+				return basicSetNotGiven(null, msgs);
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return basicSetVaccineCode(null, msgs);
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return basicSetPatient(null, msgs);
-			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
-				return basicSetWasNotGiven(null, msgs);
+			case FhirPackage.IMMUNIZATION__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
+			case FhirPackage.IMMUNIZATION__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return basicSetPrimarySource(null, msgs);
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
 				return basicSetReportOrigin(null, msgs);
-			case FhirPackage.IMMUNIZATION__PERFORMER:
-				return basicSetPerformer(null, msgs);
-			case FhirPackage.IMMUNIZATION__REQUESTER:
-				return basicSetRequester(null, msgs);
-			case FhirPackage.IMMUNIZATION__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
-			case FhirPackage.IMMUNIZATION__MANUFACTURER:
-				return basicSetManufacturer(null, msgs);
 			case FhirPackage.IMMUNIZATION__LOCATION:
 				return basicSetLocation(null, msgs);
+			case FhirPackage.IMMUNIZATION__MANUFACTURER:
+				return basicSetManufacturer(null, msgs);
 			case FhirPackage.IMMUNIZATION__LOT_NUMBER:
 				return basicSetLotNumber(null, msgs);
 			case FhirPackage.IMMUNIZATION__EXPIRATION_DATE:
@@ -1171,6 +1083,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return basicSetRoute(null, msgs);
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return basicSetDoseQuantity(null, msgs);
+			case FhirPackage.IMMUNIZATION__PRACTITIONER:
+				return ((InternalEList<?>)getPractitioner()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__EXPLANATION:
@@ -1195,28 +1109,24 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return getIdentifier();
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return getStatus();
-			case FhirPackage.IMMUNIZATION__DATE:
-				return getDate();
+			case FhirPackage.IMMUNIZATION__NOT_GIVEN:
+				return getNotGiven();
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return getVaccineCode();
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return getPatient();
-			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
-				return getWasNotGiven();
+			case FhirPackage.IMMUNIZATION__ENCOUNTER:
+				return getEncounter();
+			case FhirPackage.IMMUNIZATION__DATE:
+				return getDate();
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return getPrimarySource();
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
 				return getReportOrigin();
-			case FhirPackage.IMMUNIZATION__PERFORMER:
-				return getPerformer();
-			case FhirPackage.IMMUNIZATION__REQUESTER:
-				return getRequester();
-			case FhirPackage.IMMUNIZATION__ENCOUNTER:
-				return getEncounter();
-			case FhirPackage.IMMUNIZATION__MANUFACTURER:
-				return getManufacturer();
 			case FhirPackage.IMMUNIZATION__LOCATION:
 				return getLocation();
+			case FhirPackage.IMMUNIZATION__MANUFACTURER:
+				return getManufacturer();
 			case FhirPackage.IMMUNIZATION__LOT_NUMBER:
 				return getLotNumber();
 			case FhirPackage.IMMUNIZATION__EXPIRATION_DATE:
@@ -1227,6 +1137,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return getRoute();
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return getDoseQuantity();
+			case FhirPackage.IMMUNIZATION__PRACTITIONER:
+				return getPractitioner();
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return getNote();
 			case FhirPackage.IMMUNIZATION__EXPLANATION:
@@ -1253,10 +1165,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ImmunizationStatusCodes)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__DATE:
-				setDate((DateTime)newValue);
+			case FhirPackage.IMMUNIZATION__NOT_GIVEN:
+				setNotGiven((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				setVaccineCode((CodeableConcept)newValue);
@@ -1264,8 +1176,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				setPatient((Reference)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
-				setWasNotGiven((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.IMMUNIZATION__ENCOUNTER:
+				setEncounter((Reference)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__DATE:
+				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				setPrimarySource((org.hl7.fhir.Boolean)newValue);
@@ -1273,20 +1188,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
 				setReportOrigin((CodeableConcept)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__PERFORMER:
-				setPerformer((Reference)newValue);
-				return;
-			case FhirPackage.IMMUNIZATION__REQUESTER:
-				setRequester((Reference)newValue);
-				return;
-			case FhirPackage.IMMUNIZATION__ENCOUNTER:
-				setEncounter((Reference)newValue);
+			case FhirPackage.IMMUNIZATION__LOCATION:
+				setLocation((Reference)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__MANUFACTURER:
 				setManufacturer((Reference)newValue);
-				return;
-			case FhirPackage.IMMUNIZATION__LOCATION:
-				setLocation((Reference)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__LOT_NUMBER:
 				setLotNumber((org.hl7.fhir.String)newValue);
@@ -1302,6 +1208,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				setDoseQuantity((Quantity)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__PRACTITIONER:
+				getPractitioner().clear();
+				getPractitioner().addAll((Collection<? extends ImmunizationPractitioner>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
@@ -1334,10 +1244,10 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				getIdentifier().clear();
 				return;
 			case FhirPackage.IMMUNIZATION__STATUS:
-				setStatus((Code)null);
+				setStatus((ImmunizationStatusCodes)null);
 				return;
-			case FhirPackage.IMMUNIZATION__DATE:
-				setDate((DateTime)null);
+			case FhirPackage.IMMUNIZATION__NOT_GIVEN:
+				setNotGiven((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				setVaccineCode((CodeableConcept)null);
@@ -1345,8 +1255,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				setPatient((Reference)null);
 				return;
-			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
-				setWasNotGiven((org.hl7.fhir.Boolean)null);
+			case FhirPackage.IMMUNIZATION__ENCOUNTER:
+				setEncounter((Reference)null);
+				return;
+			case FhirPackage.IMMUNIZATION__DATE:
+				setDate((DateTime)null);
 				return;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				setPrimarySource((org.hl7.fhir.Boolean)null);
@@ -1354,20 +1267,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
 				setReportOrigin((CodeableConcept)null);
 				return;
-			case FhirPackage.IMMUNIZATION__PERFORMER:
-				setPerformer((Reference)null);
-				return;
-			case FhirPackage.IMMUNIZATION__REQUESTER:
-				setRequester((Reference)null);
-				return;
-			case FhirPackage.IMMUNIZATION__ENCOUNTER:
-				setEncounter((Reference)null);
+			case FhirPackage.IMMUNIZATION__LOCATION:
+				setLocation((Reference)null);
 				return;
 			case FhirPackage.IMMUNIZATION__MANUFACTURER:
 				setManufacturer((Reference)null);
-				return;
-			case FhirPackage.IMMUNIZATION__LOCATION:
-				setLocation((Reference)null);
 				return;
 			case FhirPackage.IMMUNIZATION__LOT_NUMBER:
 				setLotNumber((org.hl7.fhir.String)null);
@@ -1383,6 +1287,9 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				setDoseQuantity((Quantity)null);
+				return;
+			case FhirPackage.IMMUNIZATION__PRACTITIONER:
+				getPractitioner().clear();
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
@@ -1412,28 +1319,24 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return status != null;
-			case FhirPackage.IMMUNIZATION__DATE:
-				return date != null;
+			case FhirPackage.IMMUNIZATION__NOT_GIVEN:
+				return notGiven != null;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return vaccineCode != null;
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return patient != null;
-			case FhirPackage.IMMUNIZATION__WAS_NOT_GIVEN:
-				return wasNotGiven != null;
+			case FhirPackage.IMMUNIZATION__ENCOUNTER:
+				return encounter != null;
+			case FhirPackage.IMMUNIZATION__DATE:
+				return date != null;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return primarySource != null;
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
 				return reportOrigin != null;
-			case FhirPackage.IMMUNIZATION__PERFORMER:
-				return performer != null;
-			case FhirPackage.IMMUNIZATION__REQUESTER:
-				return requester != null;
-			case FhirPackage.IMMUNIZATION__ENCOUNTER:
-				return encounter != null;
-			case FhirPackage.IMMUNIZATION__MANUFACTURER:
-				return manufacturer != null;
 			case FhirPackage.IMMUNIZATION__LOCATION:
 				return location != null;
+			case FhirPackage.IMMUNIZATION__MANUFACTURER:
+				return manufacturer != null;
 			case FhirPackage.IMMUNIZATION__LOT_NUMBER:
 				return lotNumber != null;
 			case FhirPackage.IMMUNIZATION__EXPIRATION_DATE:
@@ -1444,6 +1347,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return route != null;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return doseQuantity != null;
+			case FhirPackage.IMMUNIZATION__PRACTITIONER:
+				return practitioner != null && !practitioner.isEmpty();
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.IMMUNIZATION__EXPLANATION:

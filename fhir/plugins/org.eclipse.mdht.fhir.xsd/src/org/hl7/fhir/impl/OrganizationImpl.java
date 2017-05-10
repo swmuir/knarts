@@ -70,14 +70,14 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	protected org.hl7.fhir.Boolean active;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected EList<CodeableConcept> type;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -228,42 +228,11 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
+	public EList<CodeableConcept> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ORGANIZATION__TYPE);
+		}
 		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ORGANIZATION__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ORGANIZATION__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ORGANIZATION__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ORGANIZATION__TYPE, newType, newType));
 	}
 
 	/**
@@ -425,7 +394,7 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 			case FhirPackage.ORGANIZATION__ACTIVE:
 				return basicSetActive(null, msgs);
 			case FhirPackage.ORGANIZATION__TYPE:
-				return basicSetType(null, msgs);
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ORGANIZATION__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.ORGANIZATION__ALIAS:
@@ -493,7 +462,8 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.ORGANIZATION__TYPE:
-				setType((CodeableConcept)newValue);
+				getType().clear();
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.ORGANIZATION__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -540,7 +510,7 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.ORGANIZATION__TYPE:
-				setType((CodeableConcept)null);
+				getType().clear();
 				return;
 			case FhirPackage.ORGANIZATION__NAME:
 				setName((org.hl7.fhir.String)null);
@@ -580,7 +550,7 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 			case FhirPackage.ORGANIZATION__ACTIVE:
 				return active != null;
 			case FhirPackage.ORGANIZATION__TYPE:
-				return type != null;
+				return type != null && !type.isEmpty();
 			case FhirPackage.ORGANIZATION__NAME:
 				return name != null;
 			case FhirPackage.ORGANIZATION__ALIAS:

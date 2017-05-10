@@ -41,9 +41,12 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getNotDone <em>Not Done</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getGender <em>Gender</em>}</li>
@@ -59,6 +62,8 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDeceasedRange <em>Deceased Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDeceasedDate <em>Deceased Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDeceasedString <em>Deceased String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getCondition <em>Condition</em>}</li>
  * </ul>
@@ -75,6 +80,46 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> definition;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected FamilyHistoryStatus status;
+
+	/**
+	 * The cached value of the '{@link #getNotDone() <em>Not Done</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotDone()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean notDone;
+
+	/**
+	 * The cached value of the '{@link #getNotDoneReason() <em>Not Done Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotDoneReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept notDoneReason;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -95,16 +140,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * @ordered
 	 */
 	protected DateTime date;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected FamilyHistoryStatus status;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -257,14 +292,34 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	protected org.hl7.fhir.String deceasedString;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotation note;
+	protected EList<Annotation> note;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
@@ -305,6 +360,147 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getDefinition() {
+		if (definition == null) {
+			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION);
+		}
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FamilyHistoryStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(FamilyHistoryStatus newStatus, NotificationChain msgs) {
+		FamilyHistoryStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(FamilyHistoryStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getNotDone() {
+		return notDone;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNotDone(org.hl7.fhir.Boolean newNotDone, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldNotDone = notDone;
+		notDone = newNotDone;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, oldNotDone, newNotDone);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNotDone(org.hl7.fhir.Boolean newNotDone) {
+		if (newNotDone != notDone) {
+			NotificationChain msgs = null;
+			if (notDone != null)
+				msgs = ((InternalEObject)notDone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, null, msgs);
+			if (newNotDone != null)
+				msgs = ((InternalEObject)newNotDone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, null, msgs);
+			msgs = basicSetNotDone(newNotDone, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, newNotDone, newNotDone));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getNotDoneReason() {
+		return notDoneReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNotDoneReason(CodeableConcept newNotDoneReason, NotificationChain msgs) {
+		CodeableConcept oldNotDoneReason = notDoneReason;
+		notDoneReason = newNotDoneReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, oldNotDoneReason, newNotDoneReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNotDoneReason(CodeableConcept newNotDoneReason) {
+		if (newNotDoneReason != notDoneReason) {
+			NotificationChain msgs = null;
+			if (notDoneReason != null)
+				msgs = ((InternalEObject)notDoneReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, null, msgs);
+			if (newNotDoneReason != null)
+				msgs = ((InternalEObject)newNotDoneReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, null, msgs);
+			msgs = basicSetNotDoneReason(newNotDoneReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, newNotDoneReason, newNotDoneReason));
 	}
 
 	/**
@@ -391,49 +587,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__DATE, newDate, newDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FamilyHistoryStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatus(FamilyHistoryStatus newStatus, NotificationChain msgs) {
-		FamilyHistoryStatus oldStatus = status;
-		status = newStatus;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, oldStatus, newStatus);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatus(FamilyHistoryStatus newStatus) {
-		if (newStatus != status) {
-			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -1086,42 +1239,35 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotation getNote() {
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE);
+		}
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__NOTE);
+		}
 		return note;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNote(Annotation newNote, NotificationChain msgs) {
-		Annotation oldNote = note;
-		note = newNote;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOTE, oldNote, newNote);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNote(Annotation newNote) {
-		if (newNote != note) {
-			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOTE, newNote, newNote));
 	}
 
 	/**
@@ -1146,12 +1292,18 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
+				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
+				return basicSetNotDone(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
+				return basicSetNotDoneReason(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
 				return basicSetDate(null, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
-				return basicSetStatus(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
@@ -1182,8 +1334,12 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return basicSetDeceasedDate(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DECEASED_STRING:
 				return basicSetDeceasedString(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NOTE:
-				return basicSetNote(null, msgs);
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION:
 				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
 		}
@@ -1200,12 +1356,18 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
+				return getDefinition();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
+				return getStatus();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
+				return getNotDone();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
+				return getNotDoneReason();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return getPatient();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
 				return getDate();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
-				return getStatus();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NAME:
 				return getName();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
@@ -1236,6 +1398,10 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return getDeceasedDate();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DECEASED_STRING:
 				return getDeceasedString();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NOTE:
 				return getNote();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION:
@@ -1257,14 +1423,24 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
+				getDefinition().clear();
+				getDefinition().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
+				setStatus((FamilyHistoryStatus)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
+				setNotDone((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
+				setNotDoneReason((CodeableConcept)newValue);
+				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				setPatient((Reference)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
 				setDate((DateTime)newValue);
-				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
-				setStatus((FamilyHistoryStatus)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -1311,8 +1487,17 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DECEASED_STRING:
 				setDeceasedString((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NOTE:
-				setNote((Annotation)newValue);
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION:
 				getCondition().clear();
@@ -1333,14 +1518,23 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
+				getDefinition().clear();
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
+				setStatus((FamilyHistoryStatus)null);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
+				setNotDone((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
+				setNotDoneReason((CodeableConcept)null);
+				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				setPatient((Reference)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
 				setDate((DateTime)null);
-				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
-				setStatus((FamilyHistoryStatus)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NAME:
 				setName((org.hl7.fhir.String)null);
@@ -1387,8 +1581,14 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DECEASED_STRING:
 				setDeceasedString((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NOTE:
-				setNote((Annotation)null);
+				getNote().clear();
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION:
 				getCondition().clear();
@@ -1407,12 +1607,18 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
+				return definition != null && !definition.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
+				return status != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
+				return notDone != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
+				return notDoneReason != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return patient != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
 				return date != null;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
-				return status != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NAME:
 				return name != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
@@ -1443,8 +1649,12 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return deceasedDate != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DECEASED_STRING:
 				return deceasedString != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__NOTE:
-				return note != null;
+				return note != null && !note.isEmpty();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION:
 				return condition != null && !condition.isEmpty();
 		}

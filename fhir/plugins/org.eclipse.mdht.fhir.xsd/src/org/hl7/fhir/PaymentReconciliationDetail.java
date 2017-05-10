@@ -113,7 +113,7 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Organization which submitted the invoice or financial transaction.
+	 * The Organization which submitted the claim or financial transaction.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Submitter</em>' containment reference.
 	 * @see #setSubmitter(Reference)

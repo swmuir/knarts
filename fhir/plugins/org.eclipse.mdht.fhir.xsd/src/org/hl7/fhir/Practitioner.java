@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Practitioner#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getBirthDate <em>Birth Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getPhoto <em>Photo</em>}</li>
- *   <li>{@link org.hl7.fhir.Practitioner#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getQualification <em>Qualification</em>}</li>
  *   <li>{@link org.hl7.fhir.Practitioner#getCommunication <em>Communication</em>}</li>
  * </ul>
@@ -194,22 +193,6 @@ public interface Practitioner extends DomainResource {
 	 * @generated
 	 */
 	EList<Attachment> getPhoto();
-
-	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.PractitionerRole1}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The list of roles/organizations that the practitioner is associated with.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPractitioner_Role()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<PractitionerRole1> getRole();
 
 	/**
 	 * Returns the value of the '<em><b>Qualification</b></em>' containment reference list.

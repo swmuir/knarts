@@ -33,7 +33,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Sequence#getReadCoverage <em>Read Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getRepository <em>Repository</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getPointer <em>Pointer</em>}</li>
- *   <li>{@link org.hl7.fhir.Sequence#getStructureVariant <em>Structure Variant</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequence()
@@ -65,13 +64,13 @@ public interface Sequence extends DomainResource {
 	 * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(SequenceType)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getSequence_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SequenceType getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Sequence#getType <em>Type</em>}' containment reference.
@@ -81,7 +80,7 @@ public interface Sequence extends DomainResource {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(SequenceType value);
+	void setType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Coordinate System</b></em>' containment reference.
@@ -380,21 +379,5 @@ public interface Sequence extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getPointer();
-
-	/**
-	 * Returns the value of the '<em><b>Structure Variant</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SequenceStructureVariant}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Structural variant.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Structure Variant</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSequence_StructureVariant()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='structureVariant' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<SequenceStructureVariant> getStructureVariant();
 
 } // Sequence

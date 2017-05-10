@@ -34,7 +34,7 @@ public class TestReportStatusImpl extends ElementImpl implements TestReportStatu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TestReportStatusList VALUE_EDEFAULT = TestReportStatusList.COMPLETE;
+	protected static final TestReportStatusList VALUE_EDEFAULT = TestReportStatusList.COMPLETED;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

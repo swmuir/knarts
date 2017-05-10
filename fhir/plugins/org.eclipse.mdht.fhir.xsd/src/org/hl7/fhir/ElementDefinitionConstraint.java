@@ -140,7 +140,7 @@ public interface ElementDefinitionConstraint extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
+	 * A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(org.hl7.fhir.String)

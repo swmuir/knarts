@@ -26,6 +26,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CareTeamParticipantImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamParticipantImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamParticipantImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamParticipantImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  *
@@ -51,6 +52,16 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	 * @ordered
 	 */
 	protected Reference member;
+
+	/**
+	 * The cached value of the '{@link #getOnBehalfOf() <em>On Behalf Of</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnBehalfOf()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference onBehalfOf;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -172,6 +183,49 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getOnBehalfOf() {
+		return onBehalfOf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnBehalfOf(Reference newOnBehalfOf, NotificationChain msgs) {
+		Reference oldOnBehalfOf = onBehalfOf;
+		onBehalfOf = newOnBehalfOf;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF, oldOnBehalfOf, newOnBehalfOf);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnBehalfOf(Reference newOnBehalfOf) {
+		if (newOnBehalfOf != onBehalfOf) {
+			NotificationChain msgs = null;
+			if (onBehalfOf != null)
+				msgs = ((InternalEObject)onBehalfOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF, null, msgs);
+			if (newOnBehalfOf != null)
+				msgs = ((InternalEObject)newOnBehalfOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF, null, msgs);
+			msgs = basicSetOnBehalfOf(newOnBehalfOf, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF, newOnBehalfOf, newOnBehalfOf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Period getPeriod() {
 		return period;
 	}
@@ -222,6 +276,8 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 				return basicSetRole(null, msgs);
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				return basicSetMember(null, msgs);
+			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
+				return basicSetOnBehalfOf(null, msgs);
 			case FhirPackage.CARE_TEAM_PARTICIPANT__PERIOD:
 				return basicSetPeriod(null, msgs);
 		}
@@ -240,6 +296,8 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 				return getRole();
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				return getMember();
+			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
+				return getOnBehalfOf();
 			case FhirPackage.CARE_TEAM_PARTICIPANT__PERIOD:
 				return getPeriod();
 		}
@@ -259,6 +317,9 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 				return;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				setMember((Reference)newValue);
+				return;
+			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)newValue);
 				return;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__PERIOD:
 				setPeriod((Period)newValue);
@@ -281,6 +342,9 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				setMember((Reference)null);
 				return;
+			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)null);
+				return;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__PERIOD:
 				setPeriod((Period)null);
 				return;
@@ -300,6 +364,8 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 				return role != null;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				return member != null;
+			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
+				return onBehalfOf != null;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__PERIOD:
 				return period != null;
 		}

@@ -55,7 +55,7 @@ public enum TestReportParticipantTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * test-engine
+	 * Test Engine
 	 * <!-- end-model-doc -->
 	 * @see #TEST_ENGINE
 	 * @model name="testEngine" literal="test-engine"
@@ -69,7 +69,7 @@ public enum TestReportParticipantTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * client
+	 * Client
 	 * <!-- end-model-doc -->
 	 * @see #CLIENT
 	 * @model name="client"
@@ -83,7 +83,7 @@ public enum TestReportParticipantTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * server
+	 * Server
 	 * <!-- end-model-doc -->
 	 * @see #SERVER
 	 * @model name="server"

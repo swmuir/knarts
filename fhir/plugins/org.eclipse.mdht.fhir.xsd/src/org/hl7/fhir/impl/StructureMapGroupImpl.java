@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.StructureMapGroup;
+import org.hl7.fhir.StructureMapGroupTypeMode;
 import org.hl7.fhir.StructureMapInput;
 import org.hl7.fhir.StructureMapRule;
 
@@ -33,6 +34,7 @@ import org.hl7.fhir.StructureMapRule;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getTypeMode <em>Type Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapGroupImpl#getRule <em>Rule</em>}</li>
@@ -60,6 +62,16 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * @ordered
 	 */
 	protected Id extends_;
+
+	/**
+	 * The cached value of the '{@link #getTypeMode() <em>Type Mode</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected StructureMapGroupTypeMode typeMode;
 
 	/**
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
@@ -201,6 +213,49 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StructureMapGroupTypeMode getTypeMode() {
+		return typeMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTypeMode(StructureMapGroupTypeMode newTypeMode, NotificationChain msgs) {
+		StructureMapGroupTypeMode oldTypeMode = typeMode;
+		typeMode = newTypeMode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE, oldTypeMode, newTypeMode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeMode(StructureMapGroupTypeMode newTypeMode) {
+		if (newTypeMode != typeMode) {
+			NotificationChain msgs = null;
+			if (typeMode != null)
+				msgs = ((InternalEObject)typeMode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE, null, msgs);
+			if (newTypeMode != null)
+				msgs = ((InternalEObject)newTypeMode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE, null, msgs);
+			msgs = basicSetTypeMode(newTypeMode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE, newTypeMode, newTypeMode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -275,6 +330,8 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 				return basicSetName(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_GROUP__EXTENDS:
 				return basicSetExtends(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE:
+				return basicSetTypeMode(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_GROUP__DOCUMENTATION:
 				return basicSetDocumentation(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_GROUP__INPUT:
@@ -297,6 +354,8 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 				return getName();
 			case FhirPackage.STRUCTURE_MAP_GROUP__EXTENDS:
 				return getExtends();
+			case FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE:
+				return getTypeMode();
 			case FhirPackage.STRUCTURE_MAP_GROUP__DOCUMENTATION:
 				return getDocumentation();
 			case FhirPackage.STRUCTURE_MAP_GROUP__INPUT:
@@ -321,6 +380,9 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 				return;
 			case FhirPackage.STRUCTURE_MAP_GROUP__EXTENDS:
 				setExtends((Id)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE:
+				setTypeMode((StructureMapGroupTypeMode)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_GROUP__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)newValue);
@@ -351,6 +413,9 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 			case FhirPackage.STRUCTURE_MAP_GROUP__EXTENDS:
 				setExtends((Id)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE:
+				setTypeMode((StructureMapGroupTypeMode)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP_GROUP__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)null);
 				return;
@@ -376,6 +441,8 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 				return name != null;
 			case FhirPackage.STRUCTURE_MAP_GROUP__EXTENDS:
 				return extends_ != null;
+			case FhirPackage.STRUCTURE_MAP_GROUP__TYPE_MODE:
+				return typeMode != null;
 			case FhirPackage.STRUCTURE_MAP_GROUP__DOCUMENTATION:
 				return documentation != null;
 			case FhirPackage.STRUCTURE_MAP_GROUP__INPUT:

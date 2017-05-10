@@ -41,6 +41,16 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	PARTIAL(1, "partial", "partial"),
 
 	/**
+	 * The '<em><b>Preliminary</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRELIMINARY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PRELIMINARY(2, "preliminary", "preliminary"),
+
+	/**
 	 * The '<em><b>Final</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,17 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FINAL(2, "final", "final"),
+	FINAL(3, "final", "final"),
+
+	/**
+	 * The '<em><b>Amended</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AMENDED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	AMENDED(4, "amended", "amended"),
 
 	/**
 	 * The '<em><b>Corrected</b></em>' literal object.
@@ -58,7 +78,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORRECTED(3, "corrected", "corrected"),
+	CORRECTED(5, "corrected", "corrected"),
 
 	/**
 	 * The '<em><b>Appended</b></em>' literal object.
@@ -68,7 +88,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APPENDED(4, "appended", "appended"),
+	APPENDED(6, "appended", "appended"),
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
@@ -78,7 +98,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(5, "cancelled", "cancelled"),
+	CANCELLED(7, "cancelled", "cancelled"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -88,7 +108,17 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(6, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(8, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(9, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Registered</b></em>' literal value.
@@ -119,6 +149,20 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	public static final int PARTIAL_VALUE = 1;
 
 	/**
+	 * The '<em><b>Preliminary</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Preliminary
+	 * <!-- end-model-doc -->
+	 * @see #PRELIMINARY
+	 * @model name="preliminary"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRELIMINARY_VALUE = 2;
+
+	/**
 	 * The '<em><b>Final</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +174,21 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FINAL_VALUE = 2;
+	public static final int FINAL_VALUE = 3;
+
+	/**
+	 * The '<em><b>Amended</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Amended
+	 * <!-- end-model-doc -->
+	 * @see #AMENDED
+	 * @model name="amended"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AMENDED_VALUE = 4;
 
 	/**
 	 * The '<em><b>Corrected</b></em>' literal value.
@@ -144,7 +202,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CORRECTED_VALUE = 3;
+	public static final int CORRECTED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Appended</b></em>' literal value.
@@ -158,7 +216,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int APPENDED_VALUE = 4;
+	public static final int APPENDED_VALUE = 6;
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
@@ -172,7 +230,7 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 5;
+	public static final int CANCELLED_VALUE = 7;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -186,7 +244,21 @@ public enum DiagnosticReportStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 6;
+	public static final int ENTERED_IN_ERROR_VALUE = 8;
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 9;
 
 	/**
 	 * An array of all the '<em><b>Diagnostic Report Status List</b></em>' enumerators.
@@ -198,11 +270,14 @@ public enum DiagnosticReportStatusList implements Enumerator {
 		new DiagnosticReportStatusList[] {
 			REGISTERED,
 			PARTIAL,
+			PRELIMINARY,
 			FINAL,
+			AMENDED,
 			CORRECTED,
 			APPENDED,
 			CANCELLED,
 			ENTERED_IN_ERROR,
+			UNKNOWN,
 		};
 
 	/**
@@ -261,11 +336,14 @@ public enum DiagnosticReportStatusList implements Enumerator {
 		switch (value) {
 			case REGISTERED_VALUE: return REGISTERED;
 			case PARTIAL_VALUE: return PARTIAL;
+			case PRELIMINARY_VALUE: return PRELIMINARY;
 			case FINAL_VALUE: return FINAL;
+			case AMENDED_VALUE: return AMENDED;
 			case CORRECTED_VALUE: return CORRECTED;
 			case APPENDED_VALUE: return APPENDED;
 			case CANCELLED_VALUE: return CANCELLED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

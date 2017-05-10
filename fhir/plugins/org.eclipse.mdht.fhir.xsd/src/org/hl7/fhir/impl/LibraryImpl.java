@@ -48,10 +48,11 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getUsage <em>Usage</em>}</li>
@@ -62,7 +63,6 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LibraryImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -125,16 +125,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	protected org.hl7.fhir.String title;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept type;
-
-	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +145,16 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept type;
+
+	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +163,16 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -263,16 +273,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * @ordered
 	 */
 	protected EList<Contributor> contributor;
-
-	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
@@ -542,49 +542,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -671,6 +628,49 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getDate() {
 		return date;
 	}
@@ -707,6 +707,49 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__PUBLISHER, newPublisher, newPublisher));
 	}
 
 	/**
@@ -1020,49 +1063,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LIBRARY__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LIBRARY__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.LIBRARY__CONTACT);
@@ -1179,14 +1179,16 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return basicSetName(null, msgs);
 			case FhirPackage.LIBRARY__TITLE:
 				return basicSetTitle(null, msgs);
-			case FhirPackage.LIBRARY__TYPE:
-				return basicSetType(null, msgs);
 			case FhirPackage.LIBRARY__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.LIBRARY__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.LIBRARY__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.LIBRARY__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.LIBRARY__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.LIBRARY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.LIBRARY__PURPOSE:
@@ -1207,8 +1209,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LIBRARY__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.LIBRARY__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.LIBRARY__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LIBRARY__COPYRIGHT:
@@ -1243,14 +1243,16 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return getName();
 			case FhirPackage.LIBRARY__TITLE:
 				return getTitle();
-			case FhirPackage.LIBRARY__TYPE:
-				return getType();
 			case FhirPackage.LIBRARY__STATUS:
 				return getStatus();
 			case FhirPackage.LIBRARY__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.LIBRARY__TYPE:
+				return getType();
 			case FhirPackage.LIBRARY__DATE:
 				return getDate();
+			case FhirPackage.LIBRARY__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.LIBRARY__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.LIBRARY__PURPOSE:
@@ -1271,8 +1273,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return getTopic();
 			case FhirPackage.LIBRARY__CONTRIBUTOR:
 				return getContributor();
-			case FhirPackage.LIBRARY__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.LIBRARY__CONTACT:
 				return getContact();
 			case FhirPackage.LIBRARY__COPYRIGHT:
@@ -1314,17 +1314,20 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 			case FhirPackage.LIBRARY__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.LIBRARY__TYPE:
-				setType((CodeableConcept)newValue);
-				return;
 			case FhirPackage.LIBRARY__STATUS:
 				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.LIBRARY__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.LIBRARY__TYPE:
+				setType((CodeableConcept)newValue);
+				return;
 			case FhirPackage.LIBRARY__DATE:
 				setDate((DateTime)newValue);
+				return;
+			case FhirPackage.LIBRARY__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.LIBRARY__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1359,9 +1362,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 			case FhirPackage.LIBRARY__CONTRIBUTOR:
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends Contributor>)newValue);
-				return;
-			case FhirPackage.LIBRARY__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.LIBRARY__CONTACT:
 				getContact().clear();
@@ -1413,17 +1413,20 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 			case FhirPackage.LIBRARY__TITLE:
 				setTitle((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.LIBRARY__TYPE:
-				setType((CodeableConcept)null);
-				return;
 			case FhirPackage.LIBRARY__STATUS:
 				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.LIBRARY__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.LIBRARY__TYPE:
+				setType((CodeableConcept)null);
+				return;
 			case FhirPackage.LIBRARY__DATE:
 				setDate((DateTime)null);
+				return;
+			case FhirPackage.LIBRARY__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.LIBRARY__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1454,9 +1457,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return;
 			case FhirPackage.LIBRARY__CONTRIBUTOR:
 				getContributor().clear();
-				return;
-			case FhirPackage.LIBRARY__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.LIBRARY__CONTACT:
 				getContact().clear();
@@ -1498,14 +1498,16 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return name != null;
 			case FhirPackage.LIBRARY__TITLE:
 				return title != null;
-			case FhirPackage.LIBRARY__TYPE:
-				return type != null;
 			case FhirPackage.LIBRARY__STATUS:
 				return status != null;
 			case FhirPackage.LIBRARY__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.LIBRARY__TYPE:
+				return type != null;
 			case FhirPackage.LIBRARY__DATE:
 				return date != null;
+			case FhirPackage.LIBRARY__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.LIBRARY__DESCRIPTION:
 				return description != null;
 			case FhirPackage.LIBRARY__PURPOSE:
@@ -1526,8 +1528,6 @@ public class LibraryImpl extends DomainResourceImpl implements Library {
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.LIBRARY__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.LIBRARY__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.LIBRARY__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.LIBRARY__COPYRIGHT:
