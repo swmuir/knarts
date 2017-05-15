@@ -58,6 +58,10 @@
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
 			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenUsingStyleSheet">
 		</command>
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.openCDAViewer"
+			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenCDAViewer">
+		</command>
+		
 	</extension>
 
 	<extension point="org.eclipse.ui.views">
@@ -174,6 +178,23 @@
 						</with>
 					</visibleWhen>
 				</command>
+				
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.openCDAViewer"
+					label="Open CDA Viewer" id="org.eclipse.mdht.cda.xml.ui.menu.openCDAViewer"
+					mnemonic="O">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="or">
+								<or>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IResource" />
+									</and>
+								</or>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+				
 			</menu>
 		</menuContribution>
 	</extension>
