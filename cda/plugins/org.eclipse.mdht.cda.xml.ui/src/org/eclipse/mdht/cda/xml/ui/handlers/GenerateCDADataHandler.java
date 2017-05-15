@@ -12,6 +12,7 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Reader;
@@ -37,10 +38,12 @@ import javax.swing.text.html.parser.ParserDelegator;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.CellReference;
+import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -118,11 +121,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.openhealthtools.mdht.uml.cda.consol.AllergiesSectionEntriesOptional;
@@ -228,22 +231,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			txt.append(text);
 		}
 	}
-
-	/*
-	 * boolean isFileUnlocked = false;
-	 * try {
-	 * org.apache.commons.io.FileUtils.touch(yourFile);
-	 * isFileUnlocked = true;
-	 * } catch (IOException e) {
-	 * isFileUnlocked = false;
-	 * }
-	 *
-	 * if(isFileUnlocked){
-	 * // Do stuff you need to do with a file that is NOT locked.
-	 * } else {
-	 * // Do stuff you need to do with a file that IS locked
-	 * }
-	 */
 
 	static class FilterAllergyProblemActByEncounter implements Filter<AllergyProblemAct> {
 
@@ -624,6 +611,92 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 	}
+
+	// public class WarningDialog extends TitleAreaDialog {
+	//
+	// org.eclipse.swt.widgets.Table table;
+	//
+	// public WarningDialog(Shell shell) {
+	// super(shell);
+	//
+	// }
+	//
+	// @Override
+	// public void create() {
+	// super.create();
+	// setTitle("Error Creating Excel !!!");
+	// }
+	//
+	// @Override
+	// protected void createButtonsForButtonBar(Composite parent) {
+	//
+	// Button okButton = createButton(parent, OK, "Ok", false);
+	//
+	// okButton.addSelectionListener(new SelectionAdapter() {
+	// @Override
+	// public void widgetSelected(SelectionEvent e) {
+	// setReturnCode(OK);
+	// close();
+	// }
+	// });
+	// }
+	//
+	// @Override
+	// protected Control createDialogArea(Composite parent) {
+	//
+	// Label label = new Label(parent, SWT.BORDER);
+	//
+	// label.setText("Unable to Open Excel !!, You must close the workbook !");
+	//
+	// // final ScrolledComposite composite = new ScrolledComposite(parent, SWT.V_SCROLL);
+	// // composite.setLayout(new GridLayout());
+	// // composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+	// //
+	// // table = new org.eclipse.swt.widgets.Table(composite, SWT.BORDER | SWT.MULTI);
+	// // table.setHeaderVisible(true);
+	// //
+	// // table.setSize(100, 100);
+	// //
+	// // composite.setContent(table);
+	// // composite.setExpandHorizontal(true);
+	// // composite.setExpandVertical(true);
+	// // composite.setAlwaysShowScrollBars(true);
+	// // composite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+	// //
+	// // table.setLinesVisible(true);
+	// //
+	// // final GridData gridData = new GridData();
+	// // gridData.widthHint = 500;
+	// // table.setLayoutData(gridData);
+	// //
+	// // table.setHeaderVisible(true);
+	// // final TableColumn column1 = new TableColumn(table, SWT.LEFT);
+	// //
+	// // final TableColumn column2 = new TableColumn(table, SWT.LEFT);
+	// //
+	// // column1.setText("File Name");
+	// // column2.setText("Total Sections");
+	// //
+	// // column1.setWidth(250);
+	// // column2.setWidth(250);
+	// //
+	// // for (IFile file : files) {
+	// // int sectionCount = 0;
+	// //
+	// // for (EClass eclass : sectionbyfile.keySet()) {
+	// // if (sectionbyfile.get(eclass).contains(file)) {
+	// // sectionCount++;
+	// // }
+	// // }
+	// //
+	// // final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
+	// // valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
+	// // }
+	//
+	// return parent;
+	// }
+	//
+	// }
 
 	static class SectionSwitch extends ConsolSwitch<Boolean> {
 
@@ -1602,6 +1675,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static HashMap<String, String> authors = new HashMap<String, String>();
 
+	static HashMap<String, String> organizations = new HashMap<String, String>();
+
 	static final SimpleDateFormat DATE_FORMAT1 = new SimpleDateFormat("yyyy");
 
 	static final SimpleDateFormat DATE_FORMAT10 = new SimpleDateFormat("yyyyMMddHHmmZ");
@@ -2224,24 +2299,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	// static void appendToSubstanceAdministrationSheetBySection(Query query, HSSFSheet sheet, Section section,
-	// PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
-	//
-	// List<org.openhealthtools.mdht.uml.cda.consol.MedicationActivity> sas = new
-	// ArrayList<org.openhealthtools.mdht.uml.cda.consol.MedicationActivity>();
-	//
-	// for (SubstanceAdministration sa : section.getSubstanceAdministrations()) {
-	// if (sa instanceof org.openhealthtools.mdht.uml.cda.consol.MedicationActivity) {
-	// sas.add((MedicationActivity) sa);
-	// }
-	// }
-	// appendToSubstanceAdministrationSheet(query, sheet, patientRole, serviceEvent, encounters, sas, fileName);
-	//
-	// }
-
 	static int createAllergyHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		// All Des Verify Date Event Type Reaction Severity Source
-		int firstColumn = offset;
+		// int firstColumn = offset;
 		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(firstColumn).setCellValue("Allergy");
 		row2.createCell(offset++).setCellValue("Allergy ID");
 		row2.createCell(offset++).setCellValue("Status");
@@ -2256,6 +2316,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		offset = addSectionHeader(row2, offset);
 		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.getSheet().addMergedRegion(new CellRangeAddress(0,
 		// 0, firstColumn, offset));
+
 		return offset;
 	};
 
@@ -2266,25 +2327,24 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Author");
 		offset = addSectionHeader(row2, offset);
+
 		return offset;
 	}
 
 	static int createEncounterIDHeader(HSSFRow row1, HSSFRow row2, int offset) {
 		row2.createCell(offset++).setCellValue("Encounter ID");
+
 		return offset;
 	};
 
 	static int createPatientHeader(HSSFRow row1, HSSFRow row2, int offset) {
-
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("DOB");
-
 		return offset;
 	};
 
 	static int createPatientHeader2(HSSFRow row1, HSSFRow row2, int offset) {
-
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Software");
@@ -2525,18 +2585,56 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static String getNarrativeText(String htmlString) throws IOException {
 		Reader reader = null;
-		// if (htmlString.length() > 500) {
-		// reader = new StringReader(htmlString.substring(0, 500));
-		// } else {
 		reader = new StringReader(htmlString);
-		// }
 		ExtractText extractText = new ExtractText();
 		ParserDelegator parserDelegator = new ParserDelegator();
 		parserDelegator.parse(reader, extractText, true);
 		return extractText.getText();
 	}
 
-	static String getValue(EList<Author> authors, PorO poro) {
+	static void initAuthorReferences(List<Author> authors, PorO poro) {
+
+		String result = "";
+		String authorId = "";
+
+		for (Author a : authors) {
+
+			if (a.getAssignedAuthor() != null) {
+				AssignedAuthor aa = a.getAssignedAuthor();
+
+				if (PorO.ORGANIZATION.equals(poro)) {
+					if (aa.getRepresentedOrganization() != null) {
+						for (ON on : aa.getRepresentedOrganization().getNames()) {
+							result = getValues(on);
+						}
+					}
+				}
+
+				if (PorO.PERSON.equals(poro)) {
+					if (aa.getAssignedPerson() != null) {
+						for (PN pn : aa.getAssignedPerson().getNames()) {
+							result = getValues(pn);
+						}
+					}
+				}
+			}
+
+			for (II ii : a.getAssignedAuthor().getIds()) {
+				authorId = getKey3(ii);
+				if (!StringUtils.isEmpty(authorId) && !StringUtils.isEmpty(result)) {
+					if (PorO.ORGANIZATION.equals(poro)) {
+						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.organizations.put(authorId, result);
+					} else {
+						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.put(authorId, result);
+					}
+
+				}
+			}
+
+		}
+	}
+
+	static String getValue(List<Author> authors, PorO poro) {
 
 		String result = "";
 		String authorId = "";
@@ -2567,18 +2665,25 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					}
 				}
 			}
+			break;
 
 		}
 
-		if (!StringUtils.isEmpty(authorId) && !StringUtils.isEmpty(result)) {
-			org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.put(authorId, result);
+		if (!StringUtils.isEmpty(authorId) && StringUtils.isEmpty(result)) {
+			if (PorO.ORGANIZATION.equals(poro)) {
+				if (org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.organizations.containsKey(authorId)) {
+					result = org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.organizations.get(authorId) +
+							"*";
+				}
+			} else {
+				if (org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.containsKey(authorId)) {
+					result = org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.get(authorId) + "*";
+				}
+			}
+
 		}
 
-		if (!StringUtils.isEmpty(authorId) && StringUtils.isEmpty(result) &&
-				org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.containsKey(authorId)) {
-			result = org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.get(authorId) + "*";
-		}
-		if (StringUtils.isEmpty(result)) {
+		if (StringUtils.isEmpty(result) && !StringUtils.isEmpty(authorId)) {
 			result = authorId;
 		}
 
@@ -3442,39 +3547,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 
 			offset = appendCode(row, offset, resultOrganizer.getSection(), specimenCode, null);
-
-			// row.createCell(offset++).setCellValue(specimenText);
 		}
 		offset = appendOrganizationAndAuthor(row, offset, resultOrganizer.getAuthors());
-
-		// String organization = "";
-		// String person = "";
-		// if (!resultOrganizer.getAuthors().isEmpty()) {
-		//
-		// for (Author a : resultOrganizer.getAuthors()) {
-		// if (a.getAssignedAuthor() != null) {
-		// AssignedAuthor aa = a.getAssignedAuthor();
-		// if (aa.getRepresentedOrganization() != null) {
-		// for (ON on : aa.getRepresentedOrganization().getNames()) {
-		// organization = getValues(on);
-		// }
-		// }
-		//
-		// if (aa.getAssignedPerson() != null) {
-		// for (PN pn : aa.getAssignedPerson().getNames()) {
-		// person = getValues(pn);
-		// }
-		// }
-		// }
-		//
-		// }
-		//
-		// }
-		//
-		// row.createCell(offset++).setCellValue(organization);
-		//
-		// row.createCell(offset++).setCellValue(person);
-
 		return offset;
 	}
 
@@ -3645,57 +3719,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			row.createCell(offset++).setCellValue("");
 		}
 
-		// row.createCell(offset++).setCellValue(
-		// getAnyValue(procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode()));
-
 		offset = appendCode(
 			row, offset, procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode(),
 			procedureActivityProcedure.getText());
-
-		/*
-		 * boolean hasCode = false;
-		 * if (substanceAdministration.getConsumable() != null) {
-		 * Consumable consumable = substanceAdministration.getConsumable();
-		 *
-		 * if (consumable.getManufacturedProduct() != null) {
-		 * ManufacturedProduct manufacturedProduct = consumable.getManufacturedProduct();
-		 *
-		 * if (manufacturedProduct.getManufacturedMaterial() != null) {
-		 *
-		 * if (manufacturedProduct.getManufacturedMaterial().getCode() != null) {
-		 *
-		 * row.createCell(offset++).setCellValue(
-		 * getValueAsString(
-		 * substanceAdministration.getSection(),
-		 * manufacturedProduct.getManufacturedMaterial().getCode()));
-		 *
-		 * row.createCell(offset++).setCellValue(
-		 * manufacturedProduct.getManufacturedMaterial().getCode().getCode());
-		 *
-		 * row.createCell(offset++).setCellValue(
-		 * manufacturedProduct.getManufacturedMaterial().getCode().getCodeSystem());
-		 *
-		 * row.createCell(offset++).setCellValue(
-		 * manufacturedProduct.getManufacturedMaterial().getCode().getCodeSystemName());
-		 *
-		 * hasCode = true;
-		 *
-		 * }
-		 *
-		 * }
-		 *
-		 * }
-		 *
-		 * }
-		 *
-		 * if (!hasCode) {
-		 * row.createCell(offset++).setCellValue("");
-		 * row.createCell(offset++).setCellValue("");
-		 * row.createCell(offset++).setCellValue("");
-		 * row.createCell(offset++).setCellValue("");
-		 *
-		 * }
-		 */
 
 		String organizationValue = "";
 		String personValue = "";
@@ -3928,11 +3954,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		if (!hasCode) {
 			offset = appendCode(
 				row, offset, substanceAdministration.getSection(), null, substanceAdministration.getText());
-			// row.createCell(offset++).setCellValue("");
-			// row.createCell(offset++).setCellValue("");
-			// row.createCell(offset++).setCellValue("");
-			// row.createCell(offset++).setCellValue("");
-
 		}
 
 		if (substanceAdministration.getStatusCode() != null &&
@@ -3998,6 +4019,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		try {
 
+			boolean completed = true;
 			ProgressMonitorDialog pd = new ProgressMonitorDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 
@@ -4008,54 +4030,50 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				try {
 					pd.run(true, true, new IRunnableWithProgress() {
-
 						public void run(IProgressMonitor monitor)
 								throws InvocationTargetException, InterruptedException {
-
 							try {
 								@SuppressWarnings("unchecked")
 								Iterator<Object> iter = iss.iterator();
 								while (iter.hasNext() && !monitor.isCanceled()) {
-
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
-
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
-										// processFolder(folder, monitor);
 										processFolder2(folder, monitor);
-
 									}
 								}
-							} catch (PartInitException e) {
-								e.printStackTrace();
-							} catch (CoreException e) {
-								e.printStackTrace();
+							} catch (IOException e) {
+								throw new InvocationTargetException(e);
 							} catch (Exception e) {
-								e.printStackTrace();
+
 							}
 						}
 					});
 				} catch (InvocationTargetException e) {
-
+					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+					MessageBox dialog = new MessageBox(window.getShell(), SWT.ICON_ERROR | SWT.OK);
+					dialog.setText("Error processing CDA");
+					dialog.setMessage("Make sure Excel file is closed!");
+					dialog.open();
+					completed = false;
 				} catch (InterruptedException e) {
 
 				}
 
-				for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				if (completed) {
+					for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+						project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+					}
+					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+					ResultsDialog dlg = new ResultsDialog(window.getShell());
+					dlg.create();
+					dlg.open();
 				}
-
-				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-
-				ResultsDialog dlg = new ResultsDialog(window.getShell());
-				dlg.create();
-				dlg.open();
-
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 		}
 
 		return null;
@@ -4068,12 +4086,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @return
 	 * @throws Exception
 	 */
-	// static int serializePatient(HSSFRow row, int offset, PatientRole patientRole) {
-	//
-	// return 0;
-	//
-	// }
-
+	@SuppressWarnings("unused")
 	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException, Exception {
 
 		ConsolPackage.eINSTANCE.eClass();
@@ -4183,24 +4196,36 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		authors.clear();
 
+		organizations.clear();
+
 		int offset = 0;
 
 		HSSFSheet documentsSheet = wb.createSheet("Documents");
 
 		HSSFSheet sectionsSheet = wb.createSheet("Sections");
 
-		HSSFRow row1 = null; // patientsSheet.createRow(0);
+		HSSFRow row1 = null;
 		HSSFRow row2 = documentsSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
 		HSSFSheet encountersSheet = wb.createSheet("Encounters");
 
-		row1 = null; // encountersSheet.createRow(0);
+		row1 = null;
 		row2 = encountersSheet.createRow(0);
 
 		offset = createPatientHeader(row1, row2, 0);
 		createEncounterHeader(row1, row2, offset);
+
+		String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
+				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS";
+		File theFile = new File(fileLocation);
+
+		// If the file exists, check to see if we can open it
+		// this is the excel
+		if (theFile.exists()) {
+			org.apache.commons.io.FileUtils.touch(theFile);
+		}
 
 		for (IResource resource : folder.members()) {
 
@@ -4228,37 +4253,32 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Query query = new Query(clinicalDocument);
 
+						// Need to initialize author references because the order of the sections being return is not necessarily the physical order
+						List<Author> authors = query.getEObjects(Author.class);
+						initAuthorReferences(authors, PorO.ORGANIZATION);
+						initAuthorReferences(authors, PorO.PERSON);
+
 						PatientRole patientRole = query.getEObject(PatientRole.class);
 						ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
 						EncountersSectionEntriesOptional es = query.getEObject(EncountersSectionEntriesOptional.class);
 						InformationRecipient ir = query.getEObject(InformationRecipient.class);
 						InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
-
-						// boolean useServiceEvent = true;
-
 						if (es != null) {
 							encounters.addAll(es.getEncounterActivitiess());
-							// useServiceEvent = false;
-						} else {
 						}
 						appendToPatientSheet(query, documentsSheet, patientRole, ir, iffo, file.getName());
 						appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
 
-						for (Section section : query.getAllSections()) {
+						for (Section section : clinicalDocument.getSections()) {
 							if (!(section instanceof EncountersSectionEntriesOptional)) {
-
 								if (!sheets.containsKey(section.eClass().getClassifierID())) {
 									sheets.put(
 										section.eClass().getClassifierID(), wb.createSheet(section.eClass().getName()));
-
 								}
-
 								SectionSwitch sectionSwitch = new SectionSwitch(
 									query, sheets.get(section.eClass().getClassifierID()), patientRole, serviceEvent,
 									encounters, file.getName());
-
 								sectionSwitch.doSwitch(section);
-								// sheets.put(section.eClass().getClassifierID(), section);
 							}
 
 							if (!sectionbyfile.containsKey(section.eClass())) {
@@ -4268,30 +4288,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 							sectionbyfile.get(section.eClass()).add(file);
 
 						}
-
-						// PatientRole patientRole = query.getEObject(PatientRole.class);
-						// ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
-						// EncountersSectionEntriesOptional es = query.getEObject(EncountersSectionEntriesOptional.class);
-						//
-						// boolean useServiceEvent = true;
-						//
-						// if (es != null) {
-						// encounters.addAll(es.getEncounterActivitiess());
-						// useServiceEvent = false;
-						// } else {
-						// }
-						// appendToPatientSheet(query, patientsSheet, patientRole, file.getName());
-						// appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
-						// appendToSubstanceAdministrationSheet(
-						// query, substanceAdministrationsSheet, patientRole, (useServiceEvent
-						// ? serviceEvent
-						// : null),
-						// encounters, file.getName());
-						//
-						// appendToAllergiesSheet(query, allergySheet, patientRole, (useServiceEvent
-						// ? serviceEvent
-						// : null),
-						// encounters, file.getName());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -4361,20 +4357,31 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			cell.setCellFormula(strFormula);
 		}
 
+		HSSFCellStyle boldstyle = wb.createCellStyle();
+		boldstyle.setUserStyleName("BOLD");
+		HSSFFont font = wb.createFont();
+		font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+		boldstyle.setFont(font);
+
 		// autoSizeColumn
 		for (int sheetCtr = 0; sheetCtr < wb.getNumberOfSheets(); sheetCtr++) {
 			HSSFSheet aSheet = wb.getSheetAt(sheetCtr);
 			HSSFRow topRow = aSheet.getRow(0);
+			monitor.subTask("Formating Sheet " + aSheet.getSheetName());
 			if (topRow != null) {
 				int lastcell = topRow.getLastCellNum();
 				for (int columnCtr = 0; columnCtr < lastcell; columnCtr++) {
-					monitor.subTask("Formating Sheet " + aSheet.getSheetName());
 					aSheet.autoSizeColumn(columnCtr);
 					if (aSheet.getColumnWidth(columnCtr) > 9999) {
 						aSheet.setColumnWidth(columnCtr, 9999);
 					}
+					// Need to set at cell level; setrowstyle does impact existing content
+					if (topRow.getCell(columnCtr) != null) {
+						topRow.getCell(columnCtr).setCellStyle(boldstyle);
+					}
 
 				}
+
 			}
 
 		}
@@ -4382,9 +4389,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		monitor.subTask(
 			"Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
 
-		FileOutputStream fileOut = new FileOutputStream(
-			folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+		FileOutputStream fileOut = new FileOutputStream(fileLocation);
 		wb.write(fileOut);
 		fileOut.close();
 		monitor.subTask(
