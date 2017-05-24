@@ -134,6 +134,7 @@ import org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct;
 import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
 import org.openhealthtools.mdht.uml.cda.consol.EncountersSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.FamilyHistorySection;
+import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
 import org.openhealthtools.mdht.uml.cda.consol.HistoryOfPastIllnessSection;
 import org.openhealthtools.mdht.uml.cda.consol.ImmunizationsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationActivity;
@@ -2055,8 +2056,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		ClinicalDocument cd = query.getEObject(ClinicalDocument.class);
 
-		if (cd != null && cd.getCode() != null) {
+		if (cd instanceof GeneralHeaderConstraints) {
+			row.createCell(offset++).setCellValue("C-CDA");
+		} else {
+			row.createCell(offset++).setCellValue("C32");
+		}
 
+		if (cd != null && cd.getCode() != null) {
 			row.createCell(offset++).setCellValue(cd.getCode().getDisplayName());
 		} else {
 			row.createCell(offset++).setCellValue("");
@@ -2345,6 +2351,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	};
 
 	static int createPatientHeader2(HSSFRow row1, HSSFRow row2, int offset) {
+		row2.createCell(offset++).setCellValue("CDA Specification");
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Software");
@@ -3840,13 +3847,16 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
-			row.createCell(offset++).setCellValue("");
 		}
+		// else {
+		// row.createCell(offset++).setCellValue("");
+		// }
 		HSSFCell cell = row.createCell(offset++);
 		cell.setCellValue(fileName);
 
-		row.createCell(offset++).setCellValue(narrativeText);
+		if (!StringUtils.isEmpty(narrativeText)) {
+			row.createCell(offset++).setCellValue(narrativeText);
+		}
 		return offset;
 	}
 
@@ -4305,12 +4315,18 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 		};
 		Collections.sort(sortedKeys, compare);
+
+		HSSFFont boldFont = wb.createFont();
+		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
 		HSSFCellStyle sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
 		sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
 		sectionstyle.setRotation((short) -90);
+		sectionstyle.setFont(boldFont);
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-		offset = 1;
+		offset = 0;
+		row1.createCell(offset++).setCellValue("File Name");
+		row1.createCell(offset++).setCellValue("Document");
 		// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
 		for (EClass sectionclass : sortedKeys) {
 
@@ -4324,6 +4340,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
 		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		// style.setFont(font);
+
+		HSSFCellStyle boldstyle = wb.createCellStyle();
+		boldstyle.setUserStyleName("BOLD");
+
+		boldstyle.setFont(boldFont);
 
 		for (IFile file : files) {
 			offset = 0;
@@ -4348,22 +4370,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (@SuppressWarnings("unused")
 		EClass sectionclass : sortedKeys) {
 			HSSFCell cell = row1.createCell(offset++);
-
-			;
 			String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
-
 			String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (files.size() + 1) + ",\"X\")";
 			cell.setCellType(HSSFCell.CELL_TYPE_FORMULA);
 			cell.setCellFormula(strFormula);
 		}
 
-		HSSFCellStyle boldstyle = wb.createCellStyle();
-		boldstyle.setUserStyleName("BOLD");
-		HSSFFont font = wb.createFont();
-		font.setBoldweight(Font.BOLDWEIGHT_BOLD);
-		boldstyle.setFont(font);
-
-		// autoSizeColumn
 		for (int sheetCtr = 0; sheetCtr < wb.getNumberOfSheets(); sheetCtr++) {
 			HSSFSheet aSheet = wb.getSheetAt(sheetCtr);
 			HSSFRow topRow = aSheet.getRow(0);
@@ -4375,8 +4387,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					if (aSheet.getColumnWidth(columnCtr) > 9999) {
 						aSheet.setColumnWidth(columnCtr, 9999);
 					}
-					// Need to set at cell level; setrowstyle does impact existing content
-					if (topRow.getCell(columnCtr) != null) {
+					// skip section sheet - different formatting
+					if (sheetCtr != 1 && topRow.getCell(columnCtr) != null) {
 						topRow.getCell(columnCtr).setCellStyle(boldstyle);
 					}
 
