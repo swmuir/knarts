@@ -623,13 +623,22 @@ public interface FHIRPackage extends EPackage {
 	int ELEMENT_DEFINITION__EXAMPLE = ELEMENT_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFINITION__COMMENT = ELEMENT_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Element Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 12;
+	int ELEMENT_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Element Definition</em>' class.
@@ -1344,6 +1353,332 @@ public interface FHIRPackage extends EPackage {
 	int ELEMENT_SLICING_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl <em>Search Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSearchParameter()
+	 * @generated
+	 */
+	int SEARCH_PARAMETER = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__ID = CONFORMANCE_RESOURCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__EXTENSION = CONFORMANCE_RESOURCE__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__URI = CONFORMANCE_RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__VERSION = CONFORMANCE_RESOURCE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__NAME = CONFORMANCE_RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__STATUS = CONFORMANCE_RESOURCE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Experimental</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__EXPERIMENTAL = CONFORMANCE_RESOURCE__EXPERIMENTAL;
+
+	/**
+	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__PUBLISHER = CONFORMANCE_RESOURCE__PUBLISHER;
+
+	/**
+	 * The feature id for the '<em><b>Contact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__CONTACT = CONFORMANCE_RESOURCE__CONTACT;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__DATE = CONFORMANCE_RESOURCE__DATE;
+
+	/**
+	 * The feature id for the '<em><b>Use Context</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__USE_CONTEXT = CONFORMANCE_RESOURCE__USE_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__COPYRIGHT = CONFORMANCE_RESOURCE__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__BASE_CLASS = CONFORMANCE_RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__JURISDICTION = CONFORMANCE_RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Purpose</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__PURPOSE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__CODE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Base</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__BASE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__TYPE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Derived From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__DERIVED_FROM = CONFORMANCE_RESOURCE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__DESCRIPTION = CONFORMANCE_RESOURCE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__EXPRESSION = CONFORMANCE_RESOURCE_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Xpath</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__XPATH = CONFORMANCE_RESOURCE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Xpath Usage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__XPATH_USAGE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__TARGET = CONFORMANCE_RESOURCE_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__COMPARATOR = CONFORMANCE_RESOURCE_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Modifier</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__MODIFIER = CONFORMANCE_RESOURCE_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Chain</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__CHAIN = CONFORMANCE_RESOURCE_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__COMPONENT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 15;
+
+	/**
+	 * The number of structural features of the '<em>Search Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_FEATURE_COUNT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 16;
+
+	/**
+	 * The number of operations of the '<em>Search Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_OPERATION_COUNT = CONFORMANCE_RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.impl.SearchParameter_ComponentClassImpl <em>Search Parameter Component Class</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.impl.SearchParameter_ComponentClassImpl
+	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSearchParameter_ComponentClass()
+	 * @generated
+	 */
+	int SEARCH_PARAMETER_COMPONENT_CLASS = 16;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_COMPONENT_CLASS__EXPRESSION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Search Parameter Component Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_COMPONENT_CLASS_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Search Parameter Component Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER_COMPONENT_CLASS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1351,7 +1686,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getDerivationKind()
 	 * @generated
 	 */
-	int DERIVATION_KIND = 15;
+	int DERIVATION_KIND = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.PropertyRepresentationKind <em>Property Representation Kind</em>}' enum.
@@ -1361,7 +1696,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getPropertyRepresentationKind()
 	 * @generated
 	 */
-	int PROPERTY_REPRESENTATION_KIND = 16;
+	int PROPERTY_REPRESENTATION_KIND = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.BindingStrengthKind <em>Binding Strength Kind</em>}' enum.
@@ -1371,7 +1706,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getBindingStrengthKind()
 	 * @generated
 	 */
-	int BINDING_STRENGTH_KIND = 17;
+	int BINDING_STRENGTH_KIND = 19;
 
 
 	/**
@@ -1382,7 +1717,7 @@ public interface FHIRPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSlicingRulesKind()
 	 * @generated
 	 */
-	int SLICING_RULES_KIND = 18;
+	int SLICING_RULES_KIND = 20;
 
 
 	/**
@@ -1788,6 +2123,17 @@ public interface FHIRPackage extends EPackage {
 	EReference getElementDefinition_Example();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getComment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comment</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.ElementDefinition#getComment()
+	 * @see #getElementDefinition()
+	 * @generated
+	 */
+	EAttribute getElementDefinition_Comment();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.ShortDescription <em>Short Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2139,6 +2485,224 @@ public interface FHIRPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElementSlicing_Base_Property();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.SearchParameter <em>Search Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Search Parameter</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter
+	 * @generated
+	 */
+	EClass getSearchParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getBase_Class()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EReference getSearchParameter_Base_Class();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getJurisdictions <em>Jurisdiction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Jurisdiction</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getJurisdictions()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EReference getSearchParameter_Jurisdiction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getPurpose <em>Purpose</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Purpose</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getPurpose()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Purpose();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getCode()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Code();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getBases <em>Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Base</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getBases()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Base();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getType()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getDerivedFrom <em>Derived From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Derived From</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getDerivedFrom()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_DerivedFrom();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getDescription()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getExpression()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Expression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getXpath <em>Xpath</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xpath</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getXpath()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Xpath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getXpathUsage <em>Xpath Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xpath Usage</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getXpathUsage()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_XpathUsage();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getTargets <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Target</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getTargets()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Target();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getComparators <em>Comparator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Comparator</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getComparators()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Comparator();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getModifiers <em>Modifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Modifier</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getModifiers()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Modifier();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getChains <em>Chain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Chain</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getChains()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Chain();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getComponents <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Component</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getComponents()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EReference getSearchParameter_Component();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass <em>Search Parameter Component Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Search Parameter Component Class</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass
+	 * @generated
+	 */
+	EClass getSearchParameter_ComponentClass();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getDefinition()
+	 * @see #getSearchParameter_ComponentClass()
+	 * @generated
+	 */
+	EReference getSearchParameter_ComponentClass_Definition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getExpression()
+	 * @see #getSearchParameter_ComponentClass()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_ComponentClass_Expression();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}'.
@@ -2510,6 +3074,14 @@ public interface FHIRPackage extends EPackage {
 		EReference ELEMENT_DEFINITION__EXAMPLE = eINSTANCE.getElementDefinition_Example();
 
 		/**
+		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_DEFINITION__COMMENT = eINSTANCE.getElementDefinition_Comment();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.ShortDescriptionImpl <em>Short Description</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2792,6 +3364,170 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_SLICING__BASE_PROPERTY = eINSTANCE.getElementSlicing_Base_Property();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl <em>Search Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSearchParameter()
+		 * @generated
+		 */
+		EClass SEARCH_PARAMETER = eINSTANCE.getSearchParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEARCH_PARAMETER__BASE_CLASS = eINSTANCE.getSearchParameter_Base_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Jurisdiction</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEARCH_PARAMETER__JURISDICTION = eINSTANCE.getSearchParameter_Jurisdiction();
+
+		/**
+		 * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__PURPOSE = eINSTANCE.getSearchParameter_Purpose();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__CODE = eINSTANCE.getSearchParameter_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Base</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__BASE = eINSTANCE.getSearchParameter_Base();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__TYPE = eINSTANCE.getSearchParameter_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Derived From</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__DERIVED_FROM = eINSTANCE.getSearchParameter_DerivedFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__DESCRIPTION = eINSTANCE.getSearchParameter_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__EXPRESSION = eINSTANCE.getSearchParameter_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Xpath</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__XPATH = eINSTANCE.getSearchParameter_Xpath();
+
+		/**
+		 * The meta object literal for the '<em><b>Xpath Usage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__XPATH_USAGE = eINSTANCE.getSearchParameter_XpathUsage();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__TARGET = eINSTANCE.getSearchParameter_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparator</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__COMPARATOR = eINSTANCE.getSearchParameter_Comparator();
+
+		/**
+		 * The meta object literal for the '<em><b>Modifier</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__MODIFIER = eINSTANCE.getSearchParameter_Modifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Chain</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__CHAIN = eINSTANCE.getSearchParameter_Chain();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEARCH_PARAMETER__COMPONENT = eINSTANCE.getSearchParameter_Component();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.SearchParameter_ComponentClassImpl <em>Search Parameter Component Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.impl.SearchParameter_ComponentClassImpl
+		 * @see org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl#getSearchParameter_ComponentClass()
+		 * @generated
+		 */
+		EClass SEARCH_PARAMETER_COMPONENT_CLASS = eINSTANCE.getSearchParameter_ComponentClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION = eINSTANCE.getSearchParameter_ComponentClass_Definition();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER_COMPONENT_CLASS__EXPRESSION = eINSTANCE.getSearchParameter_ComponentClass_Expression();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.DerivationKind <em>Derivation Kind</em>}' enum.

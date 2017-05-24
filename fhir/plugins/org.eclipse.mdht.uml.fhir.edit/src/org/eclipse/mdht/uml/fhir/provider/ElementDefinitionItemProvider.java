@@ -57,6 +57,7 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 			addFixedPropertyDescriptor(object);
 			addPatternPropertyDescriptor(object);
 			addExamplePropertyDescriptor(object);
+			addCommentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -326,6 +327,28 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Comment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementDefinition_comment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementDefinition_comment_feature", "_UI_ElementDefinition_type"),
+				 FHIRPackage.Literals.ELEMENT_DEFINITION__COMMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ElementDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +407,7 @@ public class ElementDefinitionItemProvider extends ElementItemProvider {
 			case FHIRPackage.ELEMENT_DEFINITION__IS_MODIFIER:
 			case FHIRPackage.ELEMENT_DEFINITION__IS_SUMMARY:
 			case FHIRPackage.ELEMENT_DEFINITION__REPRESENTATION:
+			case FHIRPackage.ELEMENT_DEFINITION__COMMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

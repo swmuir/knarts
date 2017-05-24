@@ -7,7 +7,7 @@ import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
-import org.eclipse.mdht.uml.fhir.types.Contact;
+import org.eclipse.mdht.uml.fhir.types.ContactDetail;
 
 /**
  * <!-- begin-user-doc -->
@@ -193,7 +193,7 @@ public interface ConformanceResource extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.types.Contact}.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.types.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contact</em>' containment reference list isn't clear,
@@ -205,7 +205,7 @@ public interface ConformanceResource extends Element {
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Contact> getContacts();
+	EList<ContactDetail> getContacts();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' attribute.

@@ -128,6 +128,14 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 				return createElementSlicingAdapter();
 			}
 			@Override
+			public Adapter caseSearchParameter(SearchParameter object) {
+				return createSearchParameterAdapter();
+			}
+			@Override
+			public Adapter caseSearchParameter_ComponentClass(SearchParameter_ComponentClass object) {
+				return createSearchParameter_ComponentClassAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -354,6 +362,34 @@ public class FHIRAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementSlicingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.SearchParameter <em>Search Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter
+	 * @generated
+	 */
+	public Adapter createSearchParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass <em>Search Parameter Component Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass
+	 * @generated
+	 */
+	public Adapter createSearchParameter_ComponentClassAdapter() {
 		return null;
 	}
 

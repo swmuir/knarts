@@ -38,7 +38,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="publisher" ordered="false"
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contact" ordered="false"
-        upperBound="-1" eType="#//types/Contact" containment="true"/>
+        upperBound="-1" eType="#//types/ContactDetail" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="useContext" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//types/CodeableConcept" containment="true"/>
@@ -78,6 +78,8 @@
         eType="#//types/DataType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="example" ordered="false"
         eType="#//types/DataType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PropertyRepresentationKind">
     <eLiterals name="xmlAttr"/>
@@ -158,6 +160,46 @@
     <eLiterals name="open" value="1"/>
     <eLiterals name="openAtEnd" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchParameter" eSuperTypes="#//ConformanceResource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jurisdiction" ordered="false"
+        upperBound="-1" eType="#//types/CodeableConcept" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedFrom" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xpath" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xpathUsage" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chain" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
+        upperBound="-1" eType="#//SearchParameter_ComponentClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchParameter_ComponentClass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//types/Reference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
   <eSubpackages name="types" nsURI="http://www.eclipse.org/mdht/schema/profile/fhir/types/1.0.0"
       nsPrefix="fhirtypes">
     <eClassifiers xsi:type="ecore:EClass" name="Extension">
@@ -187,9 +229,22 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="display" ordered="false"
           eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Contact">
+    <eClassifiers xsi:type="ecore:EClass" name="ContactDetail">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="telecom" ordered="false"
+          upperBound="-1" eType="#//types/ContactPoint"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContactPoint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" ordered="false"
+          eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+          eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" ordered="false"
+          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

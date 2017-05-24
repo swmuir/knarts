@@ -34,6 +34,8 @@ import org.eclipse.mdht.uml.fhir.FHIRFactory;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.Requirements;
+import org.eclipse.mdht.uml.fhir.SearchParameter;
+import org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass;
 import org.eclipse.mdht.uml.fhir.ShortDescription;
 import org.eclipse.mdht.uml.fhir.SlicingRulesKind;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
@@ -161,6 +163,20 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * @generated
 	 */
 	private EClass elementSlicingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass searchParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass searchParameter_ComponentClassEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -597,6 +613,15 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getElementDefinition_Comment() {
+		return (EAttribute)elementDefinitionEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getShortDescription() {
 		return shortDescriptionEClass;
 	}
@@ -894,6 +919,186 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSearchParameter() {
+		return searchParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSearchParameter_Base_Class() {
+		return (EReference)searchParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSearchParameter_Jurisdiction() {
+		return (EReference)searchParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Purpose() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Code() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Base() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Type() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_DerivedFrom() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Description() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Expression() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Xpath() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_XpathUsage() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Target() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Comparator() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Modifier() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_Chain() {
+		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSearchParameter_Component() {
+		return (EReference)searchParameterEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSearchParameter_ComponentClass() {
+		return searchParameter_ComponentClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSearchParameter_ComponentClass_Definition() {
+		return (EReference)searchParameter_ComponentClassEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSearchParameter_ComponentClass_Expression() {
+		return (EAttribute)searchParameter_ComponentClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDerivationKind() {
 		return derivationKindEEnum;
 	}
@@ -994,6 +1199,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__FIXED);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__PATTERN);
 		createEReference(elementDefinitionEClass, ELEMENT_DEFINITION__EXAMPLE);
+		createEAttribute(elementDefinitionEClass, ELEMENT_DEFINITION__COMMENT);
 
 		shortDescriptionEClass = createEClass(SHORT_DESCRIPTION);
 		createEReference(shortDescriptionEClass, SHORT_DESCRIPTION__BASE_COMMENT);
@@ -1037,6 +1243,28 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__ORDERED);
 		createEAttribute(elementSlicingEClass, ELEMENT_SLICING__RULES);
 		createEReference(elementSlicingEClass, ELEMENT_SLICING__BASE_PROPERTY);
+
+		searchParameterEClass = createEClass(SEARCH_PARAMETER);
+		createEReference(searchParameterEClass, SEARCH_PARAMETER__BASE_CLASS);
+		createEReference(searchParameterEClass, SEARCH_PARAMETER__JURISDICTION);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__PURPOSE);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__CODE);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__BASE);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__TYPE);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__DERIVED_FROM);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__DESCRIPTION);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__EXPRESSION);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__XPATH);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__XPATH_USAGE);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__TARGET);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__COMPARATOR);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__MODIFIER);
+		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__CHAIN);
+		createEReference(searchParameterEClass, SEARCH_PARAMETER__COMPONENT);
+
+		searchParameter_ComponentClassEClass = createEClass(SEARCH_PARAMETER_COMPONENT_CLASS);
+		createEReference(searchParameter_ComponentClassEClass, SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION);
+		createEAttribute(searchParameter_ComponentClassEClass, SEARCH_PARAMETER_COMPONENT_CLASS__EXPRESSION);
 
 		// Create enums
 		derivationKindEEnum = createEEnum(DERIVATION_KIND);
@@ -1086,6 +1314,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		elementDefinitionEClass.getESuperTypes().add(this.getElement());
 		valueSetEClass.getESuperTypes().add(this.getConformanceResource());
 		dataElementEClass.getESuperTypes().add(this.getConformanceResource());
+		searchParameterEClass.getESuperTypes().add(this.getConformanceResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeChoiceEClass, TypeChoice.class, "TypeChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1107,7 +1336,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getConformanceResource_Status(), theTypesPackage.getString(), "status", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Experimental(), theTypesPackage.getBoolean(), "experimental", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConformanceResource_Contact(), theFHIRTypesPackage.getContact(), null, "contact", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformanceResource_Contact(), theFHIRTypesPackage.getContactDetail(), null, "contact", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getConformanceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Copyright(), theTypesPackage.getString(), "copyright", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1129,6 +1358,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEReference(getElementDefinition_Fixed(), theFHIRTypesPackage.getDataType(), null, "fixed", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getElementDefinition_Pattern(), theFHIRTypesPackage.getDataType(), null, "pattern", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getElementDefinition_Example(), theFHIRTypesPackage.getDataType(), null, "example", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementDefinition_Comment(), theTypesPackage.getString(), "comment", null, 0, 1, ElementDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(shortDescriptionEClass, ShortDescription.class, "ShortDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShortDescription_Base_Comment(), theUMLPackage.getComment(), null, "base_Comment", null, 1, 1, ShortDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1172,6 +1402,28 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getElementSlicing_Ordered(), ecorePackage.getEBooleanObject(), "ordered", null, 0, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getElementSlicing_Rules(), this.getSlicingRulesKind(), "rules", null, 1, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getElementSlicing_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ElementSlicing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(searchParameterEClass, SearchParameter.class, "SearchParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSearchParameter_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSearchParameter_Jurisdiction(), theFHIRTypesPackage.getCodeableConcept(), null, "jurisdiction", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Purpose(), theTypesPackage.getString(), "purpose", null, 0, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Code(), theTypesPackage.getString(), "code", null, 1, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Base(), theTypesPackage.getString(), "base", null, 1, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Type(), theTypesPackage.getString(), "type", null, 1, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_DerivedFrom(), theTypesPackage.getString(), "derivedFrom", null, 0, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Description(), theTypesPackage.getString(), "description", null, 1, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Expression(), theTypesPackage.getString(), "expression", null, 0, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Xpath(), theTypesPackage.getString(), "xpath", null, 0, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_XpathUsage(), theTypesPackage.getString(), "xpathUsage", null, 0, 1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Target(), theTypesPackage.getString(), "target", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Comparator(), theTypesPackage.getString(), "comparator", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Modifier(), theTypesPackage.getString(), "modifier", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_Chain(), theTypesPackage.getString(), "chain", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSearchParameter_Component(), this.getSearchParameter_ComponentClass(), null, "component", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(searchParameter_ComponentClassEClass, SearchParameter_ComponentClass.class, "SearchParameter_ComponentClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSearchParameter_ComponentClass_Definition(), theFHIRTypesPackage.getReference(), null, "definition", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSearchParameter_ComponentClass_Expression(), theTypesPackage.getString(), "expression", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(derivationKindEEnum, DerivationKind.class, "DerivationKind");

@@ -69,7 +69,9 @@ public class FHIRTypesFactoryImpl extends EFactoryImpl implements FHIRTypesFacto
 			case FHIRTypesPackage.EXTENSION: return createExtension();
 			case FHIRTypesPackage.CODEABLE_CONCEPT: return createCodeableConcept();
 			case FHIRTypesPackage.CODING: return createCoding();
-			case FHIRTypesPackage.CONTACT: return createContact();
+			case FHIRTypesPackage.CONTACT_DETAIL: return createContactDetail();
+			case FHIRTypesPackage.CONTACT_POINT: return createContactPoint();
+			case FHIRTypesPackage.REFERENCE: return createReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,9 +112,29 @@ public class FHIRTypesFactoryImpl extends EFactoryImpl implements FHIRTypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Contact createContact() {
-		ContactImpl contact = new ContactImpl();
-		return contact;
+	public ContactDetail createContactDetail() {
+		ContactDetailImpl contactDetail = new ContactDetailImpl();
+		return contactDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContactPoint createContactPoint() {
+		ContactPointImpl contactPoint = new ContactPointImpl();
+		return contactPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference createReference() {
+		ReferenceImpl reference = new ReferenceImpl();
+		return reference;
 	}
 
 	/**

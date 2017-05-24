@@ -105,6 +105,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//ElementDefinition/pattern"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//ElementDefinition/example"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//ElementDefinition/comment"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//ShortDescription">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -159,6 +160,32 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//ElementSlicing/base_Property"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//SearchParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//SearchParameter/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference fhir.ecore#//SearchParameter/jurisdiction"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/purpose"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/code"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/base"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/type"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/derivedFrom"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/description"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/expression"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/xpath"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/xpathUsage"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/target"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/comparator"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/modifier"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter/chain"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//SearchParameter/component"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//SearchParameter_ComponentClass">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//SearchParameter_ComponentClass/definition"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//SearchParameter_ComponentClass/expression"/>
+    </genClasses>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="FHIRTypes" basePackage="org.eclipse.mdht.uml.fhir"
         disposableProviderFactory="true" ecorePackage="fhir.ecore#//types">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//types/Extension">
@@ -180,8 +207,18 @@
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/Coding/code"/>
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/Coding/display"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//types/Contact">
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/Contact/name"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//types/ContactDetail">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/ContactDetail/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference fhir.ecore#//types/ContactDetail/telecom"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/ContactDetail/id"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//types/ContactPoint">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/ContactPoint/system"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/ContactPoint/value"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="fhir.ecore#//types/Reference">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute fhir.ecore#//types/Reference/reference"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

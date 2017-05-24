@@ -55,6 +55,7 @@ import org.eclipse.uml2.uml.Property;
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getFixed <em>Fixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getExample <em>Example</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.ElementDefinitionImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -239,6 +240,26 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @ordered
 	 */
 	protected DataType example;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -630,6 +651,27 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.ELEMENT_DEFINITION__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -678,6 +720,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return getPattern();
 			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
 				return getExample();
+			case FHIRPackage.ELEMENT_DEFINITION__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -728,6 +772,9 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
 				setExample((DataType)newValue);
 				return;
+			case FHIRPackage.ELEMENT_DEFINITION__COMMENT:
+				setComment((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -776,6 +823,9 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
 				setExample((DataType)null);
 				return;
+			case FHIRPackage.ELEMENT_DEFINITION__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -812,6 +862,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return pattern != null;
 			case FHIRPackage.ELEMENT_DEFINITION__EXAMPLE:
 				return example != null;
+			case FHIRPackage.ELEMENT_DEFINITION__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -840,6 +892,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 		result.append(representations);
 		result.append(", meaningWhenMissing: ");
 		result.append(meaningWhenMissing);
+		result.append(", comment: ");
+		result.append(comment);
 		result.append(')');
 		return result.toString();
 	}

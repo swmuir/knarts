@@ -25,12 +25,14 @@ import org.eclipse.mdht.uml.fhir.impl.FHIRPackageImpl;
 
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
 import org.eclipse.mdht.uml.fhir.types.Coding;
-import org.eclipse.mdht.uml.fhir.types.Contact;
+import org.eclipse.mdht.uml.fhir.types.ContactDetail;
+import org.eclipse.mdht.uml.fhir.types.ContactPoint;
 import org.eclipse.mdht.uml.fhir.types.DataType;
 import org.eclipse.mdht.uml.fhir.types.Extension;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesFactory;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage;
 
+import org.eclipse.mdht.uml.fhir.types.Reference;
 import org.eclipse.uml2.types.TypesPackage;
 
 import org.eclipse.uml2.uml.UMLPackage;
@@ -75,7 +77,21 @@ public class FHIRTypesPackageImpl extends EPackageImpl implements FHIRTypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass contactEClass = null;
+	private EClass contactDetailEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contactPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referenceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -277,8 +293,8 @@ public class FHIRTypesPackageImpl extends EPackageImpl implements FHIRTypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getContact() {
-		return contactEClass;
+	public EClass getContactDetail() {
+		return contactDetailEClass;
 	}
 
 	/**
@@ -286,8 +302,71 @@ public class FHIRTypesPackageImpl extends EPackageImpl implements FHIRTypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getContact_Name() {
-		return (EAttribute)contactEClass.getEStructuralFeatures().get(0);
+	public EAttribute getContactDetail_Name() {
+		return (EAttribute)contactDetailEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContactDetail_Telecom() {
+		return (EReference)contactDetailEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContactDetail_Id() {
+		return (EAttribute)contactDetailEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContactPoint() {
+		return contactPointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContactPoint_System() {
+		return (EAttribute)contactPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContactPoint_Value() {
+		return (EAttribute)contactPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReference() {
+		return referenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReference_Reference() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -336,8 +415,17 @@ public class FHIRTypesPackageImpl extends EPackageImpl implements FHIRTypesPacka
 		createEAttribute(codingEClass, CODING__CODE);
 		createEAttribute(codingEClass, CODING__DISPLAY);
 
-		contactEClass = createEClass(CONTACT);
-		createEAttribute(contactEClass, CONTACT__NAME);
+		contactDetailEClass = createEClass(CONTACT_DETAIL);
+		createEAttribute(contactDetailEClass, CONTACT_DETAIL__NAME);
+		createEReference(contactDetailEClass, CONTACT_DETAIL__TELECOM);
+		createEAttribute(contactDetailEClass, CONTACT_DETAIL__ID);
+
+		contactPointEClass = createEClass(CONTACT_POINT);
+		createEAttribute(contactPointEClass, CONTACT_POINT__SYSTEM);
+		createEAttribute(contactPointEClass, CONTACT_POINT__VALUE);
+
+		referenceEClass = createEClass(REFERENCE);
+		createEAttribute(referenceEClass, REFERENCE__REFERENCE);
 	}
 
 	/**
@@ -393,8 +481,17 @@ public class FHIRTypesPackageImpl extends EPackageImpl implements FHIRTypesPacka
 		initEAttribute(getCoding_Code(), theTypesPackage.getString(), "code", null, 0, 1, Coding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCoding_Display(), theTypesPackage.getString(), "display", null, 0, 1, Coding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContact_Name(), theTypesPackage.getString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(contactDetailEClass, ContactDetail.class, "ContactDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContactDetail_Name(), theTypesPackage.getString(), "name", null, 0, 1, ContactDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getContactDetail_Telecom(), this.getContactPoint(), null, "telecom", null, 0, -1, ContactDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getContactDetail_Id(), theTypesPackage.getString(), "id", null, 0, 1, ContactDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(contactPointEClass, ContactPoint.class, "ContactPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContactPoint_System(), theTypesPackage.getString(), "system", null, 0, 1, ContactPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getContactPoint_Value(), theTypesPackage.getString(), "value", null, 0, 1, ContactPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReference_Reference(), theTypesPackage.getString(), "reference", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 	}
 
 } //FHIRTypesPackageImpl

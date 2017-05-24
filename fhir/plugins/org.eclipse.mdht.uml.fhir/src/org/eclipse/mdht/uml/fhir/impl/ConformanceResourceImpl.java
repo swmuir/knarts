@@ -22,7 +22,7 @@ import org.eclipse.mdht.uml.fhir.ConformanceResource;
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
-import org.eclipse.mdht.uml.fhir.types.Contact;
+import org.eclipse.mdht.uml.fhir.types.ContactDetail;
 
 /**
  * <!-- begin-user-doc -->
@@ -175,7 +175,7 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Contact> contacts;
+	protected EList<ContactDetail> contacts;
 
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -377,9 +377,9 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Contact> getContacts() {
+	public EList<ContactDetail> getContacts() {
 		if (contacts == null) {
-			contacts = new EObjectContainmentEList<Contact>(Contact.class, this, FHIRPackage.CONFORMANCE_RESOURCE__CONTACT);
+			contacts = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FHIRPackage.CONFORMANCE_RESOURCE__CONTACT);
 		}
 		return contacts;
 	}
@@ -515,7 +515,7 @@ public abstract class ConformanceResourceImpl extends ElementImpl implements Con
 				return;
 			case FHIRPackage.CONFORMANCE_RESOURCE__CONTACT:
 				getContacts().clear();
-				getContacts().addAll((Collection<? extends Contact>)newValue);
+				getContacts().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FHIRPackage.CONFORMANCE_RESOURCE__DATE:
 				setDate((Date)newValue);

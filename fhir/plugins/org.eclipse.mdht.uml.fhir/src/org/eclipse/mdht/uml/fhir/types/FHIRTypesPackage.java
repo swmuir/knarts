@@ -270,14 +270,14 @@ public interface FHIRTypesPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactImpl <em>Contact</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactDetailImpl <em>Contact Detail</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactImpl
-	 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContact()
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactDetailImpl
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContactDetail()
 	 * @generated
 	 */
-	int CONTACT = 4;
+	int CONTACT_DETAIL = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -286,26 +286,126 @@ public interface FHIRTypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__NAME = 0;
+	int CONTACT_DETAIL__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>Contact</em>' class.
+	 * The feature id for the '<em><b>Telecom</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT_FEATURE_COUNT = 1;
+	int CONTACT_DETAIL__TELECOM = 1;
 
 	/**
-	 * The number of operations of the '<em>Contact</em>' class.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT_OPERATION_COUNT = 0;
+	int CONTACT_DETAIL__ID = 2;
 
+	/**
+	 * The number of structural features of the '<em>Contact Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_DETAIL_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Contact Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_DETAIL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactPointImpl <em>Contact Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactPointImpl
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContactPoint()
+	 * @generated
+	 */
+	int CONTACT_POINT = 5;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_POINT__SYSTEM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_POINT__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Contact Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_POINT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Contact Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_POINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ReferenceImpl <em>Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.ReferenceImpl
+	 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getReference()
+	 * @generated
+	 */
+	int REFERENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__REFERENCE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.types.Extension <em>Extension</em>}'.
@@ -458,25 +558,100 @@ public interface FHIRTypesPackage extends EPackage {
 	EAttribute getCoding_Display();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.types.Contact <em>Contact</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail <em>Contact Detail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Contact</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.types.Contact
+	 * @return the meta object for class '<em>Contact Detail</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail
 	 * @generated
 	 */
-	EClass getContact();
+	EClass getContactDetail();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.Contact#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.mdht.uml.fhir.types.Contact#getName()
-	 * @see #getContact()
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail#getName()
+	 * @see #getContactDetail()
 	 * @generated
 	 */
-	EAttribute getContact_Name();
+	EAttribute getContactDetail_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail#getTelecoms <em>Telecom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Telecom</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail#getTelecoms()
+	 * @see #getContactDetail()
+	 * @generated
+	 */
+	EReference getContactDetail_Telecom();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail#getId()
+	 * @see #getContactDetail()
+	 * @generated
+	 */
+	EAttribute getContactDetail_Id();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.types.ContactPoint <em>Contact Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contact Point</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactPoint
+	 * @generated
+	 */
+	EClass getContactPoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.ContactPoint#getSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>System</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactPoint#getSystem()
+	 * @see #getContactPoint()
+	 * @generated
+	 */
+	EAttribute getContactPoint_System();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.ContactPoint#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactPoint#getValue()
+	 * @see #getContactPoint()
+	 * @generated
+	 */
+	EAttribute getContactPoint_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.types.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reference</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.Reference
+	 * @generated
+	 */
+	EClass getReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.fhir.types.Reference#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.types.Reference#getReference()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_Reference();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -622,14 +797,14 @@ public interface FHIRTypesPackage extends EPackage {
 		EAttribute CODING__DISPLAY = eINSTANCE.getCoding_Display();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactImpl <em>Contact</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactDetailImpl <em>Contact Detail</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactImpl
-		 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContact()
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactDetailImpl
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContactDetail()
 		 * @generated
 		 */
-		EClass CONTACT = eINSTANCE.getContact();
+		EClass CONTACT_DETAIL = eINSTANCE.getContactDetail();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -637,7 +812,67 @@ public interface FHIRTypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTACT__NAME = eINSTANCE.getContact_Name();
+		EAttribute CONTACT_DETAIL__NAME = eINSTANCE.getContactDetail_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Telecom</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTACT_DETAIL__TELECOM = eINSTANCE.getContactDetail_Telecom();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTACT_DETAIL__ID = eINSTANCE.getContactDetail_Id();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ContactPointImpl <em>Contact Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.ContactPointImpl
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getContactPoint()
+		 * @generated
+		 */
+		EClass CONTACT_POINT = eINSTANCE.getContactPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTACT_POINT__SYSTEM = eINSTANCE.getContactPoint_System();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTACT_POINT__VALUE = eINSTANCE.getContactPoint_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.types.impl.ReferenceImpl <em>Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.ReferenceImpl
+		 * @see org.eclipse.mdht.uml.fhir.types.impl.FHIRTypesPackageImpl#getReference()
+		 * @generated
+		 */
+		EClass REFERENCE = eINSTANCE.getReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__REFERENCE = eINSTANCE.getReference_Reference();
 
 	}
 

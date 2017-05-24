@@ -164,6 +164,20 @@ public class FHIRSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FHIRPackage.SEARCH_PARAMETER: {
+				SearchParameter searchParameter = (SearchParameter)theEObject;
+				T result = caseSearchParameter(searchParameter);
+				if (result == null) result = caseConformanceResource(searchParameter);
+				if (result == null) result = caseElement(searchParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS: {
+				SearchParameter_ComponentClass searchParameter_ComponentClass = (SearchParameter_ComponentClass)theEObject;
+				T result = caseSearchParameter_ComponentClass(searchParameter_ComponentClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -390,6 +404,36 @@ public class FHIRSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseElementSlicing(ElementSlicing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Search Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Search Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSearchParameter(SearchParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Search Parameter Component Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Search Parameter Component Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSearchParameter_ComponentClass(SearchParameter_ComponentClass object) {
 		return null;
 	}
 

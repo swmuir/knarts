@@ -59,13 +59,31 @@ public interface FHIRTypesFactory extends EFactory {
 	Coding createCoding();
 
 	/**
-	 * Returns a new object of class '<em>Contact</em>'.
+	 * Returns a new object of class '<em>Contact Detail</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Contact</em>'.
+	 * @return a new object of class '<em>Contact Detail</em>'.
 	 * @generated
 	 */
-	Contact createContact();
+	ContactDetail createContactDetail();
+
+	/**
+	 * Returns a new object of class '<em>Contact Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contact Point</em>'.
+	 * @generated
+	 */
+	ContactPoint createContactPoint();
+
+	/**
+	 * Returns a new object of class '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference</em>'.
+	 * @generated
+	 */
+	Reference createReference();
 
 	/**
 	 * Returns the package supported by this factory.

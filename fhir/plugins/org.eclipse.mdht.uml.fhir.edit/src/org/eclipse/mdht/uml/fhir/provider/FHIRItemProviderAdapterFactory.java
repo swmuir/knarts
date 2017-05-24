@@ -377,6 +377,52 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.SearchParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SearchParameterItemProvider searchParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.SearchParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSearchParameterAdapter() {
+		if (searchParameterItemProvider == null) {
+			searchParameterItemProvider = new SearchParameterItemProvider(this);
+		}
+
+		return searchParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SearchParameter_ComponentClassItemProvider searchParameter_ComponentClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSearchParameter_ComponentClassAdapter() {
+		if (searchParameter_ComponentClassItemProvider == null) {
+			searchParameter_ComponentClassItemProvider = new SearchParameter_ComponentClassItemProvider(this);
+		}
+
+		return searchParameter_ComponentClassItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,6 +534,8 @@ public class FHIRItemProviderAdapterFactory extends FHIRAdapterFactory implement
 		if (dataElementItemProvider != null) dataElementItemProvider.dispose();
 		if (valueSetMemberItemProvider != null) valueSetMemberItemProvider.dispose();
 		if (elementSlicingItemProvider != null) elementSlicingItemProvider.dispose();
+		if (searchParameterItemProvider != null) searchParameterItemProvider.dispose();
+		if (searchParameter_ComponentClassItemProvider != null) searchParameter_ComponentClassItemProvider.dispose();
 	}
 
 }

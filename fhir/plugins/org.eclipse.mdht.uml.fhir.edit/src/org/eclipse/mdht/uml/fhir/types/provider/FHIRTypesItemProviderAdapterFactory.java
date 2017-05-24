@@ -159,26 +159,72 @@ public class FHIRTypesItemProviderAdapterFactory extends FHIRTypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.types.Contact} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.types.ContactDetail} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContactItemProvider contactItemProvider;
+	protected ContactDetailItemProvider contactDetailItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.types.Contact}.
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.types.ContactDetail}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createContactAdapter() {
-		if (contactItemProvider == null) {
-			contactItemProvider = new ContactItemProvider(this);
+	public Adapter createContactDetailAdapter() {
+		if (contactDetailItemProvider == null) {
+			contactDetailItemProvider = new ContactDetailItemProvider(this);
 		}
 
-		return contactItemProvider;
+		return contactDetailItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.types.ContactPoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContactPointItemProvider contactPointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.types.ContactPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContactPointAdapter() {
+		if (contactPointItemProvider == null) {
+			contactPointItemProvider = new ContactPointItemProvider(this);
+		}
+
+		return contactPointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.mdht.uml.fhir.types.Reference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReferenceItemProvider referenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.mdht.uml.fhir.types.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReferenceAdapter() {
+		if (referenceItemProvider == null) {
+			referenceItemProvider = new ReferenceItemProvider(this);
+		}
+
+		return referenceItemProvider;
 	}
 
 	/**
@@ -283,7 +329,9 @@ public class FHIRTypesItemProviderAdapterFactory extends FHIRTypesAdapterFactory
 		if (extensionItemProvider != null) extensionItemProvider.dispose();
 		if (codeableConceptItemProvider != null) codeableConceptItemProvider.dispose();
 		if (codingItemProvider != null) codingItemProvider.dispose();
-		if (contactItemProvider != null) contactItemProvider.dispose();
+		if (contactDetailItemProvider != null) contactDetailItemProvider.dispose();
+		if (contactPointItemProvider != null) contactPointItemProvider.dispose();
+		if (referenceItemProvider != null) referenceItemProvider.dispose();
 	}
 
 }

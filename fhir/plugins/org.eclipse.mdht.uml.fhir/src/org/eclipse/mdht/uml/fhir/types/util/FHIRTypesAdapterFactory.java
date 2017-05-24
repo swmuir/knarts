@@ -94,8 +94,16 @@ public class FHIRTypesAdapterFactory extends AdapterFactoryImpl {
 				return createCodingAdapter();
 			}
 			@Override
-			public Adapter caseContact(Contact object) {
-				return createContactAdapter();
+			public Adapter caseContactDetail(ContactDetail object) {
+				return createContactDetailAdapter();
+			}
+			@Override
+			public Adapter caseContactPoint(ContactPoint object) {
+				return createContactPointAdapter();
+			}
+			@Override
+			public Adapter caseReference(Reference object) {
+				return createReferenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -174,16 +182,44 @@ public class FHIRTypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.types.Contact <em>Contact</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail <em>Contact Detail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.mdht.uml.fhir.types.Contact
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail
 	 * @generated
 	 */
-	public Adapter createContactAdapter() {
+	public Adapter createContactDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.types.ContactPoint <em>Contact Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.types.ContactPoint
+	 * @generated
+	 */
+	public Adapter createContactPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.fhir.types.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.fhir.types.Reference
+	 * @generated
+	 */
+	public Adapter createReferenceAdapter() {
 		return null;
 	}
 

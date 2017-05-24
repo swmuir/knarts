@@ -39,6 +39,7 @@ import org.eclipse.uml2.uml.Property;
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getFixed <em>Fixed</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getPattern <em>Pattern</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getExample <em>Example</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition()
@@ -372,5 +373,31 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setExample(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Comment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' attribute.
+	 * @see #setComment(String)
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getElementDefinition_Comment()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getComment();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.ElementDefinition#getComment <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' attribute.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(String value);
 
 } // ElementDefinition

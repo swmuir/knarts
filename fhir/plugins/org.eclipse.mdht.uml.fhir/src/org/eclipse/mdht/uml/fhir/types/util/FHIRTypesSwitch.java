@@ -102,9 +102,21 @@ public class FHIRTypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FHIRTypesPackage.CONTACT: {
-				Contact contact = (Contact)theEObject;
-				T result = caseContact(contact);
+			case FHIRTypesPackage.CONTACT_DETAIL: {
+				ContactDetail contactDetail = (ContactDetail)theEObject;
+				T result = caseContactDetail(contactDetail);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FHIRTypesPackage.CONTACT_POINT: {
+				ContactPoint contactPoint = (ContactPoint)theEObject;
+				T result = caseContactPoint(contactPoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FHIRTypesPackage.REFERENCE: {
+				Reference reference = (Reference)theEObject;
+				T result = caseReference(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -173,17 +185,47 @@ public class FHIRTypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Contact</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Contact Detail</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Contact</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Contact Detail</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContact(Contact object) {
+	public T caseContactDetail(ContactDetail object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contact Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contact Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContactPoint(ContactPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReference(Reference object) {
 		return null;
 	}
 

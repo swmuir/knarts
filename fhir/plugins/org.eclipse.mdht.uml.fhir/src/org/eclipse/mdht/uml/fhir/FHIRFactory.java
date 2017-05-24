@@ -149,6 +149,24 @@ public interface FHIRFactory extends EFactory {
 	ElementSlicing createElementSlicing();
 
 	/**
+	 * Returns a new object of class '<em>Search Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Search Parameter</em>'.
+	 * @generated
+	 */
+	SearchParameter createSearchParameter();
+
+	/**
+	 * Returns a new object of class '<em>Search Parameter Component Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Search Parameter Component Class</em>'.
+	 * @generated
+	 */
+	SearchParameter_ComponentClass createSearchParameter_ComponentClass();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

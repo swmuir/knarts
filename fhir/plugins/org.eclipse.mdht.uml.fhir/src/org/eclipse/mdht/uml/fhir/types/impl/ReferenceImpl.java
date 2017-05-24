@@ -9,49 +9,49 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.mdht.uml.fhir.types.Contact;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage;
+import org.eclipse.mdht.uml.fhir.types.Reference;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Contact</b></em>'.
+ * An implementation of the model object '<em><b>Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.mdht.uml.fhir.types.impl.ContactImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.types.impl.ReferenceImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ContactImpl extends MinimalEObjectImpl.Container implements Contact {
+public class ReferenceImpl extends MinimalEObjectImpl.Container implements Reference {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String REFERENCE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getReference() <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String reference = REFERENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContactImpl() {
+	protected ReferenceImpl() {
 		super();
 	}
 
@@ -62,7 +62,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return FHIRTypesPackage.Literals.CONTACT;
+		return FHIRTypesPackage.Literals.REFERENCE;
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getReference() {
+		return reference;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setReference(String newReference) {
+		String oldReference = reference;
+		reference = newReference;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRTypesPackage.CONTACT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRTypesPackage.REFERENCE__REFERENCE, oldReference, reference));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FHIRTypesPackage.CONTACT__NAME:
-				return getName();
+			case FHIRTypesPackage.REFERENCE__REFERENCE:
+				return getReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FHIRTypesPackage.CONTACT__NAME:
-				setName((String)newValue);
+			case FHIRTypesPackage.REFERENCE__REFERENCE:
+				setReference((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FHIRTypesPackage.CONTACT__NAME:
-				setName(NAME_EDEFAULT);
+			case FHIRTypesPackage.REFERENCE__REFERENCE:
+				setReference(REFERENCE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FHIRTypesPackage.CONTACT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case FHIRTypesPackage.REFERENCE__REFERENCE:
+				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +154,10 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (reference: ");
+		result.append(reference);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ContactImpl
+} //ReferenceImpl

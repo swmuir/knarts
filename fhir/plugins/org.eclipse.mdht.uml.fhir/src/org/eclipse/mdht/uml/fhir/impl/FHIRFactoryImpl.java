@@ -80,6 +80,8 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 			case FHIRPackage.DATA_ELEMENT: return createDataElement();
 			case FHIRPackage.VALUE_SET_MEMBER: return createValueSetMember();
 			case FHIRPackage.ELEMENT_SLICING: return createElementSlicing();
+			case FHIRPackage.SEARCH_PARAMETER: return createSearchParameter();
+			case FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS: return createSearchParameter_ComponentClass();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +257,26 @@ public class FHIRFactoryImpl extends EFactoryImpl implements FHIRFactory {
 	public ElementSlicing createElementSlicing() {
 		ElementSlicingImpl elementSlicing = new ElementSlicingImpl();
 		return elementSlicing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SearchParameter createSearchParameter() {
+		SearchParameterImpl searchParameter = new SearchParameterImpl();
+		return searchParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SearchParameter_ComponentClass createSearchParameter_ComponentClass() {
+		SearchParameter_ComponentClassImpl searchParameter_ComponentClass = new SearchParameter_ComponentClassImpl();
+		return searchParameter_ComponentClass;
 	}
 
 	/**
