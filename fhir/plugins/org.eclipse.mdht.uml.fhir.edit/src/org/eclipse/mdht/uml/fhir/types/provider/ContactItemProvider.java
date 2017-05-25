@@ -88,7 +88,7 @@ public class ContactItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Contact_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
-				 FHIRTypesPackage.Literals.CONTACT__NAME,
+				 FHIRTypesPackage.Literals.CONTACT_DETAIL__NAME,
 				 true,
 				 false,
 				 false,
@@ -149,7 +149,7 @@ public class ContactItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Contact.class)) {
-			case FHIRTypesPackage.CONTACT__NAME:
+			case FHIRTypesPackage.CONTACT_DETAIL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
