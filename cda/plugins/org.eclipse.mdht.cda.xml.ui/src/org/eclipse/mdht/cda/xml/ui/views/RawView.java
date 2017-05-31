@@ -22,6 +22,7 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.Section;
@@ -34,6 +35,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
 import org.w3c.dom.Attr;
@@ -181,10 +183,20 @@ public class RawView extends ViewPart {
 						String sectionContent = StringEscapeUtils.escapeHtml(
 							formatSection(fa.toString(), nodes, attributes, contents));
 						sectionContent = formatTagsAndAttributes(sectionContent, nodes, attributes, contents);
-
+						String filename = "";
+						if (event.item instanceof TableItem) {
+							TableItem ti = (TableItem) event.item;
+							if (!StringUtils.isEmpty(ti.getParent().getToolTipText())) {
+								filename = ti.getParent().getToolTipText();
+							}
+						}
+						String sectionTitle = "";
+						if (section.getTitle() != null && section.getTitle().getText() != null) {
+							sectionTitle = section.getTitle().getText().toUpperCase();
+						}
 						sectionContent = String.format(
-							"<html><head><style>p { text-align: center; color: red;} </style></head><body>SECTION CONTENT<br/><span style=\"color:green\"><pre>%s</pre></span></body></html>",
-							sectionContent);
+							"<html><head><style>p { text-align: center; color: red;} </style></head><body>%s SECTION CONTENT (%s)<br/><span style=\"color:green\"><pre>%s</pre></span></body></html>",
+							sectionTitle, filename, sectionContent);
 						browser.setText(sectionContent);
 					} catch (Exception e) {
 						e.printStackTrace();

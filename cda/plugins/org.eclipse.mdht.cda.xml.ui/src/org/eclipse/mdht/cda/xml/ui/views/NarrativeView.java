@@ -13,6 +13,7 @@ package org.eclipse.mdht.cda.xml.ui.views;
 
 import java.io.ByteArrayOutputStream;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
 import org.eclipse.mdht.uml.cda.CDAFactory;
@@ -26,6 +27,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
 
@@ -44,6 +46,18 @@ public class NarrativeView extends ViewPart {
 			public void handleEvent(Event event) {
 				if (event.item.getData() instanceof Section) {
 					Section section = (Section) event.item.getData();
+					String filename = "";
+					if (event.item instanceof TableItem) {
+						TableItem ti = (TableItem) event.item;
+						if (!StringUtils.isEmpty(ti.getParent().getToolTipText())) {
+							filename = ti.getParent().getToolTipText();
+						}
+					}
+
+					String sectionTitle = "";
+					if (section.getTitle() != null && section.getTitle().getText() != null) {
+						sectionTitle = section.getTitle().getText().toUpperCase();
+					}
 
 					ByteArrayOutputStream fa = new ByteArrayOutputStream();
 					;
@@ -53,7 +67,8 @@ public class NarrativeView extends ViewPart {
 					try {
 						CDAUtil.saveSnippet(EcoreUtil.copy(s), fa);
 						String a = String.format(
-							"<html><head></head><body>SECTION NARRATIVE<br/>%s</body></html>", fa).toString();
+							"<html><head></head><body>%s SECTION NARRATIVE (%s)<br/>%s</body></html>", sectionTitle,
+							filename, fa).toString();
 						browser.setText(a);
 					} catch (Exception e) {
 						e.printStackTrace();

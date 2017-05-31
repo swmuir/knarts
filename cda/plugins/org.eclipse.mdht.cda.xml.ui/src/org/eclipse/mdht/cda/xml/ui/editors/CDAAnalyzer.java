@@ -165,6 +165,8 @@ public class CDAAnalyzer extends EditorPart {
 			COMPLETED_COLUMN, DESCRIPTION_COLUMN, ENTRIES_COLUMN, TOTAL_COLUMN, ERRORS_COLUMN, WARNINGS_COLUMN,
 			INFORMATIONAL_COLUMN };
 
+	private String fileName = "";
+
 	class ViewContentProvider implements IStructuredContentProvider {
 
 		public ViewContentProvider() {
@@ -351,6 +353,13 @@ public class CDAAnalyzer extends EditorPart {
 
 		table = new Table(parent, style);
 
+		/*
+		 * Setting tool tip to file name
+		 * used in the various displays to simplify some screen shots need for analysis
+		 * If this becomes problematic, need to wrap the section in table to also include the file name
+		 */
+		table.setToolTipText(fileName);
+
 		viewer = new TableViewer(table);
 
 		viewer.setUseHashlookup(true);
@@ -519,6 +528,7 @@ public class CDAAnalyzer extends EditorPart {
 				if (cd == null) {
 					cd = CDAUtil.load(new FileInputStream(fileInput.getFile().getLocation().toOSString()));
 					setPartName(String.format("Analysis of %s", fileInput.getName()));
+					fileName = fileInput.getName();
 				}
 			} catch (FileNotFoundException e) {
 

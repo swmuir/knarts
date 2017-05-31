@@ -56,6 +56,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
 
@@ -947,9 +948,21 @@ public class EntriesView extends ViewPart {
 					DataTypeTableSwitch dataTypeTableSwitch = new DataTypeTableSwitch();
 					CDATableSwitch cdaTableSwitch = new CDATableSwitch();
 					dataTypeTableSwitch.setMargin(0);
+					String filename = "";
+					if (event.item instanceof TableItem) {
+						TableItem ti = (TableItem) event.item;
+						if (!StringUtils.isEmpty(ti.getParent().getToolTipText())) {
+							filename = ti.getParent().getToolTipText();
+						}
+					}
+					String sectionTitle = "";
+					if (section.getTitle() != null && section.getTitle().getText() != null) {
+						sectionTitle = section.getTitle().getText().toUpperCase();
+					}
 					sbe.append(
 						"<html><head><STYLE TYPE=\"text/css\"><!--TD{font-family: Arial; font-size: 8pt;}---></STYLE></head><body><table  width=\"100%\"  ><tbody>");
-					sbe.append("<tr><td>").append(cdaTableSwitch.doSwitch(section)).append("</td></tr>");
+					sbe.append("<tr><td>").append(sectionTitle + " SECTION ENTRIES (" + filename + ")<br>").append(
+						"</td></tr>");
 					String path = getPath(section);
 					TreeIterator<EObject> eAllContents = section.eAllContents();
 					while (eAllContents.hasNext()) {

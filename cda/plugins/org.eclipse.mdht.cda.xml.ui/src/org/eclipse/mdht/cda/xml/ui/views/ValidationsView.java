@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer;
@@ -33,6 +34,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
 
@@ -107,7 +109,21 @@ public class ValidationsView extends ViewPart {
 
 			public void handleEvent(Event event) {
 				if (event.item.getData() instanceof Section) {
+
+					String filename = "";
+					if (event.item instanceof TableItem) {
+						TableItem ti = (TableItem) event.item;
+						if (!StringUtils.isEmpty(ti.getParent().getToolTipText())) {
+							filename = ti.getParent().getToolTipText();
+						}
+					}
+
 					Section section = (Section) event.item.getData();
+
+					String sectionTitle = "";
+					if (section.getTitle() != null && section.getTitle().getText() != null) {
+						sectionTitle = section.getTitle().getText().toUpperCase();
+					}
 					Map<String, CDADiagnosticCounter> errorsResultMap = new HashMap<String, CDADiagnosticCounter>();
 					Map<String, CDADiagnosticCounter> warningsResultMap = new HashMap<String, CDADiagnosticCounter>();
 					Map<String, CDADiagnosticCounter> informationResultMap = new HashMap<String, CDADiagnosticCounter>();
@@ -168,7 +184,8 @@ public class ValidationsView extends ViewPart {
 					};
 
 					sb.append(
-						"<table width=\"100%\" border=\"1\"><thead><tr><th colspan=\"2\">ERRORS</th></tr><tr><th>Count</th><th>Description</th></tr></thead>");
+						"<table width=\"100%\" border=\"1\">" + sectionTitle + " SECTION VALIDATION (" + filename +
+								")<br><thead><tr><th colspan=\"2\">ERRORS</th></tr><tr><th>Count</th><th>Description</th></tr></thead>");
 
 					if (!errorsResultMap.isEmpty()) {
 
@@ -183,7 +200,7 @@ public class ValidationsView extends ViewPart {
 										cdc.getCdaDiagnosticq().getMessage() + "</small></td></tr>");
 						}
 					} else {
-						sb.append("<tr><td colspan='10'>NO ERRORS</td><tr>");
+						sb.append("<tr><td colspan='10'>NO ERRORS FOR " + filename + "</td><tr>");
 					}
 
 					sb.append("</table>");
