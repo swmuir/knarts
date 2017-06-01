@@ -67,6 +67,7 @@ import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
+import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.Extension;
@@ -1117,8 +1118,8 @@ public class ModelImporter implements ModelConstants {
 					slicedElements.put(path, null);
 					
 					ElementSlicing umlSlicing = (ElementSlicing) UMLUtil.safeApplyStereotype(property, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getElementSlicing().getName()));
-					for (org.hl7.fhir.String discriminator : fhirSlicing.getDiscriminator()) {
-						umlSlicing.getDiscriminators().add(discriminator.getValue());
+					for (ElementDefinitionDiscriminator discriminator : fhirSlicing.getDiscriminator()) {
+						umlSlicing.getDiscriminators().add(discriminator.getPath().getValue());
 					}
 					if (fhirSlicing.getDescription() != null) {
 						umlSlicing.setDescription(fhirSlicing.getDescription().getValue());
@@ -1207,9 +1208,9 @@ public class ModelImporter implements ModelConstants {
 			// assure that definition is first comment, for display in UML tooling
 			umlElement.getOwnedComments().move(0, comment);
 		}
-		if (elementDef.getComments() != null) {
+		if (elementDef.getComment() != null) {
 			Comment comment = umlElement.createOwnedComment();
-			comment.setBody(elementDef.getComments().getValue());
+			comment.setBody(elementDef.getComment().getValue());
 			UMLUtil.safeApplyStereotype(comment, fhirProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getComments().getName()));
 		}
 		if (elementDef.getRequirements() != null) {
@@ -1426,7 +1427,7 @@ public class ModelImporter implements ModelConstants {
 		}
 		
 		if (elementDef.getMin() != null) {
-			lower = elementDef.getMin().getValue();
+			lower = elementDef.getMin().getValue().intValue();
 		}
 		if (elementDef.getMax() != null) {
 			String max = elementDef.getMax().getValue();
