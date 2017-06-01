@@ -13,6 +13,7 @@ import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Informant12;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Participant2;
@@ -58,6 +59,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl#getMoodCode <em>Mood Code</em>}</li>
@@ -255,6 +257,16 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 	 * @ordered
 	 */
 	protected EList<Precondition> preconditions;
+
+	/**
+	 * The cached value of the '{@link #getInFulfillmentOf1s() <em>In Fulfillment Of1</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInFulfillmentOf1s()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InFulfillmentOf1> inFulfillmentOf1s;
 
 	/**
 	 * The default value of the '{@link #getNullFlavor() <em>Null Flavor</em>}' attribute.
@@ -905,6 +917,19 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<InFulfillmentOf1> getInFulfillmentOf1s() {
+		if (inFulfillmentOf1s == null) {
+			inFulfillmentOf1s = new EObjectContainmentEList<InFulfillmentOf1>(
+				InFulfillmentOf1.class, this, CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1);
+		}
+		return inFulfillmentOf1s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NullFlavor getNullFlavor() {
 		return nullFlavor;
@@ -1116,6 +1141,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENCOUNTER__PRECONDITION:
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
+			case CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1:
+				return ((InternalEList<?>) getInFulfillmentOf1s()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1166,6 +1193,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return getReferences();
 			case CDAPackage.ENCOUNTER__PRECONDITION:
 				return getPreconditions();
+			case CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1:
+				return getInFulfillmentOf1s();
 			case CDAPackage.ENCOUNTER__NULL_FLAVOR:
 				return getNullFlavor();
 			case CDAPackage.ENCOUNTER__CLASS_CODE:
@@ -1254,6 +1283,10 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				getPreconditions().clear();
 				getPreconditions().addAll((Collection<? extends Precondition>) newValue);
 				return;
+			case CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				getInFulfillmentOf1s().addAll((Collection<? extends InFulfillmentOf1>) newValue);
+				return;
 			case CDAPackage.ENCOUNTER__NULL_FLAVOR:
 				setNullFlavor((NullFlavor) newValue);
 				return;
@@ -1332,6 +1365,9 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 			case CDAPackage.ENCOUNTER__PRECONDITION:
 				getPreconditions().clear();
 				return;
+			case CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				return;
 			case CDAPackage.ENCOUNTER__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
@@ -1391,6 +1427,8 @@ public class EncounterImpl extends ClinicalStatementImpl implements Encounter {
 				return references != null && !references.isEmpty();
 			case CDAPackage.ENCOUNTER__PRECONDITION:
 				return preconditions != null && !preconditions.isEmpty();
+			case CDAPackage.ENCOUNTER__IN_FULFILLMENT_OF1:
+				return inFulfillmentOf1s != null && !inFulfillmentOf1s.isEmpty();
 			case CDAPackage.ENCOUNTER__NULL_FLAVOR:
 				return isSetNullFlavor();
 			case CDAPackage.ENCOUNTER__CLASS_CODE:

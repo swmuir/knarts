@@ -52,6 +52,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentProcedureMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Procedure#getMoodCode <em>Mood Code</em>}</li>
@@ -75,7 +76,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -92,7 +93,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -119,7 +120,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -136,7 +137,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -153,7 +154,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setCode(CD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CD getCode();
@@ -180,7 +181,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setText(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getText();
@@ -207,7 +208,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setStatusCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_StatusCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getStatusCode();
@@ -234,7 +235,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setEffectiveTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_EffectiveTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getEffectiveTime();
@@ -261,7 +262,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setPriorityCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_PriorityCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getPriorityCode();
@@ -288,7 +289,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -315,7 +316,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Method Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_MethodCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CE> getMethodCodes();
@@ -332,7 +333,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Approach Site Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_ApproachSiteCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CD> getApproachSiteCodes();
@@ -349,7 +350,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Target Site Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_TargetSiteCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CD> getTargetSiteCodes();
@@ -366,7 +367,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -410,7 +411,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -427,7 +428,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -444,7 +445,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -461,7 +462,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -478,7 +479,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();
@@ -495,7 +496,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -512,10 +513,27 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();
+
+	/**
+	 * Returns the value of the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.cda.InFulfillmentOf1}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Fulfillment Of1</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Fulfillment Of1</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_InFulfillmentOf1()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<InFulfillmentOf1> getInFulfillmentOf1s();
 
 	/**
 	 * Returns the value of the '<em><b>Null Flavor</b></em>' attribute.

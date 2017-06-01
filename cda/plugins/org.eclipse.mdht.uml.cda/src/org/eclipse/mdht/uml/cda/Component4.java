@@ -35,6 +35,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getTypeId <em>Type Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getTemplateIds <em>Template Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getSequenceNumber <em>Sequence Number</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getPriorityNumber <em>Priority Number</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getSeperatableInd <em>Seperatable Ind</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getAct <em>Act</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Component4#getEncounter <em>Encounter</em>}</li>
@@ -67,7 +68,7 @@ public interface Component4 extends ActRelationship {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -84,7 +85,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -111,7 +112,7 @@ public interface Component4 extends ActRelationship {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -128,7 +129,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setSequenceNumber(INT)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_SequenceNumber()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	INT getSequenceNumber();
@@ -144,6 +145,33 @@ public interface Component4 extends ActRelationship {
 	void setSequenceNumber(INT value);
 
 	/**
+	 * Returns the value of the '<em><b>Priority Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Priority Number</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Priority Number</em>' containment reference.
+	 * @see #setPriorityNumber(INT)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_PriorityNumber()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	INT getPriorityNumber();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.Component4#getPriorityNumber <em>Priority Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority Number</em>' containment reference.
+	 * @see #getPriorityNumber()
+	 * @generated
+	 */
+	void setPriorityNumber(INT value);
+
+	/**
 	 * Returns the value of the '<em><b>Seperatable Ind</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -155,7 +183,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setSeperatableInd(BL)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_SeperatableInd()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	BL getSeperatableInd();

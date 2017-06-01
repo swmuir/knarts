@@ -32,6 +32,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getTypeId <em>Type Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getTemplateIds <em>Template Id</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getCode <em>Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getAddrs <em>Addr</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getTelecoms <em>Telecom</em>}</li>
@@ -57,7 +58,7 @@ public interface RelatedSubject extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -74,7 +75,7 @@ public interface RelatedSubject extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -101,10 +102,37 @@ public interface RelatedSubject extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' containment reference.
+	 * @see #setId(II)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_Id()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	II getId();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.RelatedSubject#getId <em>Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' containment reference.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(II value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -118,7 +146,7 @@ public interface RelatedSubject extends Role {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -145,7 +173,7 @@ public interface RelatedSubject extends Role {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -162,7 +190,7 @@ public interface RelatedSubject extends Role {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -210,6 +238,7 @@ public interface RelatedSubject extends Role {
 	 * @see #setNullFlavor(NullFlavor)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_NullFlavor()
 	 * @model unsettable="true" ordered="false"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	NullFlavor getNullFlavor();
@@ -267,6 +296,7 @@ public interface RelatedSubject extends Role {
 	 * @see #setClassCode(x_DocumentSubject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_ClassCode()
 	 * @model default="PRS" unsettable="true" ordered="false"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	x_DocumentSubject getClassCode();

@@ -44,6 +44,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getRealmCodes <em>Realm Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getTypeId <em>Type Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getTemplateIds <em>Template Id</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getAddrs <em>Addr</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getTelecoms <em>Telecom</em>}</li>
@@ -84,6 +85,16 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	 * @ordered
 	 */
 	protected EList<II> templateIds;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected II id;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -283,6 +294,60 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 			templateIds = new EObjectContainmentEList<II>(II.class, this, CDAPackage.RELATED_SUBJECT__TEMPLATE_ID);
 		}
 		return templateIds;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public II getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetId(II newId, NotificationChain msgs) {
+		II oldId = id;
+		id = newId;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, oldId, newId);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(II newId) {
+		if (newId != id) {
+			NotificationChain msgs = null;
+			if (id != null) {
+				msgs = ((InternalEObject) id).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
+			}
+			if (newId != null) {
+				msgs = ((InternalEObject) newId).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
+			}
+			msgs = basicSetId(newId, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, newId, newId));
+		}
 	}
 
 	/**
@@ -547,6 +612,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+			case CDAPackage.RELATED_SUBJECT__ID:
+				return basicSetId(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__ADDR:
@@ -573,6 +640,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				return getTypeId();
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				return getTemplateIds();
+			case CDAPackage.RELATED_SUBJECT__ID:
+				return getId();
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				return getCode();
 			case CDAPackage.RELATED_SUBJECT__ADDR:
@@ -608,6 +677,9 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				getTemplateIds().clear();
 				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				return;
+			case CDAPackage.RELATED_SUBJECT__ID:
+				setId((II) newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				setCode((CE) newValue);
@@ -650,6 +722,9 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				getTemplateIds().clear();
 				return;
+			case CDAPackage.RELATED_SUBJECT__ID:
+				setId((II) null);
+				return;
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				setCode((CE) null);
 				return;
@@ -686,6 +761,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				return typeId != null;
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				return templateIds != null && !templateIds.isEmpty();
+			case CDAPackage.RELATED_SUBJECT__ID:
+				return id != null;
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				return code != null;
 			case CDAPackage.RELATED_SUBJECT__ADDR:

@@ -588,6 +588,20 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass inFulfillmentOf1EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass observationMediaEClass = null;
 
 	/**
@@ -5681,7 +5695,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelatedSubject_Code() {
+	public EReference getRelatedSubject_Id() {
 		return (EReference) getRelatedSubject().getEStructuralFeatures().get(3);
 	}
 
@@ -5690,7 +5704,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelatedSubject_Addr() {
+	public EReference getRelatedSubject_Code() {
 		return (EReference) getRelatedSubject().getEStructuralFeatures().get(4);
 	}
 
@@ -5699,7 +5713,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelatedSubject_Telecom() {
+	public EReference getRelatedSubject_Addr() {
 		return (EReference) getRelatedSubject().getEStructuralFeatures().get(5);
 	}
 
@@ -5708,7 +5722,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelatedSubject_Subject() {
+	public EReference getRelatedSubject_Telecom() {
 		return (EReference) getRelatedSubject().getEStructuralFeatures().get(6);
 	}
 
@@ -5717,8 +5731,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRelatedSubject_Subject() {
+		return (EReference) getRelatedSubject().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getRelatedSubject_NullFlavor() {
-		return (EAttribute) getRelatedSubject().getEStructuralFeatures().get(7);
+		return (EAttribute) getRelatedSubject().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -5727,7 +5750,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedSubject_ClassCode() {
-		return (EAttribute) getRelatedSubject().getEStructuralFeatures().get(8);
+		return (EAttribute) getRelatedSubject().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -6195,8 +6218,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAct_ClassCode() {
-		return (EAttribute) getAct().getEStructuralFeatures().get(20);
+	public EReference getAct_InFulfillmentOf1() {
+		return (EReference) getAct().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -6204,7 +6227,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAct_MoodCode() {
+	public EAttribute getAct_ClassCode() {
 		return (EAttribute) getAct().getEStructuralFeatures().get(21);
 	}
 
@@ -6213,8 +6236,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAct_NegationInd() {
+	public EAttribute getAct_MoodCode() {
 		return (EAttribute) getAct().getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAct_NegationInd() {
+		return (EAttribute) getAct().getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -7337,8 +7369,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_NullFlavor() {
-		return (EAttribute) getEncounter().getEStructuralFeatures().get(19);
+	public EReference getEncounter_InFulfillmentOf1() {
+		return (EReference) getEncounter().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -7346,7 +7378,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_ClassCode() {
+	public EAttribute getEncounter_NullFlavor() {
 		return (EAttribute) getEncounter().getEStructuralFeatures().get(20);
 	}
 
@@ -7355,8 +7387,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEncounter_MoodCode() {
+	public EAttribute getEncounter_ClassCode() {
 		return (EAttribute) getEncounter().getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEncounter_MoodCode() {
+		return (EAttribute) getEncounter().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -8314,6 +8355,15 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getObservation_InFulfillmentOf1() {
+		return (EReference) getObservation().getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReferenceRange() {
 		if (referenceRangeEClass == null) {
 			referenceRangeEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
@@ -8484,10 +8534,153 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInFulfillmentOf1() {
+		if (inFulfillmentOf1EClass == null) {
+			inFulfillmentOf1EClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
+				CDAPackage.eNS_URI).getEClassifiers().get(77);
+		}
+		return inFulfillmentOf1EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInFulfillmentOf1_RealmCode() {
+		return (EReference) getInFulfillmentOf1().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInFulfillmentOf1_TypeId() {
+		return (EReference) getInFulfillmentOf1().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInFulfillmentOf1_TemplateId() {
+		return (EReference) getInFulfillmentOf1().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInFulfillmentOf1_NullFlavor() {
+		return (EAttribute) getInFulfillmentOf1().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInFulfillmentOf1_TypeCode() {
+		return (EAttribute) getInFulfillmentOf1().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInFulfillmentOf1_ActReference() {
+		return (EReference) getInFulfillmentOf1().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActReference() {
+		if (actReferenceEClass == null) {
+			actReferenceEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
+				CDAPackage.eNS_URI).getEClassifiers().get(78);
+		}
+		return actReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActReference_RealmCode() {
+		return (EReference) getActReference().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActReference_TypeId() {
+		return (EReference) getActReference().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActReference_TemplateId() {
+		return (EReference) getActReference().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActReference_Id() {
+		return (EReference) getActReference().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActReference_ClassCode() {
+		return (EAttribute) getActReference().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActReference_MoodCode() {
+		return (EAttribute) getActReference().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActReference_DeterminerCode() {
+		return (EAttribute) getActReference().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getObservationMedia() {
 		if (observationMediaEClass == null) {
 			observationMediaEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(77);
+				CDAPackage.eNS_URI).getEClassifiers().get(79);
 		}
 		return observationMediaEClass;
 	}
@@ -8671,7 +8864,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getOrganizer() {
 		if (organizerEClass == null) {
 			organizerEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(CDAPackage.eNS_URI).getEClassifiers().get(
-				78);
+				80);
 		}
 		return organizerEClass;
 	}
@@ -8855,7 +9048,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getComponent4() {
 		if (component4EClass == null) {
 			component4EClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(79);
+				CDAPackage.eNS_URI).getEClassifiers().get(81);
 		}
 		return component4EClass;
 	}
@@ -8901,7 +9094,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_SeperatableInd() {
+	public EReference getComponent4_PriorityNumber() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(4);
 	}
 
@@ -8910,7 +9103,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Act() {
+	public EReference getComponent4_SeperatableInd() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(5);
 	}
 
@@ -8919,7 +9112,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Encounter() {
+	public EReference getComponent4_Act() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(6);
 	}
 
@@ -8928,7 +9121,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Observation() {
+	public EReference getComponent4_Encounter() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(7);
 	}
 
@@ -8937,7 +9130,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_ObservationMedia() {
+	public EReference getComponent4_Observation() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(8);
 	}
 
@@ -8946,7 +9139,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Organizer() {
+	public EReference getComponent4_ObservationMedia() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(9);
 	}
 
@@ -8955,7 +9148,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Procedure() {
+	public EReference getComponent4_Organizer() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(10);
 	}
 
@@ -8964,7 +9157,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_RegionOfInterest() {
+	public EReference getComponent4_Procedure() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(11);
 	}
 
@@ -8973,7 +9166,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_SubstanceAdministration() {
+	public EReference getComponent4_RegionOfInterest() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(12);
 	}
 
@@ -8982,7 +9175,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent4_Supply() {
+	public EReference getComponent4_SubstanceAdministration() {
 		return (EReference) getComponent4().getEStructuralFeatures().get(13);
 	}
 
@@ -8991,8 +9184,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent4_NullFlavor() {
-		return (EAttribute) getComponent4().getEStructuralFeatures().get(14);
+	public EReference getComponent4_Supply() {
+		return (EReference) getComponent4().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -9000,7 +9193,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent4_TypeCode() {
+	public EAttribute getComponent4_NullFlavor() {
 		return (EAttribute) getComponent4().getEStructuralFeatures().get(15);
 	}
 
@@ -9009,8 +9202,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent4_ContextConductionInd() {
+	public EAttribute getComponent4_TypeCode() {
 		return (EAttribute) getComponent4().getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent4_ContextConductionInd() {
+		return (EAttribute) getComponent4().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -9021,7 +9223,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getProcedure() {
 		if (procedureEClass == null) {
 			procedureEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(CDAPackage.eNS_URI).getEClassifiers().get(
-				80);
+				82);
 		}
 		return procedureEClass;
 	}
@@ -9229,8 +9431,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcedure_NullFlavor() {
-		return (EAttribute) getProcedure().getEStructuralFeatures().get(22);
+	public EReference getProcedure_InFulfillmentOf1() {
+		return (EReference) getProcedure().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -9238,7 +9440,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcedure_ClassCode() {
+	public EAttribute getProcedure_NullFlavor() {
 		return (EAttribute) getProcedure().getEStructuralFeatures().get(23);
 	}
 
@@ -9247,7 +9449,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcedure_MoodCode() {
+	public EAttribute getProcedure_ClassCode() {
 		return (EAttribute) getProcedure().getEStructuralFeatures().get(24);
 	}
 
@@ -9256,8 +9458,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcedure_NegationInd() {
+	public EAttribute getProcedure_MoodCode() {
 		return (EAttribute) getProcedure().getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProcedure_NegationInd() {
+		return (EAttribute) getProcedure().getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -9268,7 +9479,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getRegionOfInterest() {
 		if (regionOfInterestEClass == null) {
 			regionOfInterestEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(81);
+				CDAPackage.eNS_URI).getEClassifiers().get(83);
 		}
 		return regionOfInterestEClass;
 	}
@@ -9452,7 +9663,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getRegionOfInterestValue() {
 		if (regionOfInterestValueEClass == null) {
 			regionOfInterestValueEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(82);
+				CDAPackage.eNS_URI).getEClassifiers().get(84);
 		}
 		return regionOfInterestValueEClass;
 	}
@@ -9474,7 +9685,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getSubstanceAdministration() {
 		if (substanceAdministrationEClass == null) {
 			substanceAdministrationEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(83);
+				CDAPackage.eNS_URI).getEClassifiers().get(85);
 		}
 		return substanceAdministrationEClass;
 	}
@@ -9718,8 +9929,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubstanceAdministration_NullFlavor() {
-		return (EAttribute) getSubstanceAdministration().getEStructuralFeatures().get(26);
+	public EReference getSubstanceAdministration_InFulfillmentOf1() {
+		return (EReference) getSubstanceAdministration().getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -9727,7 +9938,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubstanceAdministration_ClassCode() {
+	public EAttribute getSubstanceAdministration_NullFlavor() {
 		return (EAttribute) getSubstanceAdministration().getEStructuralFeatures().get(27);
 	}
 
@@ -9736,7 +9947,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubstanceAdministration_MoodCode() {
+	public EAttribute getSubstanceAdministration_ClassCode() {
 		return (EAttribute) getSubstanceAdministration().getEStructuralFeatures().get(28);
 	}
 
@@ -9745,8 +9956,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubstanceAdministration_NegationInd() {
+	public EAttribute getSubstanceAdministration_MoodCode() {
 		return (EAttribute) getSubstanceAdministration().getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubstanceAdministration_NegationInd() {
+		return (EAttribute) getSubstanceAdministration().getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -9757,7 +9977,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getConsumable() {
 		if (consumableEClass == null) {
 			consumableEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(84);
+				CDAPackage.eNS_URI).getEClassifiers().get(86);
 		}
 		return consumableEClass;
 	}
@@ -9824,7 +10044,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getManufacturedProduct() {
 		if (manufacturedProductEClass == null) {
 			manufacturedProductEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(85);
+				CDAPackage.eNS_URI).getEClassifiers().get(87);
 		}
 		return manufacturedProductEClass;
 	}
@@ -9918,7 +10138,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getLabeledDrug() {
 		if (labeledDrugEClass == null) {
 			labeledDrugEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(86);
+				CDAPackage.eNS_URI).getEClassifiers().get(88);
 		}
 		return labeledDrugEClass;
 	}
@@ -10003,7 +10223,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getMaterial() {
 		if (materialEClass == null) {
 			materialEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(CDAPackage.eNS_URI).getEClassifiers().get(
-				87);
+				89);
 		}
 		return materialEClass;
 	}
@@ -10097,7 +10317,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getSupply() {
 		if (supplyEClass == null) {
 			supplyEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(CDAPackage.eNS_URI).getEClassifiers().get(
-				88);
+				90);
 		}
 		return supplyEClass;
 	}
@@ -10314,8 +10534,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupply_NullFlavor() {
-		return (EAttribute) getSupply().getEStructuralFeatures().get(23);
+	public EReference getSupply_InFulfillmentOf1() {
+		return (EReference) getSupply().getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -10323,7 +10543,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupply_ClassCode() {
+	public EAttribute getSupply_NullFlavor() {
 		return (EAttribute) getSupply().getEStructuralFeatures().get(24);
 	}
 
@@ -10332,8 +10552,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupply_MoodCode() {
+	public EAttribute getSupply_ClassCode() {
 		return (EAttribute) getSupply().getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSupply_MoodCode() {
+		return (EAttribute) getSupply().getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -10344,7 +10573,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getProduct() {
 		if (productEClass == null) {
 			productEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(CDAPackage.eNS_URI).getEClassifiers().get(
-				89);
+				91);
 		}
 		return productEClass;
 	}
@@ -10411,7 +10640,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getComponent5() {
 		if (component5EClass == null) {
 			component5EClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(90);
+				CDAPackage.eNS_URI).getEClassifiers().get(92);
 		}
 		return component5EClass;
 	}
@@ -10487,7 +10716,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getDocumentRoot() {
 		if (documentRootEClass == null) {
 			documentRootEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(91);
+				CDAPackage.eNS_URI).getEClassifiers().get(93);
 		}
 		return documentRootEClass;
 	}
@@ -10536,7 +10765,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	public EClass getRegistryDelegate() {
 		if (registryDelegateEClass == null) {
 			registryDelegateEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
-				CDAPackage.eNS_URI).getEClassifiers().get(92);
+				CDAPackage.eNS_URI).getEClassifiers().get(94);
 		}
 		return registryDelegateEClass;
 	}

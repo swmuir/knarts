@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Informant12;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Participant2;
@@ -72,6 +73,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentProcedureMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl#getMoodCode <em>Mood Code</em>}</li>
@@ -300,6 +302,16 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 	 * @ordered
 	 */
 	protected EList<Precondition> preconditions;
+
+	/**
+	 * The cached value of the '{@link #getInFulfillmentOf1s() <em>In Fulfillment Of1</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInFulfillmentOf1s()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InFulfillmentOf1> inFulfillmentOf1s;
 
 	/**
 	 * The default value of the '{@link #getNullFlavor() <em>Null Flavor</em>}' attribute.
@@ -1059,6 +1071,19 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<InFulfillmentOf1> getInFulfillmentOf1s() {
+		if (inFulfillmentOf1s == null) {
+			inFulfillmentOf1s = new EObjectContainmentEList<InFulfillmentOf1>(
+				InFulfillmentOf1.class, this, CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1);
+		}
+		return inFulfillmentOf1s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NullFlavor getNullFlavor() {
 		return nullFlavor;
@@ -1331,6 +1356,8 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PROCEDURE__PRECONDITION:
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
+			case CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1:
+				return ((InternalEList<?>) getInFulfillmentOf1s()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1387,6 +1414,8 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 				return getReferences();
 			case CDAPackage.PROCEDURE__PRECONDITION:
 				return getPreconditions();
+			case CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1:
+				return getInFulfillmentOf1s();
 			case CDAPackage.PROCEDURE__NULL_FLAVOR:
 				return getNullFlavor();
 			case CDAPackage.PROCEDURE__CLASS_CODE:
@@ -1488,6 +1517,10 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 				getPreconditions().clear();
 				getPreconditions().addAll((Collection<? extends Precondition>) newValue);
 				return;
+			case CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				getInFulfillmentOf1s().addAll((Collection<? extends InFulfillmentOf1>) newValue);
+				return;
 			case CDAPackage.PROCEDURE__NULL_FLAVOR:
 				setNullFlavor((NullFlavor) newValue);
 				return;
@@ -1578,6 +1611,9 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 			case CDAPackage.PROCEDURE__PRECONDITION:
 				getPreconditions().clear();
 				return;
+			case CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				return;
 			case CDAPackage.PROCEDURE__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
@@ -1646,6 +1682,8 @@ public class ProcedureImpl extends ClinicalStatementImpl implements Procedure {
 				return references != null && !references.isEmpty();
 			case CDAPackage.PROCEDURE__PRECONDITION:
 				return preconditions != null && !preconditions.isEmpty();
+			case CDAPackage.PROCEDURE__IN_FULFILLMENT_OF1:
+				return inFulfillmentOf1s != null && !inFulfillmentOf1s.isEmpty();
 			case CDAPackage.PROCEDURE__NULL_FLAVOR:
 				return isSetNullFlavor();
 			case CDAPackage.PROCEDURE__CLASS_CODE:

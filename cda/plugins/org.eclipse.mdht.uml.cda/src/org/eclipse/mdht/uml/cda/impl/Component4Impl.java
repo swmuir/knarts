@@ -55,6 +55,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getTypeId <em>Type Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getTemplateIds <em>Template Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getSequenceNumber <em>Sequence Number</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getPriorityNumber <em>Priority Number</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getSeperatableInd <em>Seperatable Ind</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getAct <em>Act</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Component4Impl#getEncounter <em>Encounter</em>}</li>
@@ -112,6 +113,16 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 	 * @ordered
 	 */
 	protected INT sequenceNumber;
+
+	/**
+	 * The cached value of the '{@link #getPriorityNumber() <em>Priority Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriorityNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected INT priorityNumber;
 
 	/**
 	 * The cached value of the '{@link #getSeperatableInd() <em>Seperatable Ind</em>}' containment reference.
@@ -455,6 +466,63 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 				new ENotificationImpl(
 					this, Notification.SET, CDAPackage.COMPONENT4__SEQUENCE_NUMBER, newSequenceNumber,
 					newSequenceNumber));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public INT getPriorityNumber() {
+		return priorityNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriorityNumber(INT newPriorityNumber, NotificationChain msgs) {
+		INT oldPriorityNumber = priorityNumber;
+		priorityNumber = newPriorityNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.COMPONENT4__PRIORITY_NUMBER, oldPriorityNumber, newPriorityNumber);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriorityNumber(INT newPriorityNumber) {
+		if (newPriorityNumber != priorityNumber) {
+			NotificationChain msgs = null;
+			if (priorityNumber != null) {
+				msgs = ((InternalEObject) priorityNumber).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.COMPONENT4__PRIORITY_NUMBER, null, msgs);
+			}
+			if (newPriorityNumber != null) {
+				msgs = ((InternalEObject) newPriorityNumber).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.COMPONENT4__PRIORITY_NUMBER, null, msgs);
+			}
+			msgs = basicSetPriorityNumber(newPriorityNumber, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.COMPONENT4__PRIORITY_NUMBER, newPriorityNumber,
+					newPriorityNumber));
 		}
 	}
 
@@ -1232,6 +1300,8 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.COMPONENT4__SEQUENCE_NUMBER:
 				return basicSetSequenceNumber(null, msgs);
+			case CDAPackage.COMPONENT4__PRIORITY_NUMBER:
+				return basicSetPriorityNumber(null, msgs);
 			case CDAPackage.COMPONENT4__SEPERATABLE_IND:
 				return basicSetSeperatableInd(null, msgs);
 			case CDAPackage.COMPONENT4__ACT:
@@ -1272,6 +1342,8 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 				return getTemplateIds();
 			case CDAPackage.COMPONENT4__SEQUENCE_NUMBER:
 				return getSequenceNumber();
+			case CDAPackage.COMPONENT4__PRIORITY_NUMBER:
+				return getPriorityNumber();
 			case CDAPackage.COMPONENT4__SEPERATABLE_IND:
 				return getSeperatableInd();
 			case CDAPackage.COMPONENT4__ACT:
@@ -1324,6 +1396,9 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 				return;
 			case CDAPackage.COMPONENT4__SEQUENCE_NUMBER:
 				setSequenceNumber((INT) newValue);
+				return;
+			case CDAPackage.COMPONENT4__PRIORITY_NUMBER:
+				setPriorityNumber((INT) newValue);
 				return;
 			case CDAPackage.COMPONENT4__SEPERATABLE_IND:
 				setSeperatableInd((BL) newValue);
@@ -1388,6 +1463,9 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 			case CDAPackage.COMPONENT4__SEQUENCE_NUMBER:
 				setSequenceNumber((INT) null);
 				return;
+			case CDAPackage.COMPONENT4__PRIORITY_NUMBER:
+				setPriorityNumber((INT) null);
+				return;
 			case CDAPackage.COMPONENT4__SEPERATABLE_IND:
 				setSeperatableInd((BL) null);
 				return;
@@ -1447,6 +1525,8 @@ public class Component4Impl extends ActRelationshipImpl implements Component4 {
 				return templateIds != null && !templateIds.isEmpty();
 			case CDAPackage.COMPONENT4__SEQUENCE_NUMBER:
 				return sequenceNumber != null;
+			case CDAPackage.COMPONENT4__PRIORITY_NUMBER:
+				return priorityNumber != null;
 			case CDAPackage.COMPONENT4__SEPERATABLE_IND:
 				return seperatableInd != null;
 			case CDAPackage.COMPONENT4__ACT:

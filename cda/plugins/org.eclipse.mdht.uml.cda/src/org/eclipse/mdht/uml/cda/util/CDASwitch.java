@@ -13,6 +13,7 @@ package org.eclipse.mdht.uml.cda.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.mdht.uml.cda.*;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.AssignedCustodian;
@@ -1237,6 +1238,28 @@ public class CDASwitch<T> extends Switch<T> {
 				if (result == null) {
 					result = caseInfrastructureRoot(observationRange);
 				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case CDAPackage.IN_FULFILLMENT_OF1: {
+				InFulfillmentOf1 inFulfillmentOf1 = (InFulfillmentOf1) theEObject;
+				T result = caseInFulfillmentOf1(inFulfillmentOf1);
+				if (result == null) {
+					result = caseActRelationship(inFulfillmentOf1);
+				}
+				if (result == null) {
+					result = caseInfrastructureRoot(inFulfillmentOf1);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case CDAPackage.ACT_REFERENCE: {
+				ActReference actReference = (ActReference) theEObject;
+				T result = caseActReference(actReference);
 				if (result == null) {
 					result = defaultCase(theEObject);
 				}
@@ -2632,6 +2655,36 @@ public class CDASwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObservationRange(ObservationRange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>In Fulfillment Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>In Fulfillment Of1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInFulfillmentOf1(InFulfillmentOf1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Act Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Act Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActReference(ActReference object) {
 		return null;
 	}
 

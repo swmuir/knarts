@@ -5330,13 +5330,22 @@ public interface CDAPackage extends EPackage {
 	int RELATED_SUBJECT__TEMPLATE_ID = RIMPackage.ROLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATED_SUBJECT__ID = RIMPackage.ROLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__CODE = RIMPackage.ROLE_FEATURE_COUNT + 3;
+	int RELATED_SUBJECT__CODE = RIMPackage.ROLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Addr</b></em>' containment reference list.
@@ -5345,7 +5354,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__ADDR = RIMPackage.ROLE_FEATURE_COUNT + 4;
+	int RELATED_SUBJECT__ADDR = RIMPackage.ROLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Telecom</b></em>' containment reference list.
@@ -5354,7 +5363,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__TELECOM = RIMPackage.ROLE_FEATURE_COUNT + 5;
+	int RELATED_SUBJECT__TELECOM = RIMPackage.ROLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Subject</b></em>' containment reference.
@@ -5363,7 +5372,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__SUBJECT = RIMPackage.ROLE_FEATURE_COUNT + 6;
+	int RELATED_SUBJECT__SUBJECT = RIMPackage.ROLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -5372,7 +5381,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__NULL_FLAVOR = RIMPackage.ROLE_FEATURE_COUNT + 7;
+	int RELATED_SUBJECT__NULL_FLAVOR = RIMPackage.ROLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -5381,7 +5390,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT__CLASS_CODE = RIMPackage.ROLE_FEATURE_COUNT + 8;
+	int RELATED_SUBJECT__CLASS_CODE = RIMPackage.ROLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Related Subject</em>' class.
@@ -5390,7 +5399,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 9;
+	int RELATED_SUBJECT_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl <em>Subject Person</em>}' class.
@@ -5883,13 +5892,22 @@ public interface CDAPackage extends EPackage {
 	int ACT__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 19;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
+
+	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACT__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
+	int ACT__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -5898,7 +5916,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACT__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
+	int ACT__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Negation Ind</b></em>' attribute.
@@ -5907,7 +5925,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACT__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
+	int ACT__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Act</em>' class.
@@ -5916,7 +5934,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACT_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
+	int ACT_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.SpecimenImpl <em>Specimen</em>}' class.
@@ -6190,13 +6208,22 @@ public interface CDAPackage extends EPackage {
 	int ENCOUNTER__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 18;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENCOUNTER__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 19;
+
+	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 19;
+	int ENCOUNTER__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -6205,7 +6232,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 20;
+	int ENCOUNTER__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -6214,7 +6241,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
+	int ENCOUNTER__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
 
 	/**
 	 * The number of structural features of the '<em>Encounter</em>' class.
@@ -6223,7 +6250,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENCOUNTER_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
+	int ENCOUNTER_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -7467,13 +7494,22 @@ public interface CDAPackage extends EPackage {
 	int OBSERVATION__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 29;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBSERVATION__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 30;
+
+	/**
 	 * The number of structural features of the '<em>Observation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBSERVATION_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 30;
+	int OBSERVATION_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 31;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8288,6 +8324,161 @@ public interface CDAPackage extends EPackage {
 	int OBSERVATION_RANGE_FEATURE_COUNT = RIMPackage.ACT_FEATURE_COUNT + 10;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOf1Impl <em>In Fulfillment Of1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.cda.impl.InFulfillmentOf1Impl
+	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getInFulfillmentOf1()
+	 * @generated
+	 */
+	int IN_FULFILLMENT_OF1 = 77;
+
+	/**
+	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__REALM_CODE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__TYPE_ID = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Template Id</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__TEMPLATE_ID = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__NULL_FLAVOR = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Type Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__TYPE_CODE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Act Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1__ACT_REFERENCE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>In Fulfillment Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_FULFILLMENT_OF1_FEATURE_COUNT = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ActReferenceImpl <em>Act Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.cda.impl.ActReferenceImpl
+	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getActReference()
+	 * @generated
+	 */
+	int ACT_REFERENCE = 78;
+
+	/**
+	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__REALM_CODE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__TYPE_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Template Id</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__TEMPLATE_ID = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__ID = 3;
+
+	/**
+	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__CLASS_CODE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__MOOD_CODE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Determiner Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE__DETERMINER_CODE = 6;
+
+	/**
+	 * The number of structural features of the '<em>Act Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACT_REFERENCE_FEATURE_COUNT = 7;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ObservationMediaImpl <em>Observation Media</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8295,7 +8486,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getObservationMedia()
 	 * @generated
 	 */
-	int OBSERVATION_MEDIA = 77;
+	int OBSERVATION_MEDIA = 79;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8485,7 +8676,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getOrganizer()
 	 * @generated
 	 */
-	int ORGANIZER = 78;
+	int ORGANIZER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8675,7 +8866,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent4()
 	 * @generated
 	 */
-	int COMPONENT4 = 79;
+	int COMPONENT4 = 81;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8714,13 +8905,22 @@ public interface CDAPackage extends EPackage {
 	int COMPONENT4__SEQUENCE_NUMBER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Priority Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT4__PRIORITY_NUMBER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Seperatable Ind</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__SEPERATABLE_IND = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 4;
+	int COMPONENT4__SEPERATABLE_IND = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Act</b></em>' containment reference.
@@ -8729,7 +8929,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__ACT = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 5;
+	int COMPONENT4__ACT = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Encounter</b></em>' containment reference.
@@ -8738,7 +8938,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__ENCOUNTER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 6;
+	int COMPONENT4__ENCOUNTER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Observation</b></em>' containment reference.
@@ -8747,7 +8947,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__OBSERVATION = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 7;
+	int COMPONENT4__OBSERVATION = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Observation Media</b></em>' containment reference.
@@ -8756,7 +8956,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__OBSERVATION_MEDIA = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 8;
+	int COMPONENT4__OBSERVATION_MEDIA = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Organizer</b></em>' containment reference.
@@ -8765,7 +8965,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__ORGANIZER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 9;
+	int COMPONENT4__ORGANIZER = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Procedure</b></em>' containment reference.
@@ -8774,7 +8974,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__PROCEDURE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 10;
+	int COMPONENT4__PROCEDURE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Region Of Interest</b></em>' containment reference.
@@ -8783,7 +8983,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__REGION_OF_INTEREST = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 11;
+	int COMPONENT4__REGION_OF_INTEREST = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Substance Administration</b></em>' containment reference.
@@ -8792,7 +8992,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__SUBSTANCE_ADMINISTRATION = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 12;
+	int COMPONENT4__SUBSTANCE_ADMINISTRATION = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Supply</b></em>' containment reference.
@@ -8801,7 +9001,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__SUPPLY = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 13;
+	int COMPONENT4__SUPPLY = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -8810,7 +9010,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__NULL_FLAVOR = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 14;
+	int COMPONENT4__NULL_FLAVOR = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Type Code</b></em>' attribute.
@@ -8819,7 +9019,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__TYPE_CODE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 15;
+	int COMPONENT4__TYPE_CODE = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Context Conduction Ind</b></em>' attribute.
@@ -8828,7 +9028,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4__CONTEXT_CONDUCTION_IND = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 16;
+	int COMPONENT4__CONTEXT_CONDUCTION_IND = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Component4</em>' class.
@@ -8837,7 +9037,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT4_FEATURE_COUNT = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 17;
+	int COMPONENT4_FEATURE_COUNT = RIMPackage.ACT_RELATIONSHIP_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ProcedureImpl <em>Procedure</em>}' class.
@@ -8847,7 +9047,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getProcedure()
 	 * @generated
 	 */
-	int PROCEDURE = 80;
+	int PROCEDURE = 82;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9048,13 +9248,22 @@ public interface CDAPackage extends EPackage {
 	int PROCEDURE__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
+
+	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
+	int PROCEDURE__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -9063,7 +9272,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
+	int PROCEDURE__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -9072,7 +9281,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 24;
+	int PROCEDURE__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Negation Ind</b></em>' attribute.
@@ -9081,7 +9290,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 25;
+	int PROCEDURE__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
 
 	/**
 	 * The number of structural features of the '<em>Procedure</em>' class.
@@ -9090,7 +9299,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
+	int PROCEDURE_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.RegionOfInterestImpl <em>Region Of Interest</em>}' class.
@@ -9100,7 +9309,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegionOfInterest()
 	 * @generated
 	 */
-	int REGION_OF_INTEREST = 81;
+	int REGION_OF_INTEREST = 83;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9290,7 +9499,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegionOfInterestValue()
 	 * @generated
 	 */
-	int REGION_OF_INTEREST_VALUE = 82;
+	int REGION_OF_INTEREST_VALUE = 84;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -9336,7 +9545,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSubstanceAdministration()
 	 * @generated
 	 */
-	int SUBSTANCE_ADMINISTRATION = 83;
+	int SUBSTANCE_ADMINISTRATION = 85;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9573,13 +9782,22 @@ public interface CDAPackage extends EPackage {
 	int SUBSTANCE_ADMINISTRATION__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 25;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBSTANCE_ADMINISTRATION__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
+
+	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSTANCE_ADMINISTRATION__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
+	int SUBSTANCE_ADMINISTRATION__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -9588,7 +9806,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSTANCE_ADMINISTRATION__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 27;
+	int SUBSTANCE_ADMINISTRATION__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -9597,7 +9815,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSTANCE_ADMINISTRATION__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 28;
+	int SUBSTANCE_ADMINISTRATION__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Negation Ind</b></em>' attribute.
@@ -9606,7 +9824,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSTANCE_ADMINISTRATION__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 29;
+	int SUBSTANCE_ADMINISTRATION__NEGATION_IND = CLINICAL_STATEMENT_FEATURE_COUNT + 30;
 
 	/**
 	 * The number of structural features of the '<em>Substance Administration</em>' class.
@@ -9615,7 +9833,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSTANCE_ADMINISTRATION_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 30;
+	int SUBSTANCE_ADMINISTRATION_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ConsumableImpl <em>Consumable</em>}' class.
@@ -9625,7 +9843,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getConsumable()
 	 * @generated
 	 */
-	int CONSUMABLE = 84;
+	int CONSUMABLE = 86;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9698,7 +9916,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getManufacturedProduct()
 	 * @generated
 	 */
-	int MANUFACTURED_PRODUCT = 85;
+	int MANUFACTURED_PRODUCT = 87;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9798,7 +10016,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getLabeledDrug()
 	 * @generated
 	 */
-	int LABELED_DRUG = 86;
+	int LABELED_DRUG = 88;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9889,7 +10107,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getMaterial()
 	 * @generated
 	 */
-	int MATERIAL = 87;
+	int MATERIAL = 89;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9989,7 +10207,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSupply()
 	 * @generated
 	 */
-	int SUPPLY = 88;
+	int SUPPLY = 90;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10199,13 +10417,22 @@ public interface CDAPackage extends EPackage {
 	int SUPPLY__PRECONDITION = CLINICAL_STATEMENT_FEATURE_COUNT + 22;
 
 	/**
+	 * The feature id for the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY__IN_FULFILLMENT_OF1 = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
+
+	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 23;
+	int SUPPLY__NULL_FLAVOR = CLINICAL_STATEMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -10214,7 +10441,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 24;
+	int SUPPLY__CLASS_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Mood Code</b></em>' attribute.
@@ -10223,7 +10450,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 25;
+	int SUPPLY__MOOD_CODE = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
 
 	/**
 	 * The number of structural features of the '<em>Supply</em>' class.
@@ -10232,7 +10459,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 26;
+	int SUPPLY_FEATURE_COUNT = CLINICAL_STATEMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ProductImpl <em>Product</em>}' class.
@@ -10242,7 +10469,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 89;
+	int PRODUCT = 91;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10315,7 +10542,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent5()
 	 * @generated
 	 */
-	int COMPONENT5 = 90;
+	int COMPONENT5 = 92;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10397,7 +10624,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getDocumentRoot()
 	 * @generated
 	 */
-	int DOCUMENT_ROOT = 91;
+	int DOCUMENT_ROOT = 93;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -10452,7 +10679,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegistryDelegate()
 	 * @generated
 	 */
-	int REGISTRY_DELEGATE = 92;
+	int REGISTRY_DELEGATE = 94;
 
 	/**
 	 * The number of structural features of the '<em>Registry Delegate</em>' class.
@@ -16153,6 +16380,17 @@ public interface CDAPackage extends EPackage {
 	EReference getRelatedSubject_TemplateId();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.RelatedSubject#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.RelatedSubject#getId()
+	 * @see #getRelatedSubject()
+	 * @generated
+	 */
+	EReference getRelatedSubject_Id();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.RelatedSubject#getCode <em>Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16764,6 +17002,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAct_NullFlavor();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Act#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Act#getInFulfillmentOf1s()
+	 * @see #getAct()
+	 * @generated
+	 */
+	EReference getAct_InFulfillmentOf1();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.Act#getClassCode <em>Class Code</em>}'.
@@ -18097,6 +18346,17 @@ public interface CDAPackage extends EPackage {
 	EReference getEncounter_Precondition();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Encounter#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Encounter#getInFulfillmentOf1s()
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	EReference getEncounter_InFulfillmentOf1();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.Encounter#getNullFlavor <em>Null Flavor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19244,6 +19504,17 @@ public interface CDAPackage extends EPackage {
 	EAttribute getObservation_NegationInd();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Observation#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Observation#getInFulfillmentOf1s()
+	 * @see #getObservation()
+	 * @generated
+	 */
+	EReference getObservation_InFulfillmentOf1();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.ReferenceRange <em>Reference Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19438,6 +19709,169 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getObservationRange_MoodCode();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1 <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1
+	 * @generated
+	 */
+	EClass getInFulfillmentOf1();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getRealmCodes <em>Realm Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Realm Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getRealmCodes()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EReference getInFulfillmentOf1_RealmCode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTypeId <em>Type Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTypeId()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EReference getInFulfillmentOf1_TypeId();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTemplateIds <em>Template Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Template Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTemplateIds()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EReference getInFulfillmentOf1_TemplateId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getNullFlavor <em>Null Flavor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Null Flavor</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getNullFlavor()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EAttribute getInFulfillmentOf1_NullFlavor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTypeCode <em>Type Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getTypeCode()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EAttribute getInFulfillmentOf1_TypeCode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1#getActReference <em>Act Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Act Reference</em>'.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1#getActReference()
+	 * @see #getInFulfillmentOf1()
+	 * @generated
+	 */
+	EReference getInFulfillmentOf1_ActReference();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.ActReference <em>Act Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Act Reference</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference
+	 * @generated
+	 */
+	EClass getActReference();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.ActReference#getRealmCodes <em>Realm Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Realm Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getRealmCodes()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EReference getActReference_RealmCode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.ActReference#getTypeId <em>Type Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getTypeId()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EReference getActReference_TypeId();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.ActReference#getTemplateIds <em>Template Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Template Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getTemplateIds()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EReference getActReference_TemplateId();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.ActReference#getIds <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getIds()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EReference getActReference_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.ActReference#getClassCode <em>Class Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getClassCode()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EAttribute getActReference_ClassCode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.ActReference#getMoodCode <em>Mood Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mood Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getMoodCode()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EAttribute getActReference_MoodCode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.ActReference#getDeterminerCode <em>Determiner Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Determiner Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.ActReference#getDeterminerCode()
+	 * @see #getActReference()
+	 * @generated
+	 */
+	EAttribute getActReference_DeterminerCode();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.ObservationMedia <em>Observation Media</em>}'.
@@ -19932,6 +20366,17 @@ public interface CDAPackage extends EPackage {
 	EReference getComponent4_SequenceNumber();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.Component4#getPriorityNumber <em>Priority Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Priority Number</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Component4#getPriorityNumber()
+	 * @see #getComponent4()
+	 * @generated
+	 */
+	EReference getComponent4_PriorityNumber();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.Component4#getSeperatableInd <em>Seperatable Ind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20325,6 +20770,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProcedure_Precondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Procedure#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Procedure#getInFulfillmentOf1s()
+	 * @see #getProcedure()
+	 * @generated
+	 */
+	EReference getProcedure_InFulfillmentOf1();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.Procedure#getNullFlavor <em>Null Flavor</em>}'.
@@ -20905,6 +21361,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSubstanceAdministration_Precondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubstanceAdministration#getInFulfillmentOf1s()
+	 * @see #getSubstanceAdministration()
+	 * @generated
+	 */
+	EReference getSubstanceAdministration_InFulfillmentOf1();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getNullFlavor <em>Null Flavor</em>}'.
@@ -21604,6 +22071,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSupply_Precondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Supply#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Fulfillment Of1</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Supply#getInFulfillmentOf1s()
+	 * @see #getSupply()
+	 * @generated
+	 */
+	EReference getSupply_InFulfillmentOf1();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.Supply#getNullFlavor <em>Null Flavor</em>}'.
@@ -26170,6 +26648,14 @@ public interface CDAPackage extends EPackage {
 		EReference RELATED_SUBJECT__TEMPLATE_ID = eINSTANCE.getRelatedSubject_TemplateId();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATED_SUBJECT__ID = eINSTANCE.getRelatedSubject_Id();
+
+		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26622,6 +27108,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACT__NULL_FLAVOR = eINSTANCE.getAct_NullFlavor();
+
+		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACT__IN_FULFILLMENT_OF1 = eINSTANCE.getAct_InFulfillmentOf1();
 
 		/**
 		 * The meta object literal for the '<em><b>Class Code</b></em>' attribute feature.
@@ -27622,6 +28116,14 @@ public interface CDAPackage extends EPackage {
 		EReference ENCOUNTER__PRECONDITION = eINSTANCE.getEncounter_Precondition();
 
 		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENCOUNTER__IN_FULFILLMENT_OF1 = eINSTANCE.getEncounter_InFulfillmentOf1();
+
+		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -28478,6 +28980,14 @@ public interface CDAPackage extends EPackage {
 		EAttribute OBSERVATION__NEGATION_IND = eINSTANCE.getObservation_NegationInd();
 
 		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBSERVATION__IN_FULFILLMENT_OF1 = eINSTANCE.getObservation_InFulfillmentOf1();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.ReferenceRangeImpl <em>Reference Range</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -28624,6 +29134,130 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OBSERVATION_RANGE__MOOD_CODE = eINSTANCE.getObservationRange_MoodCode();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOf1Impl <em>In Fulfillment Of1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.cda.impl.InFulfillmentOf1Impl
+		 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getInFulfillmentOf1()
+		 * @generated
+		 */
+		EClass IN_FULFILLMENT_OF1 = eINSTANCE.getInFulfillmentOf1();
+
+		/**
+		 * The meta object literal for the '<em><b>Realm Code</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IN_FULFILLMENT_OF1__REALM_CODE = eINSTANCE.getInFulfillmentOf1_RealmCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Id</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IN_FULFILLMENT_OF1__TYPE_ID = eINSTANCE.getInFulfillmentOf1_TypeId();
+
+		/**
+		 * The meta object literal for the '<em><b>Template Id</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IN_FULFILLMENT_OF1__TEMPLATE_ID = eINSTANCE.getInFulfillmentOf1_TemplateId();
+
+		/**
+		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IN_FULFILLMENT_OF1__NULL_FLAVOR = eINSTANCE.getInFulfillmentOf1_NullFlavor();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IN_FULFILLMENT_OF1__TYPE_CODE = eINSTANCE.getInFulfillmentOf1_TypeCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Act Reference</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IN_FULFILLMENT_OF1__ACT_REFERENCE = eINSTANCE.getInFulfillmentOf1_ActReference();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.ActReferenceImpl <em>Act Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.cda.impl.ActReferenceImpl
+		 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getActReference()
+		 * @generated
+		 */
+		EClass ACT_REFERENCE = eINSTANCE.getActReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Realm Code</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACT_REFERENCE__REALM_CODE = eINSTANCE.getActReference_RealmCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Id</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACT_REFERENCE__TYPE_ID = eINSTANCE.getActReference_TypeId();
+
+		/**
+		 * The meta object literal for the '<em><b>Template Id</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACT_REFERENCE__TEMPLATE_ID = eINSTANCE.getActReference_TemplateId();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACT_REFERENCE__ID = eINSTANCE.getActReference_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACT_REFERENCE__CLASS_CODE = eINSTANCE.getActReference_ClassCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Mood Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACT_REFERENCE__MOOD_CODE = eINSTANCE.getActReference_MoodCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Determiner Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACT_REFERENCE__DETERMINER_CODE = eINSTANCE.getActReference_DeterminerCode();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.ObservationMediaImpl <em>Observation Media</em>}' class.
@@ -28992,6 +29626,14 @@ public interface CDAPackage extends EPackage {
 		EReference COMPONENT4__SEQUENCE_NUMBER = eINSTANCE.getComponent4_SequenceNumber();
 
 		/**
+		 * The meta object literal for the '<em><b>Priority Number</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT4__PRIORITY_NUMBER = eINSTANCE.getComponent4_PriorityNumber();
+
+		/**
 		 * The meta object literal for the '<em><b>Seperatable Ind</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -29280,6 +29922,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROCEDURE__PRECONDITION = eINSTANCE.getProcedure_Precondition();
+
+		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCEDURE__IN_FULFILLMENT_OF1 = eINSTANCE.getProcedure_InFulfillmentOf1();
 
 		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
@@ -29710,6 +30360,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUBSTANCE_ADMINISTRATION__PRECONDITION = eINSTANCE.getSubstanceAdministration_Precondition();
+
+		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBSTANCE_ADMINISTRATION__IN_FULFILLMENT_OF1 = eINSTANCE.getSubstanceAdministration_InFulfillmentOf1();
 
 		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
@@ -30232,6 +30890,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUPPLY__PRECONDITION = eINSTANCE.getSupply_Precondition();
+
+		/**
+		 * The meta object literal for the '<em><b>In Fulfillment Of1</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUPPLY__IN_FULFILLMENT_OF1 = eINSTANCE.getSupply_InFulfillmentOf1();
 
 		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
